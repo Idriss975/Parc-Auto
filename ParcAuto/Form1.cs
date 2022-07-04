@@ -80,6 +80,7 @@ namespace ParcAuto
         Form ActiveForm = null;
         private void openChildForm(Form childForm)
         {
+            //khgf,khgf
             if (ActiveForm != null)
                 ActiveForm.Close();
             ActiveForm = childForm;
