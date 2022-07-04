@@ -77,7 +77,7 @@ namespace ParcAuto
             openChildForm(new Forms.Conducteurs());
             hideSubMenu();
         }
-        Form ActiveForm = null;
+        Form ActiveForm;
         private void openChildForm(Form childForm)
         {
             if (ActiveForm != null)
