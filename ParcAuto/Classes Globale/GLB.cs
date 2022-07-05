@@ -10,10 +10,10 @@ namespace ParcAuto.Classes_Globale
 {
     public class GLB
     {
-        public static SqlConnection Con = new SqlConnection(""); //Todo: Fill Later
+        public static SqlConnection Con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=Gestion_ParcAutomobile;Integrated Security=True"); 
         public static SqlCommand Cmd = Con.CreateCommand();
         public static SqlDataReader dr;
-        public static DataSet DS = new DataSet();
-        public static SqlDataAdapter DA;
+        public static DataSet ds = new DataSet();
+        public static SqlDataAdapter da;
     }
 }

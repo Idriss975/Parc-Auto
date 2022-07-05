@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ParcAuto.Classes_Globale;
 
 namespace ParcAuto.Forms
 {
@@ -20,6 +21,26 @@ namespace ParcAuto.Forms
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnAppliquer_Click(object sender, EventArgs e)
+        {
+            //Ouvrir la Connection
+            switch (Commandes.Command)
+            {
+                case Choix.ajouter:
+                    //TODO : Ecrir la Requette
+                    break;
+                case Choix.modifier:
+                    //TODO : Ecrir la Requette
+                    break;
+                default:
+                    break;
+            }
+            //ExecuteNonquery
+            //Fermer la Connection
+           
+
         }
     }
 }

@@ -73,6 +73,7 @@ namespace ParcAuto.Forms
             this.btnModifier.Size = new System.Drawing.Size(90, 30);
             this.btnModifier.TabIndex = 8;
             this.btnModifier.Text = "Modifier";
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // btnSupprimer
             // 

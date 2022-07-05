@@ -446,6 +446,7 @@ namespace ParcAuto.Forms
             this.btnAppliquer.Size = new System.Drawing.Size(90, 30);
             this.btnAppliquer.TabIndex = 5;
             this.btnAppliquer.Text = "Appliquer";
+            this.btnAppliquer.Click += new System.EventHandler(this.btnAppliquer_Click);
             // 
             // guna2Button1
             // 
