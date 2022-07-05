@@ -48,12 +48,13 @@ namespace ParcAuto.Forms
             this.btnAjouter.ForeColor = System.Drawing.Color.White;
             this.btnAjouter.HoverState.Parent = this.btnAjouter;
             this.btnAjouter.Location = new System.Drawing.Point(445, 529);
-            this.btnAjouter.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnAjouter.Margin = new System.Windows.Forms.Padding(5);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.ShadowDecoration.Parent = this.btnAjouter;
             this.btnAjouter.Size = new System.Drawing.Size(90, 30);
             this.btnAjouter.TabIndex = 9;
             this.btnAjouter.Text = "Ajouter";
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // btnModifier
             // 
@@ -66,7 +67,7 @@ namespace ParcAuto.Forms
             this.btnModifier.ForeColor = System.Drawing.Color.White;
             this.btnModifier.HoverState.Parent = this.btnModifier;
             this.btnModifier.Location = new System.Drawing.Point(583, 529);
-            this.btnModifier.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnModifier.Margin = new System.Windows.Forms.Padding(5);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.ShadowDecoration.Parent = this.btnModifier;
             this.btnModifier.Size = new System.Drawing.Size(90, 30);
@@ -84,7 +85,7 @@ namespace ParcAuto.Forms
             this.btnSupprimer.ForeColor = System.Drawing.Color.White;
             this.btnSupprimer.HoverState.Parent = this.btnSupprimer;
             this.btnSupprimer.Location = new System.Drawing.Point(721, 529);
-            this.btnSupprimer.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnSupprimer.Margin = new System.Windows.Forms.Padding(5);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.ShadowDecoration.Parent = this.btnSupprimer;
             this.btnSupprimer.Size = new System.Drawing.Size(90, 30);
@@ -97,10 +98,10 @@ namespace ParcAuto.Forms
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(23, 61);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 61);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(5);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(788, 446);
+            this.dataGridView1.Size = new System.Drawing.Size(808, 446);
             this.dataGridView1.TabIndex = 6;
             // 
             // btnQuitter
@@ -112,8 +113,8 @@ namespace ParcAuto.Forms
             this.btnQuitter.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnQuitter.ForeColor = System.Drawing.Color.White;
             this.btnQuitter.HoverState.Parent = this.btnQuitter;
-            this.btnQuitter.Location = new System.Drawing.Point(23, 21);
-            this.btnQuitter.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnQuitter.Location = new System.Drawing.Point(10, 21);
+            this.btnQuitter.Margin = new System.Windows.Forms.Padding(5);
             this.btnQuitter.Name = "btnQuitter";
             this.btnQuitter.ShadowDecoration.Parent = this.btnQuitter;
             this.btnQuitter.Size = new System.Drawing.Size(30, 30);
@@ -131,7 +132,7 @@ namespace ParcAuto.Forms
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnQuitter);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Conducteurs";
             this.Text = "Conducteurs";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

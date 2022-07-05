@@ -10,17 +10,16 @@ using System.Windows.Forms;
 
 namespace ParcAuto.Forms
 {
-    public partial class Conducteurs : Form
+    public partial class MAJConducteur : Form
     {
-        public Conducteurs()
+        public MAJConducteur()
         {
             InitializeComponent();
         }
 
-        private void btnAjouter_Click(object sender, EventArgs e)
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
-            MAJConducteur maj = new MAJConducteur();
-            maj.Show();
+            this.Close();
         }
     }
 }
