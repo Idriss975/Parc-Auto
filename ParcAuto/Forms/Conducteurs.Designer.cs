@@ -124,7 +124,7 @@ namespace ParcAuto.Forms
             this.Column8,
             this.Column9,
             this.Column10});
-            this.dgvconducteur.Location = new System.Drawing.Point(10, 61);
+            this.dgvconducteur.Location = new System.Drawing.Point(10, 54);
             this.dgvconducteur.Margin = new System.Windows.Forms.Padding(5);
             this.dgvconducteur.Name = "dgvconducteur";
             this.dgvconducteur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -190,7 +190,7 @@ namespace ParcAuto.Forms
             this.btnQuitter.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnQuitter.ForeColor = System.Drawing.Color.White;
             this.btnQuitter.HoverState.Parent = this.btnQuitter;
-            this.btnQuitter.Location = new System.Drawing.Point(10, 21);
+            this.btnQuitter.Location = new System.Drawing.Point(788, 14);
             this.btnQuitter.Margin = new System.Windows.Forms.Padding(5);
             this.btnQuitter.Name = "btnQuitter";
             this.btnQuitter.ShadowDecoration.Parent = this.btnQuitter;
@@ -201,6 +201,7 @@ namespace ParcAuto.Forms
             // 
             // Conducteurs
             // 
+            this.AcceptButton = this.btnAjouter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(832, 600);

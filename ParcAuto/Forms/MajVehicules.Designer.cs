@@ -94,7 +94,7 @@ namespace ParcAuto.Forms
             this.txtObservation.SelectedText = "";
             this.txtObservation.ShadowDecoration.Parent = this.txtObservation;
             this.txtObservation.Size = new System.Drawing.Size(216, 42);
-            this.txtObservation.TabIndex = 19;
+            this.txtObservation.TabIndex = 6;
             // 
             // txtCarburant
             // 
@@ -118,7 +118,7 @@ namespace ParcAuto.Forms
             this.txtCarburant.SelectedText = "";
             this.txtCarburant.ShadowDecoration.Parent = this.txtCarburant;
             this.txtCarburant.Size = new System.Drawing.Size(216, 39);
-            this.txtCarburant.TabIndex = 18;
+            this.txtCarburant.TabIndex = 5;
             // 
             // Matricule
             // 
@@ -186,7 +186,7 @@ namespace ParcAuto.Forms
             this.txtMatricule.SelectedText = "";
             this.txtMatricule.ShadowDecoration.Parent = this.txtMatricule;
             this.txtMatricule.Size = new System.Drawing.Size(216, 39);
-            this.txtMatricule.TabIndex = 8;
+            this.txtMatricule.TabIndex = 0;
             // 
             // txtMarque
             // 
@@ -210,7 +210,7 @@ namespace ParcAuto.Forms
             this.txtMarque.SelectedText = "";
             this.txtMarque.ShadowDecoration.Parent = this.txtMarque;
             this.txtMarque.Size = new System.Drawing.Size(216, 39);
-            this.txtMarque.TabIndex = 9;
+            this.txtMarque.TabIndex = 1;
             // 
             // txtModele
             // 
@@ -234,7 +234,7 @@ namespace ParcAuto.Forms
             this.txtModele.SelectedText = "";
             this.txtModele.ShadowDecoration.Parent = this.txtModele;
             this.txtModele.Size = new System.Drawing.Size(216, 39);
-            this.txtModele.TabIndex = 10;
+            this.txtModele.TabIndex = 2;
             // 
             // label5
             // 
@@ -261,7 +261,7 @@ namespace ParcAuto.Forms
             this.dateMiseEnCirculation.Name = "dateMiseEnCirculation";
             this.dateMiseEnCirculation.ShadowDecoration.Parent = this.dateMiseEnCirculation;
             this.dateMiseEnCirculation.Size = new System.Drawing.Size(216, 39);
-            this.dateMiseEnCirculation.TabIndex = 12;
+            this.dateMiseEnCirculation.TabIndex = 4;
             this.dateMiseEnCirculation.Value = new System.DateTime(2022, 7, 5, 13, 42, 29, 61);
             // 
             // label6
@@ -374,7 +374,7 @@ namespace ParcAuto.Forms
             this.txtCouleur.SelectedText = "";
             this.txtCouleur.ShadowDecoration.Parent = this.txtCouleur;
             this.txtCouleur.Size = new System.Drawing.Size(216, 39);
-            this.txtCouleur.TabIndex = 21;
+            this.txtCouleur.TabIndex = 3;
             // 
             // cmbConducteur
             // 
@@ -386,10 +386,10 @@ namespace ParcAuto.Forms
             "oooo",
             "oppp",
             "poooo"});
-            this.cmbConducteur.Location = new System.Drawing.Point(538, 168);
+            this.cmbConducteur.Location = new System.Drawing.Point(538, 169);
             this.cmbConducteur.Name = "cmbConducteur";
             this.cmbConducteur.Size = new System.Drawing.Size(216, 24);
-            this.cmbConducteur.TabIndex = 22;
+            this.cmbConducteur.TabIndex = 7;
             // 
             // lbl
             // 
@@ -414,6 +414,8 @@ namespace ParcAuto.Forms
             this.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(807, 327);
+            this.MinimumSize = new System.Drawing.Size(807, 327);
             this.Name = "MajVehicules";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MajVehicules";

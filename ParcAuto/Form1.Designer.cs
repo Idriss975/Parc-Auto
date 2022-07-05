@@ -233,7 +233,7 @@ namespace ParcAuto
             this.MinimumSize = new System.Drawing.Size(950, 600);
             this.Name = "Form1";
             this.ShowIcon = false;
-            this.Text = "test";
+            this.Text = "Parc Auto-mobile";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelSideMenu.ResumeLayout(false);
             this.panelSousVignettes.ResumeLayout(false);

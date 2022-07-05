@@ -46,7 +46,7 @@ namespace ParcAuto.Forms
             this.btnQuitter.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnQuitter.ForeColor = System.Drawing.Color.White;
             this.btnQuitter.HoverState.Parent = this.btnQuitter;
-            this.btnQuitter.Location = new System.Drawing.Point(13, 15);
+            this.btnQuitter.Location = new System.Drawing.Point(781, 13);
             this.btnQuitter.Margin = new System.Windows.Forms.Padding(4);
             this.btnQuitter.Name = "btnQuitter";
             this.btnQuitter.ShadowDecoration.Parent = this.btnQuitter;
@@ -60,7 +60,7 @@ namespace ParcAuto.Forms
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 53);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 51);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(799, 467);
@@ -126,6 +126,7 @@ namespace ParcAuto.Forms
             // 
             // Vehicules
             // 
+            this.AcceptButton = this.btnAjouter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
