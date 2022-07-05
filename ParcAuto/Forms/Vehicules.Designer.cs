@@ -63,6 +63,7 @@ namespace ParcAuto.Forms
             this.dataGridView1.Location = new System.Drawing.Point(13, 53);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.Size = new System.Drawing.Size(799, 467);
             this.dataGridView1.TabIndex = 1;
             // 
@@ -84,6 +85,7 @@ namespace ParcAuto.Forms
             this.btnSupprimer.TabIndex = 2;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // btnModifier
             // 
@@ -103,6 +105,7 @@ namespace ParcAuto.Forms
             this.btnModifier.TabIndex = 3;
             this.btnModifier.Text = "Modifier";
             this.btnModifier.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // btnAjouter
             // 
@@ -126,7 +129,7 @@ namespace ParcAuto.Forms
             // 
             // Vehicules
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;

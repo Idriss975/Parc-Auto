@@ -105,6 +105,7 @@ namespace ParcAuto.Forms
             this.btnSupprimer.TabIndex = 7;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // dgvconducteur
             // 
@@ -127,6 +128,7 @@ namespace ParcAuto.Forms
             this.dgvconducteur.Location = new System.Drawing.Point(10, 61);
             this.dgvconducteur.Margin = new System.Windows.Forms.Padding(5);
             this.dgvconducteur.Name = "dgvconducteur";
+            this.dgvconducteur.RowHeadersWidth = 62;
             this.dgvconducteur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvconducteur.Size = new System.Drawing.Size(808, 472);
             this.dgvconducteur.TabIndex = 6;
@@ -134,52 +136,72 @@ namespace ParcAuto.Forms
             // Column1
             // 
             this.Column1.HeaderText = "Matricule";
+            this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
+            this.Column1.Width = 150;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Nom";
+            this.Column2.MinimumWidth = 8;
             this.Column2.Name = "Column2";
+            this.Column2.Width = 150;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Prenom";
+            this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
+            this.Column3.Width = 150;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Date de naissance";
+            this.Column4.MinimumWidth = 8;
             this.Column4.Name = "Column4";
+            this.Column4.Width = 150;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Date d\'embauch";
+            this.Column5.MinimumWidth = 8;
             this.Column5.Name = "Column5";
+            this.Column5.Width = 150;
             // 
             // Column6
             // 
             this.Column6.HeaderText = "Numero de permis";
+            this.Column6.MinimumWidth = 8;
             this.Column6.Name = "Column6";
+            this.Column6.Width = 150;
             // 
             // Column7
             // 
             this.Column7.HeaderText = "Adresse";
+            this.Column7.MinimumWidth = 8;
             this.Column7.Name = "Column7";
+            this.Column7.Width = 150;
             // 
             // Column8
             // 
             this.Column8.HeaderText = "Ville";
+            this.Column8.MinimumWidth = 8;
             this.Column8.Name = "Column8";
+            this.Column8.Width = 150;
             // 
             // Column9
             // 
             this.Column9.HeaderText = "Telephone";
+            this.Column9.MinimumWidth = 8;
             this.Column9.Name = "Column9";
+            this.Column9.Width = 150;
             // 
             // Column10
             // 
             this.Column10.HeaderText = "Email";
+            this.Column10.MinimumWidth = 8;
             this.Column10.Name = "Column10";
+            this.Column10.Width = 150;
             // 
             // btnQuitter
             // 
@@ -201,7 +223,7 @@ namespace ParcAuto.Forms
             // 
             // Conducteurs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(832, 600);
             this.Controls.Add(this.btnAjouter);
