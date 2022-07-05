@@ -70,6 +70,8 @@ namespace ParcAuto
         private void btnVehicules_Click(object sender, EventArgs e)
         {
             hideSubMenu();
+
+            openChildForm(new Forms.Vehicules());    //Open formulaire
         }
 
         private void btnConducteurs_Click(object sender, EventArgs e)

@@ -58,6 +58,12 @@
     <Compile Include="Forms\Conducteurs.Designer.cs">
       <DependentUpon>Conducteurs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Vehicules.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vehicules.Designer.cs">
+      <DependentUpon>Vehicules.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -65,6 +71,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Conducteurs.resx">
       <DependentUpon>Conducteurs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vehicules.resx">
+      <DependentUpon>Vehicules.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
