@@ -42,7 +42,7 @@ namespace ParcAuto.Forms
             this.btnQuitter.BorderRadius = 4;
             this.btnQuitter.CheckedState.Parent = this.btnQuitter;
             this.btnQuitter.CustomImages.Parent = this.btnQuitter;
-            this.btnQuitter.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnQuitter.FillColor = System.Drawing.Color.Red;
             this.btnQuitter.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnQuitter.ForeColor = System.Drawing.Color.White;
             this.btnQuitter.HoverState.Parent = this.btnQuitter;
@@ -72,7 +72,7 @@ namespace ParcAuto.Forms
             this.btnSupprimer.BorderRadius = 4;
             this.btnSupprimer.CheckedState.Parent = this.btnSupprimer;
             this.btnSupprimer.CustomImages.Parent = this.btnSupprimer;
-            this.btnSupprimer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnSupprimer.FillColor = System.Drawing.Color.Tomato;
             this.btnSupprimer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnSupprimer.ForeColor = System.Drawing.Color.White;
             this.btnSupprimer.HoverState.Parent = this.btnSupprimer;
@@ -83,6 +83,7 @@ namespace ParcAuto.Forms
             this.btnSupprimer.Size = new System.Drawing.Size(90, 30);
             this.btnSupprimer.TabIndex = 2;
             this.btnSupprimer.Text = "Supprimer";
+            this.btnSupprimer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             // 
             // btnModifier
             // 
@@ -101,6 +102,7 @@ namespace ParcAuto.Forms
             this.btnModifier.Size = new System.Drawing.Size(90, 30);
             this.btnModifier.TabIndex = 3;
             this.btnModifier.Text = "Modifier";
+            this.btnModifier.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             // 
             // btnAjouter
             // 
@@ -108,7 +110,7 @@ namespace ParcAuto.Forms
             this.btnAjouter.BorderRadius = 4;
             this.btnAjouter.CheckedState.Parent = this.btnAjouter;
             this.btnAjouter.CustomImages.Parent = this.btnAjouter;
-            this.btnAjouter.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnAjouter.FillColor = System.Drawing.Color.LimeGreen;
             this.btnAjouter.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAjouter.ForeColor = System.Drawing.Color.White;
             this.btnAjouter.HoverState.Parent = this.btnAjouter;
@@ -119,6 +121,7 @@ namespace ParcAuto.Forms
             this.btnAjouter.Size = new System.Drawing.Size(90, 30);
             this.btnAjouter.TabIndex = 4;
             this.btnAjouter.Text = "Ajouter";
+            this.btnAjouter.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // Vehicules

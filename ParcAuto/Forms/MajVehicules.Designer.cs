@@ -48,6 +48,7 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtCouleur = new Guna.UI2.WinForms.Guna2TextBox();
             this.cmbConducteur = new System.Windows.Forms.ComboBox();
+            this.lbl = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,13 +62,14 @@ namespace ParcAuto.Forms
             this.Quitter.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Quitter.ForeColor = System.Drawing.Color.White;
             this.Quitter.HoverState.Parent = this.Quitter;
-            this.Quitter.Location = new System.Drawing.Point(548, 233);
-            this.Quitter.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Quitter.Location = new System.Drawing.Point(548, 283);
+            this.Quitter.Margin = new System.Windows.Forms.Padding(5);
             this.Quitter.Name = "Quitter";
             this.Quitter.ShadowDecoration.Parent = this.Quitter;
             this.Quitter.Size = new System.Drawing.Size(90, 30);
             this.Quitter.TabIndex = 9;
             this.Quitter.Text = "Annuler";
+            this.Quitter.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             this.Quitter.Click += new System.EventHandler(this.Quitter_Click);
             // 
             // txtObservation
@@ -253,7 +255,7 @@ namespace ParcAuto.Forms
             this.dateMiseEnCirculation.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.dateMiseEnCirculation.HoverState.Parent = this.dateMiseEnCirculation;
             this.dateMiseEnCirculation.Location = new System.Drawing.Point(154, 107);
-            this.dateMiseEnCirculation.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dateMiseEnCirculation.Margin = new System.Windows.Forms.Padding(5);
             this.dateMiseEnCirculation.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dateMiseEnCirculation.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dateMiseEnCirculation.Name = "dateMiseEnCirculation";
@@ -305,13 +307,14 @@ namespace ParcAuto.Forms
             this.btnAppliquer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAppliquer.ForeColor = System.Drawing.Color.White;
             this.btnAppliquer.HoverState.Parent = this.btnAppliquer;
-            this.btnAppliquer.Location = new System.Drawing.Point(687, 233);
-            this.btnAppliquer.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnAppliquer.Location = new System.Drawing.Point(687, 283);
+            this.btnAppliquer.Margin = new System.Windows.Forms.Padding(5);
             this.btnAppliquer.Name = "btnAppliquer";
             this.btnAppliquer.ShadowDecoration.Parent = this.btnAppliquer;
             this.btnAppliquer.Size = new System.Drawing.Size(90, 30);
             this.btnAppliquer.TabIndex = 8;
             this.btnAppliquer.Text = "Appliquer";
+            this.btnAppliquer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             this.btnAppliquer.Click += new System.EventHandler(this.btnAppliquer_Click);
             // 
             // tableLayoutPanel1
@@ -337,8 +340,8 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Controls.Add(this.txtMarque, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtCouleur, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.cmbConducteur, 3, 3);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(26, 17);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(28, 66);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -364,7 +367,7 @@ namespace ParcAuto.Forms
             this.txtCouleur.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCouleur.HoverState.Parent = this.txtCouleur;
             this.txtCouleur.Location = new System.Drawing.Point(532, 55);
-            this.txtCouleur.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCouleur.Margin = new System.Windows.Forms.Padding(4);
             this.txtCouleur.Name = "txtCouleur";
             this.txtCouleur.PasswordChar = '\0';
             this.txtCouleur.PlaceholderText = "";
@@ -383,30 +386,42 @@ namespace ParcAuto.Forms
             "oooo",
             "oppp",
             "poooo"});
-            this.cmbConducteur.Location = new System.Drawing.Point(538, 160);
+            this.cmbConducteur.Location = new System.Drawing.Point(538, 168);
             this.cmbConducteur.Name = "cmbConducteur";
             this.cmbConducteur.Size = new System.Drawing.Size(216, 24);
             this.cmbConducteur.TabIndex = 22;
+            // 
+            // lbl
+            // 
+            this.lbl.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbl.AutoSize = true;
+            this.lbl.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl.Location = new System.Drawing.Point(186, 9);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(452, 36);
+            this.lbl.TabIndex = 10;
+            this.lbl.Text = "La modification d\'une Vehicules";
             // 
             // MajVehicules
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 277);
+            this.ClientSize = new System.Drawing.Size(807, 327);
+            this.Controls.Add(this.lbl);
             this.Controls.Add(this.Quitter);
             this.Controls.Add(this.btnAppliquer);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MaximumSize = new System.Drawing.Size(807, 277);
-            this.MinimumSize = new System.Drawing.Size(807, 277);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MajVehicules";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MajVehicules";
+            this.Load += new System.EventHandler(this.MajVehicules_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -431,5 +446,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Guna.UI2.WinForms.Guna2TextBox txtCouleur;
         private System.Windows.Forms.ComboBox cmbConducteur;
+        private System.Windows.Forms.Label lbl;
     }
 }
