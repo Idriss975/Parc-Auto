@@ -12,7 +12,7 @@ namespace ParcAuto.Classes_Globale
     {
         public static SqlConnection Con = new SqlConnection(""); //Todo: Fill Later
         public static SqlCommand Cmd = Con.CreateCommand();
-        public static SqlDataReader Rdr;
+        public static SqlDataReader dr;
         public static DataSet DS = new DataSet();
         public static SqlDataAdapter DA;
     }
