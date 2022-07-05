@@ -31,29 +31,33 @@ namespace ParcAuto
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelSideMenu = new System.Windows.Forms.Panel();
-            this.panelLogo = new System.Windows.Forms.Panel();
-            this.btnVignettes = new System.Windows.Forms.Button();
-            this.panelSousVignettes = new System.Windows.Forms.Panel();
-            this.btnCarburant = new System.Windows.Forms.Button();
-            this.btnReparation = new System.Windows.Forms.Button();
-            this.btnTransport = new System.Windows.Forms.Button();
-            this.btnVehicules = new System.Windows.Forms.Button();
             this.btnConducteurs = new System.Windows.Forms.Button();
-            this.FormsPlace = new System.Windows.Forms.Panel();
+            this.btnVehicules = new System.Windows.Forms.Button();
+            this.panelSousVignettes = new System.Windows.Forms.Panel();
+            this.btnTransport = new System.Windows.Forms.Button();
+            this.btnReparation = new System.Windows.Forms.Button();
+            this.btnCarburant = new System.Windows.Forms.Button();
+            this.btnVignettes = new System.Windows.Forms.Button();
+            this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.FormsPlace = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.A_Propos = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
-            this.panelLogo.SuspendLayout();
             this.panelSousVignettes.SuspendLayout();
-            this.FormsPlace.SuspendLayout();
+            this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.FormsPlace.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSideMenu
             // 
             this.panelSideMenu.AutoScroll = true;
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.panelSideMenu.Controls.Add(this.panel1);
             this.panelSideMenu.Controls.Add(this.btnConducteurs);
             this.panelSideMenu.Controls.Add(this.btnVehicules);
             this.panelSideMenu.Controls.Add(this.panelSousVignettes);
@@ -65,30 +69,37 @@ namespace ParcAuto
             this.panelSideMenu.Size = new System.Drawing.Size(200, 639);
             this.panelSideMenu.TabIndex = 0;
             // 
-            // panelLogo
+            // btnConducteurs
             // 
-            this.panelLogo.Controls.Add(this.pictureBox1);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(200, 100);
-            this.panelLogo.TabIndex = 0;
+            this.btnConducteurs.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConducteurs.FlatAppearance.BorderSize = 0;
+            this.btnConducteurs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConducteurs.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnConducteurs.Location = new System.Drawing.Point(0, 312);
+            this.btnConducteurs.Name = "btnConducteurs";
+            this.btnConducteurs.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnConducteurs.Size = new System.Drawing.Size(200, 45);
+            this.btnConducteurs.TabIndex = 3;
+            this.btnConducteurs.Text = "Conducteurs ";
+            this.btnConducteurs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConducteurs.UseVisualStyleBackColor = true;
+            this.btnConducteurs.Click += new System.EventHandler(this.btnConducteurs_Click);
             // 
-            // btnVignettes
+            // btnVehicules
             // 
-            this.btnVignettes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVignettes.FlatAppearance.BorderSize = 0;
-            this.btnVignettes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVignettes.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnVignettes.Location = new System.Drawing.Point(0, 100);
-            this.btnVignettes.Name = "btnVignettes";
-            this.btnVignettes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnVignettes.Size = new System.Drawing.Size(200, 45);
-            this.btnVignettes.TabIndex = 1;
-            this.btnVignettes.Text = "Vignettes ";
-            this.btnVignettes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVignettes.UseVisualStyleBackColor = true;
-            this.btnVignettes.Click += new System.EventHandler(this.btnVignettes_Click);
+            this.btnVehicules.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVehicules.FlatAppearance.BorderSize = 0;
+            this.btnVehicules.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVehicules.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnVehicules.Location = new System.Drawing.Point(0, 267);
+            this.btnVehicules.Name = "btnVehicules";
+            this.btnVehicules.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnVehicules.Size = new System.Drawing.Size(200, 45);
+            this.btnVehicules.TabIndex = 2;
+            this.btnVehicules.Text = "Vehiucles";
+            this.btnVehicules.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVehicules.UseVisualStyleBackColor = true;
+            this.btnVehicules.Click += new System.EventHandler(this.btnVehicules_Click);
             // 
             // panelSousVignettes
             // 
@@ -101,6 +112,42 @@ namespace ParcAuto
             this.panelSousVignettes.Name = "panelSousVignettes";
             this.panelSousVignettes.Size = new System.Drawing.Size(200, 122);
             this.panelSousVignettes.TabIndex = 0;
+            // 
+            // btnTransport
+            // 
+            this.btnTransport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(98)))), ((int)(((byte)(153)))));
+            this.btnTransport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTransport.FlatAppearance.BorderSize = 0;
+            this.btnTransport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTransport.ForeColor = System.Drawing.Color.LightGray;
+            this.btnTransport.Location = new System.Drawing.Point(0, 80);
+            this.btnTransport.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.btnTransport.Name = "btnTransport";
+            this.btnTransport.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnTransport.Size = new System.Drawing.Size(200, 40);
+            this.btnTransport.TabIndex = 2;
+            this.btnTransport.Text = "Transport";
+            this.btnTransport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTransport.UseVisualStyleBackColor = false;
+            this.btnTransport.Click += new System.EventHandler(this.btnTransport_Click);
+            // 
+            // btnReparation
+            // 
+            this.btnReparation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(98)))), ((int)(((byte)(153)))));
+            this.btnReparation.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReparation.FlatAppearance.BorderSize = 0;
+            this.btnReparation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReparation.ForeColor = System.Drawing.Color.LightGray;
+            this.btnReparation.Location = new System.Drawing.Point(0, 40);
+            this.btnReparation.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.btnReparation.Name = "btnReparation";
+            this.btnReparation.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnReparation.Size = new System.Drawing.Size(200, 40);
+            this.btnReparation.TabIndex = 1;
+            this.btnReparation.Text = "Reparation";
+            this.btnReparation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReparation.UseVisualStyleBackColor = false;
+            this.btnReparation.Click += new System.EventHandler(this.btnReparation_Click);
             // 
             // btnCarburant
             // 
@@ -121,83 +168,30 @@ namespace ParcAuto
             this.btnCarburant.UseVisualStyleBackColor = false;
             this.btnCarburant.Click += new System.EventHandler(this.btnCarburant_Click);
             // 
-            // btnReparation
+            // btnVignettes
             // 
-            this.btnReparation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(98)))), ((int)(((byte)(153)))));
-            this.btnReparation.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReparation.FlatAppearance.BorderSize = 0;
-            this.btnReparation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReparation.ForeColor = System.Drawing.Color.LightGray;
-            this.btnReparation.Location = new System.Drawing.Point(0, 40);
-            this.btnReparation.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.btnReparation.Name = "btnReparation";
-            this.btnReparation.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnReparation.Size = new System.Drawing.Size(200, 40);
-            this.btnReparation.TabIndex = 1;
-            this.btnReparation.Text = "Reparation";
-            this.btnReparation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReparation.UseVisualStyleBackColor = false;
-            this.btnReparation.Click += new System.EventHandler(this.btnReparation_Click);
+            this.btnVignettes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVignettes.FlatAppearance.BorderSize = 0;
+            this.btnVignettes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVignettes.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnVignettes.Location = new System.Drawing.Point(0, 100);
+            this.btnVignettes.Name = "btnVignettes";
+            this.btnVignettes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnVignettes.Size = new System.Drawing.Size(200, 45);
+            this.btnVignettes.TabIndex = 1;
+            this.btnVignettes.Text = "Vignettes ";
+            this.btnVignettes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVignettes.UseVisualStyleBackColor = true;
+            this.btnVignettes.Click += new System.EventHandler(this.btnVignettes_Click);
             // 
-            // btnTransport
+            // panelLogo
             // 
-            this.btnTransport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(98)))), ((int)(((byte)(153)))));
-            this.btnTransport.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnTransport.FlatAppearance.BorderSize = 0;
-            this.btnTransport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTransport.ForeColor = System.Drawing.Color.LightGray;
-            this.btnTransport.Location = new System.Drawing.Point(0, 80);
-            this.btnTransport.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.btnTransport.Name = "btnTransport";
-            this.btnTransport.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnTransport.Size = new System.Drawing.Size(200, 40);
-            this.btnTransport.TabIndex = 2;
-            this.btnTransport.Text = "Transport";
-            this.btnTransport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTransport.UseVisualStyleBackColor = false;
-            this.btnTransport.Click += new System.EventHandler(this.btnTransport_Click);
-            // 
-            // btnVehicules
-            // 
-            this.btnVehicules.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVehicules.FlatAppearance.BorderSize = 0;
-            this.btnVehicules.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVehicules.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnVehicules.Location = new System.Drawing.Point(0, 267);
-            this.btnVehicules.Name = "btnVehicules";
-            this.btnVehicules.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnVehicules.Size = new System.Drawing.Size(200, 45);
-            this.btnVehicules.TabIndex = 2;
-            this.btnVehicules.Text = "Vehiucles";
-            this.btnVehicules.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVehicules.UseVisualStyleBackColor = true;
-            this.btnVehicules.Click += new System.EventHandler(this.btnVehicules_Click);
-            // 
-            // btnConducteurs
-            // 
-            this.btnConducteurs.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnConducteurs.FlatAppearance.BorderSize = 0;
-            this.btnConducteurs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConducteurs.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnConducteurs.Location = new System.Drawing.Point(0, 312);
-            this.btnConducteurs.Name = "btnConducteurs";
-            this.btnConducteurs.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnConducteurs.Size = new System.Drawing.Size(200, 45);
-            this.btnConducteurs.TabIndex = 3;
-            this.btnConducteurs.Text = "Conducteurs ";
-            this.btnConducteurs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConducteurs.UseVisualStyleBackColor = true;
-            this.btnConducteurs.Click += new System.EventHandler(this.btnConducteurs_Click);
-            // 
-            // FormsPlace
-            // 
-            this.FormsPlace.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.FormsPlace.Controls.Add(this.pictureBox2);
-            this.FormsPlace.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FormsPlace.Location = new System.Drawing.Point(200, 0);
-            this.FormsPlace.Name = "FormsPlace";
-            this.FormsPlace.Size = new System.Drawing.Size(848, 639);
-            this.FormsPlace.TabIndex = 1;
+            this.panelLogo.Controls.Add(this.pictureBox1);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(200, 100);
+            this.panelLogo.TabIndex = 0;
             // 
             // pictureBox1
             // 
@@ -210,6 +204,16 @@ namespace ParcAuto
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // FormsPlace
+            // 
+            this.FormsPlace.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.FormsPlace.Controls.Add(this.pictureBox2);
+            this.FormsPlace.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FormsPlace.Location = new System.Drawing.Point(200, 0);
+            this.FormsPlace.Name = "FormsPlace";
+            this.FormsPlace.Size = new System.Drawing.Size(848, 639);
+            this.FormsPlace.TabIndex = 1;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -221,6 +225,31 @@ namespace ParcAuto
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.A_Propos);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 574);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 65);
+            this.panel1.TabIndex = 4;
+            // 
+            // A_Propos
+            // 
+            this.A_Propos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.A_Propos.FlatAppearance.BorderSize = 0;
+            this.A_Propos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.A_Propos.ForeColor = System.Drawing.Color.Gainsboro;
+            this.A_Propos.Location = new System.Drawing.Point(0, 20);
+            this.A_Propos.Name = "A_Propos";
+            this.A_Propos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.A_Propos.Size = new System.Drawing.Size(200, 45);
+            this.A_Propos.TabIndex = 4;
+            this.A_Propos.Text = "A propos";
+            this.A_Propos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.A_Propos.UseVisualStyleBackColor = true;
+            this.A_Propos.Click += new System.EventHandler(this.A_Propos_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -229,20 +258,21 @@ namespace ParcAuto
             this.Controls.Add(this.FormsPlace);
             this.Controls.Add(this.panelSideMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(950, 600);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "test";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelSideMenu.ResumeLayout(false);
+            this.panelSousVignettes.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             this.panelLogo.PerformLayout();
-            this.panelSousVignettes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.FormsPlace.ResumeLayout(false);
             this.FormsPlace.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -261,6 +291,8 @@ namespace ParcAuto
         private System.Windows.Forms.Panel FormsPlace;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button A_Propos;
     }
 }
 

@@ -93,5 +93,9 @@ namespace ParcAuto
             childForm.Show();
         }
 
+        private void A_Propos_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.A_propos());
+        }
     }
 }
