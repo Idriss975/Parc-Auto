@@ -33,7 +33,6 @@ namespace ParcAuto.Forms
             this.btnModifier = new Guna.UI2.WinForms.Guna2Button();
             this.btnSupprimer = new Guna.UI2.WinForms.Guna2Button();
             this.dgvconducteur = new System.Windows.Forms.DataGridView();
-            this.btnQuitter = new Guna.UI2.WinForms.Guna2Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +43,7 @@ namespace ParcAuto.Forms
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnQuitter = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvconducteur)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,6 +105,7 @@ namespace ParcAuto.Forms
             // 
             // dgvconducteur
             // 
+            this.dgvconducteur.AllowUserToAddRows = false;
             this.dgvconducteur.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -126,24 +127,6 @@ namespace ParcAuto.Forms
             this.dgvconducteur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvconducteur.Size = new System.Drawing.Size(808, 446);
             this.dgvconducteur.TabIndex = 6;
-            // 
-            // btnQuitter
-            // 
-            this.btnQuitter.BorderRadius = 4;
-            this.btnQuitter.CheckedState.Parent = this.btnQuitter;
-            this.btnQuitter.CustomImages.Parent = this.btnQuitter;
-            this.btnQuitter.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
-            this.btnQuitter.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnQuitter.ForeColor = System.Drawing.Color.White;
-            this.btnQuitter.HoverState.Parent = this.btnQuitter;
-            this.btnQuitter.Location = new System.Drawing.Point(10, 21);
-            this.btnQuitter.Margin = new System.Windows.Forms.Padding(5);
-            this.btnQuitter.Name = "btnQuitter";
-            this.btnQuitter.ShadowDecoration.Parent = this.btnQuitter;
-            this.btnQuitter.Size = new System.Drawing.Size(30, 30);
-            this.btnQuitter.TabIndex = 5;
-            this.btnQuitter.Text = "X";
-            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
             // Column1
             // 
@@ -194,6 +177,24 @@ namespace ParcAuto.Forms
             // 
             this.Column10.HeaderText = "Email";
             this.Column10.Name = "Column10";
+            // 
+            // btnQuitter
+            // 
+            this.btnQuitter.BorderRadius = 4;
+            this.btnQuitter.CheckedState.Parent = this.btnQuitter;
+            this.btnQuitter.CustomImages.Parent = this.btnQuitter;
+            this.btnQuitter.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnQuitter.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnQuitter.ForeColor = System.Drawing.Color.White;
+            this.btnQuitter.HoverState.Parent = this.btnQuitter;
+            this.btnQuitter.Location = new System.Drawing.Point(10, 21);
+            this.btnQuitter.Margin = new System.Windows.Forms.Padding(5);
+            this.btnQuitter.Name = "btnQuitter";
+            this.btnQuitter.ShadowDecoration.Parent = this.btnQuitter;
+            this.btnQuitter.Size = new System.Drawing.Size(30, 30);
+            this.btnQuitter.TabIndex = 5;
+            this.btnQuitter.Text = "X";
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
             // Conducteurs
             // 
