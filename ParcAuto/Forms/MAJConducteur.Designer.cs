@@ -60,8 +60,8 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.85369F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.76923F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.45701F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.76923F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.61069F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.02545F));
             this.tableLayoutPanel1.Controls.Add(this.guna2TextBox8, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.label10, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.guna2TextBox7, 1, 4);
@@ -82,7 +82,7 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Controls.Add(this.label6, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label8, 2, 3);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(25, 14);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 13);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -91,7 +91,7 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(884, 283);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(793, 212);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // guna2TextBox8
@@ -108,21 +108,21 @@ namespace ParcAuto.Forms
             this.guna2TextBox8.FocusedState.Parent = this.guna2TextBox8;
             this.guna2TextBox8.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox8.HoverState.Parent = this.guna2TextBox8;
-            this.guna2TextBox8.Location = new System.Drawing.Point(615, 229);
+            this.guna2TextBox8.Location = new System.Drawing.Point(560, 173);
             this.guna2TextBox8.Margin = new System.Windows.Forms.Padding(5);
             this.guna2TextBox8.Name = "guna2TextBox8";
             this.guna2TextBox8.PasswordChar = '\0';
             this.guna2TextBox8.PlaceholderText = "";
             this.guna2TextBox8.SelectedText = "";
             this.guna2TextBox8.ShadowDecoration.Parent = this.guna2TextBox8;
-            this.guna2TextBox8.Size = new System.Drawing.Size(263, 49);
+            this.guna2TextBox8.Size = new System.Drawing.Size(228, 34);
             this.guna2TextBox8.TabIndex = 24;
             // 
             // label10
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(463, 245);
+            this.label10.Location = new System.Drawing.Point(417, 182);
             this.label10.Margin = new System.Windows.Forms.Padding(25, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(50, 16);
@@ -143,21 +143,21 @@ namespace ParcAuto.Forms
             this.guna2TextBox7.FocusedState.Parent = this.guna2TextBox7;
             this.guna2TextBox7.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox7.HoverState.Parent = this.guna2TextBox7;
-            this.guna2TextBox7.Location = new System.Drawing.Point(171, 229);
+            this.guna2TextBox7.Location = new System.Drawing.Point(154, 173);
             this.guna2TextBox7.Margin = new System.Windows.Forms.Padding(5);
             this.guna2TextBox7.Name = "guna2TextBox7";
             this.guna2TextBox7.PasswordChar = '\0';
             this.guna2TextBox7.PlaceholderText = "";
             this.guna2TextBox7.SelectedText = "";
             this.guna2TextBox7.ShadowDecoration.Parent = this.guna2TextBox7;
-            this.guna2TextBox7.Size = new System.Drawing.Size(261, 49);
+            this.guna2TextBox7.Size = new System.Drawing.Size(233, 34);
             this.guna2TextBox7.TabIndex = 22;
             // 
             // label9
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(4, 245);
+            this.label9.Location = new System.Drawing.Point(4, 182);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(85, 16);
@@ -178,14 +178,14 @@ namespace ParcAuto.Forms
             this.guna2TextBox6.FocusedState.Parent = this.guna2TextBox6;
             this.guna2TextBox6.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox6.HoverState.Parent = this.guna2TextBox6;
-            this.guna2TextBox6.Location = new System.Drawing.Point(615, 173);
+            this.guna2TextBox6.Location = new System.Drawing.Point(560, 131);
             this.guna2TextBox6.Margin = new System.Windows.Forms.Padding(5);
             this.guna2TextBox6.Name = "guna2TextBox6";
             this.guna2TextBox6.PasswordChar = '\0';
             this.guna2TextBox6.PlaceholderText = "";
             this.guna2TextBox6.SelectedText = "";
             this.guna2TextBox6.ShadowDecoration.Parent = this.guna2TextBox6;
-            this.guna2TextBox6.Size = new System.Drawing.Size(263, 46);
+            this.guna2TextBox6.Size = new System.Drawing.Size(228, 32);
             this.guna2TextBox6.TabIndex = 20;
             // 
             // guna2TextBox5
@@ -202,14 +202,14 @@ namespace ParcAuto.Forms
             this.guna2TextBox5.FocusedState.Parent = this.guna2TextBox5;
             this.guna2TextBox5.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox5.HoverState.Parent = this.guna2TextBox5;
-            this.guna2TextBox5.Location = new System.Drawing.Point(171, 173);
+            this.guna2TextBox5.Location = new System.Drawing.Point(154, 131);
             this.guna2TextBox5.Margin = new System.Windows.Forms.Padding(5);
             this.guna2TextBox5.Name = "guna2TextBox5";
             this.guna2TextBox5.PasswordChar = '\0';
             this.guna2TextBox5.PlaceholderText = "";
             this.guna2TextBox5.SelectedText = "";
             this.guna2TextBox5.ShadowDecoration.Parent = this.guna2TextBox5;
-            this.guna2TextBox5.Size = new System.Drawing.Size(261, 46);
+            this.guna2TextBox5.Size = new System.Drawing.Size(233, 32);
             this.guna2TextBox5.TabIndex = 19;
             // 
             // guna2TextBox4
@@ -226,21 +226,21 @@ namespace ParcAuto.Forms
             this.guna2TextBox4.FocusedState.Parent = this.guna2TextBox4;
             this.guna2TextBox4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox4.HoverState.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.Location = new System.Drawing.Point(615, 117);
+            this.guna2TextBox4.Location = new System.Drawing.Point(560, 89);
             this.guna2TextBox4.Margin = new System.Windows.Forms.Padding(5);
             this.guna2TextBox4.Name = "guna2TextBox4";
             this.guna2TextBox4.PasswordChar = '\0';
             this.guna2TextBox4.PlaceholderText = "";
             this.guna2TextBox4.SelectedText = "";
             this.guna2TextBox4.ShadowDecoration.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.Size = new System.Drawing.Size(263, 46);
+            this.guna2TextBox4.Size = new System.Drawing.Size(228, 32);
             this.guna2TextBox4.TabIndex = 18;
             // 
             // Matricule
             // 
             this.Matricule.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Matricule.AutoSize = true;
-            this.Matricule.Location = new System.Drawing.Point(4, 20);
+            this.Matricule.Location = new System.Drawing.Point(4, 13);
             this.Matricule.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Matricule.Name = "Matricule";
             this.Matricule.Size = new System.Drawing.Size(66, 16);
@@ -251,7 +251,7 @@ namespace ParcAuto.Forms
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(463, 20);
+            this.label2.Location = new System.Drawing.Point(417, 13);
             this.label2.Margin = new System.Windows.Forms.Padding(25, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 16);
@@ -262,7 +262,7 @@ namespace ParcAuto.Forms
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 76);
+            this.label3.Location = new System.Drawing.Point(4, 55);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 16);
@@ -273,7 +273,7 @@ namespace ParcAuto.Forms
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(463, 76);
+            this.label4.Location = new System.Drawing.Point(417, 55);
             this.label4.Margin = new System.Windows.Forms.Padding(25, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(129, 16);
@@ -287,13 +287,13 @@ namespace ParcAuto.Forms
             this.guna2DateTimePicker1.FillColor = System.Drawing.Color.White;
             this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.guna2DateTimePicker1.HoverState.Parent = this.guna2DateTimePicker1;
-            this.guna2DateTimePicker1.Location = new System.Drawing.Point(614, 60);
+            this.guna2DateTimePicker1.Location = new System.Drawing.Point(559, 46);
             this.guna2DateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
             this.guna2DateTimePicker1.ShadowDecoration.Parent = this.guna2DateTimePicker1;
-            this.guna2DateTimePicker1.Size = new System.Drawing.Size(265, 44);
+            this.guna2DateTimePicker1.Size = new System.Drawing.Size(230, 34);
             this.guna2DateTimePicker1.TabIndex = 7;
             this.guna2DateTimePicker1.Value = new System.DateTime(2022, 7, 5, 13, 32, 27, 563);
             // 
@@ -311,14 +311,14 @@ namespace ParcAuto.Forms
             this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Location = new System.Drawing.Point(171, 5);
+            this.guna2TextBox1.Location = new System.Drawing.Point(154, 5);
             this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(5);
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PasswordChar = '\0';
             this.guna2TextBox1.PlaceholderText = "";
             this.guna2TextBox1.SelectedText = "";
             this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(261, 46);
+            this.guna2TextBox1.Size = new System.Drawing.Size(233, 32);
             this.guna2TextBox1.TabIndex = 8;
             // 
             // guna2TextBox2
@@ -335,14 +335,14 @@ namespace ParcAuto.Forms
             this.guna2TextBox2.FocusedState.Parent = this.guna2TextBox2;
             this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox2.HoverState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Location = new System.Drawing.Point(615, 5);
+            this.guna2TextBox2.Location = new System.Drawing.Point(560, 5);
             this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(5);
             this.guna2TextBox2.Name = "guna2TextBox2";
             this.guna2TextBox2.PasswordChar = '\0';
             this.guna2TextBox2.PlaceholderText = "";
             this.guna2TextBox2.SelectedText = "";
             this.guna2TextBox2.ShadowDecoration.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Size = new System.Drawing.Size(263, 46);
+            this.guna2TextBox2.Size = new System.Drawing.Size(228, 32);
             this.guna2TextBox2.TabIndex = 9;
             // 
             // guna2TextBox3
@@ -359,21 +359,21 @@ namespace ParcAuto.Forms
             this.guna2TextBox3.FocusedState.Parent = this.guna2TextBox3;
             this.guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox3.HoverState.Parent = this.guna2TextBox3;
-            this.guna2TextBox3.Location = new System.Drawing.Point(171, 61);
+            this.guna2TextBox3.Location = new System.Drawing.Point(154, 47);
             this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(5);
             this.guna2TextBox3.Name = "guna2TextBox3";
             this.guna2TextBox3.PasswordChar = '\0';
             this.guna2TextBox3.PlaceholderText = "";
             this.guna2TextBox3.SelectedText = "";
             this.guna2TextBox3.ShadowDecoration.Parent = this.guna2TextBox3;
-            this.guna2TextBox3.Size = new System.Drawing.Size(261, 46);
+            this.guna2TextBox3.Size = new System.Drawing.Size(233, 32);
             this.guna2TextBox3.TabIndex = 10;
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 132);
+            this.label5.Location = new System.Drawing.Point(4, 97);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(124, 16);
@@ -386,13 +386,13 @@ namespace ParcAuto.Forms
             this.guna2DateTimePicker2.FillColor = System.Drawing.Color.White;
             this.guna2DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.guna2DateTimePicker2.HoverState.Parent = this.guna2DateTimePicker2;
-            this.guna2DateTimePicker2.Location = new System.Drawing.Point(170, 116);
+            this.guna2DateTimePicker2.Location = new System.Drawing.Point(153, 88);
             this.guna2DateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
             this.guna2DateTimePicker2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.guna2DateTimePicker2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.guna2DateTimePicker2.Name = "guna2DateTimePicker2";
             this.guna2DateTimePicker2.ShadowDecoration.Parent = this.guna2DateTimePicker2;
-            this.guna2DateTimePicker2.Size = new System.Drawing.Size(264, 44);
+            this.guna2DateTimePicker2.Size = new System.Drawing.Size(235, 34);
             this.guna2DateTimePicker2.TabIndex = 12;
             this.guna2DateTimePicker2.Value = new System.DateTime(2022, 7, 5, 13, 42, 29, 61);
             // 
@@ -400,7 +400,7 @@ namespace ParcAuto.Forms
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(463, 132);
+            this.label6.Location = new System.Drawing.Point(417, 97);
             this.label6.Margin = new System.Windows.Forms.Padding(25, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(131, 16);
@@ -411,7 +411,7 @@ namespace ParcAuto.Forms
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 188);
+            this.label7.Location = new System.Drawing.Point(4, 139);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(68, 16);
@@ -422,7 +422,7 @@ namespace ParcAuto.Forms
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(463, 188);
+            this.label8.Location = new System.Drawing.Point(417, 139);
             this.label8.Margin = new System.Windows.Forms.Padding(25, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 16);
@@ -439,7 +439,7 @@ namespace ParcAuto.Forms
             this.btnAppliquer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAppliquer.ForeColor = System.Drawing.Color.White;
             this.btnAppliquer.HoverState.Parent = this.btnAppliquer;
-            this.btnAppliquer.Location = new System.Drawing.Point(813, 307);
+            this.btnAppliquer.Location = new System.Drawing.Point(709, 236);
             this.btnAppliquer.Margin = new System.Windows.Forms.Padding(4);
             this.btnAppliquer.Name = "btnAppliquer";
             this.btnAppliquer.ShadowDecoration.Parent = this.btnAppliquer;
@@ -458,7 +458,7 @@ namespace ParcAuto.Forms
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Location = new System.Drawing.Point(680, 307);
+            this.guna2Button1.Location = new System.Drawing.Point(576, 236);
             this.guna2Button1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
@@ -472,18 +472,19 @@ namespace ParcAuto.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(927, 350);
+            this.ClientSize = new System.Drawing.Size(819, 279);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.btnAppliquer);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(927, 350);
-            this.MinimumSize = new System.Drawing.Size(927, 350);
+            this.MaximumSize = new System.Drawing.Size(819, 279);
+            this.MinimumSize = new System.Drawing.Size(819, 279);
             this.Name = "MAJConducteur";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MAJConducteur";
+            this.Load += new System.EventHandler(this.MAJConducteur_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

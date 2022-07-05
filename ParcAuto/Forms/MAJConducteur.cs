@@ -42,5 +42,10 @@ namespace ParcAuto.Forms
            
 
         }
+
+        private void MAJConducteur_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
