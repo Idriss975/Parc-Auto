@@ -92,7 +92,7 @@ namespace ParcAuto
             this.btnVehicules.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnVehicules.Size = new System.Drawing.Size(200, 45);
             this.btnVehicules.TabIndex = 2;
-            this.btnVehicules.Text = "Vehicucles";
+            this.btnVehicules.Text = "Vehicules";
             this.btnVehicules.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVehicules.UseVisualStyleBackColor = true;
             this.btnVehicules.Click += new System.EventHandler(this.btnVehicules_Click);
