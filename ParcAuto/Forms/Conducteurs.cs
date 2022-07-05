@@ -27,7 +27,7 @@ namespace ParcAuto.Forms
 
         private void btnQuitter_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Commandes.Command.ToString());
+            this.Close();
         }
 
         private void Conducteurs_Load(object sender, EventArgs e)
