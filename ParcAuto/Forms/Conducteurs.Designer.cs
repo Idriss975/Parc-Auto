@@ -120,6 +120,7 @@ namespace ParcAuto.Forms
             this.btnQuitter.Size = new System.Drawing.Size(30, 30);
             this.btnQuitter.TabIndex = 5;
             this.btnQuitter.Text = "X";
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
             // Conducteurs
             // 

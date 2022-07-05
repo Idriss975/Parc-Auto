@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ParcAuto.Classes_Globale;
 
 namespace ParcAuto.Forms
 {
@@ -21,6 +22,11 @@ namespace ParcAuto.Forms
         {
             MAJConducteur maj = new MAJConducteur();
             maj.Show();
+        }
+
+        private void btnQuitter_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show()
         }
     }
 }
