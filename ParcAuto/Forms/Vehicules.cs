@@ -16,5 +16,15 @@ namespace ParcAuto.Forms
         {
             InitializeComponent();
         }
+
+        private void Vehicules_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -29,12 +29,67 @@ namespace ParcAuto.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnAjouter = new Guna.UI2.WinForms.Guna2Button();
+            this.btnModifier = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSupprimer = new Guna.UI2.WinForms.Guna2Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnQuitter = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btnAjouter
+            // 
+            this.btnAjouter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAjouter.BorderRadius = 4;
+            this.btnAjouter.CheckedState.Parent = this.btnAjouter;
+            this.btnAjouter.CustomImages.Parent = this.btnAjouter;
+            this.btnAjouter.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnAjouter.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAjouter.ForeColor = System.Drawing.Color.White;
+            this.btnAjouter.HoverState.Parent = this.btnAjouter;
+            this.btnAjouter.Location = new System.Drawing.Point(445, 529);
+            this.btnAjouter.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnAjouter.Name = "btnAjouter";
+            this.btnAjouter.ShadowDecoration.Parent = this.btnAjouter;
+            this.btnAjouter.Size = new System.Drawing.Size(90, 30);
+            this.btnAjouter.TabIndex = 9;
+            this.btnAjouter.Text = "Ajouter";
+            // 
+            // btnModifier
+            // 
+            this.btnModifier.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModifier.BorderRadius = 4;
+            this.btnModifier.CheckedState.Parent = this.btnModifier;
+            this.btnModifier.CustomImages.Parent = this.btnModifier;
+            this.btnModifier.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnModifier.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnModifier.ForeColor = System.Drawing.Color.White;
+            this.btnModifier.HoverState.Parent = this.btnModifier;
+            this.btnModifier.Location = new System.Drawing.Point(583, 529);
+            this.btnModifier.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnModifier.Name = "btnModifier";
+            this.btnModifier.ShadowDecoration.Parent = this.btnModifier;
+            this.btnModifier.Size = new System.Drawing.Size(90, 30);
+            this.btnModifier.TabIndex = 8;
+            this.btnModifier.Text = "Modifier";
+            // 
+            // btnSupprimer
+            // 
+            this.btnSupprimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSupprimer.BorderRadius = 4;
+            this.btnSupprimer.CheckedState.Parent = this.btnSupprimer;
+            this.btnSupprimer.CustomImages.Parent = this.btnSupprimer;
+            this.btnSupprimer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnSupprimer.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSupprimer.ForeColor = System.Drawing.Color.White;
+            this.btnSupprimer.HoverState.Parent = this.btnSupprimer;
+            this.btnSupprimer.Location = new System.Drawing.Point(721, 529);
+            this.btnSupprimer.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnSupprimer.Name = "btnSupprimer";
+            this.btnSupprimer.ShadowDecoration.Parent = this.btnSupprimer;
+            this.btnSupprimer.Size = new System.Drawing.Size(90, 30);
+            this.btnSupprimer.TabIndex = 7;
+            this.btnSupprimer.Text = "Supprimer";
             // 
             // dataGridView1
             // 
@@ -42,49 +97,41 @@ namespace ParcAuto.Forms
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 63);
+            this.dataGridView1.Location = new System.Drawing.Point(23, 61);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(808, 321);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.Size = new System.Drawing.Size(788, 446);
+            this.dataGridView1.TabIndex = 6;
             // 
-            // button1
+            // btnQuitter
             // 
-            this.button1.Location = new System.Drawing.Point(13, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(745, 424);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(650, 424);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnQuitter.BorderRadius = 4;
+            this.btnQuitter.CheckedState.Parent = this.btnQuitter;
+            this.btnQuitter.CustomImages.Parent = this.btnQuitter;
+            this.btnQuitter.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnQuitter.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnQuitter.ForeColor = System.Drawing.Color.White;
+            this.btnQuitter.HoverState.Parent = this.btnQuitter;
+            this.btnQuitter.Location = new System.Drawing.Point(23, 21);
+            this.btnQuitter.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnQuitter.Name = "btnQuitter";
+            this.btnQuitter.ShadowDecoration.Parent = this.btnQuitter;
+            this.btnQuitter.Size = new System.Drawing.Size(30, 30);
+            this.btnQuitter.TabIndex = 5;
+            this.btnQuitter.Text = "X";
             // 
             // Conducteurs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(832, 600);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAjouter);
+            this.Controls.Add(this.btnModifier);
+            this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btnQuitter);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Conducteurs";
             this.Text = "Conducteurs";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -94,9 +141,10 @@ namespace ParcAuto.Forms
 
         #endregion
 
+        private Guna.UI2.WinForms.Guna2Button btnAjouter;
+        private Guna.UI2.WinForms.Guna2Button btnModifier;
+        private Guna.UI2.WinForms.Guna2Button btnSupprimer;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private Guna.UI2.WinForms.Guna2Button btnQuitter;
     }
 }
