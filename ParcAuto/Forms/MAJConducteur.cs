@@ -28,6 +28,8 @@ namespace ParcAuto.Forms
         public MAJConducteur()
         {
             InitializeComponent();
+            //Form_OnLoad ci-dessous
+
             //Make the Corner Rounded
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
@@ -40,7 +42,8 @@ namespace ParcAuto.Forms
 
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
-            //Ouvrir la Connection
+            
+            //Definir la requette SQL
             switch (Commandes.Command)
             {
                 case Choix.ajouter:
@@ -50,13 +53,16 @@ namespace ParcAuto.Forms
                     GLB.Cmd.CommandText = $"update Conducteurs set nom='{txtnom.Text}', prenom='{txtprenom.Text}', DateNaiss='{DateNaiss.Value.ToShortDateString()}', DateEmbauche='{DateEmb.Value.ToShortDateString()}', NumPermis='{txtnumpermis.Text}', adresse='{txtadr.Text}', ville='{txtville.Text}', tel='{txttel.Text}', email='{txtemail.Text}' where matricule = {GLB.Matricule}";
                     break;
                 case Choix.supprimer:
-                    //TODO: Ecrire requete
-                    break;
+                    //On peut pas ouvrir MajConducteur avec l'option de suppression.
+                    throw new Exception("MajConducteur a été appellé mais avec le Choix supprimer");
+                    
             }
 
-
-            //ExecuteNonquery
-            //Fermer la Connection
+            //Executer le requette
+            GLB.Con.Open();
+            GLB.Cmd.ExecuteNonQuery();
+            GLB.Con.Close();
+            
            
 
         }
@@ -68,6 +74,8 @@ namespace ParcAuto.Forms
 
         private void MAJConducteur_Load_1(object sender, EventArgs e)
         {
+            //utilise switch stp
+            //Donne la label une valeur de "null" ou equivalente pour eviter la confusion
             if (Commandes.Command == Choix.ajouter)
             {
                 lbl.Text = "L'ajout d'un Conducteur";
