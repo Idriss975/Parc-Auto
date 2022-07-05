@@ -15,5 +15,6 @@ namespace ParcAuto.Classes_Globale
         public static SqlDataReader dr;
         public static DataSet ds = new DataSet();
         public static SqlDataAdapter da;
+        public static int Matricule;
     }
 }

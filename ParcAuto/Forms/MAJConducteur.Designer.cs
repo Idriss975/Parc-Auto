@@ -116,7 +116,7 @@ namespace ParcAuto.Forms
             this.txtemail.SelectedText = "";
             this.txtemail.ShadowDecoration.Parent = this.txtemail;
             this.txtemail.Size = new System.Drawing.Size(263, 49);
-            this.txtemail.TabIndex = 24;
+            this.txtemail.TabIndex = 9;
             // 
             // label10
             // 
@@ -151,7 +151,7 @@ namespace ParcAuto.Forms
             this.txttel.SelectedText = "";
             this.txttel.ShadowDecoration.Parent = this.txttel;
             this.txttel.Size = new System.Drawing.Size(261, 49);
-            this.txttel.TabIndex = 22;
+            this.txttel.TabIndex = 8;
             // 
             // label9
             // 
@@ -186,7 +186,7 @@ namespace ParcAuto.Forms
             this.txtville.SelectedText = "";
             this.txtville.ShadowDecoration.Parent = this.txtville;
             this.txtville.Size = new System.Drawing.Size(263, 46);
-            this.txtville.TabIndex = 20;
+            this.txtville.TabIndex = 7;
             // 
             // txtadr
             // 
@@ -210,7 +210,7 @@ namespace ParcAuto.Forms
             this.txtadr.SelectedText = "";
             this.txtadr.ShadowDecoration.Parent = this.txtadr;
             this.txtadr.Size = new System.Drawing.Size(261, 46);
-            this.txtadr.TabIndex = 19;
+            this.txtadr.TabIndex = 6;
             // 
             // txtnumpermis
             // 
@@ -234,7 +234,7 @@ namespace ParcAuto.Forms
             this.txtnumpermis.SelectedText = "";
             this.txtnumpermis.ShadowDecoration.Parent = this.txtnumpermis;
             this.txtnumpermis.Size = new System.Drawing.Size(263, 46);
-            this.txtnumpermis.TabIndex = 18;
+            this.txtnumpermis.TabIndex = 5;
             // 
             // Matricule
             // 
@@ -294,7 +294,7 @@ namespace ParcAuto.Forms
             this.DateNaiss.Name = "DateNaiss";
             this.DateNaiss.ShadowDecoration.Parent = this.DateNaiss;
             this.DateNaiss.Size = new System.Drawing.Size(265, 44);
-            this.DateNaiss.TabIndex = 7;
+            this.DateNaiss.TabIndex = 3;
             this.DateNaiss.Value = new System.DateTime(2022, 7, 5, 13, 32, 27, 563);
             // 
             // txtmatricule
@@ -319,7 +319,7 @@ namespace ParcAuto.Forms
             this.txtmatricule.SelectedText = "";
             this.txtmatricule.ShadowDecoration.Parent = this.txtmatricule;
             this.txtmatricule.Size = new System.Drawing.Size(261, 46);
-            this.txtmatricule.TabIndex = 8;
+            this.txtmatricule.TabIndex = 0;
             // 
             // txtnom
             // 
@@ -343,7 +343,7 @@ namespace ParcAuto.Forms
             this.txtnom.SelectedText = "";
             this.txtnom.ShadowDecoration.Parent = this.txtnom;
             this.txtnom.Size = new System.Drawing.Size(263, 46);
-            this.txtnom.TabIndex = 9;
+            this.txtnom.TabIndex = 1;
             // 
             // txtprenom
             // 
@@ -367,7 +367,7 @@ namespace ParcAuto.Forms
             this.txtprenom.SelectedText = "";
             this.txtprenom.ShadowDecoration.Parent = this.txtprenom;
             this.txtprenom.Size = new System.Drawing.Size(261, 46);
-            this.txtprenom.TabIndex = 10;
+            this.txtprenom.TabIndex = 2;
             // 
             // label5
             // 
@@ -393,7 +393,7 @@ namespace ParcAuto.Forms
             this.DateEmb.Name = "DateEmb";
             this.DateEmb.ShadowDecoration.Parent = this.DateEmb;
             this.DateEmb.Size = new System.Drawing.Size(264, 44);
-            this.DateEmb.TabIndex = 12;
+            this.DateEmb.TabIndex = 4;
             this.DateEmb.Value = new System.DateTime(2022, 7, 5, 13, 42, 29, 61);
             // 
             // label6

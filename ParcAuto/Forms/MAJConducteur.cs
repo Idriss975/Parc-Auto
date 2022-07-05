@@ -29,14 +29,17 @@ namespace ParcAuto.Forms
             switch (Commandes.Command)
             {
                 case Choix.ajouter:
-                    //TODO : Ecrir la Requette
+                    GLB.Cmd.CommandText = $"Insert into Conducteurs values ({txtmatricule.Text}, '{txtnom.Text}', '{txtprenom.Text}', '{DateNaiss.Value.ToShortDateString()}', '{DateEmb.Value.ToShortDateString()}', '{txtnumpermis.Text}', '{txtadr.Text}', '{txtville.Text}', '{txttel.Text}', '{txtemail.Text}')";
                     break;
                 case Choix.modifier:
-                    //TODO : Ecrir la Requette
+                    GLB.Cmd.CommandText = $"update Conducteurs set nom='{txtnom.Text}', prenom='{txtprenom.Text}', DateNaiss='{DateNaiss.Value.ToShortDateString()}', DateEmbauche='{DateEmb.Value.ToShortDateString()}', NumPermis='{txtnumpermis.Text}', adresse='{txtadr.Text}', ville='{txtville.Text}', tel='{txttel.Text}', email='{txtemail.Text}' where matricule = {GLB.Matricule}";
                     break;
-                default:
+                case Choix.supprimer:
+                    //TODO: Ecrire requete
                     break;
             }
+
+
             //ExecuteNonquery
             //Fermer la Connection
            

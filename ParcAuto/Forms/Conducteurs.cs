@@ -23,7 +23,7 @@ namespace ParcAuto.Forms
             MAJConducteur maj = new MAJConducteur();
             Commandes.Command = Choix.ajouter;
             maj.Show();
-        }
+            }
 
         private void btnQuitter_Click(object sender, EventArgs e)
         {
@@ -39,7 +39,18 @@ namespace ParcAuto.Forms
         {
             MAJConducteur maj = new MAJConducteur();
             Commandes.Command = Choix.modifier;
-            maj.Show();
+            try
+            {
+                GLB.Matricule = (int)dgvconducteur.SelectedRows[0].Cells[0].Value;
+                maj.Show();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Il faut selectionner sur la table pour la modifier.", "Erreur",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            //TODO: catch NullReferenceException 
+
+
         }
     }
 }
