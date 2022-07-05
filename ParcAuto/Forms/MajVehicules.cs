@@ -7,27 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ParcAuto.Classes_Globale;
 
 namespace ParcAuto.Forms
 {
-    public partial class Vehicules : Form
+    public partial class MajVehicules : Form
     {
-        public Vehicules()
+        public MajVehicules()
         {
             InitializeComponent();
         }
 
-        private void Vehicules_Load(object sender, EventArgs e)
+        private void Quitter_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
-        private void btnAjouter_Click(object sender, EventArgs e)
+        private void btnAppliquer_Click(object sender, EventArgs e)
         {
-            MajVehicules maj = new MajVehicules();
-            Commandes.Command = Choix.ajouter;
-            maj.Show();
+
         }
     }
 }
