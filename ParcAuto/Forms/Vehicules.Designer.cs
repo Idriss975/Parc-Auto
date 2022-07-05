@@ -29,16 +29,26 @@ namespace ParcAuto.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnQuitter = new Guna.UI2.WinForms.Guna2Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvVehicules = new System.Windows.Forms.DataGridView();
             this.btnSupprimer = new Guna.UI2.WinForms.Guna2Button();
             this.btnModifier = new Guna.UI2.WinForms.Guna2Button();
             this.btnAjouter = new Guna.UI2.WinForms.Guna2Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVehicules)).BeginInit();
             this.SuspendLayout();
             // 
             // btnQuitter
             // 
+            this.btnQuitter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnQuitter.BorderRadius = 4;
             this.btnQuitter.CheckedState.Parent = this.btnQuitter;
             this.btnQuitter.CustomImages.Parent = this.btnQuitter;
@@ -54,17 +64,41 @@ namespace ParcAuto.Forms
             this.btnQuitter.TabIndex = 0;
             this.btnQuitter.Text = "X";
             // 
-            // dataGridView1
+            // dgvVehicules
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvVehicules.AllowUserToAddRows = false;
+            this.dgvVehicules.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 51);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(799, 467);
-            this.dataGridView1.TabIndex = 1;
+            this.dgvVehicules.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvVehicules.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVehicules.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvVehicules.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvVehicules.Location = new System.Drawing.Point(13, 51);
+            this.dgvVehicules.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvVehicules.MultiSelect = false;
+            this.dgvVehicules.Name = "dgvVehicules";
+            this.dgvVehicules.ReadOnly = true;
+            this.dgvVehicules.RowHeadersWidth = 62;
+            this.dgvVehicules.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvVehicules.Size = new System.Drawing.Size(799, 467);
+            this.dgvVehicules.TabIndex = 1;
             // 
             // btnSupprimer
             // 
@@ -84,6 +118,7 @@ namespace ParcAuto.Forms
             this.btnSupprimer.TabIndex = 2;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // btnModifier
             // 
@@ -103,6 +138,7 @@ namespace ParcAuto.Forms
             this.btnModifier.TabIndex = 3;
             this.btnModifier.Text = "Modifier";
             this.btnModifier.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // btnAjouter
             // 
@@ -124,6 +160,54 @@ namespace ParcAuto.Forms
             this.btnAjouter.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Matricule";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Marque";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Modele";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Couleur";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Mise En Circulation";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Carburant ";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Observation";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Conducteur";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
             // Vehicules
             // 
             this.AcceptButton = this.btnAjouter;
@@ -135,14 +219,14 @@ namespace ParcAuto.Forms
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.btnSupprimer);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvVehicules);
             this.Controls.Add(this.btnQuitter);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Vehicules";
             this.Text = "Vehicules";
             this.Load += new System.EventHandler(this.Vehicules_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVehicules)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -150,9 +234,17 @@ namespace ParcAuto.Forms
         #endregion
 
         private Guna.UI2.WinForms.Guna2Button btnQuitter;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvVehicules;
         private Guna.UI2.WinForms.Guna2Button btnSupprimer;
         private Guna.UI2.WinForms.Guna2Button btnModifier;
         private Guna.UI2.WinForms.Guna2Button btnAjouter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
     }
 }

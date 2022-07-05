@@ -18,9 +18,28 @@ namespace ParcAuto.Forms
             InitializeComponent();
         }
 
+        private void StyleDataGridView()
+        {
+            dgvVehicules.BorderStyle = BorderStyle.None;
+            dgvVehicules.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dgvVehicules.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvVehicules.DefaultCellStyle.SelectionBackColor = Color.FromArgb(115, 139, 215);
+            dgvVehicules.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dgvVehicules.BackgroundColor = Color.White;
+            dgvVehicules.EnableHeadersVisualStyles = false;
+            dgvVehicules.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvVehicules.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(115, 139, 215);
+            dgvVehicules.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+        }
         private void Vehicules_Load(object sender, EventArgs e)
         {
-
+            StyleDataGridView();
+            //Jeux d'essaie 
+            //TODO : Remplir la Grille
+            dgvVehicules.Rows.Add(null, null, null, null, null, null, null, null);
+            dgvVehicules.Rows.Add(null, null, null, null, null, null, null, null);
+            dgvVehicules.Rows.Add(null, null, null, null, null, null, null, null);
+            dgvVehicules.Rows.Add(null, null, null, null, null, null, null, null);
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
@@ -36,7 +55,7 @@ namespace ParcAuto.Forms
             Commandes.Command = Choix.modifier;
             try
             {
-                GLB.Matricule_Voiture = (string)dataGridView1.SelectedRows[0].Cells[0].Value;
+                GLB.Matricule_Voiture = (string)dgvVehicules.SelectedRows[0].Cells[0].Value;
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -52,7 +71,7 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.Matricule = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
+                GLB.Matricule = (int)dgvVehicules.SelectedRows[0].Cells[0].Value;
                 GLB.Cmd.CommandText = $"delete from vehicules where matricule={GLB.Matricule_Voiture}";
             }
             catch (ArgumentOutOfRangeException)

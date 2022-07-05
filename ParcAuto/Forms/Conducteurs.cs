@@ -24,6 +24,19 @@ namespace ParcAuto.Forms
             Commandes.Command = Choix.ajouter;
             maj.Show();
         }
+        private void StyleDataGridView()
+        {
+            dgvconducteur.BorderStyle = BorderStyle.None;
+            dgvconducteur.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dgvconducteur.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvconducteur.DefaultCellStyle.SelectionBackColor = Color.FromArgb(115, 139, 215);
+            dgvconducteur.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dgvconducteur.BackgroundColor = Color.White;
+            dgvconducteur.EnableHeadersVisualStyles = false;
+            dgvconducteur.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvconducteur.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(115, 139, 215);
+            dgvconducteur.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+        }
 
         private void btnQuitter_Click(object sender, EventArgs e)
         {
@@ -32,6 +45,14 @@ namespace ParcAuto.Forms
 
         private void Conducteurs_Load(object sender, EventArgs e)
         {
+            StyleDataGridView();
+            //Jeux d'essaie 
+            //TODO : Remplir la Grille
+            dgvconducteur.Rows.Add(null, null, null, null, null, null, null, null, null, null);
+            dgvconducteur.Rows.Add(null, null, null, null, null, null, null, null, null, null);
+            dgvconducteur.Rows.Add(null, null, null, null, null, null, null, null, null, null);
+            dgvconducteur.Rows.Add(null, null, null, null, null, null, null, null, null, null);
+
 
         }
 
