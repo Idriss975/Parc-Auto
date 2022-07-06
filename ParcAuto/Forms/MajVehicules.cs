@@ -84,8 +84,6 @@ namespace ParcAuto.Forms
                 case Choix.modifier:
                     lbl.Text = "La modification d'une Vehicules";
                     break;
-                default:
-                    break;
             }
             
         }
