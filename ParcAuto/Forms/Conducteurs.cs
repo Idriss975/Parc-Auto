@@ -175,7 +175,7 @@ namespace ParcAuto.Forms
             }
             else
                 foreach (DataGridViewRow item2 in dgvconducteur.Rows)
-                    if (!(Convert.ToDateTime(item2.Cells[cmbChoix.SelectedIndex].Value.ToString()) >= Date1.Value && Convert.ToDateTime(item2.Cells[cmbChoix.SelectedIndex].Value.ToString()) <= Date2.Value))
+                    if (!( (DateTime)item2.Cells[cmbChoix.SelectedIndex].Value >= Date1.Value && (DateTime)item2.Cells[cmbChoix.SelectedIndex].Value <= Date2.Value))
                         dgvconducteur.Rows.Remove(item2);
         }
     }
