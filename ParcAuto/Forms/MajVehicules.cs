@@ -115,8 +115,6 @@ namespace ParcAuto.Forms
                     lbl.Text = "La modification d'une Vehicules";
                     RemplirLesChamps();
                     break;
-                default:
-                    break;
             }
             
         }
