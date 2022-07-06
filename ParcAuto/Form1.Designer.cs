@@ -71,13 +71,14 @@ namespace ParcAuto
             this.btnConducteurs.FlatAppearance.BorderSize = 0;
             this.btnConducteurs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConducteurs.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnConducteurs.Image = ((System.Drawing.Image)(resources.GetObject("btnConducteurs.Image")));
+            this.btnConducteurs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConducteurs.Location = new System.Drawing.Point(0, 312);
             this.btnConducteurs.Name = "btnConducteurs";
             this.btnConducteurs.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnConducteurs.Size = new System.Drawing.Size(200, 45);
             this.btnConducteurs.TabIndex = 3;
             this.btnConducteurs.Text = "Conducteurs ";
-            this.btnConducteurs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConducteurs.UseVisualStyleBackColor = true;
             this.btnConducteurs.Click += new System.EventHandler(this.btnConducteurs_Click);
             // 
@@ -87,13 +88,14 @@ namespace ParcAuto
             this.btnVehicules.FlatAppearance.BorderSize = 0;
             this.btnVehicules.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVehicules.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnVehicules.Image = ((System.Drawing.Image)(resources.GetObject("btnVehicules.Image")));
+            this.btnVehicules.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVehicules.Location = new System.Drawing.Point(0, 267);
             this.btnVehicules.Name = "btnVehicules";
             this.btnVehicules.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnVehicules.Size = new System.Drawing.Size(200, 45);
             this.btnVehicules.TabIndex = 2;
             this.btnVehicules.Text = "Vehicules";
-            this.btnVehicules.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVehicules.UseVisualStyleBackColor = true;
             this.btnVehicules.Click += new System.EventHandler(this.btnVehicules_Click);
             // 
@@ -116,6 +118,8 @@ namespace ParcAuto
             this.btnTransport.FlatAppearance.BorderSize = 0;
             this.btnTransport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTransport.ForeColor = System.Drawing.Color.LightGray;
+            this.btnTransport.Image = ((System.Drawing.Image)(resources.GetObject("btnTransport.Image")));
+            this.btnTransport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTransport.Location = new System.Drawing.Point(0, 80);
             this.btnTransport.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.btnTransport.Name = "btnTransport";
@@ -123,7 +127,6 @@ namespace ParcAuto
             this.btnTransport.Size = new System.Drawing.Size(200, 40);
             this.btnTransport.TabIndex = 2;
             this.btnTransport.Text = "Transport";
-            this.btnTransport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTransport.UseVisualStyleBackColor = false;
             this.btnTransport.Click += new System.EventHandler(this.btnTransport_Click);
             // 
@@ -134,6 +137,8 @@ namespace ParcAuto
             this.btnReparation.FlatAppearance.BorderSize = 0;
             this.btnReparation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReparation.ForeColor = System.Drawing.Color.LightGray;
+            this.btnReparation.Image = ((System.Drawing.Image)(resources.GetObject("btnReparation.Image")));
+            this.btnReparation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReparation.Location = new System.Drawing.Point(0, 40);
             this.btnReparation.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.btnReparation.Name = "btnReparation";
@@ -141,7 +146,6 @@ namespace ParcAuto
             this.btnReparation.Size = new System.Drawing.Size(200, 40);
             this.btnReparation.TabIndex = 1;
             this.btnReparation.Text = "Reparation";
-            this.btnReparation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReparation.UseVisualStyleBackColor = false;
             this.btnReparation.Click += new System.EventHandler(this.btnReparation_Click);
             // 
@@ -153,6 +157,8 @@ namespace ParcAuto
             this.btnCarburant.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
             this.btnCarburant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCarburant.ForeColor = System.Drawing.Color.LightGray;
+            this.btnCarburant.Image = ((System.Drawing.Image)(resources.GetObject("btnCarburant.Image")));
+            this.btnCarburant.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCarburant.Location = new System.Drawing.Point(0, 0);
             this.btnCarburant.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
             this.btnCarburant.Name = "btnCarburant";
@@ -160,7 +166,6 @@ namespace ParcAuto
             this.btnCarburant.Size = new System.Drawing.Size(200, 40);
             this.btnCarburant.TabIndex = 0;
             this.btnCarburant.Text = "Carburant";
-            this.btnCarburant.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCarburant.UseVisualStyleBackColor = false;
             this.btnCarburant.Click += new System.EventHandler(this.btnCarburant_Click);
             // 
@@ -170,13 +175,14 @@ namespace ParcAuto
             this.btnVignettes.FlatAppearance.BorderSize = 0;
             this.btnVignettes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVignettes.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnVignettes.Image = ((System.Drawing.Image)(resources.GetObject("btnVignettes.Image")));
+            this.btnVignettes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVignettes.Location = new System.Drawing.Point(0, 100);
             this.btnVignettes.Name = "btnVignettes";
             this.btnVignettes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnVignettes.Size = new System.Drawing.Size(200, 45);
             this.btnVignettes.TabIndex = 1;
             this.btnVignettes.Text = "Vignettes ";
-            this.btnVignettes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVignettes.UseVisualStyleBackColor = true;
             this.btnVignettes.Click += new System.EventHandler(this.btnVignettes_Click);
             // 
