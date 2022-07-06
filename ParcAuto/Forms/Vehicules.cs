@@ -78,7 +78,7 @@ namespace ParcAuto.Forms
                 DateTime MiseEncirculation = (DateTime)dgvVehicules.CurrentRow.Cells[4].Value ;
                 string Carburant = dgvVehicules.CurrentRow.Cells[5].Value.ToString();
                 string Observation = dgvVehicules.CurrentRow.Cells[6].Value.ToString();
-                string Conducteur = dgvVehicules.CurrentRow.Cells[7].Value.ToString();
+                string Conducteur = dgvVehicules.CurrentRow.Cells[7].Value.ToString(); //Normalement type cmbMatNom
                 MajVehicules maj = new MajVehicules(Marque, Modele, Couleur, MiseEncirculation , Carburant, Observation,Conducteur) ;
                 Commandes.Command = Choix.modifier;
                 maj.ShowDialog();
