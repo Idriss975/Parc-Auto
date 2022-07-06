@@ -178,5 +178,10 @@ namespace ParcAuto.Forms
                     if (!(Convert.ToDateTime(item2.Cells[cmbChoix.SelectedIndex].Value.ToString()) >= Date1.Value && Convert.ToDateTime(item2.Cells[cmbChoix.SelectedIndex].Value.ToString()) <= Date2.Value))
                         dgvconducteur.Rows.Remove(item2);
         }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            RemplirLaGrille();
+        }
     }
 }

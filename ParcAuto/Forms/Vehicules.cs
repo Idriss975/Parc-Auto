@@ -123,5 +123,10 @@ namespace ParcAuto.Forms
         {
             this.Close();
         }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            RemplirLaGrille();
+        }
     }
 }

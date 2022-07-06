@@ -29,6 +29,7 @@ namespace ParcAuto.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Conducteurs));
             this.btnAjouter = new Guna.UI2.WinForms.Guna2Button();
             this.btnModifier = new Guna.UI2.WinForms.Guna2Button();
             this.btnSupprimer = new Guna.UI2.WinForms.Guna2Button();
@@ -48,7 +49,7 @@ namespace ParcAuto.Forms
             this.cmbChoix = new Guna.UI2.WinForms.Guna2ComboBox();
             this.Date1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.Date2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnFiltrer = new Guna.UI2.WinForms.Guna2Button();
             this.TextPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -100,7 +101,6 @@ namespace ParcAuto.Forms
             this.btnModifier.TabIndex = 8;
             this.btnModifier.Text = "Modifier";
             this.btnModifier.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
-            this.btnModifier.Visible = false;
             this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // btnSupprimer
@@ -236,17 +236,18 @@ namespace ParcAuto.Forms
             this.btnQuitter.BorderRadius = 4;
             this.btnQuitter.CheckedState.Parent = this.btnQuitter;
             this.btnQuitter.CustomImages.Parent = this.btnQuitter;
-            this.btnQuitter.FillColor = System.Drawing.Color.Red;
+            this.btnQuitter.FillColor = System.Drawing.Color.Crimson;
             this.btnQuitter.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnQuitter.ForeColor = System.Drawing.Color.White;
             this.btnQuitter.HoverState.Parent = this.btnQuitter;
+            this.btnQuitter.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitter.Image")));
             this.btnQuitter.Location = new System.Drawing.Point(1063, 14);
             this.btnQuitter.Margin = new System.Windows.Forms.Padding(5);
             this.btnQuitter.Name = "btnQuitter";
             this.btnQuitter.ShadowDecoration.Parent = this.btnQuitter;
             this.btnQuitter.Size = new System.Drawing.Size(30, 30);
             this.btnQuitter.TabIndex = 5;
-            this.btnQuitter.Text = "X";
+            this.btnQuitter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
             // label1
@@ -254,7 +255,7 @@ namespace ParcAuto.Forms
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(7, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 25);
+            this.label1.Size = new System.Drawing.Size(73, 17);
             this.label1.TabIndex = 10;
             this.label1.Text = "Filter Par :";
             // 
@@ -322,27 +323,30 @@ namespace ParcAuto.Forms
             this.Date2.TabIndex = 14;
             this.Date2.Value = new System.DateTime(2022, 7, 6, 14, 45, 58, 151);
             // 
-            // guna2Button1
+            // btnRefresh
             // 
-            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button1.BorderRadius = 4;
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.Red;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Location = new System.Drawing.Point(1023, 14);
-            this.guna2Button1.Margin = new System.Windows.Forms.Padding(5);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(30, 30);
-            this.guna2Button1.TabIndex = 15;
-            this.guna2Button1.Text = "X";
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRefresh.BorderRadius = 4;
+            this.btnRefresh.CheckedState.Parent = this.btnRefresh;
+            this.btnRefresh.CustomImages.Parent = this.btnRefresh;
+            this.btnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.HoverState.Parent = this.btnRefresh;
+            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
+            this.btnRefresh.Location = new System.Drawing.Point(1023, 14);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(5);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.ShadowDecoration.Parent = this.btnRefresh;
+            this.btnRefresh.Size = new System.Drawing.Size(30, 30);
+            this.btnRefresh.TabIndex = 15;
+            this.btnRefresh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnFiltrer
             // 
-            this.btnFiltrer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFiltrer.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnFiltrer.BorderRadius = 4;
             this.btnFiltrer.CheckedState.Parent = this.btnFiltrer;
             this.btnFiltrer.CustomImages.Parent = this.btnFiltrer;
@@ -350,7 +354,7 @@ namespace ParcAuto.Forms
             this.btnFiltrer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnFiltrer.ForeColor = System.Drawing.Color.White;
             this.btnFiltrer.HoverState.Parent = this.btnFiltrer;
-            this.btnFiltrer.Location = new System.Drawing.Point(869, 14);
+            this.btnFiltrer.Location = new System.Drawing.Point(635, 18);
             this.btnFiltrer.Margin = new System.Windows.Forms.Padding(5);
             this.btnFiltrer.Name = "btnFiltrer";
             this.btnFiltrer.ShadowDecoration.Parent = this.btnFiltrer;
@@ -358,7 +362,6 @@ namespace ParcAuto.Forms
             this.btnFiltrer.TabIndex = 18;
             this.btnFiltrer.Text = "Filtrer";
             this.btnFiltrer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
-            this.btnFiltrer.Visible = false;
             this.btnFiltrer.Click += new System.EventHandler(this.btnFiltrer_Click);
             // 
             // TextPanel
@@ -374,9 +377,9 @@ namespace ParcAuto.Forms
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Location = new System.Drawing.Point(3, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 25);
+            this.label2.Size = new System.Drawing.Size(73, 17);
             this.label2.TabIndex = 20;
             this.label2.Text = "Filter Par :";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -395,7 +398,7 @@ namespace ParcAuto.Forms
             this.txtValueToFiltre.FocusedState.Parent = this.txtValueToFiltre;
             this.txtValueToFiltre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtValueToFiltre.HoverState.Parent = this.txtValueToFiltre;
-            this.txtValueToFiltre.Location = new System.Drawing.Point(7, 31);
+            this.txtValueToFiltre.Location = new System.Drawing.Point(86, 6);
             this.txtValueToFiltre.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtValueToFiltre.Name = "txtValueToFiltre";
             this.txtValueToFiltre.PasswordChar = '\0';
@@ -412,7 +415,7 @@ namespace ParcAuto.Forms
             this.panelDate.Controls.Add(this.label3);
             this.panelDate.Controls.Add(this.Date1);
             this.panelDate.Controls.Add(this.Date2);
-            this.panelDate.Location = new System.Drawing.Point(287, 3);
+            this.panelDate.Location = new System.Drawing.Point(276, 12);
             this.panelDate.Name = "panelDate";
             this.panelDate.Size = new System.Drawing.Size(549, 60);
             this.panelDate.TabIndex = 20;
@@ -423,7 +426,7 @@ namespace ParcAuto.Forms
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(315, 21);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(23, 25);
+            this.label4.Size = new System.Drawing.Size(16, 17);
             this.label4.TabIndex = 14;
             this.label4.Text = "à";
             // 
@@ -433,21 +436,21 @@ namespace ParcAuto.Forms
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(13, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 25);
+            this.label3.Size = new System.Drawing.Size(66, 17);
             this.label3.TabIndex = 0;
             this.label3.Text = "Date de :";
             // 
             // Conducteurs
             // 
             this.AcceptButton = this.btnAjouter;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1111, 669);
             this.Controls.Add(this.panelDate);
             this.Controls.Add(this.TextPanel);
             this.Controls.Add(this.btnFiltrer);
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.cmbChoix);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAjouter);
@@ -491,7 +494,7 @@ namespace ParcAuto.Forms
         private Guna.UI2.WinForms.Guna2ComboBox cmbChoix;
         private Guna.UI2.WinForms.Guna2DateTimePicker Date1;
         private Guna.UI2.WinForms.Guna2DateTimePicker Date2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnRefresh;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Guna.UI2.WinForms.Guna2Button btnFiltrer;
         private System.Windows.Forms.FlowLayoutPanel TextPanel;
