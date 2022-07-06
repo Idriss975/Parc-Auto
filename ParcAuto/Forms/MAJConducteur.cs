@@ -54,7 +54,7 @@ namespace ParcAuto.Forms
             txtprenom.Text = Prenom;
             txtnumpermis.Text = NumPermis;
             txtadr.Text = Adresse;
-            txtville.Text = Ville;
+            cmbVilles.Text = Ville;
             txttel.Text = Tel;
             txtemail.Text = Email;
             DateNaissance.Value = DateNaiss;
@@ -72,10 +72,10 @@ namespace ParcAuto.Forms
             switch (Commandes.Command)
             {
                 case Choix.ajouter:
-                    GLB.Cmd.CommandText = $"Insert into Conducteurs values ({txtmatricule.Text}, '{txtnom.Text}', '{txtprenom.Text}', '{DateNaissance.Value.ToShortDateString()}', '{DateEmb.Value.ToShortDateString()}', '{txtnumpermis.Text}', '{txtadr.Text}', '{txtville.Text}', '{txttel.Text}', '{txtemail.Text}')";
+                    GLB.Cmd.CommandText = $"Insert into Conducteurs values ({txtmatricule.Text}, '{txtnom.Text}', '{txtprenom.Text}', '{DateNaissance.Value.ToShortDateString()}', '{DateEmb.Value.ToShortDateString()}', '{txtnumpermis.Text}', '{txtadr.Text}', '{cmbVilles.SelectedItem}', '{txttel.Text}', '{txtemail.Text}')";
                     break;
                 case Choix.modifier:
-                    GLB.Cmd.CommandText = $"update Conducteurs set nom='{txtnom.Text}', prenom='{txtprenom.Text}', DateNaiss='{DateNaissance.Value.ToShortDateString()}', DateEmbauche='{DateEmb.Value.ToShortDateString()}', NumPermis='{txtnumpermis.Text}', Adresse='{txtadr.Text}', Ville='{txtville.Text}', Tel='{txttel.Text}', Email='{txtemail.Text}' where Matricule = {GLB.Matricule}";
+                    GLB.Cmd.CommandText = $"update Conducteurs set nom='{txtnom.Text}', prenom='{txtprenom.Text}', DateNaiss='{DateNaissance.Value.ToShortDateString()}', DateEmbauche='{DateEmb.Value.ToShortDateString()}', NumPermis='{txtnumpermis.Text}', Adresse='{txtadr.Text}', Ville='{cmbVilles.SelectedItem}', Tel='{txttel.Text}', Email='{txtemail.Text}' where Matricule = {GLB.Matricule}";
                     RemplirLesChamps();
                     break;
                 case Choix.supprimer:

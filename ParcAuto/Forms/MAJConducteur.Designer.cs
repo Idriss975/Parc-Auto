@@ -34,7 +34,6 @@ namespace ParcAuto.Forms
             this.label10 = new System.Windows.Forms.Label();
             this.txttel = new Guna.UI2.WinForms.Guna2TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtville = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtadr = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtnumpermis = new Guna.UI2.WinForms.Guna2TextBox();
             this.Matricule = new System.Windows.Forms.Label();
@@ -49,10 +48,11 @@ namespace ParcAuto.Forms
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.DateNaissance = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.btnAppliquer = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.lbl = new System.Windows.Forms.Label();
-            this.DateNaissance = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.cmbVilles = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +67,6 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Controls.Add(this.label10, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.txttel, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.label9, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.txtville, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtadr, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtnumpermis, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.Matricule, 0, 0);
@@ -83,6 +82,7 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label8, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.DateNaissance, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cmbVilles, 3, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(31, 66);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -111,7 +111,7 @@ namespace ParcAuto.Forms
             this.txtemail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtemail.HoverState.Parent = this.txtemail;
             this.txtemail.Location = new System.Drawing.Point(519, 169);
-            this.txtemail.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtemail.Margin = new System.Windows.Forms.Padding(5);
             this.txtemail.Name = "txtemail";
             this.txtemail.PasswordChar = '\0';
             this.txtemail.PlaceholderText = "";
@@ -146,7 +146,7 @@ namespace ParcAuto.Forms
             this.txttel.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txttel.HoverState.Parent = this.txttel;
             this.txttel.Location = new System.Drawing.Point(145, 169);
-            this.txttel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txttel.Margin = new System.Windows.Forms.Padding(5);
             this.txttel.Name = "txttel";
             this.txttel.PasswordChar = '\0';
             this.txttel.PlaceholderText = "";
@@ -166,30 +166,6 @@ namespace ParcAuto.Forms
             this.label9.TabIndex = 21;
             this.label9.Text = "Telephone : ";
             // 
-            // txtville
-            // 
-            this.txtville.BorderRadius = 4;
-            this.txtville.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtville.DefaultText = "";
-            this.txtville.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtville.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtville.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtville.DisabledState.Parent = this.txtville;
-            this.txtville.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtville.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtville.FocusedState.Parent = this.txtville;
-            this.txtville.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtville.HoverState.Parent = this.txtville;
-            this.txtville.Location = new System.Drawing.Point(519, 128);
-            this.txtville.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.txtville.Name = "txtville";
-            this.txtville.PasswordChar = '\0';
-            this.txtville.PlaceholderText = "";
-            this.txtville.SelectedText = "";
-            this.txtville.ShadowDecoration.Parent = this.txtville;
-            this.txtville.Size = new System.Drawing.Size(221, 31);
-            this.txtville.TabIndex = 7;
-            // 
             // txtadr
             // 
             this.txtadr.BorderRadius = 4;
@@ -205,7 +181,7 @@ namespace ParcAuto.Forms
             this.txtadr.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtadr.HoverState.Parent = this.txtadr;
             this.txtadr.Location = new System.Drawing.Point(145, 128);
-            this.txtadr.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtadr.Margin = new System.Windows.Forms.Padding(5);
             this.txtadr.Name = "txtadr";
             this.txtadr.PasswordChar = '\0';
             this.txtadr.PlaceholderText = "";
@@ -229,7 +205,7 @@ namespace ParcAuto.Forms
             this.txtnumpermis.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtnumpermis.HoverState.Parent = this.txtnumpermis;
             this.txtnumpermis.Location = new System.Drawing.Point(519, 87);
-            this.txtnumpermis.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtnumpermis.Margin = new System.Windows.Forms.Padding(5);
             this.txtnumpermis.Name = "txtnumpermis";
             this.txtnumpermis.PasswordChar = '\0';
             this.txtnumpermis.PlaceholderText = "";
@@ -297,7 +273,7 @@ namespace ParcAuto.Forms
             this.txtmatricule.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtmatricule.HoverState.Parent = this.txtmatricule;
             this.txtmatricule.Location = new System.Drawing.Point(145, 5);
-            this.txtmatricule.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtmatricule.Margin = new System.Windows.Forms.Padding(5);
             this.txtmatricule.Name = "txtmatricule";
             this.txtmatricule.PasswordChar = '\0';
             this.txtmatricule.PlaceholderText = "";
@@ -321,7 +297,7 @@ namespace ParcAuto.Forms
             this.txtnom.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtnom.HoverState.Parent = this.txtnom;
             this.txtnom.Location = new System.Drawing.Point(519, 5);
-            this.txtnom.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtnom.Margin = new System.Windows.Forms.Padding(5);
             this.txtnom.Name = "txtnom";
             this.txtnom.PasswordChar = '\0';
             this.txtnom.PlaceholderText = "";
@@ -345,7 +321,7 @@ namespace ParcAuto.Forms
             this.txtprenom.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtprenom.HoverState.Parent = this.txtprenom;
             this.txtprenom.Location = new System.Drawing.Point(145, 46);
-            this.txtprenom.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtprenom.Margin = new System.Windows.Forms.Padding(5);
             this.txtprenom.Name = "txtprenom";
             this.txtprenom.PasswordChar = '\0';
             this.txtprenom.PlaceholderText = "";
@@ -414,6 +390,22 @@ namespace ParcAuto.Forms
             this.label8.TabIndex = 17;
             this.label8.Text = "Ville : ";
             // 
+            // DateNaissance
+            // 
+            this.DateNaissance.BorderRadius = 4;
+            this.DateNaissance.CheckedState.Parent = this.DateNaissance;
+            this.DateNaissance.FillColor = System.Drawing.Color.White;
+            this.DateNaissance.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.DateNaissance.HoverState.Parent = this.DateNaissance;
+            this.DateNaissance.Location = new System.Drawing.Point(517, 44);
+            this.DateNaissance.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.DateNaissance.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.DateNaissance.Name = "DateNaissance";
+            this.DateNaissance.ShadowDecoration.Parent = this.DateNaissance;
+            this.DateNaissance.Size = new System.Drawing.Size(221, 33);
+            this.DateNaissance.TabIndex = 24;
+            this.DateNaissance.Value = new System.DateTime(2022, 7, 6, 13, 23, 5, 144);
+            // 
             // btnAppliquer
             // 
             this.btnAppliquer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -467,21 +459,83 @@ namespace ParcAuto.Forms
             this.lbl.TabIndex = 11;
             this.lbl.Text = "null";
             // 
-            // DateNaissance
+            // cmbVilles
             // 
-            this.DateNaissance.BorderRadius = 4;
-            this.DateNaissance.CheckedState.Parent = this.DateNaissance;
-            this.DateNaissance.FillColor = System.Drawing.Color.White;
-            this.DateNaissance.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.DateNaissance.HoverState.Parent = this.DateNaissance;
-            this.DateNaissance.Location = new System.Drawing.Point(517, 44);
-            this.DateNaissance.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.DateNaissance.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.DateNaissance.Name = "DateNaissance";
-            this.DateNaissance.ShadowDecoration.Parent = this.DateNaissance;
-            this.DateNaissance.Size = new System.Drawing.Size(221, 33);
-            this.DateNaissance.TabIndex = 24;
-            this.DateNaissance.Value = new System.DateTime(2022, 7, 6, 13, 23, 5, 144);
+            this.cmbVilles.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbVilles.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbVilles.FormattingEnabled = true;
+            this.cmbVilles.Items.AddRange(new object[] {
+            "Casablanca",
+            "Fez",
+            "Tangier",
+            "Marrakesh",
+            "Salé",
+            "Meknes",
+            "Rabat",
+            "Oujda",
+            "Kenitra",
+            "Agadir",
+            "Tetouan",
+            "Temara",
+            "Safi",
+            "Mohammedia",
+            "Khouribga",
+            "El Jadida",
+            "Beni Mellal",
+            "Aït Melloul",
+            "Nador",
+            "Dar Bouazza",
+            "Taza",
+            "Settat",
+            "Berrechid",
+            "Khemisset",
+            "Inezgane",
+            "Ksar El Kebir",
+            "Larache",
+            "Guelmim",
+            "Khenifra",
+            "Berkane",
+            "Taourirt",
+            "Bouskoura",
+            "Fquih Ben Salah",
+            "Dcheira El Jihadia",
+            "Oued Zem",
+            "El Kelaa Des Sraghna",
+            "Sidi Slimane",
+            "Errachidia",
+            "Guercif",
+            "Oulad Teima",
+            "Ben Guerir",
+            "Tifelt",
+            "Lqliaa",
+            "Taroudant",
+            "Sefrou",
+            "Essaouira",
+            "Fnideq",
+            "Sidi Kacem",
+            "Tiznit",
+            "Tan-Tan",
+            "Ouarzazate",
+            "Souk El Arbaa",
+            "Youssoufia",
+            "Lahraouyine",
+            "Martil",
+            "Ain Harrouda",
+            "Suq as-Sabt",
+            "Skhirat",
+            "Ouazzane",
+            "Benslimane",
+            "Al Hoceima",
+            "Beni Ansar",
+            "M\'diq",
+            "Sidi Bennour",
+            "Midelt",
+            "Azrou",
+            "Drargua"});
+            this.cmbVilles.Location = new System.Drawing.Point(517, 126);
+            this.cmbVilles.Name = "cmbVilles";
+            this.cmbVilles.Size = new System.Drawing.Size(221, 24);
+            this.cmbVilles.TabIndex = 25;
             // 
             // MAJConducteur
             // 
@@ -523,7 +577,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2TextBox txttel;
         private System.Windows.Forms.Label label9;
-        private Guna.UI2.WinForms.Guna2TextBox txtville;
         private Guna.UI2.WinForms.Guna2TextBox txtadr;
         private Guna.UI2.WinForms.Guna2TextBox txtnumpermis;
         private System.Windows.Forms.Label label5;
@@ -535,5 +588,6 @@ namespace ParcAuto.Forms
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private System.Windows.Forms.Label lbl;
         private Guna.UI2.WinForms.Guna2DateTimePicker DateNaissance;
+        private System.Windows.Forms.ComboBox cmbVilles;
     }
 }
