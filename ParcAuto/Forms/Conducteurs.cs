@@ -175,7 +175,7 @@ namespace ParcAuto.Forms
                         dgvconducteur.Rows.Remove(item);
             }
             else
-                foreach (DataGridViewRow item2 in dgvconducteur.Rows) //Todo: Fix filtrage par date (idriss)
+                foreach (DataGridViewRow item2 in dgvconducteur.Rows)
                     if (!(Convert.ToDateTime(item2.Cells[cmbChoix.SelectedIndex].Value.ToString()) >= Date1.Value && Convert.ToDateTime(item2.Cells[cmbChoix.SelectedIndex].Value.ToString()) <= Date2.Value))
                         dgvconducteur.Rows.Remove(item2);
         }
