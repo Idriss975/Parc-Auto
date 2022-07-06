@@ -88,7 +88,7 @@ namespace ParcAuto.Forms
                 MessageBox.Show("Il faut selectionner sur la table pour la modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 
             }
-            //TODO: catch NullReferenceException 
+            //TODO: catch NullReferenceException (idriss)
             RemplirLaGrille();
         }
 
