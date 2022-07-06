@@ -33,7 +33,7 @@ namespace ParcAuto.Forms
         }
         private void RemplirLaGrille()
         {
-
+            dgvVehicules.Rows.Clear();
             try
             {
                 GLB.Cmd.CommandText = $"select Vehicules.*, Nom, Prenom from Vehicules, Conducteurs where Vehicules.Conducteur = Conducteurs.matricule";
@@ -64,6 +64,7 @@ namespace ParcAuto.Forms
             MajVehicules maj = new MajVehicules();
             Commandes.Command = Choix.ajouter;
             maj.ShowDialog();
+            RemplirLaGrille();
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
@@ -88,7 +89,8 @@ namespace ParcAuto.Forms
                 MessageBox.Show("Il faut selectionner sur la table pour la modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 
             }
-            //TODO: catch NullReferenceException 
+            //TODO: catch NullReferenceException
+            RemplirLaGrille();
         }
 
    
