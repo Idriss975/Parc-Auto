@@ -78,32 +78,53 @@ namespace ParcAuto.Forms
         {
             this.Close();
         }
+        private bool Valider()
+        {
+            if (txtnom.Text == "" ||
+            txtprenom.Text == "" ||
+            txtnumpermis.Text == "" ||
+            txtadr.Text == "" ||
+            txttel.Text == "" ||
+            txtemail.Text == "" ||
+            DateNaissance.Value == DateTime.Now)
+                return false;
+            return true;
+            
+        }
 
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
-            
+
             //Definir la requette SQL
-            switch (Commandes.Command)
+            if (Valider())
             {
-                case Choix.ajouter:
-                    GLB.Cmd.CommandText = $"Insert into Conducteurs values ({txtmatricule.Text}, '{txtnom.Text}', '{txtprenom.Text}', '{DateNaissance.Value.ToShortDateString()}', '{DateEmb.Value.ToShortDateString()}', '{txtnumpermis.Text}', '{txtadr.Text}', '{cmbVilles.SelectedItem}', '{txttel.Text}', '{txtemail.Text}')";
-                    break;
-                case Choix.modifier:
-                    GLB.Cmd.CommandText = $"update Conducteurs set nom='{txtnom.Text}', prenom='{txtprenom.Text}', DateNaiss='{DateNaissance.Value.ToShortDateString()}', DateEmbauche='{DateEmb.Value.ToShortDateString()}', NumPermis='{txtnumpermis.Text}', Adresse='{txtadr.Text}', Ville='{cmbVilles.SelectedItem}', Tel='{txttel.Text}', Email='{txtemail.Text}' where Matricule = {GLB.Matricule}";
-                    RemplirLesChamps();
-                    break;
-                case Choix.supprimer:
-                    //On peut pas ouvrir MajConducteur avec l'option de suppression.
-                    throw new Exception("MajConducteur a été appellé mais avec le Choix supprimer");
-                    
+                switch (Commandes.Command)
+                {
+                    case Choix.ajouter:
+                        GLB.Cmd.CommandText = $"Insert into Conducteurs values ({txtmatricule.Text}, '{txtnom.Text}', '{txtprenom.Text}', '{DateNaissance.Value.ToShortDateString()}', '{DateEmb.Value.ToShortDateString()}', '{txtnumpermis.Text}', '{txtadr.Text}', '{cmbVilles.SelectedItem}', '{txttel.Text}', '{txtemail.Text}')";
+                        break;
+                    case Choix.modifier:
+                        GLB.Cmd.CommandText = $"update Conducteurs set nom='{txtnom.Text}', prenom='{txtprenom.Text}', DateNaiss='{DateNaissance.Value.ToShortDateString()}', DateEmbauche='{DateEmb.Value.ToShortDateString()}', NumPermis='{txtnumpermis.Text}', Adresse='{txtadr.Text}', Ville='{cmbVilles.SelectedItem}', Tel='{txttel.Text}', Email='{txtemail.Text}' where Matricule = {GLB.Matricule}";
+                        RemplirLesChamps();
+                        break;
+                    case Choix.supprimer:
+                        //On peut pas ouvrir MajConducteur avec l'option de suppression.
+                        throw new Exception("MajConducteur a été appellé mais avec le Choix supprimer");
+
+                }
+
+                //Executer le requette
+                GLB.Con.Open();
+                GLB.Cmd.ExecuteNonQuery();
+                GLB.Con.Close();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Tous les Champs sont Obligatoire", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
 
-            //Executer le requette
-            GLB.Con.Open();
-            GLB.Cmd.ExecuteNonQuery();
-            GLB.Con.Close();
-            this.Close();
-            //MessageBox.Show("Le Conducteur à etait bien ajouter","Message",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
 
 

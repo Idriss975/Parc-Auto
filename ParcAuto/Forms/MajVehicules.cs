@@ -91,26 +91,38 @@ namespace ParcAuto.Forms
         {
             this.Close();
         }
-
+        private bool Valider()
+        {
+            if (txtMarque.Text == "" || txtModele.Text == "" || txtCouleur.Text == "" || txtCarburant.Text == "" || txtObservation.Text == "")
+                return false;
+            return true;
+        }
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
-            switch (Commandes.Command)
+            
+            if (Valider())
             {
-                case Choix.ajouter:
-                    GLB.Cmd.CommandText = $"insert into Vehicules values ('{txtMatricule.Text}', '{txtMarque.Text}', '{txtModele.Text}', '{txtCouleur.Text}','{dateMiseEnCirculation.Value.ToShortDateString()}', '{txtCarburant.Text}', '{txtObservation.Text}', {((CmbMatNom)cmbConducteur.SelectedItem).Matricule.ToString()})";
-                    break;
-                case Choix.modifier:
-                    GLB.Cmd.CommandText = $"update Vehicules set matricule ='{txtMatricule.Text}', Marque='{txtMarque.Text}', Modele='{txtModele.Text}', Couleur='{txtCouleur.Text}', MiseEnCirculation='{dateMiseEnCirculation.Value.ToShortDateString()}', Carburant='{txtCarburant.Text}', Observation='{txtObservation.Text}', Conducteur={((CmbMatNom)cmbConducteur.SelectedItem).Matricule.ToString()} where Matricule='{GLB.Matricule_Voiture}'";
-                    break;
-                case Choix.supprimer:
-                    throw new Exception("Impossible de supprimer avec MajVehicules.");
-                    
-            }
+                switch (Commandes.Command)
+                {
+                    case Choix.ajouter:
+                        GLB.Cmd.CommandText = $"insert into Vehicules values ('{txtMatricule.Text}', '{txtMarque.Text}', '{txtModele.Text}', '{txtCouleur.Text}','{dateMiseEnCirculation.Value.ToShortDateString()}', '{txtCarburant.Text}', '{txtObservation.Text}', {((CmbMatNom)cmbConducteur.SelectedItem).Matricule.ToString()})";
+                        break;
+                    case Choix.modifier:
+                        GLB.Cmd.CommandText = $"update Vehicules set matricule ='{txtMatricule.Text}', Marque='{txtMarque.Text}', Modele='{txtModele.Text}', Couleur='{txtCouleur.Text}', MiseEnCirculation='{dateMiseEnCirculation.Value.ToShortDateString()}', Carburant='{txtCarburant.Text}', Observation='{txtObservation.Text}', Conducteur={((CmbMatNom)cmbConducteur.SelectedItem).Matricule.ToString()} where Matricule='{GLB.Matricule_Voiture}'";
+                        break;
+                    case Choix.supprimer:
+                        throw new Exception("Impossible de supprimer avec MajVehicules.");
 
-            GLB.Con.Open();
-            GLB.Cmd.ExecuteNonQuery();
-            GLB.Con.Close();
-            this.Close();
+                }
+                GLB.Con.Open();
+                GLB.Cmd.ExecuteNonQuery();
+                GLB.Con.Close();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Tous les Champs sont Obligatoire", "Message",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
 
         }
 
