@@ -41,7 +41,6 @@ namespace ParcAuto.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.DateNaiss = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtmatricule = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtnom = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtprenom = new Guna.UI2.WinForms.Guna2TextBox();
@@ -53,6 +52,7 @@ namespace ParcAuto.Forms
             this.btnAppliquer = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.lbl = new System.Windows.Forms.Label();
+            this.DateNaissance = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,7 +74,6 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Controls.Add(this.label2, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.DateNaiss, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtmatricule, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtnom, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtprenom, 1, 1);
@@ -83,6 +82,7 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Controls.Add(this.label6, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label8, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.DateNaissance, 3, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(31, 66);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -92,6 +92,7 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(745, 208);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -110,7 +111,7 @@ namespace ParcAuto.Forms
             this.txtemail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtemail.HoverState.Parent = this.txtemail;
             this.txtemail.Location = new System.Drawing.Point(519, 169);
-            this.txtemail.Margin = new System.Windows.Forms.Padding(5);
+            this.txtemail.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtemail.Name = "txtemail";
             this.txtemail.PasswordChar = '\0';
             this.txtemail.PlaceholderText = "";
@@ -145,7 +146,7 @@ namespace ParcAuto.Forms
             this.txttel.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txttel.HoverState.Parent = this.txttel;
             this.txttel.Location = new System.Drawing.Point(145, 169);
-            this.txttel.Margin = new System.Windows.Forms.Padding(5);
+            this.txttel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txttel.Name = "txttel";
             this.txttel.PasswordChar = '\0';
             this.txttel.PlaceholderText = "";
@@ -180,7 +181,7 @@ namespace ParcAuto.Forms
             this.txtville.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtville.HoverState.Parent = this.txtville;
             this.txtville.Location = new System.Drawing.Point(519, 128);
-            this.txtville.Margin = new System.Windows.Forms.Padding(5);
+            this.txtville.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtville.Name = "txtville";
             this.txtville.PasswordChar = '\0';
             this.txtville.PlaceholderText = "";
@@ -204,7 +205,7 @@ namespace ParcAuto.Forms
             this.txtadr.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtadr.HoverState.Parent = this.txtadr;
             this.txtadr.Location = new System.Drawing.Point(145, 128);
-            this.txtadr.Margin = new System.Windows.Forms.Padding(5);
+            this.txtadr.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtadr.Name = "txtadr";
             this.txtadr.PasswordChar = '\0';
             this.txtadr.PlaceholderText = "";
@@ -228,7 +229,7 @@ namespace ParcAuto.Forms
             this.txtnumpermis.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtnumpermis.HoverState.Parent = this.txtnumpermis;
             this.txtnumpermis.Location = new System.Drawing.Point(519, 87);
-            this.txtnumpermis.Margin = new System.Windows.Forms.Padding(5);
+            this.txtnumpermis.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtnumpermis.Name = "txtnumpermis";
             this.txtnumpermis.PasswordChar = '\0';
             this.txtnumpermis.PlaceholderText = "";
@@ -281,23 +282,6 @@ namespace ParcAuto.Forms
             this.label4.TabIndex = 6;
             this.label4.Text = "Date de Naissance :";
             // 
-            // DateNaiss
-            // 
-            this.DateNaiss.BorderRadius = 4;
-            this.DateNaiss.CheckedState.Parent = this.DateNaiss;
-            this.DateNaiss.FillColor = System.Drawing.Color.White;
-            this.DateNaiss.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DateNaiss.HoverState.Parent = this.DateNaiss;
-            this.DateNaiss.Location = new System.Drawing.Point(518, 45);
-            this.DateNaiss.Margin = new System.Windows.Forms.Padding(4);
-            this.DateNaiss.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.DateNaiss.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.DateNaiss.Name = "DateNaiss";
-            this.DateNaiss.ShadowDecoration.Parent = this.DateNaiss;
-            this.DateNaiss.Size = new System.Drawing.Size(223, 33);
-            this.DateNaiss.TabIndex = 3;
-            this.DateNaiss.Value = new System.DateTime(2022, 7, 5, 13, 32, 27, 563);
-            // 
             // txtmatricule
             // 
             this.txtmatricule.BorderRadius = 4;
@@ -313,7 +297,7 @@ namespace ParcAuto.Forms
             this.txtmatricule.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtmatricule.HoverState.Parent = this.txtmatricule;
             this.txtmatricule.Location = new System.Drawing.Point(145, 5);
-            this.txtmatricule.Margin = new System.Windows.Forms.Padding(5);
+            this.txtmatricule.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtmatricule.Name = "txtmatricule";
             this.txtmatricule.PasswordChar = '\0';
             this.txtmatricule.PlaceholderText = "";
@@ -337,7 +321,7 @@ namespace ParcAuto.Forms
             this.txtnom.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtnom.HoverState.Parent = this.txtnom;
             this.txtnom.Location = new System.Drawing.Point(519, 5);
-            this.txtnom.Margin = new System.Windows.Forms.Padding(5);
+            this.txtnom.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtnom.Name = "txtnom";
             this.txtnom.PasswordChar = '\0';
             this.txtnom.PlaceholderText = "";
@@ -361,7 +345,7 @@ namespace ParcAuto.Forms
             this.txtprenom.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtprenom.HoverState.Parent = this.txtprenom;
             this.txtprenom.Location = new System.Drawing.Point(145, 46);
-            this.txtprenom.Margin = new System.Windows.Forms.Padding(5);
+            this.txtprenom.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtprenom.Name = "txtprenom";
             this.txtprenom.PasswordChar = '\0';
             this.txtprenom.PlaceholderText = "";
@@ -483,6 +467,22 @@ namespace ParcAuto.Forms
             this.lbl.TabIndex = 11;
             this.lbl.Text = "null";
             // 
+            // DateNaissance
+            // 
+            this.DateNaissance.BorderRadius = 4;
+            this.DateNaissance.CheckedState.Parent = this.DateNaissance;
+            this.DateNaissance.FillColor = System.Drawing.Color.White;
+            this.DateNaissance.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.DateNaissance.HoverState.Parent = this.DateNaissance;
+            this.DateNaissance.Location = new System.Drawing.Point(517, 44);
+            this.DateNaissance.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.DateNaissance.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.DateNaissance.Name = "DateNaissance";
+            this.DateNaissance.ShadowDecoration.Parent = this.DateNaissance;
+            this.DateNaissance.Size = new System.Drawing.Size(221, 33);
+            this.DateNaissance.TabIndex = 24;
+            this.DateNaissance.Value = new System.DateTime(2022, 7, 6, 13, 23, 5, 144);
+            // 
             // MAJConducteur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -516,7 +516,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private Guna.UI2.WinForms.Guna2DateTimePicker DateNaiss;
         private Guna.UI2.WinForms.Guna2TextBox txtmatricule;
         private Guna.UI2.WinForms.Guna2TextBox txtnom;
         private Guna.UI2.WinForms.Guna2TextBox txtprenom;
@@ -535,5 +534,6 @@ namespace ParcAuto.Forms
         private Guna.UI2.WinForms.Guna2Button btnAppliquer;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private System.Windows.Forms.Label lbl;
+        private Guna.UI2.WinForms.Guna2DateTimePicker DateNaissance;
     }
 }
