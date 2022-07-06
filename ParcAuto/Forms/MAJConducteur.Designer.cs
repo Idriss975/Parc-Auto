@@ -29,6 +29,7 @@ namespace ParcAuto.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MAJConducteur));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtemail = new Guna.UI2.WinForms.Guna2TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -53,6 +54,7 @@ namespace ParcAuto.Forms
             this.btnAppliquer = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.lbl = new System.Windows.Forms.Label();
+            this.btnClear = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -537,12 +539,35 @@ namespace ParcAuto.Forms
             this.lbl.TabIndex = 11;
             this.lbl.Text = "null";
             // 
+            // btnClear
+            // 
+            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnClear.BorderRadius = 4;
+            this.btnClear.CheckedState.Parent = this.btnClear;
+            this.btnClear.CustomImages.Parent = this.btnClear;
+            this.btnClear.FillColor = System.Drawing.Color.OrangeRed;
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.HoverState.Parent = this.btnClear;
+            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
+            this.btnClear.ImageSize = new System.Drawing.Size(35, 35);
+            this.btnClear.Location = new System.Drawing.Point(726, 7);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(5);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.ShadowDecoration.Parent = this.btnClear;
+            this.btnClear.Size = new System.Drawing.Size(50, 50);
+            this.btnClear.TabIndex = 16;
+            this.btnClear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // MAJConducteur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(789, 335);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.lbl);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.btnAppliquer);
@@ -589,5 +614,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label lbl;
         private Guna.UI2.WinForms.Guna2DateTimePicker DateNaissance;
         private System.Windows.Forms.ComboBox cmbVilles;
+        private Guna.UI2.WinForms.Guna2Button btnClear;
     }
 }

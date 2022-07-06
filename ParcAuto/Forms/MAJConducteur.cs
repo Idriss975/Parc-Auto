@@ -32,6 +32,20 @@ namespace ParcAuto.Forms
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
         }
         string Nom, Prenom, NumPermis, Adresse, Ville, Tel, Email;
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtnom.Clear();
+            txtprenom.Clear();
+            txtnumpermis.Clear();
+            txtadr.Clear();
+            cmbVilles.SelectedIndex = 0;
+            txttel.Clear();
+            txtemail.Clear();
+            DateNaissance.Value = DateTime.Now;
+            DateEmb.Value = DateTime.Now;
+        }
+
         DateTime DateNaiss, DateEmbauche;
         public MAJConducteur(string Nom, string Prenom, DateTime DateNaiss, DateTime DateEmbauche, string NumPermis, string Adresse, string Ville, string Tel, string Email)
         {

@@ -52,6 +52,18 @@ namespace ParcAuto.Forms
 
 
         }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtMarque.Clear();
+            txtModele.Clear();
+            txtCouleur.Clear();
+            dateMiseEnCirculation.Value = DateTime.Now;
+            txtCarburant.Clear();
+            txtObservation.Clear();
+            cmbConducteur.SelectedIndex = 0;
+        }
+
         public void RemplirLesChamps()
         {
             txtMatricule.Text = GLB.Matricule_Voiture;
