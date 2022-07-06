@@ -45,8 +45,10 @@ namespace ParcAuto.Forms
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnQuitter = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.cmbChoix = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.txtValueToFiltre = new Guna.UI2.WinForms.Guna2TextBox();
+            this.Date1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.Date2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvconducteur)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +62,7 @@ namespace ParcAuto.Forms
             this.btnAjouter.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAjouter.ForeColor = System.Drawing.Color.White;
             this.btnAjouter.HoverState.Parent = this.btnAjouter;
-            this.btnAjouter.Location = new System.Drawing.Point(452, 556);
+            this.btnAjouter.Location = new System.Drawing.Point(452, 660);
             this.btnAjouter.Margin = new System.Windows.Forms.Padding(5);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.ShadowDecoration.Parent = this.btnAjouter;
@@ -80,7 +82,7 @@ namespace ParcAuto.Forms
             this.btnModifier.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnModifier.ForeColor = System.Drawing.Color.White;
             this.btnModifier.HoverState.Parent = this.btnModifier;
-            this.btnModifier.Location = new System.Drawing.Point(590, 556);
+            this.btnModifier.Location = new System.Drawing.Point(590, 660);
             this.btnModifier.Margin = new System.Windows.Forms.Padding(5);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.ShadowDecoration.Parent = this.btnModifier;
@@ -100,7 +102,7 @@ namespace ParcAuto.Forms
             this.btnSupprimer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnSupprimer.ForeColor = System.Drawing.Color.White;
             this.btnSupprimer.HoverState.Parent = this.btnSupprimer;
-            this.btnSupprimer.Location = new System.Drawing.Point(728, 556);
+            this.btnSupprimer.Location = new System.Drawing.Point(728, 660);
             this.btnSupprimer.Margin = new System.Windows.Forms.Padding(5);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.ShadowDecoration.Parent = this.btnSupprimer;
@@ -128,13 +130,13 @@ namespace ParcAuto.Forms
             this.Column8,
             this.Column9,
             this.Column10});
-            this.dgvconducteur.Location = new System.Drawing.Point(10, 54);
+            this.dgvconducteur.Location = new System.Drawing.Point(10, 108);
             this.dgvconducteur.Margin = new System.Windows.Forms.Padding(5);
             this.dgvconducteur.Name = "dgvconducteur";
             this.dgvconducteur.ReadOnly = true;
             this.dgvconducteur.RowHeadersWidth = 62;
             this.dgvconducteur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvconducteur.Size = new System.Drawing.Size(808, 472);
+            this.dgvconducteur.Size = new System.Drawing.Size(808, 542);
             this.dgvconducteur.TabIndex = 6;
             // 
             // Column1
@@ -142,6 +144,7 @@ namespace ParcAuto.Forms
             this.Column1.HeaderText = "Matricule";
             this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Width = 150;
             // 
             // Column2
@@ -149,6 +152,7 @@ namespace ParcAuto.Forms
             this.Column2.HeaderText = "Nom";
             this.Column2.MinimumWidth = 8;
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             this.Column2.Width = 150;
             // 
             // Column3
@@ -156,6 +160,7 @@ namespace ParcAuto.Forms
             this.Column3.HeaderText = "Prenom";
             this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             this.Column3.Width = 150;
             // 
             // Column4
@@ -163,6 +168,7 @@ namespace ParcAuto.Forms
             this.Column4.HeaderText = "Date de naissance";
             this.Column4.MinimumWidth = 8;
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             this.Column4.Width = 150;
             // 
             // Column5
@@ -170,6 +176,7 @@ namespace ParcAuto.Forms
             this.Column5.HeaderText = "Date d\'embauch";
             this.Column5.MinimumWidth = 8;
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             this.Column5.Width = 150;
             // 
             // Column6
@@ -177,6 +184,7 @@ namespace ParcAuto.Forms
             this.Column6.HeaderText = "Numero de permis";
             this.Column6.MinimumWidth = 8;
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             this.Column6.Width = 150;
             // 
             // Column7
@@ -184,6 +192,7 @@ namespace ParcAuto.Forms
             this.Column7.HeaderText = "Adresse";
             this.Column7.MinimumWidth = 8;
             this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             this.Column7.Width = 150;
             // 
             // Column8
@@ -191,6 +200,7 @@ namespace ParcAuto.Forms
             this.Column8.HeaderText = "Ville";
             this.Column8.MinimumWidth = 8;
             this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             this.Column8.Width = 150;
             // 
             // Column9
@@ -198,6 +208,7 @@ namespace ParcAuto.Forms
             this.Column9.HeaderText = "Telephone";
             this.Column9.MinimumWidth = 8;
             this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
             this.Column9.Width = 150;
             // 
             // Column10
@@ -205,6 +216,7 @@ namespace ParcAuto.Forms
             this.Column10.HeaderText = "Email";
             this.Column10.MinimumWidth = 8;
             this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
             this.Column10.Width = 150;
             // 
             // btnQuitter
@@ -229,49 +241,107 @@ namespace ParcAuto.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(120, 14);
+            this.label1.Location = new System.Drawing.Point(9, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 17);
             this.label1.TabIndex = 10;
             this.label1.Text = "Filter Par :";
             // 
-            // guna2ComboBox1
+            // cmbChoix
             // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.Empty;
-            this.guna2ComboBox1.FocusedState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.FormattingEnabled = true;
-            this.guna2ComboBox1.HoverState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.ItemsAppearance.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(199, 8);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.ShadowDecoration.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Size = new System.Drawing.Size(176, 36);
-            this.guna2ComboBox1.TabIndex = 11;
+            this.cmbChoix.BackColor = System.Drawing.Color.Transparent;
+            this.cmbChoix.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbChoix.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbChoix.FocusedColor = System.Drawing.Color.Empty;
+            this.cmbChoix.FocusedState.Parent = this.cmbChoix;
+            this.cmbChoix.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbChoix.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbChoix.FormattingEnabled = true;
+            this.cmbChoix.HoverState.Parent = this.cmbChoix;
+            this.cmbChoix.ItemHeight = 30;
+            this.cmbChoix.Items.AddRange(new object[] {
+            "Matricule",
+            "Nom",
+            "Prenom",
+            "Date de Naissance",
+            "Date d\'embauche",
+            "NumPermis",
+            "Adresse",
+            "Ville",
+            "Telephone",
+            "Email"});
+            this.cmbChoix.ItemsAppearance.Parent = this.cmbChoix;
+            this.cmbChoix.Location = new System.Drawing.Point(88, 8);
+            this.cmbChoix.Name = "cmbChoix";
+            this.cmbChoix.ShadowDecoration.Parent = this.cmbChoix;
+            this.cmbChoix.Size = new System.Drawing.Size(176, 36);
+            this.cmbChoix.TabIndex = 11;
+            this.cmbChoix.SelectedIndexChanged += new System.EventHandler(this.cmbChoix_SelectedIndexChanged);
             // 
-            // label2
+            // txtValueToFiltre
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(7, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 16);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Conducteurs";
+            this.txtValueToFiltre.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtValueToFiltre.DefaultText = "";
+            this.txtValueToFiltre.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtValueToFiltre.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtValueToFiltre.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtValueToFiltre.DisabledState.Parent = this.txtValueToFiltre;
+            this.txtValueToFiltre.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtValueToFiltre.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtValueToFiltre.FocusedState.Parent = this.txtValueToFiltre;
+            this.txtValueToFiltre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtValueToFiltre.HoverState.Parent = this.txtValueToFiltre;
+            this.txtValueToFiltre.Location = new System.Drawing.Point(78, 51);
+            this.txtValueToFiltre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtValueToFiltre.Name = "txtValueToFiltre";
+            this.txtValueToFiltre.PasswordChar = '\0';
+            this.txtValueToFiltre.PlaceholderText = "";
+            this.txtValueToFiltre.SelectedText = "";
+            this.txtValueToFiltre.ShadowDecoration.Parent = this.txtValueToFiltre;
+            this.txtValueToFiltre.Size = new System.Drawing.Size(200, 36);
+            this.txtValueToFiltre.TabIndex = 12;
+            // 
+            // Date1
+            // 
+            this.Date1.CheckedState.Parent = this.Date1;
+            this.Date1.FillColor = System.Drawing.Color.White;
+            this.Date1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.Date1.HoverState.Parent = this.Date1;
+            this.Date1.Location = new System.Drawing.Point(311, 8);
+            this.Date1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.Date1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.Date1.Name = "Date1";
+            this.Date1.ShadowDecoration.Parent = this.Date1;
+            this.Date1.Size = new System.Drawing.Size(200, 36);
+            this.Date1.TabIndex = 13;
+            this.Date1.Value = new System.DateTime(2022, 7, 6, 14, 42, 15, 85);
+            // 
+            // Date2
+            // 
+            this.Date2.CheckedState.Parent = this.Date2;
+            this.Date2.FillColor = System.Drawing.Color.White;
+            this.Date2.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.Date2.HoverState.Parent = this.Date2;
+            this.Date2.Location = new System.Drawing.Point(526, 8);
+            this.Date2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.Date2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.Date2.Name = "Date2";
+            this.Date2.ShadowDecoration.Parent = this.Date2;
+            this.Date2.Size = new System.Drawing.Size(200, 36);
+            this.Date2.TabIndex = 14;
+            this.Date2.Value = new System.DateTime(2022, 7, 6, 14, 45, 58, 151);
             // 
             // Conducteurs
             // 
             this.AcceptButton = this.btnAjouter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 600);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.guna2ComboBox1);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(832, 704);
+            this.Controls.Add(this.Date2);
+            this.Controls.Add(this.Date1);
+            this.Controls.Add(this.txtValueToFiltre);
+            this.Controls.Add(this.cmbChoix);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.btnModifier);
@@ -307,7 +377,9 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
-        private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbChoix;
+        private Guna.UI2.WinForms.Guna2TextBox txtValueToFiltre;
+        private Guna.UI2.WinForms.Guna2DateTimePicker Date1;
+        private Guna.UI2.WinForms.Guna2DateTimePicker Date2;
     }
 }

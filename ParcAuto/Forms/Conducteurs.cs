@@ -129,5 +129,21 @@ namespace ParcAuto.Forms
             }
             
         }
+
+        private void cmbChoix_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cmbChoix.SelectedIndex == 0)
+            {
+                Date1.Visible = false;
+                Date2.Visible = false;
+                txtValueToFiltre.Visible = true;
+            }
+            if(cmbChoix.SelectedIndex == 3)
+            {
+                Date1.Visible = true;
+                Date2.Visible = true;
+                txtValueToFiltre.Visible = false;
+            }
+        }
     }
 }
