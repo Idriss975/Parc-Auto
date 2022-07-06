@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ParcAuto.Classes_Globale;
+using System.Text.RegularExpressions; // import Regex()
 
 namespace ParcAuto.Forms
 {
@@ -47,9 +48,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                {
                     dgvconducteur.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr[4], GLB.dr[5], GLB.dr[6], GLB.dr[7], GLB.dr[8], GLB.dr[9]);
-                }
                 GLB.dr.Close();
             }
             catch (Exception ex)
@@ -74,13 +73,11 @@ namespace ParcAuto.Forms
             TextPanel.Visible = false;
             StyleDataGridView();
             RemplirLaGrille();
-
-
+            cmbChoix.SelectedIndex = 0;
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            
             try
             {
                 GLB.Matricule = (int)dgvconducteur.CurrentRow.Cells[0].Value;
@@ -103,8 +100,6 @@ namespace ParcAuto.Forms
                 MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             //TODO: catch NullReferenceException (idriss)
-
-
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
@@ -129,7 +124,6 @@ namespace ParcAuto.Forms
                 GLB.Con.Close();
                 RemplirLaGrille();
             }
-            
         }
 
         private void cmbChoix_SelectedIndexChanged(object sender, EventArgs e)
@@ -169,6 +163,21 @@ namespace ParcAuto.Forms
         private void Date1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnFiltrer_Click(object sender, EventArgs e)
+        {
+            //Tester code
+            if (!(cmbChoix.SelectedIndex == 3 || cmbChoix.SelectedIndex == 4))
+            {
+                foreach (DataGridViewRow item in dgvconducteur.Rows)
+                    if (!new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(item.Cells[cmbChoix.SelectedIndex].Value.ToString().ToLower()))
+                        dgvconducteur.Rows.Remove(item);
+            }
+            else
+                foreach (DataGridViewRow item2 in dgvconducteur.Rows) //Todo: Fix filtrage par date (idriss)
+                    if (!(Convert.ToDateTime(item2.Cells[cmbChoix.SelectedIndex].Value.ToString()) >= Date1.Value && Convert.ToDateTime(item2.Cells[cmbChoix.SelectedIndex].Value.ToString()) <= Date2.Value))
+                        dgvconducteur.Rows.Remove(item2);
         }
     }
 }
