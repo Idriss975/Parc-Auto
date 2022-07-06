@@ -89,6 +89,7 @@ namespace ParcAuto.Forms
                 
             }
             //TODO: catch NullReferenceException 
+            RemplirLaGrille();
         }
 
 
