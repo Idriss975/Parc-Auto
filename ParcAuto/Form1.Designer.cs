@@ -207,14 +207,14 @@ namespace ParcAuto
             this.FormsPlace.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FormsPlace.Location = new System.Drawing.Point(200, 0);
             this.FormsPlace.Name = "FormsPlace";
-            this.FormsPlace.Size = new System.Drawing.Size(848, 639);
+            this.FormsPlace.Size = new System.Drawing.Size(1127, 639);
             this.FormsPlace.TabIndex = 1;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(236, 166);
+            this.pictureBox2.Location = new System.Drawing.Point(375, 166);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(300, 300);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -225,14 +225,15 @@ namespace ParcAuto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1048, 639);
+            this.ClientSize = new System.Drawing.Size(1327, 639);
             this.Controls.Add(this.FormsPlace);
             this.Controls.Add(this.panelSideMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(950, 600);
+            this.MinimumSize = new System.Drawing.Size(1343, 678);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Parc Auto-mobile";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelSideMenu.ResumeLayout(false);

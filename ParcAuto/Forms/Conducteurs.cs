@@ -70,6 +70,8 @@ namespace ParcAuto.Forms
 
         private void Conducteurs_Load(object sender, EventArgs e)
         {
+            panelDate.Visible = false;
+            TextPanel.Visible = false;
             StyleDataGridView();
             RemplirLaGrille();
 
@@ -135,17 +137,37 @@ namespace ParcAuto.Forms
             if(cmbChoix.SelectedIndex == 0 || cmbChoix.SelectedIndex == 1 || cmbChoix.SelectedIndex == 2 || cmbChoix.SelectedIndex == 5
                 || cmbChoix.SelectedIndex == 6 || cmbChoix.SelectedIndex == 7 || cmbChoix.SelectedIndex == 8 || cmbChoix.SelectedIndex == 9)
             {
-                Date1.Visible = false;
-                Date2.Visible = false;
-                txtValueToFiltre.Visible = true;
+                TextPanel.Visible = true;
+                panelDate.Visible = false;
+                TextPanel.Location = new Point(287, 12);
+                btnFiltrer.Location = new Point(635, 18);
             }
             else if (cmbChoix.SelectedIndex == 3 || cmbChoix.SelectedIndex == 4)
             {
-                Date1.Visible = true;
-                Date2.Visible = true;
-                txtValueToFiltre.Visible = false;
+                TextPanel.Visible = false;
+                panelDate.Visible = true;
+                panelDate.Location = new Point(287, 3);
+                btnFiltrer.Location = new Point(858, 14);
             }
-            
+        }
+
+        private void txtValueToFiltre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtValueToFiltre_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Date1_ValueChanged(object sender, EventArgs e)
+        {
 
         }
     }

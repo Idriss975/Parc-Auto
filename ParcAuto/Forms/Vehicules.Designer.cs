@@ -55,7 +55,7 @@ namespace ParcAuto.Forms
             this.btnQuitter.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnQuitter.ForeColor = System.Drawing.Color.White;
             this.btnQuitter.HoverState.Parent = this.btnQuitter;
-            this.btnQuitter.Location = new System.Drawing.Point(781, 13);
+            this.btnQuitter.Location = new System.Drawing.Point(1060, 13);
             this.btnQuitter.Margin = new System.Windows.Forms.Padding(4);
             this.btnQuitter.Name = "btnQuitter";
             this.btnQuitter.ShadowDecoration.Parent = this.btnQuitter;
@@ -88,7 +88,7 @@ namespace ParcAuto.Forms
             this.dgvVehicules.ReadOnly = true;
             this.dgvVehicules.RowHeadersWidth = 62;
             this.dgvVehicules.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVehicules.Size = new System.Drawing.Size(799, 467);
+            this.dgvVehicules.Size = new System.Drawing.Size(1078, 467);
             this.dgvVehicules.TabIndex = 1;
             // 
             // Column1
@@ -149,7 +149,7 @@ namespace ParcAuto.Forms
             this.btnSupprimer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnSupprimer.ForeColor = System.Drawing.Color.White;
             this.btnSupprimer.HoverState.Parent = this.btnSupprimer;
-            this.btnSupprimer.Location = new System.Drawing.Point(721, 538);
+            this.btnSupprimer.Location = new System.Drawing.Point(1000, 538);
             this.btnSupprimer.Margin = new System.Windows.Forms.Padding(4);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.ShadowDecoration.Parent = this.btnSupprimer;
@@ -169,7 +169,7 @@ namespace ParcAuto.Forms
             this.btnModifier.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnModifier.ForeColor = System.Drawing.Color.White;
             this.btnModifier.HoverState.Parent = this.btnModifier;
-            this.btnModifier.Location = new System.Drawing.Point(587, 538);
+            this.btnModifier.Location = new System.Drawing.Point(866, 538);
             this.btnModifier.Margin = new System.Windows.Forms.Padding(4);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.ShadowDecoration.Parent = this.btnModifier;
@@ -189,7 +189,7 @@ namespace ParcAuto.Forms
             this.btnAjouter.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAjouter.ForeColor = System.Drawing.Color.White;
             this.btnAjouter.HoverState.Parent = this.btnAjouter;
-            this.btnAjouter.Location = new System.Drawing.Point(453, 538);
+            this.btnAjouter.Location = new System.Drawing.Point(732, 538);
             this.btnAjouter.Margin = new System.Windows.Forms.Padding(4);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.ShadowDecoration.Parent = this.btnAjouter;
@@ -206,7 +206,7 @@ namespace ParcAuto.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(832, 600);
+            this.ClientSize = new System.Drawing.Size(1111, 600);
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.btnSupprimer);
