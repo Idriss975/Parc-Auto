@@ -167,7 +167,6 @@ namespace ParcAuto.Forms
 
         private void btnFiltrer_Click(object sender, EventArgs e)
         {
-            //Tester code
             if (!(cmbChoix.SelectedIndex == 3 || cmbChoix.SelectedIndex == 4))
             {
                 foreach (DataGridViewRow item in dgvconducteur.Rows)
