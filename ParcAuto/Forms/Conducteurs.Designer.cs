@@ -44,6 +44,9 @@ namespace ParcAuto.Forms
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnQuitter = new Guna.UI2.WinForms.Guna2Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvconducteur)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,6 +131,7 @@ namespace ParcAuto.Forms
             this.dgvconducteur.Location = new System.Drawing.Point(10, 54);
             this.dgvconducteur.Margin = new System.Windows.Forms.Padding(5);
             this.dgvconducteur.Name = "dgvconducteur";
+            this.dgvconducteur.ReadOnly = true;
             this.dgvconducteur.RowHeadersWidth = 62;
             this.dgvconducteur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvconducteur.Size = new System.Drawing.Size(808, 472);
@@ -222,12 +226,53 @@ namespace ParcAuto.Forms
             this.btnQuitter.Text = "X";
             this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(120, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 17);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Filter Par :";
+            // 
+            // guna2ComboBox1
+            // 
+            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.Empty;
+            this.guna2ComboBox1.FocusedState.Parent = this.guna2ComboBox1;
+            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.guna2ComboBox1.FormattingEnabled = true;
+            this.guna2ComboBox1.HoverState.Parent = this.guna2ComboBox1;
+            this.guna2ComboBox1.ItemHeight = 30;
+            this.guna2ComboBox1.ItemsAppearance.Parent = this.guna2ComboBox1;
+            this.guna2ComboBox1.Location = new System.Drawing.Point(199, 8);
+            this.guna2ComboBox1.Name = "guna2ComboBox1";
+            this.guna2ComboBox1.ShadowDecoration.Parent = this.guna2ComboBox1;
+            this.guna2ComboBox1.Size = new System.Drawing.Size(176, 36);
+            this.guna2ComboBox1.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(7, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 16);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Conducteurs";
+            // 
             // Conducteurs
             // 
             this.AcceptButton = this.btnAjouter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(832, 600);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.guna2ComboBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.btnSupprimer);
@@ -240,6 +285,7 @@ namespace ParcAuto.Forms
             this.Load += new System.EventHandler(this.Conducteurs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvconducteur)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -260,5 +306,8 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private System.Windows.Forms.Label label2;
     }
 }
