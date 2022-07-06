@@ -78,18 +78,29 @@ namespace ParcAuto.Forms
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            MAJConducteur maj = new MAJConducteur();
-            Commandes.Command = Choix.modifier;
+            
             try
             {
-                GLB.Matricule = (int)dgvconducteur.SelectedRows[0].Cells[0].Value;
+                GLB.Matricule = (int)dgvconducteur.CurrentRow.Cells[0].Value;
+                string Nom = dgvconducteur.CurrentRow.Cells[1].Value.ToString() ;
+                string Prenoms = dgvconducteur.CurrentRow.Cells[1].Value.ToString();
+                //TODO :A Accomplir (Amine)
+                string Nom = dgvconducteur.CurrentRow.Cells[1].Value.ToString();
+                string Nom = dgvconducteur.CurrentRow.Cells[1].Value.ToString();
+                string Nom = dgvconducteur.CurrentRow.Cells[1].Value.ToString();
+                string Nom = dgvconducteur.CurrentRow.Cells[1].Value.ToString();
+                string Nom = dgvconducteur.CurrentRow.Cells[1].Value.ToString();
+                string Nom = dgvconducteur.CurrentRow.Cells[1].Value.ToString();
+                string Nom = dgvconducteur.CurrentRow.Cells[1].Value.ToString();    
+                MAJConducteur maj = new MAJConducteur();
+                Commandes.Command = Choix.modifier;
                 maj.ShowDialog();
             }
             catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //TODO: catch NullReferenceException 
+            //TODO: catch NullReferenceException (idriss)
 
 
         }
@@ -106,7 +117,7 @@ namespace ParcAuto.Forms
             {
                 MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //TODO: catch NullReferenceException 
+            //TODO: catch NullReferenceException (idriss)
 
             DialogResult res = MessageBox.Show("Voulez Vous Vraiment Suprimmer Ce Conducteur ?","Confirmation",MessageBoxButtons.YesNo,MessageBoxIcon.Question,MessageBoxDefaultButton.Button1);
             if (res == DialogResult.Yes)

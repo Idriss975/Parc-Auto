@@ -88,10 +88,10 @@ namespace ParcAuto.Forms
                 MessageBox.Show("Il faut selectionner sur la table pour la modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 
             }
-            //TODO: catch NullReferenceException 
+            //TODO: catch NullReferenceException (idriss)
         }
 
-   
+
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
@@ -104,7 +104,7 @@ namespace ParcAuto.Forms
             {
                 MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //TODO: catch NullReferenceException 
+            //TODO: catch NullReferenceException (idriss)
 
             DialogResult res = MessageBox.Show("Voulez Vous Vraiment Suprimmer Cette Vehicule ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
             if (res == DialogResult.Yes)
