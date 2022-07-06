@@ -130,13 +130,13 @@ namespace ParcAuto.Forms
             this.Column8,
             this.Column9,
             this.Column10});
-            this.dgvconducteur.Location = new System.Drawing.Point(10, 108);
+            this.dgvconducteur.Location = new System.Drawing.Point(10, 57);
             this.dgvconducteur.Margin = new System.Windows.Forms.Padding(5);
             this.dgvconducteur.Name = "dgvconducteur";
             this.dgvconducteur.ReadOnly = true;
             this.dgvconducteur.RowHeadersWidth = 62;
             this.dgvconducteur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvconducteur.Size = new System.Drawing.Size(808, 542);
+            this.dgvconducteur.Size = new System.Drawing.Size(808, 593);
             this.dgvconducteur.TabIndex = 6;
             // 
             // Column1
@@ -241,7 +241,7 @@ namespace ParcAuto.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 14);
+            this.label1.Location = new System.Drawing.Point(7, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 17);
             this.label1.TabIndex = 10;
@@ -271,7 +271,7 @@ namespace ParcAuto.Forms
             "Telephone",
             "Email"});
             this.cmbChoix.ItemsAppearance.Parent = this.cmbChoix;
-            this.cmbChoix.Location = new System.Drawing.Point(88, 8);
+            this.cmbChoix.Location = new System.Drawing.Point(94, 12);
             this.cmbChoix.Name = "cmbChoix";
             this.cmbChoix.ShadowDecoration.Parent = this.cmbChoix;
             this.cmbChoix.Size = new System.Drawing.Size(176, 36);
@@ -291,14 +291,14 @@ namespace ParcAuto.Forms
             this.txtValueToFiltre.FocusedState.Parent = this.txtValueToFiltre;
             this.txtValueToFiltre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtValueToFiltre.HoverState.Parent = this.txtValueToFiltre;
-            this.txtValueToFiltre.Location = new System.Drawing.Point(78, 51);
+            this.txtValueToFiltre.Location = new System.Drawing.Point(277, 12);
             this.txtValueToFiltre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtValueToFiltre.Name = "txtValueToFiltre";
             this.txtValueToFiltre.PasswordChar = '\0';
             this.txtValueToFiltre.PlaceholderText = "";
             this.txtValueToFiltre.SelectedText = "";
             this.txtValueToFiltre.ShadowDecoration.Parent = this.txtValueToFiltre;
-            this.txtValueToFiltre.Size = new System.Drawing.Size(200, 36);
+            this.txtValueToFiltre.Size = new System.Drawing.Size(214, 36);
             this.txtValueToFiltre.TabIndex = 12;
             // 
             // Date1
@@ -307,7 +307,7 @@ namespace ParcAuto.Forms
             this.Date1.FillColor = System.Drawing.Color.White;
             this.Date1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.Date1.HoverState.Parent = this.Date1;
-            this.Date1.Location = new System.Drawing.Point(311, 8);
+            this.Date1.Location = new System.Drawing.Point(277, 12);
             this.Date1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.Date1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.Date1.Name = "Date1";
@@ -322,7 +322,7 @@ namespace ParcAuto.Forms
             this.Date2.FillColor = System.Drawing.Color.White;
             this.Date2.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.Date2.HoverState.Parent = this.Date2;
-            this.Date2.Location = new System.Drawing.Point(526, 8);
+            this.Date2.Location = new System.Drawing.Point(511, 12);
             this.Date2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.Date2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.Date2.Name = "Date2";

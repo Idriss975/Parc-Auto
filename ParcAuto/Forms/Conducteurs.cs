@@ -132,18 +132,21 @@ namespace ParcAuto.Forms
 
         private void cmbChoix_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cmbChoix.SelectedIndex == 0)
+            if(cmbChoix.SelectedIndex == 0 || cmbChoix.SelectedIndex == 1 || cmbChoix.SelectedIndex == 2 || cmbChoix.SelectedIndex == 5
+                || cmbChoix.SelectedIndex == 6 || cmbChoix.SelectedIndex == 7 || cmbChoix.SelectedIndex == 8 || cmbChoix.SelectedIndex == 9)
             {
                 Date1.Visible = false;
                 Date2.Visible = false;
                 txtValueToFiltre.Visible = true;
             }
-            if(cmbChoix.SelectedIndex == 3)
+            else if (cmbChoix.SelectedIndex == 3 || cmbChoix.SelectedIndex == 4)
             {
                 Date1.Visible = true;
                 Date2.Visible = true;
                 txtValueToFiltre.Visible = false;
             }
+            
+
         }
     }
 }
