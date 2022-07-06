@@ -64,6 +64,7 @@ namespace ParcAuto.Forms
             MajVehicules maj = new MajVehicules();
             Commandes.Command = Choix.ajouter;
             maj.ShowDialog();
+            RemplirLaGrille();
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
@@ -82,6 +83,7 @@ namespace ParcAuto.Forms
                 MajVehicules maj = new MajVehicules(Marque, Modele, Couleur, MiseEncirculation , Carburant, Observation,Conducteur) ;
                 Commandes.Command = Choix.modifier;
                 maj.ShowDialog();
+                RemplirLaGrille();
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -112,7 +114,6 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.Cmd.ExecuteNonQuery();
                 GLB.Con.Close();
-                dgvVehicules.Rows.Clear();
                 RemplirLaGrille();
             }
         }
