@@ -382,11 +382,7 @@ namespace ParcAuto.Forms
             this.cmbConducteur.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbConducteur.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbConducteur.FormattingEnabled = true;
-            this.cmbConducteur.Items.AddRange(new object[] {
-            "oooo",
-            "oppp",
-            "poooo"});
-            this.cmbConducteur.Location = new System.Drawing.Point(538, 169);
+            this.cmbConducteur.Location = new System.Drawing.Point(538, 168);
             this.cmbConducteur.Name = "cmbConducteur";
             this.cmbConducteur.Size = new System.Drawing.Size(216, 24);
             this.cmbConducteur.TabIndex = 7;
@@ -396,11 +392,11 @@ namespace ParcAuto.Forms
             this.lbl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl.AutoSize = true;
             this.lbl.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl.Location = new System.Drawing.Point(186, 9);
+            this.lbl.Location = new System.Drawing.Point(30, 9);
             this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(452, 36);
+            this.lbl.Size = new System.Drawing.Size(67, 36);
             this.lbl.TabIndex = 10;
-            this.lbl.Text = "La modification d\'une Vehicules";
+            this.lbl.Text = "null";
             // 
             // MajVehicules
             // 

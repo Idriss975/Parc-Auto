@@ -31,15 +31,34 @@ namespace ParcAuto.Forms
             dgvVehicules.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(115, 139, 215);
             dgvVehicules.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
         }
+        private void RemplirLaGrille()
+        {
+
+            try
+            {
+                GLB.Cmd.CommandText = $"select * from Vehicules";
+                GLB.Con.Open();
+                GLB.dr = GLB.Cmd.ExecuteReader();
+                while (GLB.dr.Read())
+                {
+                    dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr[4], GLB.dr[5], GLB.dr[6], GLB.dr[7]);
+                }
+                GLB.dr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            finally
+            {
+                GLB.Con.Close();
+            }
+        }
         private void Vehicules_Load(object sender, EventArgs e)
         {
             StyleDataGridView();
-            //Jeux d'essaie 
-            //TODO : Remplir la Grille
-            dgvVehicules.Rows.Add(null, null, null, null, null, null, null, null);
-            dgvVehicules.Rows.Add(null, null, null, null, null, null, null, null);
-            dgvVehicules.Rows.Add(null, null, null, null, null, null, null, null);
-            dgvVehicules.Rows.Add(null, null, null, null, null, null, null, null);
+            RemplirLaGrille();
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
@@ -56,11 +75,12 @@ namespace ParcAuto.Forms
             try
             {
                 GLB.Matricule_Voiture = (string)dgvVehicules.SelectedRows[0].Cells[0].Value;
+                maj.Show();
             }
             catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("Il faut selectionner sur la table pour la modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                maj.Show();
+                
             }
             //TODO: catch NullReferenceException 
         }
@@ -71,8 +91,8 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.Matricule = (int)dgvVehicules.SelectedRows[0].Cells[0].Value;
-                GLB.Cmd.CommandText = $"delete from vehicules where matricule={GLB.Matricule_Voiture}";
+                GLB.Matricule_Voiture = (string)dgvVehicules.SelectedRows[0].Cells[0].Value;
+                GLB.Cmd.CommandText = $"delete from Vehicules where Matricule = '{GLB.Matricule_Voiture}'";
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -80,9 +100,20 @@ namespace ParcAuto.Forms
             }
             //TODO: catch NullReferenceException 
 
-            GLB.Con.Open();
-            GLB.Cmd.ExecuteNonQuery();
-            GLB.Con.Close();
+            DialogResult res = MessageBox.Show("Voulez Vous Vraiment Suprimmer Cette Vehicule ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if (res == DialogResult.Yes)
+            {
+                GLB.Con.Open();
+                GLB.Cmd.ExecuteNonQuery();
+                GLB.Con.Close();
+                dgvVehicules.Rows.Clear();
+                RemplirLaGrille();
+            }
+        }
+
+        private void btnQuitter_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -15,5 +15,10 @@ namespace ParcAuto.Classes_Globale
         {
             return Nom_Complet;
         }
+        public CmbMatNom(int Matricule ,string Nom_Complet)
+        {
+            this.Matricule = Matricule;
+            this.Nom_Complet = Nom_Complet;
+        }
     }
 }

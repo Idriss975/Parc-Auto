@@ -29,12 +29,8 @@ namespace ParcAuto.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnQuitter = new Guna.UI2.WinForms.Guna2Button();
             this.dgvVehicules = new System.Windows.Forms.DataGridView();
-            this.btnSupprimer = new Guna.UI2.WinForms.Guna2Button();
-            this.btnModifier = new Guna.UI2.WinForms.Guna2Button();
-            this.btnAjouter = new Guna.UI2.WinForms.Guna2Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +39,9 @@ namespace ParcAuto.Forms
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSupprimer = new Guna.UI2.WinForms.Guna2Button();
+            this.btnModifier = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAjouter = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicules)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,6 +62,7 @@ namespace ParcAuto.Forms
             this.btnQuitter.Size = new System.Drawing.Size(30, 30);
             this.btnQuitter.TabIndex = 0;
             this.btnQuitter.Text = "X";
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
             // dgvVehicules
             // 
@@ -81,15 +81,6 @@ namespace ParcAuto.Forms
             this.Column6,
             this.Column7,
             this.Column8});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvVehicules.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvVehicules.Location = new System.Drawing.Point(13, 51);
             this.dgvVehicules.Margin = new System.Windows.Forms.Padding(4);
             this.dgvVehicules.MultiSelect = false;
@@ -99,6 +90,54 @@ namespace ParcAuto.Forms
             this.dgvVehicules.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvVehicules.Size = new System.Drawing.Size(799, 467);
             this.dgvVehicules.TabIndex = 1;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Matricule";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Marque";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Modele";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Couleur";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Mise En Circulation";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Carburant ";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Observation";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Conducteur";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // btnSupprimer
             // 
@@ -159,54 +198,6 @@ namespace ParcAuto.Forms
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Matricule";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Marque";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Modele";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Couleur";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Mise En Circulation";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Carburant ";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Observation";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Conducteur";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
             // 
             // Vehicules
             // 

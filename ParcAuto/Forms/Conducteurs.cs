@@ -23,6 +23,7 @@ namespace ParcAuto.Forms
             MAJConducteur maj = new MAJConducteur();
             Commandes.Command = Choix.ajouter;
             maj.Show();
+            
         }
         private void StyleDataGridView()
         {
@@ -37,6 +38,30 @@ namespace ParcAuto.Forms
             dgvconducteur.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(115, 139, 215);
             dgvconducteur.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
         }
+        private void RemplirLaGrille()
+        {
+            
+            try
+            {
+                GLB.Cmd.CommandText = $"select * from Conducteurs";
+                GLB.Con.Open();
+                GLB.dr = GLB.Cmd.ExecuteReader();
+                while (GLB.dr.Read())
+                {
+                    dgvconducteur.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr[4], GLB.dr[5], GLB.dr[6], GLB.dr[7], GLB.dr[8], GLB.dr[9]);
+                }
+                GLB.dr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            finally
+            {
+                GLB.Con.Close();
+            }
+        }
 
         private void btnQuitter_Click(object sender, EventArgs e)
         {
@@ -46,12 +71,7 @@ namespace ParcAuto.Forms
         private void Conducteurs_Load(object sender, EventArgs e)
         {
             StyleDataGridView();
-            //Jeux d'essaie 
-            //TODO : Remplir la Grille
-            dgvconducteur.Rows.Add(null, null, null, null, null, null, null, null, null, null);
-            dgvconducteur.Rows.Add(null, null, null, null, null, null, null, null, null, null);
-            dgvconducteur.Rows.Add(null, null, null, null, null, null, null, null, null, null);
-            dgvconducteur.Rows.Add(null, null, null, null, null, null, null, null, null, null);
+            RemplirLaGrille();
 
 
         }
@@ -79,7 +99,8 @@ namespace ParcAuto.Forms
             try
             {
                 GLB.Matricule = (int)dgvconducteur.SelectedRows[0].Cells[0].Value;
-                GLB.Cmd.CommandText = $"delete from conducteur where matricule={GLB.Matricule}";
+                GLB.Cmd.CommandText = $"delete from Conducteurs where Matricule = {GLB.Matricule}";
+
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -87,9 +108,16 @@ namespace ParcAuto.Forms
             }
             //TODO: catch NullReferenceException 
 
-            GLB.Con.Open();
-            GLB.Cmd.ExecuteNonQuery();
-            GLB.Con.Close();
+            DialogResult res = MessageBox.Show("Voulez Vous Vraiment Suprimmer Ce Conducteur ?","Confirmation",MessageBoxButtons.YesNo,MessageBoxIcon.Question,MessageBoxDefaultButton.Button1);
+            if (res == DialogResult.Yes)
+            {
+                GLB.Con.Open();
+                GLB.Cmd.ExecuteNonQuery();
+                GLB.Con.Close();
+                dgvconducteur.Rows.Clear();
+                RemplirLaGrille();
+            }
+            
         }
     }
 }

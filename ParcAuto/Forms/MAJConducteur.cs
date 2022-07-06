@@ -50,7 +50,7 @@ namespace ParcAuto.Forms
                     GLB.Cmd.CommandText = $"Insert into Conducteurs values ({txtmatricule.Text}, '{txtnom.Text}', '{txtprenom.Text}', '{DateNaiss.Value.ToShortDateString()}', '{DateEmb.Value.ToShortDateString()}', '{txtnumpermis.Text}', '{txtadr.Text}', '{txtville.Text}', '{txttel.Text}', '{txtemail.Text}')";
                     break;
                 case Choix.modifier:
-                    GLB.Cmd.CommandText = $"update Conducteurs set nom='{txtnom.Text}', prenom='{txtprenom.Text}', DateNaiss='{DateNaiss.Value.ToShortDateString()}', DateEmbauche='{DateEmb.Value.ToShortDateString()}', NumPermis='{txtnumpermis.Text}', adresse='{txtadr.Text}', ville='{txtville.Text}', tel='{txttel.Text}', email='{txtemail.Text}' where matricule = {GLB.Matricule}";
+                    GLB.Cmd.CommandText = $"update Conducteurs set nom='{txtnom.Text}', prenom='{txtprenom.Text}', DateNaiss='{DateNaiss.Value.ToShortDateString()}', DateEmbauche='{DateEmb.Value.ToShortDateString()}', NumPermis='{txtnumpermis.Text}', Adresse='{txtadr.Text}', Ville='{txtville.Text}', Tel='{txttel.Text}', Email='{txtemail.Text}' where Matricule = {GLB.Matricule}";
                     break;
                 case Choix.supprimer:
                     //On peut pas ouvrir MajConducteur avec l'option de suppression.
@@ -62,27 +62,28 @@ namespace ParcAuto.Forms
             GLB.Con.Open();
             GLB.Cmd.ExecuteNonQuery();
             GLB.Con.Close();
-            
-           
+            this.Close();
+            //MessageBox.Show("Le Conducteur à etait bien ajouter","Message",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+
+
 
         }
 
-        private void MAJConducteur_Load(object sender, EventArgs e)
-        {
-           
-        }
+        
 
         private void MAJConducteur_Load_1(object sender, EventArgs e)
         {
-            //utilise switch stp
-            //Donne la label une valeur de "null" ou equivalente pour eviter la confusion
-            if (Commandes.Command == Choix.ajouter)
+            switch (Commandes.Command)
             {
-                lbl.Text = "L'ajout d'un Conducteur";
-            }
-            else if (Commandes.Command == Choix.modifier)
-            {
-                lbl.Text = "La modification d'un Conducteur";
+                case Choix.ajouter:
+                    lbl.Text = "L'ajout d'un Conducteur";
+                    break;
+                case Choix.modifier:
+                    lbl.Text = "La modification d'un Conducteur";
+                    break;
+                case Choix.supprimer:
+                    throw new Exception("Impossible de Supprimmer dans MajConducteur");
             }
         }
     }
