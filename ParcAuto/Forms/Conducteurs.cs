@@ -169,14 +169,14 @@ namespace ParcAuto.Forms
         {
             if (!(cmbChoix.SelectedIndex == 3 || cmbChoix.SelectedIndex == 4))
             {
-                foreach (DataGridViewRow item in dgvconducteur.Rows)
-                    if (!new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(item.Cells[cmbChoix.SelectedIndex].Value.ToString().ToLower()))
-                        dgvconducteur.Rows.Remove(item);
+                for (int i = dgvconducteur.Rows.Count - 1; i >= 0; i--)
+                    if (!new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(dgvconducteur.Rows[i].Cells[cmbChoix.SelectedIndex].Value.ToString().ToLower()))
+                        dgvconducteur.Rows.Remove(dgvconducteur.Rows[i]);
             }
             else
-                foreach (DataGridViewRow item2 in dgvconducteur.Rows)
-                    if (!( ((DateTime)item2.Cells[cmbChoix.SelectedIndex].Value).Date >= Date1.Value.Date && ((DateTime)item2.Cells[cmbChoix.SelectedIndex].Value).Date <= Date2.Value.Date))
-                        dgvconducteur.Rows.Remove(item2);
+                for (int i = dgvconducteur.Rows.Count - 1; i >= 0; i--)
+                    if (!( ((DateTime)dgvconducteur.Rows[i].Cells[cmbChoix.SelectedIndex].Value).Date >= Date1.Value.Date && ((DateTime)dgvconducteur.Rows[i].Cells[cmbChoix.SelectedIndex].Value).Date <= Date2.Value.Date))
+                        dgvconducteur.Rows.Remove(dgvconducteur.Rows[i]);
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)

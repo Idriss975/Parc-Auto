@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ParcAuto.Classes_Globale;
+using System.Text.RegularExpressions; // import Regex()
 
 namespace ParcAuto.Forms
 {
@@ -148,6 +149,38 @@ namespace ParcAuto.Forms
                 TextPanel.Location = new Point(287, 12);
                 btnFiltrer.Location = new Point(635, 18);
             }
+        }
+
+        private void btnFiltrer_Click(object sender, EventArgs e)
+        {
+            if (!(cmbChoix.SelectedIndex == 4))
+            {
+                for (int i = dgvVehicules.Rows.Count - 1; i >= 0; i--)
+                {
+                    if (!(new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(dgvVehicules.Rows[i].Cells[cmbChoix.SelectedIndex].Value.ToString().ToLower())))
+                        dgvVehicules.Rows.Remove(dgvVehicules.Rows[i]);
+                }
+            }
+            else
+                for (int i = dgvVehicules.Rows.Count - 1; i >= 0; i--)
+                    if (!(((DateTime)dgvVehicules.Rows[i].Cells[cmbChoix.SelectedIndex].Value).Date >= Date1.Value.Date && ((DateTime)dgvVehicules.Rows[i].Cells[cmbChoix.SelectedIndex].Value).Date <= Date2.Value.Date))
+                        dgvVehicules.Rows.Remove(dgvVehicules.Rows[i]);
+
+            /*
+            if (!(cmbChoix.SelectedIndex == 4))
+            {
+                foreach (DataGridViewRow item in dgvVehicules.Rows)
+                {
+                    if (!(new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(item.Cells[cmbChoix.SelectedIndex].Value.ToString().ToLower())))
+                        dgvVehicules.Rows.Remove(item);
+                }
+                    
+            }
+            else
+                foreach (DataGridViewRow item2 in dgvVehicules.Rows)
+                    if (!(((DateTime)item2.Cells[cmbChoix.SelectedIndex].Value).Date >= Date1.Value.Date && ((DateTime)item2.Cells[cmbChoix.SelectedIndex].Value).Date <= Date2.Value.Date))
+                        dgvVehicules.Rows.Remove(item2);
+            */
         }
     }
 }

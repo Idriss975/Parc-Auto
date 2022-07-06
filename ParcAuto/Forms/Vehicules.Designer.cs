@@ -110,48 +110,56 @@ namespace ParcAuto.Forms
             // Column1
             // 
             this.Column1.HeaderText = "Matricule";
+            this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Marque";
+            this.Column2.MinimumWidth = 8;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Modele";
+            this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Couleur";
+            this.Column4.MinimumWidth = 8;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Mise En Circulation";
+            this.Column5.MinimumWidth = 8;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
             // Column6
             // 
             this.Column6.HeaderText = "Carburant ";
+            this.Column6.MinimumWidth = 8;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
             // Column7
             // 
             this.Column7.HeaderText = "Observation";
+            this.Column7.MinimumWidth = 8;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
             // Column8
             // 
             this.Column8.HeaderText = "Conducteur";
+            this.Column8.MinimumWidth = 8;
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
@@ -253,7 +261,7 @@ namespace ParcAuto.Forms
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(315, 21);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(16, 17);
+            this.label4.Size = new System.Drawing.Size(23, 25);
             this.label4.TabIndex = 14;
             this.label4.Text = "à";
             // 
@@ -263,7 +271,7 @@ namespace ParcAuto.Forms
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(13, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 17);
+            this.label3.Size = new System.Drawing.Size(91, 25);
             this.label3.TabIndex = 0;
             this.label3.Text = "Date de :";
             // 
@@ -314,9 +322,9 @@ namespace ParcAuto.Forms
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 13);
+            this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 17);
+            this.label2.Size = new System.Drawing.Size(80, 25);
             this.label2.TabIndex = 20;
             this.label2.Text = "Valeur :";
             // 
@@ -335,7 +343,7 @@ namespace ParcAuto.Forms
             this.txtValueToFiltre.FocusedState.Parent = this.txtValueToFiltre;
             this.txtValueToFiltre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtValueToFiltre.HoverState.Parent = this.txtValueToFiltre;
-            this.txtValueToFiltre.Location = new System.Drawing.Point(72, 7);
+            this.txtValueToFiltre.Location = new System.Drawing.Point(9, 32);
             this.txtValueToFiltre.Margin = new System.Windows.Forms.Padding(9, 7, 9, 7);
             this.txtValueToFiltre.Name = "txtValueToFiltre";
             this.txtValueToFiltre.PasswordChar = '\0';
@@ -363,6 +371,7 @@ namespace ParcAuto.Forms
             this.btnFiltrer.TabIndex = 23;
             this.btnFiltrer.Text = "Filtrer";
             this.btnFiltrer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnFiltrer.Click += new System.EventHandler(this.btnFiltrer_Click);
             // 
             // cmbChoix
             // 
@@ -398,14 +407,14 @@ namespace ParcAuto.Forms
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(14, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 17);
+            this.label1.Size = new System.Drawing.Size(100, 25);
             this.label1.TabIndex = 21;
             this.label1.Text = "Filter Par :";
             // 
             // Vehicules
             // 
             this.AcceptButton = this.btnAjouter;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
