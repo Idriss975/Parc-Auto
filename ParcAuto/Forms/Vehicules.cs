@@ -33,7 +33,7 @@ namespace ParcAuto.Forms
         }
         private void RemplirLaGrille()
         {
-
+            dgvVehicules.Rows.Clear();
             try
             {
                 GLB.Cmd.CommandText = $"select Vehicules.*, Nom, Prenom from Vehicules, Conducteurs where Vehicules.Conducteur = Conducteurs.matricule";
