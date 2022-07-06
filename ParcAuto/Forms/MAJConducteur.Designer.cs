@@ -49,10 +49,10 @@ namespace ParcAuto.Forms
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.DateNaissance = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.cmbVilles = new System.Windows.Forms.ComboBox();
             this.btnAppliquer = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.lbl = new System.Windows.Forms.Label();
-            this.cmbVilles = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -395,7 +395,7 @@ namespace ParcAuto.Forms
             this.DateNaissance.BorderRadius = 4;
             this.DateNaissance.CheckedState.Parent = this.DateNaissance;
             this.DateNaissance.FillColor = System.Drawing.Color.White;
-            this.DateNaissance.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.DateNaissance.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DateNaissance.HoverState.Parent = this.DateNaissance;
             this.DateNaissance.Location = new System.Drawing.Point(517, 44);
             this.DateNaissance.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -405,59 +405,6 @@ namespace ParcAuto.Forms
             this.DateNaissance.Size = new System.Drawing.Size(221, 33);
             this.DateNaissance.TabIndex = 24;
             this.DateNaissance.Value = new System.DateTime(2022, 7, 6, 13, 23, 5, 144);
-            // 
-            // btnAppliquer
-            // 
-            this.btnAppliquer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAppliquer.BackColor = System.Drawing.Color.Transparent;
-            this.btnAppliquer.BorderRadius = 4;
-            this.btnAppliquer.CheckedState.Parent = this.btnAppliquer;
-            this.btnAppliquer.CustomImages.Parent = this.btnAppliquer;
-            this.btnAppliquer.FillColor = System.Drawing.Color.LimeGreen;
-            this.btnAppliquer.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnAppliquer.ForeColor = System.Drawing.Color.White;
-            this.btnAppliquer.HoverState.Parent = this.btnAppliquer;
-            this.btnAppliquer.Location = new System.Drawing.Point(675, 292);
-            this.btnAppliquer.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAppliquer.Name = "btnAppliquer";
-            this.btnAppliquer.ShadowDecoration.Parent = this.btnAppliquer;
-            this.btnAppliquer.Size = new System.Drawing.Size(90, 30);
-            this.btnAppliquer.TabIndex = 5;
-            this.btnAppliquer.Text = "Appliquer";
-            this.btnAppliquer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
-            this.btnAppliquer.Click += new System.EventHandler(this.btnAppliquer_Click);
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderRadius = 4;
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.Tomato;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Location = new System.Drawing.Point(542, 292);
-            this.guna2Button1.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(90, 30);
-            this.guna2Button1.TabIndex = 6;
-            this.guna2Button1.Text = "Annuler";
-            this.guna2Button1.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
-            // 
-            // lbl
-            // 
-            this.lbl.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbl.AutoSize = true;
-            this.lbl.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl.Location = new System.Drawing.Point(32, 9);
-            this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(67, 36);
-            this.lbl.TabIndex = 11;
-            this.lbl.Text = "null";
             // 
             // cmbVilles
             // 
@@ -536,6 +483,59 @@ namespace ParcAuto.Forms
             this.cmbVilles.Name = "cmbVilles";
             this.cmbVilles.Size = new System.Drawing.Size(221, 24);
             this.cmbVilles.TabIndex = 25;
+            // 
+            // btnAppliquer
+            // 
+            this.btnAppliquer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAppliquer.BackColor = System.Drawing.Color.Transparent;
+            this.btnAppliquer.BorderRadius = 4;
+            this.btnAppliquer.CheckedState.Parent = this.btnAppliquer;
+            this.btnAppliquer.CustomImages.Parent = this.btnAppliquer;
+            this.btnAppliquer.FillColor = System.Drawing.Color.LimeGreen;
+            this.btnAppliquer.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAppliquer.ForeColor = System.Drawing.Color.White;
+            this.btnAppliquer.HoverState.Parent = this.btnAppliquer;
+            this.btnAppliquer.Location = new System.Drawing.Point(675, 292);
+            this.btnAppliquer.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAppliquer.Name = "btnAppliquer";
+            this.btnAppliquer.ShadowDecoration.Parent = this.btnAppliquer;
+            this.btnAppliquer.Size = new System.Drawing.Size(90, 30);
+            this.btnAppliquer.TabIndex = 5;
+            this.btnAppliquer.Text = "Appliquer";
+            this.btnAppliquer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnAppliquer.Click += new System.EventHandler(this.btnAppliquer_Click);
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderRadius = 4;
+            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
+            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
+            this.guna2Button1.FillColor = System.Drawing.Color.Tomato;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.HoverState.Parent = this.guna2Button1;
+            this.guna2Button1.Location = new System.Drawing.Point(542, 292);
+            this.guna2Button1.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
+            this.guna2Button1.Size = new System.Drawing.Size(90, 30);
+            this.guna2Button1.TabIndex = 6;
+            this.guna2Button1.Text = "Annuler";
+            this.guna2Button1.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // lbl
+            // 
+            this.lbl.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbl.AutoSize = true;
+            this.lbl.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl.Location = new System.Drawing.Point(32, 9);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(67, 36);
+            this.lbl.TabIndex = 11;
+            this.lbl.Text = "null";
             // 
             // MAJConducteur
             // 

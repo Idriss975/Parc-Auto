@@ -252,7 +252,7 @@ namespace ParcAuto.Forms
             this.dateMiseEnCirculation.BorderRadius = 4;
             this.dateMiseEnCirculation.CheckedState.Parent = this.dateMiseEnCirculation;
             this.dateMiseEnCirculation.FillColor = System.Drawing.Color.White;
-            this.dateMiseEnCirculation.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateMiseEnCirculation.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateMiseEnCirculation.HoverState.Parent = this.dateMiseEnCirculation;
             this.dateMiseEnCirculation.Location = new System.Drawing.Point(154, 107);
             this.dateMiseEnCirculation.Margin = new System.Windows.Forms.Padding(5);
@@ -382,7 +382,7 @@ namespace ParcAuto.Forms
             this.cmbConducteur.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbConducteur.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbConducteur.FormattingEnabled = true;
-            this.cmbConducteur.Location = new System.Drawing.Point(538, 169);
+            this.cmbConducteur.Location = new System.Drawing.Point(538, 168);
             this.cmbConducteur.Name = "cmbConducteur";
             this.cmbConducteur.Size = new System.Drawing.Size(216, 24);
             this.cmbConducteur.TabIndex = 7;
