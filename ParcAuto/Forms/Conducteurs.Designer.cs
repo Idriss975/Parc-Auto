@@ -253,7 +253,7 @@ namespace ParcAuto.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 27);
+            this.label1.Location = new System.Drawing.Point(7, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 17);
             this.label1.TabIndex = 10;
@@ -262,6 +262,7 @@ namespace ParcAuto.Forms
             // cmbChoix
             // 
             this.cmbChoix.BackColor = System.Drawing.Color.Transparent;
+            this.cmbChoix.BorderRadius = 4;
             this.cmbChoix.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmbChoix.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbChoix.FocusedColor = System.Drawing.Color.Empty;
@@ -283,7 +284,7 @@ namespace ParcAuto.Forms
             "Telephone",
             "Email"});
             this.cmbChoix.ItemsAppearance.Parent = this.cmbChoix;
-            this.cmbChoix.Location = new System.Drawing.Point(94, 12);
+            this.cmbChoix.Location = new System.Drawing.Point(94, 14);
             this.cmbChoix.Name = "cmbChoix";
             this.cmbChoix.ShadowDecoration.Parent = this.cmbChoix;
             this.cmbChoix.Size = new System.Drawing.Size(176, 36);
@@ -293,6 +294,7 @@ namespace ParcAuto.Forms
             // Date1
             // 
             this.Date1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Date1.BorderRadius = 4;
             this.Date1.CheckedState.Parent = this.Date1;
             this.Date1.FillColor = System.Drawing.Color.White;
             this.Date1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -310,6 +312,7 @@ namespace ParcAuto.Forms
             // Date2
             // 
             this.Date2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Date2.BorderRadius = 4;
             this.Date2.CheckedState.Parent = this.Date2;
             this.Date2.FillColor = System.Drawing.Color.White;
             this.Date2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -354,7 +357,7 @@ namespace ParcAuto.Forms
             this.btnFiltrer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnFiltrer.ForeColor = System.Drawing.Color.White;
             this.btnFiltrer.HoverState.Parent = this.btnFiltrer;
-            this.btnFiltrer.Location = new System.Drawing.Point(635, 18);
+            this.btnFiltrer.Location = new System.Drawing.Point(635, 23);
             this.btnFiltrer.Margin = new System.Windows.Forms.Padding(5);
             this.btnFiltrer.Name = "btnFiltrer";
             this.btnFiltrer.ShadowDecoration.Parent = this.btnFiltrer;
@@ -368,7 +371,7 @@ namespace ParcAuto.Forms
             // 
             this.TextPanel.Controls.Add(this.label2);
             this.TextPanel.Controls.Add(this.txtValueToFiltre);
-            this.TextPanel.Location = new System.Drawing.Point(287, 12);
+            this.TextPanel.Location = new System.Drawing.Point(287, 13);
             this.TextPanel.Name = "TextPanel";
             this.TextPanel.Size = new System.Drawing.Size(340, 51);
             this.TextPanel.TabIndex = 19;
@@ -379,14 +382,15 @@ namespace ParcAuto.Forms
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 17);
+            this.label2.Size = new System.Drawing.Size(57, 17);
             this.label2.TabIndex = 20;
-            this.label2.Text = "Filter Par :";
+            this.label2.Text = "Valeur :";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtValueToFiltre
             // 
             this.txtValueToFiltre.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtValueToFiltre.BorderRadius = 4;
             this.txtValueToFiltre.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtValueToFiltre.DefaultText = "";
             this.txtValueToFiltre.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -398,7 +402,7 @@ namespace ParcAuto.Forms
             this.txtValueToFiltre.FocusedState.Parent = this.txtValueToFiltre;
             this.txtValueToFiltre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtValueToFiltre.HoverState.Parent = this.txtValueToFiltre;
-            this.txtValueToFiltre.Location = new System.Drawing.Point(86, 6);
+            this.txtValueToFiltre.Location = new System.Drawing.Point(70, 6);
             this.txtValueToFiltre.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtValueToFiltre.Name = "txtValueToFiltre";
             this.txtValueToFiltre.PasswordChar = '\0';
@@ -415,7 +419,7 @@ namespace ParcAuto.Forms
             this.panelDate.Controls.Add(this.label3);
             this.panelDate.Controls.Add(this.Date1);
             this.panelDate.Controls.Add(this.Date2);
-            this.panelDate.Location = new System.Drawing.Point(276, 12);
+            this.panelDate.Location = new System.Drawing.Point(287, 4);
             this.panelDate.Name = "panelDate";
             this.panelDate.Size = new System.Drawing.Size(549, 60);
             this.panelDate.TabIndex = 20;

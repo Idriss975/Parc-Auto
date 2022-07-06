@@ -55,6 +55,9 @@ namespace ParcAuto.Forms
         }
         private void Vehicules_Load(object sender, EventArgs e)
         {
+            panelDate.Visible = false;
+            TextPanel.Visible = false;
+            cmbChoix.SelectedIndex = 0;
             StyleDataGridView();
             RemplirLaGrille();
         }
@@ -127,6 +130,24 @@ namespace ParcAuto.Forms
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             RemplirLaGrille();
+        }
+
+        private void cmbChoix_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cmbChoix.SelectedIndex == 4)
+            {
+                TextPanel.Visible = false;
+                panelDate.Visible = true;
+                panelDate.Location = new Point(287, 3);
+                btnFiltrer.Location = new Point(858, 14);
+            }
+            else
+            {
+                TextPanel.Visible = true;
+                panelDate.Visible = false;
+                TextPanel.Location = new Point(287, 12);
+                btnFiltrer.Location = new Point(635, 18);
+            }
         }
     }
 }
