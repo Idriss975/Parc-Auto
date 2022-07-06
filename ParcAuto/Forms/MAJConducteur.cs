@@ -36,13 +36,29 @@ namespace ParcAuto.Forms
         public MAJConducteur(string Nom, string Prenom, DateTime DateNaiss, DateTime DateEmbauche, string NumPermis, string Adresse, string Ville, string Tel, string Email)
         {
             InitializeComponent();
-            //Make the Corner Rounded
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
+            this.Nom = Nom;
+            this.Prenom = Prenom;
+            this.NumPermis = NumPermis;
+            this.Adresse = Adresse;
+            this.Ville = Ville;
+            this.Tel = Tel;
+            this.Email = Email;
+            this.DateNaiss = DateNaiss;
+            this.DateEmbauche = DateEmbauche;
         }
         private void RemplirLesChamps()
         {
-            //txtnom.Text = 
+            txtnom.Text = Nom;
+            txtprenom.Text = Prenom;
+            txtnumpermis.Text = NumPermis;
+            txtadr.Text = Adresse;
+            txtville.Text = Ville;
+            txttel.Text = Tel;
+            txtemail.Text = Email;
+            DateNaissance.Value = DateNaiss;
+            DateEmb.Value = DateEmbauche;
         }
         private void guna2Button1_Click(object sender, EventArgs e)
         {
@@ -60,6 +76,7 @@ namespace ParcAuto.Forms
                     break;
                 case Choix.modifier:
                     GLB.Cmd.CommandText = $"update Conducteurs set nom='{txtnom.Text}', prenom='{txtprenom.Text}', DateNaiss='{DateNaissance.Value.ToShortDateString()}', DateEmbauche='{DateEmb.Value.ToShortDateString()}', NumPermis='{txtnumpermis.Text}', Adresse='{txtadr.Text}', Ville='{txtville.Text}', Tel='{txttel.Text}', Email='{txtemail.Text}' where Matricule = {GLB.Matricule}";
+                    RemplirLesChamps();
                     break;
                 case Choix.supprimer:
                     //On peut pas ouvrir MajConducteur avec l'option de suppression.
@@ -83,8 +100,6 @@ namespace ParcAuto.Forms
 
         private void MAJConducteur_Load_1(object sender, EventArgs e)
         {
-            
-            
             switch (Commandes.Command)
             {
                 case Choix.ajouter:
@@ -94,6 +109,7 @@ namespace ParcAuto.Forms
                     lbl.Text = "La modification d'un Conducteur";
                     txtmatricule.Text = GLB.Matricule.ToString();
                     txtmatricule.Enabled = true;
+                    RemplirLesChamps();
                     break;
                 case Choix.supprimer:
                     throw new Exception("Impossible de Supprimmer dans MajConducteur");
