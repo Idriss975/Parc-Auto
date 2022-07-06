@@ -22,7 +22,7 @@ namespace ParcAuto.Forms
         {
             MAJConducteur maj = new MAJConducteur();
             Commandes.Command = Choix.ajouter;
-            maj.Show();
+            maj.ShowDialog();
             
         }
         private void StyleDataGridView()
@@ -83,7 +83,7 @@ namespace ParcAuto.Forms
             try
             {
                 GLB.Matricule = (int)dgvconducteur.SelectedRows[0].Cells[0].Value;
-                maj.Show();
+                maj.ShowDialog();
             }
             catch (ArgumentOutOfRangeException)
             {

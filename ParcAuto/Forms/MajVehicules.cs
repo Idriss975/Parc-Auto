@@ -26,12 +26,42 @@ namespace ParcAuto.Forms
             int nWidthEllipse, // height of ellipse
             int nHeightEllipse // width of ellipse
         );
+        string Marque, Modele, Couleur, Carburant, Observation, Conducteur;
+        DateTime MiseEncirculation;
         public MajVehicules()
         {
             InitializeComponent();
             //Make the Corner Rounded
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
+        }
+        public MajVehicules(string Marque, string Modele,string Couleur,DateTime MiseEncirculation,string Carburant, string Observation, string Conducteur)
+        {
+            InitializeComponent();
+            //Make the Corner Rounded
+            this.FormBorderStyle = FormBorderStyle.None;
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
+            this.Marque = Marque;
+            this.Modele = Modele;
+            this.Couleur = Couleur;
+            this.MiseEncirculation = MiseEncirculation;
+            this.Carburant = Carburant;
+            this.Observation = Observation;
+            this.Conducteur = Conducteur;
+
+
+
+        }
+        public void RemplirLesChamps()
+        {
+            txtMatricule.Text = GLB.Matricule_Voiture;
+            txtMarque.Text = Marque;
+            txtModele.Text = Modele;
+            txtCouleur.Text = Couleur;
+            dateMiseEnCirculation.Value = MiseEncirculation;
+            txtCarburant.Text = Carburant;
+            txtObservation.Text = Observation;
+            cmbConducteur.Text = Conducteur;
         }
         private void RemplirComboBoxConducteur()
         {
@@ -58,7 +88,7 @@ namespace ParcAuto.Forms
                     GLB.Cmd.CommandText = $"insert into Vehicules values ('{txtMatricule.Text}', '{txtMarque.Text}', '{txtModele.Text}', '{txtCouleur.Text}','{dateMiseEnCirculation.Value.ToShortDateString()}', '{txtCarburant.Text}', '{txtObservation.Text}', {((CmbMatNom)cmbConducteur.SelectedItem).Matricule.ToString()})";
                     break;
                 case Choix.modifier:
-                    GLB.Cmd.CommandText = $"update Vehicules set matricule='{txtMatricule.Text}', Marque='{txtMarque.Text}', Modele='{txtModele.Text}', Couleur='{txtCouleur.Text}', MiseEnCirculation='{dateMiseEnCirculation.Value.ToShortDateString()}', Carburant='{txtCarburant.Text}', Observation='{txtObservation.Text}', Conducteur={((CmbMatNom)cmbConducteur.SelectedItem).Matricule.ToString()}) where Matricule='{GLB.Matricule_Voiture}'";
+                    GLB.Cmd.CommandText = $"update Vehicules set matricule ='{txtMatricule.Text}', Marque='{txtMarque.Text}', Modele='{txtModele.Text}', Couleur='{txtCouleur.Text}', MiseEnCirculation='{dateMiseEnCirculation.Value.ToShortDateString()}', Carburant='{txtCarburant.Text}', Observation='{txtObservation.Text}', Conducteur={((CmbMatNom)cmbConducteur.SelectedItem).Matricule.ToString()} where Matricule='{GLB.Matricule_Voiture}'";
                     break;
                 case Choix.supprimer:
                     throw new Exception("Impossible de supprimer avec MajVehicules.");
@@ -74,7 +104,7 @@ namespace ParcAuto.Forms
 
         private void MajVehicules_Load(object sender, EventArgs e)
         {
-
+            
             RemplirComboBoxConducteur();
             switch (Commandes.Command)
             {
@@ -83,6 +113,7 @@ namespace ParcAuto.Forms
                     break;
                 case Choix.modifier:
                     lbl.Text = "La modification d'une Vehicules";
+                    RemplirLesChamps();
                     break;
                 default:
                     break;

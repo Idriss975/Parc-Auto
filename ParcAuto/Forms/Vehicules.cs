@@ -65,17 +65,27 @@ namespace ParcAuto.Forms
         {
             MajVehicules maj = new MajVehicules();
             Commandes.Command = Choix.ajouter;
-            maj.Show();
+            maj.ShowDialog();
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            MajVehicules maj = new MajVehicules();
-            Commandes.Command = Choix.modifier;
+
             try
             {
-                GLB.Matricule_Voiture = (string)dgvVehicules.SelectedRows[0].Cells[0].Value;
-                maj.Show();
+
+                int i = dgvVehicules.CurrentRow.Index;
+                GLB.Matricule_Voiture = dgvVehicules.Rows[i].Cells[0].Value.ToString();
+                string  Marque = dgvVehicules.Rows[i].Cells[1].Value.ToString();
+                string Modele = dgvVehicules.Rows[i].Cells[2].Value.ToString();
+                string  Couleur = dgvVehicules.Rows[i].Cells[3].Value.ToString();
+                DateTime MiseEncirculation = (DateTime)dgvVehicules.Rows[i].Cells[4].Value ;
+                string Carburant = dgvVehicules.Rows[i].Cells[5].Value.ToString();
+                string Observation = dgvVehicules.Rows[i].Cells[6].Value.ToString();
+                string Conducteur = dgvVehicules.Rows[i].Cells[7].Value.ToString();
+                MajVehicules maj = new MajVehicules(Marque, Modele, Couleur, MiseEncirculation , Carburant, Observation,Conducteur) ;
+                Commandes.Command = Choix.modifier;
+                maj.ShowDialog();
             }
             catch (ArgumentOutOfRangeException)
             {
