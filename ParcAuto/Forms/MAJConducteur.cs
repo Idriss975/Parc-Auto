@@ -28,13 +28,22 @@ namespace ParcAuto.Forms
         public MAJConducteur()
         {
             InitializeComponent();
-            //Form_OnLoad ci-dessous
-
+            this.FormBorderStyle = FormBorderStyle.None;
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
+        }
+        string Nom, Prenom, NumPermis, Adresse, Ville, Tel, Email;
+        DateTime DateNaiss, DateEmbauche;
+        public MAJConducteur(string Nom, string Prenom, DateTime DateNaiss, DateTime DateEmbauche, string NumPermis, string Adresse, string Ville, string Tel, string Email)
+        {
+            InitializeComponent();
             //Make the Corner Rounded
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
         }
-
+        private void RemplirLesChamps()
+        {
+            //txtnom.Text = 
+        }
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -74,6 +83,8 @@ namespace ParcAuto.Forms
 
         private void MAJConducteur_Load_1(object sender, EventArgs e)
         {
+            
+            
             switch (Commandes.Command)
             {
                 case Choix.ajouter:
@@ -81,6 +92,8 @@ namespace ParcAuto.Forms
                     break;
                 case Choix.modifier:
                     lbl.Text = "La modification d'un Conducteur";
+                    txtmatricule.Text = GLB.Matricule.ToString();
+                    txtmatricule.Enabled = true;
                     break;
                 case Choix.supprimer:
                     throw new Exception("Impossible de Supprimmer dans MajConducteur");

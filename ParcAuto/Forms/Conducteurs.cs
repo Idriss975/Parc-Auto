@@ -83,16 +83,16 @@ namespace ParcAuto.Forms
             {
                 GLB.Matricule = (int)dgvconducteur.CurrentRow.Cells[0].Value;
                 string Nom = dgvconducteur.CurrentRow.Cells[1].Value.ToString() ;
-                string Prenoms = dgvconducteur.CurrentRow.Cells[1].Value.ToString();
+                string Prenom= dgvconducteur.CurrentRow.Cells[1].Value.ToString();
                 //TODO :A Accomplir (Amine)
-                string Nom = dgvconducteur.CurrentRow.Cells[1].Value.ToString();
-                string Nom = dgvconducteur.CurrentRow.Cells[1].Value.ToString();
-                string Nom = dgvconducteur.CurrentRow.Cells[1].Value.ToString();
-                string Nom = dgvconducteur.CurrentRow.Cells[1].Value.ToString();
-                string Nom = dgvconducteur.CurrentRow.Cells[1].Value.ToString();
-                string Nom = dgvconducteur.CurrentRow.Cells[1].Value.ToString();
-                string Nom = dgvconducteur.CurrentRow.Cells[1].Value.ToString();    
-                MAJConducteur maj = new MAJConducteur();
+                DateTime DateNaiss =(DateTime)dgvconducteur.CurrentRow.Cells[1].Value;
+                DateTime DateEmbauche = (DateTime)dgvconducteur.CurrentRow.Cells[1].Value;
+                string NumPermis = dgvconducteur.CurrentRow.Cells[1].Value.ToString();
+                string Adresse  = dgvconducteur.CurrentRow.Cells[1].Value.ToString();
+                string Ville = dgvconducteur.CurrentRow.Cells[1].Value.ToString();
+                string Tel = dgvconducteur.CurrentRow.Cells[1].Value.ToString();
+                string Email = dgvconducteur.CurrentRow.Cells[1].Value.ToString();    
+                MAJConducteur maj = new MAJConducteur(Nom,Prenom,DateNaiss,DateEmbauche,NumPermis,Adresse,Ville,Tel,Email);
                 Commandes.Command = Choix.modifier;
                 maj.ShowDialog();
             }
