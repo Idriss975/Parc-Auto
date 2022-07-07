@@ -147,7 +147,7 @@ namespace ParcAuto.Forms
                 TextPanel.Visible = true;
                 panelDate.Visible = false;
                 TextPanel.Location = new Point(287, 12);
-                btnFiltrer.Location = new Point(635, 18);
+                btnFiltrer.Location = new Point(635, 14);
             }
         }
 
