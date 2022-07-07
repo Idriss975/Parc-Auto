@@ -126,6 +126,9 @@ namespace ParcAuto.Forms
             // dgvconducteur
             // 
             this.dgvconducteur.AllowUserToAddRows = false;
+            this.dgvconducteur.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvconducteur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvconducteur.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -138,7 +141,7 @@ namespace ParcAuto.Forms
             this.Column8,
             this.Column9,
             this.Column10});
-            this.dgvconducteur.Location = new System.Drawing.Point(10, 76);
+            this.dgvconducteur.Location = new System.Drawing.Point(14, 72);
             this.dgvconducteur.Margin = new System.Windows.Forms.Padding(5);
             this.dgvconducteur.Name = "dgvconducteur";
             this.dgvconducteur.ReadOnly = true;
