@@ -95,6 +95,7 @@ namespace ParcAuto.Forms
             this.guna2Button1.TabIndex = 19;
             this.guna2Button1.Text = "Annuler";
             this.guna2Button1.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // btnAppliquer
             // 
@@ -123,7 +124,7 @@ namespace ParcAuto.Forms
             this.lbl.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl.Location = new System.Drawing.Point(12, 9);
             this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(101, 54);
+            this.lbl.Size = new System.Drawing.Size(67, 36);
             this.lbl.TabIndex = 20;
             this.lbl.Text = "null";
             // 
@@ -131,18 +132,18 @@ namespace ParcAuto.Forms
             // 
             this.cmbVehicule.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbVehicule.FormattingEnabled = true;
-            this.cmbVehicule.Location = new System.Drawing.Point(145, 58);
+            this.cmbVehicule.Location = new System.Drawing.Point(145, 61);
             this.cmbVehicule.Name = "cmbVehicule";
-            this.cmbVehicule.Size = new System.Drawing.Size(219, 33);
+            this.cmbVehicule.Size = new System.Drawing.Size(219, 24);
             this.cmbVehicule.TabIndex = 26;
             // 
             // cmbBenificiare
             // 
             this.cmbBenificiare.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbBenificiare.FormattingEnabled = true;
-            this.cmbBenificiare.Location = new System.Drawing.Point(522, 10);
+            this.cmbBenificiare.Location = new System.Drawing.Point(522, 13);
             this.cmbBenificiare.Name = "cmbBenificiare";
-            this.cmbBenificiare.Size = new System.Drawing.Size(220, 33);
+            this.cmbBenificiare.Size = new System.Drawing.Size(220, 24);
             this.cmbBenificiare.TabIndex = 25;
             // 
             // DateOper
@@ -168,7 +169,7 @@ namespace ParcAuto.Forms
             this.label7.Location = new System.Drawing.Point(22, 255);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(95, 25);
+            this.label7.Size = new System.Drawing.Size(69, 17);
             this.label7.TabIndex = 15;
             this.label7.Text = "Dotation :";
             // 
@@ -176,10 +177,10 @@ namespace ParcAuto.Forms
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(394, 96);
+            this.label6.Location = new System.Drawing.Point(394, 112);
             this.label6.Margin = new System.Windows.Forms.Padding(25, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(116, 49);
+            this.label6.Size = new System.Drawing.Size(86, 17);
             this.label6.TabIndex = 13;
             this.label6.Text = "Objet OMN :";
             // 
@@ -187,10 +188,10 @@ namespace ParcAuto.Forms
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 108);
+            this.label5.Location = new System.Drawing.Point(4, 112);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 25);
+            this.label5.Size = new System.Drawing.Size(49, 17);
             this.label5.TabIndex = 11;
             this.label5.Text = "Villes :";
             // 
@@ -222,10 +223,10 @@ namespace ParcAuto.Forms
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(394, 48);
+            this.label4.Location = new System.Drawing.Point(394, 63);
             this.label4.Margin = new System.Windows.Forms.Padding(25, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 48);
+            this.label4.Size = new System.Drawing.Size(121, 17);
             this.label4.TabIndex = 6;
             this.label4.Text = "Date d\'operation :";
             // 
@@ -233,10 +234,10 @@ namespace ParcAuto.Forms
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 59);
+            this.label3.Location = new System.Drawing.Point(4, 63);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 25);
+            this.label3.Size = new System.Drawing.Size(77, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "Vehicules :";
             // 
@@ -244,10 +245,10 @@ namespace ParcAuto.Forms
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(394, 0);
+            this.label2.Location = new System.Drawing.Point(394, 15);
             this.label2.Margin = new System.Windows.Forms.Padding(25, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 48);
+            this.label2.Size = new System.Drawing.Size(93, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Benifiaciaire :";
             // 
@@ -255,10 +256,10 @@ namespace ParcAuto.Forms
             // 
             this.Matricule.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Matricule.AutoSize = true;
-            this.Matricule.Location = new System.Drawing.Point(4, 11);
+            this.Matricule.Location = new System.Drawing.Point(4, 15);
             this.Matricule.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Matricule.Name = "Matricule";
-            this.Matricule.Size = new System.Drawing.Size(72, 25);
+            this.Matricule.Size = new System.Drawing.Size(52, 17);
             this.Matricule.TabIndex = 0;
             this.Matricule.Text = "Entite :";
             // 
@@ -660,9 +661,9 @@ namespace ParcAuto.Forms
             "Sidi Abdallah Ghiat",
             "Sidi Bouzid",
             "Ounagha"});
-            this.cmbVilles.Location = new System.Drawing.Point(145, 106);
+            this.cmbVilles.Location = new System.Drawing.Point(145, 110);
             this.cmbVilles.Name = "cmbVilles";
-            this.cmbVilles.Size = new System.Drawing.Size(219, 33);
+            this.cmbVilles.Size = new System.Drawing.Size(219, 24);
             this.cmbVilles.TabIndex = 27;
             // 
             // tableLayoutPanel1
@@ -700,7 +701,7 @@ namespace ParcAuto.Forms
             this.DMissions.AutoSize = true;
             this.DMissions.Location = new System.Drawing.Point(25, 220);
             this.DMissions.Name = "DMissions";
-            this.DMissions.Size = new System.Drawing.Size(128, 29);
+            this.DMissions.Size = new System.Drawing.Size(90, 21);
             this.DMissions.TabIndex = 22;
             this.DMissions.TabStop = true;
             this.DMissions.Text = "DMissions";
@@ -711,7 +712,7 @@ namespace ParcAuto.Forms
             this.DFixe.AutoSize = true;
             this.DFixe.Location = new System.Drawing.Point(153, 220);
             this.DFixe.Name = "DFixe";
-            this.DFixe.Size = new System.Drawing.Size(88, 29);
+            this.DFixe.Size = new System.Drawing.Size(61, 21);
             this.DFixe.TabIndex = 23;
             this.DFixe.TabStop = true;
             this.DFixe.Text = "DFixe";
@@ -722,7 +723,7 @@ namespace ParcAuto.Forms
             this.DHebdo.AutoSize = true;
             this.DHebdo.Location = new System.Drawing.Point(252, 220);
             this.DHebdo.Name = "DHebdo";
-            this.DHebdo.Size = new System.Drawing.Size(109, 29);
+            this.DHebdo.Size = new System.Drawing.Size(78, 21);
             this.DHebdo.TabIndex = 24;
             this.DHebdo.TabStop = true;
             this.DHebdo.Text = "DHebdo";
@@ -730,7 +731,7 @@ namespace ParcAuto.Forms
             // 
             // MajCarburants
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(789, 335);
             this.Controls.Add(this.DHebdo);
@@ -747,6 +748,7 @@ namespace ParcAuto.Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MajCarburants";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MajCarburants";
             this.Load += new System.EventHandler(this.MajCarburants_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

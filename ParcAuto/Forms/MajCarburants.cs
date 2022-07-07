@@ -8,7 +8,9 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using ParcAuto.Classes_Globale;
+using System.Data.SqlClient;
+using System.Data;
 namespace ParcAuto.Forms
 {
     public partial class MajCarburants : Form
@@ -30,9 +32,26 @@ namespace ParcAuto.Forms
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
         }
 
+        private void RemplirComboBoxBenificiaire()
+        {
+            if (GLB.ds.Tables["Conducteurs1"] != null)
+                GLB.ds.Tables["Conducteurs1"].Clear();
+            GLB.da = new SqlDataAdapter("select * from Conducteurs", GLB.Con);
+            GLB.da.Fill(GLB.ds, "Conducteurs1");
+            foreach (DataRow item in GLB.ds.Tables["Conducteurs1"].Rows)
+            {
+                cmbBenificiare.Items.Add(new CmbMatNom((int)item[0], item[1] + " " + item[2]));
+
+            }
+        }
         private void MajCarburants_Load(object sender, EventArgs e)
         {
+            RemplirComboBoxBenificiaire();
+        }
 
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
