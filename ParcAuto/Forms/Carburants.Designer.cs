@@ -193,6 +193,7 @@ namespace ParcAuto.Forms
             this.btnFiltrer.TabIndex = 29;
             this.btnFiltrer.Text = "Filtrer";
             this.btnFiltrer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnFiltrer.Click += new System.EventHandler(this.btnFiltrer_Click);
             // 
             // btnRefresh
             // 

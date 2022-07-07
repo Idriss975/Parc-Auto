@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ParcAuto.Classes_Globale;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions; // import Regex()
 
 namespace ParcAuto.Forms
 {
@@ -87,6 +88,22 @@ namespace ParcAuto.Forms
         private void btnQuitter_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnFiltrer_Click(object sender, EventArgs e)
+        {
+            if (!(cmbChoix.SelectedIndex == 3))
+            {
+                for (int i = dgvCarburant.Rows.Count - 1; i >= 0; i--)
+                {
+                    if (!(new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(dgvCarburant.Rows[i].Cells[cmbChoix.SelectedIndex].Value.ToString().ToLower())))
+                        dgvCarburant.Rows.Remove(dgvCarburant.Rows[i]);
+                }
+            }
+            else
+                for (int i = dgvCarburant.Rows.Count - 1; i >= 0; i--)
+                    if (!(((DateTime)dgvCarburant.Rows[i].Cells[cmbChoix.SelectedIndex].Value).Date >= Date1.Value.Date && ((DateTime)dgvCarburant.Rows[i].Cells[cmbChoix.SelectedIndex].Value).Date <= Date2.Value.Date))
+                        dgvCarburant.Rows.Remove(dgvCarburant.Rows[i]);
         }
     }
 }
