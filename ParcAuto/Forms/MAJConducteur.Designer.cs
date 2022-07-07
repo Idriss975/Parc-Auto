@@ -416,7 +416,7 @@ namespace ParcAuto.Forms
             this.cmbdirections.Location = new System.Drawing.Point(517, 126);
             this.cmbdirections.Name = "cmbdirections";
             this.cmbdirections.Size = new System.Drawing.Size(221, 24);
-            this.cmbdirections.TabIndex = 25;
+            this.cmbdirections.TabIndex = 7;
             // 
             // btnAppliquer
             // 
