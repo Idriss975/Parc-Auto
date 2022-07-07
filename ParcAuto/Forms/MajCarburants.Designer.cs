@@ -40,7 +40,7 @@ namespace ParcAuto.Forms
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtmatricule = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtEntite = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -116,6 +116,7 @@ namespace ParcAuto.Forms
             this.btnAppliquer.TabIndex = 18;
             this.btnAppliquer.Text = "Appliquer";
             this.btnAppliquer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnAppliquer.Click += new System.EventHandler(this.btnAppliquer_Click);
             // 
             // lbl
             // 
@@ -199,29 +200,29 @@ namespace ParcAuto.Forms
             this.label5.TabIndex = 11;
             this.label5.Text = "Villes :";
             // 
-            // txtmatricule
+            // txtEntite
             // 
-            this.txtmatricule.BorderRadius = 4;
-            this.txtmatricule.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtmatricule.DefaultText = "";
-            this.txtmatricule.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtmatricule.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtmatricule.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtmatricule.DisabledState.Parent = this.txtmatricule;
-            this.txtmatricule.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtmatricule.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtmatricule.FocusedState.Parent = this.txtmatricule;
-            this.txtmatricule.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtmatricule.HoverState.Parent = this.txtmatricule;
-            this.txtmatricule.Location = new System.Drawing.Point(147, 6);
-            this.txtmatricule.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.txtmatricule.Name = "txtmatricule";
-            this.txtmatricule.PasswordChar = '\0';
-            this.txtmatricule.PlaceholderText = "";
-            this.txtmatricule.SelectedText = "";
-            this.txtmatricule.ShadowDecoration.Parent = this.txtmatricule;
-            this.txtmatricule.Size = new System.Drawing.Size(215, 29);
-            this.txtmatricule.TabIndex = 0;
+            this.txtEntite.BorderRadius = 4;
+            this.txtEntite.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtEntite.DefaultText = "";
+            this.txtEntite.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtEntite.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtEntite.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtEntite.DisabledState.Parent = this.txtEntite;
+            this.txtEntite.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtEntite.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtEntite.FocusedState.Parent = this.txtEntite;
+            this.txtEntite.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtEntite.HoverState.Parent = this.txtEntite;
+            this.txtEntite.Location = new System.Drawing.Point(147, 6);
+            this.txtEntite.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtEntite.Name = "txtEntite";
+            this.txtEntite.PasswordChar = '\0';
+            this.txtEntite.PlaceholderText = "";
+            this.txtEntite.SelectedText = "";
+            this.txtEntite.ShadowDecoration.Parent = this.txtEntite;
+            this.txtEntite.Size = new System.Drawing.Size(215, 29);
+            this.txtEntite.TabIndex = 0;
             // 
             // label4
             // 
@@ -685,7 +686,7 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Controls.Add(this.label2, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtmatricule, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtEntite, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label6, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.DateOper, 3, 1);
@@ -776,7 +777,7 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private Guna.UI2.WinForms.Guna2TextBox txtmatricule;
+        private Guna.UI2.WinForms.Guna2TextBox txtEntite;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

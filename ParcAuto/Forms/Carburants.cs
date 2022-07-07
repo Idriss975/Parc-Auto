@@ -28,7 +28,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvCarburant.Rows.Add(GLB.dr[0], new CmbMatNom((int)GLB.dr[1], $"{GLB.dr[9]} {GLB.dr[10]}"), GLB.dr[2], GLB.dr[3], GLB.dr[4],$"ADMINISTRATIVE OMN°  {GLB.dr[5]}", GLB.dr[6], GLB.dr[7], GLB.dr[8]);
+                    dgvCarburant.Rows.Add(GLB.dr[0], new CmbMatNom((int)GLB.dr[1], $"{GLB.dr[9]} {GLB.dr[10]}"), GLB.dr[2], GLB.dr[3], GLB.dr[4],$"ADMINISTRATIVE OMN°  {GLB.dr[5]}" + (DateTime.Now.Year.ToString()).Substring(2), GLB.dr[6], GLB.dr[7], GLB.dr[8]);
                 GLB.dr.Close();
             }
             catch (Exception ex)
@@ -116,10 +116,44 @@ namespace ParcAuto.Forms
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            MajCarburants maj = new MajCarburants();
+            GLB.OMN = dgvCarburant.CurrentRow.Cells[5].Value.ToString();
+            string Entite = dgvCarburant.CurrentRow.Cells[0].Value.ToString();
+            string Benificiaire = dgvCarburant.CurrentRow.Cells[1].Value.ToString();
+            string vehicules = dgvCarburant.CurrentRow.Cells[2].Value.ToString();
+            DateTime DateOper = (DateTime)dgvCarburant.CurrentRow.Cells[3].Value;
+            string lieu = dgvCarburant.CurrentRow.Cells[4].Value.ToString();
+            string Dfix = dgvCarburant.CurrentRow.Cells[5].Value.ToString();
+            string DMiss = dgvCarburant.CurrentRow.Cells[6].Value.ToString();
+            string Dhebdo = dgvCarburant.CurrentRow.Cells[7].Value.ToString();
+
+            MajCarburants maj = new MajCarburants(Entite,Benificiaire,vehicules,DateOper,lieu,GLB.OMN,Dfix,DMiss,Dhebdo);
             Commandes.Command = Choix.modifier;
             maj.ShowDialog();
             RemplirLaGrille();
+        }
+
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GLB.OMN = dgvCarburant.CurrentRow.Cells[5].Value.ToString() ;
+                GLB.Cmd.CommandText = $"delete from CarburantVignettes where ObjetOMN = '{GLB.OMN}'";
+
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Il faut selectionner sur la table pour Suprrimer la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            //TODO: catch NullReferenceException (idriss)
+
+            DialogResult res = MessageBox.Show("Voulez Vous Vraiment Suprimmer Cette ligne ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if (res == DialogResult.Yes)
+            {
+                GLB.Con.Open();
+                GLB.Cmd.ExecuteNonQuery();
+                GLB.Con.Close();
+                RemplirLaGrille();
+            }
         }
     }
 }

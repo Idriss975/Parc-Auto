@@ -17,5 +17,6 @@ namespace ParcAuto.Classes_Globale
         public static SqlDataAdapter da;
         public static int Matricule;
         public static string Matricule_Voiture;
+        public static string OMN;
     }
 }
