@@ -384,7 +384,7 @@ namespace ParcAuto.Forms
             this.cmbConducteur.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbConducteur.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbConducteur.FormattingEnabled = true;
-            this.cmbConducteur.Location = new System.Drawing.Point(538, 168);
+            this.cmbConducteur.Location = new System.Drawing.Point(538, 169);
             this.cmbConducteur.Name = "cmbConducteur";
             this.cmbConducteur.Size = new System.Drawing.Size(216, 24);
             this.cmbConducteur.TabIndex = 7;
