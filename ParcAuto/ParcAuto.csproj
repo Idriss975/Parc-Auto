@@ -89,6 +89,7 @@
     <Compile Include="Classes Globale\CmbMatNom.cs" />
     <Compile Include="Classes Globale\Commandes.cs" />
     <Compile Include="Classes Globale\GLB.cs" />
+    <Compile Include="Classes Globale\Strings.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

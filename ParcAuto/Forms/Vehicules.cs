@@ -37,7 +37,7 @@ namespace ParcAuto.Forms
             dgvVehicules.Rows.Clear();
             try
             {
-                GLB.Cmd.CommandText = $"Load_datagridview";
+                GLB.Cmd.CommandText = BigStrings.SQLdgvVehicules;
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
