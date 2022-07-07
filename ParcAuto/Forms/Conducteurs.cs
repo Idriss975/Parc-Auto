@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ParcAuto.Classes_Globale;
 using System.Text.RegularExpressions; // import Regex()
+using System.Data.SqlClient;
+using System.Data;
 
 namespace ParcAuto.Forms
 {
@@ -39,8 +41,10 @@ namespace ParcAuto.Forms
             dgvconducteur.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(115, 139, 215);
             dgvconducteur.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
         }
+        
         private void RemplirLaGrille()
         {
+            //Todo : Modifier le Remplissage de la Grille
             dgvconducteur.Rows.Clear();
             try
             {
@@ -48,7 +52,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvconducteur.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr[4], GLB.dr[5], GLB.dr[6], GLB.dr[7], GLB.dr[8], GLB.dr[9]);
+                    dgvconducteur.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr[4], GLB.dr[5], GLB.dr[6],  GLB.dr[9], GLB.dr[7], GLB.dr[8]);//index 9 = Direction
                 GLB.dr.Close();
             }
             catch (Exception ex)
@@ -78,6 +82,7 @@ namespace ParcAuto.Forms
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
+
             try
             {
                 GLB.Matricule = (int)dgvconducteur.CurrentRow.Cells[0].Value;
@@ -87,10 +92,10 @@ namespace ParcAuto.Forms
                 DateTime DateEmbauche = (DateTime)dgvconducteur.CurrentRow.Cells[4].Value;
                 string NumPermis = dgvconducteur.CurrentRow.Cells[5].Value.ToString();
                 string Adresse  = dgvconducteur.CurrentRow.Cells[6].Value.ToString();
-                string Ville = dgvconducteur.CurrentRow.Cells[7].Value.ToString();
+                string Direction = dgvconducteur.CurrentRow.Cells[7].Value.ToString();
                 string Tel = dgvconducteur.CurrentRow.Cells[8].Value.ToString();
                 string Email = dgvconducteur.CurrentRow.Cells[9].Value.ToString();    
-                MAJConducteur maj = new MAJConducteur(Nom,Prenom,DateNaiss,DateEmbauche,NumPermis,Adresse,Ville,Tel,Email);
+                MAJConducteur maj = new MAJConducteur(Nom,Prenom,DateNaiss,DateEmbauche,NumPermis,Adresse,Direction,Tel,Email);
                 Commandes.Command = Choix.modifier;
                 maj.ShowDialog();
                 RemplirLaGrille();

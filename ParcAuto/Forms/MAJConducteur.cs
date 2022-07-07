@@ -31,23 +31,23 @@ namespace ParcAuto.Forms
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
         }
-        string Nom, Prenom, NumPermis, Adresse, Ville, Tel, Email;
-
+        string Nom, Prenom, NumPermis, Adresse, Direction, Tel, Email;
+        DateTime DateNaiss, DateEmbauche;
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtnom.Clear();
             txtprenom.Clear();
             txtnumpermis.Clear();
             txtadr.Clear();
-            cmbVilles.SelectedIndex = 0;
+            cmbdirections.SelectedIndex = 0;
             txttel.Clear();
             txtemail.Clear();
             DateNaissance.Value = DateTime.Now;
             DateEmb.Value = DateTime.Now;
         }
 
-        DateTime DateNaiss, DateEmbauche;
-        public MAJConducteur(string Nom, string Prenom, DateTime DateNaiss, DateTime DateEmbauche, string NumPermis, string Adresse, string Ville, string Tel, string Email)
+      
+        public MAJConducteur(string Nom, string Prenom, DateTime DateNaiss, DateTime DateEmbauche, string NumPermis, string Adresse, string Direction, string Tel, string Email)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
@@ -56,7 +56,7 @@ namespace ParcAuto.Forms
             this.Prenom = Prenom;
             this.NumPermis = NumPermis;
             this.Adresse = Adresse;
-            this.Ville = Ville;
+            this.Direction = Direction;
             this.Tel = Tel;
             this.Email = Email;
             this.DateNaiss = DateNaiss;
@@ -68,7 +68,7 @@ namespace ParcAuto.Forms
             txtprenom.Text = Prenom;
             txtnumpermis.Text = NumPermis;
             txtadr.Text = Adresse;
-            cmbVilles.Text = Ville;
+            cmbdirections.Text = Direction;
             txttel.Text = Tel;
             txtemail.Text = Email;
             DateNaissance.Value = DateNaiss;
@@ -101,10 +101,10 @@ namespace ParcAuto.Forms
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
-                        GLB.Cmd.CommandText = $"Insert into Conducteurs values ({txtmatricule.Text}, '{txtnom.Text}', '{txtprenom.Text}', '{DateNaissance.Value.ToShortDateString()}', '{DateEmb.Value.ToShortDateString()}', '{txtnumpermis.Text}', '{txtadr.Text}', '{cmbVilles.SelectedItem}', '{txttel.Text}', '{txtemail.Text}')";
+                        GLB.Cmd.CommandText = $"Insert into Conducteurs values ({txtmatricule.Text}, '{txtnom.Text}', '{txtprenom.Text}', '{DateNaissance.Value.ToShortDateString()}', '{DateEmb.Value.ToShortDateString()}', '{txtnumpermis.Text}', '{txtadr.Text}','{txttel.Text}', '{txtemail.Text}','{cmbdirections.SelectedItem}')";
                         break;
                     case Choix.modifier:
-                        GLB.Cmd.CommandText = $"update Conducteurs set nom='{txtnom.Text}', prenom='{txtprenom.Text}', DateNaiss='{DateNaissance.Value.ToShortDateString()}', DateEmbauche='{DateEmb.Value.ToShortDateString()}', NumPermis='{txtnumpermis.Text}', Adresse='{txtadr.Text}', Ville='{cmbVilles.SelectedItem}', Tel='{txttel.Text}', Email='{txtemail.Text}' where Matricule = {GLB.Matricule}";
+                        GLB.Cmd.CommandText = $"update Conducteurs set nom='{txtnom.Text}', prenom='{txtprenom.Text}', DateNaiss='{DateNaissance.Value.ToShortDateString()}', DateEmbauche='{DateEmb.Value.ToShortDateString()}', NumPermis='{txtnumpermis.Text}', Adresse='{txtadr.Text}', Direction='{cmbdirections.SelectedItem}', Tel='{txttel.Text}', Email='{txtemail.Text}' where Matricule = {GLB.Matricule}";
                         RemplirLesChamps();
                         break;
                     case Choix.supprimer:
@@ -131,10 +131,22 @@ namespace ParcAuto.Forms
 
         }
 
-        
+        private void RemplirCmbDirection()
+        {
+            GLB.Con.Open();
+            GLB.Cmd.CommandText = "select * from Directions";
+            GLB.dr = GLB.Cmd.ExecuteReader();
+            while (GLB.dr.Read())
+            {
+                cmbdirections.Items.Add(GLB.dr[0]);
+            }
+            GLB.dr.Close();
+            GLB.Con.Close();
+        }
 
         private void MAJConducteur_Load_1(object sender, EventArgs e)
         {
+            RemplirCmbDirection();
             switch (Commandes.Command)
             {
                 case Choix.ajouter:
