@@ -129,16 +129,18 @@ namespace ParcAuto.Forms
             // 
             // cmbVehicule
             // 
+            this.cmbVehicule.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbVehicule.FormattingEnabled = true;
-            this.cmbVehicule.Location = new System.Drawing.Point(143, 50);
+            this.cmbVehicule.Location = new System.Drawing.Point(145, 60);
             this.cmbVehicule.Name = "cmbVehicule";
             this.cmbVehicule.Size = new System.Drawing.Size(219, 24);
             this.cmbVehicule.TabIndex = 26;
             // 
             // cmbBenificiare
             // 
+            this.cmbBenificiare.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbBenificiare.FormattingEnabled = true;
-            this.cmbBenificiare.Location = new System.Drawing.Point(522, 3);
+            this.cmbBenificiare.Location = new System.Drawing.Point(522, 12);
             this.cmbBenificiare.Name = "cmbBenificiare";
             this.cmbBenificiare.Size = new System.Drawing.Size(220, 24);
             this.cmbBenificiare.TabIndex = 25;
@@ -150,7 +152,7 @@ namespace ParcAuto.Forms
             this.DateOper.FillColor = System.Drawing.Color.White;
             this.DateOper.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DateOper.HoverState.Parent = this.DateOper;
-            this.DateOper.Location = new System.Drawing.Point(522, 50);
+            this.DateOper.Location = new System.Drawing.Point(522, 51);
             this.DateOper.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.DateOper.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.DateOper.Name = "DateOper";
@@ -163,18 +165,18 @@ namespace ParcAuto.Forms
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 156);
+            this.label7.Location = new System.Drawing.Point(22, 255);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 17);
+            this.label7.Size = new System.Drawing.Size(69, 17);
             this.label7.TabIndex = 15;
-            this.label7.Text = "Dotation ";
+            this.label7.Text = "Dotation :";
             // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(394, 109);
+            this.label6.Location = new System.Drawing.Point(394, 112);
             this.label6.Margin = new System.Windows.Forms.Padding(25, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(86, 17);
@@ -185,7 +187,7 @@ namespace ParcAuto.Forms
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 109);
+            this.label5.Location = new System.Drawing.Point(4, 112);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 17);
@@ -220,7 +222,7 @@ namespace ParcAuto.Forms
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(394, 62);
+            this.label4.Location = new System.Drawing.Point(394, 63);
             this.label4.Margin = new System.Windows.Forms.Padding(25, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(121, 17);
@@ -231,7 +233,7 @@ namespace ParcAuto.Forms
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 62);
+            this.label3.Location = new System.Drawing.Point(4, 63);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 17);
@@ -274,7 +276,7 @@ namespace ParcAuto.Forms
             this.txtOMN.FocusedState.Parent = this.txtOMN;
             this.txtOMN.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtOMN.HoverState.Parent = this.txtOMN;
-            this.txtOMN.Location = new System.Drawing.Point(526, 100);
+            this.txtOMN.Location = new System.Drawing.Point(526, 102);
             this.txtOMN.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtOMN.Name = "txtOMN";
             this.txtOMN.PasswordChar = '\0';
@@ -298,18 +300,19 @@ namespace ParcAuto.Forms
             this.txtDotation.FocusedState.Parent = this.txtDotation;
             this.txtDotation.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDotation.HoverState.Parent = this.txtDotation;
-            this.txtDotation.Location = new System.Drawing.Point(147, 147);
+            this.txtDotation.Location = new System.Drawing.Point(153, 250);
             this.txtDotation.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtDotation.Name = "txtDotation";
             this.txtDotation.PasswordChar = '\0';
             this.txtDotation.PlaceholderText = "";
             this.txtDotation.SelectedText = "";
             this.txtDotation.ShadowDecoration.Parent = this.txtDotation;
-            this.txtDotation.Size = new System.Drawing.Size(215, 29);
+            this.txtDotation.Size = new System.Drawing.Size(215, 30);
             this.txtDotation.TabIndex = 6;
             // 
             // cmbVilles
             // 
+            this.cmbVilles.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbVilles.FormattingEnabled = true;
             this.cmbVilles.Items.AddRange(new object[] {
             "Casablanca",
@@ -657,7 +660,7 @@ namespace ParcAuto.Forms
             "Sidi Abdallah Ghiat",
             "Sidi Bouzid",
             "Ounagha"});
-            this.cmbVilles.Location = new System.Drawing.Point(143, 97);
+            this.cmbVilles.Location = new System.Drawing.Point(145, 108);
             this.cmbVilles.Name = "cmbVilles";
             this.cmbVilles.Size = new System.Drawing.Size(219, 24);
             this.cmbVilles.TabIndex = 27;
@@ -670,7 +673,6 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.26846F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.20134F));
             this.tableLayoutPanel1.Controls.Add(this.cmbVilles, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtDotation, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtOMN, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.Matricule, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 2, 0);
@@ -679,26 +681,24 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Controls.Add(this.txtmatricule, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label6, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.DateOper, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.cmbBenificiare, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.cmbVehicule, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(18, 68);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(745, 188);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(745, 145);
             this.tableLayoutPanel1.TabIndex = 17;
             // 
             // DMissions
             // 
             this.DMissions.AutoSize = true;
-            this.DMissions.Location = new System.Drawing.Point(25, 263);
+            this.DMissions.Location = new System.Drawing.Point(25, 220);
             this.DMissions.Name = "DMissions";
             this.DMissions.Size = new System.Drawing.Size(90, 21);
             this.DMissions.TabIndex = 22;
@@ -709,7 +709,7 @@ namespace ParcAuto.Forms
             // DFixe
             // 
             this.DFixe.AutoSize = true;
-            this.DFixe.Location = new System.Drawing.Point(153, 263);
+            this.DFixe.Location = new System.Drawing.Point(153, 220);
             this.DFixe.Name = "DFixe";
             this.DFixe.Size = new System.Drawing.Size(61, 21);
             this.DFixe.TabIndex = 23;
@@ -720,7 +720,7 @@ namespace ParcAuto.Forms
             // DHebdo
             // 
             this.DHebdo.AutoSize = true;
-            this.DHebdo.Location = new System.Drawing.Point(252, 263);
+            this.DHebdo.Location = new System.Drawing.Point(252, 220);
             this.DHebdo.Name = "DHebdo";
             this.DHebdo.Size = new System.Drawing.Size(78, 21);
             this.DHebdo.TabIndex = 24;
@@ -734,6 +734,7 @@ namespace ParcAuto.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(789, 335);
             this.Controls.Add(this.DHebdo);
+            this.Controls.Add(this.txtDotation);
             this.Controls.Add(this.DFixe);
             this.Controls.Add(this.DMissions);
             this.Controls.Add(this.btnClear);
@@ -741,9 +742,10 @@ namespace ParcAuto.Forms
             this.Controls.Add(this.btnAppliquer);
             this.Controls.Add(this.lbl);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.label7);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MajCarburants";
             this.Text = "MajCarburants";
             this.Load += new System.EventHandler(this.MajCarburants_Load);
