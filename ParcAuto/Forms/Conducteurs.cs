@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using ParcAuto.Classes_Globale;
 using System.Text.RegularExpressions; // import Regex()
 using System.Data.SqlClient;
-using System.Data;
 
 namespace ParcAuto.Forms
 {
