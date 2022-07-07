@@ -91,16 +91,10 @@ namespace ParcAuto.Forms
         {
             this.Close();
         }
-        private bool Valider()
-        {
-            if (txtMarque.Text == "" || txtModele.Text == "" || txtCouleur.Text == "" || txtCarburant.Text == "" )
-                return false;
-            return true;
-        }
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
             string TempMatricule=""; //Pour Voir si Matricule est null ou pas.
-            if (Valider())
+            if (!(txtMarque.Text == "" || txtModele.Text == "" || txtCouleur.Text == "" || txtCarburant.Text == ""))
             {
                 if (((CmbMatNom)cmbConducteur.SelectedItem).Matricule is null)
                     TempMatricule = "null";
