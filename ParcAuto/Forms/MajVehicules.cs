@@ -93,7 +93,7 @@ namespace ParcAuto.Forms
         }
         private bool Valider()
         {
-            if (txtMarque.Text == "" || txtModele.Text == "" || txtCouleur.Text == "" || txtCarburant.Text == "" || txtObservation.Text == "")
+            if (txtMarque.Text == "" || txtModele.Text == "" || txtCouleur.Text == "" || txtCarburant.Text == "" )
                 return false;
             return true;
         }
