@@ -37,11 +37,16 @@ namespace ParcAuto.Forms
             dgvVehicules.Rows.Clear();
             try
             {
-                GLB.Cmd.CommandText = $"select Vehicules.*, Nom, Prenom from Vehicules, Conducteurs where Vehicules.Conducteur = Conducteurs.matricule";
+                GLB.Cmd.CommandText = $"Load_datagridview";
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr[4], GLB.dr[5], GLB.dr[6], new CmbMatNom((int)GLB.dr[7], $"{GLB.dr[8]} {GLB.dr[9]}"));
+                {
+                    if (GLB.dr.IsDBNull(7))
+                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr[4], GLB.dr[5], GLB.dr[6], new CmbMatNom(null, $"{GLB.dr[8]} {GLB.dr[9]}"));
+                else
+                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr[4], GLB.dr[5], GLB.dr[6], new CmbMatNom((int)GLB.dr[7], $"{GLB.dr[8]} {GLB.dr[9]}"));
+                }
                 GLB.dr.Close();
             }
             catch (Exception ex)
