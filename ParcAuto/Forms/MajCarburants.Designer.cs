@@ -95,6 +95,7 @@ namespace ParcAuto.Forms
             this.guna2Button1.TabIndex = 19;
             this.guna2Button1.Text = "Annuler";
             this.guna2Button1.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // btnAppliquer
             // 
