@@ -63,5 +63,10 @@ namespace ParcAuto.Forms
             cmbVehicule.SelectedIndex = 0;
             cmbVilles.SelectedIndex = 0;
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
