@@ -149,6 +149,7 @@ namespace ParcAuto.Forms
             this.dgvconducteur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvconducteur.Size = new System.Drawing.Size(1087, 526);
             this.dgvconducteur.TabIndex = 6;
+            this.dgvconducteur.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvconducteur_CellContentClick);
             // 
             // Column1
             // 
@@ -258,6 +259,7 @@ namespace ParcAuto.Forms
             this.label1.Size = new System.Drawing.Size(73, 17);
             this.label1.TabIndex = 10;
             this.label1.Text = "Filter Par :";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // cmbChoix
             // 
@@ -325,6 +327,7 @@ namespace ParcAuto.Forms
             this.Date2.Size = new System.Drawing.Size(200, 36);
             this.Date2.TabIndex = 14;
             this.Date2.Value = new System.DateTime(2022, 7, 6, 14, 45, 58, 151);
+            this.Date2.ValueChanged += new System.EventHandler(this.Date2_ValueChanged);
             // 
             // btnRefresh
             // 
@@ -346,6 +349,10 @@ namespace ParcAuto.Forms
             this.btnRefresh.TabIndex = 15;
             this.btnRefresh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // btnFiltrer
             // 
@@ -379,6 +386,7 @@ namespace ParcAuto.Forms
             this.TextPanel.Name = "TextPanel";
             this.TextPanel.Size = new System.Drawing.Size(340, 51);
             this.TextPanel.TabIndex = 19;
+            this.TextPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TextPanel_Paint);
             // 
             // label2
             // 
@@ -423,10 +431,11 @@ namespace ParcAuto.Forms
             this.panelDate.Controls.Add(this.label3);
             this.panelDate.Controls.Add(this.Date1);
             this.panelDate.Controls.Add(this.Date2);
-            this.panelDate.Location = new System.Drawing.Point(287, 4);
+            this.panelDate.Location = new System.Drawing.Point(287, 42);
             this.panelDate.Name = "panelDate";
             this.panelDate.Size = new System.Drawing.Size(549, 60);
             this.panelDate.TabIndex = 20;
+            this.panelDate.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDate_Paint);
             // 
             // label4
             // 
@@ -437,6 +446,7 @@ namespace ParcAuto.Forms
             this.label4.Size = new System.Drawing.Size(16, 17);
             this.label4.TabIndex = 14;
             this.label4.Text = "à";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -447,6 +457,7 @@ namespace ParcAuto.Forms
             this.label3.Size = new System.Drawing.Size(66, 17);
             this.label3.TabIndex = 0;
             this.label3.Text = "Date de :";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // Conducteurs
             // 

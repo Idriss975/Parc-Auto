@@ -52,6 +52,7 @@ namespace ParcAuto
 
         private void btnCarburant_Click(object sender, EventArgs e)
         {
+            openChildForm(new Forms.Carburants());
             //hideSubMenu();
         }
 

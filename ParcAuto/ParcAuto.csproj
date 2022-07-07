@@ -95,11 +95,23 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Carburants.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Carburants.Designer.cs">
+      <DependentUpon>Carburants.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Conducteurs.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Conducteurs.Designer.cs">
       <DependentUpon>Conducteurs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MajCarburants.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MajCarburants.Designer.cs">
+      <DependentUpon>MajCarburants.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MAJConducteur.cs">
       <SubType>Form</SubType>
@@ -124,8 +136,14 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Carburants.resx">
+      <DependentUpon>Carburants.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Conducteurs.resx">
       <DependentUpon>Conducteurs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MajCarburants.resx">
+      <DependentUpon>MajCarburants.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MAJConducteur.resx">
       <DependentUpon>MAJConducteur.cs</DependentUpon>
