@@ -126,9 +126,6 @@ namespace ParcAuto.Forms
             // dgvconducteur
             // 
             this.dgvconducteur.AllowUserToAddRows = false;
-            this.dgvconducteur.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvconducteur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvconducteur.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -349,6 +346,9 @@ namespace ParcAuto.Forms
             // 
             // btnFiltrer
             // 
+            this.btnFiltrer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFiltrer.BorderRadius = 4;
             this.btnFiltrer.CheckedState.Parent = this.btnFiltrer;
             this.btnFiltrer.CustomImages.Parent = this.btnFiltrer;
@@ -358,6 +358,8 @@ namespace ParcAuto.Forms
             this.btnFiltrer.HoverState.Parent = this.btnFiltrer;
             this.btnFiltrer.Location = new System.Drawing.Point(635, 23);
             this.btnFiltrer.Margin = new System.Windows.Forms.Padding(5);
+            this.btnFiltrer.MaximumSize = new System.Drawing.Size(90, 30);
+            this.btnFiltrer.MinimumSize = new System.Drawing.Size(90, 30);
             this.btnFiltrer.Name = "btnFiltrer";
             this.btnFiltrer.ShadowDecoration.Parent = this.btnFiltrer;
             this.btnFiltrer.Size = new System.Drawing.Size(90, 30);

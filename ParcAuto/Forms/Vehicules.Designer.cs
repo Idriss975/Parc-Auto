@@ -367,6 +367,8 @@ namespace ParcAuto.Forms
             this.btnFiltrer.HoverState.Parent = this.btnFiltrer;
             this.btnFiltrer.Location = new System.Drawing.Point(642, 26);
             this.btnFiltrer.Margin = new System.Windows.Forms.Padding(5);
+            this.btnFiltrer.MaximumSize = new System.Drawing.Size(90, 30);
+            this.btnFiltrer.MinimumSize = new System.Drawing.Size(90, 30);
             this.btnFiltrer.Name = "btnFiltrer";
             this.btnFiltrer.ShadowDecoration.Parent = this.btnFiltrer;
             this.btnFiltrer.Size = new System.Drawing.Size(90, 30);
