@@ -182,6 +182,7 @@ namespace ParcAuto.Forms
                 for (int i = dgvconducteur.Rows.Count - 1; i >= 0; i--)
                     if (!( ((DateTime)dgvconducteur.Rows[i].Cells[cmbChoix.SelectedIndex].Value).Date >= Date1.Value.Date && ((DateTime)dgvconducteur.Rows[i].Cells[cmbChoix.SelectedIndex].Value).Date <= Date2.Value.Date))
                         dgvconducteur.Rows.Remove(dgvconducteur.Rows[i]);
+            txtValueToFiltre.Text = "";
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
