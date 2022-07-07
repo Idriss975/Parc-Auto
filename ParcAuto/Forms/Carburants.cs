@@ -19,7 +19,7 @@ namespace ParcAuto.Forms
         {
             InitializeComponent();
         }
-        private void RemplirGrille()
+        private void RemplirLaGrille()
         {
             dgvCarburant.Rows.Clear();
             try
@@ -28,7 +28,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvCarburant.Rows.Add(GLB.dr[0], new CmbMatNom((int)GLB.dr[1], $"{GLB.dr[9]} {GLB.dr[10]}"), GLB.dr[2], GLB.dr[3], GLB.dr[4], GLB.dr[5], GLB.dr[6], GLB.dr[7], GLB.dr[8]);
+                    dgvCarburant.Rows.Add(GLB.dr[0], new CmbMatNom((int)GLB.dr[1], $"{GLB.dr[9]} {GLB.dr[10]}"), GLB.dr[2], GLB.dr[3], GLB.dr[4],$"ADMINISTRATIVE OMN°  {GLB.dr[5]}", GLB.dr[6], GLB.dr[7], GLB.dr[8]);
                 GLB.dr.Close();
             }
             catch (Exception ex)
@@ -60,7 +60,7 @@ namespace ParcAuto.Forms
             TextPanel.Visible = false;
             cmbChoix.SelectedIndex = 0;
             StyleDataGridView();
-            RemplirGrille();
+            RemplirLaGrille();
         }
         private void cmbChoix_SelectedIndexChanged_1(object sender, EventArgs e)
         {
@@ -82,7 +82,7 @@ namespace ParcAuto.Forms
 
         private void btnRefresh_Click_1(object sender, EventArgs e)
         {
-            RemplirGrille();
+            RemplirLaGrille();
         }
 
         private void btnQuitter_Click_1(object sender, EventArgs e)
@@ -104,6 +104,22 @@ namespace ParcAuto.Forms
                 for (int i = dgvCarburant.Rows.Count - 1; i >= 0; i--)
                     if (!(((DateTime)dgvCarburant.Rows[i].Cells[cmbChoix.SelectedIndex].Value).Date >= Date1.Value.Date && ((DateTime)dgvCarburant.Rows[i].Cells[cmbChoix.SelectedIndex].Value).Date <= Date2.Value.Date))
                         dgvCarburant.Rows.Remove(dgvCarburant.Rows[i]);
+        }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            MajCarburants maj = new MajCarburants();
+            Commandes.Command = Choix.ajouter;
+            maj.ShowDialog();
+            RemplirLaGrille();
+        }
+
+        private void btnModifier_Click(object sender, EventArgs e)
+        {
+            MajCarburants maj = new MajCarburants();
+            Commandes.Command = Choix.modifier;
+            maj.ShowDialog();
+            RemplirLaGrille();
         }
     }
 }

@@ -294,6 +294,7 @@ namespace ParcAuto.Forms
             this.btnAjouter.TabIndex = 25;
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // btnModifier
             // 
@@ -313,6 +314,7 @@ namespace ParcAuto.Forms
             this.btnModifier.TabIndex = 24;
             this.btnModifier.Text = "Modifier";
             this.btnModifier.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // btnSupprimer
             // 
