@@ -8,7 +8,7 @@ namespace ParcAuto.Classes_Globale
 {
     public class CmbMatNom
     {
-        public int? Matricule;
+        public int? Matricule ;
         public string Nom_Complet;
 
         public override string ToString()
