@@ -78,25 +78,12 @@ namespace ParcAuto.Forms
         {
             this.Close();
         }
-        private bool Valider()
-        {
-            if (txtnom.Text == "" ||
-            txtprenom.Text == "" ||
-            txtnumpermis.Text == "" ||
-            txtadr.Text == "" ||
-            txttel.Text == "" ||
-            txtemail.Text == "" ||
-            DateNaissance.Value == DateTime.Now)
-                return false;
-            return true;
-            
-        }
 
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
 
             //Definir la requette SQL
-            if (Valider())
+            if (!(txtnom.Text == "" || txtprenom.Text == "" || txtnumpermis.Text == "" || txtadr.Text == "" || txttel.Text == "" || txtemail.Text == "" || DateNaissance.Value == DateTime.Now))
             {
                 switch (Commandes.Command)
                 {
@@ -124,11 +111,6 @@ namespace ParcAuto.Forms
                 MessageBox.Show("Tous les Champs sont Obligatoire", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
-
-
-
-
-
         }
 
         private void RemplirCmbDirection()
