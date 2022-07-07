@@ -170,22 +170,6 @@ namespace ParcAuto.Forms
                 for (int i = dgvVehicules.Rows.Count - 1; i >= 0; i--)
                     if (!(((DateTime)dgvVehicules.Rows[i].Cells[cmbChoix.SelectedIndex].Value).Date >= Date1.Value.Date && ((DateTime)dgvVehicules.Rows[i].Cells[cmbChoix.SelectedIndex].Value).Date <= Date2.Value.Date))
                         dgvVehicules.Rows.Remove(dgvVehicules.Rows[i]);
-
-            /*
-            if (!(cmbChoix.SelectedIndex == 4))
-            {
-                foreach (DataGridViewRow item in dgvVehicules.Rows)
-                {
-                    if (!(new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(item.Cells[cmbChoix.SelectedIndex].Value.ToString().ToLower())))
-                        dgvVehicules.Rows.Remove(item);
-                }
-                    
-            }
-            else
-                foreach (DataGridViewRow item2 in dgvVehicules.Rows)
-                    if (!(((DateTime)item2.Cells[cmbChoix.SelectedIndex].Value).Date >= Date1.Value.Date && ((DateTime)item2.Cells[cmbChoix.SelectedIndex].Value).Date <= Date2.Value.Date))
-                        dgvVehicules.Rows.Remove(item2);
-            */
         }
     }
 }
