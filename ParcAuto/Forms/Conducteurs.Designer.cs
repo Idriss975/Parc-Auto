@@ -349,7 +349,6 @@ namespace ParcAuto.Forms
             // 
             // btnFiltrer
             // 
-            this.btnFiltrer.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnFiltrer.BorderRadius = 4;
             this.btnFiltrer.CheckedState.Parent = this.btnFiltrer;
             this.btnFiltrer.CustomImages.Parent = this.btnFiltrer;
@@ -419,7 +418,7 @@ namespace ParcAuto.Forms
             this.panelDate.Controls.Add(this.label3);
             this.panelDate.Controls.Add(this.Date1);
             this.panelDate.Controls.Add(this.Date2);
-            this.panelDate.Location = new System.Drawing.Point(287, 4);
+            this.panelDate.Location = new System.Drawing.Point(287, 61);
             this.panelDate.Name = "panelDate";
             this.panelDate.Size = new System.Drawing.Size(549, 60);
             this.panelDate.TabIndex = 20;
