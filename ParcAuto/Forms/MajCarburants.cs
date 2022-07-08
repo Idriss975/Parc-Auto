@@ -98,7 +98,7 @@ namespace ParcAuto.Forms
                     lbl.Text = "L'ajout d'un Conducteur";
                     break;
                 case Choix.modifier:
-                    lbl.Text = "La modification d'une Vignettes Carburant";
+                    lbl.Text = "La modification d'une Vignette Carburant";
                     RemplirChamps();
                     break;
                 case Choix.supprimer:
