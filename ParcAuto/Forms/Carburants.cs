@@ -126,7 +126,7 @@ namespace ParcAuto.Forms
             string DMiss = dgvCarburant.CurrentRow.Cells[6].Value.ToString();
             string Dhebdo = dgvCarburant.CurrentRow.Cells[7].Value.ToString();
 
-            MajCarburants maj = new MajCarburants(Entite,Benificiaire,vehicules,DateOper,lieu,GLB.OMN,Dfix,DMiss,Dhebdo);
+            MajCarburants maj = new MajCarburants(Entite,Benificiaire,vehicules,DateOper,lieu,Dfix,DMiss,Dhebdo);
             Commandes.Command = Choix.modifier;
             maj.ShowDialog();
             RemplirLaGrille();

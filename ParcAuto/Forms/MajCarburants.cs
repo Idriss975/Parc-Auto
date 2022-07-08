@@ -30,10 +30,10 @@ namespace ParcAuto.Forms
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
         }
-        string Entite, Benificiaire, vehicules, lieu, omn, Dfix, DMiss, Dhebdo;
+        string Entite, Benificiaire, vehicules, lieu, Dfix, DMiss, Dhebdo;
         DateTime DateOpera;
         
-        public MajCarburants(string Entite, string Benificiaire, string vehicules,DateTime DateOpera,string lieu, string omn,string  Dfix, string DMiss, string Dhebdo)
+        public MajCarburants(string Entite, string Benificiaire, string vehicules,DateTime DateOpera,string lieu, string  Dfix, string DMiss, string Dhebdo)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
@@ -42,7 +42,6 @@ namespace ParcAuto.Forms
             this.Benificiaire = Benificiaire;
             this.vehicules = vehicules;
             this.lieu = lieu;
-            this.omn = omn;
             this.DateOpera = DateOpera;
             this.Dfix = Dfix;
             this.DMiss = DMiss;
@@ -51,11 +50,14 @@ namespace ParcAuto.Forms
         private void RemplirChamps()
         {
             txtEntite.Text = Entite;
-            txtOMN.Text = omn;
+            txtOMN.Text = GLB.OMN;
             cmbBenificiare.Text = Benificiaire;
             cmbVehicule.Text = vehicules;
             cmbVilles.Text = lieu;
             DateOper.Value = DateOpera;
+            //if (Dhebdo is null) DHebdo.Checked = false;
+            //else if (!Dhebdo == null) DHebdo.Checked = true;
+            //else if (this.DFixe is null)
 
         }
         private void RemplirComboBoxBenificiaire()
@@ -89,6 +91,18 @@ namespace ParcAuto.Forms
             cmbBenificiare.SelectedIndex = 0;
             cmbVehicule.SelectedIndex = 0;
             cmbVilles.SelectedIndex = 0;
+            switch (Commandes.Command)
+            {
+                case Choix.ajouter:
+                    lbl.Text = "L'ajout d'un Conducteur";
+                    break;
+                case Choix.modifier:
+                    lbl.Text = "La modification d'une Vignettes Carburant";
+                    RemplirChamps();
+                    break;
+                case Choix.supprimer:
+                    throw new Exception("Impossible de Supprimmer dans MajConducteur");
+            }
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -100,9 +114,6 @@ namespace ParcAuto.Forms
         string DoHebdo;
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
-            
-
-
             if (txtEntite.Text !="" || txtOMN.Text !="" || txtDotation.Text != "")
             {
                 if (!DFixe.Checked)
@@ -110,10 +121,10 @@ namespace ParcAuto.Forms
                 else if(DFixe.Checked)
                     DoFixe = txtDotation.Text;
 
-                if (!DMissions.Checked) DoMissions = "null";
+                else if (!DMissions.Checked) DoMissions = "null";
                 else if(DMissions.Checked) DoMissions = txtDotation.Text;
 
-                if (!DHebdo.Checked) DoHebdo = "null";
+                else if (!DHebdo.Checked) DoHebdo = "null";
                 else if (DMissions.Checked) DoHebdo = txtDotation.Text;
                 switch (Commandes.Command)
                 {
