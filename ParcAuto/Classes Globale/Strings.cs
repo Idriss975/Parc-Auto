@@ -9,9 +9,9 @@ namespace ParcAuto.Classes_Globale
     class BigStrings
     {
         public static string SQLdgvVehicules =
-            @"declare @Vehicules_Table table 
+			@"declare @Vehicules_Table table 
 (
-	Matricule int, 
+	Matricule varchar(50), 
 	Marque varchar(50), 
 	Modele varchar(50), 
 	Couleur varchar(50),
@@ -24,7 +24,7 @@ namespace ParcAuto.Classes_Globale
 )
 
 declare Vehicules_Cursor CURSOR for select Vehicules.*, Nom, Prenom from Vehicules, Conducteurs where Vehicules.Conducteur = Conducteurs.Matricule
-declare @Mat int, @Marq varchar(50), @Modle varchar(50), @Coul varchar(50),@MiseEnCir date,@Carb varchar(50), @Obser varchar(max),@ID int,@N varchar(50),@P varchar(50);
+declare @Mat varchar(50), @Marq varchar(50), @Modle varchar(50), @Coul varchar(50),@MiseEnCir date,@Carb varchar(50), @Obser varchar(max),@ID int,@N varchar(50),@P varchar(50);
 
 Open Vehicules_Cursor
 FETCH NEXT FROM Vehicules_Cursor INTO @Mat, @Marq, @Modle, @Coul,@MiseEnCir,@Carb,@Obser,@ID, @N, @P;
