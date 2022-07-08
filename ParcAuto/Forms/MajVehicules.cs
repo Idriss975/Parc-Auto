@@ -126,7 +126,7 @@ namespace ParcAuto.Forms
 
         private void MajVehicules_Load(object sender, EventArgs e)
         {
-            cmbConducteur.Items.Add("Sans Conducteur");
+            cmbConducteur.Items.Add(new CmbMatNom(null,"Sans Conducteur"));
             cmbConducteur.SelectedIndex = 0;
             RemplirComboBoxConducteur();
             switch (Commandes.Command)
