@@ -50,7 +50,7 @@ namespace ParcAuto.Forms
         private void RemplirChamps()
         {
             txtEntite.Text = Entite;
-            txtOMN.Text = GLB.OMN;
+            txtOMN.Text = GLB.OMN.Substring(0, GLB.OMN.Length-3);
             cmbBenificiare.Text = Benificiaire;
             cmbVehicule.Text = vehicules;
             cmbVilles.Text = lieu;
