@@ -55,28 +55,29 @@ namespace ParcAuto.Forms
             cmbVehicule.Text = vehicules;
             cmbVilles.Text = lieu;
             DateOper.Value = DateOpera;
-            if (!(Dhebdo == null))
-            {
-                DHebdo.Checked = true;
-                DFixe.Checked = false;
-                DMissions.Checked = false;
-                txtDotation.Text = Dhebdo;
-            }
+            MessageBox.Show(Dhebdo+"-"+DMiss+"-"+Dfix);
+            //if (!(Dhebdo == ""))
+            //{
+            //    DHebdo.Checked = true;
+            //    DFixe.Checked = false;
+            //    DMissions.Checked = false;
+            //    txtDotation.Text = Dhebdo;
+            //}
 
-            else if (!(DMiss is null))
-            {
-                DHebdo.Checked = false;
-                DFixe.Checked = false;
-                DMissions.Checked = true;
-                txtDotation.Text = DMiss;
-            }
+            //else if (!(DMiss is null))
+            //{
+            //    DHebdo.Checked = false;
+            //    DFixe.Checked = false;
+            //    DMissions.Checked = true;
+            //    txtDotation.Text = DMiss;
+            //}
 
-            else if (!(Dfix is null)) {
-                DHebdo.Checked = false;
-                DFixe.Checked = true;
-                DMissions.Checked = false;
-                txtDotation.Text = Dfix;
-            }
+            //else if (!(Dfix is null)) {
+            //    DHebdo.Checked = false;
+            //    DFixe.Checked = true;
+            //    DMissions.Checked = false;
+            //    txtDotation.Text = Dfix;
+            //}
             
 
 

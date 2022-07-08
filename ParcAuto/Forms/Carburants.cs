@@ -122,9 +122,9 @@ namespace ParcAuto.Forms
             string vehicules = dgvCarburant.CurrentRow.Cells[2].Value.ToString();
             DateTime DateOper = (DateTime)dgvCarburant.CurrentRow.Cells[3].Value;
             string lieu = dgvCarburant.CurrentRow.Cells[4].Value.ToString();
-            string Dfix = dgvCarburant.CurrentRow.Cells[5].Value.ToString();
-            string DMiss = dgvCarburant.CurrentRow.Cells[6].Value.ToString();
-            string Dhebdo = dgvCarburant.CurrentRow.Cells[7].Value.ToString();
+            string Dfix = dgvCarburant.CurrentRow.Cells[6].Value.ToString();
+            string DMiss = dgvCarburant.CurrentRow.Cells[7].Value.ToString();
+            string Dhebdo = dgvCarburant.CurrentRow.Cells[8].Value.ToString();
 
             MajCarburants maj = new MajCarburants(Entite,Benificiaire,vehicules,DateOper,lieu,Dfix,DMiss,Dhebdo);
             Commandes.Command = Choix.modifier;
