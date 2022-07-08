@@ -136,7 +136,7 @@ namespace ParcAuto.Forms
             this.cmbVehicule.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbVehicule.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbVehicule.FormattingEnabled = true;
-            this.cmbVehicule.Location = new System.Drawing.Point(145, 60);
+            this.cmbVehicule.Location = new System.Drawing.Point(145, 61);
             this.cmbVehicule.Name = "cmbVehicule";
             this.cmbVehicule.Size = new System.Drawing.Size(219, 24);
             this.cmbVehicule.TabIndex = 26;
@@ -147,7 +147,7 @@ namespace ParcAuto.Forms
             this.cmbBenificiare.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbBenificiare.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbBenificiare.FormattingEnabled = true;
-            this.cmbBenificiare.Location = new System.Drawing.Point(522, 12);
+            this.cmbBenificiare.Location = new System.Drawing.Point(522, 13);
             this.cmbBenificiare.Name = "cmbBenificiare";
             this.cmbBenificiare.Size = new System.Drawing.Size(220, 24);
             this.cmbBenificiare.TabIndex = 25;
@@ -669,7 +669,7 @@ namespace ParcAuto.Forms
             "Sidi Abdallah Ghiat",
             "Sidi Bouzid",
             "Ounagha"});
-            this.cmbVilles.Location = new System.Drawing.Point(145, 108);
+            this.cmbVilles.Location = new System.Drawing.Point(145, 110);
             this.cmbVilles.Name = "cmbVilles";
             this.cmbVilles.Size = new System.Drawing.Size(219, 24);
             this.cmbVilles.TabIndex = 27;
@@ -708,7 +708,7 @@ namespace ParcAuto.Forms
             // DMissions
             // 
             this.DMissions.AutoSize = true;
-            this.DMissions.Location = new System.Drawing.Point(25, 220);
+            this.DMissions.Location = new System.Drawing.Point(124, 220);
             this.DMissions.Name = "DMissions";
             this.DMissions.Size = new System.Drawing.Size(90, 21);
             this.DMissions.TabIndex = 22;
@@ -719,7 +719,7 @@ namespace ParcAuto.Forms
             // DFixe
             // 
             this.DFixe.AutoSize = true;
-            this.DFixe.Location = new System.Drawing.Point(153, 220);
+            this.DFixe.Location = new System.Drawing.Point(25, 220);
             this.DFixe.Name = "DFixe";
             this.DFixe.Size = new System.Drawing.Size(61, 21);
             this.DFixe.TabIndex = 23;
