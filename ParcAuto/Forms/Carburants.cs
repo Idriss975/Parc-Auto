@@ -137,7 +137,8 @@ namespace ParcAuto.Forms
             try
             {
                 GLB.OMN = dgvCarburant.CurrentRow.Cells[5].Value.ToString() ;
-                GLB.Cmd.CommandText = $"delete from CarburantVignettes where ObjetOMN = '{GLB.OMN}'";
+                GLB.Cmd.CommandText = $"delete from CarburantVignettes where ObjetOMN = '{GLB.OMN.Substring(21)}'";
+
 
             }
             catch (ArgumentOutOfRangeException)

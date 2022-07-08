@@ -84,6 +84,12 @@ namespace ParcAuto.Forms
 
             }
         }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void MajCarburants_Load(object sender, EventArgs e)
         {
             RemplirComboBoxBenificiaire();
@@ -91,7 +97,6 @@ namespace ParcAuto.Forms
             cmbBenificiare.SelectedIndex = 0;
             cmbVehicule.SelectedIndex = 0;
             cmbVilles.SelectedIndex = 0;
-            txtOMN.Text = $"/{(DateTime.Now.Year.ToString()).Substring(2)}"; //todo: Make it so it shows a label with the year and automatically add /(year) when inserting to db.
             switch (Commandes.Command)
             {
                 case Choix.ajouter:
@@ -104,6 +109,7 @@ namespace ParcAuto.Forms
                 case Choix.supprimer:
                     throw new Exception("Impossible de Supprimmer dans MajConducteur");
             }
+            OmnYear.Text = "/"+DateTime.Now.Year.ToString().Substring(2);
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -139,7 +145,7 @@ namespace ParcAuto.Forms
                 {
                     case Choix.ajouter:
                         GLB.Cmd.CommandText = $"insert into CarburantVignettes values('{txtEntite.Text}',{((CmbMatNom)cmbBenificiare.SelectedItem).Matricule},'{cmbVehicule.SelectedItem}'," +
-                    $"'{DateOper.Value.ToShortDateString()}','{cmbVilles.SelectedItem}','{txtOMN.Text}',{DoFixe},{DoMissions}," +
+                    $"'{DateOper.Value.ToShortDateString()}','{cmbVilles.SelectedItem}','{txtOMN.Text +"/"+ DateTime.Now.Year.ToString().Substring(2)}',{DoFixe},{DoMissions}," +
                     $"{DoHebdo})";
                         break;
                     case Choix.modifier:

@@ -52,6 +52,7 @@ namespace ParcAuto.Forms
             this.DMissions = new System.Windows.Forms.RadioButton();
             this.DFixe = new System.Windows.Forms.RadioButton();
             this.DHebdo = new System.Windows.Forms.RadioButton();
+            this.OmnYear = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,7 +69,7 @@ namespace ParcAuto.Forms
             this.btnClear.HoverState.Parent = this.btnClear;
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
             this.btnClear.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnClear.Location = new System.Drawing.Point(713, 9);
+            this.btnClear.Location = new System.Drawing.Point(721, 9);
             this.btnClear.Margin = new System.Windows.Forms.Padding(5);
             this.btnClear.Name = "btnClear";
             this.btnClear.ShadowDecoration.Parent = this.btnClear;
@@ -87,7 +88,7 @@ namespace ParcAuto.Forms
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Location = new System.Drawing.Point(540, 292);
+            this.guna2Button1.Location = new System.Drawing.Point(548, 292);
             this.guna2Button1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
@@ -108,7 +109,7 @@ namespace ParcAuto.Forms
             this.btnAppliquer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAppliquer.ForeColor = System.Drawing.Color.White;
             this.btnAppliquer.HoverState.Parent = this.btnAppliquer;
-            this.btnAppliquer.Location = new System.Drawing.Point(673, 292);
+            this.btnAppliquer.Location = new System.Drawing.Point(681, 292);
             this.btnAppliquer.Margin = new System.Windows.Forms.Padding(4);
             this.btnAppliquer.Name = "btnAppliquer";
             this.btnAppliquer.ShadowDecoration.Parent = this.btnAppliquer;
@@ -123,7 +124,7 @@ namespace ParcAuto.Forms
             this.lbl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl.AutoSize = true;
             this.lbl.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl.Location = new System.Drawing.Point(12, 9);
+            this.lbl.Location = new System.Drawing.Point(16, 9);
             this.lbl.Name = "lbl";
             this.lbl.Size = new System.Drawing.Size(67, 36);
             this.lbl.TabIndex = 20;
@@ -289,7 +290,7 @@ namespace ParcAuto.Forms
             this.txtOMN.PlaceholderText = "";
             this.txtOMN.SelectedText = "";
             this.txtOMN.ShadowDecoration.Parent = this.txtOMN;
-            this.txtOMN.Size = new System.Drawing.Size(212, 29);
+            this.txtOMN.Size = new System.Drawing.Size(117, 29);
             this.txtOMN.TabIndex = 5;
             // 
             // txtDotation
@@ -702,6 +703,7 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(745, 145);
             this.tableLayoutPanel1.TabIndex = 17;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // DMissions
             // 
@@ -736,11 +738,23 @@ namespace ParcAuto.Forms
             this.DHebdo.Text = "DHebdo";
             this.DHebdo.UseVisualStyleBackColor = true;
             // 
+            // OmnYear
+            // 
+            this.OmnYear.AutoSize = true;
+            this.OmnYear.BackColor = System.Drawing.Color.White;
+            this.OmnYear.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OmnYear.Location = new System.Drawing.Point(629, 176);
+            this.OmnYear.Name = "OmnYear";
+            this.OmnYear.Size = new System.Drawing.Size(28, 16);
+            this.OmnYear.TabIndex = 25;
+            this.OmnYear.Text = "/22";
+            // 
             // MajCarburants
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(789, 335);
+            this.ClientSize = new System.Drawing.Size(797, 335);
+            this.Controls.Add(this.OmnYear);
             this.Controls.Add(this.DHebdo);
             this.Controls.Add(this.txtDotation);
             this.Controls.Add(this.DFixe);
@@ -789,5 +803,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.RadioButton DMissions;
         private System.Windows.Forms.RadioButton DFixe;
         private System.Windows.Forms.RadioButton DHebdo;
+        private System.Windows.Forms.Label OmnYear;
     }
 }
