@@ -117,16 +117,24 @@ namespace ParcAuto.Forms
         {
             if (txtEntite.Text !="" || txtOMN.Text !="" || txtDotation.Text != "")
             {
-                if (!DFixe.Checked)
+                if (DMissions.Checked)
+                {
+                    DoMissions = txtDotation.Text;
                     DoFixe = "null";
-                else if(DFixe.Checked)
+                    DoHebdo = "null";
+                }
+                else if (DFixe.Checked)
+                {
+                    DoMissions = "null";
                     DoFixe = txtDotation.Text;
-
-                else if (!DMissions.Checked) DoMissions = "null";
-                else if(DMissions.Checked) DoMissions = txtDotation.Text;
-
-                else if (!DHebdo.Checked) DoHebdo = "null";
-                else if (DMissions.Checked) DoHebdo = txtDotation.Text;
+                    DoHebdo = "null";
+                }
+                else if (DHebdo.Checked)
+                {
+                    DoFixe = "null";
+                    DoMissions = "null";
+                    DoHebdo = txtDotation.Text;
+                }
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
