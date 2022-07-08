@@ -136,7 +136,7 @@ namespace ParcAuto.Forms
             this.cmbVehicule.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbVehicule.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbVehicule.FormattingEnabled = true;
-            this.cmbVehicule.Location = new System.Drawing.Point(145, 61);
+            this.cmbVehicule.Location = new System.Drawing.Point(145, 60);
             this.cmbVehicule.Name = "cmbVehicule";
             this.cmbVehicule.Size = new System.Drawing.Size(219, 24);
             this.cmbVehicule.TabIndex = 26;
@@ -147,7 +147,7 @@ namespace ParcAuto.Forms
             this.cmbBenificiare.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbBenificiare.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbBenificiare.FormattingEnabled = true;
-            this.cmbBenificiare.Location = new System.Drawing.Point(522, 13);
+            this.cmbBenificiare.Location = new System.Drawing.Point(522, 12);
             this.cmbBenificiare.Name = "cmbBenificiare";
             this.cmbBenificiare.Size = new System.Drawing.Size(220, 24);
             this.cmbBenificiare.TabIndex = 25;
@@ -669,7 +669,7 @@ namespace ParcAuto.Forms
             "Sidi Abdallah Ghiat",
             "Sidi Bouzid",
             "Ounagha"});
-            this.cmbVilles.Location = new System.Drawing.Point(145, 110);
+            this.cmbVilles.Location = new System.Drawing.Point(145, 108);
             this.cmbVilles.Name = "cmbVilles";
             this.cmbVilles.Size = new System.Drawing.Size(219, 24);
             this.cmbVilles.TabIndex = 27;
@@ -745,9 +745,9 @@ namespace ParcAuto.Forms
             this.OmnYear.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OmnYear.Location = new System.Drawing.Point(629, 176);
             this.OmnYear.Name = "OmnYear";
-            this.OmnYear.Size = new System.Drawing.Size(28, 16);
+            this.OmnYear.Size = new System.Drawing.Size(32, 16);
             this.OmnYear.TabIndex = 25;
-            this.OmnYear.Text = "/22";
+            this.OmnYear.Text = "/XX";
             // 
             // MajCarburants
             // 
