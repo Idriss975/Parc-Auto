@@ -116,7 +116,7 @@ namespace ParcAuto.Forms
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            GLB.OMN = dgvCarburant.CurrentRow.Cells[5].Value.ToString();
+            GLB.OMN = dgvCarburant.CurrentRow.Cells[5].Value.ToString().Substring(21, dgvCarburant.CurrentRow.Cells[5].Value.ToString().Length -24 );
             string Entite = dgvCarburant.CurrentRow.Cells[0].Value.ToString();
             string Benificiaire = dgvCarburant.CurrentRow.Cells[1].Value.ToString();
             string vehicules = dgvCarburant.CurrentRow.Cells[2].Value.ToString();
