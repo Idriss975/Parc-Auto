@@ -97,14 +97,15 @@ namespace ParcAuto.Forms
             this.Column6,
             this.Column7,
             this.Column8});
-            this.dgvVehicules.Location = new System.Drawing.Point(13, 85);
+            this.dgvVehicules.Location = new System.Drawing.Point(0, 85);
             this.dgvVehicules.Margin = new System.Windows.Forms.Padding(4);
             this.dgvVehicules.MultiSelect = false;
             this.dgvVehicules.Name = "dgvVehicules";
             this.dgvVehicules.ReadOnly = true;
+            this.dgvVehicules.RowHeadersVisible = false;
             this.dgvVehicules.RowHeadersWidth = 62;
             this.dgvVehicules.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVehicules.Size = new System.Drawing.Size(1085, 520);
+            this.dgvVehicules.Size = new System.Drawing.Size(1110, 520);
             this.dgvVehicules.TabIndex = 1;
             // 
             // Column1
@@ -261,7 +262,7 @@ namespace ParcAuto.Forms
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(315, 21);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(23, 25);
+            this.label4.Size = new System.Drawing.Size(16, 17);
             this.label4.TabIndex = 14;
             this.label4.Text = "à";
             // 
@@ -271,7 +272,7 @@ namespace ParcAuto.Forms
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(13, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 25);
+            this.label3.Size = new System.Drawing.Size(66, 17);
             this.label3.TabIndex = 0;
             this.label3.Text = "Date de :";
             // 
@@ -322,9 +323,9 @@ namespace ParcAuto.Forms
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Location = new System.Drawing.Point(3, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 25);
+            this.label2.Size = new System.Drawing.Size(57, 17);
             this.label2.TabIndex = 20;
             this.label2.Text = "Valeur :";
             // 
@@ -343,7 +344,7 @@ namespace ParcAuto.Forms
             this.txtValueToFiltre.FocusedState.Parent = this.txtValueToFiltre;
             this.txtValueToFiltre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtValueToFiltre.HoverState.Parent = this.txtValueToFiltre;
-            this.txtValueToFiltre.Location = new System.Drawing.Point(9, 32);
+            this.txtValueToFiltre.Location = new System.Drawing.Point(72, 7);
             this.txtValueToFiltre.Margin = new System.Windows.Forms.Padding(9, 7, 9, 7);
             this.txtValueToFiltre.Name = "txtValueToFiltre";
             this.txtValueToFiltre.PasswordChar = '\0';
@@ -412,14 +413,14 @@ namespace ParcAuto.Forms
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(14, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 25);
+            this.label1.Size = new System.Drawing.Size(73, 17);
             this.label1.TabIndex = 21;
             this.label1.Text = "Filter Par :";
             // 
             // Vehicules
             // 
             this.AcceptButton = this.btnAjouter;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
