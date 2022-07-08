@@ -91,6 +91,7 @@ namespace ParcAuto.Forms
             cmbBenificiare.SelectedIndex = 0;
             cmbVehicule.SelectedIndex = 0;
             cmbVilles.SelectedIndex = 0;
+            txtOMN.Text = $"/{(DateTime.Now.Year.ToString()).Substring(2)}"; //todo: Make it so it shows a label with the year and automatically add /(year) when inserting to db.
             switch (Commandes.Command)
             {
                 case Choix.ajouter:
