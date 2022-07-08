@@ -417,7 +417,6 @@ namespace ParcAuto.Forms
             this.Column7.MinimumWidth = 8;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
-            this.Column7.Width = 150;
             // 
             // Column8
             // 
@@ -425,7 +424,6 @@ namespace ParcAuto.Forms
             this.Column8.MinimumWidth = 8;
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
-            this.Column8.Width = 150;
             // 
             // Column9
             // 
@@ -433,7 +431,6 @@ namespace ParcAuto.Forms
             this.Column9.MinimumWidth = 8;
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
-            this.Column9.Width = 150;
             // 
             // Carburants
             // 

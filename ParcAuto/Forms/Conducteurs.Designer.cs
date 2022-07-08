@@ -393,7 +393,7 @@ namespace ParcAuto.Forms
             this.Column2.MinimumWidth = 8;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 150;
+            this.Column2.Width = 110;
             // 
             // Column3
             // 
@@ -401,7 +401,7 @@ namespace ParcAuto.Forms
             this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 150;
+            this.Column3.Width = 110;
             // 
             // Column4
             // 
