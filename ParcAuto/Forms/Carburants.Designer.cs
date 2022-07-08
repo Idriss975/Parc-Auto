@@ -357,6 +357,7 @@ namespace ParcAuto.Forms
             this.dgvCarburant.Margin = new System.Windows.Forms.Padding(5);
             this.dgvCarburant.Name = "dgvCarburant";
             this.dgvCarburant.ReadOnly = true;
+            this.dgvCarburant.RowHeadersVisible = false;
             this.dgvCarburant.RowHeadersWidth = 62;
             this.dgvCarburant.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCarburant.Size = new System.Drawing.Size(1087, 526);
