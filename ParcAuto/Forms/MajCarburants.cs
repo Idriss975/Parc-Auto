@@ -113,6 +113,20 @@ namespace ParcAuto.Forms
 
         }
 
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtDotation.Text = "";
+            txtEntite.Text = "";
+            txtOMN.Text = "";
+            cmbBenificiare.SelectedIndex = 0;
+            cmbVehicule.SelectedIndex = 0;
+            cmbVilles.SelectedIndex = 0;
+            DateOper.Value = DateTime.Now;
+            DFixe.Checked = false;
+            DHebdo.Checked = false;
+            DMissions.Checked = false;
+        }
+
         private void MajCarburants_Load(object sender, EventArgs e)
         {
             RemplirComboBoxBenificiaire();

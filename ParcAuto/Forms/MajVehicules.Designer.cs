@@ -384,7 +384,7 @@ namespace ParcAuto.Forms
             this.cmbConducteur.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbConducteur.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbConducteur.FormattingEnabled = true;
-            this.cmbConducteur.Location = new System.Drawing.Point(538, 168);
+            this.cmbConducteur.Location = new System.Drawing.Point(538, 169);
             this.cmbConducteur.Name = "cmbConducteur";
             this.cmbConducteur.Size = new System.Drawing.Size(216, 24);
             this.cmbConducteur.TabIndex = 7;
@@ -412,12 +412,12 @@ namespace ParcAuto.Forms
             this.btnClear.ForeColor = System.Drawing.Color.White;
             this.btnClear.HoverState.Parent = this.btnClear;
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
-            this.btnClear.ImageSize = new System.Drawing.Size(35, 35);
+            this.btnClear.ImageSize = new System.Drawing.Size(30, 30);
             this.btnClear.Location = new System.Drawing.Point(743, 6);
             this.btnClear.Margin = new System.Windows.Forms.Padding(5);
             this.btnClear.Name = "btnClear";
             this.btnClear.ShadowDecoration.Parent = this.btnClear;
-            this.btnClear.Size = new System.Drawing.Size(50, 50);
+            this.btnClear.Size = new System.Drawing.Size(40, 40);
             this.btnClear.TabIndex = 17;
             this.btnClear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);

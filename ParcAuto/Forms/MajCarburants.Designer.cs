@@ -68,14 +68,15 @@ namespace ParcAuto.Forms
             this.btnClear.ForeColor = System.Drawing.Color.White;
             this.btnClear.HoverState.Parent = this.btnClear;
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
-            this.btnClear.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnClear.Location = new System.Drawing.Point(721, 9);
+            this.btnClear.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnClear.Location = new System.Drawing.Point(720, 9);
             this.btnClear.Margin = new System.Windows.Forms.Padding(5);
             this.btnClear.Name = "btnClear";
             this.btnClear.ShadowDecoration.Parent = this.btnClear;
-            this.btnClear.Size = new System.Drawing.Size(50, 50);
+            this.btnClear.Size = new System.Drawing.Size(40, 40);
             this.btnClear.TabIndex = 21;
             this.btnClear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // guna2Button1
             // 
@@ -136,7 +137,7 @@ namespace ParcAuto.Forms
             this.cmbVehicule.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbVehicule.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbVehicule.FormattingEnabled = true;
-            this.cmbVehicule.Location = new System.Drawing.Point(145, 61);
+            this.cmbVehicule.Location = new System.Drawing.Point(145, 60);
             this.cmbVehicule.Name = "cmbVehicule";
             this.cmbVehicule.Size = new System.Drawing.Size(219, 24);
             this.cmbVehicule.TabIndex = 26;
@@ -147,7 +148,7 @@ namespace ParcAuto.Forms
             this.cmbBenificiare.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbBenificiare.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbBenificiare.FormattingEnabled = true;
-            this.cmbBenificiare.Location = new System.Drawing.Point(522, 13);
+            this.cmbBenificiare.Location = new System.Drawing.Point(522, 12);
             this.cmbBenificiare.Name = "cmbBenificiare";
             this.cmbBenificiare.Size = new System.Drawing.Size(220, 24);
             this.cmbBenificiare.TabIndex = 25;
@@ -669,7 +670,7 @@ namespace ParcAuto.Forms
             "Sidi Abdallah Ghiat",
             "Sidi Bouzid",
             "Ounagha"});
-            this.cmbVilles.Location = new System.Drawing.Point(145, 110);
+            this.cmbVilles.Location = new System.Drawing.Point(145, 108);
             this.cmbVilles.Name = "cmbVilles";
             this.cmbVilles.Size = new System.Drawing.Size(219, 24);
             this.cmbVilles.TabIndex = 27;
