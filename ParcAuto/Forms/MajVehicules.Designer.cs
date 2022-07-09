@@ -64,13 +64,16 @@ namespace ParcAuto.Forms
             this.Quitter.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Quitter.ForeColor = System.Drawing.Color.White;
             this.Quitter.HoverState.Parent = this.Quitter;
+            this.Quitter.Image = ((System.Drawing.Image)(resources.GetObject("Quitter.Image")));
+            this.Quitter.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Quitter.Location = new System.Drawing.Point(548, 283);
             this.Quitter.Margin = new System.Windows.Forms.Padding(5);
             this.Quitter.Name = "Quitter";
             this.Quitter.ShadowDecoration.Parent = this.Quitter;
-            this.Quitter.Size = new System.Drawing.Size(90, 30);
+            this.Quitter.Size = new System.Drawing.Size(100, 30);
             this.Quitter.TabIndex = 9;
             this.Quitter.Text = "Annuler";
+            this.Quitter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.Quitter.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             this.Quitter.Click += new System.EventHandler(this.Quitter_Click);
             // 
@@ -303,19 +306,23 @@ namespace ParcAuto.Forms
             // 
             this.btnAppliquer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAppliquer.BorderRadius = 4;
+            this.btnAppliquer.Checked = true;
             this.btnAppliquer.CheckedState.Parent = this.btnAppliquer;
             this.btnAppliquer.CustomImages.Parent = this.btnAppliquer;
             this.btnAppliquer.FillColor = System.Drawing.Color.LimeGreen;
             this.btnAppliquer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAppliquer.ForeColor = System.Drawing.Color.White;
             this.btnAppliquer.HoverState.Parent = this.btnAppliquer;
+            this.btnAppliquer.Image = ((System.Drawing.Image)(resources.GetObject("btnAppliquer.Image")));
+            this.btnAppliquer.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAppliquer.Location = new System.Drawing.Point(687, 283);
             this.btnAppliquer.Margin = new System.Windows.Forms.Padding(5);
             this.btnAppliquer.Name = "btnAppliquer";
             this.btnAppliquer.ShadowDecoration.Parent = this.btnAppliquer;
-            this.btnAppliquer.Size = new System.Drawing.Size(90, 30);
+            this.btnAppliquer.Size = new System.Drawing.Size(105, 30);
             this.btnAppliquer.TabIndex = 8;
             this.btnAppliquer.Text = "Appliquer";
+            this.btnAppliquer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnAppliquer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             this.btnAppliquer.Click += new System.EventHandler(this.btnAppliquer_Click);
             // 

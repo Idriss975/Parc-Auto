@@ -73,13 +73,16 @@ namespace ParcAuto.Forms
             this.btnAjouter.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAjouter.ForeColor = System.Drawing.Color.White;
             this.btnAjouter.HoverState.Parent = this.btnAjouter;
+            this.btnAjouter.Image = ((System.Drawing.Image)(resources.GetObject("btnAjouter.Image")));
+            this.btnAjouter.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAjouter.Location = new System.Drawing.Point(731, 625);
             this.btnAjouter.Margin = new System.Windows.Forms.Padding(5);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.ShadowDecoration.Parent = this.btnAjouter;
-            this.btnAjouter.Size = new System.Drawing.Size(90, 30);
+            this.btnAjouter.Size = new System.Drawing.Size(100, 30);
             this.btnAjouter.TabIndex = 9;
             this.btnAjouter.Text = "Ajouter";
+            this.btnAjouter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnAjouter.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
@@ -93,13 +96,16 @@ namespace ParcAuto.Forms
             this.btnModifier.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnModifier.ForeColor = System.Drawing.Color.White;
             this.btnModifier.HoverState.Parent = this.btnModifier;
+            this.btnModifier.Image = ((System.Drawing.Image)(resources.GetObject("btnModifier.Image")));
+            this.btnModifier.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnModifier.Location = new System.Drawing.Point(869, 625);
             this.btnModifier.Margin = new System.Windows.Forms.Padding(5);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.ShadowDecoration.Parent = this.btnModifier;
-            this.btnModifier.Size = new System.Drawing.Size(90, 30);
+            this.btnModifier.Size = new System.Drawing.Size(100, 30);
             this.btnModifier.TabIndex = 8;
             this.btnModifier.Text = "Modifier";
+            this.btnModifier.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnModifier.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
@@ -113,11 +119,12 @@ namespace ParcAuto.Forms
             this.btnSupprimer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnSupprimer.ForeColor = System.Drawing.Color.White;
             this.btnSupprimer.HoverState.Parent = this.btnSupprimer;
+            this.btnSupprimer.Image = ((System.Drawing.Image)(resources.GetObject("btnSupprimer.Image")));
             this.btnSupprimer.Location = new System.Drawing.Point(1007, 625);
             this.btnSupprimer.Margin = new System.Windows.Forms.Padding(5);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.ShadowDecoration.Parent = this.btnSupprimer;
-            this.btnSupprimer.Size = new System.Drawing.Size(90, 30);
+            this.btnSupprimer.Size = new System.Drawing.Size(100, 30);
             this.btnSupprimer.TabIndex = 7;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
@@ -366,6 +373,8 @@ namespace ParcAuto.Forms
             this.btnFiltrer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnFiltrer.ForeColor = System.Drawing.Color.White;
             this.btnFiltrer.HoverState.Parent = this.btnFiltrer;
+            this.btnFiltrer.Image = ((System.Drawing.Image)(resources.GetObject("btnFiltrer.Image")));
+            this.btnFiltrer.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnFiltrer.Location = new System.Drawing.Point(635, 23);
             this.btnFiltrer.Margin = new System.Windows.Forms.Padding(5);
             this.btnFiltrer.MaximumSize = new System.Drawing.Size(90, 30);
@@ -375,6 +384,7 @@ namespace ParcAuto.Forms
             this.btnFiltrer.Size = new System.Drawing.Size(90, 30);
             this.btnFiltrer.TabIndex = 18;
             this.btnFiltrer.Text = "Filtrer";
+            this.btnFiltrer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnFiltrer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             this.btnFiltrer.Click += new System.EventHandler(this.btnFiltrer_Click);
             // 

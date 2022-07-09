@@ -89,13 +89,16 @@ namespace ParcAuto.Forms
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.HoverState.Parent = this.guna2Button1;
+            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
+            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button1.Location = new System.Drawing.Point(548, 292);
             this.guna2Button1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(90, 30);
+            this.guna2Button1.Size = new System.Drawing.Size(100, 30);
             this.guna2Button1.TabIndex = 19;
             this.guna2Button1.Text = "Annuler";
+            this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button1.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
@@ -110,13 +113,16 @@ namespace ParcAuto.Forms
             this.btnAppliquer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAppliquer.ForeColor = System.Drawing.Color.White;
             this.btnAppliquer.HoverState.Parent = this.btnAppliquer;
+            this.btnAppliquer.Image = ((System.Drawing.Image)(resources.GetObject("btnAppliquer.Image")));
+            this.btnAppliquer.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAppliquer.Location = new System.Drawing.Point(681, 292);
             this.btnAppliquer.Margin = new System.Windows.Forms.Padding(4);
             this.btnAppliquer.Name = "btnAppliquer";
             this.btnAppliquer.ShadowDecoration.Parent = this.btnAppliquer;
-            this.btnAppliquer.Size = new System.Drawing.Size(90, 30);
+            this.btnAppliquer.Size = new System.Drawing.Size(105, 30);
             this.btnAppliquer.TabIndex = 18;
             this.btnAppliquer.Text = "Appliquer";
+            this.btnAppliquer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnAppliquer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             this.btnAppliquer.Click += new System.EventHandler(this.btnAppliquer_Click);
             // 
