@@ -70,7 +70,7 @@ namespace ParcAuto
             this.btnConducteurs.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnConducteurs.FlatAppearance.BorderSize = 0;
             this.btnConducteurs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConducteurs.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnConducteurs.ForeColor = System.Drawing.Color.White;
             this.btnConducteurs.Image = ((System.Drawing.Image)(resources.GetObject("btnConducteurs.Image")));
             this.btnConducteurs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConducteurs.Location = new System.Drawing.Point(0, 312);
@@ -87,7 +87,7 @@ namespace ParcAuto
             this.btnVehicules.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnVehicules.FlatAppearance.BorderSize = 0;
             this.btnVehicules.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVehicules.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnVehicules.ForeColor = System.Drawing.Color.White;
             this.btnVehicules.Image = ((System.Drawing.Image)(resources.GetObject("btnVehicules.Image")));
             this.btnVehicules.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVehicules.Location = new System.Drawing.Point(0, 267);
@@ -117,7 +117,7 @@ namespace ParcAuto
             this.btnTransport.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnTransport.FlatAppearance.BorderSize = 0;
             this.btnTransport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTransport.ForeColor = System.Drawing.Color.LightGray;
+            this.btnTransport.ForeColor = System.Drawing.Color.White;
             this.btnTransport.Image = ((System.Drawing.Image)(resources.GetObject("btnTransport.Image")));
             this.btnTransport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTransport.Location = new System.Drawing.Point(0, 80);
@@ -136,7 +136,7 @@ namespace ParcAuto
             this.btnReparation.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnReparation.FlatAppearance.BorderSize = 0;
             this.btnReparation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReparation.ForeColor = System.Drawing.Color.LightGray;
+            this.btnReparation.ForeColor = System.Drawing.Color.White;
             this.btnReparation.Image = ((System.Drawing.Image)(resources.GetObject("btnReparation.Image")));
             this.btnReparation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReparation.Location = new System.Drawing.Point(0, 40);
@@ -156,7 +156,7 @@ namespace ParcAuto
             this.btnCarburant.FlatAppearance.BorderSize = 0;
             this.btnCarburant.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
             this.btnCarburant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCarburant.ForeColor = System.Drawing.Color.LightGray;
+            this.btnCarburant.ForeColor = System.Drawing.Color.White;
             this.btnCarburant.Image = ((System.Drawing.Image)(resources.GetObject("btnCarburant.Image")));
             this.btnCarburant.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCarburant.Location = new System.Drawing.Point(0, 0);
@@ -174,7 +174,7 @@ namespace ParcAuto
             this.btnVignettes.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnVignettes.FlatAppearance.BorderSize = 0;
             this.btnVignettes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVignettes.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnVignettes.ForeColor = System.Drawing.Color.White;
             this.btnVignettes.Image = ((System.Drawing.Image)(resources.GetObject("btnVignettes.Image")));
             this.btnVignettes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVignettes.Location = new System.Drawing.Point(0, 100);
@@ -197,6 +197,7 @@ namespace ParcAuto
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
@@ -205,6 +206,7 @@ namespace ParcAuto
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // FormsPlace
             // 

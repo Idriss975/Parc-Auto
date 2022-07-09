@@ -100,5 +100,10 @@ namespace ParcAuto
             childForm.Show();
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (ActiveForm != null)
+                ActiveForm.Close();
+        }
     }
 }
