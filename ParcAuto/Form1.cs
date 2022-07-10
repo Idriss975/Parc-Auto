@@ -13,7 +13,7 @@ namespace ParcAuto
 {
     public partial class Form1 : Form
     {
-        private Button currentButton;
+        
         public Form1()
         {
             InitializeComponent();
@@ -52,7 +52,7 @@ namespace ParcAuto
 
         private void btnCarburant_Click(object sender, EventArgs e)
         {
-            openChildForm(new Forms.Carburants(),sender);
+            openChildForm(new Forms.Carburants());
             //hideSubMenu();
         }
 
@@ -76,21 +76,20 @@ namespace ParcAuto
         {
             hideSubMenu();
 
-            openChildForm(new Forms.Vehicules(),sender);    //Open formulaire
+            openChildForm(new Forms.Vehicules());    //Open formulaire
         }
 
         private void btnConducteurs_Click(object sender, EventArgs e)
         {
-            openChildForm(new Forms.Conducteurs(),sender);
+            openChildForm(new Forms.Conducteurs());
             hideSubMenu();
         }
         Form ActiveForm;
-        private void openChildForm(Form childForm,object btnSender)
+        private void openChildForm(Form childForm)
         {
             
             if (ActiveForm != null)
                 ActiveForm.Close();
-            ActivateButton(btnSender);
             ActiveForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -100,35 +99,7 @@ namespace ParcAuto
             childForm.BringToFront();
             childForm.Show();
         }
-        private void DisableButton()
-        {
-            //This Methode set the default settings of the button. 
-            foreach (Control previousBtn in panelSideMenu.Controls)
-            {
-                if (previousBtn.GetType() == typeof(Button))
-                {
-                    previousBtn.BackColor = Color.FromArgb(115, 139, 215);
-                }
-            }
-        }
-        private void ActivateButton(object btnSender)
-        {
-            //This methode change the parameters of the button when we click it.
-            if (btnSender != null)
-            {
-                if (currentButton != (Button)btnSender)
-                {
-                    DisableButton();
-                   
-                    currentButton = (Button)btnSender;
-                    currentButton.BackColor = Color.FromArgb(81, 98, 153);
-                    //By activiting / highlighting a button , we increase the size of the font zoom effect .
-                    
-                    
 
-                }
-            }
-        }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (ActiveForm != null)
