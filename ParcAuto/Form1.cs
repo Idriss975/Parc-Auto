@@ -58,11 +58,13 @@ namespace ParcAuto
 
         private void btnReparation_Click(object sender, EventArgs e)
         {
+            openChildForm(new Forms.Reparation(), sender);
             //hideSubMenu();
         }
 
         private void btnTransport_Click(object sender, EventArgs e)
         {
+            openChildForm(new Forms.Transport(),sender);
             //hideSubMenu();
         }
 
