@@ -247,6 +247,7 @@ namespace ParcAuto
             this.btnApropos.TabIndex = 4;
             this.btnApropos.Text = "A propos";
             this.btnApropos.UseVisualStyleBackColor = false;
+            this.btnApropos.Click += new System.EventHandler(this.btnApropos_Click);
             // 
             // Form1
             // 

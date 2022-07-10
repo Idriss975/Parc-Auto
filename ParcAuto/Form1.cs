@@ -134,5 +134,10 @@ namespace ParcAuto
             if (ActiveForm != null)
                 ActiveForm.Close();
         }
+
+        private void btnApropos_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.A_propos(),sender);
+        }
     }
 }

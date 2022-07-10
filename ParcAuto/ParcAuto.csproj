@@ -96,6 +96,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\A_propos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\A_propos.Designer.cs">
+      <DependentUpon>A_propos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Carburants.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\A_propos.resx">
+      <DependentUpon>A_propos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Carburants.resx">
       <DependentUpon>Carburants.cs</DependentUpon>
