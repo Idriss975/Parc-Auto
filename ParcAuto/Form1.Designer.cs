@@ -42,6 +42,7 @@ namespace ParcAuto
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FormsPlace = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnApropos = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.panelSousVignettes.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -54,6 +55,7 @@ namespace ParcAuto
             // 
             this.panelSideMenu.AutoScroll = true;
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.panelSideMenu.Controls.Add(this.btnApropos);
             this.panelSideMenu.Controls.Add(this.btnConducteurs);
             this.panelSideMenu.Controls.Add(this.btnVehicules);
             this.panelSideMenu.Controls.Add(this.panelSousVignettes);
@@ -230,9 +232,25 @@ namespace ParcAuto
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // btnApropos
+            // 
+            this.btnApropos.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnApropos.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.btnApropos.FlatAppearance.BorderSize = 0;
+            this.btnApropos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnApropos.ForeColor = System.Drawing.Color.White;
+            this.btnApropos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnApropos.Location = new System.Drawing.Point(0, 594);
+            this.btnApropos.Name = "btnApropos";
+            this.btnApropos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnApropos.Size = new System.Drawing.Size(200, 45);
+            this.btnApropos.TabIndex = 4;
+            this.btnApropos.Text = "A propos";
+            this.btnApropos.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1327, 639);
             this.Controls.Add(this.FormsPlace);
@@ -271,6 +289,7 @@ namespace ParcAuto
         private System.Windows.Forms.Panel FormsPlace;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnApropos;
     }
 }
 
