@@ -45,10 +45,10 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cmbVehicule = new System.Windows.Forms.ComboBox();
             this.txtObjet = new Guna.UI2.WinForms.Guna2TextBox();
-            this.entretien = new System.Windows.Forms.RadioButton();
-            this.reparation = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMontant = new Guna.UI2.WinForms.Guna2TextBox();
+            this.rbEntretien = new System.Windows.Forms.RadioButton();
+            this.rbRepartion = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -287,7 +287,7 @@ namespace ParcAuto.Forms
             this.cmbVehicule.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbVehicule.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbVehicule.FormattingEnabled = true;
-            this.cmbVehicule.Location = new System.Drawing.Point(149, 65);
+            this.cmbVehicule.Location = new System.Drawing.Point(149, 69);
             this.cmbVehicule.Name = "cmbVehicule";
             this.cmbVehicule.Size = new System.Drawing.Size(211, 24);
             this.cmbVehicule.TabIndex = 27;
@@ -316,28 +316,6 @@ namespace ParcAuto.Forms
             this.txtObjet.ShadowDecoration.Parent = this.txtObjet;
             this.txtObjet.Size = new System.Drawing.Size(211, 28);
             this.txtObjet.TabIndex = 28;
-            // 
-            // entretien
-            // 
-            this.entretien.AutoSize = true;
-            this.entretien.Location = new System.Drawing.Point(13, 226);
-            this.entretien.Name = "entretien";
-            this.entretien.Size = new System.Drawing.Size(83, 21);
-            this.entretien.TabIndex = 22;
-            this.entretien.TabStop = true;
-            this.entretien.Text = "Entretien";
-            this.entretien.UseVisualStyleBackColor = true;
-            // 
-            // reparation
-            // 
-            this.reparation.AutoSize = true;
-            this.reparation.Location = new System.Drawing.Point(158, 226);
-            this.reparation.Name = "reparation";
-            this.reparation.Size = new System.Drawing.Size(96, 21);
-            this.reparation.TabIndex = 23;
-            this.reparation.TabStop = true;
-            this.reparation.Text = "Reparation";
-            this.reparation.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -374,15 +352,37 @@ namespace ParcAuto.Forms
             this.txtMontant.Size = new System.Drawing.Size(211, 28);
             this.txtMontant.TabIndex = 30;
             // 
+            // rbEntretien
+            // 
+            this.rbEntretien.AutoSize = true;
+            this.rbEntretien.Location = new System.Drawing.Point(12, 225);
+            this.rbEntretien.Name = "rbEntretien";
+            this.rbEntretien.Size = new System.Drawing.Size(83, 21);
+            this.rbEntretien.TabIndex = 31;
+            this.rbEntretien.TabStop = true;
+            this.rbEntretien.Text = "Entretien";
+            this.rbEntretien.UseVisualStyleBackColor = true;
+            // 
+            // rbRepartion
+            // 
+            this.rbRepartion.AutoSize = true;
+            this.rbRepartion.Location = new System.Drawing.Point(145, 225);
+            this.rbRepartion.Name = "rbRepartion";
+            this.rbRepartion.Size = new System.Drawing.Size(96, 21);
+            this.rbRepartion.TabIndex = 32;
+            this.rbRepartion.TabStop = true;
+            this.rbRepartion.Text = "Reparation";
+            this.rbRepartion.UseVisualStyleBackColor = true;
+            // 
             // MajReparation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(789, 335);
+            this.Controls.Add(this.rbRepartion);
+            this.Controls.Add(this.rbEntretien);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtMontant);
-            this.Controls.Add(this.reparation);
-            this.Controls.Add(this.entretien);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.btnAppliquer);
@@ -390,7 +390,7 @@ namespace ParcAuto.Forms
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MajReparation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MajReparation";
@@ -419,9 +419,9 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ComboBox cmbVehicule;
         private Guna.UI2.WinForms.Guna2TextBox txtObjet;
-        private System.Windows.Forms.RadioButton entretien;
-        private System.Windows.Forms.RadioButton reparation;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox txtMontant;
+        private System.Windows.Forms.RadioButton rbEntretien;
+        private System.Windows.Forms.RadioButton rbRepartion;
     }
 }

@@ -321,6 +321,7 @@ namespace ParcAuto.Forms
             this.btnModifier.Text = "Modifier";
             this.btnModifier.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnModifier.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // btnSupprimer
             // 
