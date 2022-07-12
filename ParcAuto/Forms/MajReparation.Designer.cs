@@ -193,6 +193,8 @@ namespace ParcAuto.Forms
             // txtBenificiaire
             // 
             this.txtBenificiaire.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBenificiaire.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtBenificiaire.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtBenificiaire.BorderRadius = 4;
             this.txtBenificiaire.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtBenificiaire.DefaultText = "";
@@ -288,7 +290,7 @@ namespace ParcAuto.Forms
             this.cmbVehicule.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbVehicule.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbVehicule.FormattingEnabled = true;
-            this.cmbVehicule.Location = new System.Drawing.Point(149, 69);
+            this.cmbVehicule.Location = new System.Drawing.Point(149, 67);
             this.cmbVehicule.Name = "cmbVehicule";
             this.cmbVehicule.Size = new System.Drawing.Size(211, 24);
             this.cmbVehicule.TabIndex = 27;
