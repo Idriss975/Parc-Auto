@@ -289,6 +289,7 @@ namespace ParcAuto.Forms
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAjouter.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // btnModifier
             // 
@@ -366,7 +367,7 @@ namespace ParcAuto.Forms
             this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.dgvReparation);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Reparation";
             this.Text = "Reparation";
             this.Load += new System.EventHandler(this.Reparation_Load);
