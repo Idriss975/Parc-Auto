@@ -58,9 +58,25 @@ namespace ParcAuto.Forms
 
             }
         }
+        private void RemplirComboBoxBeneficiaire()
+        {
+            if (GLB.ds.Tables["ConducteursRep"] != null)
+                GLB.ds.Tables["ConducteursRep"].Clear();
+            GLB.da = new SqlDataAdapter("select Nom, Prenom from Conducteurs", GLB.Con);
+            GLB.da.Fill(GLB.ds, "ConducteursRep");
+            AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
+            foreach (DataRow item in GLB.ds.Tables["ConducteursRep"].Rows)
+                ac.Add(item[0] + " " + item[1]);
+            
+            txtBenificiaire.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtBenificiaire.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtBenificiaire.AutoCompleteCustomSource = ac;
+        }
         private void MajReparation_Load(object sender, EventArgs e)
         {
             RemplirComboBoxVehicules();
+            RemplirComboBoxBeneficiaire();
+            
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
