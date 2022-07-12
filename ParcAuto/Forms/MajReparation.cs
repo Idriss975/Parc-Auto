@@ -31,10 +31,10 @@ namespace ParcAuto.Forms
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
         }
-        string entite, benificiaire, vehicule, objet, entretien, reparation;
+        string entite, benificiaire, vehicule, objet, entretien, reparation , MontantEntretient, MontantReparation;
         DateTime date;
-        string MontantEntretient;
-        string MontantReparation;
+        
+        
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
             if (!(txtBenificiaire.Text == "" || txtentite.Text == "" || txtMontant.Text == "" || txtObjet.Text == ""))
