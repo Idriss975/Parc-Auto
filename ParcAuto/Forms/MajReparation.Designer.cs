@@ -72,6 +72,7 @@ namespace ParcAuto.Forms
             this.btnClear.Size = new System.Drawing.Size(40, 40);
             this.btnClear.TabIndex = 21;
             this.btnClear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // Entite
             // 

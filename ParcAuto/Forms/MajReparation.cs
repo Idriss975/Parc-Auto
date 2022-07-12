@@ -33,8 +33,19 @@ namespace ParcAuto.Forms
         }
         string entite, benificiaire, vehicule, objet, entretien, reparation , MontantEntretient, MontantReparation;
         DateTime date;
-        
-        
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtBenificiaire.Clear();
+            txtentite.Clear();
+            txtMontant.Clear();
+            txtObjet.Clear();
+            cmbVehicule.SelectedIndex = 0;
+            Date.Value = DateTime.Now;
+            rbEntretien.Checked = false;
+            rbRepartion.Checked = false;
+        }
+
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
             if (!(txtBenificiaire.Text == "" || txtentite.Text == "" || txtMontant.Text == "" || txtObjet.Text == ""))
@@ -150,6 +161,7 @@ namespace ParcAuto.Forms
             }
 
             RemplirComboBoxBeneficiaire();
+            cmbVehicule.SelectedIndex = 0;
             
         }
 
