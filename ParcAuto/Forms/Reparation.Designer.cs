@@ -195,6 +195,7 @@ namespace ParcAuto.Forms
             this.btnFiltrer.Text = "Filtrer";
             this.btnFiltrer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnFiltrer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnFiltrer.Click += new System.EventHandler(this.btnFiltrer_Click);
             // 
             // btnRefresh
             // 
@@ -233,13 +234,11 @@ namespace ParcAuto.Forms
             this.cmbChoix.Items.AddRange(new object[] {
             "Entite",
             "Benificiaire",
-            "Vehicule",
-            "Date d\'operation",
-            "Lieu",
-            "ObjetOMN",
-            "Dotation Fixe",
-            "Dotation Missions",
-            "Dotation Hebdo"});
+            "Vehicules",
+            "Date",
+            "Objet",
+            "Entretien",
+            "Reparation"});
             this.cmbChoix.ItemsAppearance.Parent = this.cmbChoix;
             this.cmbChoix.Location = new System.Drawing.Point(96, 17);
             this.cmbChoix.Name = "cmbChoix";
