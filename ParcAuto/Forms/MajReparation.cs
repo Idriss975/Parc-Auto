@@ -131,9 +131,6 @@ namespace ParcAuto.Forms
             AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
             foreach (DataRow item in GLB.ds.Tables["ConducteursRep"].Rows)
                 ac.Add(item[0] + " " + item[1]);
-            
-            //txtBenificiaire.AutoCompleteMode = AutoCompleteMode.Suggest;
-            //txtBenificiaire.AutoCompleteSource = AutoCompleteSource.CustomSource;
             txtBenificiaire.AutoCompleteCustomSource = ac;
         }
         private void MajReparation_Load(object sender, EventArgs e)
