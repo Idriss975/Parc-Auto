@@ -121,7 +121,6 @@ namespace ParcAuto
                 if (currentButton != (Button)btnSender)
                 {
                     DisableButton();
-                   
                     currentButton = (Button)btnSender;
                     currentButton.BackColor = Color.FromArgb(81, 98, 153);
                     //By activiting / highlighting a button , we increase the size of the font zoom effect .
