@@ -24,7 +24,7 @@ namespace ParcAuto.Forms
             dgvCarburant.Rows.Clear();
             try
             {
-                GLB.Cmd.CommandText = $"select * from CarburantVignettes, Conducteurs where CarburantVignettes.benificiaire = (Conducteurs.Nom +' '+Conducteurs.Prenom)";
+                GLB.Cmd.CommandText = $"select * from CarburantVignettes";
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
