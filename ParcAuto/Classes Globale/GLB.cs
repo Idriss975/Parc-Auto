@@ -18,5 +18,6 @@ namespace ParcAuto.Classes_Globale
         public static int Matricule;
         public static string Matricule_Voiture;
         public static string OMN;
+        public static int id_Reparation;
     }
 }
