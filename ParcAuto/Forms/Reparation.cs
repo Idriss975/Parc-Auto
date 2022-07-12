@@ -40,5 +40,11 @@ namespace ParcAuto.Forms
                 btnFiltrer.Location = new Point(635, 18);
             }
         }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            MajReparation rep = new MajReparation();
+            rep.ShowDialog();
+        }
     }
 }

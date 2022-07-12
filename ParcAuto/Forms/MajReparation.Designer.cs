@@ -164,6 +164,7 @@ namespace ParcAuto.Forms
             this.guna2Button1.Text = "Annuler";
             this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.guna2Button1.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // btnAppliquer
             // 
@@ -393,6 +394,7 @@ namespace ParcAuto.Forms
             this.Name = "MajReparation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MajReparation";
+            this.Load += new System.EventHandler(this.MajReparation_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
