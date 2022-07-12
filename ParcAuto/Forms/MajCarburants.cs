@@ -181,12 +181,12 @@ namespace ParcAuto.Forms
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
-                        GLB.Cmd.CommandText = $"insert into CarburantVignettes values('{txtEntite.Text}',{((CmbMatNom)cmbBenificiare.SelectedItem).Matricule},'{cmbVehicule.SelectedItem}'," +
+                        GLB.Cmd.CommandText = $"insert into CarburantVignettes values('{txtEntite.Text}','{cmbBenificiare.SelectedItem}','{cmbVehicule.SelectedItem}'," +
                     $"'{DateOper.Value.ToShortDateString()}','{cmbVilles.SelectedItem}','{txtOMN.Text +"/"+ DateTime.Now.Year.ToString().Substring(2)}',{DoFixe},{DoMissions}," +
                     $"{DoHebdo})";
                         break;
                     case Choix.modifier:
-                        GLB.Cmd.CommandText = $"update CarburantVignettes set Entite = '{txtEntite.Text}', benificiaire = {((CmbMatNom)cmbBenificiare.SelectedItem).Matricule}" +
+                        GLB.Cmd.CommandText = $"update CarburantVignettes set Entite = '{txtEntite.Text}', benificiaire = '{cmbBenificiare.SelectedItem}'" +
                     $", vehicule = '{cmbVehicule.SelectedItem}' , date = '{DateOper.Value.ToShortDateString()}', lieu = '{cmbVilles.SelectedItem}'," +
                     $" ObjetOMN = '{txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2)}', DFixe = {DoFixe} ," +
                     $" DMissions = {DoMissions} , DHebdo = {DoHebdo} where ObjetOMN = '{GLB.OMN}'";
