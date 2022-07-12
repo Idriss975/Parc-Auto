@@ -51,7 +51,7 @@ namespace ParcAuto.Forms
         {
             txtEntite.Text = Entite;
             txtOMN.Text = GLB.OMN.Substring(0, GLB.OMN.Length-3);
-            cmbBenificiare.Text = Benificiaire;
+            txtBenificiaire.Text = Benificiaire;
             cmbVehicule.Text = vehicules;
             cmbVilles.Text = lieu;
             DateOper.Value = DateOpera;
@@ -83,17 +83,22 @@ namespace ParcAuto.Forms
 
 
         }
+        //TODO: A modifier
         private void RemplirComboBoxBenificiaire()
         {
             if (GLB.ds.Tables["Conducteurs1"] != null)
                 GLB.ds.Tables["Conducteurs1"].Clear();
             GLB.da = new SqlDataAdapter("select Nom, Prenom from Conducteurs", GLB.Con);
             GLB.da.Fill(GLB.ds, "Conducteurs1");
+            AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
             foreach (DataRow item in GLB.ds.Tables["Conducteurs1"].Rows)
             {
-                cmbBenificiare.Items.Add(item[0]+" " + item[1]);
-
+                ac.Add(item[0] + " " + item[1]);
             }
+            txtBenificiaire.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtBenificiaire.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtBenificiaire.AutoCompleteCustomSource = ac;
+           
         }
         private void RemplirComboBoxVehicules()
         {
@@ -118,7 +123,7 @@ namespace ParcAuto.Forms
             txtDotation.Text = "";
             txtEntite.Text = "";
             txtOMN.Text = "";
-            cmbBenificiare.SelectedIndex = 0;
+            txtBenificiaire.Text = "";
             cmbVehicule.SelectedIndex = 0;
             cmbVilles.SelectedIndex = 0;
             DateOper.Value = DateTime.Now;
@@ -131,7 +136,7 @@ namespace ParcAuto.Forms
         {
             RemplirComboBoxBenificiaire();
             RemplirComboBoxVehicules();
-            cmbBenificiare.SelectedIndex = 0;
+           
             cmbVehicule.SelectedIndex = 0;
             cmbVilles.SelectedIndex = 0;
             switch (Commandes.Command)
@@ -181,12 +186,12 @@ namespace ParcAuto.Forms
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
-                        GLB.Cmd.CommandText = $"insert into CarburantVignettes values('{txtEntite.Text}','{cmbBenificiare.SelectedItem}','{cmbVehicule.SelectedItem}'," +
+                        GLB.Cmd.CommandText = $"insert into CarburantVignettes values('{txtEntite.Text}','{txtBenificiaire.Text}','{cmbVehicule.SelectedItem}'," +
                     $"'{DateOper.Value.ToShortDateString()}','{cmbVilles.SelectedItem}','{txtOMN.Text +"/"+ DateTime.Now.Year.ToString().Substring(2)}',{DoFixe},{DoMissions}," +
                     $"{DoHebdo})";
                         break;
                     case Choix.modifier:
-                        GLB.Cmd.CommandText = $"update CarburantVignettes set Entite = '{txtEntite.Text}', benificiaire = '{cmbBenificiare.SelectedItem}'" +
+                        GLB.Cmd.CommandText = $"update CarburantVignettes set Entite = '{txtEntite.Text}', benificiaire = '{txtBenificiaire.Text}'" +
                     $", vehicule = '{cmbVehicule.SelectedItem}' , date = '{DateOper.Value.ToShortDateString()}', lieu = '{cmbVilles.SelectedItem}'," +
                     $" ObjetOMN = '{txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2)}', DFixe = {DoFixe} ," +
                     $" DMissions = {DoMissions} , DHebdo = {DoHebdo} where ObjetOMN = '{GLB.OMN}'";

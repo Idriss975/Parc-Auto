@@ -35,7 +35,6 @@ namespace ParcAuto.Forms
             this.btnAppliquer = new Guna.UI2.WinForms.Guna2Button();
             this.lbl = new System.Windows.Forms.Label();
             this.cmbVehicule = new System.Windows.Forms.ComboBox();
-            this.cmbBenificiare = new System.Windows.Forms.ComboBox();
             this.DateOper = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -53,6 +52,7 @@ namespace ParcAuto.Forms
             this.DFixe = new System.Windows.Forms.RadioButton();
             this.DHebdo = new System.Windows.Forms.RadioButton();
             this.OmnYear = new System.Windows.Forms.Label();
+            this.txtBenificiaire = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -143,21 +143,10 @@ namespace ParcAuto.Forms
             this.cmbVehicule.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbVehicule.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbVehicule.FormattingEnabled = true;
-            this.cmbVehicule.Location = new System.Drawing.Point(145, 61);
+            this.cmbVehicule.Location = new System.Drawing.Point(145, 60);
             this.cmbVehicule.Name = "cmbVehicule";
             this.cmbVehicule.Size = new System.Drawing.Size(219, 24);
             this.cmbVehicule.TabIndex = 26;
-            // 
-            // cmbBenificiare
-            // 
-            this.cmbBenificiare.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbBenificiare.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbBenificiare.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbBenificiare.FormattingEnabled = true;
-            this.cmbBenificiare.Location = new System.Drawing.Point(522, 13);
-            this.cmbBenificiare.Name = "cmbBenificiare";
-            this.cmbBenificiare.Size = new System.Drawing.Size(220, 24);
-            this.cmbBenificiare.TabIndex = 25;
             // 
             // DateOper
             // 
@@ -229,7 +218,7 @@ namespace ParcAuto.Forms
             this.txtEntite.PlaceholderText = "";
             this.txtEntite.SelectedText = "";
             this.txtEntite.ShadowDecoration.Parent = this.txtEntite;
-            this.txtEntite.Size = new System.Drawing.Size(215, 29);
+            this.txtEntite.Size = new System.Drawing.Size(215, 30);
             this.txtEntite.TabIndex = 0;
             // 
             // label4
@@ -297,7 +286,7 @@ namespace ParcAuto.Forms
             this.txtOMN.PlaceholderText = "";
             this.txtOMN.SelectedText = "";
             this.txtOMN.ShadowDecoration.Parent = this.txtOMN;
-            this.txtOMN.Size = new System.Drawing.Size(117, 29);
+            this.txtOMN.Size = new System.Drawing.Size(117, 30);
             this.txtOMN.TabIndex = 5;
             // 
             // txtDotation
@@ -676,7 +665,7 @@ namespace ParcAuto.Forms
             "Sidi Abdallah Ghiat",
             "Sidi Bouzid",
             "Ounagha"});
-            this.cmbVilles.Location = new System.Drawing.Point(145, 110);
+            this.cmbVilles.Location = new System.Drawing.Point(145, 108);
             this.cmbVilles.Name = "cmbVilles";
             this.cmbVilles.Size = new System.Drawing.Size(219, 24);
             this.cmbVilles.TabIndex = 27;
@@ -698,8 +687,8 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label6, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.DateOper, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.cmbBenificiare, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.cmbVehicule, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtBenificiaire, 3, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(18, 68);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -756,6 +745,35 @@ namespace ParcAuto.Forms
             this.OmnYear.TabIndex = 25;
             this.OmnYear.Text = "/XX";
             // 
+            // txtBenificiaire
+            // 
+            this.txtBenificiaire.AutoCompleteCustomSource.AddRange(new string[] {
+            "ooo",
+            "okk"});
+            this.txtBenificiaire.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtBenificiaire.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtBenificiaire.BorderRadius = 4;
+            this.txtBenificiaire.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBenificiaire.DefaultText = "";
+            this.txtBenificiaire.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBenificiaire.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBenificiaire.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBenificiaire.DisabledState.Parent = this.txtBenificiaire;
+            this.txtBenificiaire.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBenificiaire.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBenificiaire.FocusedState.Parent = this.txtBenificiaire;
+            this.txtBenificiaire.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBenificiaire.HoverState.Parent = this.txtBenificiaire;
+            this.txtBenificiaire.Location = new System.Drawing.Point(523, 4);
+            this.txtBenificiaire.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBenificiaire.Name = "txtBenificiaire";
+            this.txtBenificiaire.PasswordChar = '\0';
+            this.txtBenificiaire.PlaceholderText = "";
+            this.txtBenificiaire.SelectedText = "";
+            this.txtBenificiaire.ShadowDecoration.Parent = this.txtBenificiaire;
+            this.txtBenificiaire.Size = new System.Drawing.Size(215, 30);
+            this.txtBenificiaire.TabIndex = 28;
+            // 
             // MajCarburants
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -793,7 +811,6 @@ namespace ParcAuto.Forms
         private Guna.UI2.WinForms.Guna2Button btnAppliquer;
         private System.Windows.Forms.Label lbl;
         private System.Windows.Forms.ComboBox cmbVehicule;
-        private System.Windows.Forms.ComboBox cmbBenificiare;
         private Guna.UI2.WinForms.Guna2DateTimePicker DateOper;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -811,5 +828,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.RadioButton DFixe;
         private System.Windows.Forms.RadioButton DHebdo;
         private System.Windows.Forms.Label OmnYear;
+        private Guna.UI2.WinForms.Guna2TextBox txtBenificiaire;
     }
 }
