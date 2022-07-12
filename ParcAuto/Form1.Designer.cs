@@ -175,6 +175,7 @@ namespace ParcAuto
             this.btnVignettes.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnVignettes.FlatAppearance.BorderSize = 0;
             this.btnVignettes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVignettes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVignettes.ForeColor = System.Drawing.Color.White;
             this.btnVignettes.Image = ((System.Drawing.Image)(resources.GetObject("btnVignettes.Image")));
             this.btnVignettes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
