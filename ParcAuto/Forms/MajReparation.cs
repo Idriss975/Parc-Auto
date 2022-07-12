@@ -31,6 +31,21 @@ namespace ParcAuto.Forms
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
         }
+        string entite, benificiaire, vehicule, objet, entretien, reparation;
+        DateTime date;
+        public MajReparation(string entite , string benificiaire ,string vehicule ,DateTime date , string objet ,string entretien ,string reparation )
+        {
+            InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
+            this.entite = entite;
+            this.benificiaire = benificiaire;
+            this.vehicule = vehicule;
+            this.objet = objet;
+            this.entretien = entretien;
+            this.reparation = reparation;
+            this.date = date;
+        }
         private void RemplirComboBoxVehicules()
         {
             if (GLB.ds.Tables["Vehicules1"] != null)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ParcAuto.Classes_Globale;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,7 +45,32 @@ namespace ParcAuto.Forms
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             MajReparation rep = new MajReparation();
+            Commandes.Command = Choix.ajouter;
             rep.ShowDialog();
+        }
+
+        private void btnModifier_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                GLB.id_Reparation = (int)dgvReparation.CurrentRow.Cells[0].Value;
+                string entite = dgvReparation.CurrentRow.Cells[1].Value.ToString();
+                string benificiaire = dgvReparation.CurrentRow.Cells[2].Value.ToString();
+                string vehicule = dgvReparation.CurrentRow.Cells[3].Value.ToString() ;
+                DateTime Date = Convert.ToDateTime(dgvReparation.CurrentRow.Cells[4].Value);
+                string objet = dgvReparation.CurrentRow.Cells[5].Value.ToString();
+                string entretien = dgvReparation.CurrentRow.Cells[6].Value.ToString();
+                string reparation = dgvReparation.CurrentRow.Cells[7].Value.ToString();
+
+                MajReparation maj = new MajReparation(entite, benificiaire, vehicule, Date, objet, entretien, reparation);
+                Commandes.Command = Choix.modifier;
+                maj.ShowDialog();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
