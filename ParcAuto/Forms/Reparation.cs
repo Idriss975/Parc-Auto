@@ -131,5 +131,10 @@ namespace ParcAuto.Forms
                     if (!((Convert.ToDateTime(dgvReparation.Rows[i].Cells[cmbChoix.SelectedIndex+1].Value)).Date >= Date1.Value.Date && (Convert.ToDateTime(dgvReparation.Rows[i].Cells[cmbChoix.SelectedIndex+1].Value)).Date <= Date2.Value.Date))
                         dgvReparation.Rows.Remove(dgvReparation.Rows[i]);
         }
+
+        private void btnQuitter_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
