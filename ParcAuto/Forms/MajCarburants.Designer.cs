@@ -48,11 +48,11 @@ namespace ParcAuto.Forms
             this.txtDotation = new Guna.UI2.WinForms.Guna2TextBox();
             this.cmbVilles = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtBenificiaire = new Guna.UI2.WinForms.Guna2TextBox();
             this.DMissions = new System.Windows.Forms.RadioButton();
             this.DFixe = new System.Windows.Forms.RadioButton();
             this.DHebdo = new System.Windows.Forms.RadioButton();
             this.OmnYear = new System.Windows.Forms.Label();
-            this.txtBenificiaire = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -143,7 +143,7 @@ namespace ParcAuto.Forms
             this.cmbVehicule.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbVehicule.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbVehicule.FormattingEnabled = true;
-            this.cmbVehicule.Location = new System.Drawing.Point(145, 60);
+            this.cmbVehicule.Location = new System.Drawing.Point(145, 61);
             this.cmbVehicule.Name = "cmbVehicule";
             this.cmbVehicule.Size = new System.Drawing.Size(219, 24);
             this.cmbVehicule.TabIndex = 26;
@@ -665,7 +665,7 @@ namespace ParcAuto.Forms
             "Sidi Abdallah Ghiat",
             "Sidi Bouzid",
             "Ounagha"});
-            this.cmbVilles.Location = new System.Drawing.Point(145, 108);
+            this.cmbVilles.Location = new System.Drawing.Point(145, 110);
             this.cmbVilles.Name = "cmbVilles";
             this.cmbVilles.Size = new System.Drawing.Size(219, 24);
             this.cmbVilles.TabIndex = 27;
@@ -700,6 +700,35 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Size = new System.Drawing.Size(745, 145);
             this.tableLayoutPanel1.TabIndex = 17;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            // 
+            // txtBenificiaire
+            // 
+            this.txtBenificiaire.AutoCompleteCustomSource.AddRange(new string[] {
+            "ooo",
+            "okk"});
+            this.txtBenificiaire.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtBenificiaire.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtBenificiaire.BorderRadius = 4;
+            this.txtBenificiaire.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBenificiaire.DefaultText = "";
+            this.txtBenificiaire.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBenificiaire.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBenificiaire.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBenificiaire.DisabledState.Parent = this.txtBenificiaire;
+            this.txtBenificiaire.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBenificiaire.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBenificiaire.FocusedState.Parent = this.txtBenificiaire;
+            this.txtBenificiaire.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBenificiaire.HoverState.Parent = this.txtBenificiaire;
+            this.txtBenificiaire.Location = new System.Drawing.Point(523, 4);
+            this.txtBenificiaire.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBenificiaire.Name = "txtBenificiaire";
+            this.txtBenificiaire.PasswordChar = '\0';
+            this.txtBenificiaire.PlaceholderText = "";
+            this.txtBenificiaire.SelectedText = "";
+            this.txtBenificiaire.ShadowDecoration.Parent = this.txtBenificiaire;
+            this.txtBenificiaire.Size = new System.Drawing.Size(215, 30);
+            this.txtBenificiaire.TabIndex = 28;
             // 
             // DMissions
             // 
@@ -744,35 +773,6 @@ namespace ParcAuto.Forms
             this.OmnYear.Size = new System.Drawing.Size(32, 16);
             this.OmnYear.TabIndex = 25;
             this.OmnYear.Text = "/XX";
-            // 
-            // txtBenificiaire
-            // 
-            this.txtBenificiaire.AutoCompleteCustomSource.AddRange(new string[] {
-            "ooo",
-            "okk"});
-            this.txtBenificiaire.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtBenificiaire.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtBenificiaire.BorderRadius = 4;
-            this.txtBenificiaire.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBenificiaire.DefaultText = "";
-            this.txtBenificiaire.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBenificiaire.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBenificiaire.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBenificiaire.DisabledState.Parent = this.txtBenificiaire;
-            this.txtBenificiaire.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBenificiaire.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBenificiaire.FocusedState.Parent = this.txtBenificiaire;
-            this.txtBenificiaire.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBenificiaire.HoverState.Parent = this.txtBenificiaire;
-            this.txtBenificiaire.Location = new System.Drawing.Point(523, 4);
-            this.txtBenificiaire.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtBenificiaire.Name = "txtBenificiaire";
-            this.txtBenificiaire.PasswordChar = '\0';
-            this.txtBenificiaire.PlaceholderText = "";
-            this.txtBenificiaire.SelectedText = "";
-            this.txtBenificiaire.ShadowDecoration.Parent = this.txtBenificiaire;
-            this.txtBenificiaire.Size = new System.Drawing.Size(215, 30);
-            this.txtBenificiaire.TabIndex = 28;
             // 
             // MajCarburants
             // 
