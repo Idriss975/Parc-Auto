@@ -98,7 +98,7 @@ namespace ParcAuto.Forms
             this.Column6,
             this.Column7,
             this.Column8});
-            this.dgvVehicules.Location = new System.Drawing.Point(0, 85);
+            this.dgvVehicules.Location = new System.Drawing.Point(0, 100);
             this.dgvVehicules.Margin = new System.Windows.Forms.Padding(4);
             this.dgvVehicules.MultiSelect = false;
             this.dgvVehicules.Name = "dgvVehicules";
@@ -106,7 +106,7 @@ namespace ParcAuto.Forms
             this.dgvVehicules.RowHeadersVisible = false;
             this.dgvVehicules.RowHeadersWidth = 62;
             this.dgvVehicules.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVehicules.Size = new System.Drawing.Size(1110, 520);
+            this.dgvVehicules.Size = new System.Drawing.Size(1109, 500);
             this.dgvVehicules.TabIndex = 1;
             // 
             // Column1

@@ -148,14 +148,14 @@ namespace ParcAuto.Forms
             this.Column8,
             this.Column9,
             this.Column10});
-            this.dgvconducteur.Location = new System.Drawing.Point(0, 72);
+            this.dgvconducteur.Location = new System.Drawing.Point(0, 100);
             this.dgvconducteur.Margin = new System.Windows.Forms.Padding(5);
             this.dgvconducteur.Name = "dgvconducteur";
             this.dgvconducteur.ReadOnly = true;
             this.dgvconducteur.RowHeadersVisible = false;
             this.dgvconducteur.RowHeadersWidth = 62;
             this.dgvconducteur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvconducteur.Size = new System.Drawing.Size(1109, 526);
+            this.dgvconducteur.Size = new System.Drawing.Size(1109, 500);
             this.dgvconducteur.TabIndex = 6;
             this.dgvconducteur.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvconducteur_CellContentClick);
             // 
