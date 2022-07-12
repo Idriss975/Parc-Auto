@@ -164,6 +164,12 @@
     <EmbeddedResource Include="Forms\MajVehicules.resx">
       <DependentUpon>MajVehicules.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reparation.resx">
+      <DependentUpon>Reparation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transport.resx">
+      <DependentUpon>Transport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Vehicules.resx">
       <DependentUpon>Vehicules.cs</DependentUpon>
     </EmbeddedResource>
