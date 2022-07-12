@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions; //import regex
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -113,6 +114,22 @@ namespace ParcAuto.Forms
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             datagridviewLoad();
+        }
+
+        private void btnFiltrer_Click(object sender, EventArgs e)
+        {
+            if (!(cmbChoix.SelectedIndex == 3))
+            {
+                for (int i = dgvReparation.Rows.Count - 1; i >= 0; i--)
+                {
+                    if (!(new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(dgvReparation.Rows[i].Cells[cmbChoix.SelectedIndex+1].Value.ToString().ToLower())))
+                        dgvReparation.Rows.Remove(dgvReparation.Rows[i]);
+                }
+            }
+            else
+                for (int i = dgvReparation.Rows.Count - 1; i >= 0; i--)
+                    if (!((Convert.ToDateTime(dgvReparation.Rows[i].Cells[cmbChoix.SelectedIndex+1].Value)).Date >= Date1.Value.Date && (Convert.ToDateTime(dgvReparation.Rows[i].Cells[cmbChoix.SelectedIndex+1].Value)).Date <= Date2.Value.Date))
+                        dgvReparation.Rows.Remove(dgvReparation.Rows[i]);
         }
     }
 }
