@@ -43,9 +43,9 @@ namespace ParcAuto.Forms
                 while (GLB.dr.Read())
                 {
                     if (GLB.dr.IsDBNull(7))
-                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr[4], GLB.dr[5], GLB.dr[6], new CmbMatNom(null, $"{GLB.dr[8]} {GLB.dr[9]}"));
+                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToShortDateString(), GLB.dr[5], GLB.dr[6], new CmbMatNom(null, $"{GLB.dr[8]} {GLB.dr[9]}"));
                 else
-                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr[4], GLB.dr[5], GLB.dr[6], new CmbMatNom((int)GLB.dr[7], $"{GLB.dr[8]} {GLB.dr[9]}"));
+                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToShortDateString(), GLB.dr[5], GLB.dr[6], new CmbMatNom((int)GLB.dr[7], $"{GLB.dr[8]} {GLB.dr[9]}"));
                 }
                 GLB.dr.Close();
             }
@@ -85,7 +85,7 @@ namespace ParcAuto.Forms
                 string  Marque = dgvVehicules.CurrentRow.Cells[1].Value.ToString();
                 string Modele = dgvVehicules.CurrentRow.Cells[2].Value.ToString();
                 string  Couleur = dgvVehicules.CurrentRow.Cells[3].Value.ToString();
-                DateTime MiseEncirculation = (DateTime)dgvVehicules.CurrentRow.Cells[4].Value ;
+                DateTime MiseEncirculation = Convert.ToDateTime(dgvVehicules.CurrentRow.Cells[4].Value);
                 string Carburant = dgvVehicules.CurrentRow.Cells[5].Value.ToString();
                 string Observation = dgvVehicules.CurrentRow.Cells[6].Value.ToString();
                 string Conducteur = dgvVehicules.CurrentRow.Cells[7].Value.ToString(); //Normalement type cmbMatNom
@@ -168,7 +168,7 @@ namespace ParcAuto.Forms
             }
             else
                 for (int i = dgvVehicules.Rows.Count - 1; i >= 0; i--)
-                    if (!(((DateTime)dgvVehicules.Rows[i].Cells[cmbChoix.SelectedIndex].Value).Date >= Date1.Value.Date && ((DateTime)dgvVehicules.Rows[i].Cells[cmbChoix.SelectedIndex].Value).Date <= Date2.Value.Date))
+                    if (!((Convert.ToDateTime(dgvVehicules.Rows[i].Cells[cmbChoix.SelectedIndex].Value)).Date >= Date1.Value.Date && (Convert.ToDateTime(dgvVehicules.Rows[i].Cells[cmbChoix.SelectedIndex].Value)).Date <= Date2.Value.Date))
                         dgvVehicules.Rows.Remove(dgvVehicules.Rows[i]);
         }
     }

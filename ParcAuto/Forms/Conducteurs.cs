@@ -51,7 +51,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvconducteur.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr[4], GLB.dr[5], GLB.dr[6],  GLB.dr[9], GLB.dr[7], GLB.dr[8]);//index 9 = Direction
+                    dgvconducteur.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], ((DateTime)GLB.dr[3]).ToShortDateString(), ((DateTime)GLB.dr[4]).ToShortDateString(), GLB.dr[5], GLB.dr[6],  GLB.dr[9], GLB.dr[7], GLB.dr[8]);//index 9 = Direction
                 GLB.dr.Close();
             }
             catch (Exception ex)
@@ -87,8 +87,8 @@ namespace ParcAuto.Forms
                 GLB.Matricule = (int)dgvconducteur.CurrentRow.Cells[0].Value;
                 string Nom = dgvconducteur.CurrentRow.Cells[1].Value.ToString() ;
                 string Prenom= dgvconducteur.CurrentRow.Cells[2].Value.ToString();
-                DateTime DateNaiss =(DateTime)dgvconducteur.CurrentRow.Cells[3].Value;
-                DateTime DateEmbauche = (DateTime)dgvconducteur.CurrentRow.Cells[4].Value;
+                DateTime DateNaiss =Convert.ToDateTime(dgvconducteur.CurrentRow.Cells[3].Value);
+                DateTime DateEmbauche = Convert.ToDateTime(dgvconducteur.CurrentRow.Cells[4].Value);
                 string NumPermis = dgvconducteur.CurrentRow.Cells[5].Value.ToString();
                 string Adresse  = dgvconducteur.CurrentRow.Cells[6].Value.ToString();
                 string Direction = dgvconducteur.CurrentRow.Cells[7].Value.ToString();
@@ -179,7 +179,7 @@ namespace ParcAuto.Forms
             }
             else
                 for (int i = dgvconducteur.Rows.Count - 1; i >= 0; i--)
-                    if (!( ((DateTime)dgvconducteur.Rows[i].Cells[cmbChoix.SelectedIndex].Value).Date >= Date1.Value.Date && ((DateTime)dgvconducteur.Rows[i].Cells[cmbChoix.SelectedIndex].Value).Date <= Date2.Value.Date))
+                    if (!( (Convert.ToDateTime(dgvconducteur.Rows[i].Cells[cmbChoix.SelectedIndex].Value)).Date >= Date1.Value.Date && (Convert.ToDateTime(dgvconducteur.Rows[i].Cells[cmbChoix.SelectedIndex].Value)).Date <= Date2.Value.Date))
                         dgvconducteur.Rows.Remove(dgvconducteur.Rows[i]);
             txtValueToFiltre.Text = "";
         }

@@ -28,7 +28,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr[4],$"ADMINISTRATIVE OMN°  {GLB.dr[5]}", GLB.dr[6], GLB.dr[7], GLB.dr[8]);
+                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], ((DateTime)GLB.dr[3]).ToShortDateString(), GLB.dr[4],$"ADMINISTRATIVE OMN°  {GLB.dr[5]}", GLB.dr[6], GLB.dr[7], GLB.dr[8]);
                 GLB.dr.Close();
             }
             catch (Exception ex)
@@ -102,7 +102,7 @@ namespace ParcAuto.Forms
             }
             else
                 for (int i = dgvCarburant.Rows.Count - 1; i >= 0; i--)
-                    if (!(((DateTime)dgvCarburant.Rows[i].Cells[cmbChoix.SelectedIndex].Value).Date >= Date1.Value.Date && ((DateTime)dgvCarburant.Rows[i].Cells[cmbChoix.SelectedIndex].Value).Date <= Date2.Value.Date))
+                    if (!((Convert.ToDateTime(dgvCarburant.Rows[i].Cells[cmbChoix.SelectedIndex].Value)).Date >= Date1.Value.Date && (Convert.ToDateTime(dgvCarburant.Rows[i].Cells[cmbChoix.SelectedIndex].Value)).Date <= Date2.Value.Date))
                         dgvCarburant.Rows.Remove(dgvCarburant.Rows[i]);
         }
 
@@ -120,7 +120,7 @@ namespace ParcAuto.Forms
             string Entite = dgvCarburant.CurrentRow.Cells[0].Value.ToString();
             string Benificiaire = dgvCarburant.CurrentRow.Cells[1].Value.ToString();
             string vehicules = dgvCarburant.CurrentRow.Cells[2].Value.ToString();
-            DateTime DateOper = (DateTime)dgvCarburant.CurrentRow.Cells[3].Value;
+            DateTime DateOper = Convert.ToDateTime(dgvCarburant.CurrentRow.Cells[3].Value);
             string lieu = dgvCarburant.CurrentRow.Cells[4].Value.ToString();
             string Dfix = dgvCarburant.CurrentRow.Cells[6].Value.ToString();
             string DMiss = dgvCarburant.CurrentRow.Cells[7].Value.ToString();
