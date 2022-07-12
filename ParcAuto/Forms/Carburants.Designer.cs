@@ -364,14 +364,14 @@ namespace ParcAuto.Forms
             this.Column7,
             this.Column8,
             this.Column9});
-            this.dgvCarburant.Location = new System.Drawing.Point(0, 72);
+            this.dgvCarburant.Location = new System.Drawing.Point(0, 100);
             this.dgvCarburant.Margin = new System.Windows.Forms.Padding(5);
             this.dgvCarburant.Name = "dgvCarburant";
             this.dgvCarburant.ReadOnly = true;
             this.dgvCarburant.RowHeadersVisible = false;
             this.dgvCarburant.RowHeadersWidth = 62;
             this.dgvCarburant.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCarburant.Size = new System.Drawing.Size(1109, 526);
+            this.dgvCarburant.Size = new System.Drawing.Size(1109, 500);
             this.dgvCarburant.TabIndex = 22;
             // 
             // Column1
