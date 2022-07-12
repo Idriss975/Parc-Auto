@@ -45,6 +45,8 @@ namespace ParcAuto.Forms
         private void Reparation_Load(object sender, EventArgs e)
         {
             panelDate.Visible = false;
+            TextPanel.Visible = false;
+            cmbChoix.SelectedIndex = 0;
             StyleDataGridView();
             datagridviewLoad();
         }
