@@ -28,11 +28,23 @@ namespace ParcAuto.Forms
             GLB.dr.Close();
             GLB.Con.Close();
         }
-
+        private void StyleDataGridView()
+        {
+            dgvReparation.BorderStyle = BorderStyle.None;
+            dgvReparation.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dgvReparation.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvReparation.DefaultCellStyle.SelectionBackColor = Color.FromArgb(115, 139, 215);
+            dgvReparation.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dgvReparation.BackgroundColor = Color.White;
+            dgvReparation.EnableHeadersVisualStyles = false;
+            dgvReparation.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvReparation.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(115, 139, 215);
+            dgvReparation.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+        }
         private void Reparation_Load(object sender, EventArgs e)
         {
             panelDate.Visible = false;
-
+            StyleDataGridView();
             datagridviewLoad();
         }
 
@@ -59,6 +71,8 @@ namespace ParcAuto.Forms
             MajReparation rep = new MajReparation();
             Commandes.Command = Choix.ajouter;
             rep.ShowDialog();
+            datagridviewLoad();
+
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
@@ -78,6 +92,7 @@ namespace ParcAuto.Forms
                 MajReparation maj = new MajReparation(entite, benificiaire, vehicule, Date, objet, entretien, reparation);
                 Commandes.Command = Choix.modifier;
                 maj.ShowDialog();
+                datagridviewLoad();
             }
             catch (ArgumentOutOfRangeException)
             {

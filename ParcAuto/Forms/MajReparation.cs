@@ -33,6 +33,50 @@ namespace ParcAuto.Forms
         }
         string entite, benificiaire, vehicule, objet, entretien, reparation;
         DateTime date;
+        string MontantEntretient;
+        string MontantReparation;
+        private void btnAppliquer_Click(object sender, EventArgs e)
+        {
+            if (!(txtBenificiaire.Text == "" || txtentite.Text == "" || txtMontant.Text == "" || txtObjet.Text == ""))
+            {
+                if (rbEntretien.Checked)
+                {
+                    MontantEntretient = txtMontant.Text;
+                    MontantReparation = "null";
+                }
+                else if (rbRepartion.Checked)
+                {
+                    MontantReparation = txtMontant.Text;
+                    MontantEntretient = "null";
+                }
+                switch (Commandes.Command)
+                {
+                    case Choix.ajouter:
+                        GLB.Cmd.CommandText = $"Insert into Reparation values ('{txtentite.Text}', '{txtBenificiaire.Text}', '{cmbVehicule.SelectedItem}', '{Date.Value.ToShortDateString()}', '{txtObjet.Text}', {MontantEntretient}, {MontantReparation})";
+                        break;
+                    case Choix.modifier:
+                        GLB.Cmd.CommandText = $"update Reparation set Entite ='{txtentite.Text}', Benificaire='{txtBenificiaire.Text}', Vehicule='{cmbVehicule.SelectedItem}', Date='{Date.Value.ToShortDateString()}', Objet='{txtObjet.Text}', Entretien={MontantEntretient}, Reparation={MontantReparation} where id = {GLB.id_Reparation}";
+                       
+                        break;
+                    case Choix.supprimer:
+                        //On peut pas ouvrir MajConducteur avec l'option de suppression.
+                        throw new Exception("MajReparation a été appellé mais avec le Choix supprimer");
+
+                }
+
+                //Executer le requette
+                GLB.Con.Open();
+                GLB.Cmd.ExecuteNonQuery();
+                GLB.Con.Close();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Tous les Champs sont Obligatoire", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+        }
+
         public MajReparation(string entite , string benificiaire ,string vehicule ,DateTime date , string objet ,string entretien ,string reparation )
         {
             InitializeComponent();
@@ -46,6 +90,26 @@ namespace ParcAuto.Forms
             this.reparation = reparation;
             this.date = date;
         }
+        private void RemplirChamps()
+        {
+            txtentite.Text = entite;
+            txtBenificiaire.Text = benificiaire;
+            cmbVehicule.Text = vehicule;
+            Date.Value = date;
+            txtObjet.Text = objet;
+            if(entretien != "")
+            {
+                rbEntretien.Checked = true;
+                rbRepartion.Checked = false;
+                txtMontant.Text = entretien;
+            }
+            else
+            {
+                rbEntretien.Checked = false;
+                rbRepartion.Checked = true;
+                txtMontant.Text = reparation;
+            }
+        }
         private void RemplirComboBoxVehicules()
         {
             if (GLB.ds.Tables["Vehicules1"] != null)
@@ -58,9 +122,23 @@ namespace ParcAuto.Forms
 
             }
         }
+        
         private void MajReparation_Load(object sender, EventArgs e)
         {
             RemplirComboBoxVehicules();
+            switch (Commandes.Command)
+            {
+                case Choix.ajouter:
+                    lbl.Text = "L'ajout d'une Reparation";
+                    break;
+                case Choix.modifier:
+                    lbl.Text = "La modification d'une Reparation";
+                    RemplirChamps();
+                    break;
+                case Choix.supprimer:
+                    throw new Exception("Impossible de Supprimmer dans MajReparation");
+            }
+
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
