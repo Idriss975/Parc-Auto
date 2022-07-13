@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ParcAuto.Classes_Globale;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,6 +39,38 @@ namespace ParcAuto.Forms
                 panelDate.Visible = false;
                 TextPanel.Location = new Point(287, 12);
                 btnFiltrer.Location = new Point(635, 18);
+            }
+        }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            MajTransport maj = new MajTransport();
+            Commandes.Command = Choix.ajouter;
+            maj.ShowDialog();
+            //RemplirLaGrille();
+        }
+
+        private void btnModifier_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GLB.id_Transport = (int)dgvTransport.CurrentRow.Cells[0].Value;
+                string Entite = dgvTransport.CurrentRow.Cells[1].Value.ToString();
+                string Benificiaire = dgvTransport.CurrentRow.Cells[2].Value.ToString();
+                string N_BON_email = dgvTransport.CurrentRow.Cells[3].Value.ToString();
+                DateTime DateMission = Convert.ToDateTime(dgvTransport.CurrentRow.Cells[4].Value);
+                string type_utilisation = dgvTransport.CurrentRow.Cells[5].Value.ToString();
+                string prix = dgvTransport.CurrentRow.Cells[6].Value.ToString();
+                MajTransport maj = new MajTransport(Entite, Benificiaire, N_BON_email, DateMission, type_utilisation, prix);
+                Commandes.Command = Choix.modifier;
+                maj.ShowDialog();
+                //RemplirLaGrille();
+            }
+
+            catch (ArgumentOutOfRangeException)
+            {
+
+                MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

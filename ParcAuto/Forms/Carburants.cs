@@ -117,21 +117,30 @@ namespace ParcAuto.Forms
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            GLB.id_Carburant = (int)dgvCarburant.CurrentRow.Cells[9].Value;
-            string Entite = dgvCarburant.CurrentRow.Cells[0].Value.ToString();
-            string Benificiaire = dgvCarburant.CurrentRow.Cells[1].Value.ToString();
-            string vehicules = dgvCarburant.CurrentRow.Cells[2].Value.ToString();
-            DateTime DateOper = Convert.ToDateTime(dgvCarburant.CurrentRow.Cells[3].Value);
-            string lieu = dgvCarburant.CurrentRow.Cells[4].Value.ToString();
-            string omn = dgvCarburant.CurrentRow.Cells[5].Value.ToString().Substring(21);
-            string Dfix = dgvCarburant.CurrentRow.Cells[6].Value.ToString();
-            string DMiss = dgvCarburant.CurrentRow.Cells[7].Value.ToString();
-            string Dhebdo = dgvCarburant.CurrentRow.Cells[8].Value.ToString();
+            try
+            {
+                GLB.id_Carburant = (int)dgvCarburant.CurrentRow.Cells[9].Value;
+                string Entite = dgvCarburant.CurrentRow.Cells[0].Value.ToString();
+                string Benificiaire = dgvCarburant.CurrentRow.Cells[1].Value.ToString();
+                string vehicules = dgvCarburant.CurrentRow.Cells[2].Value.ToString();
+                DateTime DateOper = Convert.ToDateTime(dgvCarburant.CurrentRow.Cells[3].Value);
+                string lieu = dgvCarburant.CurrentRow.Cells[4].Value.ToString();
+                string omn = dgvCarburant.CurrentRow.Cells[5].Value.ToString().Substring(21);
+                string Dfix = dgvCarburant.CurrentRow.Cells[6].Value.ToString();
+                string DMiss = dgvCarburant.CurrentRow.Cells[7].Value.ToString();
+                string Dhebdo = dgvCarburant.CurrentRow.Cells[8].Value.ToString();
 
-            MajCarburants maj = new MajCarburants(Entite,Benificiaire,vehicules,DateOper,lieu,omn,Dfix,DMiss,Dhebdo);
-            Commandes.Command = Choix.modifier;
-            maj.ShowDialog();
-            RemplirLaGrille();
+                MajCarburants maj = new MajCarburants(Entite, Benificiaire, vehicules, DateOper, lieu, omn, Dfix, DMiss, Dhebdo);
+                Commandes.Command = Choix.modifier;
+                maj.ShowDialog();
+                RemplirLaGrille();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+          
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)

@@ -47,18 +47,18 @@ namespace ParcAuto.Forms
             this.btnAjouter = new Guna.UI2.WinForms.Guna2Button();
             this.btnModifier = new Guna.UI2.WinForms.Guna2Button();
             this.btnSupprimer = new Guna.UI2.WinForms.Guna2Button();
-            this.dgvReparation = new System.Windows.Forms.DataGridView();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTransport = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReparation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransport)).BeginInit();
             this.SuspendLayout();
             // 
             // panelDate
@@ -287,6 +287,7 @@ namespace ParcAuto.Forms
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAjouter.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // btnModifier
             // 
@@ -309,6 +310,7 @@ namespace ParcAuto.Forms
             this.btnModifier.Text = "Modifier";
             this.btnModifier.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnModifier.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // btnSupprimer
             // 
@@ -330,15 +332,15 @@ namespace ParcAuto.Forms
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             // 
-            // dgvReparation
+            // dgvTransport
             // 
-            this.dgvReparation.AllowUserToAddRows = false;
-            this.dgvReparation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvTransport.AllowUserToAddRows = false;
+            this.dgvTransport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvReparation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvReparation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReparation.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvTransport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTransport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTransport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
@@ -347,57 +349,15 @@ namespace ParcAuto.Forms
             this.Column6,
             this.Column7,
             this.Column8});
-            this.dgvReparation.Location = new System.Drawing.Point(1, 104);
-            this.dgvReparation.Margin = new System.Windows.Forms.Padding(5);
-            this.dgvReparation.Name = "dgvReparation";
-            this.dgvReparation.ReadOnly = true;
-            this.dgvReparation.RowHeadersVisible = false;
-            this.dgvReparation.RowHeadersWidth = 62;
-            this.dgvReparation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReparation.Size = new System.Drawing.Size(1109, 500);
-            this.dgvReparation.TabIndex = 44;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Prix";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Type d\'utilisation";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Destination";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Date";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "N°Bon SNTL ou Email";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Benificiaire";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Entite";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
+            this.dgvTransport.Location = new System.Drawing.Point(1, 104);
+            this.dgvTransport.Margin = new System.Windows.Forms.Padding(5);
+            this.dgvTransport.Name = "dgvTransport";
+            this.dgvTransport.ReadOnly = true;
+            this.dgvTransport.RowHeadersVisible = false;
+            this.dgvTransport.RowHeadersWidth = 62;
+            this.dgvTransport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTransport.Size = new System.Drawing.Size(1109, 500);
+            this.dgvTransport.TabIndex = 44;
             // 
             // Column1
             // 
@@ -405,6 +365,48 @@ namespace ParcAuto.Forms
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Entite";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Benificiaire";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "N°Bon SNTL ou Email";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Date";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Destination";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Type d\'utilisation";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Prix";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // Transport
             // 
@@ -421,7 +423,7 @@ namespace ParcAuto.Forms
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.btnSupprimer);
-            this.Controls.Add(this.dgvReparation);
+            this.Controls.Add(this.dgvTransport);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Transport";
@@ -431,7 +433,7 @@ namespace ParcAuto.Forms
             this.panelDate.PerformLayout();
             this.TextPanel.ResumeLayout(false);
             this.TextPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReparation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransport)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -456,7 +458,7 @@ namespace ParcAuto.Forms
         private Guna.UI2.WinForms.Guna2Button btnAjouter;
         private Guna.UI2.WinForms.Guna2Button btnModifier;
         private Guna.UI2.WinForms.Guna2Button btnSupprimer;
-        private System.Windows.Forms.DataGridView dgvReparation;
+        private System.Windows.Forms.DataGridView dgvTransport;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
