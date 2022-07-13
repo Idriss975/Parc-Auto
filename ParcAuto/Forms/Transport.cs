@@ -76,7 +76,7 @@ namespace ParcAuto.Forms
                 MajTransport maj = new MajTransport(Entite, Benificiaire, N_BON_email, DateMission, type_utilisation, prix);
                 Commandes.Command = Choix.modifier;
                 maj.ShowDialog();
-                //RemplirLaGrille();
+                RemplirdgvTransport();
             }
 
             catch (ArgumentOutOfRangeException)

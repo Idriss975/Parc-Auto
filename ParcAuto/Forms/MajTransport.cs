@@ -32,6 +32,11 @@ namespace ParcAuto.Forms
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtBenificiaire.Clear();
+            txtentite.Clear();
+            txtNBon_Email.Clear();
+            txtPrix.Clear();
+            txtUtilisation.Clear();
+            DateMission.Value = DateTime.Now;
 
         }
         public void RemplirChamps()
