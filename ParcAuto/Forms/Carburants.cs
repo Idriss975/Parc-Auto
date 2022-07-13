@@ -28,7 +28,11 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
+<<<<<<< HEAD
                     dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], ((DateTime)GLB.dr[3]).ToShortDateString(), GLB.dr[4],$"ADMINISTRATIVE OMN°  {GLB.dr[5]}", GLB.dr[6], GLB.dr[7], GLB.dr[8],GLB.dr[9]);
+=======
+                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], ((DateTime)GLB.dr[3]).ToShortDateString(), GLB.dr[4],$"ADMINISTRATIVE OMN°  {GLB.dr[5]}", GLB.dr[6].ToString(), GLB.dr[7].ToString(), GLB.dr[8].ToString());
+>>>>>>> c8d18dd3cd86d6d357729ac1655f89750c3d03e7
                 GLB.dr.Close();
             }
             catch (Exception ex)
