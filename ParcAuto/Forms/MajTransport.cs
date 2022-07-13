@@ -18,9 +18,9 @@ namespace ParcAuto.Forms
         {
             InitializeComponent();
         }
-        string entite, benificiaire, N_BON_email, type_utilisation, prix;
+        string entite, benificiaire, N_BON_email, type_utilisation, prix, destination;
         DateTime DateMiss;
-        public MajTransport(string entite , string benificiaire ,string N_BON_email ,DateTime DateMission,string type_utilisation ,string prix)
+        public MajTransport(string entite , string benificiaire ,string N_BON_email ,DateTime DateMission,string destination,string type_utilisation ,string prix)
         {
             InitializeComponent();
             this.entite = entite;
@@ -29,6 +29,7 @@ namespace ParcAuto.Forms
             this.type_utilisation = type_utilisation;
             this.prix = prix;
             this.DateMiss = DateMission;
+            this.destination = destination;
         }
         private void RemplirtxtBenificiaire()
         {
@@ -54,6 +55,7 @@ namespace ParcAuto.Forms
             txtPrix.Clear();
             txtUtilisation.Clear();
             DateMission.Value = DateTime.Now;
+            txtDestination.Text = destination;
 
         }
         public void RemplirChamps()
@@ -64,6 +66,7 @@ namespace ParcAuto.Forms
             txtUtilisation.Text = type_utilisation;
             txtPrix.Text = prix;
             DateMission.Value = DateMiss;
+            txtDestination.Text = destination;
             
         }
 

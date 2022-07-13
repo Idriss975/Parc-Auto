@@ -71,9 +71,10 @@ namespace ParcAuto.Forms
                 string Benificiaire = dgvTransport.CurrentRow.Cells[2].Value.ToString();
                 string N_BON_email = dgvTransport.CurrentRow.Cells[3].Value.ToString();
                 DateTime DateMission = Convert.ToDateTime(dgvTransport.CurrentRow.Cells[4].Value);
-                string type_utilisation = dgvTransport.CurrentRow.Cells[5].Value.ToString();
-                string prix = dgvTransport.CurrentRow.Cells[6].Value.ToString();
-                MajTransport maj = new MajTransport(Entite, Benificiaire, N_BON_email, DateMission, type_utilisation, prix);
+                string destination = dgvTransport.CurrentRow.Cells[5].Value.ToString();
+                string type_utilisation = dgvTransport.CurrentRow.Cells[6].Value.ToString();
+                string prix = dgvTransport.CurrentRow.Cells[7].Value.ToString();
+                MajTransport maj = new MajTransport(Entite, Benificiaire, N_BON_email, DateMission, destination, type_utilisation, prix);
                 Commandes.Command = Choix.modifier;
                 maj.ShowDialog();
                 RemplirdgvTransport();
