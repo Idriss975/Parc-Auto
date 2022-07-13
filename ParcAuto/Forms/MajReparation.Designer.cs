@@ -232,7 +232,7 @@ namespace ParcAuto.Forms
             this.Date.Name = "Date";
             this.Date.ShadowDecoration.Parent = this.Date;
             this.Date.Size = new System.Drawing.Size(211, 28);
-            this.Date.TabIndex = 24;
+            this.Date.TabIndex = 3;
             this.Date.Value = new System.DateTime(2022, 7, 6, 13, 23, 5, 144);
             // 
             // lbl
@@ -291,10 +291,10 @@ namespace ParcAuto.Forms
             this.cmbVehicule.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbVehicule.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbVehicule.FormattingEnabled = true;
-            this.cmbVehicule.Location = new System.Drawing.Point(149, 69);
+            this.cmbVehicule.Location = new System.Drawing.Point(149, 67);
             this.cmbVehicule.Name = "cmbVehicule";
             this.cmbVehicule.Size = new System.Drawing.Size(211, 24);
-            this.cmbVehicule.TabIndex = 27;
+            this.cmbVehicule.TabIndex = 2;
             // 
             // txtObjet
             // 
@@ -319,7 +319,7 @@ namespace ParcAuto.Forms
             this.txtObjet.SelectedText = "";
             this.txtObjet.ShadowDecoration.Parent = this.txtObjet;
             this.txtObjet.Size = new System.Drawing.Size(211, 28);
-            this.txtObjet.TabIndex = 28;
+            this.txtObjet.TabIndex = 4;
             // 
             // label1
             // 
@@ -354,7 +354,7 @@ namespace ParcAuto.Forms
             this.txtMontant.SelectedText = "";
             this.txtMontant.ShadowDecoration.Parent = this.txtMontant;
             this.txtMontant.Size = new System.Drawing.Size(211, 28);
-            this.txtMontant.TabIndex = 30;
+            this.txtMontant.TabIndex = 7;
             // 
             // rbEntretien
             // 
@@ -362,7 +362,7 @@ namespace ParcAuto.Forms
             this.rbEntretien.Location = new System.Drawing.Point(12, 225);
             this.rbEntretien.Name = "rbEntretien";
             this.rbEntretien.Size = new System.Drawing.Size(83, 21);
-            this.rbEntretien.TabIndex = 31;
+            this.rbEntretien.TabIndex = 5;
             this.rbEntretien.TabStop = true;
             this.rbEntretien.Text = "Entretien";
             this.rbEntretien.UseVisualStyleBackColor = true;
@@ -373,7 +373,7 @@ namespace ParcAuto.Forms
             this.rbRepartion.Location = new System.Drawing.Point(145, 225);
             this.rbRepartion.Name = "rbRepartion";
             this.rbRepartion.Size = new System.Drawing.Size(96, 21);
-            this.rbRepartion.TabIndex = 32;
+            this.rbRepartion.TabIndex = 6;
             this.rbRepartion.TabStop = true;
             this.rbRepartion.Text = "Reparation";
             this.rbRepartion.UseVisualStyleBackColor = true;
