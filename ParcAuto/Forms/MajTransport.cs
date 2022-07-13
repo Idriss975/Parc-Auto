@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,22 @@ namespace ParcAuto.Forms
             this.type_utilisation = type_utilisation;
             this.prix = prix;
             this.DateMiss = DateMission;
+        }
+        private void RemplirtxtBenificiaire()
+        {
+            if (GLB.ds.Tables["Conducteurs1"] != null)
+                GLB.ds.Tables["Conducteurs1"].Clear();
+            GLB.da = new SqlDataAdapter("select Nom, Prenom from Conducteurs", GLB.Con);
+            GLB.da.Fill(GLB.ds, "Conducteurs1");
+            AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
+            foreach (DataRow item in GLB.ds.Tables["Conducteurs1"].Rows)
+            {
+                ac.Add(item[0] + " " + item[1]);
+            }
+            txtBenificiaire.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtBenificiaire.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtBenificiaire.AutoCompleteCustomSource = ac;
+
         }
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -57,6 +74,7 @@ namespace ParcAuto.Forms
 
         private void MajTransport_Load(object sender, EventArgs e)
         {
+            RemplirtxtBenificiaire();
             switch (Commandes.Command)
             {
                 case Choix.ajouter:
