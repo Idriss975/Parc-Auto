@@ -30,10 +30,10 @@ namespace ParcAuto.Forms
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
         }
-        string Entite, Benificiaire, vehicules, lieu, Dfix, DMiss, Dhebdo;
+        string Entite, Benificiaire, vehicules, lieu, Dfix, DMiss, Dhebdo,omn;
         DateTime DateOpera;
         
-        public MajCarburants(string Entite, string Benificiaire, string vehicules,DateTime DateOpera,string lieu, string  Dfix, string DMiss, string Dhebdo)
+        public MajCarburants(string Entite, string Benificiaire, string vehicules,DateTime DateOpera,string lieu,string omn, string  Dfix, string DMiss, string Dhebdo)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
@@ -46,11 +46,12 @@ namespace ParcAuto.Forms
             this.Dfix = Dfix;
             this.DMiss = DMiss;
             this.Dhebdo = Dhebdo;
+            this.omn = omn;
         }
         private void RemplirChamps()
         {
             txtEntite.Text = Entite;
-            txtOMN.Text = GLB.OMN.Substring(0, GLB.OMN.Length-3);
+            txtOMN.Text = omn.Substring(0, omn.Length-3);
             txtBenificiaire.Text = Benificiaire;
             cmbVehicule.Text = vehicules;
             cmbVilles.Text = lieu;
@@ -194,7 +195,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.CommandText = $"update CarburantVignettes set Entite = '{txtEntite.Text}', benificiaire = '{txtBenificiaire.Text}'" +
                     $", vehicule = '{cmbVehicule.SelectedItem}' , date = '{DateOper.Value.ToShortDateString()}', lieu = '{cmbVilles.SelectedItem}'," +
                     $" ObjetOMN = '{txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2)}', DFixe = {DoFixe} ," +
-                    $" DMissions = {DoMissions} , DHebdo = {DoHebdo} where ObjetOMN = '{GLB.OMN}'";
+                    $" DMissions = {DoMissions} , DHebdo = {DoHebdo} where id = {GLB.id_Carburant}";
                         RemplirChamps();
                         break;
                     case Choix.supprimer:

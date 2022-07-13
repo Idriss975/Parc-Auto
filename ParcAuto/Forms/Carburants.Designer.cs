@@ -57,6 +57,7 @@ namespace ParcAuto.Forms
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarburant)).BeginInit();
@@ -363,7 +364,8 @@ namespace ParcAuto.Forms
             this.Column6,
             this.Column7,
             this.Column8,
-            this.Column9});
+            this.Column9,
+            this.Column10});
             this.dgvCarburant.Location = new System.Drawing.Point(0, 100);
             this.dgvCarburant.Margin = new System.Windows.Forms.Padding(5);
             this.dgvCarburant.Name = "dgvCarburant";
@@ -443,6 +445,13 @@ namespace ParcAuto.Forms
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "id";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Visible = false;
+            // 
             // Carburants
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -503,5 +512,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
     }
 }
