@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions; // import Regex()
 
 namespace ParcAuto.Forms
 {
@@ -17,10 +18,21 @@ namespace ParcAuto.Forms
         {
             InitializeComponent();
         }
-
+        private void RemplirdgvTransport()
+        {
+            GLB.Cmd.CommandText = "Select * from Transport";
+            GLB.Con.Open();
+            GLB.dr = GLB.Cmd.ExecuteReader();
+            while (GLB.dr.Read())
+                dgvTransport.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToShortDateString(), GLB.dr[5], GLB.dr[6], GLB.dr[7].ToString());
+            GLB.dr.Close();
+            GLB.Con.Close();
+        }
         private void Transport_Load(object sender, EventArgs e)
         {
             panelDate.Visible = false;
+            cmbChoix.SelectedIndex = 0;
+            RemplirdgvTransport();
         }
 
         private void cmbChoix_SelectedIndexChanged(object sender, EventArgs e)
@@ -47,7 +59,7 @@ namespace ParcAuto.Forms
             MajTransport maj = new MajTransport();
             Commandes.Command = Choix.ajouter;
             maj.ShowDialog();
-            //RemplirLaGrille();
+            RemplirdgvTransport();
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
@@ -61,9 +73,9 @@ namespace ParcAuto.Forms
                 DateTime DateMission = Convert.ToDateTime(dgvTransport.CurrentRow.Cells[4].Value);
                 string type_utilisation = dgvTransport.CurrentRow.Cells[5].Value.ToString();
                 string prix = dgvTransport.CurrentRow.Cells[6].Value.ToString();
-                MajTransport maj = new MajTransport(Entite, Benificiaire, N_BON_email, DateMission, type_utilisation, prix);
+                //MajTransport maj = new MajTransport(Entite, Benificiaire, N_BON_email, DateMission, type_utilisation, prix);
                 Commandes.Command = Choix.modifier;
-                maj.ShowDialog();
+                //maj.ShowDialog();
                 //RemplirLaGrille();
             }
 
@@ -72,6 +84,11 @@ namespace ParcAuto.Forms
 
                 MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            RemplirdgvTransport();
         }
     }
 }

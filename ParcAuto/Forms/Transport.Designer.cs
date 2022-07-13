@@ -215,6 +215,7 @@ namespace ParcAuto.Forms
             this.btnRefresh.Size = new System.Drawing.Size(40, 40);
             this.btnRefresh.TabIndex = 50;
             this.btnRefresh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // cmbChoix
             // 
@@ -229,6 +230,14 @@ namespace ParcAuto.Forms
             this.cmbChoix.FormattingEnabled = true;
             this.cmbChoix.HoverState.Parent = this.cmbChoix;
             this.cmbChoix.ItemHeight = 30;
+            this.cmbChoix.Items.AddRange(new object[] {
+            "Entité",
+            "Beneficiaire",
+            "NBonSNTL",
+            "Date",
+            "Destinataire",
+            "Type d\'utilisation",
+            "Prix"});
             this.cmbChoix.ItemsAppearance.Parent = this.cmbChoix;
             this.cmbChoix.Location = new System.Drawing.Point(96, 18);
             this.cmbChoix.Name = "cmbChoix";
