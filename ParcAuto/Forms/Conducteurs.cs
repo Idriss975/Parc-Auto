@@ -149,26 +149,7 @@ namespace ParcAuto.Forms
             }
         }
 
-        private void txtValueToFiltre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtValueToFiltre_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Date1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
+     
         private void btnFiltrer_Click(object sender, EventArgs e)
         {
             if (!(cmbChoix.SelectedIndex == 3 || cmbChoix.SelectedIndex == 4))
@@ -187,46 +168,6 @@ namespace ParcAuto.Forms
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             RemplirLaGrille();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvconducteur_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void Date2_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-
-        }
-
-        private void TextPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panelDate_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
