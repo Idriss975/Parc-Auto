@@ -21,6 +21,7 @@ namespace ParcAuto.Forms
         private void Transport_Load(object sender, EventArgs e)
         {
             panelDate.Visible = false;
+           
         }
 
         private void cmbChoix_SelectedIndexChanged(object sender, EventArgs e)
