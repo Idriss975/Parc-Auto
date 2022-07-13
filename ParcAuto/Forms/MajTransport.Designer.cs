@@ -1098,6 +1098,7 @@ namespace ParcAuto.Forms
             this.btnAppliquer.Text = "Appliquer";
             this.btnAppliquer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnAppliquer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnAppliquer.Click += new System.EventHandler(this.btnAppliquer_Click);
             // 
             // lbl
             // 

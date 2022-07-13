@@ -31,6 +31,35 @@ namespace ParcAuto.Forms
             this.DateMiss = DateMission;
             this.destination = destination;
         }
+
+        private void btnAppliquer_Click(object sender, EventArgs e)
+        {
+            if (txtBenificiaire.Text != "" || txtDestination.Text != "" || txtentite.Text != "" || txtNBon_Email.Text != "" || txtPrix.Text != ""||txtUtilisation.Text != "")
+            {
+                
+                switch (Commandes.Command)
+                {
+                    case Choix.ajouter:
+                        GLB.Cmd.CommandText = $"insert into Transport values('{txtentite.Text}','{txtBenificiaire.Text}','{txtNBon_Email.Text}','{DateMission.Value.ToShortDateString()}','{txtDestination.Text}','{txtUtilisation.Text}',{txtPrix.Text})";
+                        break;
+                    case Choix.modifier:
+                        GLB.Cmd.CommandText = $"update Transport set Entite = '{txtentite.Text}' , Beneficiaire = '{txtBenificiaire.Text}',NBonSNTL='{txtNBon_Email.Text}',Date = '{DateMission.Value.ToShortDateString()}',Destination='{txtDestination.Text}',Type_utilsation = '{txtUtilisation.Text}',Prix = '{txtPrix.Text}' where id = {GLB.id_Transport}";
+                        break;
+                    case Choix.supprimer:
+                        throw new Exception("Impossible de supprimer avec MajCaarburants.");
+                }
+                GLB.Con.Open();
+                GLB.Cmd.ExecuteNonQuery();
+                GLB.Con.Close();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Tous les Champs sont Obligatoire", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+        }
+
         private void RemplirtxtBenificiaire()
         {
             if (GLB.ds.Tables["Conducteurs1"] != null)
