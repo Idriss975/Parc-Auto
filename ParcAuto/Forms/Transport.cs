@@ -20,6 +20,7 @@ namespace ParcAuto.Forms
         }
         private void RemplirdgvTransport()
         {
+            dgvTransport.Rows.Clear();
             GLB.Cmd.CommandText = "Select * from Transport";
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
@@ -89,6 +90,22 @@ namespace ParcAuto.Forms
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             RemplirdgvTransport();
+        }
+
+        private void btnFiltrer_Click(object sender, EventArgs e)
+        {
+            if (!(cmbChoix.SelectedIndex == 3))
+            {
+                for (int i = dgvTransport.Rows.Count - 1; i >= 0; i--)
+                {
+                    if (!(new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(dgvTransport.Rows[i].Cells[cmbChoix.SelectedIndex+1].Value.ToString().ToLower())))
+                        dgvTransport.Rows.Remove(dgvTransport.Rows[i]);
+                }
+            }
+            else
+                for (int i = dgvTransport.Rows.Count - 1; i >= 0; i--)
+                    if (!((Convert.ToDateTime(dgvTransport.Rows[i].Cells[cmbChoix.SelectedIndex+1].Value)).Date >= Date1.Value.Date && (Convert.ToDateTime(dgvTransport.Rows[i].Cells[cmbChoix.SelectedIndex+1].Value)).Date <= Date2.Value.Date))
+                        dgvTransport.Rows.Remove(dgvTransport.Rows[i]);
         }
     }
 }

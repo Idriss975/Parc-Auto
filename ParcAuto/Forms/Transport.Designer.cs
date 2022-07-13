@@ -195,6 +195,7 @@ namespace ParcAuto.Forms
             this.btnFiltrer.Text = "Filtrer";
             this.btnFiltrer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnFiltrer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnFiltrer.Click += new System.EventHandler(this.btnFiltrer_Click);
             // 
             // btnRefresh
             // 
