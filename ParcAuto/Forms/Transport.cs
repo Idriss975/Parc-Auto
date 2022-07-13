@@ -18,6 +18,19 @@ namespace ParcAuto.Forms
         {
             InitializeComponent();
         }
+        private void StyleDataGridView()
+        {
+            dgvTransport.BorderStyle = BorderStyle.None;
+            dgvTransport.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dgvTransport.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvTransport.DefaultCellStyle.SelectionBackColor = Color.FromArgb(115, 139, 215);
+            dgvTransport.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dgvTransport.BackgroundColor = Color.White;
+            dgvTransport.EnableHeadersVisualStyles = false;
+            dgvTransport.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvTransport.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(115, 139, 215);
+            dgvTransport.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+        }
         private void RemplirdgvTransport()
         {
             dgvTransport.Rows.Clear();
@@ -34,6 +47,7 @@ namespace ParcAuto.Forms
             panelDate.Visible = false;
             cmbChoix.SelectedIndex = 0;
             RemplirdgvTransport();
+            StyleDataGridView();
         }
 
         private void cmbChoix_SelectedIndexChanged(object sender, EventArgs e)
