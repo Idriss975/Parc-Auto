@@ -107,5 +107,33 @@ namespace ParcAuto.Forms
                     if (!((Convert.ToDateTime(dgvTransport.Rows[i].Cells[cmbChoix.SelectedIndex+1].Value)).Date >= Date1.Value.Date && (Convert.ToDateTime(dgvTransport.Rows[i].Cells[cmbChoix.SelectedIndex+1].Value)).Date <= Date2.Value.Date))
                         dgvTransport.Rows.Remove(dgvTransport.Rows[i]);
         }
+
+        private void btnQuitter_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GLB.id_Transport = (int)dgvTransport.CurrentRow.Cells[0].Value;
+                GLB.Cmd.CommandText = $"delete from Transport where id={GLB.id_Transport}";
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Il faut selectionner sur la table pour Suprrimer la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            //TODO: catch NullReferenceException (idriss)
+            DialogResult res = MessageBox.Show("Voulez Vous Vraiment Suprimmer Cette ligne ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if (res == DialogResult.Yes)
+            {
+                GLB.Con.Open();
+                GLB.Cmd.ExecuteNonQuery();
+                GLB.Con.Close();
+                RemplirdgvTransport();
+            }
+            
+        }
     }
 }
