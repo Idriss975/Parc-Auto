@@ -112,6 +112,13 @@ namespace ParcAuto
                     previousBtn.BackColor = Color.FromArgb(115, 139, 215);
                 }
             }
+            foreach (Control previousBtn in panelSousVignettes.Controls)
+            {
+                if (previousBtn.GetType() == typeof(Button))
+                {
+                    previousBtn.BackColor = Color.FromArgb(115, 139, 215);
+                }
+            }
         }
         private void ActivateButton(object btnSender)
         {
