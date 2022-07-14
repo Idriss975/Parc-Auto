@@ -195,7 +195,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.CommandText = $"update CarburantVignettes set Entite = '{txtEntite.Text}', benificiaire = '{txtBenificiaire.Text}'" +
                     $", vehicule = '{cmbVehicule.SelectedItem}' , date = '{DateOper.Value.ToShortDateString()}', lieu = '{cmbVilles.Text}'," +
                     $" ObjetOMN = '{txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2)}', DFixe = {DoFixe} ," +
-                    $" DMissions = {DoMissions} , DHebdo = {DoHebdo},Observation = {txtObservation.Text} where id = {GLB.id_Carburant}";
+                    $" DMissions = {DoMissions} , DHebdo = {DoHebdo},Observation = '{txtObservation.Text}' where id = {GLB.id_Carburant}";
                         RemplirChamps();
                         break;
                     case Choix.supprimer:
