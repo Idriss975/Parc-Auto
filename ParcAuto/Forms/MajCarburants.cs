@@ -84,7 +84,6 @@ namespace ParcAuto.Forms
 
 
         }
-        //TODO: A modifier
         private void RemplirComboBoxBenificiaire()
         {
             if (GLB.ds.Tables["Conducteurs1"] != null)
@@ -126,7 +125,7 @@ namespace ParcAuto.Forms
             txtOMN.Text = "";
             txtBenificiaire.Text = "";
             cmbVehicule.SelectedIndex = 0;
-            cmbVilles.SelectedIndex = 0;
+            cmbVilles.Text = "";
             DateOper.Value = DateTime.Now;
             DFixe.Checked = false;
             DHebdo.Checked = false;
@@ -139,7 +138,6 @@ namespace ParcAuto.Forms
             RemplirComboBoxVehicules();
            
             cmbVehicule.SelectedIndex = 0;
-            cmbVilles.SelectedIndex = 0;
             switch (Commandes.Command)
             {
                 case Choix.ajouter:
@@ -188,12 +186,12 @@ namespace ParcAuto.Forms
                 {
                     case Choix.ajouter:
                         GLB.Cmd.CommandText = $"insert into CarburantVignettes values('{txtEntite.Text}','{txtBenificiaire.Text}','{cmbVehicule.SelectedItem}'," +
-                    $"'{DateOper.Value.ToShortDateString()}','{cmbVilles.SelectedItem}','{txtOMN.Text +"/"+ DateTime.Now.Year.ToString().Substring(2)}',{DoFixe},{DoMissions}," +
+                    $"'{DateOper.Value.ToShortDateString()}','{cmbVilles.Text}','{txtOMN.Text +"/"+ DateTime.Now.Year.ToString().Substring(2)}',{DoFixe},{DoMissions}," +
                     $"{DoHebdo})";
                         break;
                     case Choix.modifier:
                         GLB.Cmd.CommandText = $"update CarburantVignettes set Entite = '{txtEntite.Text}', benificiaire = '{txtBenificiaire.Text}'" +
-                    $", vehicule = '{cmbVehicule.SelectedItem}' , date = '{DateOper.Value.ToShortDateString()}', lieu = '{cmbVilles.SelectedItem}'," +
+                    $", vehicule = '{cmbVehicule.SelectedItem}' , date = '{DateOper.Value.ToShortDateString()}', lieu = '{cmbVilles.Text}'," +
                     $" ObjetOMN = '{txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2)}', DFixe = {DoFixe} ," +
                     $" DMissions = {DoMissions} , DHebdo = {DoHebdo} where id = {GLB.id_Carburant}";
                         RemplirChamps();
