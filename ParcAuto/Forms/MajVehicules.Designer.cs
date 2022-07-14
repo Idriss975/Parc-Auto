@@ -31,7 +31,6 @@ namespace ParcAuto.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MajVehicules));
             this.Quitter = new Guna.UI2.WinForms.Guna2Button();
-            this.txtObservation = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtCarburant = new Guna.UI2.WinForms.Guna2TextBox();
             this.Matricule = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,6 +50,7 @@ namespace ParcAuto.Forms
             this.cmbConducteur = new System.Windows.Forms.ComboBox();
             this.lbl = new System.Windows.Forms.Label();
             this.btnClear = new Guna.UI2.WinForms.Guna2Button();
+            this.txtObservation = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +66,7 @@ namespace ParcAuto.Forms
             this.Quitter.HoverState.Parent = this.Quitter;
             this.Quitter.Image = ((System.Drawing.Image)(resources.GetObject("Quitter.Image")));
             this.Quitter.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.Quitter.Location = new System.Drawing.Point(548, 283);
+            this.Quitter.Location = new System.Drawing.Point(491, 283);
             this.Quitter.Margin = new System.Windows.Forms.Padding(5);
             this.Quitter.Name = "Quitter";
             this.Quitter.ShadowDecoration.Parent = this.Quitter;
@@ -76,30 +76,6 @@ namespace ParcAuto.Forms
             this.Quitter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.Quitter.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             this.Quitter.Click += new System.EventHandler(this.Quitter_Click);
-            // 
-            // txtObservation
-            // 
-            this.txtObservation.BorderRadius = 4;
-            this.txtObservation.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtObservation.DefaultText = "";
-            this.txtObservation.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtObservation.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtObservation.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtObservation.DisabledState.Parent = this.txtObservation;
-            this.txtObservation.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtObservation.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtObservation.FocusedState.Parent = this.txtObservation;
-            this.txtObservation.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtObservation.HoverState.Parent = this.txtObservation;
-            this.txtObservation.Location = new System.Drawing.Point(156, 159);
-            this.txtObservation.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.txtObservation.Name = "txtObservation";
-            this.txtObservation.PasswordChar = '\0';
-            this.txtObservation.PlaceholderText = "";
-            this.txtObservation.SelectedText = "";
-            this.txtObservation.ShadowDecoration.Parent = this.txtObservation;
-            this.txtObservation.Size = new System.Drawing.Size(216, 42);
-            this.txtObservation.TabIndex = 6;
             // 
             // txtCarburant
             // 
@@ -245,7 +221,7 @@ namespace ParcAuto.Forms
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 119);
+            this.label5.Location = new System.Drawing.Point(5, 120);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(135, 16);
@@ -273,7 +249,7 @@ namespace ParcAuto.Forms
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(412, 119);
+            this.label6.Location = new System.Drawing.Point(412, 120);
             this.label6.Margin = new System.Windows.Forms.Padding(33, 0, 5, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 16);
@@ -284,7 +260,7 @@ namespace ParcAuto.Forms
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(5, 172);
+            this.label7.Location = new System.Drawing.Point(33, 225);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(91, 16);
@@ -295,7 +271,7 @@ namespace ParcAuto.Forms
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(412, 172);
+            this.label8.Location = new System.Drawing.Point(440, 243);
             this.label8.Margin = new System.Windows.Forms.Padding(33, 0, 5, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(87, 16);
@@ -315,7 +291,7 @@ namespace ParcAuto.Forms
             this.btnAppliquer.HoverState.Parent = this.btnAppliquer;
             this.btnAppliquer.Image = ((System.Drawing.Image)(resources.GetObject("btnAppliquer.Image")));
             this.btnAppliquer.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAppliquer.Location = new System.Drawing.Point(687, 283);
+            this.btnAppliquer.Location = new System.Drawing.Point(630, 283);
             this.btnAppliquer.Margin = new System.Windows.Forms.Padding(5);
             this.btnAppliquer.Name = "btnAppliquer";
             this.btnAppliquer.ShadowDecoration.Parent = this.btnAppliquer;
@@ -333,7 +309,6 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.10471F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.45701F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.76923F));
-            this.tableLayoutPanel1.Controls.Add(this.txtObservation, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtCarburant, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.Matricule, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 2, 0);
@@ -344,21 +319,17 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.dateMiseEnCirculation, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label6, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label8, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtMarque, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtCouleur, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.cmbConducteur, 3, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(28, 66);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(765, 207);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(765, 154);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
             // txtCouleur
@@ -391,7 +362,7 @@ namespace ParcAuto.Forms
             this.cmbConducteur.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbConducteur.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbConducteur.FormattingEnabled = true;
-            this.cmbConducteur.Location = new System.Drawing.Point(538, 168);
+            this.cmbConducteur.Location = new System.Drawing.Point(563, 240);
             this.cmbConducteur.Name = "cmbConducteur";
             this.cmbConducteur.Size = new System.Drawing.Size(216, 24);
             this.cmbConducteur.TabIndex = 7;
@@ -429,16 +400,29 @@ namespace ParcAuto.Forms
             this.btnClear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // txtObservation
+            // 
+            this.txtObservation.Location = new System.Drawing.Point(36, 244);
+            this.txtObservation.Name = "txtObservation";
+            this.txtObservation.Size = new System.Drawing.Size(362, 71);
+            this.txtObservation.TabIndex = 18;
+            this.txtObservation.Text = "";
+            // 
             // MajVehicules
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(807, 327);
+            this.Controls.Add(this.txtObservation);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.lbl);
             this.Controls.Add(this.Quitter);
             this.Controls.Add(this.btnAppliquer);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.cmbConducteur);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
             this.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -458,7 +442,6 @@ namespace ParcAuto.Forms
         #endregion
 
         private Guna.UI2.WinForms.Guna2Button Quitter;
-        private Guna.UI2.WinForms.Guna2TextBox txtObservation;
         private Guna.UI2.WinForms.Guna2TextBox txtCarburant;
         private System.Windows.Forms.Label Matricule;
         private System.Windows.Forms.Label label2;
@@ -478,5 +461,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.ComboBox cmbConducteur;
         private System.Windows.Forms.Label lbl;
         private Guna.UI2.WinForms.Guna2Button btnClear;
+        private System.Windows.Forms.RichTextBox txtObservation;
     }
 }

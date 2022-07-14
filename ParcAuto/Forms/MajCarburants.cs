@@ -164,6 +164,7 @@ namespace ParcAuto.Forms
         string DoHebdo;
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
+            //TODO: Try catch sql exception
             if (txtEntite.Text !="" || txtOMN.Text !="" || txtDotation.Text != ""||DHebdo.Checked||DFixe.Checked||DMissions.Checked)
             {
                 if (DMissions.Checked)

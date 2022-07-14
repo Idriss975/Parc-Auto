@@ -93,7 +93,7 @@ namespace ParcAuto.Forms
         }
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
-            string TempMatricule=""; //Pour Voir si Matricule est null ou pas.
+            string TempMatricule = ""; //Pour Voir si Matricule est null ou pas.
             if (!(txtMarque.Text == "" || txtModele.Text == "" || txtCouleur.Text == "" || txtCarburant.Text == ""))
             {
                 if (((CmbMatNom)cmbConducteur.SelectedItem).Matricule is null)
@@ -113,15 +113,38 @@ namespace ParcAuto.Forms
                         throw new Exception("Impossible de supprimer avec MajVehicules.");
 
                 }
-                GLB.Con.Open();
-                GLB.Cmd.ExecuteNonQuery();
-                GLB.Con.Close();
-                this.Close();
+                
+                try
+                {
+                    GLB.Con.Open();
+                    GLB.Cmd.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+                    if (ex.State == 1)
+                    {
+                        MessageBox.Show("Le matricule de la Voiture ne peux pas etre dupliqué", "Message d'erreur", MessageBoxButtons.OK,MessageBoxIcon.Error) ;
+                    }
+                    
+                    else
+                    {
+                        MessageBox.Show($"Erreur Technique, à rapporter aux techniciens:\n {ex.Message} ", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                finally
+                {
+                    GLB.Con.Close();
+                    this.Close();
+                }
+               
+
             }
             else
             {
-                MessageBox.Show("Tous les Champs sont Obligatoire", "Message",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Tous les Champs sont Obligatoire", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+          
+           
 
         }
 

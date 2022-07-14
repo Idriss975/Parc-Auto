@@ -812,6 +812,7 @@ namespace ParcAuto.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(797, 335);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtObservation);
