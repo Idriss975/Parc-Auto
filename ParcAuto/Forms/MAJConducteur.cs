@@ -39,7 +39,7 @@ namespace ParcAuto.Forms
             txtprenom.Clear();
             txtnumpermis.Clear();
             txtadr.Clear();
-            cmbdirections.SelectedIndex = 0;
+            txtDirections.Text = "";
             txttel.Clear();
             txtemail.Clear();
             DateNaissance.Value = DateTime.Now;
@@ -68,7 +68,7 @@ namespace ParcAuto.Forms
             txtprenom.Text = Prenom;
             txtnumpermis.Text = NumPermis;
             txtadr.Text = Adresse;
-            cmbdirections.Text = Direction;
+            txtDirections.Text = Direction;
             txttel.Text = Tel;
             txtemail.Text = Email;
             DateNaissance.Value = DateNaiss;
@@ -88,10 +88,10 @@ namespace ParcAuto.Forms
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
-                        GLB.Cmd.CommandText = $"Insert into Conducteurs values ({txtmatricule.Text}, '{txtnom.Text}', '{txtprenom.Text}', '{DateNaissance.Value.ToShortDateString()}', '{DateEmb.Value.ToShortDateString()}', '{txtnumpermis.Text}', '{txtadr.Text}','{txttel.Text}', '{txtemail.Text}','{cmbdirections.SelectedItem}')";
+                        GLB.Cmd.CommandText = $"Insert into Conducteurs values ({txtmatricule.Text}, '{txtnom.Text}', '{txtprenom.Text}', '{DateNaissance.Value.ToShortDateString()}', '{DateEmb.Value.ToShortDateString()}', '{txtnumpermis.Text}', '{txtadr.Text}','{txttel.Text}', '{txtemail.Text}','{txtDirections.Text}')";
                         break;
                     case Choix.modifier:
-                        GLB.Cmd.CommandText = $"update Conducteurs set nom='{txtnom.Text}', prenom='{txtprenom.Text}', DateNaiss='{DateNaissance.Value.ToShortDateString()}', DateEmbauche='{DateEmb.Value.ToShortDateString()}', NumPermis='{txtnumpermis.Text}', Adresse='{txtadr.Text}', Direction='{cmbdirections.SelectedItem}', Tel='{txttel.Text}', Email='{txtemail.Text}' where Matricule = {GLB.Matricule}";
+                        GLB.Cmd.CommandText = $"update Conducteurs set nom='{txtnom.Text}', prenom='{txtprenom.Text}', DateNaiss='{DateNaissance.Value.ToShortDateString()}', DateEmbauche='{DateEmb.Value.ToShortDateString()}', NumPermis='{txtnumpermis.Text}', Adresse='{txtadr.Text}', Direction='{txtDirections.Text}', Tel='{txttel.Text}', Email='{txtemail.Text}' where Matricule = {GLB.Matricule}";
                         RemplirLesChamps();
                         break;
                     case Choix.supprimer:
@@ -113,22 +113,11 @@ namespace ParcAuto.Forms
             }
         }
 
-        private void RemplirCmbDirection()
-        {
-            GLB.Con.Open();
-            GLB.Cmd.CommandText = "select * from Directions";
-            GLB.dr = GLB.Cmd.ExecuteReader();
-            while (GLB.dr.Read())
-            {
-                cmbdirections.Items.Add(GLB.dr[0]);
-            }
-            GLB.dr.Close();
-            GLB.Con.Close();
-        }
+     
 
         private void MAJConducteur_Load_1(object sender, EventArgs e)
         {
-            RemplirCmbDirection();
+            
             switch (Commandes.Command)
             {
                 case Choix.ajouter:

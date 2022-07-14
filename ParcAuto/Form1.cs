@@ -58,11 +58,13 @@ namespace ParcAuto
 
         private void btnReparation_Click(object sender, EventArgs e)
         {
+            openChildForm(new Forms.Reparation(), sender);
             //hideSubMenu();
         }
 
         private void btnTransport_Click(object sender, EventArgs e)
         {
+            openChildForm(new Forms.Transport(),sender);
             //hideSubMenu();
         }
 
@@ -110,6 +112,13 @@ namespace ParcAuto
                     previousBtn.BackColor = Color.FromArgb(115, 139, 215);
                 }
             }
+            foreach (Control previousBtn in panelSousVignettes.Controls)
+            {
+                if (previousBtn.GetType() == typeof(Button))
+                {
+                    previousBtn.BackColor = Color.FromArgb(115, 139, 215);
+                }
+            }
         }
         private void ActivateButton(object btnSender)
         {
@@ -119,7 +128,6 @@ namespace ParcAuto
                 if (currentButton != (Button)btnSender)
                 {
                     DisableButton();
-                   
                     currentButton = (Button)btnSender;
                     currentButton.BackColor = Color.FromArgb(81, 98, 153);
                     //By activiting / highlighting a button , we increase the size of the font zoom effect .
