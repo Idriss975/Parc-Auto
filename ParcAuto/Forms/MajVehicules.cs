@@ -106,7 +106,8 @@ namespace ParcAuto.Forms
                         GLB.Cmd.CommandText = $"insert into Vehicules values ('{txtMatricule.Text}', '{txtMarque.Text}', '{txtModele.Text}', '{txtCouleur.Text}','{dateMiseEnCirculation.Value.ToShortDateString()}', '{txtCarburant.Text}', '{txtObservation.Text}', {TempMatricule})";
                         break;
                     case Choix.modifier:
-                        GLB.Cmd.CommandText = $"update Vehicules set matricule ='{txtMatricule.Text}', Marque='{txtMarque.Text}', Modele='{txtModele.Text}', Couleur='{txtCouleur.Text}', MiseEnCirculation='{dateMiseEnCirculation.Value.ToShortDateString()}', Carburant='{txtCarburant.Text}', Observation='{txtObservation.Text}', Conducteur={TempMatricule} where Matricule='{GLB.Matricule_Voiture}'";
+
+                        GLB.Cmd.CommandText = $"update Vehicules set  Marque='{txtMarque.Text}', Modele='{txtModele.Text}', Couleur='{txtCouleur.Text}', MiseEnCirculation='{dateMiseEnCirculation.Value.ToShortDateString()}', Carburant='{txtCarburant.Text}', Observation='{txtObservation.Text}', Conducteur={TempMatricule} where Matricule='{GLB.Matricule_Voiture}'";
                         break;
                     case Choix.supprimer:
                         throw new Exception("Impossible de supprimer avec MajVehicules.");
@@ -135,6 +136,7 @@ namespace ParcAuto.Forms
                     lbl.Text = "L'ajout d'une Vehicules";
                     break;
                 case Choix.modifier:
+                    txtMatricule.Enabled = false;
                     lbl.Text = "La modification d'une Vehicules";
                     RemplirLesChamps();
                     break;

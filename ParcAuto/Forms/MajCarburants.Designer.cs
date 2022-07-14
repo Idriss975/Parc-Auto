@@ -47,12 +47,12 @@ namespace ParcAuto.Forms
             this.txtOMN = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtDotation = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.cmbVilles = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtBenificiaire = new Guna.UI2.WinForms.Guna2TextBox();
             this.DMissions = new System.Windows.Forms.RadioButton();
             this.DFixe = new System.Windows.Forms.RadioButton();
             this.DHebdo = new System.Windows.Forms.RadioButton();
             this.OmnYear = new System.Windows.Forms.Label();
-            this.cmbVilles = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtObservation = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
@@ -145,7 +145,7 @@ namespace ParcAuto.Forms
             this.cmbVehicule.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbVehicule.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbVehicule.FormattingEnabled = true;
-            this.cmbVehicule.Location = new System.Drawing.Point(145, 60);
+            this.cmbVehicule.Location = new System.Drawing.Point(145, 61);
             this.cmbVehicule.Name = "cmbVehicule";
             this.cmbVehicule.Size = new System.Drawing.Size(219, 24);
             this.cmbVehicule.TabIndex = 2;
@@ -345,79 +345,6 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Size = new System.Drawing.Size(745, 145);
             this.tableLayoutPanel1.TabIndex = 17;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
-            // 
-            // txtBenificiaire
-            // 
-            this.txtBenificiaire.AutoCompleteCustomSource.AddRange(new string[] {
-            "ooo",
-            "okk"});
-            this.txtBenificiaire.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtBenificiaire.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtBenificiaire.BorderRadius = 4;
-            this.txtBenificiaire.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBenificiaire.DefaultText = "";
-            this.txtBenificiaire.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBenificiaire.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBenificiaire.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBenificiaire.DisabledState.Parent = this.txtBenificiaire;
-            this.txtBenificiaire.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBenificiaire.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBenificiaire.FocusedState.Parent = this.txtBenificiaire;
-            this.txtBenificiaire.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBenificiaire.HoverState.Parent = this.txtBenificiaire;
-            this.txtBenificiaire.Location = new System.Drawing.Point(523, 4);
-            this.txtBenificiaire.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBenificiaire.Name = "txtBenificiaire";
-            this.txtBenificiaire.PasswordChar = '\0';
-            this.txtBenificiaire.PlaceholderText = "";
-            this.txtBenificiaire.SelectedText = "";
-            this.txtBenificiaire.ShadowDecoration.Parent = this.txtBenificiaire;
-            this.txtBenificiaire.Size = new System.Drawing.Size(215, 30);
-            this.txtBenificiaire.TabIndex = 1;
-            // 
-            // DMissions
-            // 
-            this.DMissions.AutoSize = true;
-            this.DMissions.Location = new System.Drawing.Point(511, 220);
-            this.DMissions.Name = "DMissions";
-            this.DMissions.Size = new System.Drawing.Size(90, 21);
-            this.DMissions.TabIndex = 22;
-            this.DMissions.TabStop = true;
-            this.DMissions.Text = "DMissions";
-            this.DMissions.UseVisualStyleBackColor = true;
-            // 
-            // DFixe
-            // 
-            this.DFixe.AutoSize = true;
-            this.DFixe.Location = new System.Drawing.Point(415, 220);
-            this.DFixe.Name = "DFixe";
-            this.DFixe.Size = new System.Drawing.Size(61, 21);
-            this.DFixe.TabIndex = 23;
-            this.DFixe.TabStop = true;
-            this.DFixe.Text = "DFixe";
-            this.DFixe.UseVisualStyleBackColor = true;
-            // 
-            // DHebdo
-            // 
-            this.DHebdo.AutoSize = true;
-            this.DHebdo.Location = new System.Drawing.Point(632, 220);
-            this.DHebdo.Name = "DHebdo";
-            this.DHebdo.Size = new System.Drawing.Size(78, 21);
-            this.DHebdo.TabIndex = 24;
-            this.DHebdo.TabStop = true;
-            this.DHebdo.Text = "DHebdo";
-            this.DHebdo.UseVisualStyleBackColor = true;
-            // 
-            // OmnYear
-            // 
-            this.OmnYear.AutoSize = true;
-            this.OmnYear.BackColor = System.Drawing.Color.White;
-            this.OmnYear.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OmnYear.Location = new System.Drawing.Point(629, 176);
-            this.OmnYear.Name = "OmnYear";
-            this.OmnYear.Size = new System.Drawing.Size(32, 16);
-            this.OmnYear.TabIndex = 25;
-            this.OmnYear.Text = "/XX";
             // 
             // cmbVilles
             // 
@@ -790,6 +717,79 @@ namespace ParcAuto.Forms
             this.cmbVilles.ShadowDecoration.Parent = this.cmbVilles;
             this.cmbVilles.Size = new System.Drawing.Size(211, 30);
             this.cmbVilles.TabIndex = 4;
+            // 
+            // txtBenificiaire
+            // 
+            this.txtBenificiaire.AutoCompleteCustomSource.AddRange(new string[] {
+            "ooo",
+            "okk"});
+            this.txtBenificiaire.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtBenificiaire.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtBenificiaire.BorderRadius = 4;
+            this.txtBenificiaire.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBenificiaire.DefaultText = "";
+            this.txtBenificiaire.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBenificiaire.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBenificiaire.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBenificiaire.DisabledState.Parent = this.txtBenificiaire;
+            this.txtBenificiaire.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBenificiaire.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBenificiaire.FocusedState.Parent = this.txtBenificiaire;
+            this.txtBenificiaire.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBenificiaire.HoverState.Parent = this.txtBenificiaire;
+            this.txtBenificiaire.Location = new System.Drawing.Point(523, 4);
+            this.txtBenificiaire.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBenificiaire.Name = "txtBenificiaire";
+            this.txtBenificiaire.PasswordChar = '\0';
+            this.txtBenificiaire.PlaceholderText = "";
+            this.txtBenificiaire.SelectedText = "";
+            this.txtBenificiaire.ShadowDecoration.Parent = this.txtBenificiaire;
+            this.txtBenificiaire.Size = new System.Drawing.Size(215, 30);
+            this.txtBenificiaire.TabIndex = 1;
+            // 
+            // DMissions
+            // 
+            this.DMissions.AutoSize = true;
+            this.DMissions.Location = new System.Drawing.Point(511, 220);
+            this.DMissions.Name = "DMissions";
+            this.DMissions.Size = new System.Drawing.Size(90, 21);
+            this.DMissions.TabIndex = 22;
+            this.DMissions.TabStop = true;
+            this.DMissions.Text = "DMissions";
+            this.DMissions.UseVisualStyleBackColor = true;
+            // 
+            // DFixe
+            // 
+            this.DFixe.AutoSize = true;
+            this.DFixe.Location = new System.Drawing.Point(415, 220);
+            this.DFixe.Name = "DFixe";
+            this.DFixe.Size = new System.Drawing.Size(61, 21);
+            this.DFixe.TabIndex = 23;
+            this.DFixe.TabStop = true;
+            this.DFixe.Text = "DFixe";
+            this.DFixe.UseVisualStyleBackColor = true;
+            // 
+            // DHebdo
+            // 
+            this.DHebdo.AutoSize = true;
+            this.DHebdo.Location = new System.Drawing.Point(632, 220);
+            this.DHebdo.Name = "DHebdo";
+            this.DHebdo.Size = new System.Drawing.Size(78, 21);
+            this.DHebdo.TabIndex = 24;
+            this.DHebdo.TabStop = true;
+            this.DHebdo.Text = "DHebdo";
+            this.DHebdo.UseVisualStyleBackColor = true;
+            // 
+            // OmnYear
+            // 
+            this.OmnYear.AutoSize = true;
+            this.OmnYear.BackColor = System.Drawing.Color.White;
+            this.OmnYear.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OmnYear.Location = new System.Drawing.Point(629, 176);
+            this.OmnYear.Name = "OmnYear";
+            this.OmnYear.Size = new System.Drawing.Size(32, 16);
+            this.OmnYear.TabIndex = 25;
+            this.OmnYear.Text = "/XX";
             // 
             // txtObservation
             // 

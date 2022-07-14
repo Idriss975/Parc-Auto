@@ -50,11 +50,11 @@ namespace ParcAuto.Forms
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.DateNaissance = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.txtDirections = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnAppliquer = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.lbl = new System.Windows.Forms.Label();
             this.btnClear = new Guna.UI2.WinForms.Guna2Button();
-            this.txtDirections = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -408,6 +408,36 @@ namespace ParcAuto.Forms
             this.DateNaissance.TabIndex = 24;
             this.DateNaissance.Value = new System.DateTime(2022, 7, 6, 13, 23, 5, 144);
             // 
+            // txtDirections
+            // 
+            this.txtDirections.AutoCompleteCustomSource.AddRange(new string[] {
+            "dr1",
+            "dr2",
+            "dr3"});
+            this.txtDirections.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtDirections.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtDirections.BorderRadius = 4;
+            this.txtDirections.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtDirections.DefaultText = "";
+            this.txtDirections.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtDirections.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtDirections.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDirections.DisabledState.Parent = this.txtDirections;
+            this.txtDirections.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDirections.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDirections.FocusedState.Parent = this.txtDirections;
+            this.txtDirections.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDirections.HoverState.Parent = this.txtDirections;
+            this.txtDirections.Location = new System.Drawing.Point(518, 127);
+            this.txtDirections.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDirections.Name = "txtDirections";
+            this.txtDirections.PasswordChar = '\0';
+            this.txtDirections.PlaceholderText = "";
+            this.txtDirections.SelectedText = "";
+            this.txtDirections.ShadowDecoration.Parent = this.txtDirections;
+            this.txtDirections.Size = new System.Drawing.Size(221, 33);
+            this.txtDirections.TabIndex = 25;
+            // 
             // btnAppliquer
             // 
             this.btnAppliquer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -488,36 +518,6 @@ namespace ParcAuto.Forms
             this.btnClear.TabIndex = 16;
             this.btnClear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // txtDirections
-            // 
-            this.txtDirections.AutoCompleteCustomSource.AddRange(new string[] {
-            "dr1",
-            "dr2",
-            "dr3"});
-            this.txtDirections.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtDirections.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtDirections.BorderRadius = 4;
-            this.txtDirections.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtDirections.DefaultText = "";
-            this.txtDirections.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtDirections.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtDirections.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDirections.DisabledState.Parent = this.txtDirections;
-            this.txtDirections.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDirections.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDirections.FocusedState.Parent = this.txtDirections;
-            this.txtDirections.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDirections.HoverState.Parent = this.txtDirections;
-            this.txtDirections.Location = new System.Drawing.Point(518, 127);
-            this.txtDirections.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtDirections.Name = "txtDirections";
-            this.txtDirections.PasswordChar = '\0';
-            this.txtDirections.PlaceholderText = "";
-            this.txtDirections.SelectedText = "";
-            this.txtDirections.ShadowDecoration.Parent = this.txtDirections;
-            this.txtDirections.Size = new System.Drawing.Size(221, 33);
-            this.txtDirections.TabIndex = 25;
             // 
             // MAJConducteur
             // 
