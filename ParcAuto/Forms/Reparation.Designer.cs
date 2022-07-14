@@ -361,7 +361,7 @@ namespace ParcAuto.Forms
             this.Column6,
             this.Column7,
             this.Column8});
-            this.dgvReparation.Location = new System.Drawing.Point(1, 103);
+            this.dgvReparation.Location = new System.Drawing.Point(0, 100);
             this.dgvReparation.Margin = new System.Windows.Forms.Padding(5);
             this.dgvReparation.Name = "dgvReparation";
             this.dgvReparation.ReadOnly = true;
