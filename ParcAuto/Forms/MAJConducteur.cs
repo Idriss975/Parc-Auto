@@ -126,7 +126,7 @@ namespace ParcAuto.Forms
                 case Choix.modifier:
                     lbl.Text = "La modification d'un Conducteur";
                     txtmatricule.Text = GLB.Matricule.ToString();
-                    txtmatricule.Enabled = true;
+                    txtmatricule.Enabled = false;
                     RemplirLesChamps();
                     break;
                 case Choix.supprimer:
