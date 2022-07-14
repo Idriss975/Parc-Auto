@@ -120,11 +120,35 @@
     <Compile Include="Forms\MAJConducteur.Designer.cs">
       <DependentUpon>MAJConducteur.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MajReparation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MajReparation.Designer.cs">
+      <DependentUpon>MajReparation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MajTransport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MajTransport.Designer.cs">
+      <DependentUpon>MajTransport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MajVehicules.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MajVehicules.Designer.cs">
       <DependentUpon>MajVehicules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reparation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reparation.Designer.cs">
+      <DependentUpon>Reparation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transport.Designer.cs">
+      <DependentUpon>Transport.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Vehicules.cs">
       <SubType>Form</SubType>
@@ -149,8 +173,20 @@
     <EmbeddedResource Include="Forms\MAJConducteur.resx">
       <DependentUpon>MAJConducteur.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MajReparation.resx">
+      <DependentUpon>MajReparation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MajTransport.resx">
+      <DependentUpon>MajTransport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MajVehicules.resx">
       <DependentUpon>MajVehicules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reparation.resx">
+      <DependentUpon>Reparation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transport.resx">
+      <DependentUpon>Transport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Vehicules.resx">
       <DependentUpon>Vehicules.cs</DependentUpon>
