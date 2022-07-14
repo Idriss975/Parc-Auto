@@ -28,7 +28,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], ((DateTime)GLB.dr[3]).ToShortDateString(), GLB.dr[4],$"ADMINISTRATIVE OMN°  {GLB.dr[5]}", GLB.dr[6].ToString(), GLB.dr[7].ToString(), GLB.dr[8].ToString(), GLB.dr[9]);
+                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], ((DateTime)GLB.dr[3]).ToShortDateString(), GLB.dr[4],$"ADMINISTRATIVE OMN°  {GLB.dr[5]}", GLB.dr[6].ToString(), GLB.dr[7].ToString(), GLB.dr[8].ToString(), GLB.dr[9],GLB.dr[10]);
 
                 GLB.dr.Close();
             }
@@ -129,8 +129,8 @@ namespace ParcAuto.Forms
                 string Dfix = dgvCarburant.CurrentRow.Cells[6].Value.ToString();
                 string DMiss = dgvCarburant.CurrentRow.Cells[7].Value.ToString();
                 string Dhebdo = dgvCarburant.CurrentRow.Cells[8].Value.ToString();
-
-                MajCarburants maj = new MajCarburants(Entite, Benificiaire, vehicules, DateOper, lieu, omn, Dfix, DMiss, Dhebdo);
+                string Observation = dgvCarburant.CurrentRow.Cells[10].Value.ToString(); ;
+                MajCarburants maj = new MajCarburants(Entite, Benificiaire, vehicules, DateOper, lieu, omn, Dfix, DMiss, Dhebdo,Observation);
                 Commandes.Command = Choix.modifier;
                 maj.ShowDialog();
                 RemplirLaGrille();

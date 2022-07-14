@@ -53,7 +53,7 @@ namespace ParcAuto.Forms
             this.DHebdo = new System.Windows.Forms.RadioButton();
             this.OmnYear = new System.Windows.Forms.Label();
             this.cmbVilles = new Guna.UI2.WinForms.Guna2TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.txtObservation = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -148,7 +148,7 @@ namespace ParcAuto.Forms
             this.cmbVehicule.Location = new System.Drawing.Point(145, 60);
             this.cmbVehicule.Name = "cmbVehicule";
             this.cmbVehicule.Size = new System.Drawing.Size(219, 24);
-            this.cmbVehicule.TabIndex = 26;
+            this.cmbVehicule.TabIndex = 2;
             // 
             // DateOper
             // 
@@ -163,7 +163,7 @@ namespace ParcAuto.Forms
             this.DateOper.Name = "DateOper";
             this.DateOper.ShadowDecoration.Parent = this.DateOper;
             this.DateOper.Size = new System.Drawing.Size(220, 33);
-            this.DateOper.TabIndex = 24;
+            this.DateOper.TabIndex = 3;
             this.DateOper.Value = new System.DateTime(2022, 7, 6, 13, 23, 5, 144);
             // 
             // label7
@@ -313,7 +313,7 @@ namespace ParcAuto.Forms
             this.txtDotation.SelectedText = "";
             this.txtDotation.ShadowDecoration.Parent = this.txtDotation;
             this.txtDotation.Size = new System.Drawing.Size(215, 30);
-            this.txtDotation.TabIndex = 6;
+            this.txtDotation.TabIndex = 7;
             // 
             // tableLayoutPanel1
             // 
@@ -373,7 +373,7 @@ namespace ParcAuto.Forms
             this.txtBenificiaire.SelectedText = "";
             this.txtBenificiaire.ShadowDecoration.Parent = this.txtBenificiaire;
             this.txtBenificiaire.Size = new System.Drawing.Size(215, 30);
-            this.txtBenificiaire.TabIndex = 28;
+            this.txtBenificiaire.TabIndex = 1;
             // 
             // DMissions
             // 
@@ -789,15 +789,15 @@ namespace ParcAuto.Forms
             this.cmbVilles.SelectedText = "";
             this.cmbVilles.ShadowDecoration.Parent = this.cmbVilles;
             this.cmbVilles.Size = new System.Drawing.Size(211, 30);
-            this.cmbVilles.TabIndex = 26;
+            this.cmbVilles.TabIndex = 4;
             // 
-            // richTextBox1
+            // txtObservation
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(22, 240);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(356, 83);
-            this.richTextBox1.TabIndex = 26;
-            this.richTextBox1.Text = "";
+            this.txtObservation.Location = new System.Drawing.Point(22, 240);
+            this.txtObservation.Name = "txtObservation";
+            this.txtObservation.Size = new System.Drawing.Size(356, 83);
+            this.txtObservation.TabIndex = 6;
+            this.txtObservation.Text = "";
             // 
             // label1
             // 
@@ -814,7 +814,7 @@ namespace ParcAuto.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 335);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.txtObservation);
             this.Controls.Add(this.OmnYear);
             this.Controls.Add(this.DHebdo);
             this.Controls.Add(this.txtDotation);
@@ -867,7 +867,7 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label OmnYear;
         private Guna.UI2.WinForms.Guna2TextBox txtBenificiaire;
         private Guna.UI2.WinForms.Guna2TextBox cmbVilles;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox txtObservation;
         private System.Windows.Forms.Label label1;
     }
 }

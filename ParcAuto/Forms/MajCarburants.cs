@@ -30,10 +30,10 @@ namespace ParcAuto.Forms
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
         }
-        string Entite, Benificiaire, vehicules, lieu, Dfix, DMiss, Dhebdo,omn;
+        string Entite, Benificiaire, vehicules, lieu, Dfix, DMiss, Dhebdo,omn ,Observation;
         DateTime DateOpera;
         
-        public MajCarburants(string Entite, string Benificiaire, string vehicules,DateTime DateOpera,string lieu,string omn, string  Dfix, string DMiss, string Dhebdo)
+        public MajCarburants(string Entite, string Benificiaire, string vehicules,DateTime DateOpera,string lieu,string omn, string  Dfix, string DMiss, string Dhebdo, string Observation)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
@@ -47,6 +47,7 @@ namespace ParcAuto.Forms
             this.DMiss = DMiss;
             this.Dhebdo = Dhebdo;
             this.omn = omn;
+            this.Observation = Observation;
         }
         private void RemplirChamps()
         {
@@ -56,6 +57,7 @@ namespace ParcAuto.Forms
             cmbVehicule.Text = vehicules;
             cmbVilles.Text = lieu;
             DateOper.Value = DateOpera;
+            txtObservation.Text = Observation;
             if (Dhebdo != "")
             {
                 DHebdo.Checked = true;
@@ -162,7 +164,7 @@ namespace ParcAuto.Forms
         string DoHebdo;
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
-            if (txtEntite.Text !="" || txtOMN.Text !="" || txtDotation.Text != "")
+            if (txtEntite.Text !="" || txtOMN.Text !="" || txtDotation.Text != ""||DHebdo.Checked||DFixe.Checked||DMissions.Checked)
             {
                 if (DMissions.Checked)
                 {
@@ -187,13 +189,13 @@ namespace ParcAuto.Forms
                     case Choix.ajouter:
                         GLB.Cmd.CommandText = $"insert into CarburantVignettes values('{txtEntite.Text}','{txtBenificiaire.Text}','{cmbVehicule.SelectedItem}'," +
                     $"'{DateOper.Value.ToShortDateString()}','{cmbVilles.Text}','{txtOMN.Text +"/"+ DateTime.Now.Year.ToString().Substring(2)}',{DoFixe},{DoMissions}," +
-                    $"{DoHebdo})";
+                    $"{DoHebdo},'{txtObservation.Text}')";
                         break;
                     case Choix.modifier:
                         GLB.Cmd.CommandText = $"update CarburantVignettes set Entite = '{txtEntite.Text}', benificiaire = '{txtBenificiaire.Text}'" +
                     $", vehicule = '{cmbVehicule.SelectedItem}' , date = '{DateOper.Value.ToShortDateString()}', lieu = '{cmbVilles.Text}'," +
                     $" ObjetOMN = '{txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2)}', DFixe = {DoFixe} ," +
-                    $" DMissions = {DoMissions} , DHebdo = {DoHebdo} where id = {GLB.id_Carburant}";
+                    $" DMissions = {DoMissions} , DHebdo = {DoHebdo},Observation = {txtObservation.Text} where id = {GLB.id_Carburant}";
                         RemplirChamps();
                         break;
                     case Choix.supprimer:
