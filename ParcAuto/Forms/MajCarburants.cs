@@ -139,7 +139,6 @@ namespace ParcAuto.Forms
             RemplirComboBoxBenificiaire();
             RemplirComboBoxVehicules();
            
-            cmbVehicule.SelectedIndex = 0;
             switch (Commandes.Command)
             {
                 case Choix.ajouter:

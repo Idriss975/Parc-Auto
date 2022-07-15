@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ParcAuto.Classes_Globale;
-using System.Data.SQLite;
 using System.Text.RegularExpressions; // import Regex()
 
 namespace ParcAuto.Forms
