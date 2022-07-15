@@ -119,7 +119,7 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.id_Carburant = (int)dgvCarburant.CurrentRow.Cells[9].Value;
+                GLB.id_Carburant = Convert.ToInt32(dgvCarburant.CurrentRow.Cells[9].Value);
                 string Entite = dgvCarburant.CurrentRow.Cells[0].Value.ToString();
                 string Benificiaire = dgvCarburant.CurrentRow.Cells[1].Value.ToString();
                 string vehicules = dgvCarburant.CurrentRow.Cells[2].Value.ToString();
@@ -147,7 +147,7 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.id_Carburant = (int)dgvCarburant.CurrentRow.Cells[9].Value;
+                GLB.id_Carburant = Convert.ToInt32(dgvCarburant.CurrentRow.Cells[9].Value);
                 GLB.Cmd.CommandText = $"delete from CarburantVignettes where id = '{GLB.id_Carburant}'";
             }
             catch (ArgumentOutOfRangeException)
