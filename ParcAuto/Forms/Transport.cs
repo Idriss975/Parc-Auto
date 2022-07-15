@@ -81,7 +81,7 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.id_Transport = (int)dgvTransport.CurrentRow.Cells[0].Value;
+                GLB.id_Transport = Convert.ToInt32(dgvTransport.CurrentRow.Cells[0].Value);
                 string Entite = dgvTransport.CurrentRow.Cells[1].Value.ToString();
                 string Benificiaire = dgvTransport.CurrentRow.Cells[2].Value.ToString();
                 string N_BON_email = dgvTransport.CurrentRow.Cells[3].Value.ToString();
@@ -132,7 +132,7 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.id_Transport = (int)dgvTransport.CurrentRow.Cells[0].Value;
+                GLB.id_Transport = Convert.ToInt32(dgvTransport.CurrentRow.Cells[0].Value);
                 GLB.Cmd.CommandText = $"delete from Transport where id={GLB.id_Transport}";
             }
             catch (ArgumentOutOfRangeException)
