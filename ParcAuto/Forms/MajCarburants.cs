@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ParcAuto.Classes_Globale;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 namespace ParcAuto.Forms
 {
     public partial class MajCarburants : Form
@@ -90,7 +90,7 @@ namespace ParcAuto.Forms
         {
             if (GLB.ds.Tables["Conducteurs1"] != null)
                 GLB.ds.Tables["Conducteurs1"].Clear();
-            GLB.da = new SqlDataAdapter("select Nom, Prenom from Conducteurs", GLB.Con);
+            GLB.da = new SQLiteDataAdapter("select Nom, Prenom from Conducteurs", GLB.Con);
             GLB.da.Fill(GLB.ds, "Conducteurs1");
             AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
             foreach (DataRow item in GLB.ds.Tables["Conducteurs1"].Rows)
@@ -106,7 +106,7 @@ namespace ParcAuto.Forms
         {
             if (GLB.ds.Tables["Vehicules1"] != null)
                 GLB.ds.Tables["Vehicules1"].Clear();
-            GLB.da = new SqlDataAdapter("select * from Vehicules", GLB.Con);
+            GLB.da = new SQLiteDataAdapter("select * from Vehicules", GLB.Con);
             GLB.da.Fill(GLB.ds, "Vehicules1");
             foreach (DataRow item in GLB.ds.Tables["Vehicules1"].Rows)
             {

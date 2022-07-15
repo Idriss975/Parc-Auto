@@ -37,25 +37,24 @@ namespace ParcAuto.Forms
             dgvVehicules.Rows.Clear();
             try
             {
-                GLB.Cmd.CommandText = BigStrings.SQLdgvVehicules;
+                GLB.Cmd.CommandText = "select Vehicules.*, Conducteurs.Nom as Nom, Conducteurs.Prenom as Prenom from vehicules, Conducteurs where Conducteurs.Matricule = Vehicules.Conducteur union select *,'Sans ' as Nom, 'conducteur' as Prenom from vehicules where Conducteur is null ";
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
                 {
                     if (GLB.dr.IsDBNull(7))
-                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToShortDateString(), GLB.dr[5], GLB.dr[6], new CmbMatNom(null, $"{GLB.dr[8]} {GLB.dr[9]}"));
-                else
-                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToShortDateString(), GLB.dr[5], GLB.dr[6], new CmbMatNom((int)GLB.dr[7], $"{GLB.dr[8]} {GLB.dr[9]}"));
-                }
-                GLB.dr.Close();
+                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToShortDateString(), GLB.dr[5], GLB.dr[6], new CmbMatNom(null, "Sans conducteur"));
+                    else
+                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToShortDateString(), GLB.dr[5], GLB.dr[6], new CmbMatNom(Convert.ToInt32(GLB.dr[7]), $"{GLB.dr[8]} {GLB.dr[9]}"));
+                } 
             }
-            catch (Exception ex)
+            catch (Exception ex) //TODO: Implement Sql Exemption error (idriss)
             {
                 MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
             finally
             {
+                GLB.dr.Close();
                 GLB.Con.Close();
             }
         }
@@ -78,7 +77,6 @@ namespace ParcAuto.Forms
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-
             try
             {
                 GLB.Matricule_Voiture = dgvVehicules.CurrentRow.Cells[0].Value.ToString();

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using ParcAuto.Classes_Globale;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 
 namespace ParcAuto.Forms
 {
@@ -79,13 +79,10 @@ namespace ParcAuto.Forms
         {
             if (GLB.ds.Tables["Conducteurs"] != null)
                 GLB.ds.Tables["Conducteurs"].Clear();
-            GLB.da = new SqlDataAdapter("select * from Conducteurs", GLB.Con);
+            GLB.da = new SQLiteDataAdapter("select * from Conducteurs", GLB.Con);
             GLB.da.Fill(GLB.ds, "Conducteurs");
             foreach (DataRow item in GLB.ds.Tables["Conducteurs"].Rows)
-            {
-                cmbConducteur.Items.Add(new CmbMatNom((int)item[0], item[1] + " "+item[2]));
-
-            }
+                cmbConducteur.Items.Add(new CmbMatNom(Convert.ToInt32(item[0]), item[1] + " "+item[2]));
         }
         private void Quitter_Click(object sender, EventArgs e)
         {
@@ -119,9 +116,9 @@ namespace ParcAuto.Forms
                     GLB.Con.Open();
                     GLB.Cmd.ExecuteNonQuery();
                 }
-                catch (SqlException ex)
+                catch (SQLiteException ex) //TODO: Check if ErrorCode 1 is duplicate error in sql (change from sqlserveur to sqlite) (idriss)
                 {
-                    if (ex.State == 1)
+                    if (ex.ErrorCode == 1)
                     {
                         MessageBox.Show("Le matricule de la Voiture ne peux pas etre dupliqué", "Message d'erreur", MessageBoxButtons.OK,MessageBoxIcon.Error) ;
                     }

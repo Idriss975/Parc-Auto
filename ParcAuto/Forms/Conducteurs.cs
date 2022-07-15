@@ -51,7 +51,7 @@ namespace ParcAuto.Forms
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
                     dgvconducteur.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], ((DateTime)GLB.dr[3]).ToShortDateString(), ((DateTime)GLB.dr[4]).ToShortDateString(), GLB.dr[5], GLB.dr[6],  GLB.dr[9], GLB.dr[7], GLB.dr[8]);//index 9 = Direction
-                GLB.dr.Close();
+                
             }
             catch (Exception ex)
             {
@@ -60,6 +60,7 @@ namespace ParcAuto.Forms
             }
             finally
             {
+                GLB.dr.Close();
                 GLB.Con.Close();
             }
         }
@@ -109,7 +110,7 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.Matricule = (int)dgvconducteur.SelectedRows[0].Cells[0].Value;
+                GLB.Matricule = Convert.ToInt32(dgvconducteur.CurrentRow.Cells[0].Value);
                 GLB.Cmd.CommandText = $"delete from Conducteurs where Matricule = {GLB.Matricule}";
 
             }
