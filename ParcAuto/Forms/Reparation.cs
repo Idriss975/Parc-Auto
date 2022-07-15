@@ -83,7 +83,7 @@ namespace ParcAuto.Forms
 
             try
             {
-                GLB.id_Reparation = (int)dgvReparation.CurrentRow.Cells[0].Value;
+                GLB.id_Reparation = Convert.ToInt32(dgvReparation.CurrentRow.Cells[0].Value);
                 string entite = dgvReparation.CurrentRow.Cells[1].Value.ToString();
                 string benificiaire = dgvReparation.CurrentRow.Cells[2].Value.ToString();
                 string vehicule = dgvReparation.CurrentRow.Cells[3].Value.ToString() ;
@@ -105,7 +105,7 @@ namespace ParcAuto.Forms
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            GLB.id_Reparation = (int)dgvReparation.CurrentRow.Cells[0].Value;
+            GLB.id_Reparation = Convert.ToInt32(dgvReparation.CurrentRow.Cells[0].Value);
             GLB.Cmd.CommandText = $"delete from Reparation where id={GLB.id_Reparation}";
             GLB.Con.Open();
             GLB.Cmd.ExecuteNonQuery();
