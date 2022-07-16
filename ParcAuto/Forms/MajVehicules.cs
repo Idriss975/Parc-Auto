@@ -62,7 +62,7 @@ namespace ParcAuto.Forms
             txtCarburant.Clear();
             txtObservation.Clear();
             cmbConducteur.SelectedIndex = 0;
-        }
+        } 
 
         public void RemplirLesChamps()
         {
