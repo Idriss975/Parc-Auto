@@ -145,7 +145,7 @@ namespace ParcAuto.Forms
             this.cmbVehicule.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbVehicule.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbVehicule.FormattingEnabled = true;
-            this.cmbVehicule.Location = new System.Drawing.Point(145, 61);
+            this.cmbVehicule.Location = new System.Drawing.Point(145, 60);
             this.cmbVehicule.Name = "cmbVehicule";
             this.cmbVehicule.Size = new System.Drawing.Size(219, 24);
             this.cmbVehicule.TabIndex = 2;
@@ -173,9 +173,9 @@ namespace ParcAuto.Forms
             this.label7.Location = new System.Drawing.Point(412, 254);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 17);
+            this.label7.Size = new System.Drawing.Size(67, 17);
             this.label7.TabIndex = 15;
-            this.label7.Text = "Dotation :";
+            this.label7.Text = "Montant :";
             // 
             // label6
             // 
@@ -230,9 +230,9 @@ namespace ParcAuto.Forms
             this.label4.Location = new System.Drawing.Point(394, 63);
             this.label4.Margin = new System.Windows.Forms.Padding(25, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(121, 17);
+            this.label4.Size = new System.Drawing.Size(101, 17);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Date d\'operation :";
+            this.label4.Text = "Date Mission  :";
             // 
             // label3
             // 

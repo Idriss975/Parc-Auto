@@ -130,7 +130,7 @@ namespace ParcAuto.Forms
                 string DMiss = dgvCarburant.CurrentRow.Cells[7].Value.ToString();
                 string Dhebdo = dgvCarburant.CurrentRow.Cells[8].Value.ToString();
                 string Observation = dgvCarburant.CurrentRow.Cells[10].Value.ToString(); ;
-                MajCarburants maj = new MajCarburants(Entite, Benificiaire, vehicules, DateOper, lieu, omn, Dfix, DMiss, Dhebdo,Observation);
+                MajCarburants maj = new MajCarburants(Entite, Benificiaire, vehicules, DateOper, lieu, omn, Dfix, DMiss, Dhebdo, Observation);
                 Commandes.Command = Choix.modifier;
                 maj.ShowDialog();
                 RemplirLaGrille();
@@ -140,7 +140,7 @@ namespace ParcAuto.Forms
                 MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-          
+
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
@@ -164,6 +164,11 @@ namespace ParcAuto.Forms
                 GLB.Con.Close();
                 RemplirLaGrille();
             }
+        }
+
+        private void dgvCarburant_DoubleClick(object sender, EventArgs e)
+        {
+          
         }
     }
 }
