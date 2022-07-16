@@ -43,9 +43,9 @@ namespace ParcAuto.Forms
                 while (GLB.dr.Read())
                 {
                     if (GLB.dr.IsDBNull(7))
-                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToShortDateString(), GLB.dr[5], GLB.dr[6], new CmbMatNom(null, "Sans conducteur"));
+                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToShortDateString(),DateTime.Now.Year - ((DateTime)GLB.dr[4]).Year  ,GLB.dr[5], GLB.dr[6], new CmbMatNom(null, "Sans conducteur"));
                     else
-                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToShortDateString(), GLB.dr[5], GLB.dr[6], new CmbMatNom(Convert.ToInt32(GLB.dr[7]), $"{GLB.dr[8]} {GLB.dr[9]}"));
+                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToShortDateString(), DateTime.Now.Year - ((DateTime)GLB.dr[4]).Year, GLB.dr[5], GLB.dr[6], new CmbMatNom(Convert.ToInt32(GLB.dr[7]), $"{GLB.dr[8]} {GLB.dr[9]}"));
                 } 
             }
             catch (Exception ex) //TODO: Implement Sql Exemption error (idriss)
@@ -84,9 +84,9 @@ namespace ParcAuto.Forms
                 string Modele = dgvVehicules.CurrentRow.Cells[2].Value.ToString();
                 string  Couleur = dgvVehicules.CurrentRow.Cells[3].Value.ToString();
                 DateTime MiseEncirculation = Convert.ToDateTime(dgvVehicules.CurrentRow.Cells[4].Value);
-                string Carburant = dgvVehicules.CurrentRow.Cells[5].Value.ToString();
-                string Observation = dgvVehicules.CurrentRow.Cells[6].Value.ToString();
-                string Conducteur = dgvVehicules.CurrentRow.Cells[7].Value.ToString(); //Normalement type cmbMatNom
+                string Carburant = dgvVehicules.CurrentRow.Cells[6].Value.ToString();
+                string Observation = dgvVehicules.CurrentRow.Cells[7].Value.ToString();
+                string Conducteur = dgvVehicules.CurrentRow.Cells[8].Value.ToString(); //Normalement type cmbMatNom
                 MajVehicules maj = new MajVehicules(Marque, Modele, Couleur, MiseEncirculation , Carburant, Observation,Conducteur) ;
                 Commandes.Command = Choix.modifier;
                 maj.ShowDialog();
