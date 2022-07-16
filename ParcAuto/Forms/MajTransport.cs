@@ -55,10 +55,10 @@ namespace ParcAuto.Forms
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
-                        GLB.Cmd.CommandText = $"insert into Transport values(null,'{txtentite.Text}','{txtBenificiaire.Text}','{txtNBon_Email.Text}','{DateMission.Value.ToShortDateString()}','{txtDestination.Text}','{txtUtilisation.Text}',{txtPrix.Text})";
+                        GLB.Cmd.CommandText = $"insert into Transport values(null,'{txtentite.Text}','{txtBenificiaire.Text}','{txtNBon_Email.Text}','{DateMission.Value.ToString("yyyy-MM-dd")}','{txtDestination.Text}','{txtUtilisation.Text}',{txtPrix.Text})";
                         break;
                     case Choix.modifier:
-                        GLB.Cmd.CommandText = $"update Transport set Entite = '{txtentite.Text}' , Beneficiaire = '{txtBenificiaire.Text}',NBonSNTL='{txtNBon_Email.Text}',Date = '{DateMission.Value.ToShortDateString()}',Destination='{txtDestination.Text}',Type_utilsation = '{txtUtilisation.Text}',Prix = '{txtPrix.Text}' where id = {GLB.id_Transport}";
+                        GLB.Cmd.CommandText = $"update Transport set Entite = '{txtentite.Text}' , Beneficiaire = '{txtBenificiaire.Text}',NBonSNTL='{txtNBon_Email.Text}',Date = '{DateMission.Value.ToString("yyyy-MM-dd")}',Destination='{txtDestination.Text}',Type_utilsation = '{txtUtilisation.Text}',Prix = '{txtPrix.Text}' where id = {GLB.id_Transport}";
                         break;
                     case Choix.supprimer:
                         throw new Exception("Impossible de supprimer avec MajCaarburants.");

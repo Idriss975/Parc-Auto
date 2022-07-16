@@ -63,10 +63,10 @@ namespace ParcAuto.Forms
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
-                        GLB.Cmd.CommandText = $"Insert into Reparation values (null,'{txtentite.Text}', '{txtBenificiaire.Text}', '{cmbVehicule.SelectedItem}', '{Date.Value.ToShortDateString()}', '{txtObjet.Text}', {MontantEntretient}, {MontantReparation})";
+                        GLB.Cmd.CommandText = $"Insert into Reparation values (null,'{txtentite.Text}', '{txtBenificiaire.Text}', '{cmbVehicule.SelectedItem}', '{Date.Value.ToString("yyyy-MM-dd")}', '{txtObjet.Text}', {MontantEntretient}, {MontantReparation})";
                         break;
                     case Choix.modifier:
-                        GLB.Cmd.CommandText = $"update Reparation set Entite ='{txtentite.Text}', Beneficiaire='{txtBenificiaire.Text}', Vehicule='{cmbVehicule.SelectedItem}', Date='{Date.Value.ToShortDateString()}', Objet='{txtObjet.Text}', Entretien={MontantEntretient}, Reparation={MontantReparation} where id = {GLB.id_Reparation}";
+                        GLB.Cmd.CommandText = $"update Reparation set Entite ='{txtentite.Text}', Beneficiaire='{txtBenificiaire.Text}', Vehicule='{cmbVehicule.SelectedItem}', Date='{Date.Value.ToString("yyyy-MM-dd")}', Objet='{txtObjet.Text}', Entretien={MontantEntretient}, Reparation={MontantReparation} where id = {GLB.id_Reparation}";
                        
                         break;
                     case Choix.supprimer:
