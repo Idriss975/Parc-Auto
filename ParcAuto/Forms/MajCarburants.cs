@@ -30,10 +30,10 @@ namespace ParcAuto.Forms
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
         }
-        string Entite, Benificiaire, vehicules, lieu, Dfix, DMiss, Dhebdo,omn ,Observation;
+        string Entite, Benificiaire, vehicules, lieu, Dfix, DMiss, Dhebdo,omn ,Observation,km,pourcentage;
         DateTime DateOpera;
         
-        public MajCarburants(string Entite, string Benificiaire, string vehicules,DateTime DateOpera,string lieu,string omn, string  Dfix, string DMiss, string Dhebdo, string Observation)
+        public MajCarburants(string Entite, string Benificiaire, string vehicules,DateTime DateOpera,string lieu,string km,string pourcentage,string omn, string  Dfix, string DMiss, string Dhebdo, string Observation)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
@@ -48,6 +48,8 @@ namespace ParcAuto.Forms
             this.Dhebdo = Dhebdo;
             this.omn = omn;
             this.Observation = Observation;
+            this.km = km;
+            this.pourcentage = pourcentage;
         }
         private void RemplirChamps()
         {
@@ -58,6 +60,8 @@ namespace ParcAuto.Forms
             cmbVilles.Text = lieu;
             DateOper.Value = DateOpera;
             txtObservation.Text = Observation;
+            txtKM.Text = km;
+            txtpourcentage.Text = pourcentage;
             if (Dhebdo != "")
             {
                 DHebdo.Checked = true;
@@ -102,6 +106,7 @@ namespace ParcAuto.Forms
             txtBenificiaire.AutoCompleteCustomSource = ac;
            
         }
+
         private void RemplirComboBoxVehicules()
         {
             if (GLB.ds.Tables["Vehicules1"] != null)
@@ -113,11 +118,6 @@ namespace ParcAuto.Forms
                 cmbVehicule.Items.Add(item[0]);
 
             }
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -164,7 +164,7 @@ namespace ParcAuto.Forms
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
             //TODO: Try catch sql exception
-            if (txtEntite.Text !="" || txtOMN.Text !="" || txtDotation.Text != ""||DHebdo.Checked||DFixe.Checked||DMissions.Checked)
+            if (txtEntite.Text !="" || txtOMN.Text !="" || txtDotation.Text != ""|| txtKM.Text !="" ||txtpourcentage.Text != "")
             {
                 if (DMissions.Checked)
                 {
@@ -188,14 +188,14 @@ namespace ParcAuto.Forms
                 {
                     case Choix.ajouter:
                         GLB.Cmd.CommandText = $"insert into CarburantVignettes values('{txtEntite.Text}','{txtBenificiaire.Text}','{cmbVehicule.SelectedItem}'," +
-                    $"'{DateOper.Value.ToString("yyyy-MM-dd")}','{cmbVilles.Text}','{txtOMN.Text +"/"+ DateTime.Now.Year.ToString().Substring(2)}',{DoFixe},{DoMissions}," +
+                    $"'{DateOper.Value.ToString("yyyy-MM-dd")}','{cmbVilles.Text}',{txtKM.Text},{txtpourcentage.Text},'{txtOMN.Text +"/"+ DateTime.Now.Year.ToString().Substring(2)}',{DoFixe},{DoMissions}," +
                     $"{DoHebdo},null,'{txtObservation.Text}')";
                         break;
                     case Choix.modifier:
                         GLB.Cmd.CommandText = $"update CarburantVignettes set Entite = '{txtEntite.Text}', beneficiaire = '{txtBenificiaire.Text}'" +
                     $", vehicule = '{cmbVehicule.SelectedItem}' , date = '{DateOper.Value.ToString("yyyy-MM-dd")}', lieu = '{cmbVilles.Text}'," +
                     $" ObjetOMN = '{txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2)}', DFixe = {DoFixe} ," +
-                    $" DMissions = {DoMissions} , DHebdo = {DoHebdo},Observation = '{txtObservation.Text}' where id = {GLB.id_Carburant}";
+                    $" DMissions = {DoMissions} , DHebdo = {DoHebdo},Observation = '{txtObservation.Text}' ,KM = {txtKM.Text} , Pourcentage = {txtpourcentage.Text} where id = {GLB.id_Carburant}";
                         RemplirChamps();
                         break;
                     case Choix.supprimer:

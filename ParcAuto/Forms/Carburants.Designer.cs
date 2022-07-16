@@ -53,6 +53,8 @@ namespace ParcAuto.Forms
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -362,6 +364,8 @@ namespace ParcAuto.Forms
             this.Column3,
             this.Column4,
             this.Column5,
+            this.Column12,
+            this.Column13,
             this.Column6,
             this.Column7,
             this.Column8,
@@ -418,6 +422,18 @@ namespace ParcAuto.Forms
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             this.Column5.Width = 150;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Kilometrage";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Pourcentage";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
             // 
             // Column6
             // 
@@ -517,6 +533,8 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;

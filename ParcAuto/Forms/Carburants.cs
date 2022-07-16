@@ -28,7 +28,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], ((DateTime)GLB.dr[3]).ToShortDateString(), GLB.dr[4],$"ADMINISTRATIVE OMN°  {GLB.dr[5]}", GLB.dr[6].ToString(), GLB.dr[7].ToString(), GLB.dr[8].ToString(), GLB.dr[9],GLB.dr[10]);
+                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], ((DateTime)GLB.dr[3]).ToShortDateString(),GLB.dr[4],GLB.dr[5],GLB.dr[6],$"ADMINISTRATIVE OMN°  {GLB.dr[7]}", GLB.dr[8].ToString(), GLB.dr[9].ToString(), GLB.dr[10].ToString(), GLB.dr[11],GLB.dr[12]);
 
                 GLB.dr.Close();
             }
@@ -119,18 +119,20 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.id_Carburant = Convert.ToInt32(dgvCarburant.CurrentRow.Cells[9].Value);
+                GLB.id_Carburant = Convert.ToInt32(dgvCarburant.CurrentRow.Cells[11].Value);
                 string Entite = dgvCarburant.CurrentRow.Cells[0].Value.ToString();
                 string Benificiaire = dgvCarburant.CurrentRow.Cells[1].Value.ToString();
                 string vehicules = dgvCarburant.CurrentRow.Cells[2].Value.ToString();
                 DateTime DateOper = Convert.ToDateTime(dgvCarburant.CurrentRow.Cells[3].Value);
                 string lieu = dgvCarburant.CurrentRow.Cells[4].Value.ToString();
-                string omn = dgvCarburant.CurrentRow.Cells[5].Value.ToString().Substring(21);
-                string Dfix = dgvCarburant.CurrentRow.Cells[6].Value.ToString();
-                string DMiss = dgvCarburant.CurrentRow.Cells[7].Value.ToString();
-                string Dhebdo = dgvCarburant.CurrentRow.Cells[8].Value.ToString();
-                string Observation = dgvCarburant.CurrentRow.Cells[10].Value.ToString(); ;
-                MajCarburants maj = new MajCarburants(Entite, Benificiaire, vehicules, DateOper, lieu, omn, Dfix, DMiss, Dhebdo, Observation);
+                string KM = dgvCarburant.CurrentRow.Cells[5].Value.ToString();
+                string pourcentage = dgvCarburant.CurrentRow.Cells[6].Value.ToString();
+                string omn = dgvCarburant.CurrentRow.Cells[7].Value.ToString().Substring(21);
+                string Dfix = dgvCarburant.CurrentRow.Cells[8].Value.ToString();
+                string DMiss = dgvCarburant.CurrentRow.Cells[9].Value.ToString();
+                string Dhebdo = dgvCarburant.CurrentRow.Cells[10].Value.ToString();
+                string Observation = dgvCarburant.CurrentRow.Cells[12].Value.ToString(); 
+                MajCarburants maj = new MajCarburants(Entite, Benificiaire, vehicules, DateOper, lieu,KM,pourcentage, omn, Dfix, DMiss, Dhebdo, Observation);
                 Commandes.Command = Choix.modifier;
                 maj.ShowDialog();
                 RemplirLaGrille();
@@ -147,7 +149,7 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.id_Carburant = Convert.ToInt32(dgvCarburant.CurrentRow.Cells[9].Value);
+                GLB.id_Carburant = Convert.ToInt32(dgvCarburant.CurrentRow.Cells[11].Value);
                 GLB.Cmd.CommandText = $"delete from CarburantVignettes where id = '{GLB.id_Carburant}'";
             }
             catch (ArgumentOutOfRangeException)
