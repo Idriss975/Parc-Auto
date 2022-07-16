@@ -139,7 +139,6 @@ namespace ParcAuto.Forms
             RemplirComboBoxBenificiaire();
             RemplirComboBoxVehicules();
            
-            cmbVehicule.SelectedIndex = 0;
             switch (Commandes.Command)
             {
                 case Choix.ajouter:
@@ -189,12 +188,12 @@ namespace ParcAuto.Forms
                 {
                     case Choix.ajouter:
                         GLB.Cmd.CommandText = $"insert into CarburantVignettes values('{txtEntite.Text}','{txtBenificiaire.Text}','{cmbVehicule.SelectedItem}'," +
-                    $"'{DateOper.Value.ToShortDateString()}','{cmbVilles.Text}','{txtOMN.Text +"/"+ DateTime.Now.Year.ToString().Substring(2)}',{DoFixe},{DoMissions}," +
+                    $"'{DateOper.Value.ToString("yyyy-MM-dd")}','{cmbVilles.Text}','{txtOMN.Text +"/"+ DateTime.Now.Year.ToString().Substring(2)}',{DoFixe},{DoMissions}," +
                     $"{DoHebdo},null,'{txtObservation.Text}')";
                         break;
                     case Choix.modifier:
                         GLB.Cmd.CommandText = $"update CarburantVignettes set Entite = '{txtEntite.Text}', beneficiaire = '{txtBenificiaire.Text}'" +
-                    $", vehicule = '{cmbVehicule.SelectedItem}' , date = '{DateOper.Value.ToShortDateString()}', lieu = '{cmbVilles.Text}'," +
+                    $", vehicule = '{cmbVehicule.SelectedItem}' , date = '{DateOper.Value.ToString("yyyy-MM-dd")}', lieu = '{cmbVilles.Text}'," +
                     $" ObjetOMN = '{txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2)}', DFixe = {DoFixe} ," +
                     $" DMissions = {DoMissions} , DHebdo = {DoHebdo},Observation = '{txtObservation.Text}' where id = {GLB.id_Carburant}";
                         RemplirChamps();

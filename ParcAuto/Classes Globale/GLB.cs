@@ -10,7 +10,7 @@ namespace ParcAuto.Classes_Globale
 {
     public class GLB
     {
-        public static SQLiteConnection Con = new SQLiteConnection("Data Source=Parcautodb.sqlite3;Version=3;new=False;Compress=True;datetimeformat=CurrentCulture"); 
+        public static SQLiteConnection Con = new SQLiteConnection("Data Source=Parcautodb.sqlite3;Version=3;new=False;Compress=True;FailIfMissing=True;;datetimeformat=CurrentCulture"); 
         public static SQLiteCommand Cmd = Con.CreateCommand();
         public static SQLiteDataReader dr;
         public static DataSet ds = new DataSet();

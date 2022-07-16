@@ -100,11 +100,11 @@ namespace ParcAuto.Forms
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
-                        GLB.Cmd.CommandText = $"insert into Vehicules values ('{txtMatricule.Text}', '{txtMarque.Text}', '{txtModele.Text}', '{txtCouleur.Text}','{dateMiseEnCirculation.Value.ToShortDateString()}', '{txtCarburant.Text}', '{txtObservation.Text}', {TempMatricule})";
+                        GLB.Cmd.CommandText = $"insert into Vehicules values ('{txtMatricule.Text}', '{txtMarque.Text}', '{txtModele.Text}', '{txtCouleur.Text}','{dateMiseEnCirculation.Value.ToString("yyyy-MM-dd")}', '{txtCarburant.Text}', '{txtObservation.Text}', {TempMatricule})";
                         break;
                     case Choix.modifier:
 
-                        GLB.Cmd.CommandText = $"update Vehicules set  Marque='{txtMarque.Text}', Modele='{txtModele.Text}', Couleur='{txtCouleur.Text}', MiseEnCirculation='{dateMiseEnCirculation.Value.ToShortDateString()}', Carburant='{txtCarburant.Text}', Observation='{txtObservation.Text}', Conducteur={TempMatricule} where Matricule='{GLB.Matricule_Voiture}'";
+                        GLB.Cmd.CommandText = $"update Vehicules set  Marque='{txtMarque.Text}', Modele='{txtModele.Text}', Couleur='{txtCouleur.Text}', MiseEnCirculation='{dateMiseEnCirculation.Value.ToString("yyyy-MM-dd")}', Carburant='{txtCarburant.Text}', Observation='{txtObservation.Text}', Conducteur={TempMatricule} where Matricule='{GLB.Matricule_Voiture}'";
                         break;
                     case Choix.supprimer:
                         throw new Exception("Impossible de supprimer avec MajVehicules.");

@@ -84,7 +84,7 @@ namespace ParcAuto.Forms
 
             try
             {
-                GLB.Matricule = (int)dgvconducteur.CurrentRow.Cells[0].Value;
+                GLB.Matricule = Convert.ToInt32(dgvconducteur.CurrentRow.Cells[0].Value);
                 string Nom = dgvconducteur.CurrentRow.Cells[1].Value.ToString() ;
                 string Prenom= dgvconducteur.CurrentRow.Cells[2].Value.ToString();
                 DateTime DateNaiss =Convert.ToDateTime(dgvconducteur.CurrentRow.Cells[3].Value);
