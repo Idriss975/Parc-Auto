@@ -169,5 +169,31 @@ namespace ParcAuto.Forms
                     if (!((Convert.ToDateTime(dgvVehicules.Rows[i].Cells[cmbChoix.SelectedIndex].Value)).Date >= Date1.Value.Date && (Convert.ToDateTime(dgvVehicules.Rows[i].Cells[cmbChoix.SelectedIndex].Value)).Date <= Date2.Value.Date))
                         dgvVehicules.Rows.Remove(dgvVehicules.Rows[i]);
         }
+
+        private void btnImprimer_Click(object sender, EventArgs e)
+        {
+            DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Matricule",typeof(string));
+            dt.Columns.Add("Marque", typeof(string));
+            dt.Columns.Add("Modele", typeof(string));
+            dt.Columns.Add("Couleur", typeof(string));
+            dt.Columns.Add("Mise En circulation", typeof(DateTime));
+            dt.Columns.Add("L'age du Voiture", typeof(int));
+            dt.Columns.Add("Carburant", typeof(string));
+            dt.Columns.Add("Observation", typeof(string));
+            dt.Columns.Add("Conducteur", typeof(string));
+            foreach (DataGridViewRow dgv in dgvVehicules.Rows)
+            {
+                dt.Rows.Add(dgv.Cells[0].Value, dgv.Cells[1].Value, dgv.Cells[2].Value, dgv.Cells[3].Value, dgv.Cells[4].Value, dgv.Cells[5].Value, dgv.Cells[6].Value
+                    , dgv.Cells[7].Value, dgv.Cells[8].Value);
+            }
+            ds.Tables.Add(dt);
+            ds.WriteXmlSchema("Vehicules.xml");
+            ImpressionVehicules vehicules = new ImpressionVehicules(ds);
+            vehicules.Show();
+           
+
+        }
     }
 }
