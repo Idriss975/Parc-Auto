@@ -153,8 +153,7 @@ namespace ParcAuto.Forms
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            GLB.Drawonprintdoc(e, dgvTransport, imageList1.Images[0], new Font("Arial", 8, FontStyle.Bold), new Font("Arial", 8),30,20);
-
+            GLB.Drawonprintdoc(e, dgvTransport, imageList1.Images[0], new Font("Arial", 8, FontStyle.Bold), new Font("Arial", 8),0,30,20);
         }
         private void btnImprimer_Click(object sender, EventArgs e)
         {
