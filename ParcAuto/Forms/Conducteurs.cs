@@ -169,5 +169,40 @@ namespace ParcAuto.Forms
         {
             RemplirLaGrille();
         }
+
+        private void btnExportExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvconducteur.Rows.Count > 0)
+                {
+
+                    Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
+                    xcelApp.Application.Workbooks.Add(Type.Missing);
+
+                    for (int i = 1; i < dgvconducteur.Columns.Count + 1; i++)
+                    {
+                        xcelApp.Cells[1, i] = dgvconducteur.Columns[i - 1].HeaderText;
+                    }
+
+                    for (int i = 0; i < dgvconducteur.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < dgvconducteur.Columns.Count; j++)
+                        {
+                            xcelApp.Cells[i + 2, j + 1] = dgvconducteur.Rows[i].Cells[j].Value.ToString();
+                        }
+                    }
+                    xcelApp.Columns.AutoFit();
+                    xcelApp.Visible = true;
+                    MessageBox.Show("Vous avez réussi à exporter vos données vers un fichier excel", "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Quelque chose s'est mal passé", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -150,5 +150,54 @@ namespace ParcAuto.Forms
             }
             
         }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            string res = "";
+            foreach (DataGridViewRow item in dgvTransport.Rows)
+            {
+                res += item.Cells[2].Value + "\n";
+
+            }
+            //e.Graphics.DrawString(res,new Font("Arial",12,FontStyle.Regular),Brushes.Black,new Point(10,10));
+            //e.Graphics.DrawImage(Image.FromFile(@"C:\Users\hp\Desktop/ofppt_icon.png"), 50, 0);
+            int column_pos = 30;
+            List<int> columns_pos = new List<int>();
+            columns_pos.Add(column_pos);
+            int column_margin = 20;
+            foreach (DataGridViewColumn item in dgvTransport.Columns)
+            {
+                if (item.HeaderText == "id")
+                    continue;
+                e.Graphics.DrawString(item.HeaderText, new Font("Arial", 8, FontStyle.Bold), Brushes.Black, column_pos, 200);
+                column_pos += column_margin + (item.HeaderText.Length * 8);
+                columns_pos.Add(column_pos);
+            }
+            int Row_pos = 220;
+            foreach (DataGridViewRow item in dgvTransport.Rows)
+            {
+                e.Graphics.DrawString(item.Cells[1].Value.ToString(), new Font("Arial", 8), Brushes.Black, columns_pos[0], Row_pos);
+                e.Graphics.DrawString(item.Cells[2].Value.ToString(), new Font("Arial", 8), Brushes.Black, columns_pos[1], Row_pos);
+                e.Graphics.DrawString(item.Cells[3].Value.ToString(), new Font("Arial", 8), Brushes.Black, columns_pos[2], Row_pos);
+                e.Graphics.DrawString(item.Cells[4].Value.ToString(), new Font("Arial", 8), Brushes.Black, columns_pos[3], Row_pos);
+                e.Graphics.DrawString(item.Cells[5].Value.ToString(), new Font("Arial", 8), Brushes.Black, columns_pos[4], Row_pos);
+                e.Graphics.DrawString(item.Cells[6].Value.ToString(), new Font("Arial", 8), Brushes.Black, columns_pos[5], Row_pos);
+                e.Graphics.DrawString(item.Cells[7].Value.ToString(), new Font("Arial", 8), Brushes.Black, columns_pos[6], Row_pos);
+                
+                Row_pos += 20;
+            }
+
+        }
+        private void btnImprimer_Click(object sender, EventArgs e)
+        {
+            //PrintDialog pDialog = new PrintDialog();
+            //pDialog.AllowSomePages = true;
+            //if (pDialog.ShowDialog(this) == DialogResult.OK)
+            //    this.printDocument1.Print();
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
+
+
+        }
     }
 }
