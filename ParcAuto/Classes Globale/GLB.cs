@@ -23,7 +23,7 @@ namespace ParcAuto.Classes_Globale
         public static int id_Carburant;
         public static int id_Reparation;
         public static int id_Transport;
-        void Drawonprintdoc(PrintPageEventArgs e, DataGridView DGV, Font FontHeader, Font FontRows, int StartingColumnPosition = 75, int column_gap = 40, int StartingRowPosition = 220)
+        public void Drawonprintdoc(PrintPageEventArgs e, DataGridView DGV, Font FontHeader, Font FontRows, int StartingColumnPosition = 75, int column_gap = 40, int StartingRowPosition = 220)
         {
             List<float> columns_pos = new List<float>();
             columns_pos.Add(StartingColumnPosition);
