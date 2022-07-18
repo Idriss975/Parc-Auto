@@ -497,6 +497,7 @@ namespace ParcAuto.Forms
             this.btnImportExcel.Size = new System.Drawing.Size(40, 40);
             this.btnImportExcel.TabIndex = 22;
             this.btnImportExcel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnImportExcel.Click += new System.EventHandler(this.btnImportExcel_Click);
             // 
             // Conducteurs
             // 

@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using ParcAuto.Classes_Globale;
 using System.Text.RegularExpressions; // import Regex()
 using System.Data.SqlClient;
+using Microsoft.Office.Interop.Excel;
+//using System.Drawing;
 
 namespace ParcAuto.Forms
 {
@@ -137,15 +139,15 @@ namespace ParcAuto.Forms
             {
                 TextPanel.Visible = true;
                 panelDate.Visible = false;
-                TextPanel.Location = new Point(287, 12);
-                btnFiltrer.Location = new Point(635, 18);
+                TextPanel.Location = new System.Drawing.Point(287, 12);
+                btnFiltrer.Location = new System.Drawing.Point(635, 18);
             }
             else if (cmbChoix.SelectedIndex == 3 || cmbChoix.SelectedIndex == 4)
             {
                 TextPanel.Visible = false;
                 panelDate.Visible = true;
-                panelDate.Location = new Point(287, 3);
-                btnFiltrer.Location = new Point(858, 14);
+                panelDate.Location = new System.Drawing.Point(287, 3);
+                btnFiltrer.Location = new System.Drawing.Point(858, 14);
             }
         }
 
@@ -202,6 +204,56 @@ namespace ParcAuto.Forms
             catch (Exception)
             {
                 MessageBox.Show("Quelque chose s'est mal passé", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnImportExcel_Click(object sender, EventArgs e)
+        {
+            _Application importExceldatagridViewApp;
+            _Workbook importExceldatagridViewworkbook;
+            _Worksheet importExceldatagridViewworksheet;
+            Range importdatagridviewRange;
+            try
+            {
+                importExceldatagridViewApp = new Microsoft.Office.Interop.Excel.Application();
+                OpenFileDialog importOpenDialoge = new OpenFileDialog();
+                importOpenDialoge.Title = "Import Excel File";
+                importOpenDialoge.Filter = "Import Excel File|*.xlsx;*xls;*xlm";
+                if (importOpenDialoge.ShowDialog() == DialogResult.OK)
+                {
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
+                    GLB.Con.Open();
+
+                    importExceldatagridViewworkbook = importExceldatagridViewApp.Workbooks.Open(importOpenDialoge.FileName);
+                    importExceldatagridViewworksheet = importExceldatagridViewworkbook.ActiveSheet;
+                    importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
+                    for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
+                    {
+                        GLB.Cmd.CommandText = $"select count(*) from Conducteurs where Matricule = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}'";
+                        if(int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
+                        {
+                            GLB.Cmd.CommandText = $"insert into Conducteurs values ('{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}'," +
+                            $"'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value}'," +
+                            $"'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 9].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 10].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value}')";
+                            GLB.Cmd.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Le Conducteur avec le Matricule {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value} existe déja","Message");
+                            continue;
+                        }
+                       
+                        
+                    }
+                    GLB.Con.Close();
+                }
+                RemplirLaGrille();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
