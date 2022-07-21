@@ -157,14 +157,9 @@ namespace ParcAuto.Forms
         }
         private void btnImprimer_Click(object sender, EventArgs e)
         {
-            //PrintDialog pDialog = new PrintDialog();
-            //pDialog.AllowSomePages = true;
-            //if (pDialog.ShowDialog(this) == DialogResult.OK)
-            //    this.printDocument1.Print();
-            printPreviewDialog1.Document = printDocument1;
+            if (printDialog1.ShowDialog(this) == DialogResult.OK)
+                printPreviewDialog1.Document.PrinterSettings = printDialog1.PrinterSettings;
             printPreviewDialog1.ShowDialog();
-
-
         }
     }
 }
