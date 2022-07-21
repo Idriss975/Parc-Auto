@@ -61,6 +61,8 @@ namespace ParcAuto.Forms
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnImportExcel = new Guna.UI2.WinForms.Guna2Button();
+            this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarburant)).BeginInit();
@@ -477,11 +479,54 @@ namespace ParcAuto.Forms
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
             // 
+            // btnImportExcel
+            // 
+            this.btnImportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnImportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnImportExcel.BorderRadius = 4;
+            this.btnImportExcel.CheckedState.Parent = this.btnImportExcel;
+            this.btnImportExcel.CustomImages.Parent = this.btnImportExcel;
+            this.btnImportExcel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnImportExcel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnImportExcel.ForeColor = System.Drawing.Color.White;
+            this.btnImportExcel.HoverState.Parent = this.btnImportExcel;
+            this.btnImportExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnImportExcel.Image")));
+            this.btnImportExcel.Location = new System.Drawing.Point(898, 12);
+            this.btnImportExcel.Margin = new System.Windows.Forms.Padding(5);
+            this.btnImportExcel.Name = "btnImportExcel";
+            this.btnImportExcel.ShadowDecoration.Parent = this.btnImportExcel;
+            this.btnImportExcel.Size = new System.Drawing.Size(40, 40);
+            this.btnImportExcel.TabIndex = 33;
+            this.btnImportExcel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btnExportExcel
+            // 
+            this.btnExportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExportExcel.BorderRadius = 4;
+            this.btnExportExcel.CheckedState.Parent = this.btnExportExcel;
+            this.btnExportExcel.CustomImages.Parent = this.btnExportExcel;
+            this.btnExportExcel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnExportExcel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnExportExcel.ForeColor = System.Drawing.Color.White;
+            this.btnExportExcel.HoverState.Parent = this.btnExportExcel;
+            this.btnExportExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExcel.Image")));
+            this.btnExportExcel.Location = new System.Drawing.Point(948, 12);
+            this.btnExportExcel.Margin = new System.Windows.Forms.Padding(5);
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.ShadowDecoration.Parent = this.btnExportExcel;
+            this.btnExportExcel.Size = new System.Drawing.Size(40, 40);
+            this.btnExportExcel.TabIndex = 32;
+            this.btnExportExcel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
+            // 
             // Carburants
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 669);
+            this.Controls.Add(this.btnImportExcel);
+            this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.panelDate);
             this.Controls.Add(this.TextPanel);
             this.Controls.Add(this.btnFiltrer);
@@ -541,5 +586,7 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private Guna.UI2.WinForms.Guna2Button btnImportExcel;
+        private Guna.UI2.WinForms.Guna2Button btnExportExcel;
     }
 }

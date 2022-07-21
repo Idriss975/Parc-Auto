@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ParcAuto.Classes_Globale;
 using System.Text.RegularExpressions; // import Regex()
+using Microsoft.Office.Interop.Excel;
 
 namespace ParcAuto.Forms
 {
@@ -142,15 +143,15 @@ namespace ParcAuto.Forms
             {
                 TextPanel.Visible = false;
                 panelDate.Visible = true;
-                panelDate.Location = new Point(287, 3);
-                btnFiltrer.Location = new Point(858, 14);
+                panelDate.Location = new System.Drawing.Point(287, 3);
+                btnFiltrer.Location = new System.Drawing.Point(858, 14);
             }
             else
             {
                 TextPanel.Visible = true;
                 panelDate.Visible = false;
-                TextPanel.Location = new Point(287, 12);
-                btnFiltrer.Location = new Point(635, 14);
+                TextPanel.Location = new System.Drawing.Point(287, 12);
+                btnFiltrer.Location = new System.Drawing.Point(635, 14);
             }
         }
 
@@ -173,7 +174,7 @@ namespace ParcAuto.Forms
         private void btnImprimer_Click(object sender, EventArgs e)
         {
             DataSet ds = new DataSet();
-            DataTable dt = new DataTable();
+            System.Data.DataTable dt = new System.Data.DataTable();
             dt.Columns.Add("Matricule",typeof(string));
             dt.Columns.Add("Marque", typeof(string));
             dt.Columns.Add("Modele", typeof(string));
@@ -195,5 +196,42 @@ namespace ParcAuto.Forms
            
 
         }
+
+        private void btnExportExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvVehicules.Rows.Count > 0)
+                {
+
+                    Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
+                    xcelApp.Application.Workbooks.Add(Type.Missing);
+
+                    for (int i = 1; i < dgvVehicules.Columns.Count + 1; i++)
+                    {
+                        xcelApp.Cells[1, i] = dgvVehicules.Columns[i - 1].HeaderText;
+                    }
+
+                    for (int i = 0; i < dgvVehicules.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < dgvVehicules.Columns.Count; j++)
+                        {
+                            xcelApp.Cells[i + 2, j + 1] = dgvVehicules.Rows[i].Cells[j].Value.ToString();
+                        }
+                    }
+                    xcelApp.Columns.AutoFit();
+                    xcelApp.Visible = true;
+                    MessageBox.Show("Vous avez réussi à exporter vos données vers un fichier excel", "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Quelque chose s'est mal passé", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+       
     }
 }

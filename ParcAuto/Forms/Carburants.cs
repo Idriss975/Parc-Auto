@@ -172,5 +172,57 @@ namespace ParcAuto.Forms
         {
           
         }
+
+        private void btnExportExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvCarburant.Rows.Count > 0)
+                {
+
+                    Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
+                    xcelApp.Application.Workbooks.Add(Type.Missing);
+
+                    for (int i = 0; i < dgvCarburant.Columns.Count - 1; i++)
+                    {
+                        if(i < 11)
+                        {
+                            xcelApp.Cells[1, i + 1] = dgvCarburant.Columns[i].HeaderText;
+                        }
+                        else
+                        {
+                            xcelApp.Cells[1, i+1] = dgvCarburant.Columns[i+1].HeaderText;
+
+                        }
+                    }
+
+                    for (int i = 0; i < dgvCarburant.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < dgvCarburant.Columns.Count - 1; j++)
+                        {
+                            if (j < 11)
+                            {
+                                xcelApp.Cells[i + 2, j + 1] = dgvCarburant.Rows[i].Cells[j].Value.ToString();
+                            }
+                            else
+                            {
+                                xcelApp.Cells[i + 2, j + 1] = dgvCarburant.Rows[i].Cells[j+1].Value.ToString();
+                            }
+                           
+
+                        }
+                    }
+                    xcelApp.Columns.AutoFit();
+                    xcelApp.Visible = true;
+                    MessageBox.Show("Vous avez réussi à exporter vos données vers un fichier excel", "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
