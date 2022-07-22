@@ -40,6 +40,7 @@ namespace ParcAuto.Classes_Globale
             //Header
             e.Graphics.DrawImage(Logo, 50, 17);
             e.Graphics.DrawLine(new Pen(Color.Black, 2), 150, 40, 150, 85);
+            //Footer
             e.Graphics.DrawString("مكتب التكوين المهني و إنعاش الشغل", new Font("PFDinTextArabic-Light", 9, FontStyle.Bold), Brushes.Black, 158, 40);
             e.Graphics.DrawString("Office de la Formation Professionnelle\net de la Promotion du Travail", new Font("Arial",9), Brushes.Black, 158, 60);
             e.Graphics.DrawString("Intersection Route BO SO et R.N. n°11 (Route Nouaceur) BP 40207 Sidi Maârouf Casablanca 20 270\n 20 270 سيدي معروف الدار البيضاء 40207 و الطريق الوطنية رفم 11 (طريق النواص) ص. ب B.O 50 ملتمى طريق\nTél.: 05 22 78 72 60/61 - Fax : 05 22 32 15 09", new Font("Arial", 9), Brushes.Black, e.PageSettings.Bounds.Width/2, e.PageSettings.Bounds.Height - 35, new StringFormat() { LineAlignment = StringAlignment.Center, Alignment = StringAlignment.Center });
