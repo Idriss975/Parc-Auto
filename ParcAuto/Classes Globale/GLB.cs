@@ -26,7 +26,16 @@ namespace ParcAuto.Classes_Globale
         /// <summary>
         ///     Draws on "print document" with a formal document layout.
         /// </summary>
-        static public void Drawonprintdoc(PrintPageEventArgs e,  DataGridView DGV, Image Logo, Font FontHeader, Font FontRows, int Skipindex, int StartingColumnPosition = 75, int column_gap = 40, int StartingRowPosition = 220)
+        /// <param name="e">Print event</param>
+        /// <param name="DGV">Datagridview to add columns and rows into document.</param>
+        /// <param name="Logo">OFPPT logo to add into header with its text.</param>
+        /// <param name="FontHeader">Font for the columns.</param>
+        /// <param name="FontRows">Font for the rows.</param>
+        /// <param name="Skipindex">Column index to skip/ not show (-1 to not skip).</param>
+        /// <param name="StartingColumnPosition">The X position for where the first column should show.</param>
+        /// <param name="column_gap">Margin between each column.</param>
+        /// <param name="StartingRowPosition">The Y position for where the First row should show.</param>
+        static public void Drawonprintdoc(PrintPageEventArgs e,  DataGridView DGV, Image Logo, Font FontHeader, Font FontRows, int Skipindex = -1, int StartingColumnPosition = 75, int column_gap = 40, int StartingRowPosition = 220)
         {
             //Header
             e.Graphics.DrawImage(Logo, 50, 17);
@@ -38,7 +47,7 @@ namespace ParcAuto.Classes_Globale
             List<float> columns_pos = new List<float>();
             columns_pos.Add(StartingColumnPosition);
             //Todo: New page for limited amount of rows.
-            if (Skipindex != -1)
+            if (Skipindex != -1) //If Nothing to skip
             {
                 foreach (DataGridViewColumn col in DGV.Columns)
                 {
@@ -59,7 +68,7 @@ namespace ParcAuto.Classes_Globale
                     StartingRowPosition += 20;                                                                                                                             
                 }                                                                                                                                                          
             }                                                                                                                                                              
-            else                                                                                                                                                           
+            else  // When skipping                                                                                                                                                         
             {                                                                                                                                                              
                 foreach (DataGridViewColumn item in DGV.Columns)                                                                                                           
                 {                                                                                                                                                          
