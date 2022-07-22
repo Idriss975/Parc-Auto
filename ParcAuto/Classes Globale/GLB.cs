@@ -60,25 +60,25 @@ namespace ParcAuto.Classes_Globale
                     columns_pos.Add(columns_pos[columns_pos.Count - 1] + column_gap + (col.HeaderText.Length * FontHeader.Size));
                 }
                 e.Graphics.DrawLine(new Pen(Color.Black), columns_pos[0], StartingRowPosition - 5, columns_pos[columns_pos.Count - 1] - column_gap, StartingRowPosition - 5);
-                foreach (DataGridViewRow item in DGV.Rows)                                                                                                                 
-                {                                                                                                                                                          
-                    for (int i = 0; i < item.Cells.Count - 1; i++)                                                                                                         
-                    {                                                                                                                                                      
-                        if (i < Skipindex)                                                                                                                                 
+                foreach (DataGridViewRow item in DGV.Rows)
+                {
+                    for (int i = 0; i < item.Cells.Count - 1; i++)
+                    {
+                        if (i < Skipindex)
                             e.Graphics.DrawString(item.Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i], StartingRowPosition);                           
-                        else                                                                                                                                               
+                        else
                             e.Graphics.DrawString(item.Cells[i+1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i], StartingRowPosition);                         
-                    }                                                                                                                                                      
-                    StartingRowPosition += 20;                                                                                                                             
-                }                                                                                                                                                          
-            }                                                                                                                                                              
-            else  // When skipping                                                                                                                                                         
+                    }                                                                                                          
+                    StartingRowPosition += 20;
+                }
+            }
+            else  // When skipping
             {                                                                                                                                                              
-                foreach (DataGridViewColumn item in DGV.Columns)                                                                                                           
-                {                                                                                                                                                          
+                foreach (DataGridViewColumn item in DGV.Columns)
+                {
                     e.Graphics.DrawString(item.HeaderText, FontHeader, Brushes.Black, columns_pos[columns_pos.Count - 1], 200);                                            
                     columns_pos.Add(columns_pos[columns_pos.Count - 1] + column_gap + (item.HeaderText.Length * FontHeader.Size));                                         
-                }                                                                                                                                                          
+                }
                 e.Graphics.DrawLine(new Pen(Color.Black), columns_pos[0], StartingRowPosition - 5, columns_pos[columns_pos.Count - 1] - column_gap, StartingRowPosition - 5);
                 foreach (DataGridViewRow item in DGV.Rows)
                 {
