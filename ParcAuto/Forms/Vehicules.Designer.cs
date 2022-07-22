@@ -57,6 +57,7 @@ namespace ParcAuto.Forms
             this.cmbChoix = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnImprimer = new Guna.UI2.WinForms.Guna2Button();
+            this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicules)).BeginInit();
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
@@ -460,6 +461,27 @@ namespace ParcAuto.Forms
             this.btnImprimer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             this.btnImprimer.Click += new System.EventHandler(this.btnImprimer_Click);
             // 
+            // btnExportExcel
+            // 
+            this.btnExportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExportExcel.BorderRadius = 4;
+            this.btnExportExcel.CheckedState.Parent = this.btnExportExcel;
+            this.btnExportExcel.CustomImages.Parent = this.btnExportExcel;
+            this.btnExportExcel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnExportExcel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnExportExcel.ForeColor = System.Drawing.Color.White;
+            this.btnExportExcel.HoverState.Parent = this.btnExportExcel;
+            this.btnExportExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExcel.Image")));
+            this.btnExportExcel.Location = new System.Drawing.Point(964, 13);
+            this.btnExportExcel.Margin = new System.Windows.Forms.Padding(5);
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.ShadowDecoration.Parent = this.btnExportExcel;
+            this.btnExportExcel.Size = new System.Drawing.Size(40, 40);
+            this.btnExportExcel.TabIndex = 27;
+            this.btnExportExcel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
+            // 
             // Vehicules
             // 
             this.AcceptButton = this.btnAjouter;
@@ -468,6 +490,7 @@ namespace ParcAuto.Forms
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1111, 669);
+            this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.btnImprimer);
             this.Controls.Add(this.panelDate);
             this.Controls.Add(this.TextPanel);
@@ -524,5 +547,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private Guna.UI2.WinForms.Guna2Button btnImprimer;
+        private Guna.UI2.WinForms.Guna2Button btnExportExcel;
     }
 }
