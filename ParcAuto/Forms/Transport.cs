@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions; // import Regex()
+using Microsoft.Office.Interop.Excel;
 
 namespace ParcAuto.Forms
 {
@@ -38,7 +39,7 @@ namespace ParcAuto.Forms
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             while (GLB.dr.Read())
-                dgvTransport.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToShortDateString(), GLB.dr[5], GLB.dr[6], GLB.dr[7].ToString());
+                dgvTransport.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToString("yyyy-MM-dd"), GLB.dr[5], GLB.dr[6], GLB.dr[7].ToString());
             GLB.dr.Close();
             GLB.Con.Close();
         }
@@ -57,15 +58,15 @@ namespace ParcAuto.Forms
             {
                 TextPanel.Visible = false;
                 panelDate.Visible = true;
-                panelDate.Location = new Point(287, 3);
-                btnFiltrer.Location = new Point(858, 14);
+                panelDate.Location = new System.Drawing.Point(287, 3);
+                btnFiltrer.Location = new System.Drawing.Point(858, 14);
             }
             else
             {
                 TextPanel.Visible = true;
                 panelDate.Visible = false;
-                TextPanel.Location = new Point(287, 12);
-                btnFiltrer.Location = new Point(635, 18);
+                TextPanel.Location = new System.Drawing.Point(287, 12);
+                btnFiltrer.Location = new System.Drawing.Point(635, 18);
             }
         }
 
@@ -153,13 +154,129 @@ namespace ParcAuto.Forms
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            GLB.Drawonprintdoc(e, dgvTransport, imageList1.Images[0], new Font("Arial", 8, FontStyle.Bold), new Font("Arial", 8),0,30,20);
+            GLB.Drawonprintdoc(e, dgvTransport, imageList1.Images[0], new System.Drawing.Font("Arial", 8, FontStyle.Bold), new System.Drawing.Font("Arial", 8),0,30,20);
         }
         private void btnImprimer_Click(object sender, EventArgs e)
         {
             if (printDialog1.ShowDialog(this) == DialogResult.OK)
                 printPreviewDialog1.Document.PrinterSettings = printDialog1.PrinterSettings;
             printPreviewDialog1.ShowDialog();
+        }
+
+        private void btnExportExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvTransport.Rows.Count > 0)
+                {
+
+                    Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
+                    xcelApp.Application.Workbooks.Add(Type.Missing);
+
+                    for (int i = 0; i < dgvTransport.Columns.Count - 1; i++)
+                    {
+                        if (i < 0)
+                        {
+                            xcelApp.Cells[1, i + 1] = dgvTransport.Columns[i].HeaderText;
+                        }
+                        else
+                        {
+                            xcelApp.Cells[1, i + 1] = dgvTransport.Columns[i + 1].HeaderText;
+
+                        }
+                    }
+
+                    for (int i = 0; i < dgvTransport.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < dgvTransport.Columns.Count - 1; j++)
+                        {
+                            if (j < 0)
+                            {
+                                xcelApp.Cells[i + 2, j + 1] = dgvTransport.Rows[i].Cells[j].Value.ToString();
+                            }
+                            else
+                            {
+                                xcelApp.Cells[i + 2, j + 1] = dgvTransport.Rows[i].Cells[j + 1].Value.ToString();
+                            }
+
+
+                        }
+                    }
+                    xcelApp.Columns.AutoFit();
+                    xcelApp.Visible = true;
+                    MessageBox.Show("Vous avez réussi à exporter vos données vers un fichier excel", "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnImportExcel_Click(object sender, EventArgs e)
+        {
+
+            _Application importExceldatagridViewApp;
+            _Workbook importExceldatagridViewworkbook;
+            _Worksheet importExceldatagridViewworksheet;
+            Range importdatagridviewRange;
+            try
+            {
+                importExceldatagridViewApp = new Microsoft.Office.Interop.Excel.Application();
+                OpenFileDialog importOpenDialoge = new OpenFileDialog();
+                importOpenDialoge.Title = "Import Excel File";
+                importOpenDialoge.Filter = "Import Excel File|*.xlsx;*xls;*xlm";
+                if (importOpenDialoge.ShowDialog() == DialogResult.OK)
+                {
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
+                    GLB.Con.Open();
+
+                    importExceldatagridViewworkbook = importExceldatagridViewApp.Workbooks.Open(importOpenDialoge.FileName);
+                    importExceldatagridViewworksheet = importExceldatagridViewworkbook.ActiveSheet;
+                    importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
+                    for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
+                    {
+                  
+                        DateTime date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value));
+
+                        GLB.Cmd.CommandText = $"select count(*) from Transport where Entite = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}' and Beneficiaire = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}' and NBonSNTL = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}' " +
+                            $"and Date = '{date.ToString("yyyy-MM-dd")}' and Destination = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value}' and Type_utilsation = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value}' and prix = {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value}";
+
+                        if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
+                        {
+                            GLB.Cmd.CommandText = $"insert into Transport values(null,'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}'," +
+                                $"'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}','{date.ToString("yyyy-MM-dd")}'," +
+                                $"'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value}',{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value}) ";
+                            GLB.Cmd.ExecuteNonQuery();
+
+
+                        }
+                        else
+                        {
+                            MessageBox.Show($"La vignnette avec l'entite : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}\n" +
+                                $"- Benificiaire : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}\n" +
+                                $"- NBonSNTL : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}\n" +
+                                $"- Date : {date.ToString("yyyy-MM-dd")}\n" +
+                                $"- destination : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value}\n" +
+                                $"- Type d'utilisation : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value}\n" +
+                                $"- Montant : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value}" +
+                                $"deja saisie.");
+                        }
+
+                    }
+                    GLB.Con.Close();
+                }
+                RemplirdgvTransport();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
     }
 }
