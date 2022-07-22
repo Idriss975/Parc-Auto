@@ -475,6 +475,7 @@ namespace ParcAuto.Forms
             // printDialog1
             // 
             this.printDialog1.Document = this.printDocument1;
+            this.printDialog1.ShowHelp = true;
             this.printDialog1.UseEXDialog = true;
             // 
             // imageList1

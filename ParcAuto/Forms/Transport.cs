@@ -157,6 +157,7 @@ namespace ParcAuto.Forms
         }
         private void btnImprimer_Click(object sender, EventArgs e)
         {
+            GLB.number_of_lines = dgvTransport.Rows.Count;
             if (printDialog1.ShowDialog(this) == DialogResult.OK)
             {
                 printPreviewDialog1.Document.PrinterSettings = printDialog1.PrinterSettings;

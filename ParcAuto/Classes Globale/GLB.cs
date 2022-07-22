@@ -23,6 +23,7 @@ namespace ParcAuto.Classes_Globale
         public static int id_Carburant;
         public static int id_Reparation;
         public static int id_Transport;
+        public static  int number_of_lines;
         /// <summary>
         ///     Draws on "print document" with a formal document layout.
         /// </summary>
@@ -50,8 +51,8 @@ namespace ParcAuto.Classes_Globale
 
             List<float> columns_pos = new List<float>();
             columns_pos.Add(StartingColumnPosition);
-            //Todo: New page for limited amount of rows.
-            if (Skipindex != -1) //If Nothing to skip
+            //Todo: New page for limited amount of rows. 45 lines per page (26 per page paysage)
+            if (Skipindex != -1) // When skipping
             {
                 foreach (DataGridViewColumn col in DGV.Columns)
                 {
@@ -60,19 +61,37 @@ namespace ParcAuto.Classes_Globale
                     columns_pos.Add(columns_pos[columns_pos.Count - 1] + column_gap + (col.HeaderText.Length * FontHeader.Size));
                 }
                 e.Graphics.DrawLine(new Pen(Color.Black), columns_pos[0], StartingRowPosition - 5, columns_pos[columns_pos.Count - 1] - column_gap, StartingRowPosition - 5);
-                foreach (DataGridViewRow item in DGV.Rows)
+
+                if (!e.PageSettings.Landscape)
                 {
-                    for (int i = 0; i < item.Cells.Count - 1; i++)
+                    for (int item = DGV.Rows.Count - number_of_lines; item < DGV.Rows.Count - number_of_lines + (number_of_lines < 45 ? number_of_lines : 45); item++)
                     {
-                        if (i < Skipindex)
-                            e.Graphics.DrawString(item.Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i], StartingRowPosition);                           
-                        else
-                            e.Graphics.DrawString(item.Cells[i+1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i], StartingRowPosition);                         
-                    }                                                                                                          
-                    StartingRowPosition += 20;
+                        for (int i = 0; i < DGV.Rows[item].Cells.Count - 1; i++)
+                        {
+                            if (i < Skipindex)
+                                e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i], StartingRowPosition);
+                            else
+                                e.Graphics.DrawString(DGV.Rows[item].Cells[i+1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i], StartingRowPosition);
+                        }
+                        StartingRowPosition += 20;
+                    }
+                }
+                else
+                {
+                    for (int item = DGV.Rows.Count - number_of_lines; item < DGV.Rows.Count - number_of_lines + (number_of_lines < 26 ? number_of_lines : 26); item++)
+                    {
+                        for (int i = 0; i < DGV.Rows[item].Cells.Count-1; i++)
+                        {
+                            if (i < Skipindex)
+                                e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i], StartingRowPosition);
+                            else
+                                e.Graphics.DrawString(DGV.Rows[item].Cells[i + 1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i], StartingRowPosition);
+                        }
+                        StartingRowPosition += 20;
+                    }
                 }
             }
-            else  // When skipping
+            else  //If Nothing to skip
             {                                                                                                                                                              
                 foreach (DataGridViewColumn item in DGV.Columns)
                 {
@@ -80,14 +99,45 @@ namespace ParcAuto.Classes_Globale
                     columns_pos.Add(columns_pos[columns_pos.Count - 1] + column_gap + (item.HeaderText.Length * FontHeader.Size));                                         
                 }
                 e.Graphics.DrawLine(new Pen(Color.Black), columns_pos[0], StartingRowPosition - 5, columns_pos[columns_pos.Count - 1] - column_gap, StartingRowPosition - 5);
-                foreach (DataGridViewRow item in DGV.Rows)
+
+                if (!e.PageSettings.Landscape)
                 {
-                    for (int i = 0; i < item.Cells.Count; i++)
+                    for (int item = DGV.Rows.Count - number_of_lines; item < DGV.Rows.Count - number_of_lines + (number_of_lines < 45 ? number_of_lines : 45); item++)
                     {
-                        e.Graphics.DrawString(item.Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i], StartingRowPosition);
+                        for (int i = 0; i < DGV.Rows[item].Cells.Count; i++)
+                            e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i], StartingRowPosition);
+
+                        StartingRowPosition += 20;
                     }
-                    StartingRowPosition += 20;
                 }
+                else
+                {
+                    for (int item = DGV.Rows.Count - number_of_lines; item < DGV.Rows.Count - number_of_lines + (number_of_lines<26?number_of_lines:26); item++)
+                    {
+                        for (int i = 0; i < DGV.Rows[item].Cells.Count; i++)
+                            e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i], StartingRowPosition);
+
+                        StartingRowPosition += 20;
+                    }
+                }
+            }
+
+
+            if (!e.PageSettings.Landscape)
+            {
+                if (number_of_lines > 45)
+                    e.HasMorePages = true;
+                else
+                    e.HasMorePages = false;
+                number_of_lines -= 45;
+            }
+            else
+            {
+                if (number_of_lines > 26)
+                    e.HasMorePages = true;
+                else
+                    e.HasMorePages = false;
+                number_of_lines -= 26;
             }
         }
     }
