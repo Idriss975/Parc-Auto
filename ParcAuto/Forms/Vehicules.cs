@@ -44,9 +44,9 @@ namespace ParcAuto.Forms
                 while (GLB.dr.Read())
                 {
                     if (GLB.dr.IsDBNull(7))
-                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToShortDateString(),DateTime.Now.Year - ((DateTime)GLB.dr[4]).Year  ,GLB.dr[5], GLB.dr[6], new CmbMatNom(null, "Sans conducteur"));
+                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToShortDateString(),DateTime.Now.Year - ((DateTime)GLB.dr[4]).Year  ,GLB.dr[5], GLB.dr[6], new CmbMatNom(null, "Sans conducteur"), GLB.dr[8]);
                     else
-                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToShortDateString(), DateTime.Now.Year - ((DateTime)GLB.dr[4]).Year, GLB.dr[5], GLB.dr[6], new CmbMatNom(Convert.ToInt32(GLB.dr[7]), $"{GLB.dr[8]} {GLB.dr[9]}"));
+                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToShortDateString(), DateTime.Now.Year - ((DateTime)GLB.dr[4]).Year, GLB.dr[5], GLB.dr[6], new CmbMatNom(Convert.ToInt32(GLB.dr[7]), $"{GLB.dr[9]} {GLB.dr[10]}"),GLB.dr[8]);
                 } 
             }
             catch (Exception ex) //TODO: Implement Sql Exemption error (idriss)
@@ -88,7 +88,8 @@ namespace ParcAuto.Forms
                 string Carburant = dgvVehicules.CurrentRow.Cells[6].Value.ToString();
                 string Observation = dgvVehicules.CurrentRow.Cells[7].Value.ToString();
                 string Conducteur = dgvVehicules.CurrentRow.Cells[8].Value.ToString(); //Normalement type cmbMatNom
-                MajVehicules maj = new MajVehicules(Marque, Modele, Couleur, MiseEncirculation , Carburant, Observation,Conducteur) ;
+                string decision_nomination = dgvVehicules.CurrentRow.Cells[9].Value.ToString();
+                MajVehicules maj = new MajVehicules(Marque, Modele, Couleur, MiseEncirculation , Carburant, Observation,Conducteur, decision_nomination) ;
                 Commandes.Command = Choix.modifier;
                 maj.ShowDialog();
                 RemplirLaGrille();
@@ -184,6 +185,7 @@ namespace ParcAuto.Forms
             dt.Columns.Add("Carburant", typeof(string));
             dt.Columns.Add("Observation", typeof(string));
             dt.Columns.Add("Conducteur", typeof(string));
+            dt.Columns.Add("decision de nomination ", typeof(string));
             foreach (DataGridViewRow dgv in dgvVehicules.Rows)
             {
                 dt.Rows.Add(dgv.Cells[0].Value, dgv.Cells[1].Value, dgv.Cells[2].Value, dgv.Cells[3].Value, dgv.Cells[4].Value, dgv.Cells[5].Value, dgv.Cells[6].Value
