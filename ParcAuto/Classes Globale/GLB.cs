@@ -125,18 +125,12 @@ namespace ParcAuto.Classes_Globale
 
             if (!e.PageSettings.Landscape)
             {
-                if (number_of_lines > 45)
-                    e.HasMorePages = true;
-                else
-                    e.HasMorePages = false;
+                e.HasMorePages = number_of_lines > 45? true: false;
                 number_of_lines -= 45;
             }
             else
             {
-                if (number_of_lines > 26)
-                    e.HasMorePages = true;
-                else
-                    e.HasMorePages = false;
+                e.HasMorePages = number_of_lines > 26? true: false;
                 number_of_lines -= 26;
             }
         }
