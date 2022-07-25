@@ -36,7 +36,7 @@ namespace ParcAuto.Classes_Globale
         /// <param name="StartingColumnPosition">The X position for where the first column should show.</param>
         /// <param name="column_gap">Margin between each column.</param>
         /// <param name="StartingRowPosition">The Y position for where the First row should show.</param>
-        static public void Drawonprintdoc(PrintPageEventArgs e,  DataGridView DGV, Image Logo, Font FontHeader, Font FontRows, int Skipindex = -1, int StartingColumnPosition = 75, int column_gap = 40, int StartingRowPosition = 220)
+        static public void Drawonprintdoc(PrintPageEventArgs e,  DataGridView DGV, Image Logo, Font FontHeader, Font FontRows, int Skipindex = -1, int StartingColumnPosition = 75, int column_gap = 40, int StartingRowPosition = 220, string Total = "")
         {
             //Header
             e.Graphics.DrawImage(Logo, 50, 17);
@@ -133,6 +133,9 @@ namespace ParcAuto.Classes_Globale
                 e.HasMorePages = number_of_lines > 26? true: false;
                 number_of_lines -= 26;
             }
+
+            if (!e.HasMorePages)
+                e.Graphics.DrawString(Total, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, e.PageSettings.Bounds.Width - (Total.Length*12)-10, StartingRowPosition + 30);
         }
     }
 }
