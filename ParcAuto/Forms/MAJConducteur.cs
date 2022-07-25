@@ -88,10 +88,10 @@ namespace ParcAuto.Forms
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
-                        GLB.Cmd.CommandText = $"Insert into Conducteurs values ({txtmatricule.Text}, '{txtnom.Text}', '{txtprenom.Text}', '{DateNaissance.Value.ToShortDateString()}', '{DateEmb.Value.ToShortDateString()}', '{txtnumpermis.Text}', '{txtadr.Text}','{txttel.Text}', '{txtemail.Text}','{txtDirections.Text}')";
+                        GLB.Cmd.CommandText = $"Insert into Conducteurs values ({txtmatricule.Text}, '{txtnom.Text}', '{txtprenom.Text}', '{DateNaissance.Value.ToString("yyyy-MM-dd")}', '{DateEmb.Value.ToString("yyyy-MM-dd")}', '{txtnumpermis.Text}', '{txtadr.Text}','{txttel.Text}', '{txtemail.Text}','{txtDirections.Text}')";
                         break;
                     case Choix.modifier:
-                        GLB.Cmd.CommandText = $"update Conducteurs set nom='{txtnom.Text}', prenom='{txtprenom.Text}', DateNaiss='{DateNaissance.Value.ToShortDateString()}', DateEmbauche='{DateEmb.Value.ToShortDateString()}', NumPermis='{txtnumpermis.Text}', Adresse='{txtadr.Text}', Direction='{txtDirections.Text}', Tel='{txttel.Text}', Email='{txtemail.Text}' where Matricule = {GLB.Matricule}";
+                        GLB.Cmd.CommandText = $"update Conducteurs set nom='{txtnom.Text}', prenom='{txtprenom.Text}', DateNaiss='{DateNaissance.Value.ToString("yyyy-MM-dd")}', DateEmbauche='{DateEmb.Value.ToString("yyyy-MM-dd")}', NumPermis='{txtnumpermis.Text}', Adresse='{txtadr.Text}', Direction='{txtDirections.Text}', Tel='{txttel.Text}', Email='{txtemail.Text}' where Matricule = {GLB.Matricule}";
                         RemplirLesChamps();
                         break;
                     case Choix.supprimer:

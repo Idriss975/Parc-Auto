@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using ParcAuto.Classes_Globale;
 using System.Text.RegularExpressions; // import Regex()
 using System.Data.SqlClient;
+using Microsoft.Office.Interop.Excel;
+//using System.Drawing;
 
 namespace ParcAuto.Forms
 {
@@ -51,7 +53,7 @@ namespace ParcAuto.Forms
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
                     dgvconducteur.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], ((DateTime)GLB.dr[3]).ToShortDateString(), ((DateTime)GLB.dr[4]).ToShortDateString(), GLB.dr[5], GLB.dr[6],  GLB.dr[9], GLB.dr[7], GLB.dr[8]);//index 9 = Direction
-                GLB.dr.Close();
+                
             }
             catch (Exception ex)
             {
@@ -60,6 +62,7 @@ namespace ParcAuto.Forms
             }
             finally
             {
+                GLB.dr.Close();
                 GLB.Con.Close();
             }
         }
@@ -83,7 +86,7 @@ namespace ParcAuto.Forms
 
             try
             {
-                GLB.Matricule = (int)dgvconducteur.CurrentRow.Cells[0].Value;
+                GLB.Matricule = Convert.ToInt32(dgvconducteur.CurrentRow.Cells[0].Value);
                 string Nom = dgvconducteur.CurrentRow.Cells[1].Value.ToString() ;
                 string Prenom= dgvconducteur.CurrentRow.Cells[2].Value.ToString();
                 DateTime DateNaiss =Convert.ToDateTime(dgvconducteur.CurrentRow.Cells[3].Value);
@@ -109,7 +112,7 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.Matricule = (int)dgvconducteur.SelectedRows[0].Cells[0].Value;
+                GLB.Matricule = Convert.ToInt32(dgvconducteur.CurrentRow.Cells[0].Value);
                 GLB.Cmd.CommandText = $"delete from Conducteurs where Matricule = {GLB.Matricule}";
 
             }
@@ -136,15 +139,15 @@ namespace ParcAuto.Forms
             {
                 TextPanel.Visible = true;
                 panelDate.Visible = false;
-                TextPanel.Location = new Point(287, 12);
-                btnFiltrer.Location = new Point(635, 18);
+                TextPanel.Location = new System.Drawing.Point(287, 12);
+                btnFiltrer.Location = new System.Drawing.Point(635, 18);
             }
             else if (cmbChoix.SelectedIndex == 3 || cmbChoix.SelectedIndex == 4)
             {
                 TextPanel.Visible = false;
                 panelDate.Visible = true;
-                panelDate.Location = new Point(287, 3);
-                btnFiltrer.Location = new Point(858, 14);
+                panelDate.Location = new System.Drawing.Point(287, 3);
+                btnFiltrer.Location = new System.Drawing.Point(858, 14);
             }
         }
 
@@ -167,6 +170,91 @@ namespace ParcAuto.Forms
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             RemplirLaGrille();
+        }
+
+        private void btnExportExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvconducteur.Rows.Count > 0)
+                {
+
+                    Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
+                    xcelApp.Application.Workbooks.Add(Type.Missing);
+
+                    for (int i = 1; i < dgvconducteur.Columns.Count + 1; i++)
+                    {
+                        xcelApp.Cells[1, i] = dgvconducteur.Columns[i - 1].HeaderText;
+                    }
+
+                    for (int i = 0; i < dgvconducteur.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < dgvconducteur.Columns.Count; j++)
+                        {
+                            xcelApp.Cells[i + 2, j + 1] = dgvconducteur.Rows[i].Cells[j].Value.ToString();
+                        }
+                    }
+                    xcelApp.Columns.AutoFit();
+                    xcelApp.Visible = true;
+                    MessageBox.Show("Vous avez réussi à exporter vos données vers un fichier excel", "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Quelque chose s'est mal passé", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnImportExcel_Click(object sender, EventArgs e)
+        {
+            _Application importExceldatagridViewApp;
+            _Workbook importExceldatagridViewworkbook;
+            _Worksheet importExceldatagridViewworksheet;
+            Range importdatagridviewRange;
+            try
+            {
+                importExceldatagridViewApp = new Microsoft.Office.Interop.Excel.Application();
+                OpenFileDialog importOpenDialoge = new OpenFileDialog();
+                importOpenDialoge.Title = "Import Excel File";
+                importOpenDialoge.Filter = "Import Excel File|*.xlsx;*xls;*xlm";
+                if (importOpenDialoge.ShowDialog() == DialogResult.OK)
+                {
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
+                    GLB.Con.Open();
+
+                    importExceldatagridViewworkbook = importExceldatagridViewApp.Workbooks.Open(importOpenDialoge.FileName);
+                    importExceldatagridViewworksheet = importExceldatagridViewworkbook.ActiveSheet;
+                    importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
+                    for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
+                    {
+                        GLB.Cmd.CommandText = $"select count(*) from Conducteurs where Matricule = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}'";
+                        if(int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
+                        {
+                            GLB.Cmd.CommandText = $"insert into Conducteurs values ('{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}'," +
+                            $"'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value}'," +
+                            $"'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 9].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 10].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value}')";
+                            GLB.Cmd.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Le Conducteur avec le Matricule {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value} existe déja","Message");
+                            continue;
+                        }
+                       
+                        
+                    }
+                    GLB.Con.Close();
+                }
+                RemplirLaGrille();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

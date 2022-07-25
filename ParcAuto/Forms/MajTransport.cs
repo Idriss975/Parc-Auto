@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -55,10 +55,10 @@ namespace ParcAuto.Forms
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
-                        GLB.Cmd.CommandText = $"insert into Transport values('{txtentite.Text}','{txtBenificiaire.Text}','{txtNBon_Email.Text}','{DateMission.Value.ToShortDateString()}','{txtDestination.Text}','{txtUtilisation.Text}',{txtPrix.Text})";
+                        GLB.Cmd.CommandText = $"insert into Transport values(null,'{txtentite.Text}','{txtBenificiaire.Text}','{txtNBon_Email.Text}','{DateMission.Value.ToString("yyyy-MM-dd")}','{txtDestination.Text}','{txtUtilisation.Text}',{txtPrix.Text})";
                         break;
                     case Choix.modifier:
-                        GLB.Cmd.CommandText = $"update Transport set Entite = '{txtentite.Text}' , Beneficiaire = '{txtBenificiaire.Text}',NBonSNTL='{txtNBon_Email.Text}',Date = '{DateMission.Value.ToShortDateString()}',Destination='{txtDestination.Text}',Type_utilsation = '{txtUtilisation.Text}',Prix = '{txtPrix.Text}' where id = {GLB.id_Transport}";
+                        GLB.Cmd.CommandText = $"update Transport set Entite = '{txtentite.Text}' , Beneficiaire = '{txtBenificiaire.Text}',NBonSNTL='{txtNBon_Email.Text}',Date = '{DateMission.Value.ToString("yyyy-MM-dd")}',Destination='{txtDestination.Text}',Type_utilsation = '{txtUtilisation.Text}',Prix = '{txtPrix.Text}' where id = {GLB.id_Transport}";
                         break;
                     case Choix.supprimer:
                         throw new Exception("Impossible de supprimer avec MajCaarburants.");
@@ -79,7 +79,7 @@ namespace ParcAuto.Forms
         {
             if (GLB.ds.Tables["Conducteurs1"] != null)
                 GLB.ds.Tables["Conducteurs1"].Clear();
-            GLB.da = new SqlDataAdapter("select Nom, Prenom from Conducteurs", GLB.Con);
+            GLB.da = new SQLiteDataAdapter("select Nom, Prenom from Conducteurs", GLB.Con);
             GLB.da.Fill(GLB.ds, "Conducteurs1");
             AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
             foreach (DataRow item in GLB.ds.Tables["Conducteurs1"].Rows)

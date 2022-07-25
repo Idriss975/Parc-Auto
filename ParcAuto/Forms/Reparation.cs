@@ -1,4 +1,5 @@
-﻿using ParcAuto.Classes_Globale;
+﻿using Microsoft.Office.Interop.Excel;
+using ParcAuto.Classes_Globale;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -57,15 +58,15 @@ namespace ParcAuto.Forms
             {
                 TextPanel.Visible = false;
                 panelDate.Visible = true;
-                panelDate.Location = new Point(287, 3);
-                btnFiltrer.Location = new Point(858, 14);
+                panelDate.Location = new System.Drawing.Point(287, 3);
+                btnFiltrer.Location = new System.Drawing.Point(858, 14);
             }
             else
             {
                 TextPanel.Visible = true;
                 panelDate.Visible = false;
-                TextPanel.Location = new Point(287, 12);
-                btnFiltrer.Location = new Point(635, 18);
+                TextPanel.Location = new System.Drawing.Point(287, 12);
+                btnFiltrer.Location = new System.Drawing.Point(635, 18);
             }
         }
 
@@ -83,7 +84,7 @@ namespace ParcAuto.Forms
 
             try
             {
-                GLB.id_Reparation = (int)dgvReparation.CurrentRow.Cells[0].Value;
+                GLB.id_Reparation = Convert.ToInt32(dgvReparation.CurrentRow.Cells[0].Value);
                 string entite = dgvReparation.CurrentRow.Cells[1].Value.ToString();
                 string benificiaire = dgvReparation.CurrentRow.Cells[2].Value.ToString();
                 string vehicule = dgvReparation.CurrentRow.Cells[3].Value.ToString() ;
@@ -105,7 +106,7 @@ namespace ParcAuto.Forms
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            GLB.id_Reparation = (int)dgvReparation.CurrentRow.Cells[0].Value;
+            GLB.id_Reparation = Convert.ToInt32(dgvReparation.CurrentRow.Cells[0].Value);
             GLB.Cmd.CommandText = $"delete from Reparation where id={GLB.id_Reparation}";
             GLB.Con.Open();
             GLB.Cmd.ExecuteNonQuery();
@@ -137,6 +138,125 @@ namespace ParcAuto.Forms
         private void btnQuitter_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnExportExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvReparation.Rows.Count > 0)
+                {
+
+                    Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
+                    xcelApp.Application.Workbooks.Add(Type.Missing);
+
+                    for (int i = 0; i < dgvReparation.Columns.Count - 1; i++)
+                    {
+                        if (i < 0)
+                        {
+                            xcelApp.Cells[1, i + 1] = dgvReparation.Columns[i].HeaderText;
+                        }
+                        else
+                        {
+                            xcelApp.Cells[1, i + 1] = dgvReparation.Columns[i + 1].HeaderText;
+
+                        }
+                    }
+
+                    for (int i = 0; i < dgvReparation.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < dgvReparation.Columns.Count - 1; j++)
+                        {
+                            if (j < 0)
+                            {
+                                xcelApp.Cells[i + 2, j + 1] = dgvReparation.Rows[i].Cells[j].Value.ToString();
+                            }
+                            else
+                            {
+                                xcelApp.Cells[i + 2, j + 1] = dgvReparation.Rows[i].Cells[j + 1].Value.ToString();
+                            }
+
+
+                        }
+                    }
+                    xcelApp.Columns.AutoFit();
+                    xcelApp.Visible = true;
+                    MessageBox.Show("Vous avez réussi à exporter vos données vers un fichier excel", "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnImportExcel_Click(object sender, EventArgs e)
+        {
+            _Application importExceldatagridViewApp;
+            _Workbook importExceldatagridViewworkbook;
+            _Worksheet importExceldatagridViewworksheet;
+            Range importdatagridviewRange;
+            try
+            {
+                importExceldatagridViewApp = new Microsoft.Office.Interop.Excel.Application();
+                OpenFileDialog importOpenDialoge = new OpenFileDialog();
+                importOpenDialoge.Title = "Import Excel File";
+                importOpenDialoge.Filter = "Import Excel File|*.xlsx;*xls;*xlm";
+                if (importOpenDialoge.ShowDialog() == DialogResult.OK)
+                {
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
+                    GLB.Con.Open();
+
+                    importExceldatagridViewworkbook = importExceldatagridViewApp.Workbooks.Open(importOpenDialoge.FileName);
+                    importExceldatagridViewworksheet = importExceldatagridViewworkbook.ActiveSheet;
+                    importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
+                    for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
+                    {
+                        string entretien = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
+                        string reparation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
+                        DateTime date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value));
+
+                        if (entretien == null)
+                            entretien = "null";
+                        if (reparation == null)
+                            reparation = "null";
+                        GLB.Cmd.CommandText = $"SELECT count(*) from Reparation where Entite = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}' and beneficiaire = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}' and vehicule = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}'" +
+                            $" and Date ='{date.ToString("yyyy-MM-dd")}' and (Entretien = {entretien} or Reparation = {reparation} )";
+
+                        if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
+                        {
+                            GLB.Cmd.CommandText = $"insert into Reparation values(null,'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}'," +
+                                $"'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}','{date.ToString("yyyy-MM-dd")}'," +
+                                $"'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value}',{entretien},{reparation}) ";
+                            GLB.Cmd.ExecuteNonQuery();
+
+
+                        }
+                        else
+                        {
+                            MessageBox.Show($"La vignnette avec l'entite : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}\n" +
+                                $"- Benificiaire : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}\n" +
+                                $"- Vehicule : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}\n" +
+                                $"- Date : {date.ToString("yyyy-MM-dd")}\n" +
+                                $"- Entretien : {entretien}\n" +
+                                $"- Reparation : {reparation}\n" +
+                                $"deja saisie.");
+                        }
+
+                    }
+                    GLB.Con.Close();
+                }
+                datagridviewLoad();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
     }
 }

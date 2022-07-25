@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -63,10 +63,10 @@ namespace ParcAuto.Forms
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
-                        GLB.Cmd.CommandText = $"Insert into Reparation values ('{txtentite.Text}', '{txtBenificiaire.Text}', '{cmbVehicule.SelectedItem}', '{Date.Value.ToShortDateString()}', '{txtObjet.Text}', {MontantEntretient}, {MontantReparation})";
+                        GLB.Cmd.CommandText = $"Insert into Reparation values (null,'{txtentite.Text}', '{txtBenificiaire.Text}', '{cmbVehicule.SelectedItem}', '{Date.Value.ToString("yyyy-MM-dd")}', '{txtObjet.Text}', {MontantEntretient}, {MontantReparation})";
                         break;
                     case Choix.modifier:
-                        GLB.Cmd.CommandText = $"update Reparation set Entite ='{txtentite.Text}', Benificaire='{txtBenificiaire.Text}', Vehicule='{cmbVehicule.SelectedItem}', Date='{Date.Value.ToShortDateString()}', Objet='{txtObjet.Text}', Entretien={MontantEntretient}, Reparation={MontantReparation} where id = {GLB.id_Reparation}";
+                        GLB.Cmd.CommandText = $"update Reparation set Entite ='{txtentite.Text}', Beneficiaire='{txtBenificiaire.Text}', Vehicule='{cmbVehicule.SelectedItem}', Date='{Date.Value.ToString("yyyy-MM-dd")}', Objet='{txtObjet.Text}', Entretien={MontantEntretient}, Reparation={MontantReparation} where id = {GLB.id_Reparation}";
                        
                         break;
                     case Choix.supprimer:
@@ -125,7 +125,7 @@ namespace ParcAuto.Forms
         {
             if (GLB.ds.Tables["Vehicules1"] != null)
                 GLB.ds.Tables["Vehicules1"].Clear();
-            GLB.da = new SqlDataAdapter("select * from Vehicules", GLB.Con);
+            GLB.da = new SQLiteDataAdapter("select * from Vehicules", GLB.Con);
             GLB.da.Fill(GLB.ds, "Vehicules1");
             foreach (DataRow item in GLB.ds.Tables["Vehicules1"].Rows)
             {
@@ -137,7 +137,7 @@ namespace ParcAuto.Forms
         {
             if (GLB.ds.Tables["ConducteursRep"] != null)
                 GLB.ds.Tables["ConducteursRep"].Clear();
-            GLB.da = new SqlDataAdapter("select Nom, Prenom from Conducteurs", GLB.Con);
+            GLB.da = new SQLiteDataAdapter("select Nom, Prenom from Conducteurs", GLB.Con);
             GLB.da.Fill(GLB.ds, "ConducteursRep");
             AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
             foreach (DataRow item in GLB.ds.Tables["ConducteursRep"].Rows)
