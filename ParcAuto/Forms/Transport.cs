@@ -39,7 +39,7 @@ namespace ParcAuto.Forms
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             while (GLB.dr.Read())
-                dgvTransport.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToString("yyyy-MM-dd"), GLB.dr[5], GLB.dr[6], GLB.dr[7].ToString());
+                dgvTransport.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToString("dd/MM/yyyy"), GLB.dr[5], GLB.dr[6], GLB.dr[7].ToString());
             GLB.dr.Close();
             GLB.Con.Close();
         }
