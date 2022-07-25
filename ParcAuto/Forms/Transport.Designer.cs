@@ -597,6 +597,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private Guna.UI2.WinForms.Guna2Button btnImportExcel;
         private Guna.UI2.WinForms.Guna2Button btnExportExcel;
-        public static System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

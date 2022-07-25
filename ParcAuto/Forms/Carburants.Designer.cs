@@ -29,6 +29,7 @@ namespace ParcAuto.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Carburants));
             this.label3 = new System.Windows.Forms.Label();
             this.panelDate = new System.Windows.Forms.Panel();
@@ -67,6 +68,7 @@ namespace ParcAuto.Forms
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarburant)).BeginInit();
@@ -551,6 +553,7 @@ namespace ParcAuto.Forms
             // 
             // printDocument1
             // 
+            this.printDocument1.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument1_BeginPrint);
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // printPreviewDialog1
@@ -568,6 +571,12 @@ namespace ParcAuto.Forms
             // 
             this.printDialog1.Document = this.printDocument1;
             this.printDialog1.UseEXDialog = true;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "OFPPT_logo.png");
             // 
             // Carburants
             // 
@@ -642,5 +651,6 @@ namespace ParcAuto.Forms
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
