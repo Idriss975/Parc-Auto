@@ -61,7 +61,7 @@ namespace ParcAuto.Forms
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btnImportExcel = new Guna.UI2.WinForms.Guna2Button();
             this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
             this.panelDate.SuspendLayout();
@@ -86,7 +86,7 @@ namespace ParcAuto.Forms
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(315, 21);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(23, 25);
+            this.label4.Size = new System.Drawing.Size(16, 16);
             this.label4.TabIndex = 14;
             this.label4.Text = "à";
             // 
@@ -96,7 +96,7 @@ namespace ParcAuto.Forms
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(13, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 25);
+            this.label3.Size = new System.Drawing.Size(62, 16);
             this.label3.TabIndex = 0;
             this.label3.Text = "Date de :";
             // 
@@ -138,9 +138,9 @@ namespace ParcAuto.Forms
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Location = new System.Drawing.Point(3, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 25);
+            this.label2.Size = new System.Drawing.Size(53, 16);
             this.label2.TabIndex = 20;
             this.label2.Text = "Valeur :";
             // 
@@ -159,7 +159,7 @@ namespace ParcAuto.Forms
             this.txtValueToFiltre.FocusedState.Parent = this.txtValueToFiltre;
             this.txtValueToFiltre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtValueToFiltre.HoverState.Parent = this.txtValueToFiltre;
-            this.txtValueToFiltre.Location = new System.Drawing.Point(7, 31);
+            this.txtValueToFiltre.Location = new System.Drawing.Point(66, 6);
             this.txtValueToFiltre.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtValueToFiltre.Name = "txtValueToFiltre";
             this.txtValueToFiltre.PasswordChar = '\0';
@@ -260,7 +260,7 @@ namespace ParcAuto.Forms
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(9, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 25);
+            this.label1.Size = new System.Drawing.Size(67, 16);
             this.label1.TabIndex = 48;
             this.label1.Text = "Filter Par :";
             // 
@@ -483,9 +483,9 @@ namespace ParcAuto.Forms
             // 
             // imageList1
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "OFPPT_logo.png");
+            imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            imageList1.Images.SetKeyName(0, "OFPPT_logo.png");
             // 
             // btnImportExcel
             // 
@@ -531,7 +531,7 @@ namespace ParcAuto.Forms
             // 
             // Transport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 669);
             this.Controls.Add(this.btnImportExcel);
@@ -595,8 +595,8 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.ImageList imageList1;
         private Guna.UI2.WinForms.Guna2Button btnImportExcel;
         private Guna.UI2.WinForms.Guna2Button btnExportExcel;
+        public static System.Windows.Forms.ImageList imageList1;
     }
 }

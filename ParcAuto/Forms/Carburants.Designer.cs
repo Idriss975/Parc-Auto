@@ -63,6 +63,10 @@ namespace ParcAuto.Forms
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnImportExcel = new Guna.UI2.WinForms.Guna2Button();
             this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
+            this.btnImprimer = new Guna.UI2.WinForms.Guna2Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarburant)).BeginInit();
@@ -522,11 +526,55 @@ namespace ParcAuto.Forms
             this.btnExportExcel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
+            // btnImprimer
+            // 
+            this.btnImprimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnImprimer.BorderRadius = 4;
+            this.btnImprimer.CheckedState.Parent = this.btnImprimer;
+            this.btnImprimer.CustomImages.Parent = this.btnImprimer;
+            this.btnImprimer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnImprimer.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnImprimer.ForeColor = System.Drawing.Color.White;
+            this.btnImprimer.HoverState.Parent = this.btnImprimer;
+            this.btnImprimer.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimer.Image")));
+            this.btnImprimer.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnImprimer.Location = new System.Drawing.Point(14, 625);
+            this.btnImprimer.Margin = new System.Windows.Forms.Padding(5);
+            this.btnImprimer.Name = "btnImprimer";
+            this.btnImprimer.ShadowDecoration.Parent = this.btnImprimer;
+            this.btnImprimer.Size = new System.Drawing.Size(100, 30);
+            this.btnImprimer.TabIndex = 55;
+            this.btnImprimer.Text = "imprimer";
+            this.btnImprimer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnImprimer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnImprimer.Click += new System.EventHandler(this.btnImprimer_Click);
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.Document = this.printDocument1;
+            this.printDialog1.UseEXDialog = true;
+            // 
             // Carburants
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 669);
+            this.Controls.Add(this.btnImprimer);
             this.Controls.Add(this.btnImportExcel);
             this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.panelDate);
@@ -590,5 +638,9 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private Guna.UI2.WinForms.Guna2Button btnImportExcel;
         private Guna.UI2.WinForms.Guna2Button btnExportExcel;
+        private Guna.UI2.WinForms.Guna2Button btnImprimer;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.PrintDialog printDialog1;
     }
 }
