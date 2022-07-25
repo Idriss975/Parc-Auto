@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using ParcAuto.Classes_Globale;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 
 namespace ParcAuto.Forms
 {
@@ -26,7 +26,7 @@ namespace ParcAuto.Forms
             int nWidthEllipse, // height of ellipse
             int nHeightEllipse // width of ellipse
         );
-        string Marque, Modele, Couleur, Carburant, Observation, Conducteur;
+        string Marque, Modele, Couleur, Carburant, Observation, Conducteur, decision_nomination;
         DateTime MiseEncirculation;
         public MajVehicules()
         {
@@ -35,7 +35,7 @@ namespace ParcAuto.Forms
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
         }
-        public MajVehicules(string Marque, string Modele,string Couleur,DateTime MiseEncirculation,string Carburant, string Observation, string Conducteur)
+        public MajVehicules(string Marque, string Modele,string Couleur,DateTime MiseEncirculation,string Carburant, string Observation, string Conducteur ,string decision_nomination)
         {
             InitializeComponent();
             //Make the Corner Rounded
@@ -48,7 +48,7 @@ namespace ParcAuto.Forms
             this.Carburant = Carburant;
             this.Observation = Observation;
             this.Conducteur = Conducteur;
-
+            this.decision_nomination = decision_nomination;
 
 
         }
@@ -62,7 +62,8 @@ namespace ParcAuto.Forms
             txtCarburant.Clear();
             txtObservation.Clear();
             cmbConducteur.SelectedIndex = 0;
-        }
+            txtDnomination.Clear();
+        } 
 
         public void RemplirLesChamps()
         {
@@ -74,18 +75,16 @@ namespace ParcAuto.Forms
             txtCarburant.Text = Carburant;
             txtObservation.Text = Observation;
             cmbConducteur.Text = Conducteur;
+            txtDnomination.Text = decision_nomination;
         }
         private void RemplirComboBoxConducteur()
         {
             if (GLB.ds.Tables["Conducteurs"] != null)
                 GLB.ds.Tables["Conducteurs"].Clear();
-            GLB.da = new SqlDataAdapter("select * from Conducteurs", GLB.Con);
+            GLB.da = new SQLiteDataAdapter("select * from Conducteurs", GLB.Con);
             GLB.da.Fill(GLB.ds, "Conducteurs");
             foreach (DataRow item in GLB.ds.Tables["Conducteurs"].Rows)
-            {
-                cmbConducteur.Items.Add(new CmbMatNom((int)item[0], item[1] + " "+item[2]));
-
-            }
+                cmbConducteur.Items.Add(new CmbMatNom(Convert.ToInt32(item[0]), item[1] + " "+item[2]));
         }
         private void Quitter_Click(object sender, EventArgs e)
         {
@@ -103,11 +102,11 @@ namespace ParcAuto.Forms
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
-                        GLB.Cmd.CommandText = $"insert into Vehicules values ('{txtMatricule.Text}', '{txtMarque.Text}', '{txtModele.Text}', '{txtCouleur.Text}','{dateMiseEnCirculation.Value.ToShortDateString()}', '{txtCarburant.Text}', '{txtObservation.Text}', {TempMatricule})";
+                        GLB.Cmd.CommandText = $"insert into Vehicules values ('{txtMatricule.Text}', '{txtMarque.Text}', '{txtModele.Text}', '{txtCouleur.Text}','{dateMiseEnCirculation.Value.ToString("yyyy-MM-dd")}', '{txtCarburant.Text}', '{txtObservation.Text}', {TempMatricule},'{txtDnomination.Text}')";
                         break;
                     case Choix.modifier:
 
-                        GLB.Cmd.CommandText = $"update Vehicules set  Marque='{txtMarque.Text}', Modele='{txtModele.Text}', Couleur='{txtCouleur.Text}', MiseEnCirculation='{dateMiseEnCirculation.Value.ToShortDateString()}', Carburant='{txtCarburant.Text}', Observation='{txtObservation.Text}', Conducteur={TempMatricule} where Matricule='{GLB.Matricule_Voiture}'";
+                        GLB.Cmd.CommandText = $"update Vehicules set  Marque='{txtMarque.Text}', Modele='{txtModele.Text}', Couleur='{txtCouleur.Text}', MiseEnCirculation='{dateMiseEnCirculation.Value.ToString("yyyy-MM-dd")}', Carburant='{txtCarburant.Text}', Observation='{txtObservation.Text}',decision_nomination = '{txtDnomination.Text}', Conducteur={TempMatricule} where Matricule='{GLB.Matricule_Voiture}'";
                         break;
                     case Choix.supprimer:
                         throw new Exception("Impossible de supprimer avec MajVehicules.");
@@ -119,9 +118,9 @@ namespace ParcAuto.Forms
                     GLB.Con.Open();
                     GLB.Cmd.ExecuteNonQuery();
                 }
-                catch (SqlException ex)
+                catch (SQLiteException ex) //TODO: Check if ErrorCode 1 is duplicate error in sql (change from sqlserveur to sqlite) (idriss)
                 {
-                    if (ex.State == 1)
+                    if (ex.ErrorCode == 1)
                     {
                         MessageBox.Show("Le matricule de la Voiture ne peux pas etre dupliqué", "Message d'erreur", MessageBoxButtons.OK,MessageBoxIcon.Error) ;
                     }

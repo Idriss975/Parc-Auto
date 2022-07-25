@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ParcAuto.Classes_Globale;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions; // import Regex()
+using Microsoft.Office.Interop.Excel;
 
 namespace ParcAuto.Forms
 {
@@ -28,7 +29,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], ((DateTime)GLB.dr[3]).ToShortDateString(), GLB.dr[4],$"ADMINISTRATIVE OMN°  {GLB.dr[5]}", GLB.dr[6].ToString(), GLB.dr[7].ToString(), GLB.dr[8].ToString(), GLB.dr[9],GLB.dr[10]);
+                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], ((DateTime)GLB.dr[3]).ToShortDateString(),GLB.dr[4],GLB.dr[5],GLB.dr[6],$"ADMINISTRATIVE OMN°  {GLB.dr[7]}", GLB.dr[8].ToString(), GLB.dr[9].ToString(), GLB.dr[10].ToString(), GLB.dr[11],GLB.dr[12]);
 
                 GLB.dr.Close();
             }
@@ -69,15 +70,15 @@ namespace ParcAuto.Forms
             {
                 TextPanel.Visible = false;
                 panelDate.Visible = true;
-                panelDate.Location = new Point(287, 3);
-                btnFiltrer.Location = new Point(858, 14);
+                panelDate.Location = new System.Drawing.Point(287, 3);
+                btnFiltrer.Location = new System.Drawing.Point(858, 14);
             }
             else
             {
                 TextPanel.Visible = true;
                 panelDate.Visible = false;
-                TextPanel.Location = new Point(287, 12);
-                btnFiltrer.Location = new Point(635, 18);
+                TextPanel.Location = new System.Drawing.Point(287, 12);
+                btnFiltrer.Location = new System.Drawing.Point(635, 18);
             }
         }
 
@@ -119,18 +120,20 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.id_Carburant = (int)dgvCarburant.CurrentRow.Cells[9].Value;
+                GLB.id_Carburant = Convert.ToInt32(dgvCarburant.CurrentRow.Cells[11].Value);
                 string Entite = dgvCarburant.CurrentRow.Cells[0].Value.ToString();
                 string Benificiaire = dgvCarburant.CurrentRow.Cells[1].Value.ToString();
                 string vehicules = dgvCarburant.CurrentRow.Cells[2].Value.ToString();
                 DateTime DateOper = Convert.ToDateTime(dgvCarburant.CurrentRow.Cells[3].Value);
                 string lieu = dgvCarburant.CurrentRow.Cells[4].Value.ToString();
-                string omn = dgvCarburant.CurrentRow.Cells[5].Value.ToString().Substring(21);
-                string Dfix = dgvCarburant.CurrentRow.Cells[6].Value.ToString();
-                string DMiss = dgvCarburant.CurrentRow.Cells[7].Value.ToString();
-                string Dhebdo = dgvCarburant.CurrentRow.Cells[8].Value.ToString();
-                string Observation = dgvCarburant.CurrentRow.Cells[10].Value.ToString(); ;
-                MajCarburants maj = new MajCarburants(Entite, Benificiaire, vehicules, DateOper, lieu, omn, Dfix, DMiss, Dhebdo,Observation);
+                string KM = dgvCarburant.CurrentRow.Cells[5].Value.ToString();
+                string pourcentage = dgvCarburant.CurrentRow.Cells[6].Value.ToString();
+                string omn = dgvCarburant.CurrentRow.Cells[7].Value.ToString().Substring(21);
+                string Dfix = dgvCarburant.CurrentRow.Cells[8].Value.ToString();
+                string DMiss = dgvCarburant.CurrentRow.Cells[9].Value.ToString();
+                string Dhebdo = dgvCarburant.CurrentRow.Cells[10].Value.ToString();
+                string Observation = dgvCarburant.CurrentRow.Cells[12].Value.ToString(); 
+                MajCarburants maj = new MajCarburants(Entite, Benificiaire, vehicules, DateOper, lieu,KM,pourcentage, omn, Dfix, DMiss, Dhebdo, Observation);
                 Commandes.Command = Choix.modifier;
                 maj.ShowDialog();
                 RemplirLaGrille();
@@ -140,14 +143,14 @@ namespace ParcAuto.Forms
                 MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-          
+
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
             try
             {
-                GLB.id_Carburant = (int)dgvCarburant.CurrentRow.Cells[9].Value;
+                GLB.id_Carburant = Convert.ToInt32(dgvCarburant.CurrentRow.Cells[11].Value);
                 GLB.Cmd.CommandText = $"delete from CarburantVignettes where id = '{GLB.id_Carburant}'";
             }
             catch (ArgumentOutOfRangeException)
@@ -163,6 +166,134 @@ namespace ParcAuto.Forms
                 GLB.Cmd.ExecuteNonQuery();
                 GLB.Con.Close();
                 RemplirLaGrille();
+            }
+        }
+
+        private void dgvCarburant_DoubleClick(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void btnExportExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvCarburant.Rows.Count > 0)
+                {
+
+                    Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
+                    xcelApp.Application.Workbooks.Add(Type.Missing);
+
+                    for (int i = 0; i < dgvCarburant.Columns.Count - 1; i++)
+                    {
+                        if(i < 11)
+                        {
+                            xcelApp.Cells[1, i + 1] = dgvCarburant.Columns[i].HeaderText;
+                        }
+                        else
+                        {
+                            xcelApp.Cells[1, i+1] = dgvCarburant.Columns[i+1].HeaderText;
+
+                        }
+                    }
+
+                    for (int i = 0; i < dgvCarburant.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < dgvCarburant.Columns.Count - 1; j++)
+                        {
+                            if (j < 11)
+                            {
+                                xcelApp.Cells[i + 2, j + 1] = dgvCarburant.Rows[i].Cells[j].Value.ToString();
+                            }
+                            else
+                            {
+                                xcelApp.Cells[i + 2, j + 1] = dgvCarburant.Rows[i].Cells[j+1].Value.ToString();
+                            }
+                           
+
+                        }
+                    }
+                    xcelApp.Columns.AutoFit();
+                    xcelApp.Visible = true;
+                    MessageBox.Show("Vous avez réussi à exporter vos données vers un fichier excel", "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+       
+        private void btnImportExcel_Click(object sender, EventArgs e)
+        {
+            _Application importExceldatagridViewApp;
+            _Workbook importExceldatagridViewworkbook;
+            _Worksheet importExceldatagridViewworksheet;
+            Range importdatagridviewRange;
+            try
+            {
+                importExceldatagridViewApp = new Microsoft.Office.Interop.Excel.Application();
+                OpenFileDialog importOpenDialoge = new OpenFileDialog();
+                importOpenDialoge.Title = "Import Excel File";
+                importOpenDialoge.Filter = "Import Excel File|*.xlsx;*xls;*xlm";
+                if (importOpenDialoge.ShowDialog() == DialogResult.OK)
+                {
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
+                    GLB.Con.Open();
+                    
+                    importExceldatagridViewworkbook = importExceldatagridViewApp.Workbooks.Open(importOpenDialoge.FileName);
+                    importExceldatagridViewworksheet = importExceldatagridViewworkbook.ActiveSheet;
+                    importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
+                    for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
+                    {
+                         string Dfixe = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 9].value);
+                        string DMission = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 10].value);
+                        string Dhebdo = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 11].value);
+                        string omn = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value);
+                        DateTime date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value));
+
+                        if (Dfixe == null)
+                            Dfixe = "null";
+                        if (DMission == null)
+                            DMission = "null";
+                        if (Dhebdo == null)
+                            Dhebdo = "null";
+                        GLB.Cmd.CommandText = $"SELECT count(*) FROM CarburantVignettes where Entite = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}' and beneficiaire = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}' and vehicule = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}' " +
+                            $"and date = '{date.ToString("yyyy-MM-dd")}' and lieu ='{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value}' " +
+                            $"and KM ={Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value)} and Pourcentage = {Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value)}" +
+                            $" and ObjetOMN = '{omn.Substring(21)}' ";
+
+                        if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
+                        {
+                            GLB.Cmd.CommandText = $"insert into CarburantVignettes values('{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}'," +
+             $"'{date.ToString("yyyy-MM-dd")}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value}',{Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value)},{Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value)}" +
+             $",'{omn.Substring(21)}',{Dfixe},{DMission}," +
+             $"{Dhebdo},null,'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 12].value}')";
+                            GLB.Cmd.ExecuteNonQuery();
+
+
+                        }
+                        else
+                        {
+                            MessageBox.Show($"La vignette avec l'entite : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value} \n- benificiaire :{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}" +
+                                $"\n- Vehicule : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}\n- Date : {date.ToString("yyyy-MM-dd")}\n" +
+                                $"- Lieu : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value} \n- Kilometrage : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value} \n" +
+                                $"- Pourcentage : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value} \n- OMN N° : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value} \nExiste déja.");
+                        }
+             
+                    }
+                    GLB.Con.Close();
+                }
+                RemplirLaGrille();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
             }
         }
     }

@@ -29,6 +29,7 @@ namespace ParcAuto.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Transport));
             this.panelDate = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -56,6 +57,13 @@ namespace ParcAuto.Forms
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnImprimer = new Guna.UI2.WinForms.Guna2Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btnImportExcel = new Guna.UI2.WinForms.Guna2Button();
+            this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransport)).BeginInit();
@@ -78,7 +86,7 @@ namespace ParcAuto.Forms
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(315, 21);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(16, 16);
+            this.label4.Size = new System.Drawing.Size(23, 25);
             this.label4.TabIndex = 14;
             this.label4.Text = "à";
             // 
@@ -88,7 +96,7 @@ namespace ParcAuto.Forms
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(13, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 16);
+            this.label3.Size = new System.Drawing.Size(91, 25);
             this.label3.TabIndex = 0;
             this.label3.Text = "Date de :";
             // 
@@ -130,9 +138,9 @@ namespace ParcAuto.Forms
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 13);
+            this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 16);
+            this.label2.Size = new System.Drawing.Size(80, 25);
             this.label2.TabIndex = 20;
             this.label2.Text = "Valeur :";
             // 
@@ -151,7 +159,7 @@ namespace ParcAuto.Forms
             this.txtValueToFiltre.FocusedState.Parent = this.txtValueToFiltre;
             this.txtValueToFiltre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtValueToFiltre.HoverState.Parent = this.txtValueToFiltre;
-            this.txtValueToFiltre.Location = new System.Drawing.Point(66, 6);
+            this.txtValueToFiltre.Location = new System.Drawing.Point(7, 31);
             this.txtValueToFiltre.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtValueToFiltre.Name = "txtValueToFiltre";
             this.txtValueToFiltre.PasswordChar = '\0';
@@ -252,7 +260,7 @@ namespace ParcAuto.Forms
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(9, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 16);
+            this.label1.Size = new System.Drawing.Size(100, 25);
             this.label1.TabIndex = 48;
             this.label1.Text = "Filter Par :";
             // 
@@ -374,6 +382,7 @@ namespace ParcAuto.Forms
             // Column1
             // 
             this.Column1.HeaderText = "id";
+            this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Visible = false;
@@ -381,50 +390,153 @@ namespace ParcAuto.Forms
             // Column2
             // 
             this.Column2.HeaderText = "Entite";
+            this.Column2.MinimumWidth = 8;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Benificiaire";
+            this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "N°Bon SNTL ou Email";
+            this.Column4.MinimumWidth = 8;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
-            this.Column5.HeaderText = "Date";
+            this.Column5.HeaderText = "Date     ";
+            this.Column5.MinimumWidth = 8;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
             // Column6
             // 
             this.Column6.HeaderText = "Destination";
+            this.Column6.MinimumWidth = 8;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
             // Column7
             // 
             this.Column7.HeaderText = "Type d\'utilisation";
+            this.Column7.MinimumWidth = 8;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
             // Column8
             // 
             this.Column8.HeaderText = "Prix";
+            this.Column8.MinimumWidth = 8;
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
+            // btnImprimer
+            // 
+            this.btnImprimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnImprimer.BorderRadius = 4;
+            this.btnImprimer.CheckedState.Parent = this.btnImprimer;
+            this.btnImprimer.CustomImages.Parent = this.btnImprimer;
+            this.btnImprimer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnImprimer.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnImprimer.ForeColor = System.Drawing.Color.White;
+            this.btnImprimer.HoverState.Parent = this.btnImprimer;
+            this.btnImprimer.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimer.Image")));
+            this.btnImprimer.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnImprimer.Location = new System.Drawing.Point(12, 629);
+            this.btnImprimer.Margin = new System.Windows.Forms.Padding(5);
+            this.btnImprimer.Name = "btnImprimer";
+            this.btnImprimer.ShadowDecoration.Parent = this.btnImprimer;
+            this.btnImprimer.Size = new System.Drawing.Size(100, 30);
+            this.btnImprimer.TabIndex = 54;
+            this.btnImprimer.Text = "imprimer";
+            this.btnImprimer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnImprimer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnImprimer.Click += new System.EventHandler(this.btnImprimer_Click);
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument1_BeginPrint);
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.Document = this.printDocument1;
+            this.printDialog1.ShowHelp = true;
+            this.printDialog1.UseEXDialog = true;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "OFPPT_logo.png");
+            // 
+            // btnImportExcel
+            // 
+            this.btnImportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnImportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnImportExcel.BorderRadius = 4;
+            this.btnImportExcel.CheckedState.Parent = this.btnImportExcel;
+            this.btnImportExcel.CustomImages.Parent = this.btnImportExcel;
+            this.btnImportExcel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnImportExcel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnImportExcel.ForeColor = System.Drawing.Color.White;
+            this.btnImportExcel.HoverState.Parent = this.btnImportExcel;
+            this.btnImportExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnImportExcel.Image")));
+            this.btnImportExcel.Location = new System.Drawing.Point(899, 16);
+            this.btnImportExcel.Margin = new System.Windows.Forms.Padding(5);
+            this.btnImportExcel.Name = "btnImportExcel";
+            this.btnImportExcel.ShadowDecoration.Parent = this.btnImportExcel;
+            this.btnImportExcel.Size = new System.Drawing.Size(40, 40);
+            this.btnImportExcel.TabIndex = 56;
+            this.btnImportExcel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnImportExcel.Click += new System.EventHandler(this.btnImportExcel_Click);
+            // 
+            // btnExportExcel
+            // 
+            this.btnExportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExportExcel.BorderRadius = 4;
+            this.btnExportExcel.CheckedState.Parent = this.btnExportExcel;
+            this.btnExportExcel.CustomImages.Parent = this.btnExportExcel;
+            this.btnExportExcel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnExportExcel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnExportExcel.ForeColor = System.Drawing.Color.White;
+            this.btnExportExcel.HoverState.Parent = this.btnExportExcel;
+            this.btnExportExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExcel.Image")));
+            this.btnExportExcel.Location = new System.Drawing.Point(949, 16);
+            this.btnExportExcel.Margin = new System.Windows.Forms.Padding(5);
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.ShadowDecoration.Parent = this.btnExportExcel;
+            this.btnExportExcel.Size = new System.Drawing.Size(40, 40);
+            this.btnExportExcel.TabIndex = 55;
+            this.btnExportExcel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
+            // 
             // Transport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 669);
+            this.Controls.Add(this.btnImportExcel);
+            this.Controls.Add(this.btnExportExcel);
+            this.Controls.Add(this.btnImprimer);
             this.Controls.Add(this.panelDate);
             this.Controls.Add(this.TextPanel);
             this.Controls.Add(this.btnFiltrer);
@@ -471,6 +583,10 @@ namespace ParcAuto.Forms
         private Guna.UI2.WinForms.Guna2Button btnModifier;
         private Guna.UI2.WinForms.Guna2Button btnSupprimer;
         private System.Windows.Forms.DataGridView dgvTransport;
+        private Guna.UI2.WinForms.Guna2Button btnImprimer;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -479,5 +595,8 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.ImageList imageList1;
+        private Guna.UI2.WinForms.Guna2Button btnImportExcel;
+        private Guna.UI2.WinForms.Guna2Button btnExportExcel;
     }
 }
