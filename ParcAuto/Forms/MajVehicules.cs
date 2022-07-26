@@ -26,7 +26,7 @@ namespace ParcAuto.Forms
             int nWidthEllipse, // height of ellipse
             int nHeightEllipse // width of ellipse
         );
-        string Marque, Modele, Couleur, Carburant, Observation, Conducteur, decision_nomination;
+        string Marque,Type, Carburant,affectation, Conducteur, decision_nomination, Observation;
         DateTime MiseEncirculation;
         public MajVehicules()
         {
@@ -35,20 +35,21 @@ namespace ParcAuto.Forms
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
         }
-        public MajVehicules(string Marque, string Modele,string Couleur,DateTime MiseEncirculation,string Carburant, string Observation, string Conducteur ,string decision_nomination)
+        public MajVehicules(string Marque,DateTime MiseEncirculation,string type,string Carburant,string affectation,  string Conducteur ,string decision_nomination, string Observation)
         {
             InitializeComponent();
             //Make the Corner Rounded
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
             this.Marque = Marque;
-            this.Modele = Modele;
-            this.Couleur = Couleur;
             this.MiseEncirculation = MiseEncirculation;
+            this.Type = type;
             this.Carburant = Carburant;
-            this.Observation = Observation;
+            this.affectation = affectation;
             this.Conducteur = Conducteur;
             this.decision_nomination = decision_nomination;
+            this.Observation = Observation;
+            
 
 
         }
@@ -69,8 +70,8 @@ namespace ParcAuto.Forms
         {
             txtMatricule.Text = GLB.Matricule_Voiture;
             txtMarque.Text = Marque;
-            txtAffectation.Text = Modele;
-            txtType.Text = Couleur;
+            txtAffectation.Text = affectation;
+            txtType.Text = Type;
             dateMiseEnCirculation.Value = MiseEncirculation;
             txtCarburant.Text = Carburant;
             txtObservation.Text = Observation;

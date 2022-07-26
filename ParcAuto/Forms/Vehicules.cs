@@ -84,11 +84,11 @@ namespace ParcAuto.Forms
                 string  Marque = dgvVehicules.CurrentRow.Cells[0].Value.ToString();
                 DateTime MiseEncirculation = Convert.ToDateTime(dgvVehicules.CurrentRow.Cells[2].Value);
                 string Type = dgvVehicules.CurrentRow.Cells[3].Value.ToString();
-                string Carburant = dgvVehicules.CurrentRow.Cells[4].Value.ToString();
-                string Affectation = dgvVehicules.CurrentRow.Cells[5].Value.ToString();
-                string Conducteur = dgvVehicules.CurrentRow.Cells[6].Value.ToString(); //Normalement type cmbMatNom
-                string decision_nomination = dgvVehicules.CurrentRow.Cells[7].Value.ToString();
-                string Observation = dgvVehicules.CurrentRow.Cells[8].Value.ToString();
+                string Carburant = dgvVehicules.CurrentRow.Cells[5].Value.ToString();
+                string Affectation = dgvVehicules.CurrentRow.Cells[6].Value.ToString();
+                string Conducteur = dgvVehicules.CurrentRow.Cells[7].Value.ToString(); //Normalement type cmbMatNom
+                string decision_nomination = dgvVehicules.CurrentRow.Cells[8].Value.ToString();
+                string Observation = dgvVehicules.CurrentRow.Cells[9].Value.ToString();
                 MajVehicules maj = new MajVehicules(Marque, MiseEncirculation,Type , Carburant,Affectation,Conducteur, decision_nomination, Observation) ;
                 Commandes.Command = Choix.modifier;
                 maj.ShowDialog();
