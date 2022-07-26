@@ -69,9 +69,9 @@ namespace ParcAuto.Classes_Globale
                         for (int i = 0; i < DGV.Rows[item].Cells.Count - 1; i++)
                         {
                             if (i < Skipindex)
-                                e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i], StartingRowPosition);
+                                e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i].Value.ToString(), out _)? ((longestcellinrow(DGV,i)- DGV.Rows[item].Cells[i].Value.ToString().Length)*FontRows.Size):0), StartingRowPosition);
                             else
-                                e.Graphics.DrawString(DGV.Rows[item].Cells[i+1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i], StartingRowPosition);
+                                e.Graphics.DrawString(DGV.Rows[item].Cells[i+1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i + 1].Value.ToString(), out _)?(longestcellinrow(DGV,i+1) - DGV.Rows[item].Cells[i + 1].Value.ToString().Length) *FontRows.Size:0), StartingRowPosition);
                         }
                         StartingRowPosition += 20;
                     }
