@@ -46,6 +46,7 @@ namespace ParcAuto
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FormsPlace = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.section2btnCond_Vehicu.SuspendLayout();
             this.panelSousVignettes.SuspendLayout();
@@ -75,7 +76,7 @@ namespace ParcAuto
             this.section2btnCond_Vehicu.Controls.Add(this.btnConducteurs);
             this.section2btnCond_Vehicu.Controls.Add(this.btnVehicules);
             this.section2btnCond_Vehicu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.section2btnCond_Vehicu.Location = new System.Drawing.Point(0, 352);
+            this.section2btnCond_Vehicu.Location = new System.Drawing.Point(0, 392);
             this.section2btnCond_Vehicu.Name = "section2btnCond_Vehicu";
             this.section2btnCond_Vehicu.Size = new System.Drawing.Size(200, 100);
             this.section2btnCond_Vehicu.TabIndex = 4;
@@ -126,7 +127,7 @@ namespace ParcAuto
             this.panelSousVignettes.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSousVignettes.Location = new System.Drawing.Point(0, 145);
             this.panelSousVignettes.Name = "panelSousVignettes";
-            this.panelSousVignettes.Size = new System.Drawing.Size(200, 207);
+            this.panelSousVignettes.Size = new System.Drawing.Size(200, 247);
             this.panelSousVignettes.TabIndex = 1;
             // 
             // btnCarburant
@@ -151,11 +152,12 @@ namespace ParcAuto
             // 
             // panelSousCarburants
             // 
+            this.panelSousCarburants.Controls.Add(this.button1);
             this.panelSousCarburants.Controls.Add(this.btnCarteFree);
             this.panelSousCarburants.Controls.Add(this.btnVSNTL);
             this.panelSousCarburants.Location = new System.Drawing.Point(0, 124);
             this.panelSousCarburants.Name = "panelSousCarburants";
-            this.panelSousCarburants.Size = new System.Drawing.Size(200, 80);
+            this.panelSousCarburants.Size = new System.Drawing.Size(200, 120);
             this.panelSousCarburants.TabIndex = 4;
             this.panelSousCarburants.Visible = false;
             // 
@@ -195,7 +197,7 @@ namespace ParcAuto
             this.btnVSNTL.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnVSNTL.Size = new System.Drawing.Size(200, 40);
             this.btnVSNTL.TabIndex = 4;
-            this.btnVSNTL.Text = "Vignettes SNTL";
+            this.btnVSNTL.Text = "SNTL Siège";
             this.btnVSNTL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnVSNTL.UseVisualStyleBackColor = false;
             this.btnVSNTL.Click += new System.EventHandler(this.btnVSNTL_Click);
@@ -299,6 +301,26 @@ namespace ParcAuto
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 80);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(200, 40);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "SNTL PRD";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -347,6 +369,7 @@ namespace ParcAuto
         private System.Windows.Forms.Button btnVSNTL;
         private System.Windows.Forms.Button btnTransport;
         private System.Windows.Forms.Button btnReparation;
+        private System.Windows.Forms.Button button1;
     }
 }
 
