@@ -150,7 +150,7 @@ namespace ParcAuto.Forms
             this.cmbVehicule.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbVehicule.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbVehicule.FormattingEnabled = true;
-            this.cmbVehicule.Location = new System.Drawing.Point(145, 61);
+            this.cmbVehicule.Location = new System.Drawing.Point(145, 63);
             this.cmbVehicule.Name = "cmbVehicule";
             this.cmbVehicule.Size = new System.Drawing.Size(219, 24);
             this.cmbVehicule.TabIndex = 2;
@@ -1524,7 +1524,7 @@ namespace ParcAuto.Forms
             // DMissions
             // 
             this.DMissions.AutoSize = true;
-            this.DMissions.Location = new System.Drawing.Point(482, 281);
+            this.DMissions.Location = new System.Drawing.Point(463, 281);
             this.DMissions.Name = "DMissions";
             this.DMissions.Size = new System.Drawing.Size(90, 21);
             this.DMissions.TabIndex = 22;
@@ -1535,7 +1535,7 @@ namespace ParcAuto.Forms
             // DFixe
             // 
             this.DFixe.AutoSize = true;
-            this.DFixe.Location = new System.Drawing.Point(415, 281);
+            this.DFixe.Location = new System.Drawing.Point(396, 281);
             this.DFixe.Name = "DFixe";
             this.DFixe.Size = new System.Drawing.Size(61, 21);
             this.DFixe.TabIndex = 23;
@@ -1546,7 +1546,7 @@ namespace ParcAuto.Forms
             // DHebdo
             // 
             this.DHebdo.AutoSize = true;
-            this.DHebdo.Location = new System.Drawing.Point(583, 281);
+            this.DHebdo.Location = new System.Drawing.Point(564, 281);
             this.DHebdo.Name = "DHebdo";
             this.DHebdo.Size = new System.Drawing.Size(78, 21);
             this.DHebdo.TabIndex = 24;
@@ -1585,7 +1585,7 @@ namespace ParcAuto.Forms
             // Dexceptionnel
             // 
             this.Dexceptionnel.AutoSize = true;
-            this.Dexceptionnel.Location = new System.Drawing.Point(667, 281);
+            this.Dexceptionnel.Location = new System.Drawing.Point(648, 281);
             this.Dexceptionnel.Name = "Dexceptionnel";
             this.Dexceptionnel.Size = new System.Drawing.Size(120, 21);
             this.Dexceptionnel.TabIndex = 28;

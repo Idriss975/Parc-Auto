@@ -24,11 +24,11 @@ namespace ParcAuto
             panelSousVignettes.Visible = false;
         }
         
-        private void hideSubMenu()
+        private void hideSubMenu(Panel subMenu)
         {
-            if (panelSousVignettes.Visible)
+            if (subMenu.Visible)
             {
-                panelSousVignettes.Visible = false;
+                subMenu.Visible = false;
             }
            
         } 
@@ -36,7 +36,7 @@ namespace ParcAuto
         {
             if (!subMenu.Visible)
             {
-                hideSubMenu();
+                
                 subMenu.Visible = true;
             }
             else
@@ -48,12 +48,12 @@ namespace ParcAuto
         private void btnVignettes_Click(object sender, EventArgs e)
         {
             showSubMenu(panelSousVignettes);
+          
         }
 
         private void btnCarburant_Click(object sender, EventArgs e)
         {
-            openChildForm(new Forms.Carburants(),sender);
-            //hideSubMenu();
+            showSubMenu(panelSousCarburants);
         }
 
         private void btnReparation_Click(object sender, EventArgs e)
@@ -76,7 +76,8 @@ namespace ParcAuto
 
         private void btnVehicules_Click(object sender, EventArgs e)
         {
-            hideSubMenu();
+            //hideSubMenu(panelSousVignettes);
+            
 
             openChildForm(new Forms.Vehicules(),sender);    //Open formulaire
         }
@@ -84,7 +85,7 @@ namespace ParcAuto
         private void btnConducteurs_Click(object sender, EventArgs e)
         {
             openChildForm(new Forms.Conducteurs(),sender);
-            hideSubMenu();
+            //hideSubMenu(panelSousVignettes);
         }
         Form ActiveForm;
         private void openChildForm(Form childForm,object btnSender)
@@ -119,6 +120,13 @@ namespace ParcAuto
                     previousBtn.BackColor = Color.FromArgb(115, 139, 215);
                 }
             }
+            foreach (Control previousBtn in panelSousCarburants.Controls)
+            {
+                if (previousBtn.GetType() == typeof(Button))
+                {
+                    previousBtn.BackColor = Color.FromArgb(115, 139, 215);
+                }
+            }
         }
         private void ActivateButton(object btnSender)
         {
@@ -141,6 +149,12 @@ namespace ParcAuto
         {
             if (ActiveForm != null)
                 ActiveForm.Close();
+        }
+
+        private void btnVSNTL_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.Carburants(), sender);
+
         }
     }
 }
