@@ -109,7 +109,7 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.Matricule_Voiture = (string)dgvVehicules.SelectedRows[1].Cells[0].Value;
+                GLB.Matricule_Voiture = (string)dgvVehicules.CurrentRow.Cells[1].Value;
                 GLB.Cmd.CommandText = $"delete from Vehicules where Matricule = '{GLB.Matricule_Voiture}'";
             }
             catch (ArgumentOutOfRangeException)
