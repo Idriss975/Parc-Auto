@@ -80,16 +80,16 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.Matricule_Voiture = dgvVehicules.CurrentRow.Cells[0].Value.ToString();
-                string  Marque = dgvVehicules.CurrentRow.Cells[1].Value.ToString();
-                string Modele = dgvVehicules.CurrentRow.Cells[2].Value.ToString();
-                string  Couleur = dgvVehicules.CurrentRow.Cells[3].Value.ToString();
-                DateTime MiseEncirculation = Convert.ToDateTime(dgvVehicules.CurrentRow.Cells[4].Value);
-                string Carburant = dgvVehicules.CurrentRow.Cells[6].Value.ToString();
-                string Observation = dgvVehicules.CurrentRow.Cells[7].Value.ToString();
-                string Conducteur = dgvVehicules.CurrentRow.Cells[8].Value.ToString(); //Normalement type cmbMatNom
-                string decision_nomination = dgvVehicules.CurrentRow.Cells[9].Value.ToString();
-                MajVehicules maj = new MajVehicules(Marque, Modele, Couleur, MiseEncirculation , Carburant, Observation,Conducteur, decision_nomination) ;
+                GLB.Matricule_Voiture = dgvVehicules.CurrentRow.Cells[1].Value.ToString();
+                string  Marque = dgvVehicules.CurrentRow.Cells[0].Value.ToString();
+                DateTime MiseEncirculation = Convert.ToDateTime(dgvVehicules.CurrentRow.Cells[2].Value);
+                string Type = dgvVehicules.CurrentRow.Cells[3].Value.ToString();
+                string Carburant = dgvVehicules.CurrentRow.Cells[4].Value.ToString();
+                string Affectation = dgvVehicules.CurrentRow.Cells[5].Value.ToString();
+                string Conducteur = dgvVehicules.CurrentRow.Cells[6].Value.ToString(); //Normalement type cmbMatNom
+                string decision_nomination = dgvVehicules.CurrentRow.Cells[7].Value.ToString();
+                string Observation = dgvVehicules.CurrentRow.Cells[8].Value.ToString();
+                MajVehicules maj = new MajVehicules(Marque, MiseEncirculation,Type , Carburant,Affectation,Conducteur, decision_nomination, Observation) ;
                 Commandes.Command = Choix.modifier;
                 maj.ShowDialog();
                 RemplirLaGrille();
@@ -109,7 +109,7 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.Matricule_Voiture = (string)dgvVehicules.SelectedRows[0].Cells[0].Value;
+                GLB.Matricule_Voiture = (string)dgvVehicules.SelectedRows[1].Cells[0].Value;
                 GLB.Cmd.CommandText = $"delete from Vehicules where Matricule = '{GLB.Matricule_Voiture}'";
             }
             catch (ArgumentOutOfRangeException)
@@ -176,16 +176,16 @@ namespace ParcAuto.Forms
         {
             DataSet ds = new DataSet();
             System.Data.DataTable dt = new System.Data.DataTable();
-            dt.Columns.Add("Matricule",typeof(string));
             dt.Columns.Add("Marque", typeof(string));
-            dt.Columns.Add("Modele", typeof(string));
-            dt.Columns.Add("Couleur", typeof(string));
+            dt.Columns.Add("Matricule", typeof(string));
             dt.Columns.Add("Mise En circulation", typeof(DateTime));
-            dt.Columns.Add("L'age du Voiture", typeof(int));
+            dt.Columns.Add("Type", typeof(string));
+            dt.Columns.Add("Age", typeof(string));
             dt.Columns.Add("Carburant", typeof(string));
-            dt.Columns.Add("Observation", typeof(string));
-            dt.Columns.Add("Conducteur", typeof(string));
+            dt.Columns.Add("Affectation", typeof(int));
+            dt.Columns.Add("Utilisateur", typeof(string));
             dt.Columns.Add("decision de nomination ", typeof(string));
+            dt.Columns.Add("Observation", typeof(string));
             foreach (DataGridViewRow dgv in dgvVehicules.Rows)
             {
                 dt.Rows.Add(dgv.Cells[0].Value, dgv.Cells[1].Value, dgv.Cells[2].Value, dgv.Cells[3].Value, dgv.Cells[4].Value, dgv.Cells[5].Value, dgv.Cells[6].Value
