@@ -43,10 +43,10 @@ namespace ParcAuto.Forms
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
                 {
-                    if (GLB.dr.IsDBNull(7))
-                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToShortDateString(),DateTime.Now.Year - ((DateTime)GLB.dr[4]).Year  ,GLB.dr[5], GLB.dr[6], new CmbMatNom(null, "Sans conducteur"), GLB.dr[8]);
+                    if (GLB.dr.IsDBNull(6))
+                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], ((DateTime)GLB.dr[2]).ToString("yyyy-MM-dd"), GLB.dr[3], DateTime.Now.Year - ((DateTime)GLB.dr[2]).Year  ,GLB.dr[4], GLB.dr[5], new CmbMatNom(null, "Sans conducteur"), GLB.dr[7], GLB.dr[8]);
                     else
-                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToShortDateString(), DateTime.Now.Year - ((DateTime)GLB.dr[4]).Year, GLB.dr[5], GLB.dr[6], new CmbMatNom(Convert.ToInt32(GLB.dr[7]), $"{GLB.dr[9]} {GLB.dr[10]}"),GLB.dr[8]);
+                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], ((DateTime)GLB.dr[2]).ToString("yyyy-MM-dd"), GLB.dr[3], DateTime.Now.Year - ((DateTime)GLB.dr[2]).Year, GLB.dr[4], GLB.dr[5], new CmbMatNom(Convert.ToInt32(GLB.dr[6]), $"{GLB.dr[9]} {GLB.dr[10]}"),GLB.dr[7], GLB.dr[8]);
                 } 
             }
             catch (Exception ex) //TODO: Implement Sql Exemption error (idriss)
