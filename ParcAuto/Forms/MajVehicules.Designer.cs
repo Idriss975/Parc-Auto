@@ -170,7 +170,7 @@ namespace ParcAuto.Forms
             this.txtMatricule.SelectedText = "";
             this.txtMatricule.ShadowDecoration.Parent = this.txtMatricule;
             this.txtMatricule.Size = new System.Drawing.Size(216, 34);
-            this.txtMatricule.TabIndex = 0;
+            this.txtMatricule.TabIndex = 2;
             // 
             // txtMarque
             // 
@@ -225,7 +225,7 @@ namespace ParcAuto.Forms
             this.txtAffectation.SelectedText = "";
             this.txtAffectation.ShadowDecoration.Parent = this.txtAffectation;
             this.txtAffectation.Size = new System.Drawing.Size(216, 34);
-            this.txtAffectation.TabIndex = 2;
+            this.txtAffectation.TabIndex = 6;
             // 
             // label5
             // 
@@ -252,7 +252,7 @@ namespace ParcAuto.Forms
             this.dateMiseEnCirculation.Name = "dateMiseEnCirculation";
             this.dateMiseEnCirculation.ShadowDecoration.Parent = this.dateMiseEnCirculation;
             this.dateMiseEnCirculation.Size = new System.Drawing.Size(216, 36);
-            this.dateMiseEnCirculation.TabIndex = 60;
+            this.dateMiseEnCirculation.TabIndex = 3;
             this.dateMiseEnCirculation.Value = new System.DateTime(2022, 7, 5, 13, 42, 29, 61);
             // 
             // label6
@@ -306,7 +306,7 @@ namespace ParcAuto.Forms
             this.btnAppliquer.Name = "btnAppliquer";
             this.btnAppliquer.ShadowDecoration.Parent = this.btnAppliquer;
             this.btnAppliquer.Size = new System.Drawing.Size(105, 30);
-            this.btnAppliquer.TabIndex = 8;
+            this.btnAppliquer.TabIndex = 10;
             this.btnAppliquer.Text = "Appliquer";
             this.btnAppliquer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnAppliquer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
@@ -380,7 +380,7 @@ namespace ParcAuto.Forms
             this.txtType.SelectedText = "";
             this.txtType.ShadowDecoration.Parent = this.txtType;
             this.txtType.Size = new System.Drawing.Size(216, 38);
-            this.txtType.TabIndex = 3;
+            this.txtType.TabIndex = 4;
             // 
             // label1
             // 
@@ -416,7 +416,7 @@ namespace ParcAuto.Forms
             this.txtDnomination.SelectedText = "";
             this.txtDnomination.ShadowDecoration.Parent = this.txtDnomination;
             this.txtDnomination.Size = new System.Drawing.Size(216, 34);
-            this.txtDnomination.TabIndex = 62;
+            this.txtDnomination.TabIndex = 8;
             // 
             // lbl
             // 
@@ -456,7 +456,7 @@ namespace ParcAuto.Forms
             this.txtObservation.Location = new System.Drawing.Point(36, 291);
             this.txtObservation.Name = "txtObservation";
             this.txtObservation.Size = new System.Drawing.Size(362, 71);
-            this.txtObservation.TabIndex = 18;
+            this.txtObservation.TabIndex = 9;
             this.txtObservation.Text = "";
             // 
             // MajVehicules
