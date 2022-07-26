@@ -26,7 +26,7 @@ namespace ParcAuto.Forms
             int nWidthEllipse, // height of ellipse
             int nHeightEllipse // width of ellipse
         );
-        string Marque, Modele, Couleur, Carburant, Observation, Conducteur, decision_nomination;
+        string Marque,Type, Carburant,affectation, Conducteur, decision_nomination, Observation;
         DateTime MiseEncirculation;
         public MajVehicules()
         {
@@ -35,20 +35,21 @@ namespace ParcAuto.Forms
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
         }
-        public MajVehicules(string Marque, string Modele,string Couleur,DateTime MiseEncirculation,string Carburant, string Observation, string Conducteur ,string decision_nomination)
+        public MajVehicules(string Marque,DateTime MiseEncirculation,string type,string Carburant,string affectation,  string Conducteur ,string decision_nomination, string Observation)
         {
             InitializeComponent();
             //Make the Corner Rounded
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
             this.Marque = Marque;
-            this.Modele = Modele;
-            this.Couleur = Couleur;
             this.MiseEncirculation = MiseEncirculation;
+            this.Type = type;
             this.Carburant = Carburant;
-            this.Observation = Observation;
+            this.affectation = affectation;
             this.Conducteur = Conducteur;
             this.decision_nomination = decision_nomination;
+            this.Observation = Observation;
+            
 
 
         }
@@ -56,8 +57,8 @@ namespace ParcAuto.Forms
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtMarque.Clear();
-            txtModele.Clear();
-            txtCouleur.Clear();
+            txtAffectation.Clear();
+            txtType.Clear();
             dateMiseEnCirculation.Value = DateTime.Now;
             txtCarburant.Clear();
             txtObservation.Clear();
@@ -69,8 +70,8 @@ namespace ParcAuto.Forms
         {
             txtMatricule.Text = GLB.Matricule_Voiture;
             txtMarque.Text = Marque;
-            txtModele.Text = Modele;
-            txtCouleur.Text = Couleur;
+            txtAffectation.Text = affectation;
+            txtType.Text = Type;
             dateMiseEnCirculation.Value = MiseEncirculation;
             txtCarburant.Text = Carburant;
             txtObservation.Text = Observation;
@@ -93,7 +94,7 @@ namespace ParcAuto.Forms
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
             string TempMatricule = ""; //Pour Voir si Matricule est null ou pas.
-            if (!(txtMarque.Text == "" || txtModele.Text == "" || txtCouleur.Text == "" || txtCarburant.Text == ""))
+            if (!(txtMarque.Text == "" || txtAffectation.Text == "" || txtType.Text == "" || txtCarburant.Text == ""))
             {
                 if (((CmbMatNom)cmbConducteur.SelectedItem).Matricule is null)
                     TempMatricule = "null";
@@ -102,11 +103,11 @@ namespace ParcAuto.Forms
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
-                        GLB.Cmd.CommandText = $"insert into Vehicules values ('{txtMatricule.Text}', '{txtMarque.Text}', '{txtModele.Text}', '{txtCouleur.Text}','{dateMiseEnCirculation.Value.ToString("yyyy-MM-dd")}', '{txtCarburant.Text}', '{txtObservation.Text}', {TempMatricule},'{txtDnomination.Text}')";
+                        GLB.Cmd.CommandText = $"insert into Vehicules values ('{txtMarque.Text}', '{txtMatricule.Text}', '{dateMiseEnCirculation.Value.ToString("yyyy-MM-dd")}', '{txtType.Text}', '{txtCarburant.Text}', '{txtAffectation.Text}', {TempMatricule},'{txtDnomination.Text}','{txtObservation.Text}')";
                         break;
                     case Choix.modifier:
 
-                        GLB.Cmd.CommandText = $"update Vehicules set  Marque='{txtMarque.Text}', Modele='{txtModele.Text}', Couleur='{txtCouleur.Text}', MiseEnCirculation='{dateMiseEnCirculation.Value.ToString("yyyy-MM-dd")}', Carburant='{txtCarburant.Text}', Observation='{txtObservation.Text}',decision_nomination = '{txtDnomination.Text}', Conducteur={TempMatricule} where Matricule='{GLB.Matricule_Voiture}'";
+                        GLB.Cmd.CommandText = $"update Vehicules set  Marque='{txtMarque.Text}', Type='{txtAffectation.Text}', MiseEnCirculation='{dateMiseEnCirculation.Value.ToString("yyyy-MM-dd")}', Carburant='{txtCarburant.Text}', Observation='{txtObservation.Text}',decision_nomination = '{txtDnomination.Text}', Conducteur={TempMatricule} , affectation = '{txtAffectation.Text}' where Matricule='{GLB.Matricule_Voiture}'";
                         break;
                     case Choix.supprimer:
                         throw new Exception("Impossible de supprimer avec MajVehicules.");

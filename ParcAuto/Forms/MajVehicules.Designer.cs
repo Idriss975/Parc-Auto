@@ -38,7 +38,7 @@ namespace ParcAuto.Forms
             this.label4 = new System.Windows.Forms.Label();
             this.txtMatricule = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtMarque = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtModele = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtAffectation = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dateMiseEnCirculation = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
@@ -46,13 +46,13 @@ namespace ParcAuto.Forms
             this.label8 = new System.Windows.Forms.Label();
             this.btnAppliquer = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtCouleur = new Guna.UI2.WinForms.Guna2TextBox();
             this.cmbConducteur = new System.Windows.Forms.ComboBox();
+            this.txtType = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtDnomination = new Guna.UI2.WinForms.Guna2TextBox();
             this.lbl = new System.Windows.Forms.Label();
             this.btnClear = new Guna.UI2.WinForms.Guna2Button();
             this.txtObservation = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtDnomination = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,7 +94,7 @@ namespace ParcAuto.Forms
             this.txtCarburant.FocusedState.Parent = this.txtCarburant;
             this.txtCarburant.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCarburant.HoverState.Parent = this.txtCarburant;
-            this.txtCarburant.Location = new System.Drawing.Point(538, 98);
+            this.txtCarburant.Location = new System.Drawing.Point(156, 98);
             this.txtCarburant.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtCarburant.Name = "txtCarburant";
             this.txtCarburant.PasswordChar = '\0';
@@ -108,8 +108,8 @@ namespace ParcAuto.Forms
             // 
             this.Matricule.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Matricule.AutoSize = true;
-            this.Matricule.Location = new System.Drawing.Point(5, 15);
-            this.Matricule.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.Matricule.Location = new System.Drawing.Point(412, 15);
+            this.Matricule.Margin = new System.Windows.Forms.Padding(33, 0, 5, 0);
             this.Matricule.Name = "Matricule";
             this.Matricule.Size = new System.Drawing.Size(66, 16);
             this.Matricule.TabIndex = 0;
@@ -119,8 +119,8 @@ namespace ParcAuto.Forms
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(412, 15);
-            this.label2.Margin = new System.Windows.Forms.Padding(33, 0, 5, 0);
+            this.label2.Location = new System.Drawing.Point(5, 15);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 16);
             this.label2.TabIndex = 2;
@@ -130,12 +130,12 @@ namespace ParcAuto.Forms
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 61);
+            this.label3.Location = new System.Drawing.Point(5, 107);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 16);
+            this.label3.Size = new System.Drawing.Size(77, 16);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Modele :";
+            this.label3.Text = "Carburant :";
             // 
             // label4
             // 
@@ -144,9 +144,9 @@ namespace ParcAuto.Forms
             this.label4.Location = new System.Drawing.Point(412, 61);
             this.label4.Margin = new System.Windows.Forms.Padding(33, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 16);
+            this.label4.Size = new System.Drawing.Size(50, 16);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Couleur : ";
+            this.label4.Text = "Type : ";
             // 
             // txtMatricule
             // 
@@ -162,7 +162,7 @@ namespace ParcAuto.Forms
             this.txtMatricule.FocusedState.Parent = this.txtMatricule;
             this.txtMatricule.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMatricule.HoverState.Parent = this.txtMatricule;
-            this.txtMatricule.Location = new System.Drawing.Point(156, 6);
+            this.txtMatricule.Location = new System.Drawing.Point(535, 6);
             this.txtMatricule.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtMatricule.Name = "txtMatricule";
             this.txtMatricule.PasswordChar = '\0';
@@ -187,7 +187,7 @@ namespace ParcAuto.Forms
             this.txtMarque.FocusedState.Parent = this.txtMarque;
             this.txtMarque.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMarque.HoverState.Parent = this.txtMarque;
-            this.txtMarque.Location = new System.Drawing.Point(538, 6);
+            this.txtMarque.Location = new System.Drawing.Point(156, 6);
             this.txtMarque.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtMarque.Name = "txtMarque";
             this.txtMarque.PasswordChar = '\0';
@@ -197,35 +197,35 @@ namespace ParcAuto.Forms
             this.txtMarque.Size = new System.Drawing.Size(216, 34);
             this.txtMarque.TabIndex = 1;
             // 
-            // txtModele
+            // txtAffectation
             // 
-            this.txtModele.BorderRadius = 4;
-            this.txtModele.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtModele.DefaultText = "";
-            this.txtModele.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtModele.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtModele.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtModele.DisabledState.Parent = this.txtModele;
-            this.txtModele.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtModele.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtModele.FocusedState.Parent = this.txtModele;
-            this.txtModele.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtModele.HoverState.Parent = this.txtModele;
-            this.txtModele.Location = new System.Drawing.Point(156, 52);
-            this.txtModele.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.txtModele.Name = "txtModele";
-            this.txtModele.PasswordChar = '\0';
-            this.txtModele.PlaceholderText = "";
-            this.txtModele.SelectedText = "";
-            this.txtModele.ShadowDecoration.Parent = this.txtModele;
-            this.txtModele.Size = new System.Drawing.Size(216, 34);
-            this.txtModele.TabIndex = 2;
+            this.txtAffectation.BorderRadius = 4;
+            this.txtAffectation.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtAffectation.DefaultText = "";
+            this.txtAffectation.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtAffectation.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtAffectation.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtAffectation.DisabledState.Parent = this.txtAffectation;
+            this.txtAffectation.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtAffectation.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtAffectation.FocusedState.Parent = this.txtAffectation;
+            this.txtAffectation.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtAffectation.HoverState.Parent = this.txtAffectation;
+            this.txtAffectation.Location = new System.Drawing.Point(535, 98);
+            this.txtAffectation.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtAffectation.Name = "txtAffectation";
+            this.txtAffectation.PasswordChar = '\0';
+            this.txtAffectation.PlaceholderText = "";
+            this.txtAffectation.SelectedText = "";
+            this.txtAffectation.ShadowDecoration.Parent = this.txtAffectation;
+            this.txtAffectation.Size = new System.Drawing.Size(216, 34);
+            this.txtAffectation.TabIndex = 2;
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 107);
+            this.label5.Location = new System.Drawing.Point(5, 61);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(135, 16);
@@ -239,7 +239,7 @@ namespace ParcAuto.Forms
             this.dateMiseEnCirculation.FillColor = System.Drawing.Color.White;
             this.dateMiseEnCirculation.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateMiseEnCirculation.HoverState.Parent = this.dateMiseEnCirculation;
-            this.dateMiseEnCirculation.Location = new System.Drawing.Point(154, 97);
+            this.dateMiseEnCirculation.Location = new System.Drawing.Point(154, 51);
             this.dateMiseEnCirculation.Margin = new System.Windows.Forms.Padding(5);
             this.dateMiseEnCirculation.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dateMiseEnCirculation.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
@@ -256,9 +256,9 @@ namespace ParcAuto.Forms
             this.label6.Location = new System.Drawing.Point(412, 107);
             this.label6.Margin = new System.Windows.Forms.Padding(33, 0, 5, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 16);
+            this.label6.Size = new System.Drawing.Size(85, 16);
             this.label6.TabIndex = 13;
-            this.label6.Text = "Carburant :";
+            this.label6.Text = "Affectation :";
             // 
             // label7
             // 
@@ -278,9 +278,9 @@ namespace ParcAuto.Forms
             this.label8.Location = new System.Drawing.Point(5, 154);
             this.label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(87, 16);
+            this.label8.Size = new System.Drawing.Size(80, 16);
             this.label8.TabIndex = 17;
-            this.label8.Text = "Conducteur :";
+            this.label8.Text = "Utilisateur :";
             // 
             // btnAppliquer
             // 
@@ -313,22 +313,22 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.1549F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.48945F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.82052F));
-            this.tableLayoutPanel1.Controls.Add(this.txtCarburant, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.Matricule, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.Matricule, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtMatricule, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.cmbConducteur, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.txtModele, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label8, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.dateMiseEnCirculation, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txtAffectation, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txtMatricule, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label6, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtMarque, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txtCouleur, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtType, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtDnomination, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dateMiseEnCirculation, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtMarque, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtCarburant, 1, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(28, 66);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -340,41 +340,77 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Size = new System.Drawing.Size(765, 186);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
-            // txtCouleur
-            // 
-            this.txtCouleur.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCouleur.BorderRadius = 4;
-            this.txtCouleur.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCouleur.DefaultText = "";
-            this.txtCouleur.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtCouleur.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtCouleur.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCouleur.DisabledState.Parent = this.txtCouleur;
-            this.txtCouleur.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCouleur.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCouleur.FocusedState.Parent = this.txtCouleur;
-            this.txtCouleur.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCouleur.HoverState.Parent = this.txtCouleur;
-            this.txtCouleur.Location = new System.Drawing.Point(538, 50);
-            this.txtCouleur.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCouleur.Name = "txtCouleur";
-            this.txtCouleur.PasswordChar = '\0';
-            this.txtCouleur.PlaceholderText = "";
-            this.txtCouleur.SelectedText = "";
-            this.txtCouleur.ShadowDecoration.Parent = this.txtCouleur;
-            this.txtCouleur.Size = new System.Drawing.Size(216, 38);
-            this.txtCouleur.TabIndex = 3;
-            // 
             // cmbConducteur
             // 
             this.cmbConducteur.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbConducteur.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbConducteur.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbConducteur.FormattingEnabled = true;
-            this.cmbConducteur.Location = new System.Drawing.Point(156, 150);
+            this.cmbConducteur.Location = new System.Drawing.Point(156, 151);
             this.cmbConducteur.Name = "cmbConducteur";
             this.cmbConducteur.Size = new System.Drawing.Size(216, 24);
             this.cmbConducteur.TabIndex = 7;
+            // 
+            // txtType
+            // 
+            this.txtType.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtType.BorderRadius = 4;
+            this.txtType.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtType.DefaultText = "";
+            this.txtType.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtType.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtType.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtType.DisabledState.Parent = this.txtType;
+            this.txtType.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtType.FocusedState.Parent = this.txtType;
+            this.txtType.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtType.HoverState.Parent = this.txtType;
+            this.txtType.Location = new System.Drawing.Point(538, 50);
+            this.txtType.Margin = new System.Windows.Forms.Padding(4);
+            this.txtType.Name = "txtType";
+            this.txtType.PasswordChar = '\0';
+            this.txtType.PlaceholderText = "";
+            this.txtType.SelectedText = "";
+            this.txtType.ShadowDecoration.Parent = this.txtType;
+            this.txtType.Size = new System.Drawing.Size(216, 38);
+            this.txtType.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(412, 146);
+            this.label1.Margin = new System.Windows.Forms.Padding(33, 0, 3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 32);
+            this.label1.TabIndex = 61;
+            this.label1.Text = "Décision de nomination :";
+            // 
+            // txtDnomination
+            // 
+            this.txtDnomination.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtDnomination.BorderRadius = 4;
+            this.txtDnomination.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtDnomination.DefaultText = "";
+            this.txtDnomination.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtDnomination.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtDnomination.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDnomination.DisabledState.Parent = this.txtDnomination;
+            this.txtDnomination.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDnomination.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDnomination.FocusedState.Parent = this.txtDnomination;
+            this.txtDnomination.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDnomination.HoverState.Parent = this.txtDnomination;
+            this.txtDnomination.Location = new System.Drawing.Point(538, 145);
+            this.txtDnomination.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDnomination.Name = "txtDnomination";
+            this.txtDnomination.PasswordChar = '\0';
+            this.txtDnomination.PlaceholderText = "";
+            this.txtDnomination.SelectedText = "";
+            this.txtDnomination.ShadowDecoration.Parent = this.txtDnomination;
+            this.txtDnomination.Size = new System.Drawing.Size(216, 34);
+            this.txtDnomination.TabIndex = 62;
             // 
             // lbl
             // 
@@ -417,42 +453,6 @@ namespace ParcAuto.Forms
             this.txtObservation.TabIndex = 18;
             this.txtObservation.Text = "";
             // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(412, 146);
-            this.label1.Margin = new System.Windows.Forms.Padding(33, 0, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 32);
-            this.label1.TabIndex = 61;
-            this.label1.Text = "Décision de nomination :";
-            // 
-            // txtDnomination
-            // 
-            this.txtDnomination.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtDnomination.BorderRadius = 4;
-            this.txtDnomination.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtDnomination.DefaultText = "";
-            this.txtDnomination.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtDnomination.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtDnomination.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDnomination.DisabledState.Parent = this.txtDnomination;
-            this.txtDnomination.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDnomination.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDnomination.FocusedState.Parent = this.txtDnomination;
-            this.txtDnomination.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDnomination.HoverState.Parent = this.txtDnomination;
-            this.txtDnomination.Location = new System.Drawing.Point(538, 145);
-            this.txtDnomination.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtDnomination.Name = "txtDnomination";
-            this.txtDnomination.PasswordChar = '\0';
-            this.txtDnomination.PlaceholderText = "";
-            this.txtDnomination.SelectedText = "";
-            this.txtDnomination.ShadowDecoration.Parent = this.txtDnomination;
-            this.txtDnomination.Size = new System.Drawing.Size(216, 34);
-            this.txtDnomination.TabIndex = 62;
-            // 
             // MajVehicules
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -491,7 +491,7 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2TextBox txtMatricule;
         private Guna.UI2.WinForms.Guna2TextBox txtMarque;
-        private Guna.UI2.WinForms.Guna2TextBox txtModele;
+        private Guna.UI2.WinForms.Guna2TextBox txtAffectation;
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2DateTimePicker dateMiseEnCirculation;
         private System.Windows.Forms.Label label6;
@@ -499,7 +499,7 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2Button btnAppliquer;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private Guna.UI2.WinForms.Guna2TextBox txtCouleur;
+        private Guna.UI2.WinForms.Guna2TextBox txtType;
         private System.Windows.Forms.ComboBox cmbConducteur;
         private System.Windows.Forms.Label lbl;
         private Guna.UI2.WinForms.Guna2Button btnClear;
