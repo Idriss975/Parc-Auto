@@ -323,6 +323,11 @@ namespace ParcAuto.Forms
             if (printDialog1.ShowDialog(this) == DialogResult.OK)
             {
                 printPreviewDialog1.Document.PrinterSettings = printDialog1.PrinterSettings;
+                if (!printDialog1.Document.DefaultPageSettings.Landscape)
+                {
+                    MessageBox.Show("La table ne peut pas tenir à l'intérieur du papier avec cette orientation.\nChangement d'orientation en portait.","Attention!",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    printDialog1.Document.DefaultPageSettings.Landscape = true;
+                }
                 printPreviewDialog1.ShowDialog();
             }
         }
