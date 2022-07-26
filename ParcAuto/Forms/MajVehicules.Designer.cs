@@ -199,6 +199,12 @@ namespace ParcAuto.Forms
             // 
             // txtAffectation
             // 
+            this.txtAffectation.AutoCompleteCustomSource.AddRange(new string[] {
+            "M.rouge",
+            "Location",
+            "fondation PRD"});
+            this.txtAffectation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtAffectation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtAffectation.BorderRadius = 4;
             this.txtAffectation.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtAffectation.DefaultText = "";
@@ -346,7 +352,7 @@ namespace ParcAuto.Forms
             this.cmbConducteur.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbConducteur.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbConducteur.FormattingEnabled = true;
-            this.cmbConducteur.Location = new System.Drawing.Point(156, 151);
+            this.cmbConducteur.Location = new System.Drawing.Point(156, 150);
             this.cmbConducteur.Name = "cmbConducteur";
             this.cmbConducteur.Size = new System.Drawing.Size(216, 24);
             this.cmbConducteur.TabIndex = 7;
