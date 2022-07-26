@@ -59,6 +59,7 @@ namespace ParcAuto.Forms
             this.OmnYear = new System.Windows.Forms.Label();
             this.txtObservation = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Dexceptionnel = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -149,7 +150,7 @@ namespace ParcAuto.Forms
             this.cmbVehicule.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbVehicule.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbVehicule.FormattingEnabled = true;
-            this.cmbVehicule.Location = new System.Drawing.Point(145, 63);
+            this.cmbVehicule.Location = new System.Drawing.Point(145, 61);
             this.cmbVehicule.Name = "cmbVehicule";
             this.cmbVehicule.Size = new System.Drawing.Size(219, 24);
             this.cmbVehicule.TabIndex = 2;
@@ -1523,7 +1524,7 @@ namespace ParcAuto.Forms
             // DMissions
             // 
             this.DMissions.AutoSize = true;
-            this.DMissions.Location = new System.Drawing.Point(511, 281);
+            this.DMissions.Location = new System.Drawing.Point(482, 281);
             this.DMissions.Name = "DMissions";
             this.DMissions.Size = new System.Drawing.Size(90, 21);
             this.DMissions.TabIndex = 22;
@@ -1545,7 +1546,7 @@ namespace ParcAuto.Forms
             // DHebdo
             // 
             this.DHebdo.AutoSize = true;
-            this.DHebdo.Location = new System.Drawing.Point(632, 281);
+            this.DHebdo.Location = new System.Drawing.Point(583, 281);
             this.DHebdo.Name = "DHebdo";
             this.DHebdo.Size = new System.Drawing.Size(78, 21);
             this.DHebdo.TabIndex = 24;
@@ -1581,12 +1582,24 @@ namespace ParcAuto.Forms
             this.label1.TabIndex = 27;
             this.label1.Text = "Observation :";
             // 
+            // Dexceptionnel
+            // 
+            this.Dexceptionnel.AutoSize = true;
+            this.Dexceptionnel.Location = new System.Drawing.Point(667, 281);
+            this.Dexceptionnel.Name = "Dexceptionnel";
+            this.Dexceptionnel.Size = new System.Drawing.Size(120, 21);
+            this.Dexceptionnel.TabIndex = 28;
+            this.Dexceptionnel.TabStop = true;
+            this.Dexceptionnel.Text = "DExceptionnel ";
+            this.Dexceptionnel.UseVisualStyleBackColor = true;
+            // 
             // MajCarburants
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(797, 427);
+            this.Controls.Add(this.Dexceptionnel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtObservation);
             this.Controls.Add(this.OmnYear);
@@ -1646,5 +1659,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2TextBox txtpourcentage;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.RadioButton Dexceptionnel;
     }
 }

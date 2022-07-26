@@ -30,10 +30,10 @@ namespace ParcAuto.Forms
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
         }
-        string Entite, Benificiaire, vehicules, lieu, Dfix, DMiss, Dhebdo,omn ,Observation,km,pourcentage;
+        string Entite, Benificiaire, vehicules, lieu, Dfix, DMiss, Dhebdo, DExceptionnel, omn ,Observation,km,pourcentage;
         DateTime DateOpera;
         
-        public MajCarburants(string Entite, string Benificiaire, string vehicules,DateTime DateOpera,string lieu,string km,string pourcentage,string omn, string  Dfix, string DMiss, string Dhebdo, string Observation)
+        public MajCarburants(string Entite, string Benificiaire, string vehicules,DateTime DateOpera,string lieu,string km,string pourcentage,string omn, string  Dfix, string DMiss, string Dhebdo,string Dexceptionnel, string Observation)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
@@ -49,6 +49,7 @@ namespace ParcAuto.Forms
             this.omn = omn;
             this.Observation = Observation;
             this.km = km;
+            this.DExceptionnel = Dexceptionnel;
             this.pourcentage = pourcentage;
         }
         private void RemplirChamps()
@@ -67,6 +68,7 @@ namespace ParcAuto.Forms
                 DHebdo.Checked = true;
                 DFixe.Checked = false;
                 DMissions.Checked = false;
+                Dexceptionnel.Checked = false;
                 txtDotation.Text = Dhebdo;
             }
 
@@ -75,6 +77,7 @@ namespace ParcAuto.Forms
                 DHebdo.Checked = false;
                 DFixe.Checked = false;
                 DMissions.Checked = true;
+                Dexceptionnel.Checked = false;
                 txtDotation.Text = DMiss;
             }
 
@@ -83,7 +86,16 @@ namespace ParcAuto.Forms
                 DHebdo.Checked = false;
                 DFixe.Checked = true;
                 DMissions.Checked = false;
+                Dexceptionnel.Checked = false;
                 txtDotation.Text = Dfix;
+            }
+            else if (DExceptionnel != "")
+            {
+                DHebdo.Checked = false;
+                DFixe.Checked = false;
+                DMissions.Checked = false;
+                Dexceptionnel.Checked = true;
+                txtDotation.Text = DExceptionnel;
             }
 
 
@@ -132,6 +144,7 @@ namespace ParcAuto.Forms
             DFixe.Checked = false;
             DHebdo.Checked = false;
             DMissions.Checked = false;
+            Dexceptionnel.Checked = false;
         }
 
         private void MajCarburants_Load(object sender, EventArgs e)
@@ -142,10 +155,10 @@ namespace ParcAuto.Forms
             switch (Commandes.Command)
             {
                 case Choix.ajouter:
-                    lbl.Text = "L'ajout d'un Conducteur";
+                    lbl.Text = "L'ajout d'une Vignnette carburant";
                     break;
                 case Choix.modifier:
-                    lbl.Text = "La modification d'une Vignette Carburant";
+                    lbl.Text = "La modification d'une Vignette carburant";
                     RemplirChamps();
                     break;
                 case Choix.supprimer:
@@ -161,6 +174,7 @@ namespace ParcAuto.Forms
         string DoFixe;
         string DoMissions;
         string DoHebdo;
+        string DoExp;
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
             //TODO: Try catch sql exception
@@ -171,31 +185,41 @@ namespace ParcAuto.Forms
                     DoMissions = txtDotation.Text;
                     DoFixe = "null";
                     DoHebdo = "null";
+                    DoExp = "null";
                 }
                 else if (DFixe.Checked)
                 {
                     DoMissions = "null";
                     DoFixe = txtDotation.Text;
+                    DoExp = "null";
                     DoHebdo = "null";
                 }
                 else if (DHebdo.Checked)
                 {
                     DoFixe = "null";
+                    DoExp = "null";
                     DoMissions = "null";
                     DoHebdo = txtDotation.Text;
+                }
+                else if (Dexceptionnel.Checked)
+                {
+                    DoFixe = "null";
+                    DoExp = txtDotation.Text;
+                    DoMissions = "null";
+                    DoHebdo = "null";
                 }
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
                         GLB.Cmd.CommandText = $"insert into CarburantVignettes values('{txtEntite.Text}','{txtBenificiaire.Text}','{cmbVehicule.SelectedItem}'," +
                     $"'{DateOper.Value.ToString("yyyy-MM-dd")}','{cmbVilles.Text}',{txtKM.Text},{txtpourcentage.Text},'{txtOMN.Text +"/"+ DateTime.Now.Year.ToString().Substring(2)}',{DoFixe},{DoMissions}," +
-                    $"{DoHebdo},null,'{txtObservation.Text}')";
+                    $"{DoHebdo},{DoExp},null,'{txtObservation.Text}')";
                         break;
                     case Choix.modifier:
                         GLB.Cmd.CommandText = $"update CarburantVignettes set Entite = '{txtEntite.Text}', beneficiaire = '{txtBenificiaire.Text}'" +
                     $", vehicule = '{cmbVehicule.SelectedItem}' , date = '{DateOper.Value.ToString("yyyy-MM-dd")}', lieu = '{cmbVilles.Text}'," +
                     $" ObjetOMN = '{txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2)}', DFixe = {DoFixe} ," +
-                    $" DMissions = {DoMissions} , DHebdo = {DoHebdo},Observation = '{txtObservation.Text}' ,KM = {txtKM.Text} , Pourcentage = {txtpourcentage.Text} where id = {GLB.id_Carburant}";
+                    $" DMissions = {DoMissions} , DHebdo = {DoHebdo},DExceptionnel = {DoExp},Observation = '{txtObservation.Text}' ,KM = {txtKM.Text} , Pourcentage = {txtpourcentage.Text} where id = {GLB.id_Carburant}";
                         RemplirChamps();
                         break;
                     case Choix.supprimer:
