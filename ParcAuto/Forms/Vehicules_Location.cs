@@ -64,5 +64,80 @@ namespace ParcAuto.Forms
             StyleDataGridView();
             RemplirLaGrille();
         }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            MajVehicules maj = new MajVehicules();
+            Commandes.Command = Choix.ajouter;
+            maj.ShowDialog();
+            RemplirLaGrille();
+
+        }
+
+        private void btnModifier_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GLB.Matricule_Voiture = dgvVehicules.CurrentRow.Cells[1].Value.ToString();
+                string Marque = dgvVehicules.CurrentRow.Cells[0].Value.ToString();
+                DateTime MiseEncirculation = DateTime.ParseExact(dgvVehicules.CurrentRow.Cells[2].Value.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                string Type = dgvVehicules.CurrentRow.Cells[3].Value.ToString();
+                string Carburant = dgvVehicules.CurrentRow.Cells[5].Value.ToString();
+                string Affectation = dgvVehicules.CurrentRow.Cells[6].Value.ToString();
+                string Conducteur = dgvVehicules.CurrentRow.Cells[7].Value.ToString(); //Normalement type cmbMatNom
+                string decision_nomination = dgvVehicules.CurrentRow.Cells[8].Value.ToString();
+                string Observation = dgvVehicules.CurrentRow.Cells[9].Value.ToString();
+                
+                MajVehicules maj = new MajVehicules(Marque, MiseEncirculation, Type, Carburant, Affectation, Conducteur, decision_nomination, Observation);
+                Commandes.Command = Choix.modifier;
+                maj.ShowDialog();
+                RemplirLaGrille();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Il faut selectionner sur la table pour la modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            //TODO: catch NullReferenceException (idriss)
+            RemplirLaGrille();
+        }
+
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GLB.Matricule_Voiture = (string)dgvVehicules.CurrentRow.Cells[1].Value;
+                GLB.Cmd.CommandText = $"delete from Vehicules where Matricule = '{GLB.Matricule_Voiture}'";
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            //TODO: catch NullReferenceException (idriss)
+
+            DialogResult res = MessageBox.Show("Voulez Vous Vraiment Suprimmer Cette Vehicule ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if (res == DialogResult.Yes)
+            {
+                GLB.Con.Open();
+                GLB.Cmd.ExecuteNonQuery();
+                GLB.Con.Close();
+                RemplirLaGrille();
+            }
+        }
+
+        private void btnExportExcel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            RemplirLaGrille();
+        }
+
+        private void btnQuitter_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -299,6 +299,7 @@ namespace ParcAuto.Forms
             this.btnRefresh.Size = new System.Drawing.Size(40, 40);
             this.btnRefresh.TabIndex = 33;
             this.btnRefresh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnAjouter
             // 
@@ -321,6 +322,7 @@ namespace ParcAuto.Forms
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnAjouter.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // btnSupprimer
             // 
@@ -341,6 +343,7 @@ namespace ParcAuto.Forms
             this.btnSupprimer.TabIndex = 30;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // Column7
             // 
@@ -431,6 +434,7 @@ namespace ParcAuto.Forms
             this.btnModifier.Text = "Modifier";
             this.btnModifier.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnModifier.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // dgvVehicules
             // 
@@ -481,6 +485,7 @@ namespace ParcAuto.Forms
             this.btnQuitter.Size = new System.Drawing.Size(40, 40);
             this.btnQuitter.TabIndex = 28;
             this.btnQuitter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
             // Vehicules_MRouge
             // 

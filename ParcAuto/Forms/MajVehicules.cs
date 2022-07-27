@@ -174,6 +174,7 @@ namespace ParcAuto.Forms
             {
                 case Choix.ajouter:
                     lbl.Text = "L'ajout d'une Vehicules";
+                    
                     break;
                 case Choix.modifier:
                     txtMatricule.Enabled = false;
@@ -181,6 +182,7 @@ namespace ParcAuto.Forms
                     RemplirLesChamps();
                     break;
             }
+            
             
         }
     }

@@ -74,6 +74,7 @@ namespace ParcAuto.Forms
             Commandes.Command = Choix.ajouter;
             maj.ShowDialog();
             RemplirLaGrille();
+            
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
