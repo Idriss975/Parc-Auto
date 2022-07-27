@@ -222,10 +222,10 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@txtKM", txtKM.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", txtpourcentage.Text);
                         GLB.Cmd.Parameters.AddWithValue("@OMN", txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2));
-                        GLB.Cmd.Parameters.AddWithValue("@DoFixe", DoFixe);
-                        GLB.Cmd.Parameters.AddWithValue("@DoMissions", DoMissions);
-                        GLB.Cmd.Parameters.AddWithValue("@DoHebdo", DoHebdo);
-                        GLB.Cmd.Parameters.AddWithValue("@DoExp", DoExp);
+                        GLB.Cmd.Parameters.AddWithValue("@DoFixe", DoFixe == "null"?null: DoFixe);
+                        GLB.Cmd.Parameters.AddWithValue("@DoMissions", DoMissions =="null"?null:DoMissions);
+                        GLB.Cmd.Parameters.AddWithValue("@DoHebdo", DoHebdo=="null"?null:DoHebdo);
+                        GLB.Cmd.Parameters.AddWithValue("@DoExp", DoExp=="null"?null:DoExp);
                         GLB.Cmd.Parameters.AddWithValue("@txtObservation", txtObservation.Text);
                         break;
                     case Choix.modifier:
@@ -241,10 +241,10 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@txtKM", txtKM.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", txtpourcentage.Text);
                         GLB.Cmd.Parameters.AddWithValue("@OMN", txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2));
-                        GLB.Cmd.Parameters.AddWithValue("@DoFixe", DoFixe);
-                        GLB.Cmd.Parameters.AddWithValue("@DoMissions", DoMissions);
-                        GLB.Cmd.Parameters.AddWithValue("@DoHebdo", DoHebdo);
-                        GLB.Cmd.Parameters.AddWithValue("@DoExp", DoExp);
+                        GLB.Cmd.Parameters.AddWithValue("@DoFixe", DoFixe == "null" ? null : DoFixe);
+                        GLB.Cmd.Parameters.AddWithValue("@DoMissions", DoMissions == "null" ? null : DoMissions);
+                        GLB.Cmd.Parameters.AddWithValue("@DoHebdo", DoHebdo == "null" ? null : DoHebdo);
+                        GLB.Cmd.Parameters.AddWithValue("@DoExp", DoExp == "null" ? null : DoExp);
                         GLB.Cmd.Parameters.AddWithValue("@txtObservation", txtObservation.Text);
                         GLB.Cmd.Parameters.AddWithValue("@ID", GLB.id_Carburant);
                         RemplirChamps();
