@@ -88,10 +88,30 @@ namespace ParcAuto.Forms
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
-                        GLB.Cmd.CommandText = $"Insert into Conducteurs values ({txtmatricule.Text}, '{txtnom.Text}', '{txtprenom.Text}', '{DateNaissance.Value.ToString("yyyy-MM-dd")}', '{DateEmb.Value.ToString("yyyy-MM-dd")}', '{txtnumpermis.Text}', '{txtadr.Text}','{txttel.Text}', '{txtemail.Text}','{txtDirections.Text}')";
+                        GLB.Cmd.CommandText = "Insert into Conducteurs values (@txtmatricule, @txtnom, @txtprenom, @DateNais, @DateEmb, @txtnumpermis, @txtadr, @txttel, @txtemail, @txtDirections)";
+                        GLB.Cmd.Parameters.AddWithValue("@txtmatricule", txtmatricule.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtnom", txtnom.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtprenom", txtprenom.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@DateNais", DateNaissance.Value.ToString("yyyy-MM-dd"));
+                        GLB.Cmd.Parameters.AddWithValue("@DateEmb", DateEmb.Value.ToString("yyyy-MM-dd"));
+                        GLB.Cmd.Parameters.AddWithValue("@txtnumpermis", txtnumpermis.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtadr", txtadr.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txttel", txttel.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtemail", txtemail.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtDirections", txtDirections.Text);
                         break;
                     case Choix.modifier:
-                        GLB.Cmd.CommandText = $"update Conducteurs set nom='{txtnom.Text}', prenom='{txtprenom.Text}', DateNaiss='{DateNaissance.Value.ToString("yyyy-MM-dd")}', DateEmbauche='{DateEmb.Value.ToString("yyyy-MM-dd")}', NumPermis='{txtnumpermis.Text}', Adresse='{txtadr.Text}', Direction='{txtDirections.Text}', Tel='{txttel.Text}', Email='{txtemail.Text}' where Matricule = {GLB.Matricule}";
+                        GLB.Cmd.CommandText = "update Conducteurs set nom= @txtnom, prenom= @txtprenom, DateNais= @DateNais, DateEmbauche= @DateEmb, NumPermis= @txtnumpermis, Adresse= @txtadr, Direction= @txtDirections, Tel= @txttel, Email= @txtemail where Matricule = @Matricule";
+                        GLB.Cmd.Parameters.AddWithValue("@txtnom", txtnom.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtprenom", txtprenom.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@DateNais", DateNaissance.Value.ToString("yyyy-MM-dd"));
+                        GLB.Cmd.Parameters.AddWithValue("@DateEmb", DateEmb.Value.ToString("yyyy-MM-dd"));
+                        GLB.Cmd.Parameters.AddWithValue("@txtnumpermis", txtnumpermis.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtadr",txtadr.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtDirections", txtDirections.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txttel", txttel.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtemail", txtemail.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@Matricule", GLB.Matricule);
                         RemplirLesChamps();
                         break;
                     case Choix.supprimer:
