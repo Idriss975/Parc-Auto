@@ -103,12 +103,12 @@ namespace ParcAuto.Forms
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
-                        GLB.Cmd.CommandText = $"insert into Vehicules values (@txtMarque, @txtMatricule, @dateMiseEnCirculation, @txtType, @txtCarburant, @txtAffectation, @TempMatricule,@txtDnomination,@txtObservation)";
+                        GLB.Cmd.CommandText = $"insert into Vehicules values (@txtMarque, @txtMatricule, @dateMiseEnCirculation, @cmbType, @txtCarburant, @txtAffectation, @TempMatricule,@txtDnomination,@txtObservation)";
                         GLB.Cmd.Parameters.AddWithValue("@txtMarque", txtMarque.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtMatricule", txtMatricule.Text);
                         GLB.Cmd.Parameters.AddWithValue("@dateMiseEnCirculation", dateMiseEnCirculation.Value.ToString("yyyy-MM-dd"));
                         GLB.Cmd.Parameters.AddWithValue("@txtCarburant", txtCarburant.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtType", txtType.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@cmbType", cmbType.SelectedItem);
                         GLB.Cmd.Parameters.AddWithValue("@txtAffectation", txtAffectation.Text);
                         GLB.Cmd.Parameters.AddWithValue("@TempMatricule", TempMatricule);
                         GLB.Cmd.Parameters.AddWithValue("@txtDnomination", txtDnomination.Text);
@@ -116,17 +116,16 @@ namespace ParcAuto.Forms
                         break;
                     case Choix.modifier:
 
-                        GLB.Cmd.CommandText = $"update Vehicules set  Marque=@txtMarque, Type=@txtAffectation, MiseEnCirculation=@dateMiseEnCirculation, Carburant=@txtCarburant, Observation=@txtObservation,decision_nomination = @txtDnomination, Conducteur=@TempMatricule , affectation = @txtAffectation where Matricule=@Matricule";
+                        GLB.Cmd.CommandText = $"update Vehicules set  Marque=@txtMarque, Type=@cmbType, MiseEnCirculation=@dateMiseEnCirculation, Carburant=@txtCarburant, Observation=@txtObservation,decision_nomination = @txtDnomination, Conducteur=@TempMatricule , affectation = @txtAffectation  where Matricule=@Matricule";
                         GLB.Cmd.Parameters.AddWithValue("@txtMarque", txtMarque.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtAffectation", txtAffectation.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtAffectation", txtAffectation.Text);
                         GLB.Cmd.Parameters.AddWithValue("@dateMiseEnCirculation", dateMiseEnCirculation.Value.ToString("yyyy-MM-dd"));
                         GLB.Cmd.Parameters.AddWithValue("@txtCarburant", txtCarburant.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtObservation", txtObservation.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtDnomination", txtDnomination.Text);
                         GLB.Cmd.Parameters.AddWithValue("@TempMatricule", TempMatricule);
-                        GLB.Cmd.Parameters.AddWithValue("@txtAffectation", txtAffectation.Text);
                         GLB.Cmd.Parameters.AddWithValue("@Matricule", GLB.Matricule_Voiture);
+                        GLB.Cmd.Parameters.AddWithValue("@cmbType", cmbType.SelectedItem);
                         break;
                     case Choix.supprimer:
                         throw new Exception("Impossible de supprimer dans l'interface MajVehicules.");

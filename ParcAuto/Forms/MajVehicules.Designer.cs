@@ -47,12 +47,12 @@ namespace ParcAuto.Forms
             this.btnAppliquer = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cmbConducteur = new System.Windows.Forms.ComboBox();
-            this.txtType = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDnomination = new Guna.UI2.WinForms.Guna2TextBox();
             this.lbl = new System.Windows.Forms.Label();
             this.btnClear = new Guna.UI2.WinForms.Guna2Button();
             this.txtObservation = new System.Windows.Forms.RichTextBox();
+            this.cmbType = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -319,6 +319,7 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.1549F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.48945F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.82052F));
+            this.tableLayoutPanel1.Controls.Add(this.cmbType, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.Matricule, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 1);
@@ -327,7 +328,6 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Controls.Add(this.txtAffectation, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtMatricule, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label6, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtType, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtDnomination, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 1);
@@ -343,6 +343,7 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(765, 186);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
@@ -352,35 +353,10 @@ namespace ParcAuto.Forms
             this.cmbConducteur.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbConducteur.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbConducteur.FormattingEnabled = true;
-            this.cmbConducteur.Location = new System.Drawing.Point(156, 151);
+            this.cmbConducteur.Location = new System.Drawing.Point(156, 150);
             this.cmbConducteur.Name = "cmbConducteur";
             this.cmbConducteur.Size = new System.Drawing.Size(216, 24);
             this.cmbConducteur.TabIndex = 7;
-            // 
-            // txtType
-            // 
-            this.txtType.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtType.BorderRadius = 4;
-            this.txtType.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtType.DefaultText = "";
-            this.txtType.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtType.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtType.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtType.DisabledState.Parent = this.txtType;
-            this.txtType.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtType.FocusedState.Parent = this.txtType;
-            this.txtType.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtType.HoverState.Parent = this.txtType;
-            this.txtType.Location = new System.Drawing.Point(538, 50);
-            this.txtType.Margin = new System.Windows.Forms.Padding(4);
-            this.txtType.Name = "txtType";
-            this.txtType.PasswordChar = '\0';
-            this.txtType.PlaceholderText = "";
-            this.txtType.SelectedText = "";
-            this.txtType.ShadowDecoration.Parent = this.txtType;
-            this.txtType.Size = new System.Drawing.Size(216, 38);
-            this.txtType.TabIndex = 4;
             // 
             // label1
             // 
@@ -409,7 +385,7 @@ namespace ParcAuto.Forms
             this.txtDnomination.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDnomination.HoverState.Parent = this.txtDnomination;
             this.txtDnomination.Location = new System.Drawing.Point(538, 145);
-            this.txtDnomination.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDnomination.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDnomination.Name = "txtDnomination";
             this.txtDnomination.PasswordChar = '\0';
             this.txtDnomination.PlaceholderText = "";
@@ -459,6 +435,21 @@ namespace ParcAuto.Forms
             this.txtObservation.TabIndex = 9;
             this.txtObservation.Text = "";
             // 
+            // cmbType
+            // 
+            this.cmbType.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbType.FormattingEnabled = true;
+            this.cmbType.Items.AddRange(new object[] {
+            "M.Rouge",
+            "Location",
+            "PRD"});
+            this.cmbType.Location = new System.Drawing.Point(538, 57);
+            this.cmbType.Name = "cmbType";
+            this.cmbType.Size = new System.Drawing.Size(216, 24);
+            this.cmbType.TabIndex = 18;
+            // 
             // MajVehicules
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -505,12 +496,12 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2Button btnAppliquer;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private Guna.UI2.WinForms.Guna2TextBox txtType;
         private System.Windows.Forms.ComboBox cmbConducteur;
         private System.Windows.Forms.Label lbl;
         private Guna.UI2.WinForms.Guna2Button btnClear;
         private System.Windows.Forms.RichTextBox txtObservation;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox txtDnomination;
+        private System.Windows.Forms.ComboBox cmbType;
     }
 }
