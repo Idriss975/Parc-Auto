@@ -58,7 +58,7 @@ namespace ParcAuto.Forms
         {
             txtMarque.Clear();
             txtAffectation.Clear();
-            txtType.Clear();
+            cmbType.SelectedIndex = 0;
             dateMiseEnCirculation.Value = DateTime.Now;
             txtCarburant.Clear();
             txtObservation.Clear();
@@ -71,7 +71,7 @@ namespace ParcAuto.Forms
             txtMatricule.Text = GLB.Matricule_Voiture;
             txtMarque.Text = Marque;
             txtAffectation.Text = affectation;
-            txtType.Text = Type;
+            cmbType.Text = Type;
             dateMiseEnCirculation.Value = MiseEncirculation;
             txtCarburant.Text = Carburant;
             txtObservation.Text = Observation;
@@ -94,7 +94,7 @@ namespace ParcAuto.Forms
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
             string TempMatricule = ""; //Pour Voir si Matricule est null ou pas.
-            if (!(txtMarque.Text == "" || txtAffectation.Text == "" || txtType.Text == "" || txtCarburant.Text == ""))
+            if (!(txtMarque.Text == "" || txtAffectation.Text == "" ||  txtCarburant.Text == ""))
             {
                 if (((CmbMatNom)cmbConducteur.SelectedItem).Matricule is null)
                     TempMatricule = "null";
@@ -108,7 +108,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@txtMatricule", txtMatricule.Text);
                         GLB.Cmd.Parameters.AddWithValue("@dateMiseEnCirculation", dateMiseEnCirculation.Value.ToString("yyyy-MM-dd"));
                         GLB.Cmd.Parameters.AddWithValue("@txtCarburant", txtCarburant.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtType", txtType.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@cmbType", cmbType.SelectedItem);
                         GLB.Cmd.Parameters.AddWithValue("@txtAffectation", txtAffectation.Text);
                         GLB.Cmd.Parameters.AddWithValue("@TempMatricule", TempMatricule);
                         GLB.Cmd.Parameters.AddWithValue("@txtDnomination", txtDnomination.Text);
@@ -116,17 +116,16 @@ namespace ParcAuto.Forms
                         break;
                     case Choix.modifier:
 
-                        GLB.Cmd.CommandText = "update Vehicules set  Marque=@txtMarque, Type=@txtAffectation, MiseEnCirculation=@dateMiseEnCirculation, Carburant=@txtCarburant, Observation=@txtObservation,decision_nomination = @txtDnomination, Conducteur=@TempMatricule , affectation = @txtAffectation where Matricule=@Matricule";
+                        GLB.Cmd.CommandText = "update Vehicules set  Marque=@txtMarque, Type=@cmbType, MiseEnCirculation=@dateMiseEnCirculation, Carburant=@txtCarburant, Observation=@txtObservation,decision_nomination = @txtDnomination, Conducteur=@TempMatricule , affectation = @txtAffectation where Matricule=@Matricule";
                         GLB.Cmd.Parameters.AddWithValue("@txtMarque", txtMarque.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtAffectation", txtAffectation.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtAffectation", txtAffectation.Text);
                         GLB.Cmd.Parameters.AddWithValue("@dateMiseEnCirculation", dateMiseEnCirculation.Value.ToString("yyyy-MM-dd"));
                         GLB.Cmd.Parameters.AddWithValue("@txtCarburant", txtCarburant.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtObservation", txtObservation.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtDnomination", txtDnomination.Text);
                         GLB.Cmd.Parameters.AddWithValue("@TempMatricule", TempMatricule);
-                        GLB.Cmd.Parameters.AddWithValue("@txtAffectation", txtAffectation.Text);
                         GLB.Cmd.Parameters.AddWithValue("@Matricule", GLB.Matricule_Voiture);
+                        GLB.Cmd.Parameters.AddWithValue("@cmbType", cmbType.SelectedItem);
                         break;
                     case Choix.supprimer:
                         throw new Exception("Impossible de supprimer dans l'interface MajVehicules.");
