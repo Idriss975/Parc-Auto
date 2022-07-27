@@ -208,7 +208,7 @@ namespace ParcAuto
             this.btnPRD.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnPRD.Size = new System.Drawing.Size(181, 40);
             this.btnPRD.TabIndex = 7;
-            this.btnPRD.Text = "Tout le Parc";
+            this.btnPRD.Text = "Parc M.Rouge";
             this.btnPRD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPRD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPRD.UseVisualStyleBackColor = false;
