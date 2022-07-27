@@ -120,7 +120,7 @@ namespace ParcAuto.Forms
             }
             else
                 for (int i = dgvCarburant.Rows.Count - 1; i >= 0; i--)
-                    if (!((Convert.ToDateTime(dgvCarburant.Rows[i].Cells[cmbChoix.SelectedIndex].Value)).Date >= Date1.Value.Date && (Convert.ToDateTime(dgvCarburant.Rows[i].Cells[cmbChoix.SelectedIndex].Value)).Date <= Date2.Value.Date))
+                    if (!(DateTime.ParseExact(dgvCarburant.Rows[i].Cells[cmbChoix.SelectedIndex].Value.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture) >= Date1.Value.Date && DateTime.ParseExact(dgvCarburant.Rows[i].Cells[cmbChoix.SelectedIndex].Value.ToString(),"dd/MM/yyyy",System.Globalization.CultureInfo.InvariantCulture) <= Date2.Value.Date))
                         dgvCarburant.Rows.Remove(dgvCarburant.Rows[i]);
         }
 
