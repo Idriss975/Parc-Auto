@@ -36,7 +36,7 @@ namespace ParcAuto.Classes_Globale
         /// <param name="StartingColumnPosition">The X position for where the first column should show.</param>
         /// <param name="column_gap">Margin between each column.</param>
         /// <param name="StartingRowPosition">The Y position for where the First row should show.</param>
-        static public void Drawonprintdoc(PrintPageEventArgs e,  DataGridView DGV, Image Logo, Font FontHeader, Font FontRows, int Skipindex = -1, int StartingColumnPosition = 75, int column_gap = 0, int StartingRowPosition = 220, string Total = "")
+        static public void Drawonprintdoc(PrintPageEventArgs e,  DataGridView DGV, Image Logo, Font FontHeader, Font FontRows, int Skipindex = -1, int StartingColumnPosition = 75, int column_gap = 20, int StartingRowPosition = 220, string Total = "")
         {
             //Header
             e.Graphics.DrawImage(Logo, 50, 17);
@@ -58,7 +58,7 @@ namespace ParcAuto.Classes_Globale
                 {
                     if (col.HeaderText == DGV.Columns[Skipindex].HeaderText) continue;
                     e.Graphics.DrawString(col.HeaderText, FontHeader, Brushes.Black, columns_pos[columns_pos.Count - 1], 200);
-                    columns_pos.Add(columns_pos[columns_pos.Count - 1] + column_gap + (longestcellinrow(DGV,col.Index).Length * FontHeader.Size));
+                    columns_pos.Add(columns_pos[columns_pos.Count - 1] + column_gap + (e.Graphics.MeasureString(longestcellinrow(DGV, col.Index),FontHeader).Width));
                 }
                 e.Graphics.DrawLine(new Pen(Color.Black), columns_pos[0], StartingRowPosition - 5, columns_pos[columns_pos.Count - 1] - column_gap, StartingRowPosition - 5);
 
