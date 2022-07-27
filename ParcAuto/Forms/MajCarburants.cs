@@ -211,15 +211,42 @@ namespace ParcAuto.Forms
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
-                        GLB.Cmd.CommandText = $"insert into CarburantVignettes values('{txtEntite.Text}','{txtBenificiaire.Text}','{cmbVehicule.SelectedItem}'," +
-                    $"'{DateOper.Value.ToString("yyyy-MM-dd")}','{cmbVilles.Text}',{txtKM.Text},{txtpourcentage.Text},'{txtOMN.Text +"/"+ DateTime.Now.Year.ToString().Substring(2)}',{DoFixe},{DoMissions}," +
-                    $"{DoHebdo},{DoExp},null,'{txtObservation.Text}')";
+                        GLB.Cmd.CommandText = "insert into CarburantVignettes values(@txtEntite,@txtBenificiaire,@cmbVehicule," +
+                    $"@DateOper,@cmbVilles,@txtKM,@txtpourcentage,@OMN,@DoFixe,@DoMissions," +
+                    $"@DoHebdo,@DoExp,null,@txtObservation)";
+                        GLB.Cmd.Parameters.AddWithValue("@txtEntite", txtEntite.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.SelectedItem.ToString());
+                        GLB.Cmd.Parameters.AddWithValue("@DateOper", DateOper.Value.ToString("yyyy-MM-dd"));
+                        GLB.Cmd.Parameters.AddWithValue("@cmbVilles", cmbVilles.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtKM", txtKM.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", txtpourcentage.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@OMN", txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2));
+                        GLB.Cmd.Parameters.AddWithValue("@DoFixe", DoFixe);
+                        GLB.Cmd.Parameters.AddWithValue("@DoMissions", DoMissions);
+                        GLB.Cmd.Parameters.AddWithValue("@DoHebdo", DoHebdo);
+                        GLB.Cmd.Parameters.AddWithValue("@DoExp", DoExp);
+                        GLB.Cmd.Parameters.AddWithValue("@txtObservation", txtObservation.Text);
                         break;
                     case Choix.modifier:
-                        GLB.Cmd.CommandText = $"update CarburantVignettes set Entite = '{txtEntite.Text}', beneficiaire = '{txtBenificiaire.Text}'" +
-                    $", vehicule = '{cmbVehicule.SelectedItem}' , date = '{DateOper.Value.ToString("yyyy-MM-dd")}', lieu = '{cmbVilles.Text}'," +
-                    $" ObjetOMN = '{txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2)}', DFixe = {DoFixe} ," +
-                    $" DMissions = {DoMissions} , DHebdo = {DoHebdo},DExceptionnel = {DoExp},Observation = '{txtObservation.Text}' ,KM = {txtKM.Text} , Pourcentage = {txtpourcentage.Text} where id = {GLB.id_Carburant}";
+                        GLB.Cmd.CommandText = "update CarburantVignettes set Entite = @txtEntite, beneficiaire = @txtBenificiaire" +
+                    $", vehicule = @cmbVehicule , date = @DateOper, lieu = @cmbVilles," +
+                    $" ObjetOMN = @OMN, DFixe = @DoFixe ," +
+                    $" DMissions = @DoMissions , DHebdo = @DoHebdo,DExceptionnel = @DoExp,Observation = @txtObservation ,KM = @txtKM , Pourcentage = @txtpourcentage where id = @ID";
+                        GLB.Cmd.Parameters.AddWithValue("@txtEntite", txtEntite.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.SelectedItem.ToString());
+                        GLB.Cmd.Parameters.AddWithValue("@DateOper", DateOper.Value.ToString("yyyy-MM-dd"));
+                        GLB.Cmd.Parameters.AddWithValue("@cmbVilles", cmbVilles.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtKM", txtKM.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", txtpourcentage.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@OMN", txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2));
+                        GLB.Cmd.Parameters.AddWithValue("@DoFixe", DoFixe);
+                        GLB.Cmd.Parameters.AddWithValue("@DoMissions", DoMissions);
+                        GLB.Cmd.Parameters.AddWithValue("@DoHebdo", DoHebdo);
+                        GLB.Cmd.Parameters.AddWithValue("@DoExp", DoExp);
+                        GLB.Cmd.Parameters.AddWithValue("@txtObservation", txtObservation.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@ID", GLB.id_Carburant);
                         RemplirChamps();
                         break;
                     case Choix.supprimer:

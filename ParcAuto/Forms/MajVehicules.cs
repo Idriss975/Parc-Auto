@@ -103,7 +103,7 @@ namespace ParcAuto.Forms
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
-                        GLB.Cmd.CommandText = $"insert into Vehicules values (@txtMarque, @txtMatricule, @dateMiseEnCirculation, @cmbType, @txtCarburant, @txtAffectation, @TempMatricule,@txtDnomination,@txtObservation)";
+                        GLB.Cmd.CommandText = "insert into Vehicules values (@txtMarque, @txtMatricule, @dateMiseEnCirculation, @txtType, @txtCarburant, @txtAffectation, @TempMatricule,@txtDnomination,@txtObservation)";
                         GLB.Cmd.Parameters.AddWithValue("@txtMarque", txtMarque.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtMatricule", txtMatricule.Text);
                         GLB.Cmd.Parameters.AddWithValue("@dateMiseEnCirculation", dateMiseEnCirculation.Value.ToString("yyyy-MM-dd"));
@@ -116,7 +116,7 @@ namespace ParcAuto.Forms
                         break;
                     case Choix.modifier:
 
-                        GLB.Cmd.CommandText = $"update Vehicules set  Marque=@txtMarque, Type=@cmbType, MiseEnCirculation=@dateMiseEnCirculation, Carburant=@txtCarburant, Observation=@txtObservation,decision_nomination = @txtDnomination, Conducteur=@TempMatricule , affectation = @txtAffectation  where Matricule=@Matricule";
+                        GLB.Cmd.CommandText = "update Vehicules set  Marque=@txtMarque, Type=@txtAffectation, MiseEnCirculation=@dateMiseEnCirculation, Carburant=@txtCarburant, Observation=@txtObservation,decision_nomination = @txtDnomination, Conducteur=@TempMatricule , affectation = @txtAffectation where Matricule=@Matricule";
                         GLB.Cmd.Parameters.AddWithValue("@txtMarque", txtMarque.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtAffectation", txtAffectation.Text);
                         GLB.Cmd.Parameters.AddWithValue("@dateMiseEnCirculation", dateMiseEnCirculation.Value.ToString("yyyy-MM-dd"));
