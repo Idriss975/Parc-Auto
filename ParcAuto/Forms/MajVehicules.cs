@@ -96,10 +96,6 @@ namespace ParcAuto.Forms
             string TempMatricule = ""; //Pour Voir si Matricule est null ou pas.
             if (!(txtMarque.Text == "" || txtAffectation.Text == "" ||  txtCarburant.Text == ""))
             {
-                if (((CmbMatNom)cmbConducteur.SelectedItem).Matricule is null)
-                    TempMatricule = "null";
-                else
-                    TempMatricule = ((CmbMatNom)cmbConducteur.SelectedItem).Matricule.ToString();
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
@@ -110,7 +106,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@txtCarburant", txtCarburant.Text);
                         GLB.Cmd.Parameters.AddWithValue("@cmbType", cmbType.SelectedItem);
                         GLB.Cmd.Parameters.AddWithValue("@txtAffectation", txtAffectation.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@TempMatricule", TempMatricule);
+                        GLB.Cmd.Parameters.AddWithValue("@TempMatricule", ((CmbMatNom)cmbConducteur.SelectedItem).Matricule);
                         GLB.Cmd.Parameters.AddWithValue("@txtDnomination", txtDnomination.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtObservation", txtObservation.Text);
                         break;
@@ -123,7 +119,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@txtCarburant", txtCarburant.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtObservation", txtObservation.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtDnomination", txtDnomination.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@TempMatricule", TempMatricule);
+                        GLB.Cmd.Parameters.AddWithValue("@TempMatricule", ((CmbMatNom)cmbConducteur.SelectedItem).Matricule);
                         GLB.Cmd.Parameters.AddWithValue("@Matricule", GLB.Matricule_Voiture);
                         GLB.Cmd.Parameters.AddWithValue("@cmbType", cmbType.SelectedItem);
                         break;

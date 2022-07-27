@@ -69,8 +69,8 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.SelectedItem.ToString());
                         GLB.Cmd.Parameters.AddWithValue("@Date", Date.Value.ToString("yyyy-MM-dd"));
                         GLB.Cmd.Parameters.AddWithValue("@txtObjet", txtObjet.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", MontantEntretient);
-                        GLB.Cmd.Parameters.AddWithValue("@MontantReparation", MontantReparation);
+                        GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", MontantEntretient=="null"?null:MontantEntretient);
+                        GLB.Cmd.Parameters.AddWithValue("@MontantReparation", MontantReparation == "null" ? null : MontantReparation);
                         break;
                     case Choix.modifier:
                         GLB.Cmd.CommandText = "update Reparation set Entite = @txtentite, Beneficiaire=@txtBenificiaire, Vehicule=@cmbVehicule, Date= @Date, Objet=@txtObjet, Entretien= @MontantEntretient, Reparation=@MontantReparation where id = @ID";
@@ -79,8 +79,8 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.SelectedItem.ToString());
                         GLB.Cmd.Parameters.AddWithValue("@Date", Date.Value.ToString("yyyy-MM-dd"));
                         GLB.Cmd.Parameters.AddWithValue("@txtObjet", txtObjet.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", MontantEntretient);
-                        GLB.Cmd.Parameters.AddWithValue("@MontantReparation", MontantReparation);
+                        GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", MontantEntretient == "null" ? null : MontantEntretient);
+                        GLB.Cmd.Parameters.AddWithValue("@MontantReparation", MontantReparation == "null" ? null : MontantReparation);
                         GLB.Cmd.Parameters.AddWithValue("@ID", GLB.id_Reparation);
                         break;
                     case Choix.supprimer:
