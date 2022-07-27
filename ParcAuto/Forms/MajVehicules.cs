@@ -58,7 +58,7 @@ namespace ParcAuto.Forms
         {
             txtMarque.Clear();
             txtAffectation.Clear();
-            txtType.Clear();
+            cmbType.SelectedIndex = 0;
             dateMiseEnCirculation.Value = DateTime.Now;
             txtCarburant.Clear();
             txtObservation.Clear();
@@ -71,7 +71,7 @@ namespace ParcAuto.Forms
             txtMatricule.Text = GLB.Matricule_Voiture;
             txtMarque.Text = Marque;
             txtAffectation.Text = affectation;
-            txtType.Text = Type;
+            cmbType.Text = Type;
             dateMiseEnCirculation.Value = MiseEncirculation;
             txtCarburant.Text = Carburant;
             txtObservation.Text = Observation;
@@ -94,7 +94,7 @@ namespace ParcAuto.Forms
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
             string TempMatricule = ""; //Pour Voir si Matricule est null ou pas.
-            if (!(txtMarque.Text == "" || txtAffectation.Text == "" || txtType.Text == "" || txtCarburant.Text == ""))
+            if (!(txtMarque.Text == "" || txtAffectation.Text == "" ||  txtCarburant.Text == ""))
             {
                 if (((CmbMatNom)cmbConducteur.SelectedItem).Matricule is null)
                     TempMatricule = "null";
