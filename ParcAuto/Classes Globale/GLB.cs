@@ -36,7 +36,7 @@ namespace ParcAuto.Classes_Globale
         /// <param name="StartingColumnPosition">The X position for where the first column should show.</param>
         /// <param name="column_gap">Margin between each column.</param>
         /// <param name="StartingRowPosition">The Y position for where the First row should show.</param>
-        static public void Drawonprintdoc(PrintPageEventArgs e,  DataGridView DGV, Image Logo, Font FontHeader, Font FontRows, int Skipindex = -1, int StartingColumnPosition = 75, int column_gap = 0, int StartingRowPosition = 220, string Total = "")
+        static public void Drawonprintdoc(PrintPageEventArgs e,  DataGridView DGV, Image Logo, Font FontHeader, Font FontRows, int Skipindex = -1, int StartingColumnPosition = 75, int column_gap = 20, int StartingRowPosition = 220, string Total = "")
         {
             //Header
             e.Graphics.DrawImage(Logo, 50, 17);
@@ -51,14 +51,14 @@ namespace ParcAuto.Classes_Globale
 
             List<float> columns_pos = new List<float>();
             columns_pos.Add(StartingColumnPosition);
-            //Todo: New page for limited amount of rows. 45 lines per page (26 per page paysage)
+            //45 lines per page (26 per page paysage)
             if (Skipindex != -1) // When skipping
             {
                 foreach (DataGridViewColumn col in DGV.Columns)
                 {
                     if (col.HeaderText == DGV.Columns[Skipindex].HeaderText) continue;
                     e.Graphics.DrawString(col.HeaderText, FontHeader, Brushes.Black, columns_pos[columns_pos.Count - 1], 200);
-                    columns_pos.Add(columns_pos[columns_pos.Count - 1] + column_gap + (longestcellinrow(DGV,col.Index) * FontHeader.Size));
+                    columns_pos.Add(columns_pos[columns_pos.Count - 1] + column_gap + (e.Graphics.MeasureString(longestcellinrow(DGV, col.Index),FontHeader).Width));
                 }
                 e.Graphics.DrawLine(new Pen(Color.Black), columns_pos[0], StartingRowPosition - 5, columns_pos[columns_pos.Count - 1] - column_gap, StartingRowPosition - 5);
 
@@ -68,10 +68,17 @@ namespace ParcAuto.Classes_Globale
                     {
                         for (int i = 0; i < DGV.Rows[item].Cells.Count - 1; i++)
                         {
+                            string MaxCellInRowLen;
                             if (i < Skipindex)
-                                e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i].Value.ToString(), out _)? ((longestcellinrow(DGV,i)- DGV.Rows[item].Cells[i].Value.ToString().Length)*FontRows.Size):0), StartingRowPosition);
-                            else
-                                e.Graphics.DrawString(DGV.Rows[item].Cells[i+1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i + 1].Value.ToString(), out _)?(longestcellinrow(DGV,i+1) - DGV.Rows[item].Cells[i + 1].Value.ToString().Length) *FontRows.Size:0), StartingRowPosition);
+                            {
+                                MaxCellInRowLen = longestcellinrow(DGV, i);
+                                e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i].Value.ToString(), out _) ? ((e.Graphics.MeasureString(MaxCellInRowLen,FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i].Value.ToString(),FontRows).Width)) : 0), StartingRowPosition);
+                            } else
+                            {
+                                MaxCellInRowLen = longestcellinrow(DGV, i+1);
+                                //e.Graphics.DrawString(DGV.Rows[item].Cells[i + 1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i + 1].Value.ToString(), out _) ? (MaxCellInRowLen.Length - DGV.Rows[item].Cells[i + 1].Value.ToString().Length) * FontRows.Size : 0), StartingRowPosition);
+                                e.Graphics.DrawString(DGV.Rows[item].Cells[i + 1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i + 1].Value.ToString(), out _) ? (e.Graphics.MeasureString(MaxCellInRowLen,FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i + 1].Value.ToString(),FontRows).Width) : 0), StartingRowPosition);
+                            }
                         }
                         StartingRowPosition += 20;
                     }
@@ -80,12 +87,20 @@ namespace ParcAuto.Classes_Globale
                 {
                     for (int item = DGV.Rows.Count - number_of_lines; item < DGV.Rows.Count - number_of_lines + (number_of_lines < 26 ? number_of_lines : 26); item++)
                     {
-                        for (int i = 0; i < DGV.Rows[item].Cells.Count-1; i++)
+                        for (int i = 0; i < DGV.Rows[item].Cells.Count - 1; i++)
                         {
+                            string MaxCellInRowLen;
                             if (i < Skipindex)
-                                e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i], StartingRowPosition);
+                            {
+                                MaxCellInRowLen = longestcellinrow(DGV, i);
+                                e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i].Value.ToString(), out _) ? ((e.Graphics.MeasureString(MaxCellInRowLen, FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows).Width)) : 0), StartingRowPosition);
+                            }
                             else
-                                e.Graphics.DrawString(DGV.Rows[item].Cells[i + 1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i], StartingRowPosition);
+                            {
+                                MaxCellInRowLen = longestcellinrow(DGV, i + 1);
+                                //e.Graphics.DrawString(DGV.Rows[item].Cells[i + 1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i + 1].Value.ToString(), out _) ? (MaxCellInRowLen.Length - DGV.Rows[item].Cells[i + 1].Value.ToString().Length) * FontRows.Size : 0), StartingRowPosition);
+                                e.Graphics.DrawString(DGV.Rows[item].Cells[i + 1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i + 1].Value.ToString(), out _) ? (e.Graphics.MeasureString(MaxCellInRowLen, FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i + 1].Value.ToString(), FontRows).Width) : 0), StartingRowPosition);
+                            }
                         }
                         StartingRowPosition += 20;
                     }
@@ -105,8 +120,11 @@ namespace ParcAuto.Classes_Globale
                     for (int item = DGV.Rows.Count - number_of_lines; item < DGV.Rows.Count - number_of_lines + (number_of_lines < 45 ? number_of_lines : 45); item++)
                     {
                         for (int i = 0; i < DGV.Rows[item].Cells.Count; i++)
-                            e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i], StartingRowPosition);
-
+                        {
+                            string MaxCellInRowLen;
+                            MaxCellInRowLen = longestcellinrow(DGV, i);
+                            e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i + 1].Value.ToString(), out _) ? (e.Graphics.MeasureString(MaxCellInRowLen, FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows).Width) : 0), StartingRowPosition);
+                        }
                         StartingRowPosition += 20;
                     }
                 }
@@ -115,8 +133,11 @@ namespace ParcAuto.Classes_Globale
                     for (int item = DGV.Rows.Count - number_of_lines; item < DGV.Rows.Count - number_of_lines + (number_of_lines<26?number_of_lines:26); item++)
                     {
                         for (int i = 0; i < DGV.Rows[item].Cells.Count; i++)
-                            e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i], StartingRowPosition);
-
+                        {
+                            string MaxCellInRowLen;
+                            MaxCellInRowLen = longestcellinrow(DGV, i);
+                            e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i + 1].Value.ToString(), out _) ? (e.Graphics.MeasureString(MaxCellInRowLen, FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows).Width) : 0), StartingRowPosition);
+                        }
                         StartingRowPosition += 20;
                     }
                 }
@@ -137,14 +158,15 @@ namespace ParcAuto.Classes_Globale
             if (!e.HasMorePages)
                 e.Graphics.DrawString(Total, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, e.PageSettings.Bounds.Width - (Total.Length*12)-10, StartingRowPosition + 30);
         }
-        private static int longestcellinrow(DataGridView DGV, int Column_index)
+
+        private static string longestcellinrow(DataGridView DGV, int Column_index)
         {
-            int length = DGV.Columns[Column_index].HeaderText.Length;
+            string output= DGV.Columns[Column_index].HeaderText;
             foreach (DataGridViewRow item in DGV.Rows)
-            {
-                if (item.Cells[Column_index].Value.ToString().Length > length) length = item.Cells[Column_index].Value.ToString().Length;
-            }
-            return length;
+                if (item.Cells[Column_index].Value.ToString().Length > output.Length)
+                    output = item.Cells[Column_index].Value.ToString();
+                
+            return output;
         }
     }
 }
