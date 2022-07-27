@@ -51,7 +51,7 @@ namespace ParcAuto.Classes_Globale
 
             List<float> columns_pos = new List<float>();
             columns_pos.Add(StartingColumnPosition);
-            //Todo: New page for limited amount of rows. 45 lines per page (26 per page paysage)
+            //45 lines per page (26 per page paysage)
             if (Skipindex != -1) // When skipping
             {
                 foreach (DataGridViewColumn col in DGV.Columns)
