@@ -17,12 +17,25 @@ namespace ParcAuto.Forms
         {
             InitializeComponent();
         }
+        private void StyleDataGridView()
+        {
+            dgvVehicules.BorderStyle = BorderStyle.None;
+            dgvVehicules.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dgvVehicules.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvVehicules.DefaultCellStyle.SelectionBackColor = Color.FromArgb(115, 139, 215);
+            dgvVehicules.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dgvVehicules.BackgroundColor = Color.White;
+            dgvVehicules.EnableHeadersVisualStyles = false;
+            dgvVehicules.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvVehicules.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(115, 139, 215);
+            dgvVehicules.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+        }
         private void RemplirLaGrille()
         {
             dgvVehicules.Rows.Clear();
             try
             {
-                GLB.Cmd.CommandText = "select Vehicules.*, Conducteurs.Nom as Nom, Conducteurs.Prenom as Prenom from vehicules, Conducteurs where Conducteurs.Matricule = Vehicules.Conducteur union select *,'Sans ' as Nom, 'conducteur' as Prenom from vehicules where Conducteur is null   ";
+                GLB.Cmd.CommandText = "select Vehicules.*, Conducteurs.Nom as Nom, Conducteurs.Prenom as Prenom from vehicules, Conducteurs where Conducteurs.Matricule = Vehicules.Conducteur and Vehicules.Type = 'Location' union select *,'Sans ' as Nom, 'conducteur' as Prenom from vehicules where Conducteur is null and Vehicules.Type = 'Location'  ";
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
@@ -48,7 +61,7 @@ namespace ParcAuto.Forms
             panelDate.Visible = false;
             TextPanel.Visible = false;
             cmbChoix.SelectedIndex = 0;
-            //StyleDataGridView();
+            StyleDataGridView();
             RemplirLaGrille();
         }
     }

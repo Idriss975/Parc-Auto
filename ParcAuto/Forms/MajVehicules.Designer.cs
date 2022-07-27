@@ -46,13 +46,13 @@ namespace ParcAuto.Forms
             this.label8 = new System.Windows.Forms.Label();
             this.btnAppliquer = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.cmbType = new System.Windows.Forms.ComboBox();
             this.cmbConducteur = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDnomination = new Guna.UI2.WinForms.Guna2TextBox();
             this.lbl = new System.Windows.Forms.Label();
             this.btnClear = new Guna.UI2.WinForms.Guna2Button();
             this.txtObservation = new System.Windows.Forms.RichTextBox();
-            this.cmbType = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -347,13 +347,27 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Size = new System.Drawing.Size(765, 186);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
+            // cmbType
+            // 
+            this.cmbType.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbType.FormattingEnabled = true;
+            this.cmbType.Items.AddRange(new object[] {
+            "M.Rouge",
+            "Location"});
+            this.cmbType.Location = new System.Drawing.Point(538, 58);
+            this.cmbType.Name = "cmbType";
+            this.cmbType.Size = new System.Drawing.Size(216, 24);
+            this.cmbType.TabIndex = 18;
+            // 
             // cmbConducteur
             // 
             this.cmbConducteur.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbConducteur.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbConducteur.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbConducteur.FormattingEnabled = true;
-            this.cmbConducteur.Location = new System.Drawing.Point(156, 150);
+            this.cmbConducteur.Location = new System.Drawing.Point(156, 151);
             this.cmbConducteur.Name = "cmbConducteur";
             this.cmbConducteur.Size = new System.Drawing.Size(216, 24);
             this.cmbConducteur.TabIndex = 7;
@@ -385,7 +399,7 @@ namespace ParcAuto.Forms
             this.txtDnomination.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDnomination.HoverState.Parent = this.txtDnomination;
             this.txtDnomination.Location = new System.Drawing.Point(538, 145);
-            this.txtDnomination.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDnomination.Margin = new System.Windows.Forms.Padding(4);
             this.txtDnomination.Name = "txtDnomination";
             this.txtDnomination.PasswordChar = '\0';
             this.txtDnomination.PlaceholderText = "";
@@ -434,21 +448,6 @@ namespace ParcAuto.Forms
             this.txtObservation.Size = new System.Drawing.Size(362, 71);
             this.txtObservation.TabIndex = 9;
             this.txtObservation.Text = "";
-            // 
-            // cmbType
-            // 
-            this.cmbType.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbType.FormattingEnabled = true;
-            this.cmbType.Items.AddRange(new object[] {
-            "M.Rouge",
-            "Location",
-            "PRD"});
-            this.cmbType.Location = new System.Drawing.Point(538, 57);
-            this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(216, 24);
-            this.cmbType.TabIndex = 18;
             // 
             // MajVehicules
             // 
