@@ -81,8 +81,8 @@ namespace ParcAuto.Forms
             try
             {
                 GLB.Matricule_Voiture = dgvVehicules.CurrentRow.Cells[1].Value.ToString();
-                string  Marque = dgvVehicules.CurrentRow.Cells[0].Value.ToString();
-                DateTime MiseEncirculation = Convert.ToDateTime(dgvVehicules.CurrentRow.Cells[2].Value);
+                string Marque = dgvVehicules.CurrentRow.Cells[0].Value.ToString();
+                DateTime MiseEncirculation = DateTime.ParseExact(dgvVehicules.CurrentRow.Cells[2].Value.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
                 string Type = dgvVehicules.CurrentRow.Cells[3].Value.ToString();
                 string Carburant = dgvVehicules.CurrentRow.Cells[5].Value.ToString();
                 string Affectation = dgvVehicules.CurrentRow.Cells[6].Value.ToString();
