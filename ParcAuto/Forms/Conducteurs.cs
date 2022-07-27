@@ -52,7 +52,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvconducteur.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], ((DateTime)GLB.dr[3]).ToShortDateString(), ((DateTime)GLB.dr[4]).ToShortDateString(), GLB.dr[5], GLB.dr[6],  GLB.dr[9], GLB.dr[7], GLB.dr[8]);//index 9 = Direction
+                    dgvconducteur.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], ((DateTime)GLB.dr[3]).ToString("dd/MM/yyyy"), ((DateTime)GLB.dr[4]).ToString("dd/MM/yyyy"), GLB.dr[5], GLB.dr[6],  GLB.dr[9], GLB.dr[7], GLB.dr[8]);//index 9 = Direction
                 
             }
             catch (Exception ex)
@@ -89,8 +89,8 @@ namespace ParcAuto.Forms
                 GLB.Matricule = Convert.ToInt32(dgvconducteur.CurrentRow.Cells[0].Value);
                 string Nom = dgvconducteur.CurrentRow.Cells[1].Value.ToString() ;
                 string Prenom= dgvconducteur.CurrentRow.Cells[2].Value.ToString();
-                DateTime DateNaiss =Convert.ToDateTime(dgvconducteur.CurrentRow.Cells[3].Value);
-                DateTime DateEmbauche = Convert.ToDateTime(dgvconducteur.CurrentRow.Cells[4].Value);
+                DateTime DateNaiss = DateTime.ParseExact(dgvconducteur.CurrentRow.Cells[3].Value.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                DateTime DateEmbauche = DateTime.ParseExact(dgvconducteur.CurrentRow.Cells[4].Value.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
                 string NumPermis = dgvconducteur.CurrentRow.Cells[5].Value.ToString();
                 string Adresse  = dgvconducteur.CurrentRow.Cells[6].Value.ToString();
                 string Direction = dgvconducteur.CurrentRow.Cells[7].Value.ToString();
