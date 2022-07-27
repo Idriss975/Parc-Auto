@@ -114,7 +114,7 @@ namespace ParcAuto.Forms
             {
                 for (int i = dgvCarburant.Rows.Count - 1; i >= 0; i--)
                 {
-                    if (!(new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(dgvCarburant.Rows[i].Cells[cmbChoix.SelectedIndex].Value.ToString().ToLower())))
+                    if (!(new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(dgvCarburant.Rows[i].Cells[cmbChoix.SelectedIndex == 12? 13: cmbChoix.SelectedIndex].Value.ToString().ToLower())))
                         dgvCarburant.Rows.Remove(dgvCarburant.Rows[i]);
                 }
             }
