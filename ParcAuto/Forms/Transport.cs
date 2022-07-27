@@ -86,7 +86,7 @@ namespace ParcAuto.Forms
                 string Entite = dgvTransport.CurrentRow.Cells[1].Value.ToString();
                 string Benificiaire = dgvTransport.CurrentRow.Cells[2].Value.ToString();
                 string N_BON_email = dgvTransport.CurrentRow.Cells[3].Value.ToString();
-                DateTime DateMission = Convert.ToDateTime(dgvTransport.CurrentRow.Cells[4].Value);
+                DateTime DateMission = DateTime.ParseExact(dgvTransport.CurrentRow.Cells[4].Value.ToString(), "dd/MM/yyyy",System.Globalization.CultureInfo.InvariantCulture);
                 string destination = dgvTransport.CurrentRow.Cells[5].Value.ToString();
                 string type_utilisation = dgvTransport.CurrentRow.Cells[6].Value.ToString();
                 string prix = dgvTransport.CurrentRow.Cells[7].Value.ToString();
@@ -120,7 +120,7 @@ namespace ParcAuto.Forms
             }
             else
                 for (int i = dgvTransport.Rows.Count - 1; i >= 0; i--)
-                    if (!((Convert.ToDateTime(dgvTransport.Rows[i].Cells[cmbChoix.SelectedIndex+1].Value)).Date >= Date1.Value.Date && (Convert.ToDateTime(dgvTransport.Rows[i].Cells[cmbChoix.SelectedIndex+1].Value)).Date <= Date2.Value.Date))
+                    if (!(DateTime.ParseExact(dgvTransport.Rows[i].Cells[cmbChoix.SelectedIndex + 1].Value.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture) >= Date1.Value.Date && DateTime.ParseExact(dgvTransport.Rows[i].Cells[cmbChoix.SelectedIndex + 1].Value.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture) <= Date2.Value.Date))
                         dgvTransport.Rows.Remove(dgvTransport.Rows[i]);
         }
 
