@@ -48,17 +48,47 @@ namespace ParcAuto
         private void btnVignettes_Click(object sender, EventArgs e)
         {
             showSubMenu(panelSousVignettes);
-          
+            if (panelSousVignettes.Visible)
+            {
+                VignettesUp.Visible = true;
+                Vignettesdown.Visible = false;
+            }
+            else
+            {
+                VignettesUp.Visible = false;
+                Vignettesdown.Visible = true;
+            }
         }
 
         private void btnCarburant_Click(object sender, EventArgs e)
         {
-            showSubMenu(panelSousCarburants);
+            showSubMenu(panelsousCar);
+           
+            if (panelsousCar.Visible)
+            {
+                carbUp.Visible = true;
+                carbdown.Visible = false;
+            }
+            else
+            {
+                carbUp.Visible = false;
+                carbdown.Visible = true;
+            }
         }
 
         private void btnReparation_Click(object sender, EventArgs e)
         {
-            openChildForm(new Forms.Reparation(), sender);
+            showSubMenu(panelSousRep);
+            if (panelSousRep.Visible)
+            {
+                repup.Visible = true;
+                repdown.Visible = false;
+            }
+            else
+            {
+                repup.Visible = false;
+                repdown.Visible = true;
+            }
             //hideSubMenu();
         }
 
@@ -120,7 +150,7 @@ namespace ParcAuto
                     previousBtn.BackColor = Color.FromArgb(115, 139, 215);
                 }
             }
-            foreach (Control previousBtn in panelSousCarburants.Controls)
+            foreach (Control previousBtn in panelSousRep.Controls)
             {
                 if (previousBtn.GetType() == typeof(Button))
                 {
@@ -151,10 +181,17 @@ namespace ParcAuto
                 ActiveForm.Close();
         }
 
-        private void btnVSNTL_Click(object sender, EventArgs e)
+
+
+        private void btnRepSiege_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.Reparation(), sender);
+
+        }
+
+        private void btnSNTLCarb_Click(object sender, EventArgs e)
         {
             openChildForm(new Forms.Carburants(), sender);
-
         }
     }
 }
