@@ -596,7 +596,7 @@ namespace ParcAuto
             this.btnRepPRD.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnRepPRD.Size = new System.Drawing.Size(179, 40);
             this.btnRepPRD.TabIndex = 6;
-            this.btnRepPRD.Text = "PRD";
+            this.btnRepPRD.Text = "SNTL PRD";
             this.btnRepPRD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRepPRD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRepPRD.UseVisualStyleBackColor = false;
