@@ -303,6 +303,7 @@ namespace ParcAuto
             this.btnMRouge.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMRouge.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMRouge.UseVisualStyleBackColor = false;
+            this.btnMRouge.Click += new System.EventHandler(this.btnMRouge_Click);
             // 
             // btnLocation
             // 
@@ -324,6 +325,7 @@ namespace ParcAuto
             this.btnLocation.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLocation.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLocation.UseVisualStyleBackColor = false;
+            this.btnLocation.Click += new System.EventHandler(this.btnLocation_Click);
             // 
             // btnTout
             // 
@@ -681,6 +683,7 @@ namespace ParcAuto
             // 
             // FormsPlace
             // 
+            this.FormsPlace.AutoScroll = true;
             this.FormsPlace.BackColor = System.Drawing.Color.WhiteSmoke;
             this.FormsPlace.Controls.Add(this.pictureBox2);
             this.FormsPlace.Dock = System.Windows.Forms.DockStyle.Fill;

@@ -217,5 +217,15 @@ namespace ParcAuto
             showSubMenu(panelsousCar);
             Arrow_Up_Down(panelsousCar, carbUp, carbdown);
         }
+
+        private void btnLocation_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.Vehicules_Location(), sender);
+        }
+
+        private void btnMRouge_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.Vehicules_MRouge(), sender);
+        }
     }
 }
