@@ -26,7 +26,7 @@ namespace ParcAuto.Forms
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             while (GLB.dr.Read())
-                dgvReparation.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToShortDateString(), GLB.dr[5], GLB.dr[6].ToString(), GLB.dr[7].ToString());
+                dgvReparation.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToString("dd/MM/yyyy"), GLB.dr[5], GLB.dr[6].ToString(), GLB.dr[7].ToString());
             GLB.dr.Close();
             GLB.Con.Close();
         }
@@ -87,8 +87,8 @@ namespace ParcAuto.Forms
                 GLB.id_Reparation = Convert.ToInt32(dgvReparation.CurrentRow.Cells[0].Value);
                 string entite = dgvReparation.CurrentRow.Cells[1].Value.ToString();
                 string benificiaire = dgvReparation.CurrentRow.Cells[2].Value.ToString();
-                string vehicule = dgvReparation.CurrentRow.Cells[3].Value.ToString() ;
-                DateTime Date = Convert.ToDateTime(dgvReparation.CurrentRow.Cells[4].Value);
+                string vehicule = dgvReparation.CurrentRow.Cells[3].Value.ToString();
+                DateTime Date = DateTime.ParseExact(dgvReparation.CurrentRow.Cells[4].Value.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
                 string objet = dgvReparation.CurrentRow.Cells[5].Value.ToString();
                 string entretien = dgvReparation.CurrentRow.Cells[6].Value.ToString();
                 string reparation = dgvReparation.CurrentRow.Cells[7].Value.ToString();
@@ -131,7 +131,7 @@ namespace ParcAuto.Forms
             }
             else
                 for (int i = dgvReparation.Rows.Count - 1; i >= 0; i--)
-                    if (!((Convert.ToDateTime(dgvReparation.Rows[i].Cells[cmbChoix.SelectedIndex+1].Value)).Date >= Date1.Value.Date && (Convert.ToDateTime(dgvReparation.Rows[i].Cells[cmbChoix.SelectedIndex+1].Value)).Date <= Date2.Value.Date))
+                    if (!(DateTime.ParseExact(dgvReparation.Rows[i].Cells[cmbChoix.SelectedIndex + 1].Value.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture) >= Date1.Value.Date && DateTime.ParseExact(dgvReparation.Rows[i].Cells[cmbChoix.SelectedIndex + 1].Value.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture) <= Date2.Value.Date))
                         dgvReparation.Rows.Remove(dgvReparation.Rows[i]);
         }
 
