@@ -229,7 +229,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@txtObservation", txtObservation.Text);
                         break;
                     case Choix.modifier:
-                        GLB.Cmd.CommandText = $"update CarburantVignettes set Entite = @txtEntite, beneficiaire = @txtBenificiaire" +
+                        GLB.Cmd.CommandText = "update CarburantVignettes set Entite = @txtEntite, beneficiaire = @txtBenificiaire" +
                     $", vehicule = @cmbVehicule , date = @DateOper, lieu = @cmbVilles," +
                     $" ObjetOMN = @OMN, DFixe = @DoFixe ," +
                     $" DMissions = @DoMissions , DHebdo = @DoHebdo,DExceptionnel = @DoExp,Observation = @txtObservation ,KM = @txtKM , Pourcentage = @txtpourcentage where id = @ID";

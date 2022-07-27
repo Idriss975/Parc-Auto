@@ -63,11 +63,25 @@ namespace ParcAuto.Forms
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
-                        GLB.Cmd.CommandText = $"Insert into Reparation values (null,'{txtentite.Text}', '{txtBenificiaire.Text}', '{cmbVehicule.SelectedItem}', '{Date.Value.ToString("yyyy-MM-dd")}', '{txtObjet.Text}', {MontantEntretient}, {MontantReparation})";
+                        GLB.Cmd.CommandText = "Insert into Reparation values (null,@txtentite, @txtBenificiaire, @cmbVehicule, @Date, @txtObjet, @MontantEntretient, @MontantReparation)";
+                        GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.SelectedItem.ToString());
+                        GLB.Cmd.Parameters.AddWithValue("@Date", Date.Value.ToString("yyyy-MM-dd"));
+                        GLB.Cmd.Parameters.AddWithValue("@txtObjet", txtObjet.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", MontantEntretient);
+                        GLB.Cmd.Parameters.AddWithValue("@MontantReparation", MontantReparation);
                         break;
                     case Choix.modifier:
-                        GLB.Cmd.CommandText = $"update Reparation set Entite ='{txtentite.Text}', Beneficiaire='{txtBenificiaire.Text}', Vehicule='{cmbVehicule.SelectedItem}', Date='{Date.Value.ToString("yyyy-MM-dd")}', Objet='{txtObjet.Text}', Entretien={MontantEntretient}, Reparation={MontantReparation} where id = {GLB.id_Reparation}";
-                       
+                        GLB.Cmd.CommandText = "update Reparation set Entite = @txtentite, Beneficiaire=@txtBenificiaire, Vehicule=@cmbVehicule, Date= @Date, Objet=@txtObjet, Entretien= @MontantEntretient, Reparation=@MontantReparation where id = @ID";
+                        GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.SelectedItem.ToString());
+                        GLB.Cmd.Parameters.AddWithValue("@Date", Date.Value.ToString("yyyy-MM-dd"));
+                        GLB.Cmd.Parameters.AddWithValue("@txtObjet", txtObjet.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", MontantEntretient);
+                        GLB.Cmd.Parameters.AddWithValue("@MontantReparation", MontantReparation);
+                        GLB.Cmd.Parameters.AddWithValue("@ID", GLB.id_Reparation);
                         break;
                     case Choix.supprimer:
                         //On peut pas ouvrir MajConducteur avec l'option de suppression.
