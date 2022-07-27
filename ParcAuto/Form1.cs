@@ -44,52 +44,32 @@ namespace ParcAuto
                 subMenu.Visible = false;
             }
         }
-
+        private void Arrow_Up_Down(Panel panel , PictureBox up, PictureBox down)
+        {
+            if (panel.Visible)
+            {
+                up.Visible = true;
+                down.Visible = false;
+            }
+            else
+            {
+                up.Visible = false;
+                down.Visible = true;
+            }
+        }
         private void btnVignettes_Click(object sender, EventArgs e)
         {
             showSubMenu(panelSousVignettes);
-            if (panelSousVignettes.Visible)
-            {
-                VignettesUp.Visible = true;
-                Vignettesdown.Visible = false;
-            }
-            else
-            {
-                VignettesUp.Visible = false;
-                Vignettesdown.Visible = true;
-            }
+            Arrow_Up_Down(panelSousVignettes,VignettesUp,Vignettesdown);
         }
 
-        private void btnCarburant_Click(object sender, EventArgs e)
-        {
-            showSubMenu(panelsousCar);
-           
-            if (panelsousCar.Visible)
-            {
-                carbUp.Visible = true;
-                carbdown.Visible = false;
-            }
-            else
-            {
-                carbUp.Visible = false;
-                carbdown.Visible = true;
-            }
-        }
+       
 
         private void btnReparation_Click(object sender, EventArgs e)
         {
             showSubMenu(panelSousRep);
-            if (panelSousRep.Visible)
-            {
-                repup.Visible = true;
-                repdown.Visible = false;
-            }
-            else
-            {
-                repup.Visible = false;
-                repdown.Visible = true;
-            }
-            //hideSubMenu();
+            Arrow_Up_Down(panelSousRep, repup, repdown);
+
         }
 
         private void btnTransport_Click(object sender, EventArgs e)
@@ -107,9 +87,10 @@ namespace ParcAuto
         private void btnVehicules_Click(object sender, EventArgs e)
         {
             //hideSubMenu(panelSousVignettes);
-            
+            showSubMenu(panelSousVehicules);
+            Arrow_Up_Down(panelSousVehicules, vehiculeup, vehiculedown);
 
-            openChildForm(new Forms.Vehicules(),sender);    //Open formulaire
+
         }
 
         private void btnConducteurs_Click(object sender, EventArgs e)
@@ -206,6 +187,28 @@ namespace ParcAuto
         private void btnSNTLCarb_Click(object sender, EventArgs e)
         {
             openChildForm(new Forms.Carburants(), sender);
+        }
+
+        private void btnTout_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.Vehicules(), sender);    //Open formulaire
+        }
+
+        private void btnParcPRD_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelSousPRD);
+            Arrow_Up_Down(panelSousPRD, prdUp, PRDdown);
+        }
+
+        private void btnPRD_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCarburant_Click_1(object sender, EventArgs e)
+        {
+            showSubMenu(panelsousCar);
+            Arrow_Up_Down(panelsousCar, carbUp, carbdown);
         }
     }
 }
