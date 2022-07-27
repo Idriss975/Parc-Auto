@@ -31,15 +31,26 @@ namespace ParcAuto
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelSideMenu = new System.Windows.Forms.Panel();
+            this.VignettesUp = new System.Windows.Forms.PictureBox();
+            this.Vignettesdown = new System.Windows.Forms.PictureBox();
             this.section2btnCond_Vehicu = new System.Windows.Forms.Panel();
             this.btnConducteurs = new System.Windows.Forms.Button();
             this.btnVehicules = new System.Windows.Forms.Button();
             this.panelSousVignettes = new System.Windows.Forms.Panel();
-            this.btnCarburant = new System.Windows.Forms.Button();
-            this.panelSousRep = new System.Windows.Forms.Panel();
+            this.repdown = new System.Windows.Forms.PictureBox();
+            this.repup = new System.Windows.Forms.PictureBox();
+            this.panelsousCar = new System.Windows.Forms.Panel();
             this.btnPRDCarb = new System.Windows.Forms.Button();
             this.btnCarteFree = new System.Windows.Forms.Button();
             this.btnSNTLCarb = new System.Windows.Forms.Button();
+            this.panelCarburant = new System.Windows.Forms.Panel();
+            this.panelButtonCarburant = new System.Windows.Forms.Panel();
+            this.carbUp = new System.Windows.Forms.PictureBox();
+            this.carbdown = new System.Windows.Forms.PictureBox();
+            this.btnCarburant = new System.Windows.Forms.Button();
+            this.panelSousRep = new System.Windows.Forms.Panel();
+            this.btnRepSiegeSNTL = new System.Windows.Forms.Button();
+            this.btnRepPRD = new System.Windows.Forms.Button();
             this.btnTransport = new System.Windows.Forms.Button();
             this.btnReparation = new System.Windows.Forms.Button();
             this.btnVignettes = new System.Windows.Forms.Button();
@@ -47,34 +58,23 @@ namespace ParcAuto
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FormsPlace = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.Vignettesdown = new System.Windows.Forms.PictureBox();
-            this.VignettesUp = new System.Windows.Forms.PictureBox();
-            this.repdown = new System.Windows.Forms.PictureBox();
-            this.repup = new System.Windows.Forms.PictureBox();
-            this.panelsousCar = new System.Windows.Forms.Panel();
-            this.btnRepSiegeSNTL = new System.Windows.Forms.Button();
-            this.btnRepPRD = new System.Windows.Forms.Button();
-            this.panelCarburant = new System.Windows.Forms.Panel();
-            this.panelButtonCarburant = new System.Windows.Forms.Panel();
-            this.carbdown = new System.Windows.Forms.PictureBox();
-            this.carbUp = new System.Windows.Forms.PictureBox();
             this.panelSideMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.VignettesUp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Vignettesdown)).BeginInit();
             this.section2btnCond_Vehicu.SuspendLayout();
             this.panelSousVignettes.SuspendLayout();
-            this.panelSousRep.SuspendLayout();
-            this.panelLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.FormsPlace.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Vignettesdown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.VignettesUp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repdown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repup)).BeginInit();
             this.panelsousCar.SuspendLayout();
             this.panelCarburant.SuspendLayout();
             this.panelButtonCarburant.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.carbdown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carbUp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carbdown)).BeginInit();
+            this.panelSousRep.SuspendLayout();
+            this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.FormsPlace.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSideMenu
@@ -92,6 +92,28 @@ namespace ParcAuto
             this.panelSideMenu.Name = "panelSideMenu";
             this.panelSideMenu.Size = new System.Drawing.Size(198, 639);
             this.panelSideMenu.TabIndex = 0;
+            // 
+            // VignettesUp
+            // 
+            this.VignettesUp.Image = ((System.Drawing.Image)(resources.GetObject("VignettesUp.Image")));
+            this.VignettesUp.InitialImage = null;
+            this.VignettesUp.Location = new System.Drawing.Point(164, 117);
+            this.VignettesUp.Name = "VignettesUp";
+            this.VignettesUp.Size = new System.Drawing.Size(16, 16);
+            this.VignettesUp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.VignettesUp.TabIndex = 2;
+            this.VignettesUp.TabStop = false;
+            this.VignettesUp.Visible = false;
+            // 
+            // Vignettesdown
+            // 
+            this.Vignettesdown.Image = ((System.Drawing.Image)(resources.GetObject("Vignettesdown.Image")));
+            this.Vignettesdown.Location = new System.Drawing.Point(164, 117);
+            this.Vignettesdown.Name = "Vignettesdown";
+            this.Vignettesdown.Size = new System.Drawing.Size(16, 16);
+            this.Vignettesdown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.Vignettesdown.TabIndex = 1;
+            this.Vignettesdown.TabStop = false;
             // 
             // section2btnCond_Vehicu
             // 
@@ -156,38 +178,39 @@ namespace ParcAuto
             this.panelSousVignettes.Size = new System.Drawing.Size(198, 322);
             this.panelSousVignettes.TabIndex = 1;
             // 
-            // btnCarburant
+            // repdown
             // 
-            this.btnCarburant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
-            this.btnCarburant.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCarburant.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnCarburant.FlatAppearance.BorderSize = 0;
-            this.btnCarburant.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
-            this.btnCarburant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCarburant.ForeColor = System.Drawing.Color.White;
-            this.btnCarburant.Image = ((System.Drawing.Image)(resources.GetObject("btnCarburant.Image")));
-            this.btnCarburant.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCarburant.Location = new System.Drawing.Point(0, 0);
-            this.btnCarburant.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.btnCarburant.Name = "btnCarburant";
-            this.btnCarburant.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnCarburant.Size = new System.Drawing.Size(196, 40);
-            this.btnCarburant.TabIndex = 66;
-            this.btnCarburant.Text = "Carburant";
-            this.btnCarburant.UseVisualStyleBackColor = false;
-            this.btnCarburant.Click += new System.EventHandler(this.btnCarburant_Click);
+            this.repdown.Image = ((System.Drawing.Image)(resources.GetObject("repdown.Image")));
+            this.repdown.Location = new System.Drawing.Point(163, 14);
+            this.repdown.Name = "repdown";
+            this.repdown.Size = new System.Drawing.Size(16, 16);
+            this.repdown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.repdown.TabIndex = 3;
+            this.repdown.TabStop = false;
             // 
-            // panelSousRep
+            // repup
             // 
-            this.panelSousRep.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelSousRep.Controls.Add(this.btnRepSiegeSNTL);
-            this.panelSousRep.Controls.Add(this.btnRepPRD);
-            this.panelSousRep.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSousRep.Location = new System.Drawing.Point(0, 40);
-            this.panelSousRep.Name = "panelSousRep";
-            this.panelSousRep.Size = new System.Drawing.Size(196, 80);
-            this.panelSousRep.TabIndex = 4;
-            this.panelSousRep.Visible = false;
+            this.repup.Image = ((System.Drawing.Image)(resources.GetObject("repup.Image")));
+            this.repup.Location = new System.Drawing.Point(163, 14);
+            this.repup.Name = "repup";
+            this.repup.Size = new System.Drawing.Size(16, 16);
+            this.repup.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.repup.TabIndex = 3;
+            this.repup.TabStop = false;
+            this.repup.Visible = false;
+            // 
+            // panelsousCar
+            // 
+            this.panelsousCar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelsousCar.Controls.Add(this.btnPRDCarb);
+            this.panelsousCar.Controls.Add(this.btnCarteFree);
+            this.panelsousCar.Controls.Add(this.btnSNTLCarb);
+            this.panelsousCar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelsousCar.Location = new System.Drawing.Point(0, 160);
+            this.panelsousCar.Name = "panelsousCar";
+            this.panelsousCar.Size = new System.Drawing.Size(196, 120);
+            this.panelsousCar.TabIndex = 67;
+            this.panelsousCar.Visible = false;
             // 
             // btnPRDCarb
             // 
@@ -250,6 +273,123 @@ namespace ParcAuto
             this.btnSNTLCarb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSNTLCarb.UseVisualStyleBackColor = false;
             this.btnSNTLCarb.Click += new System.EventHandler(this.btnSNTLCarb_Click);
+            // 
+            // panelCarburant
+            // 
+            this.panelCarburant.Controls.Add(this.panelButtonCarburant);
+            this.panelCarburant.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelCarburant.Location = new System.Drawing.Point(0, 120);
+            this.panelCarburant.Name = "panelCarburant";
+            this.panelCarburant.Size = new System.Drawing.Size(196, 40);
+            this.panelCarburant.TabIndex = 0;
+            // 
+            // panelButtonCarburant
+            // 
+            this.panelButtonCarburant.Controls.Add(this.carbUp);
+            this.panelButtonCarburant.Controls.Add(this.carbdown);
+            this.panelButtonCarburant.Controls.Add(this.btnCarburant);
+            this.panelButtonCarburant.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelButtonCarburant.Location = new System.Drawing.Point(0, 0);
+            this.panelButtonCarburant.Name = "panelButtonCarburant";
+            this.panelButtonCarburant.Size = new System.Drawing.Size(196, 40);
+            this.panelButtonCarburant.TabIndex = 5;
+            // 
+            // carbUp
+            // 
+            this.carbUp.Image = ((System.Drawing.Image)(resources.GetObject("carbUp.Image")));
+            this.carbUp.Location = new System.Drawing.Point(163, 13);
+            this.carbUp.Name = "carbUp";
+            this.carbUp.Size = new System.Drawing.Size(16, 16);
+            this.carbUp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.carbUp.TabIndex = 4;
+            this.carbUp.TabStop = false;
+            this.carbUp.Visible = false;
+            // 
+            // carbdown
+            // 
+            this.carbdown.Image = ((System.Drawing.Image)(resources.GetObject("carbdown.Image")));
+            this.carbdown.Location = new System.Drawing.Point(163, 13);
+            this.carbdown.Name = "carbdown";
+            this.carbdown.Size = new System.Drawing.Size(16, 16);
+            this.carbdown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.carbdown.TabIndex = 67;
+            this.carbdown.TabStop = false;
+            // 
+            // btnCarburant
+            // 
+            this.btnCarburant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
+            this.btnCarburant.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCarburant.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnCarburant.FlatAppearance.BorderSize = 0;
+            this.btnCarburant.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnCarburant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarburant.ForeColor = System.Drawing.Color.White;
+            this.btnCarburant.Image = ((System.Drawing.Image)(resources.GetObject("btnCarburant.Image")));
+            this.btnCarburant.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCarburant.Location = new System.Drawing.Point(0, 0);
+            this.btnCarburant.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
+            this.btnCarburant.Name = "btnCarburant";
+            this.btnCarburant.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnCarburant.Size = new System.Drawing.Size(196, 40);
+            this.btnCarburant.TabIndex = 66;
+            this.btnCarburant.Text = "Carburant";
+            this.btnCarburant.UseVisualStyleBackColor = false;
+            this.btnCarburant.Click += new System.EventHandler(this.btnCarburant_Click);
+            // 
+            // panelSousRep
+            // 
+            this.panelSousRep.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelSousRep.Controls.Add(this.btnRepSiegeSNTL);
+            this.panelSousRep.Controls.Add(this.btnRepPRD);
+            this.panelSousRep.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSousRep.Location = new System.Drawing.Point(0, 40);
+            this.panelSousRep.Name = "panelSousRep";
+            this.panelSousRep.Size = new System.Drawing.Size(196, 80);
+            this.panelSousRep.TabIndex = 4;
+            this.panelSousRep.Visible = false;
+            // 
+            // btnRepSiegeSNTL
+            // 
+            this.btnRepSiegeSNTL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
+            this.btnRepSiegeSNTL.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRepSiegeSNTL.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnRepSiegeSNTL.FlatAppearance.BorderSize = 0;
+            this.btnRepSiegeSNTL.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnRepSiegeSNTL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRepSiegeSNTL.ForeColor = System.Drawing.Color.White;
+            this.btnRepSiegeSNTL.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRepSiegeSNTL.Location = new System.Drawing.Point(0, 40);
+            this.btnRepSiegeSNTL.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
+            this.btnRepSiegeSNTL.Name = "btnRepSiegeSNTL";
+            this.btnRepSiegeSNTL.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.btnRepSiegeSNTL.Size = new System.Drawing.Size(194, 40);
+            this.btnRepSiegeSNTL.TabIndex = 5;
+            this.btnRepSiegeSNTL.Text = "SNTL Siège";
+            this.btnRepSiegeSNTL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRepSiegeSNTL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRepSiegeSNTL.UseVisualStyleBackColor = false;
+            this.btnRepSiegeSNTL.Click += new System.EventHandler(this.btnRepSiege_Click);
+            // 
+            // btnRepPRD
+            // 
+            this.btnRepPRD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
+            this.btnRepPRD.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRepPRD.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnRepPRD.FlatAppearance.BorderSize = 0;
+            this.btnRepPRD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnRepPRD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRepPRD.ForeColor = System.Drawing.Color.White;
+            this.btnRepPRD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRepPRD.Location = new System.Drawing.Point(0, 0);
+            this.btnRepPRD.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
+            this.btnRepPRD.Name = "btnRepPRD";
+            this.btnRepPRD.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.btnRepPRD.Size = new System.Drawing.Size(194, 40);
+            this.btnRepPRD.TabIndex = 6;
+            this.btnRepPRD.Text = "PRD";
+            this.btnRepPRD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRepPRD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRepPRD.UseVisualStyleBackColor = false;
             // 
             // btnTransport
             // 
@@ -350,146 +490,6 @@ namespace ParcAuto
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // Vignettesdown
-            // 
-            this.Vignettesdown.Image = ((System.Drawing.Image)(resources.GetObject("Vignettesdown.Image")));
-            this.Vignettesdown.Location = new System.Drawing.Point(164, 117);
-            this.Vignettesdown.Name = "Vignettesdown";
-            this.Vignettesdown.Size = new System.Drawing.Size(16, 16);
-            this.Vignettesdown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.Vignettesdown.TabIndex = 1;
-            this.Vignettesdown.TabStop = false;
-            // 
-            // VignettesUp
-            // 
-            this.VignettesUp.Image = ((System.Drawing.Image)(resources.GetObject("VignettesUp.Image")));
-            this.VignettesUp.InitialImage = null;
-            this.VignettesUp.Location = new System.Drawing.Point(164, 117);
-            this.VignettesUp.Name = "VignettesUp";
-            this.VignettesUp.Size = new System.Drawing.Size(16, 16);
-            this.VignettesUp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.VignettesUp.TabIndex = 2;
-            this.VignettesUp.TabStop = false;
-            this.VignettesUp.Visible = false;
-            // 
-            // repdown
-            // 
-            this.repdown.Image = ((System.Drawing.Image)(resources.GetObject("repdown.Image")));
-            this.repdown.Location = new System.Drawing.Point(163, 14);
-            this.repdown.Name = "repdown";
-            this.repdown.Size = new System.Drawing.Size(16, 16);
-            this.repdown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.repdown.TabIndex = 3;
-            this.repdown.TabStop = false;
-            // 
-            // repup
-            // 
-            this.repup.Image = ((System.Drawing.Image)(resources.GetObject("repup.Image")));
-            this.repup.Location = new System.Drawing.Point(163, 14);
-            this.repup.Name = "repup";
-            this.repup.Size = new System.Drawing.Size(16, 16);
-            this.repup.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.repup.TabIndex = 3;
-            this.repup.TabStop = false;
-            this.repup.Visible = false;
-            // 
-            // panelsousCar
-            // 
-            this.panelsousCar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelsousCar.Controls.Add(this.btnPRDCarb);
-            this.panelsousCar.Controls.Add(this.btnCarteFree);
-            this.panelsousCar.Controls.Add(this.btnSNTLCarb);
-            this.panelsousCar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelsousCar.Location = new System.Drawing.Point(0, 160);
-            this.panelsousCar.Name = "panelsousCar";
-            this.panelsousCar.Size = new System.Drawing.Size(196, 120);
-            this.panelsousCar.TabIndex = 67;
-            this.panelsousCar.Visible = false;
-            // 
-            // btnRepSiegeSNTL
-            // 
-            this.btnRepSiegeSNTL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
-            this.btnRepSiegeSNTL.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRepSiegeSNTL.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnRepSiegeSNTL.FlatAppearance.BorderSize = 0;
-            this.btnRepSiegeSNTL.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
-            this.btnRepSiegeSNTL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRepSiegeSNTL.ForeColor = System.Drawing.Color.White;
-            this.btnRepSiegeSNTL.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRepSiegeSNTL.Location = new System.Drawing.Point(0, 40);
-            this.btnRepSiegeSNTL.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.btnRepSiegeSNTL.Name = "btnRepSiegeSNTL";
-            this.btnRepSiegeSNTL.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.btnRepSiegeSNTL.Size = new System.Drawing.Size(194, 40);
-            this.btnRepSiegeSNTL.TabIndex = 5;
-            this.btnRepSiegeSNTL.Text = "SNTL Siège";
-            this.btnRepSiegeSNTL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRepSiegeSNTL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRepSiegeSNTL.UseVisualStyleBackColor = false;
-            this.btnRepSiegeSNTL.Click += new System.EventHandler(this.btnRepSiege_Click);
-            // 
-            // btnRepPRD
-            // 
-            this.btnRepPRD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
-            this.btnRepPRD.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRepPRD.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnRepPRD.FlatAppearance.BorderSize = 0;
-            this.btnRepPRD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
-            this.btnRepPRD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRepPRD.ForeColor = System.Drawing.Color.White;
-            this.btnRepPRD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRepPRD.Location = new System.Drawing.Point(0, 0);
-            this.btnRepPRD.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.btnRepPRD.Name = "btnRepPRD";
-            this.btnRepPRD.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.btnRepPRD.Size = new System.Drawing.Size(194, 40);
-            this.btnRepPRD.TabIndex = 6;
-            this.btnRepPRD.Text = "PRD";
-            this.btnRepPRD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRepPRD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRepPRD.UseVisualStyleBackColor = false;
-            // 
-            // panelCarburant
-            // 
-            this.panelCarburant.Controls.Add(this.panelButtonCarburant);
-            this.panelCarburant.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelCarburant.Location = new System.Drawing.Point(0, 120);
-            this.panelCarburant.Name = "panelCarburant";
-            this.panelCarburant.Size = new System.Drawing.Size(196, 40);
-            this.panelCarburant.TabIndex = 0;
-            // 
-            // panelButtonCarburant
-            // 
-            this.panelButtonCarburant.Controls.Add(this.carbUp);
-            this.panelButtonCarburant.Controls.Add(this.carbdown);
-            this.panelButtonCarburant.Controls.Add(this.btnCarburant);
-            this.panelButtonCarburant.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelButtonCarburant.Location = new System.Drawing.Point(0, 0);
-            this.panelButtonCarburant.Name = "panelButtonCarburant";
-            this.panelButtonCarburant.Size = new System.Drawing.Size(196, 40);
-            this.panelButtonCarburant.TabIndex = 5;
-            // 
-            // carbdown
-            // 
-            this.carbdown.Image = ((System.Drawing.Image)(resources.GetObject("carbdown.Image")));
-            this.carbdown.Location = new System.Drawing.Point(163, 13);
-            this.carbdown.Name = "carbdown";
-            this.carbdown.Size = new System.Drawing.Size(16, 16);
-            this.carbdown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.carbdown.TabIndex = 67;
-            this.carbdown.TabStop = false;
-            // 
-            // carbUp
-            // 
-            this.carbUp.Image = ((System.Drawing.Image)(resources.GetObject("carbUp.Image")));
-            this.carbUp.Location = new System.Drawing.Point(163, 13);
-            this.carbUp.Name = "carbUp";
-            this.carbUp.Size = new System.Drawing.Size(16, 16);
-            this.carbUp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.carbUp.TabIndex = 4;
-            this.carbUp.TabStop = false;
-            this.carbUp.Visible = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -507,9 +507,19 @@ namespace ParcAuto
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelSideMenu.ResumeLayout(false);
             this.panelSideMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.VignettesUp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Vignettesdown)).EndInit();
             this.section2btnCond_Vehicu.ResumeLayout(false);
             this.panelSousVignettes.ResumeLayout(false);
             this.panelSousVignettes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.repdown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repup)).EndInit();
+            this.panelsousCar.ResumeLayout(false);
+            this.panelCarburant.ResumeLayout(false);
+            this.panelButtonCarburant.ResumeLayout(false);
+            this.panelButtonCarburant.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.carbUp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carbdown)).EndInit();
             this.panelSousRep.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             this.panelLogo.PerformLayout();
@@ -517,16 +527,6 @@ namespace ParcAuto
             this.FormsPlace.ResumeLayout(false);
             this.FormsPlace.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Vignettesdown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.VignettesUp)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repdown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repup)).EndInit();
-            this.panelsousCar.ResumeLayout(false);
-            this.panelCarburant.ResumeLayout(false);
-            this.panelButtonCarburant.ResumeLayout(false);
-            this.panelButtonCarburant.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.carbdown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carbUp)).EndInit();
             this.ResumeLayout(false);
 
         }
