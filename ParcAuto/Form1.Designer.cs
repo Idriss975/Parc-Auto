@@ -525,7 +525,7 @@ namespace ParcAuto
             // 
             // btnCarburant
             // 
-            this.btnCarburant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
+            this.btnCarburant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
             this.btnCarburant.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCarburant.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnCarburant.FlatAppearance.BorderSize = 0;
@@ -603,7 +603,7 @@ namespace ParcAuto
             // 
             // btnTransport
             // 
-            this.btnTransport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
+            this.btnTransport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
             this.btnTransport.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnTransport.FlatAppearance.BorderSize = 0;
             this.btnTransport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -622,7 +622,7 @@ namespace ParcAuto
             // 
             // btnReparation
             // 
-            this.btnReparation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
+            this.btnReparation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
             this.btnReparation.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnReparation.FlatAppearance.BorderSize = 0;
             this.btnReparation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
