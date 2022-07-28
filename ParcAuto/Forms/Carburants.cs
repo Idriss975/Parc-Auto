@@ -207,7 +207,7 @@ namespace ParcAuto.Forms
 
                     for (int i = 0; i < dgvCarburant.Columns.Count - 1; i++)
                     {
-                        if(i < 11)
+                        if(i < 12)
                         {
                             xcelApp.Cells[1, i + 1] = dgvCarburant.Columns[i].HeaderText;
                         }
@@ -255,60 +255,7 @@ namespace ParcAuto.Forms
             Range importdatagridviewRange;
             try
             {
-                importExceldatagridViewApp = new Microsoft.Office.Interop.Excel.Application();
-                OpenFileDialog importOpenDialoge = new OpenFileDialog();
-                importOpenDialoge.Title = "Import Excel File";
-                importOpenDialoge.Filter = "Import Excel File|*.xlsx;*xls;*xlm";
-                if (importOpenDialoge.ShowDialog() == DialogResult.OK)
-                {
-                    if (GLB.Con.State == ConnectionState.Open)
-                        GLB.Con.Close();
-                    GLB.Con.Open();
-                    
-                    importExceldatagridViewworkbook = importExceldatagridViewApp.Workbooks.Open(importOpenDialoge.FileName);
-                    importExceldatagridViewworksheet = importExceldatagridViewworkbook.ActiveSheet;
-                    importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
-                    for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
-                    {
-                         string Dfixe = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 9].value);
-                        string DMission = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 10].value);
-                        string Dhebdo = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 11].value);
-                        string omn = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value);
-                        DateTime date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value));
-
-                        if (Dfixe == null)
-                            Dfixe = "null";
-                        if (DMission == null)
-                            DMission = "null";
-                        if (Dhebdo == null)
-                            Dhebdo = "null";
-                        GLB.Cmd.CommandText = $"SELECT count(*) FROM CarburantVignettes where Entite = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}' and beneficiaire = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}' and vehicule = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}' " +
-                            $"and date = '{date.ToString("yyyy-MM-dd")}' and lieu ='{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value}' " +
-                            $"and KM ={Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value)} and Pourcentage = {Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value)}" +
-                            $" and ObjetOMN = '{omn.Substring(21)}' ";
-
-                        if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
-                        {
-                            GLB.Cmd.CommandText = $"insert into CarburantVignettes values('{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}'," +
-             $"'{date.ToString("yyyy-MM-dd")}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value}',{Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value)},{Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value)}" +
-             $",'{omn.Substring(21)}',{Dfixe},{DMission}," +
-             $"{Dhebdo},null,'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 12].value}')";
-                            GLB.Cmd.ExecuteNonQuery();
-
-
-                        }
-                        else
-                        {
-                            MessageBox.Show($"La vignette avec l'entite : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value} \n- benificiaire :{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}" +
-                                $"\n- Vehicule : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}\n- Date : {date.ToString("yyyy-MM-dd")}\n" +
-                                $"- Lieu : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value} \n- Kilometrage : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value} \n" +
-                                $"- Pourcentage : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value} \n- OMN N° : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value} \nExiste déja.");
-                        }
-             
-                    }
-                    GLB.Con.Close();
-                }
-                RemplirLaGrille();
+                
 
             }
             catch (Exception ex)
@@ -316,6 +263,97 @@ namespace ParcAuto.Forms
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 
             }
+            importExceldatagridViewApp = new Microsoft.Office.Interop.Excel.Application();
+            OpenFileDialog importOpenDialoge = new OpenFileDialog();
+            importOpenDialoge.Title = "Import Excel File";
+            importOpenDialoge.Filter = "Import Excel File|*.xlsx;*xls;*xlm";
+            if (importOpenDialoge.ShowDialog() == DialogResult.OK)
+            {
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
+                GLB.Con.Open();
+
+                importExceldatagridViewworkbook = importExceldatagridViewApp.Workbooks.Open(importOpenDialoge.FileName);
+                importExceldatagridViewworksheet = importExceldatagridViewworkbook.ActiveSheet;
+                importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
+                for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1 ; excelWorksheetIndex++)
+                {
+                    
+                    string entite = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
+                    string benificiaire = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
+                    string vehicule = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
+                    DateTime date = (DateTime)importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value;
+                    string lieu = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value);
+                    string KM = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
+                    string Pourcentage = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
+                    string omn = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value);
+                    string Dfixe = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 9].value);
+                    string DMission = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 10].value);
+                    string Dhebdo = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 11].value);
+                    string Dexeptionnelle = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 12].value);
+                    string observation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 13].value);
+
+                    if (entite == null)
+                        entite = " ";
+                    if (benificiaire == null)
+                        benificiaire = " ";
+                    if (vehicule == null)
+                        vehicule = " ";
+                    if (date == null)
+                        date = DateTime.Now.Date;
+                    if (lieu == null)
+                        lieu = " ";
+                    if (KM == null)
+                        KM = "null";
+                    if (Pourcentage == null)
+                        Pourcentage = "null";
+                    if (omn == null)
+                        omn = " ";
+                    if (observation == null)
+                        observation = " ";
+
+
+
+                    //GLB.Cmd.CommandText = $"SELECT count(*) FROM CarburantVignettes where Entite = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}' and beneficiaire = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}' and vehicule = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}' " +
+                    //    $"and date = '{date.ToString("yyyy-MM-dd")}' and lieu ='{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value}' " +
+                    //    $"and KM ={Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value)} and Pourcentage = {Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value)}" +
+                    //    $" and ObjetOMN = '{omn.Substring(21)}' ";
+
+                    GLB.Cmd.CommandText = "insert into CarburantVignettes values(@txtEntite,@txtBenificiaire,@cmbVehicule," +
+                    $"@DateOper,@cmbVilles,@txtKM,@txtpourcentage,@OMN,@DoFixe,@DoMissions," +
+                    $"@DoHebdo,@DoExp,null,@txtObservation)";
+                    GLB.Cmd.Parameters.AddWithValue("@txtEntite",entite);
+                    GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", benificiaire);
+                    GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", vehicule);
+                    GLB.Cmd.Parameters.AddWithValue("@DateOper", date.ToString("yyyy-MM-dd"));
+                    GLB.Cmd.Parameters.AddWithValue("@cmbVilles",lieu);
+                    GLB.Cmd.Parameters.AddWithValue("@txtKM", KM);
+                    GLB.Cmd.Parameters.AddWithValue("@txtpourcentage",Pourcentage);
+                    GLB.Cmd.Parameters.AddWithValue("@OMN", omn + "/" + DateTime.Now.Year.ToString().Substring(2));
+                    GLB.Cmd.Parameters.AddWithValue("@DoFixe", Dfixe == "null" ? null : Dfixe);
+                    GLB.Cmd.Parameters.AddWithValue("@DoMissions", DMission == "null" ? null : DMission);
+                    GLB.Cmd.Parameters.AddWithValue("@DoHebdo", Dhebdo == "null" ? null : Dhebdo);
+                    GLB.Cmd.Parameters.AddWithValue("@DoExp", Dexeptionnelle == "null" ? null : Dexeptionnelle);
+                    GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation);
+                    GLB.Cmd.ExecuteNonQuery();
+                    //if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
+                    //{
+
+
+
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show($"La vignette avec l'entite : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value} \n- benificiaire :{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}" +
+                    //        $"\n- Vehicule : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}\n- Date : {date.ToString("yyyy-MM-dd")}\n" +
+                    //        $"- Lieu : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value} \n- Kilometrage : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value} \n" +
+                    //        $"- Pourcentage : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value} \n- OMN N° : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value} \nExiste déja.");
+                    //}
+
+                }
+                GLB.Con.Close();
+            }
+            RemplirLaGrille();
         }
 
         private void dgvCarburant_CellContentClick(object sender, DataGridViewCellEventArgs e)
