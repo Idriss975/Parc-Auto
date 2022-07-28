@@ -141,7 +141,7 @@ namespace ParcAuto.Forms
 
         private void cmbChoix_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cmbChoix.SelectedIndex == 4)
+            if(cmbChoix.SelectedIndex == 2)
             {
                 TextPanel.Visible = false;
                 panelDate.Visible = true;

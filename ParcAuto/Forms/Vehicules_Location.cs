@@ -186,5 +186,23 @@ namespace ParcAuto.Forms
                     if (!((Convert.ToDateTime(dgvVehicules.Rows[i].Cells[cmbChoix.SelectedIndex].Value)).Date >= Date1.Value.Date && (Convert.ToDateTime(dgvVehicules.Rows[i].Cells[cmbChoix.SelectedIndex].Value)).Date <= Date2.Value.Date))
                         dgvVehicules.Rows.Remove(dgvVehicules.Rows[i]);
         }
+
+        private void cmbChoix_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbChoix.SelectedIndex == 2)
+            {
+                TextPanel.Visible = false;
+                panelDate.Visible = true;
+                panelDate.Location = new System.Drawing.Point(287, 3);
+                btnFiltrer.Location = new System.Drawing.Point(858, 14);
+            }
+            else
+            {
+                TextPanel.Visible = true;
+                panelDate.Visible = false;
+                TextPanel.Location = new System.Drawing.Point(287, 12);
+                btnFiltrer.Location = new System.Drawing.Point(635, 14);
+            }
+        }
     }
 }
