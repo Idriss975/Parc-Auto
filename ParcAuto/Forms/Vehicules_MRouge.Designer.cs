@@ -83,6 +83,7 @@ namespace ParcAuto.Forms
             this.btnExportExcel.Size = new System.Drawing.Size(40, 40);
             this.btnExportExcel.TabIndex = 40;
             this.btnExportExcel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
             // btnFiltrer
             // 
@@ -506,7 +507,7 @@ namespace ParcAuto.Forms
             this.Controls.Add(this.dgvVehicules);
             this.Controls.Add(this.btnQuitter);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1127, 708);
             this.Name = "Vehicules_MRouge";
             this.Text = "Vehicules_MRouge";
