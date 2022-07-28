@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions; // import Regex
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -149,6 +150,22 @@ namespace ParcAuto.Forms
         private void btnQuitter_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnFiltrer_Click(object sender, EventArgs e)
+        {
+            if (!(cmbChoix.SelectedIndex == 2))
+            {
+                for (int i = dgvVehicules.Rows.Count - 1; i >= 0; i--)
+                {
+                    if (!(new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(dgvVehicules.Rows[i].Cells[cmbChoix.SelectedIndex].Value.ToString().ToLower())))
+                        dgvVehicules.Rows.Remove(dgvVehicules.Rows[i]);
+                }
+            }
+            else
+                for (int i = dgvVehicules.Rows.Count - 1; i >= 0; i--)
+                    if (!((Convert.ToDateTime(dgvVehicules.Rows[i].Cells[cmbChoix.SelectedIndex].Value)).Date >= Date1.Value.Date && (Convert.ToDateTime(dgvVehicules.Rows[i].Cells[cmbChoix.SelectedIndex].Value)).Date <= Date2.Value.Date))
+                        dgvVehicules.Rows.Remove(dgvVehicules.Rows[i]);
         }
 
         private void btnExportExcel_Click(object sender, EventArgs e)

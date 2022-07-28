@@ -159,7 +159,7 @@ namespace ParcAuto.Forms
 
         private void btnFiltrer_Click(object sender, EventArgs e)
         {
-            if (!(cmbChoix.SelectedIndex == 4))
+            if (!(cmbChoix.SelectedIndex == 2))
             {
                 for (int i = dgvVehicules.Rows.Count - 1; i >= 0; i--)
                 {
