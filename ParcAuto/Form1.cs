@@ -86,9 +86,7 @@ namespace ParcAuto
 
         private void btnVehicules_Click(object sender, EventArgs e)
         {
-            //hideSubMenu(panelSousVignettes);
-            showSubMenu(panelSousVehicules);
-            Arrow_Up_Down(panelSousVehicules, vehiculeup, vehiculedown);
+            
 
 
         }
@@ -145,7 +143,7 @@ namespace ParcAuto
                     previousBtn.BackColor = Color.FromArgb(115, 139, 215);
                 }
             }
-            foreach (Control previousBtn in section2btnCond_Vehicu.Controls)
+            foreach (Control previousBtn in panelSousParcOFPPT.Controls)
             {
                 if (previousBtn.GetType() == typeof(Button))
                 {
@@ -184,13 +182,6 @@ namespace ParcAuto
         }
 
 
-
-        private void btnRepSiege_Click(object sender, EventArgs e)
-        {
-            openChildForm(new Forms.Reparation(), sender);
-
-        }
-
         private void btnSNTLCarb_Click(object sender, EventArgs e)
         {
             openChildForm(new Forms.Carburants(), sender);
@@ -203,8 +194,8 @@ namespace ParcAuto
 
         private void btnParcPRD_Click(object sender, EventArgs e)
         {
-            showSubMenu(panelSousPRD);
-            Arrow_Up_Down(panelSousPRD, prdUp, PRDdown);
+            //showSubMenu(panelSousPRD);
+            //Arrow_Up_Down(panelSousPRD, prdUp, PRDdown);
         }
 
         private void btnPRD_Click(object sender, EventArgs e)
@@ -218,12 +209,58 @@ namespace ParcAuto
             Arrow_Up_Down(panelsousCar, carbUp, carbdown);
         }
 
-        private void btnLocation_Click(object sender, EventArgs e)
+
+        private void panelMrouge_OFPPT_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnRepSiege_Click_1(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.Reparation(), sender);
+        }
+
+        private void btnRepPRD_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormsPlace_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnParcOFPPT_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelSousParcOFPPT);
+        }
+
+        private void btnParcAuto_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelSousVehicules);
+        }
+
+        private void prdUp_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnParcPRD_Click_1(object sender, EventArgs e)
+        {
+            showSubMenu(panelPRD);
+        }
+
+        private void btnVehicules_Click_1(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.Vehicules(), sender);
+        }
+
+        private void btnVLocation_Click(object sender, EventArgs e)
         {
             openChildForm(new Forms.Vehicules_Location(), sender);
         }
 
-        private void btnMRouge_Click(object sender, EventArgs e)
+        private void btnMRouge_Click_1(object sender, EventArgs e)
         {
             openChildForm(new Forms.Vehicules_MRouge(), sender);
         }
