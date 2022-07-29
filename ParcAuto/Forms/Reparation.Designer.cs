@@ -58,6 +58,7 @@ namespace ParcAuto.Forms
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnImportExcel = new Guna.UI2.WinForms.Guna2Button();
             this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSuprimmerTout = new Guna.UI2.WinForms.Guna2Button();
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReparation)).BeginInit();
@@ -464,11 +465,35 @@ namespace ParcAuto.Forms
             this.btnExportExcel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
+            // btnSuprimmerTout
+            // 
+            this.btnSuprimmerTout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSuprimmerTout.BorderRadius = 4;
+            this.btnSuprimmerTout.CheckedState.Parent = this.btnSuprimmerTout;
+            this.btnSuprimmerTout.CustomImages.Parent = this.btnSuprimmerTout;
+            this.btnSuprimmerTout.FillColor = System.Drawing.Color.Tomato;
+            this.btnSuprimmerTout.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSuprimmerTout.ForeColor = System.Drawing.Color.White;
+            this.btnSuprimmerTout.HoverState.Parent = this.btnSuprimmerTout;
+            this.btnSuprimmerTout.Image = ((System.Drawing.Image)(resources.GetObject("btnSuprimmerTout.Image")));
+            this.btnSuprimmerTout.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnSuprimmerTout.Location = new System.Drawing.Point(132, 625);
+            this.btnSuprimmerTout.Margin = new System.Windows.Forms.Padding(5);
+            this.btnSuprimmerTout.Name = "btnSuprimmerTout";
+            this.btnSuprimmerTout.ShadowDecoration.Parent = this.btnSuprimmerTout;
+            this.btnSuprimmerTout.Size = new System.Drawing.Size(140, 30);
+            this.btnSuprimmerTout.TabIndex = 57;
+            this.btnSuprimmerTout.Text = "Supprimer Tout";
+            this.btnSuprimmerTout.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnSuprimmerTout.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnSuprimmerTout.Click += new System.EventHandler(this.btnSuprimmerTout_Click);
+            // 
             // Reparation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 669);
+            this.Controls.Add(this.btnSuprimmerTout);
             this.Controls.Add(this.btnImportExcel);
             this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.panelDate);
@@ -527,5 +552,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private Guna.UI2.WinForms.Guna2Button btnImportExcel;
         private Guna.UI2.WinForms.Guna2Button btnExportExcel;
+        private Guna.UI2.WinForms.Guna2Button btnSuprimmerTout;
     }
 }

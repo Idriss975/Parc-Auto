@@ -258,5 +258,20 @@ namespace ParcAuto.Forms
 
             }
         }
+
+        private void btnSuprimmerTout_Click(object sender, EventArgs e)
+        {
+            string query1 = $"delete from Conducteurs where Matricule = '{dgvReparation.Rows[0].Cells[0].Value}'";
+            for (int i = 1; i < dgvReparation.Rows.Count; i++)
+                query1 += $" or Matricule = '{dgvReparation.Rows[i].Cells[0].Value}' ";
+            if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                GLB.Cmd.CommandText = query1;
+                GLB.Con.Open();
+                GLB.Cmd.ExecuteNonQuery();
+                GLB.Con.Close();
+                datagridviewLoad();
+            }
+        }
     }
 }

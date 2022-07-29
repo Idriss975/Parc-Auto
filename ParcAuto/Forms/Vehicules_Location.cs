@@ -204,5 +204,20 @@ namespace ParcAuto.Forms
                 btnFiltrer.Location = new System.Drawing.Point(635, 14);
             }
         }
+
+        private void btnSuprimmerTout_Click(object sender, EventArgs e)
+        {
+            string query1 = $"delete from Vehicules where Matricule = '{dgvVehicules.Rows[0].Cells[1].Value}'";
+            for (int i = 1; i < dgvVehicules.Rows.Count; i++)
+                query1 += $" or Matricule = '{dgvVehicules.Rows[i].Cells[1].Value}' ";
+            if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                GLB.Cmd.CommandText = query1;
+                GLB.Con.Open();
+                GLB.Cmd.ExecuteNonQuery();
+                GLB.Con.Close();
+                RemplirLaGrille();
+            }
+        }
     }
 }
