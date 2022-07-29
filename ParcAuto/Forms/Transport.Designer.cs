@@ -532,7 +532,7 @@ namespace ParcAuto.Forms
             // 
             // btnSuprimmerTout
             // 
-            this.btnSuprimmerTout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSuprimmerTout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSuprimmerTout.BorderRadius = 4;
             this.btnSuprimmerTout.CheckedState.Parent = this.btnSuprimmerTout;
             this.btnSuprimmerTout.CustomImages.Parent = this.btnSuprimmerTout;
