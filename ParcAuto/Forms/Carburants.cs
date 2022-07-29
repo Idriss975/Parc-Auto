@@ -120,7 +120,7 @@ namespace ParcAuto.Forms
             }
             else
                 for (int i = dgvCarburant.Rows.Count - 1; i >= 0; i--)
-                    if (!(DateTime.ParseExact(dgvCarburant.Rows[i].Cells[cmbChoix.SelectedIndex].Value.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture) >= Date1.Value.Date && DateTime.ParseExact(dgvCarburant.Rows[i].Cells[cmbChoix.SelectedIndex].Value.ToString(),"dd/MM/yyyy",System.Globalization.CultureInfo.InvariantCulture) <= Date2.Value.Date))
+                    if (!(DateTime.ParseExact(dgvCarburant.Rows[i].Cells[cmbChoix.SelectedIndex].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture) >= Date1.Value.Date && DateTime.ParseExact(dgvCarburant.Rows[i].Cells[cmbChoix.SelectedIndex].Value.ToString(),"d/M/yyyy",System.Globalization.CultureInfo.InvariantCulture) <= Date2.Value.Date))
                         dgvCarburant.Rows.Remove(dgvCarburant.Rows[i]);
         }
 
@@ -194,9 +194,10 @@ namespace ParcAuto.Forms
         {
           
         }
-
+        DateTime date;
         private void btnExportExcel_Click(object sender, EventArgs e)
         {
+           
             try
             {
                 if (dgvCarburant.Rows.Count > 0)
@@ -222,6 +223,11 @@ namespace ParcAuto.Forms
                     {
                         for (int j = 0; j < dgvCarburant.Columns.Count - 1; j++)
                         {
+                            //if (j == 3)
+                            //{
+                            //    xcelApp.Cells[i + 2, j + 1] = Convert.ToDateTime(dgvCarburant.Rows[i].Cells[j].Value).ToOADate();
+                            //}
+                            
                             if (j < 12)
                             {
                                 xcelApp.Cells[i + 2, j + 1] = dgvCarburant.Rows[i].Cells[j].Value.ToString();
@@ -237,6 +243,7 @@ namespace ParcAuto.Forms
                     xcelApp.Columns.AutoFit();
                     xcelApp.Visible = true;
                     //MessageBox.Show("Vous avez réussi à exporter vos données vers un fichier excel", "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    xcelApp.Workbooks.Close();
                 }
 
 
@@ -277,7 +284,7 @@ namespace ParcAuto.Forms
                         entite = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
                         benificiaire = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
                         vehicule = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
-                        date = (DateTime)importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value;
+                        date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value));
                         lieu = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value);
                         KM = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
                         Pourcentage = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
@@ -322,16 +329,18 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@DoHebdo", Dhebdo == "null" ? null : Dhebdo);
                         GLB.Cmd.Parameters.AddWithValue("@DoExp", Dexeptionnelle == "null" ? null : Dexeptionnelle);
                         GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation);
-                        try
-                        {
-                            GLB.Cmd.ExecuteNonQuery();
-                        }
-                        catch (Exception )
-                        {
-                            MessageBox.Show($"Une erreur de saisie sur la ligne {excelWorksheetIndex}");
-                        }
-
+                        GLB.Cmd.ExecuteNonQuery();
+                        //try
+                        //{
+                            
+                        //}
+                        //catch (Exception )
+                        //{
+                        //    MessageBox.Show($"Une erreur de saisie sur la ligne {excelWorksheetIndex}");
+                        //}
                     }
+                    importExceldatagridViewApp.Workbooks.Close();
+
                 }
             }
             catch (Exception ex)
@@ -342,6 +351,7 @@ namespace ParcAuto.Forms
             }
             finally
             {
+                
                 GLB.Con.Close();
                 RemplirLaGrille();
             }
@@ -415,6 +425,7 @@ namespace ParcAuto.Forms
             GLB.Cmd.ExecuteNonQuery();
             GLB.Con.Close();
             RemplirLaGrille();
+            //MessageBox.Show(dgvCarburant.Rows.Count.ToString());
 
         }
     }
