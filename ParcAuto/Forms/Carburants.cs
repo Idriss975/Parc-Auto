@@ -32,7 +32,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], ((DateTime)GLB.dr[3]).ToString("dd/MM/yyyy"), GLB.dr[4], GLB.dr[5], GLB.dr[6], $"ADMINISTRATIVE OMN°  {GLB.dr[7]}", GLB.dr[8].ToString(), GLB.dr[9].ToString(), GLB.dr[10].ToString(), GLB.dr[11].ToString(), GLB.dr[12], GLB.dr[13]); ; ; ; ; ;
+                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], ((DateTime)GLB.dr[3]).ToString("dd/MM/yyyy"), GLB.dr[4], GLB.dr[5], GLB.dr[6], GLB.dr[7], GLB.dr[8].ToString(), GLB.dr[9].ToString(), GLB.dr[10].ToString(), GLB.dr[11].ToString(), GLB.dr[12], GLB.dr[13]);
 
                 GLB.dr.Close();
             }
@@ -322,7 +322,14 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@DoHebdo", Dhebdo == "null" ? null : Dhebdo);
                         GLB.Cmd.Parameters.AddWithValue("@DoExp", Dexeptionnelle == "null" ? null : Dexeptionnelle);
                         GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation);
-                        GLB.Cmd.ExecuteNonQuery();
+                        try
+                        {
+                            GLB.Cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception )
+                        {
+                            MessageBox.Show($"Une erreur de saisie sur la ligne {excelWorksheetIndex}");
+                        }
                     }
                 }
             }
@@ -398,15 +405,16 @@ namespace ParcAuto.Forms
         private void btnSuprimmerTout_Click(object sender, EventArgs e)
         {
             string query1 = $"delete from CarburantVignettes where id = {dgvCarburant.Rows[0].Cells[12].Value}";
-            for (int i = 1; i < dgvCarburant.Rows.Count ; i++)
+            for (int i = 1; i < dgvCarburant.Rows.Count; i++)
             {
-                    query1 += $" or id = {dgvCarburant.Rows[i].Cells[12].Value} ";
+                query1 += $" or id = {dgvCarburant.Rows[i].Cells[12].Value} ";
             }
             GLB.Cmd.CommandText = query1;
             GLB.Con.Open();
             GLB.Cmd.ExecuteNonQuery();
             GLB.Con.Close();
             RemplirLaGrille();
+
         }
     }
 }
