@@ -330,6 +330,7 @@ namespace ParcAuto.Forms
                         {
                             MessageBox.Show($"Une erreur de saisie sur la ligne {excelWorksheetIndex}");
                         }
+
                     }
                 }
             }
@@ -344,33 +345,33 @@ namespace ParcAuto.Forms
                 GLB.Con.Close();
                 RemplirLaGrille();
             }
-       
-            
 
 
 
-                    //GLB.Cmd.CommandText = $"SELECT count(*) FROM CarburantVignettes where Entite = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}' and beneficiaire = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}' and vehicule = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}' " +
-                    //    $"and date = '{date.ToString("yyyy-MM-dd")}' and lieu ='{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value}' " +
-                    //    $"and KM ={Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value)} and Pourcentage = {Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value)}" +
-                    //    $" and ObjetOMN = '{omn.Substring(21)}' ";
-
-                   
-                    //if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
-                    //{
 
 
 
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show($"La vignette avec l'entite : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value} \n- benificiaire :{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}" +
-                    //        $"\n- Vehicule : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}\n- Date : {date.ToString("yyyy-MM-dd")}\n" +
-                    //        $"- Lieu : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value} \n- Kilometrage : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value} \n" +
-                    //        $"- Pourcentage : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value} \n- OMN N° : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value} \nExiste déja.");
-                    //}
+            //GLB.Cmd.CommandText = $"SELECT count(*) FROM CarburantVignettes where Entite = '{entite}' and beneficiaire = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}' and vehicule = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}' " +
+            //$"and date = '{date.ToString("yyyy-MM-dd")}' and lieu ='{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value}' " +
+            //$"and KM ={Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value)} and Pourcentage = {Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value)}" +
+            //$" and ObjetOMN = '{omn.Substring(21)}' ";
 
-         
-           
+            //if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
+            //{
+
+
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show($"La vignette avec l'entite : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value} \n- benificiaire :{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}" +
+            //        $"\n- Vehicule : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}\n- Date : {date.ToString("yyyy-MM-dd")}\n" +
+            //        $"- Lieu : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value} \n- Kilometrage : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value} \n" +
+            //        $"- Pourcentage : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value} \n- OMN N° : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value} \nExiste déja.");
+            //}
+
+
+
         }
 
         private void dgvCarburant_CellContentClick(object sender, DataGridViewCellEventArgs e)

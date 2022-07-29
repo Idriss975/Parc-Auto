@@ -125,11 +125,15 @@ namespace ParcAuto.Forms
                 GLB.ds.Tables["Vehicules1"].Clear();
             GLB.da = new SQLiteDataAdapter("select * from Vehicules", GLB.Con);
             GLB.da.Fill(GLB.ds, "Vehicules1");
+            AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
             foreach (DataRow item in GLB.ds.Tables["Vehicules1"].Rows)
             {
-                cmbVehicule.Items.Add(item[0]);
+                ac.Add(item[0].ToString());
 
             }
+            cmbVehicule.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cmbVehicule.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cmbVehicule.AutoCompleteCustomSource = ac;
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -138,7 +142,7 @@ namespace ParcAuto.Forms
             txtEntite.Text = "";
             txtOMN.Text = "";
             txtBenificiaire.Text = "";
-            cmbVehicule.SelectedIndex = 0;
+            cmbVehicule.Text = "";
             cmbVilles.Text = "";
             DateOper.Value = DateTime.Now;
             DFixe.Checked = false;
@@ -216,7 +220,7 @@ namespace ParcAuto.Forms
                     $"@DoHebdo,@DoExp,null,@txtObservation)";
                         GLB.Cmd.Parameters.AddWithValue("@txtEntite", txtEntite.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.SelectedItem.ToString());
+                        GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.Text);
                         GLB.Cmd.Parameters.AddWithValue("@DateOper", DateOper.Value.ToString("yyyy-MM-dd"));
                         GLB.Cmd.Parameters.AddWithValue("@cmbVilles", cmbVilles.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtKM", txtKM.Text);
@@ -235,7 +239,7 @@ namespace ParcAuto.Forms
                     $" DMissions = @DoMissions , DHebdo = @DoHebdo,DExceptionnel = @DoExp,Observation = @txtObservation ,KM = @txtKM , Pourcentage = @txtpourcentage where id = @ID";
                         GLB.Cmd.Parameters.AddWithValue("@txtEntite", txtEntite.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.SelectedItem.ToString());
+                        GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.Text);
                         GLB.Cmd.Parameters.AddWithValue("@DateOper", DateOper.Value.ToString("yyyy-MM-dd"));
                         GLB.Cmd.Parameters.AddWithValue("@cmbVilles", cmbVilles.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtKM", txtKM.Text);

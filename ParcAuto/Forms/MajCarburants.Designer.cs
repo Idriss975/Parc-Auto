@@ -34,7 +34,6 @@ namespace ParcAuto.Forms
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnAppliquer = new Guna.UI2.WinForms.Guna2Button();
             this.lbl = new System.Windows.Forms.Label();
-            this.cmbVehicule = new System.Windows.Forms.ComboBox();
             this.DateOper = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -60,6 +59,7 @@ namespace ParcAuto.Forms
             this.txtObservation = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Dexceptionnel = new System.Windows.Forms.RadioButton();
+            this.cmbVehicule = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -143,17 +143,6 @@ namespace ParcAuto.Forms
             this.lbl.Size = new System.Drawing.Size(67, 36);
             this.lbl.TabIndex = 20;
             this.lbl.Text = "null";
-            // 
-            // cmbVehicule
-            // 
-            this.cmbVehicule.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbVehicule.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbVehicule.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbVehicule.FormattingEnabled = true;
-            this.cmbVehicule.Location = new System.Drawing.Point(145, 63);
-            this.cmbVehicule.Name = "cmbVehicule";
-            this.cmbVehicule.Size = new System.Drawing.Size(219, 24);
-            this.cmbVehicule.TabIndex = 2;
             // 
             // DateOper
             // 
@@ -335,7 +324,6 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Controls.Add(this.txtEntite, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.DateOper, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.cmbVehicule, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtBenificiaire, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label6, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.label8, 2, 2);
@@ -343,6 +331,7 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Controls.Add(this.txtpourcentage, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtKM, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtOMN, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.cmbVehicule, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(18, 68);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -1593,6 +1582,33 @@ namespace ParcAuto.Forms
             this.Dexceptionnel.Text = "DExceptionnel ";
             this.Dexceptionnel.UseVisualStyleBackColor = true;
             // 
+            // cmbVehicule
+            // 
+            this.cmbVehicule.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbVehicule.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbVehicule.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbVehicule.BorderRadius = 4;
+            this.cmbVehicule.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.cmbVehicule.DefaultText = "";
+            this.cmbVehicule.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.cmbVehicule.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.cmbVehicule.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.cmbVehicule.DisabledState.Parent = this.cmbVehicule;
+            this.cmbVehicule.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.cmbVehicule.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbVehicule.FocusedState.Parent = this.cmbVehicule;
+            this.cmbVehicule.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbVehicule.HoverState.Parent = this.cmbVehicule;
+            this.cmbVehicule.Location = new System.Drawing.Point(147, 58);
+            this.cmbVehicule.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbVehicule.Name = "cmbVehicule";
+            this.cmbVehicule.PasswordChar = '\0';
+            this.cmbVehicule.PlaceholderText = "";
+            this.cmbVehicule.SelectedText = "";
+            this.cmbVehicule.ShadowDecoration.Parent = this.cmbVehicule;
+            this.cmbVehicule.Size = new System.Drawing.Size(215, 30);
+            this.cmbVehicule.TabIndex = 18;
+            // 
             // MajCarburants
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1634,7 +1650,6 @@ namespace ParcAuto.Forms
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button btnAppliquer;
         private System.Windows.Forms.Label lbl;
-        private System.Windows.Forms.ComboBox cmbVehicule;
         private Guna.UI2.WinForms.Guna2DateTimePicker DateOper;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -1660,5 +1675,6 @@ namespace ParcAuto.Forms
         private Guna.UI2.WinForms.Guna2TextBox txtpourcentage;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RadioButton Dexceptionnel;
+        private Guna.UI2.WinForms.Guna2TextBox cmbVehicule;
     }
 }
