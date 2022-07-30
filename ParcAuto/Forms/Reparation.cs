@@ -182,6 +182,7 @@ namespace ParcAuto.Forms
                     xcelApp.Columns.AutoFit();
                     xcelApp.Visible = true;
                     MessageBox.Show("Vous avez réussi à exporter vos données vers un fichier excel", "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    xcelApp.Workbooks.Close();
                 }
 
 
@@ -199,6 +200,7 @@ namespace ParcAuto.Forms
             _Worksheet importExceldatagridViewworksheet;
             Range importdatagridviewRange;
             string entite, Benificiaire, Vehicules, objet, entretien, reparation;
+            string lignesExcel = "Les Lignes Suivants Sont duplique sur le fichier excel : ";
             DateTime date;
             try
             {
@@ -261,17 +263,15 @@ namespace ParcAuto.Forms
                         }
                         else
                         {
-                            MessageBox.Show($"La vignnette avec l'entite : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}\n" +
-                                $"- Benificiaire : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}\n" +
-                                $"- Vehicule : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}\n" +
-                                $"- Date : {date.ToString("yyyy-MM-dd")}\n" +
-                                $"- Entretien : {entretien}\n" +
-                                $"- Reparation : {reparation}\n" +
-                                $"deja saisie. + {excelWorksheetIndex}");
+                            lignesExcel += $"{excelWorksheetIndex} , ";
+                            continue;
                         }
 
                     }
                     GLB.Con.Close();
+                    importExceldatagridViewApp.Workbooks.Close();
+                    MessageBox.Show(lignesExcel);
+
                 }
                 datagridviewLoad();
 

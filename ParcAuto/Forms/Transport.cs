@@ -206,7 +206,7 @@ namespace ParcAuto.Forms
                     }
                     xcelApp.Columns.AutoFit();
                     xcelApp.Visible = true;
-                    MessageBox.Show("Vous avez réussi à exporter vos données vers un fichier excel", "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    xcelApp.Workbooks.Close();
                 }
 
 
@@ -224,6 +224,7 @@ namespace ParcAuto.Forms
             _Workbook importExceldatagridViewworkbook;
             _Worksheet importExceldatagridViewworksheet;
             Range importdatagridviewRange;
+            string lignesExcel = "Les Lignes Suivants Sont duplique sur le fichier excel : ";
             try
             {
                 importExceldatagridViewApp = new Microsoft.Office.Interop.Excel.Application();
@@ -244,32 +245,40 @@ namespace ParcAuto.Forms
                   
                         DateTime date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value));
 
-                        GLB.Cmd.CommandText = $"select count(*) from Transport where Entite = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}' and Beneficiaire = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}' and NBonSNTL = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}' " +
-                            $"and Date = '{date.ToString("yyyy-MM-dd")}' and Destination = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value}' and Type_utilsation = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value}' and prix = {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value}";
+                        GLB.Cmd.CommandText = $"select count(*) from Transport where Entite = @txtentite and Beneficiaire =  @txtBenificiaire and NBonSNTL = @txtNBon_Email " +
+                            $"and Date = @DateMission and Destination = @txtDestination and Type_utilsation = @txtUtilisation and prix = @txtPrix";
+                        GLB.Cmd.Parameters.AddWithValue("@txtentite", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
+                        GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
+                        GLB.Cmd.Parameters.AddWithValue("@txtNBon_Email", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
+                        GLB.Cmd.Parameters.AddWithValue("@DateMission", date.ToString("yyyy-MM-dd"));
+                        GLB.Cmd.Parameters.AddWithValue("@txtDestination", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value);
+                        GLB.Cmd.Parameters.AddWithValue("@txtUtilisation", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
+                        GLB.Cmd.Parameters.AddWithValue("@txtPrix", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
 
                         if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
                         {
-                            GLB.Cmd.CommandText = $"insert into Transport values(null,'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}'," +
-                                $"'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}','{date.ToString("yyyy-MM-dd")}'," +
-                                $"'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value}',{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value}) ";
+                            GLB.Cmd.CommandText = "insert into Transport values(null,@txtentite, @txtBenificiaire, @txtNBon_Email,@DateMission, @txtDestination, @txtUtilisation, @txtPrix)";
+                            GLB.Cmd.Parameters.AddWithValue("@txtentite", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
+                            GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
+                            GLB.Cmd.Parameters.AddWithValue("@txtNBon_Email", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
+                            GLB.Cmd.Parameters.AddWithValue("@DateMission", date.ToString("yyyy-MM-dd"));
+                            GLB.Cmd.Parameters.AddWithValue("@txtDestination", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value);
+                            GLB.Cmd.Parameters.AddWithValue("@txtUtilisation", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
+                            GLB.Cmd.Parameters.AddWithValue("@txtPrix", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
                             GLB.Cmd.ExecuteNonQuery();
 
 
                         }
                         else
                         {
-                            MessageBox.Show($"La vignnette avec l'entite : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}\n" +
-                                $"- Benificiaire : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}\n" +
-                                $"- NBonSNTL : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}\n" +
-                                $"- Date : {date.ToString("yyyy-MM-dd")}\n" +
-                                $"- destination : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value}\n" +
-                                $"- Type d'utilisation : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value}\n" +
-                                $"- Montant : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value}" +
-                                $"deja saisie.");
+                            lignesExcel += $"{excelWorksheetIndex} , ";
+                            continue;
                         }
 
                     }
                     GLB.Con.Close();
+                    importExceldatagridViewApp.Workbooks.Close();
+                    MessageBox.Show(lignesExcel);
                 }
                 RemplirdgvTransport();
 
@@ -288,9 +297,9 @@ namespace ParcAuto.Forms
 
         private void btnSuprimmerTout_Click(object sender, EventArgs e)
         {
-            string query1 = $"delete from Conducteurs where Matricule = '{dgvTransport.Rows[0].Cells[0].Value}'";
+            string query1 = $"delete from Transport where id = '{dgvTransport.Rows[0].Cells[0].Value}'";
             for (int i = 1; i < dgvTransport.Rows.Count; i++)
-                query1 += $" or Matricule = '{dgvTransport.Rows[i].Cells[0].Value}' ";
+                query1 += $" or id = '{dgvTransport.Rows[i].Cells[0].Value}' ";
             if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 GLB.Cmd.CommandText = query1;
