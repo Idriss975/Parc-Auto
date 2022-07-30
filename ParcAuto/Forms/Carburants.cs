@@ -194,7 +194,7 @@ namespace ParcAuto.Forms
         {
           
         }
-        DateTime date;
+      
         private void btnExportExcel_Click(object sender, EventArgs e)
         {
            
@@ -261,6 +261,7 @@ namespace ParcAuto.Forms
             _Worksheet importExceldatagridViewworksheet;
             Range importdatagridviewRange;
             string entite, benificiaire, vehicule, lieu, KM, Pourcentage, omn, Dfixe, DMission, Dhebdo, Dexeptionnelle, observation;
+            string lignesExcel = "Les Lignes Suivants Sont duplique sur le fichier excel : ";
             DateTime date;
             try
             {
@@ -313,9 +314,10 @@ namespace ParcAuto.Forms
                             omn = " ";
                         if (observation == null)
                             observation = " ";
-                        GLB.Cmd.CommandText = "insert into CarburantVignettes values(@txtEntite,@txtBenificiaire,@cmbVehicule," +
-                   $"@DateOper,@cmbVilles,@txtKM,@txtpourcentage,@OMN,@DoFixe,@DoMissions," +
-                   $"@DoHebdo,@DoExp,null,@txtObservation)";
+                        GLB.Cmd.CommandText = $"SELECT count(*) FROM CarburantVignettes where Entite = @txtEntite and beneficiaire = @txtBenificiaire and vehicule =@cmbVehicule " +
+          $"and date = @DateOper and lieu =@cmbVilles " +
+          $"and KM = @txtKM and Pourcentage = @txtpourcentage" ;
+
                         GLB.Cmd.Parameters.AddWithValue("@txtEntite", entite);
                         GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", benificiaire);
                         GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", vehicule);
@@ -323,24 +325,39 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@cmbVilles", lieu);
                         GLB.Cmd.Parameters.AddWithValue("@txtKM", KM);
                         GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", Pourcentage);
-                        GLB.Cmd.Parameters.AddWithValue("@OMN", omn + "/" + DateTime.Now.Year.ToString().Substring(2));
-                        GLB.Cmd.Parameters.AddWithValue("@DoFixe", Dfixe == "null" ? null : Dfixe);
-                        GLB.Cmd.Parameters.AddWithValue("@DoMissions", DMission == "null" ? null : DMission);
-                        GLB.Cmd.Parameters.AddWithValue("@DoHebdo", Dhebdo == "null" ? null : Dhebdo);
-                        GLB.Cmd.Parameters.AddWithValue("@DoExp", Dexeptionnelle == "null" ? null : Dexeptionnelle);
-                        GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation);
-                        GLB.Cmd.ExecuteNonQuery();
-                        //try
-                        //{
-                            
-                        //}
-                        //catch (Exception )
-                        //{
-                        //    MessageBox.Show($"Une erreur de saisie sur la ligne {excelWorksheetIndex}");
-                        //}
+                        //GLB.Cmd.Parameters.AddWithValue("@OMN", omn + "/" + DateTime.Now.Year.ToString().Substring(2));
+
+
+                        if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
+                        {
+
+                            GLB.Cmd.CommandText = "insert into CarburantVignettes values(@txtEntite,@txtBenificiaire,@cmbVehicule," +
+                   $"@DateOper,@cmbVilles,@txtKM,@txtpourcentage,@OMN,@DoFixe,@DoMissions," +
+                   $"@DoHebdo,@DoExp,null,@txtObservation)";
+                            GLB.Cmd.Parameters.AddWithValue("@txtEntite", entite);
+                            GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", benificiaire);
+                            GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", vehicule);
+                            GLB.Cmd.Parameters.AddWithValue("@DateOper", date.ToString("yyyy-MM-dd"));
+                            GLB.Cmd.Parameters.AddWithValue("@cmbVilles", lieu);
+                            GLB.Cmd.Parameters.AddWithValue("@txtKM", KM);
+                            GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", Pourcentage);
+                            GLB.Cmd.Parameters.AddWithValue("@OMN", omn + "/" + DateTime.Now.Year.ToString().Substring(2));
+                            GLB.Cmd.Parameters.AddWithValue("@DoFixe", Dfixe == "null" ? null : Dfixe);
+                            GLB.Cmd.Parameters.AddWithValue("@DoMissions", DMission == "null" ? null : DMission);
+                            GLB.Cmd.Parameters.AddWithValue("@DoHebdo", Dhebdo == "null" ? null : Dhebdo);
+                            GLB.Cmd.Parameters.AddWithValue("@DoExp", Dexeptionnelle == "null" ? null : Dexeptionnelle);
+                            GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation);
+                            GLB.Cmd.ExecuteNonQuery();
+
+                        }
+                        else
+                        {
+                            lignesExcel += $"{excelWorksheetIndex} , ";
+                            continue;
+                        }
                     }
                     importExceldatagridViewApp.Workbooks.Close();
-
+                    MessageBox.Show(lignesExcel);
                 }
             }
             catch (Exception ex)
@@ -361,24 +378,8 @@ namespace ParcAuto.Forms
 
 
 
-            //GLB.Cmd.CommandText = $"SELECT count(*) FROM CarburantVignettes where Entite = '{entite}' and beneficiaire = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}' and vehicule = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}' " +
-            //$"and date = '{date.ToString("yyyy-MM-dd")}' and lieu ='{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value}' " +
-            //$"and KM ={Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value)} and Pourcentage = {Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value)}" +
-            //$" and ObjetOMN = '{omn.Substring(21)}' ";
-
-            //if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
-            //{
 
 
-
-            //}
-            //else
-            //{
-            //    MessageBox.Show($"La vignette avec l'entite : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value} \n- benificiaire :{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}" +
-            //        $"\n- Vehicule : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}\n- Date : {date.ToString("yyyy-MM-dd")}\n" +
-            //        $"- Lieu : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value} \n- Kilometrage : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value} \n" +
-            //        $"- Pourcentage : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value} \n- OMN N° : {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value} \nExiste déja.");
-            //}
 
 
 

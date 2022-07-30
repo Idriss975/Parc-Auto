@@ -191,13 +191,15 @@ namespace ParcAuto.Forms
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
             _Application importExceldatagridViewApp;
             _Workbook importExceldatagridViewworkbook;
             _Worksheet importExceldatagridViewworksheet;
             Range importdatagridviewRange;
+            string entite, Benificiaire, Vehicules, objet, entretien, reparation;
+            DateTime date;
             try
             {
                 importExceldatagridViewApp = new Microsoft.Office.Interop.Excel.Application();
@@ -215,24 +217,46 @@ namespace ParcAuto.Forms
                     importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
                     for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
                     {
-                        string entretien = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
-                        string reparation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
-                        DateTime date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value));
+                        entite = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
+                        Benificiaire = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
+                        Vehicules = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
+                        objet = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value);
+                        entretien = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
+                        reparation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
+                        date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value));
 
-                        if (entretien == null)
-                            entretien = "null";
-                        if (reparation == null)
-                            reparation = "null";
-                        GLB.Cmd.CommandText = $"SELECT count(*) from Reparation where Entite = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}' and beneficiaire = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}' and vehicule = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}'" +
-                            $" and Date ='{date.ToString("yyyy-MM-dd")}' and (Entretien = {entretien} or Reparation = {reparation} )";
+                        if (entite == null)
+                            entite = " ";
+                        if (Benificiaire == null)
+                            Benificiaire = " ";
+                        if (Vehicules == null)
+                            Vehicules = " ";
+                        if (objet == null)
+                            objet = " ";
+                        //if (entretien == null)
+                        //    entretien = "null";
+                        //if (reparation == null)
+                        //    reparation = "null";
+                        GLB.Cmd.CommandText = $"SELECT count(*) from Reparation where Entite = @txtentite  and beneficiaire = @txtBenificiaire and vehicule =@cmbVehicule " +
+                            $" and Date =@Date and Objet = @txtObjet " ;
+                        GLB.Cmd.Parameters.AddWithValue("@txtentite", entite);
+                        GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", Benificiaire);
+                        GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", Vehicules);
+                        GLB.Cmd.Parameters.AddWithValue("@Date", date.ToString("yyyy-MM-dd"));
+                        GLB.Cmd.Parameters.AddWithValue("@txtObjet", objet);
 
                         if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
                         {
-                            GLB.Cmd.CommandText = $"insert into Reparation values(null,'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}'," +
-                                $"'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}','{date.ToString("yyyy-MM-dd")}'," +
-                                $"'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value}',{entretien},{reparation}) ";
-                            GLB.Cmd.ExecuteNonQuery();
 
+                            GLB.Cmd.CommandText = "Insert into Reparation values (null,@txtentite, @txtBenificiaire, @cmbVehicule, @Date, @txtObjet, @MontantEntretient, @MontantReparation)";
+                            GLB.Cmd.Parameters.AddWithValue("@txtentite", entite);
+                            GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", Benificiaire);
+                            GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", Vehicules);
+                            GLB.Cmd.Parameters.AddWithValue("@Date", date.ToString("yyyy-MM-dd"));
+                            GLB.Cmd.Parameters.AddWithValue("@txtObjet", objet);
+                            GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", entretien == "null" ? null : entretien);
+                            GLB.Cmd.Parameters.AddWithValue("@MontantReparation", reparation == "null" ? null : reparation);
+                            GLB.Cmd.ExecuteNonQuery();
 
                         }
                         else
@@ -243,7 +267,7 @@ namespace ParcAuto.Forms
                                 $"- Date : {date.ToString("yyyy-MM-dd")}\n" +
                                 $"- Entretien : {entretien}\n" +
                                 $"- Reparation : {reparation}\n" +
-                                $"deja saisie.");
+                                $"deja saisie. + {excelWorksheetIndex}");
                         }
 
                     }
@@ -261,9 +285,9 @@ namespace ParcAuto.Forms
 
         private void btnSuprimmerTout_Click(object sender, EventArgs e)
         {
-            string query1 = $"delete from Conducteurs where Matricule = '{dgvReparation.Rows[0].Cells[0].Value}'";
+            string query1 = $"delete from Reparation where id = '{dgvReparation.Rows[0].Cells[0].Value}'";
             for (int i = 1; i < dgvReparation.Rows.Count; i++)
-                query1 += $" or Matricule = '{dgvReparation.Rows[i].Cells[0].Value}' ";
+                query1 += $" or id = '{dgvReparation.Rows[i].Cells[0].Value}' ";
             if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 GLB.Cmd.CommandText = query1;
