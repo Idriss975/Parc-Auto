@@ -40,7 +40,7 @@ namespace ParcAuto.Forms
             txtentite.Clear();
             txtMontant.Clear();
             txtObjet.Clear();
-            cmbVehicule.SelectedIndex = 0;
+            cmbVehicule.Clear();
             Date.Value = DateTime.Now;
             rbEntretien.Checked = false;
             rbRepartion.Checked = false;
@@ -66,7 +66,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.CommandText = "Insert into Reparation values (null,@txtentite, @txtBenificiaire, @cmbVehicule, @Date, @txtObjet, @MontantEntretient, @MontantReparation)";
                         GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.SelectedItem.ToString());
+                        GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.Text);
                         GLB.Cmd.Parameters.AddWithValue("@Date", Date.Value.ToString("yyyy-MM-dd"));
                         GLB.Cmd.Parameters.AddWithValue("@txtObjet", txtObjet.Text);
                         GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", MontantEntretient=="null"?null:MontantEntretient);
@@ -76,7 +76,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.CommandText = "update Reparation set Entite = @txtentite, Beneficiaire=@txtBenificiaire, Vehicule=@cmbVehicule, Date= @Date, Objet=@txtObjet, Entretien= @MontantEntretient, Reparation=@MontantReparation where id = @ID";
                         GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.SelectedItem.ToString());
+                        GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.Text);
                         GLB.Cmd.Parameters.AddWithValue("@Date", Date.Value.ToString("yyyy-MM-dd"));
                         GLB.Cmd.Parameters.AddWithValue("@txtObjet", txtObjet.Text);
                         GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", MontantEntretient == "null" ? null : MontantEntretient);
@@ -141,11 +141,15 @@ namespace ParcAuto.Forms
                 GLB.ds.Tables["Vehicules1"].Clear();
             GLB.da = new SQLiteDataAdapter("select * from Vehicules", GLB.Con);
             GLB.da.Fill(GLB.ds, "Vehicules1");
+            AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
             foreach (DataRow item in GLB.ds.Tables["Vehicules1"].Rows)
             {
-                cmbVehicule.Items.Add(item[0]);
+                ac.Add(item[1].ToString());
 
             }
+            cmbVehicule.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cmbVehicule.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cmbVehicule.AutoCompleteCustomSource = ac;
         }
         private void RemplirComboBoxBeneficiaire()
         {
@@ -175,7 +179,7 @@ namespace ParcAuto.Forms
             }
 
             RemplirComboBoxBeneficiaire();
-            cmbVehicule.SelectedIndex = 0;
+            
             
         }
 

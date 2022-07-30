@@ -143,12 +143,12 @@ namespace ParcAuto.Forms
                 string vehicules = dgvCarburant.CurrentRow.Cells[2].Value.ToString();
 
                 //DateTime DateOper = DateTime.Parse(dgvCarburant.CurrentRow.Cells[3].Value);
-                DateTime DateOper = DateTime.ParseExact(dgvCarburant.CurrentRow.Cells[3].Value.ToString(),"dd/MM/yyyy",System.Globalization.CultureInfo.InvariantCulture); 
+                DateTime DateOper = DateTime.ParseExact(dgvCarburant.CurrentRow.Cells[3].Value.ToString(),"d/M/yyyy",System.Globalization.CultureInfo.InvariantCulture); 
 
                 string lieu = dgvCarburant.CurrentRow.Cells[4].Value.ToString();
                 string KM = dgvCarburant.CurrentRow.Cells[5].Value.ToString();
                 string pourcentage = dgvCarburant.CurrentRow.Cells[6].Value.ToString();
-                string omn = dgvCarburant.CurrentRow.Cells[7].Value.ToString().Substring(21);
+                string omn = dgvCarburant.CurrentRow.Cells[7].Value.ToString().Substring(0, dgvCarburant.CurrentRow.Cells[7].Value.ToString().Length - 3);
                 string Dfix = dgvCarburant.CurrentRow.Cells[8].Value.ToString();
                 string DMiss = dgvCarburant.CurrentRow.Cells[9].Value.ToString();
                 string Dhebdo = dgvCarburant.CurrentRow.Cells[10].Value.ToString();
@@ -223,10 +223,6 @@ namespace ParcAuto.Forms
                     {
                         for (int j = 0; j < dgvCarburant.Columns.Count - 1; j++)
                         {
-                            //if (j == 3)
-                            //{
-                            //    xcelApp.Cells[i + 2, j + 1] = Convert.ToDateTime(dgvCarburant.Rows[i].Cells[j].Value).ToOADate();
-                            //}
                             
                             if (j < 12)
                             {
@@ -242,7 +238,6 @@ namespace ParcAuto.Forms
                     }
                     xcelApp.Columns.AutoFit();
                     xcelApp.Visible = true;
-                    //MessageBox.Show("Vous avez réussi à exporter vos données vers un fichier excel", "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     xcelApp.Workbooks.Close();
                 }
 
@@ -341,7 +336,7 @@ namespace ParcAuto.Forms
                             GLB.Cmd.Parameters.AddWithValue("@cmbVilles", lieu);
                             GLB.Cmd.Parameters.AddWithValue("@txtKM", KM);
                             GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", Pourcentage);
-                            GLB.Cmd.Parameters.AddWithValue("@OMN", omn + "/" + DateTime.Now.Year.ToString().Substring(2));
+                            GLB.Cmd.Parameters.AddWithValue("@OMN", omn );
                             GLB.Cmd.Parameters.AddWithValue("@DoFixe", Dfixe == "null" ? null : Dfixe);
                             GLB.Cmd.Parameters.AddWithValue("@DoMissions", DMission == "null" ? null : DMission);
                             GLB.Cmd.Parameters.AddWithValue("@DoHebdo", Dhebdo == "null" ? null : Dhebdo);
@@ -372,16 +367,6 @@ namespace ParcAuto.Forms
                 GLB.Con.Close();
                 RemplirLaGrille();
             }
-
-
-
-
-
-
-
-
-
-
 
         }
 

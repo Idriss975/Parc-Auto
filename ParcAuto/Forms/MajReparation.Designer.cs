@@ -43,12 +43,12 @@ namespace ParcAuto.Forms
             this.lbl = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.cmbVehicule = new System.Windows.Forms.ComboBox();
             this.txtObjet = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMontant = new Guna.UI2.WinForms.Guna2TextBox();
             this.rbEntretien = new System.Windows.Forms.RadioButton();
             this.rbRepartion = new System.Windows.Forms.RadioButton();
+            this.cmbVehicule = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -264,6 +264,7 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.76923F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.45701F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.76923F));
+            this.tableLayoutPanel1.Controls.Add(this.cmbVehicule, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.Entite, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
@@ -272,7 +273,6 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Controls.Add(this.txtBenificiaire, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.Date, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.cmbVehicule, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtObjet, 1, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 59);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
@@ -284,17 +284,6 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(745, 159);
             this.tableLayoutPanel1.TabIndex = 17;
-            // 
-            // cmbVehicule
-            // 
-            this.cmbVehicule.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbVehicule.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbVehicule.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbVehicule.FormattingEnabled = true;
-            this.cmbVehicule.Location = new System.Drawing.Point(149, 69);
-            this.cmbVehicule.Name = "cmbVehicule";
-            this.cmbVehicule.Size = new System.Drawing.Size(211, 24);
-            this.cmbVehicule.TabIndex = 2;
             // 
             // txtObjet
             // 
@@ -378,6 +367,30 @@ namespace ParcAuto.Forms
             this.rbRepartion.Text = "Reparation";
             this.rbRepartion.UseVisualStyleBackColor = true;
             // 
+            // cmbVehicule
+            // 
+            this.cmbVehicule.BorderRadius = 4;
+            this.cmbVehicule.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.cmbVehicule.DefaultText = "";
+            this.cmbVehicule.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.cmbVehicule.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.cmbVehicule.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.cmbVehicule.DisabledState.Parent = this.cmbVehicule;
+            this.cmbVehicule.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.cmbVehicule.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbVehicule.FocusedState.Parent = this.cmbVehicule;
+            this.cmbVehicule.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbVehicule.HoverState.Parent = this.cmbVehicule;
+            this.cmbVehicule.Location = new System.Drawing.Point(156, 64);
+            this.cmbVehicule.Margin = new System.Windows.Forms.Padding(16, 11, 16, 11);
+            this.cmbVehicule.Name = "cmbVehicule";
+            this.cmbVehicule.PasswordChar = '\0';
+            this.cmbVehicule.PlaceholderText = "";
+            this.cmbVehicule.SelectedText = "";
+            this.cmbVehicule.ShadowDecoration.Parent = this.cmbVehicule;
+            this.cmbVehicule.Size = new System.Drawing.Size(197, 28);
+            this.cmbVehicule.TabIndex = 30;
+            // 
             // MajReparation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -422,11 +435,11 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label lbl;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.ComboBox cmbVehicule;
         private Guna.UI2.WinForms.Guna2TextBox txtObjet;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox txtMontant;
         private System.Windows.Forms.RadioButton rbEntretien;
         private System.Windows.Forms.RadioButton rbRepartion;
+        private Guna.UI2.WinForms.Guna2TextBox cmbVehicule;
     }
 }

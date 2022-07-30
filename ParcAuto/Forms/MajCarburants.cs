@@ -55,7 +55,7 @@ namespace ParcAuto.Forms
         private void RemplirChamps()
         {
             txtEntite.Text = Entite;
-            txtOMN.Text = omn.Substring(0, omn.Length-3);
+            txtOMN.Text = omn;
             txtBenificiaire.Text = Benificiaire;
             cmbVehicule.Text = vehicules;
             cmbVilles.Text = lieu;
@@ -128,7 +128,7 @@ namespace ParcAuto.Forms
             AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
             foreach (DataRow item in GLB.ds.Tables["Vehicules1"].Rows)
             {
-                ac.Add(item[0].ToString());
+                ac.Add(item[1].ToString());
 
             }
             cmbVehicule.AutoCompleteMode = AutoCompleteMode.Suggest;
