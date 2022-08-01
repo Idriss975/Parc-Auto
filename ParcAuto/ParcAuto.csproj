@@ -150,6 +150,12 @@
     <Compile Include="Forms\Carburants.Designer.cs">
       <DependentUpon>Carburants.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CarteFree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CarteFree.Designer.cs">
+      <DependentUpon>CarteFree.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Conducteurs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +173,12 @@
     </Compile>
     <Compile Include="Forms\MajCarburants.Designer.cs">
       <DependentUpon>MajCarburants.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MajCarteFree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MajCarteFree.Designer.cs">
+      <DependentUpon>MajCarteFree.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MAJConducteur.cs">
       <SubType>Form</SubType>
@@ -234,6 +246,9 @@
     <EmbeddedResource Include="Forms\Carburants.resx">
       <DependentUpon>Carburants.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CarteFree.resx">
+      <DependentUpon>CarteFree.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Conducteurs.resx">
       <DependentUpon>Conducteurs.cs</DependentUpon>
     </EmbeddedResource>
@@ -242,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MajCarburants.resx">
       <DependentUpon>MajCarburants.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MajCarteFree.resx">
+      <DependentUpon>MajCarteFree.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MAJConducteur.resx">
       <DependentUpon>MAJConducteur.cs</DependentUpon>

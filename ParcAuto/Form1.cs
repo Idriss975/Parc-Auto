@@ -264,5 +264,10 @@ namespace ParcAuto
         {
             openChildForm(new Forms.Vehicules_MRouge(), sender);
         }
+
+        private void btnCarteFree_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.CarteFree(), sender);
+        }
     }
 }
