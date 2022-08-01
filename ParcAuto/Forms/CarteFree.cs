@@ -39,7 +39,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvCarteFree.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr[4]);
+                    dgvCarteFree.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2].ToString(), GLB.dr[3].ToString(), GLB.dr[4]);
 
                 GLB.dr.Close();
             }
@@ -75,9 +75,14 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.id_Carburant = Convert.ToInt32(dgvCarteFree.CurrentRow.Cells[0].Value);
+                GLB.id_CarteFree = Convert.ToInt32(dgvCarteFree.CurrentRow.Cells[0].Value);
                 Commandes.Command = Choix.modifier;
-                MajCarteFree maj = new MajCarteFree();
+                
+                string entite = dgvCarteFree.CurrentRow.Cells[1].Value.ToString();
+                string Fixe = dgvCarteFree.CurrentRow.Cells[2].Value.ToString();
+                string autre = dgvCarteFree.CurrentRow.Cells[3].Value.ToString();
+                string objet = dgvCarteFree.CurrentRow.Cells[4].Value.ToString();
+                MajCarteFree maj = new MajCarteFree(entite,Fixe,autre,objet);
                 maj.ShowDialog();
                 RemplirLaGrille();
             }
@@ -91,8 +96,8 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.id_Carburant = Convert.ToInt32(dgvCarteFree.CurrentRow.Cells[0].Value);
-                GLB.Cmd.CommandText = $"delete from CarteFree where id = '{GLB.id_Carburant}'";
+                GLB.id_CarteFree = Convert.ToInt32(dgvCarteFree.CurrentRow.Cells[0].Value);
+                GLB.Cmd.CommandText = $"delete from CarteFree where id = {GLB.id_CarteFree}";
             }
             catch (ArgumentOutOfRangeException)
             {

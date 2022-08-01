@@ -279,6 +279,7 @@ namespace ParcAuto.Forms
             this.Name = "MajCarteFree";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MajCarteFree";
+            this.Load += new System.EventHandler(this.MajCarteFree_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

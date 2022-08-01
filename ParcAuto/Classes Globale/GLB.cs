@@ -23,6 +23,7 @@ namespace ParcAuto.Classes_Globale
         public static int id_Carburant;
         public static int id_Reparation;
         public static int id_Transport;
+        public static int id_CarteFree;
         public static  int number_of_lines;
         /// <summary>
         ///     Draws on "print document" with a formal document layout.
