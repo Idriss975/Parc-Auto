@@ -76,6 +76,7 @@ namespace ParcAuto.Forms
             this.btnSuprimmerTout.Text = "Supprimer Tout";
             this.btnSuprimmerTout.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnSuprimmerTout.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnSuprimmerTout.Click += new System.EventHandler(this.btnSuprimmerTout_Click);
             // 
             // btnImprimer
             // 
@@ -118,6 +119,7 @@ namespace ParcAuto.Forms
             this.btnImportExcel.Size = new System.Drawing.Size(40, 40);
             this.btnImportExcel.TabIndex = 69;
             this.btnImportExcel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnImportExcel.Click += new System.EventHandler(this.btnImportExcel_Click);
             // 
             // btnExportExcel
             // 
@@ -138,6 +140,7 @@ namespace ParcAuto.Forms
             this.btnExportExcel.Size = new System.Drawing.Size(40, 40);
             this.btnExportExcel.TabIndex = 68;
             this.btnExportExcel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
             // TextPanel
             // 
@@ -208,6 +211,7 @@ namespace ParcAuto.Forms
             this.btnFiltrer.Text = "Filtrer";
             this.btnFiltrer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnFiltrer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnFiltrer.Click += new System.EventHandler(this.btnFiltrer_Click);
             // 
             // btnRefresh
             // 
@@ -228,6 +232,7 @@ namespace ParcAuto.Forms
             this.btnRefresh.Size = new System.Drawing.Size(40, 40);
             this.btnRefresh.TabIndex = 64;
             this.btnRefresh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // cmbChoix
             // 
@@ -282,6 +287,7 @@ namespace ParcAuto.Forms
             this.btnQuitter.Size = new System.Drawing.Size(40, 40);
             this.btnQuitter.TabIndex = 57;
             this.btnQuitter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
             // btnAjouter
             // 
@@ -425,7 +431,7 @@ namespace ParcAuto.Forms
             this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.dgvCarteFree);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CarteFree";
             this.Text = "CarteFree";
             this.Load += new System.EventHandler(this.CarteFree_Load);
