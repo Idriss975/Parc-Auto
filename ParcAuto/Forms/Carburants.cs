@@ -20,9 +20,7 @@ namespace ParcAuto.Forms
         {
             InitializeComponent();
         }
-        float sumDFixe = 0;
-        float sumDMission = 0;
-        float sumDHebdo = 0;
+ 
         private void RemplirLaGrille()
         {
             dgvCarburant.Rows.Clear();
@@ -45,18 +43,23 @@ namespace ParcAuto.Forms
             {
                 GLB.Con.Close();
             }
-
-            //khali had lcode li bin les Commentaire
             float sumDFixe = 0;
             float sumDMission = 0;
             float sumDHebdo = 0;
+            float sumDExp = 0;
             foreach (DataGridViewRow item in dgvCarburant.Rows)
             {
                 sumDHebdo += ((string)item.Cells[10].Value) == ""? 0: float.Parse(item.Cells[10].Value.ToString());
                 sumDMission += ((string)item.Cells[9].Value) == "" ? 0 : float.Parse(item.Cells[9].Value.ToString());
                 sumDFixe += ((string)item.Cells[8].Value) == "" ? 0 : float.Parse(item.Cells[8].Value.ToString());
+                sumDExp += ((string)item.Cells[11].Value) == "" ? 0 : float.Parse(item.Cells[11].Value.ToString());
+
             }
-            //
+            dgvCarburant.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "");
+            dgvCarburant.Rows.Add("", "", "", "", "", "", "", "", "Dotation Fixe", "Dotation Mission", "Dotation Hebdo", "Dotation Exceptionelle", "", "");
+            dgvCarburant.Rows.Add("","","","","","","","",sumDFixe,sumDMission,sumDHebdo,sumDExp,"","");
+            dgvCarburant.Rows.Add("","","","","","","","","","Total","","","","");
+            dgvCarburant.Rows.Add("","","","","","","","","",sumDFixe+sumDMission+sumDHebdo+sumDExp,"","","","");
 
         }
        
