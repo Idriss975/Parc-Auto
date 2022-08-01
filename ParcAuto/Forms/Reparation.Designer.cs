@@ -48,17 +48,18 @@ namespace ParcAuto.Forms
             this.btnSupprimer = new Guna.UI2.WinForms.Guna2Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.dgvReparation = new System.Windows.Forms.DataGridView();
+            this.btnImportExcel = new Guna.UI2.WinForms.Guna2Button();
+            this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSuprimmerTout = new Guna.UI2.WinForms.Guna2Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnImportExcel = new Guna.UI2.WinForms.Guna2Button();
-            this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
-            this.btnSuprimmerTout = new Guna.UI2.WinForms.Guna2Button();
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReparation)).BeginInit();
@@ -360,6 +361,7 @@ namespace ParcAuto.Forms
             this.Column2,
             this.Column3,
             this.Column4,
+            this.Column9,
             this.Column5,
             this.Column6,
             this.Column7,
@@ -373,55 +375,6 @@ namespace ParcAuto.Forms
             this.dgvReparation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvReparation.Size = new System.Drawing.Size(1109, 500);
             this.dgvReparation.TabIndex = 33;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "id";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Entite";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Beneficiaire";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Vehicules";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Date";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Objet";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Entretien";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Reparation";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
             // 
             // btnImportExcel
             // 
@@ -488,6 +441,61 @@ namespace ParcAuto.Forms
             this.btnSuprimmerTout.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             this.btnSuprimmerTout.Click += new System.EventHandler(this.btnSuprimmerTout_Click);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "id";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Entite";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Beneficiaire";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Vehicules";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Matricule";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Date";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Objet";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Entretien";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Reparation";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
             // Reparation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -542,16 +550,17 @@ namespace ParcAuto.Forms
         private Guna.UI2.WinForms.Guna2Button btnSupprimer;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.DataGridView dgvReparation;
+        private Guna.UI2.WinForms.Guna2Button btnImportExcel;
+        private Guna.UI2.WinForms.Guna2Button btnExportExcel;
+        private Guna.UI2.WinForms.Guna2Button btnSuprimmerTout;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private Guna.UI2.WinForms.Guna2Button btnImportExcel;
-        private Guna.UI2.WinForms.Guna2Button btnExportExcel;
-        private Guna.UI2.WinForms.Guna2Button btnSuprimmerTout;
     }
 }
