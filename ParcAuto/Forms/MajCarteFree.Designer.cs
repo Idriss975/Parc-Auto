@@ -30,8 +30,8 @@ namespace ParcAuto.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MajCarteFree));
-            this.rbRepartion = new System.Windows.Forms.RadioButton();
-            this.rbEntretien = new System.Windows.Forms.RadioButton();
+            this.rbAutre = new System.Windows.Forms.RadioButton();
+            this.rbFixe = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMontant = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnClear = new Guna.UI2.WinForms.Guna2Button();
@@ -46,29 +46,29 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // rbRepartion
+            // rbAutre
             // 
-            this.rbRepartion.AutoSize = true;
-            this.rbRepartion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbRepartion.Location = new System.Drawing.Point(141, 125);
-            this.rbRepartion.Name = "rbRepartion";
-            this.rbRepartion.Size = new System.Drawing.Size(57, 20);
-            this.rbRepartion.TabIndex = 31;
-            this.rbRepartion.TabStop = true;
-            this.rbRepartion.Text = "Autre";
-            this.rbRepartion.UseVisualStyleBackColor = true;
+            this.rbAutre.AutoSize = true;
+            this.rbAutre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbAutre.Location = new System.Drawing.Point(141, 125);
+            this.rbAutre.Name = "rbAutre";
+            this.rbAutre.Size = new System.Drawing.Size(57, 20);
+            this.rbAutre.TabIndex = 31;
+            this.rbAutre.TabStop = true;
+            this.rbAutre.Text = "Autre";
+            this.rbAutre.UseVisualStyleBackColor = true;
             // 
-            // rbEntretien
+            // rbFixe
             // 
-            this.rbEntretien.AutoSize = true;
-            this.rbEntretien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbEntretien.Location = new System.Drawing.Point(30, 125);
-            this.rbEntretien.Name = "rbEntretien";
-            this.rbEntretien.Size = new System.Drawing.Size(51, 20);
-            this.rbEntretien.TabIndex = 30;
-            this.rbEntretien.TabStop = true;
-            this.rbEntretien.Text = "Fixe";
-            this.rbEntretien.UseVisualStyleBackColor = true;
+            this.rbFixe.AutoSize = true;
+            this.rbFixe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbFixe.Location = new System.Drawing.Point(30, 125);
+            this.rbFixe.Name = "rbFixe";
+            this.rbFixe.Size = new System.Drawing.Size(51, 20);
+            this.rbFixe.TabIndex = 30;
+            this.rbFixe.TabStop = true;
+            this.rbFixe.Text = "Fixe";
+            this.rbFixe.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -266,8 +266,8 @@ namespace ParcAuto.Forms
             this.ClientSize = new System.Drawing.Size(779, 279);
             this.Controls.Add(this.txtObjet);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.rbRepartion);
-            this.Controls.Add(this.rbEntretien);
+            this.Controls.Add(this.rbAutre);
+            this.Controls.Add(this.rbFixe);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtMontant);
             this.Controls.Add(this.btnClear);
@@ -288,8 +288,8 @@ namespace ParcAuto.Forms
 
         #endregion
 
-        private System.Windows.Forms.RadioButton rbRepartion;
-        private System.Windows.Forms.RadioButton rbEntretien;
+        private System.Windows.Forms.RadioButton rbAutre;
+        private System.Windows.Forms.RadioButton rbFixe;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox txtMontant;
         private Guna.UI2.WinForms.Guna2Button btnClear;
