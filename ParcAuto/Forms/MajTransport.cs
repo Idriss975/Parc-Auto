@@ -65,7 +65,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@txtPrix", txtPrix.Text);
                         break;
                     case Choix.modifier:
-                        GLB.Cmd.CommandText = "update Transport set Entite = @txtentite , Beneficiaire = @txtBenificiaire, NBonSNTL=@txtNBon_Email,Date = @DateMission, Destination= @txtDestination, Type_utilsation = @txtUtilisation, Prix = @txtPrix where id = @id_Transport";
+                        GLB.Cmd.CommandText = "update Transport set Entite = @txtentite , Beneficiaire = @txtBenificiaire, NBonSNTL= @txtNBon_Email,Date = @DateMission, Destination= @txtDestination, Type_utilsation = @txtUtilisation, Prix = @txtPrix where id = @id_Transport";
                         GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtNBon_Email", txtNBon_Email.Text);

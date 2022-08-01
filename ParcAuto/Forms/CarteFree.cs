@@ -19,19 +19,7 @@ namespace ParcAuto.Forms
         {
             InitializeComponent();
         }
-        private void StyleDataGridView()
-        {
-            dgvCarteFree.BorderStyle = BorderStyle.None;
-            dgvCarteFree.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
-            dgvCarteFree.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvCarteFree.DefaultCellStyle.SelectionBackColor = Color.FromArgb(115, 139, 215);
-            dgvCarteFree.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
-            dgvCarteFree.BackgroundColor = Color.White;
-            dgvCarteFree.EnableHeadersVisualStyles = false;
-            dgvCarteFree.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvCarteFree.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(115, 139, 215);
-            dgvCarteFree.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-        }
+        
         private void RemplirLaGrille()
         {
             dgvCarteFree.Rows.Clear();
@@ -61,7 +49,7 @@ namespace ParcAuto.Forms
 
         private void CarteFree_Load(object sender, EventArgs e)
         {
-            StyleDataGridView();
+            GLB.StyleDataGridView(dgvCarteFree);
             RemplirLaGrille();
         }
 

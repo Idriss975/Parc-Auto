@@ -29,20 +29,7 @@ namespace ParcAuto.Forms
             maj.ShowDialog();
             RemplirLaGrille();
         }
-        private void StyleDataGridView()
-        {
-            dgvconducteur.BorderStyle = BorderStyle.None;
-            dgvconducteur.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
-            dgvconducteur.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvconducteur.DefaultCellStyle.SelectionBackColor = Color.FromArgb(115, 139, 215);
-            dgvconducteur.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
-            dgvconducteur.BackgroundColor = Color.White;
-            dgvconducteur.EnableHeadersVisualStyles = false;
-            dgvconducteur.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvconducteur.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(115, 139, 215);
-            dgvconducteur.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-        }
-        
+       
         private void RemplirLaGrille()
         {
             dgvconducteur.Rows.Clear();
@@ -52,7 +39,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvconducteur.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], ((DateTime)GLB.dr[3]).ToString("dd/MM/yyyy"), ((DateTime)GLB.dr[4]).ToString("dd/MM/yyyy"), GLB.dr[5], GLB.dr[6],  GLB.dr[9], GLB.dr[7], GLB.dr[8]);//index 9 = Direction
+                    dgvconducteur.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], ((DateTime)GLB.dr[3]).ToString("d/M/yyyy"), ((DateTime)GLB.dr[4]).ToString("d/M/yyyy"), GLB.dr[5], GLB.dr[6],  GLB.dr[9], GLB.dr[7], GLB.dr[8]);//index 9 = Direction
                 
             }
             catch (Exception ex)
@@ -76,7 +63,7 @@ namespace ParcAuto.Forms
         {
             panelDate.Visible = false;
             TextPanel.Visible = false;
-            StyleDataGridView();
+            GLB.StyleDataGridView(dgvconducteur);
             RemplirLaGrille();
             cmbChoix.SelectedIndex = 0;
         }
@@ -89,8 +76,8 @@ namespace ParcAuto.Forms
                 GLB.Matricule = Convert.ToInt32(dgvconducteur.CurrentRow.Cells[0].Value);
                 string Nom = dgvconducteur.CurrentRow.Cells[1].Value.ToString() ;
                 string Prenom= dgvconducteur.CurrentRow.Cells[2].Value.ToString();
-                DateTime DateNaiss = DateTime.ParseExact(dgvconducteur.CurrentRow.Cells[3].Value.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                DateTime DateEmbauche = DateTime.ParseExact(dgvconducteur.CurrentRow.Cells[4].Value.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                DateTime DateNaiss = DateTime.ParseExact(dgvconducteur.CurrentRow.Cells[3].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                DateTime DateEmbauche = DateTime.ParseExact(dgvconducteur.CurrentRow.Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
                 string NumPermis = dgvconducteur.CurrentRow.Cells[5].Value.ToString();
                 string Adresse  = dgvconducteur.CurrentRow.Cells[6].Value.ToString();
                 string Direction = dgvconducteur.CurrentRow.Cells[7].Value.ToString();
@@ -196,7 +183,6 @@ namespace ParcAuto.Forms
                     }
                     xcelApp.Columns.AutoFit();
                     xcelApp.Visible = true;
-                    MessageBox.Show("Vous avez réussi à exporter vos données vers un fichier excel", "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
 

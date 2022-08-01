@@ -19,19 +19,7 @@ namespace ParcAuto.Forms
         {
             InitializeComponent();
         }
-        private void StyleDataGridView()
-        {
-            dgvTransport.BorderStyle = BorderStyle.None;
-            dgvTransport.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
-            dgvTransport.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvTransport.DefaultCellStyle.SelectionBackColor = Color.FromArgb(115, 139, 215);
-            dgvTransport.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
-            dgvTransport.BackgroundColor = Color.White;
-            dgvTransport.EnableHeadersVisualStyles = false;
-            dgvTransport.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvTransport.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(115, 139, 215);
-            dgvTransport.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-        }
+        
         private void RemplirdgvTransport()
         {
             dgvTransport.Rows.Clear();
@@ -39,7 +27,7 @@ namespace ParcAuto.Forms
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             while (GLB.dr.Read())
-                dgvTransport.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToString("dd/MM/yyyy"), GLB.dr[5], GLB.dr[6], GLB.dr[7].ToString());
+                dgvTransport.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToString("d/M/yyyy"), GLB.dr[5], GLB.dr[6], GLB.dr[7].ToString());
             GLB.dr.Close();
             GLB.Con.Close();
         }
@@ -48,7 +36,7 @@ namespace ParcAuto.Forms
             panelDate.Visible = false;
             cmbChoix.SelectedIndex = 0;
             RemplirdgvTransport();
-            StyleDataGridView();
+            GLB.StyleDataGridView(dgvTransport);
         }
 
         private void cmbChoix_SelectedIndexChanged(object sender, EventArgs e)
@@ -134,7 +122,7 @@ namespace ParcAuto.Forms
             try
             {
                 GLB.id_Transport = Convert.ToInt32(dgvTransport.CurrentRow.Cells[0].Value);
-                GLB.Cmd.CommandText = $"delete from Transport where id={GLB.id_Transport}";
+                GLB.Cmd.CommandText = $"delete from Transport where id= {GLB.id_Transport}";
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -271,7 +259,7 @@ namespace ParcAuto.Forms
                         }
                         else
                         {
-                            lignesExcel += $"{excelWorksheetIndex} , ";
+                            lignesExcel += $" {excelWorksheetIndex} ";
                             continue;
                         }
 

@@ -25,6 +25,20 @@ namespace ParcAuto.Classes_Globale
         public static int id_Transport;
         public static int id_CarteFree;
         public static  int number_of_lines;
+        public static void StyleDataGridView(DataGridView dgv)
+        {
+            dgv.BorderStyle = BorderStyle.None;
+            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dgv.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(115, 139, 215);
+            dgv.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dgv.BackgroundColor = Color.White;
+            dgv.EnableHeadersVisualStyles = false;
+            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(115, 139, 215);
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+        }
+        
         /// <summary>
         ///     Draws on "print document" with a formal document layout.
         /// </summary>

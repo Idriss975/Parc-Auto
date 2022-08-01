@@ -18,19 +18,7 @@ namespace ParcAuto.Forms
         {
             InitializeComponent();
         }
-        private void StyleDataGridView()
-        {
-            dgvVehicules.BorderStyle = BorderStyle.None;
-            dgvVehicules.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
-            dgvVehicules.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvVehicules.DefaultCellStyle.SelectionBackColor = Color.FromArgb(115, 139, 215);
-            dgvVehicules.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
-            dgvVehicules.BackgroundColor = Color.White;
-            dgvVehicules.EnableHeadersVisualStyles = false;
-            dgvVehicules.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvVehicules.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(115, 139, 215);
-            dgvVehicules.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-        }
+      
         private void RemplirLaGrille()
         {
             dgvVehicules.Rows.Clear();
@@ -42,9 +30,9 @@ namespace ParcAuto.Forms
                 while (GLB.dr.Read())
                 {
                     if (GLB.dr.IsDBNull(6))
-                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], ((DateTime)GLB.dr[2]).ToString("dd/MM/yyyy"), GLB.dr[3], DateTime.Now.Year - ((DateTime)GLB.dr[2]).Year, GLB.dr[4], GLB.dr[5], new CmbMatNom(null, "Sans conducteur"), GLB.dr[7], GLB.dr[8]);
+                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], ((DateTime)GLB.dr[2]).ToString("d/M/yyyy"), GLB.dr[3], DateTime.Now.Year - ((DateTime)GLB.dr[2]).Year, GLB.dr[4], GLB.dr[5], new CmbMatNom(null, "Sans conducteur"), GLB.dr[7], GLB.dr[8]);
                     else
-                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], ((DateTime)GLB.dr[2]).ToString("dd/MM/yyyy"), GLB.dr[3], DateTime.Now.Year - ((DateTime)GLB.dr[2]).Year, GLB.dr[4], GLB.dr[5], new CmbMatNom(Convert.ToInt32(GLB.dr[6]), $"{GLB.dr[9]} {GLB.dr[10]}"), GLB.dr[7], GLB.dr[8]);
+                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], ((DateTime)GLB.dr[2]).ToString("d/M/yyyy"), GLB.dr[3], DateTime.Now.Year - ((DateTime)GLB.dr[2]).Year, GLB.dr[4], GLB.dr[5], new CmbMatNom(Convert.ToInt32(GLB.dr[6]), $"{GLB.dr[9]} {GLB.dr[10]}"), GLB.dr[7], GLB.dr[8]);
                 }
             }
             catch (Exception ex) //TODO: Implement Sql Exemption error (idriss)
@@ -62,7 +50,7 @@ namespace ParcAuto.Forms
             panelDate.Visible = false;
             TextPanel.Visible = false;
             cmbChoix.SelectedIndex = 0;
-            StyleDataGridView();
+            GLB.StyleDataGridView(dgvVehicules);
             RemplirLaGrille();
         }
 
@@ -98,7 +86,7 @@ namespace ParcAuto.Forms
             {
                 GLB.Matricule_Voiture = dgvVehicules.CurrentRow.Cells[1].Value.ToString();
                 string Marque = dgvVehicules.CurrentRow.Cells[0].Value.ToString();
-                DateTime MiseEncirculation = DateTime.ParseExact(dgvVehicules.CurrentRow.Cells[2].Value.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                DateTime MiseEncirculation = DateTime.ParseExact(dgvVehicules.CurrentRow.Cells[2].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
                 string Type = dgvVehicules.CurrentRow.Cells[3].Value.ToString();
                 string Carburant = dgvVehicules.CurrentRow.Cells[5].Value.ToString();
                 string Affectation = dgvVehicules.CurrentRow.Cells[6].Value.ToString();

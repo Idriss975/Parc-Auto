@@ -32,7 +32,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], ((DateTime)GLB.dr[3]).ToString("dd/MM/yyyy"), GLB.dr[4], GLB.dr[5], GLB.dr[6], GLB.dr[7], GLB.dr[8].ToString(), GLB.dr[9].ToString(), GLB.dr[10].ToString(), GLB.dr[11].ToString(), GLB.dr[12], GLB.dr[13]);
+                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], ((DateTime)GLB.dr[3]).ToString("d/M/yyyy"), GLB.dr[4], GLB.dr[5], GLB.dr[6], GLB.dr[7], GLB.dr[8].ToString(), GLB.dr[9].ToString(), GLB.dr[10].ToString(), GLB.dr[11].ToString(), GLB.dr[12], GLB.dr[13]);
 
                 GLB.dr.Close();
             }
@@ -59,25 +59,13 @@ namespace ParcAuto.Forms
             //
 
         }
-        private void StyleDataGridView()
-        {
-            dgvCarburant.BorderStyle = BorderStyle.None;
-            dgvCarburant.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
-            dgvCarburant.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvCarburant.DefaultCellStyle.SelectionBackColor = Color.FromArgb(115, 139, 215);
-            dgvCarburant.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
-            dgvCarburant.BackgroundColor = Color.White;
-            dgvCarburant.EnableHeadersVisualStyles = false;
-            dgvCarburant.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvCarburant.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(115, 139, 215);
-            dgvCarburant.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-        }
+       
         private void Carburants_Load(object sender, EventArgs e)
         {
             panelDate.Visible = false;
             TextPanel.Visible = false;
             cmbChoix.SelectedIndex = 0;
-            StyleDataGridView();
+            GLB.StyleDataGridView(dgvCarburant);
             RemplirLaGrille();
         }
         private void cmbChoix_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -139,12 +127,8 @@ namespace ParcAuto.Forms
                 GLB.id_Carburant = Convert.ToInt32(dgvCarburant.CurrentRow.Cells[12].Value);
                 string Entite = dgvCarburant.CurrentRow.Cells[0].Value.ToString();
                 string Benificiaire = dgvCarburant.CurrentRow.Cells[1].Value.ToString();
-                //MessageBox.Show(dgvCarburant.CurrentRow.Cells[3].Value.ToString());
                 string vehicules = dgvCarburant.CurrentRow.Cells[2].Value.ToString();
-
-                //DateTime DateOper = DateTime.Parse(dgvCarburant.CurrentRow.Cells[3].Value);
                 DateTime DateOper = DateTime.ParseExact(dgvCarburant.CurrentRow.Cells[3].Value.ToString(),"d/M/yyyy",System.Globalization.CultureInfo.InvariantCulture); 
-
                 string lieu = dgvCarburant.CurrentRow.Cells[4].Value.ToString();
                 string KM = dgvCarburant.CurrentRow.Cells[5].Value.ToString();
                 string pourcentage = dgvCarburant.CurrentRow.Cells[6].Value.ToString();
@@ -406,12 +390,16 @@ namespace ParcAuto.Forms
             {
                 query1 += $" or id = {dgvCarburant.Rows[i].Cells[12].Value} ";
             }
-            GLB.Cmd.CommandText = query1;
-            GLB.Con.Open();
-            GLB.Cmd.ExecuteNonQuery();
-            GLB.Con.Close();
-            RemplirLaGrille();
-            //MessageBox.Show(dgvCarburant.Rows.Count.ToString());
+            if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                GLB.Cmd.CommandText = query1;
+                GLB.Con.Open();
+                GLB.Cmd.ExecuteNonQuery();
+                GLB.Con.Close();
+                RemplirLaGrille();
+            }
+            
+           
 
         }
     }

@@ -26,29 +26,17 @@ namespace ParcAuto.Forms
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             while (GLB.dr.Read())
-                dgvReparation.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToString("dd/MM/yyyy"), GLB.dr[5], GLB.dr[6].ToString(), GLB.dr[7].ToString());
+                dgvReparation.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToString("d/M/yyyy"), GLB.dr[5], GLB.dr[6].ToString(), GLB.dr[7].ToString());
             GLB.dr.Close();
             GLB.Con.Close();
         }
-        private void StyleDataGridView()
-        {
-            dgvReparation.BorderStyle = BorderStyle.None;
-            dgvReparation.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
-            dgvReparation.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvReparation.DefaultCellStyle.SelectionBackColor = Color.FromArgb(115, 139, 215);
-            dgvReparation.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
-            dgvReparation.BackgroundColor = Color.White;
-            dgvReparation.EnableHeadersVisualStyles = false;
-            dgvReparation.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvReparation.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(115, 139, 215);
-            dgvReparation.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-        }
+       
         private void Reparation_Load(object sender, EventArgs e)
         {
             panelDate.Visible = false;
             TextPanel.Visible = false;
             cmbChoix.SelectedIndex = 0;
-            StyleDataGridView();
+            GLB.StyleDataGridView(dgvReparation);
             datagridviewLoad();
         }
 
@@ -88,7 +76,7 @@ namespace ParcAuto.Forms
                 string entite = dgvReparation.CurrentRow.Cells[1].Value.ToString();
                 string benificiaire = dgvReparation.CurrentRow.Cells[2].Value.ToString();
                 string vehicule = dgvReparation.CurrentRow.Cells[3].Value.ToString();
-                DateTime Date = DateTime.ParseExact(dgvReparation.CurrentRow.Cells[4].Value.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                DateTime Date = DateTime.ParseExact(dgvReparation.CurrentRow.Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
                 string objet = dgvReparation.CurrentRow.Cells[5].Value.ToString();
                 string entretien = dgvReparation.CurrentRow.Cells[6].Value.ToString();
                 string reparation = dgvReparation.CurrentRow.Cells[7].Value.ToString();
@@ -107,7 +95,7 @@ namespace ParcAuto.Forms
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
             GLB.id_Reparation = Convert.ToInt32(dgvReparation.CurrentRow.Cells[0].Value);
-            GLB.Cmd.CommandText = $"delete from Reparation where id={GLB.id_Reparation}";
+            GLB.Cmd.CommandText = $"delete from Reparation where id = {GLB.id_Reparation}";
             GLB.Con.Open();
             GLB.Cmd.ExecuteNonQuery();
             GLB.Con.Close();
@@ -131,7 +119,7 @@ namespace ParcAuto.Forms
             }
             else
                 for (int i = dgvReparation.Rows.Count - 1; i >= 0; i--)
-                    if (!(DateTime.ParseExact(dgvReparation.Rows[i].Cells[cmbChoix.SelectedIndex + 1].Value.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture) >= Date1.Value.Date && DateTime.ParseExact(dgvReparation.Rows[i].Cells[cmbChoix.SelectedIndex + 1].Value.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture) <= Date2.Value.Date))
+                    if (!(DateTime.ParseExact(dgvReparation.Rows[i].Cells[cmbChoix.SelectedIndex + 1].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture) >= Date1.Value.Date && DateTime.ParseExact(dgvReparation.Rows[i].Cells[cmbChoix.SelectedIndex + 1].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture) <= Date2.Value.Date))
                         dgvReparation.Rows.Remove(dgvReparation.Rows[i]);
         }
 
@@ -181,7 +169,6 @@ namespace ParcAuto.Forms
                     }
                     xcelApp.Columns.AutoFit();
                     xcelApp.Visible = true;
-                    MessageBox.Show("Vous avez réussi à exporter vos données vers un fichier excel", "Meesage", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     xcelApp.Workbooks.Close();
                 }
 
@@ -235,10 +222,6 @@ namespace ParcAuto.Forms
                             Vehicules = " ";
                         if (objet == null)
                             objet = " ";
-                        //if (entretien == null)
-                        //    entretien = "null";
-                        //if (reparation == null)
-                        //    reparation = "null";
                         GLB.Cmd.CommandText = $"SELECT count(*) from Reparation where Entite = @txtentite  and beneficiaire = @txtBenificiaire and vehicule =@cmbVehicule " +
                             $" and Date =@Date and Objet = @txtObjet " ;
                         GLB.Cmd.Parameters.AddWithValue("@txtentite", entite);
@@ -249,7 +232,6 @@ namespace ParcAuto.Forms
 
                         if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
                         {
-
                             GLB.Cmd.CommandText = "Insert into Reparation values (null,@txtentite, @txtBenificiaire, @cmbVehicule, @Date, @txtObjet, @MontantEntretient, @MontantReparation)";
                             GLB.Cmd.Parameters.AddWithValue("@txtentite", entite);
                             GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", Benificiaire);
@@ -259,7 +241,6 @@ namespace ParcAuto.Forms
                             GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", entretien == "null" ? null : entretien);
                             GLB.Cmd.Parameters.AddWithValue("@MontantReparation", reparation == "null" ? null : reparation);
                             GLB.Cmd.ExecuteNonQuery();
-
                         }
                         else
                         {
