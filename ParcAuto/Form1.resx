@@ -121,6 +121,24 @@
     <value>False</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="ParcAutodown.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH5gcbCCkyu3PBYgAAAJ9JREFU
+        OE/dkN0JwkAQhM9CFOzCxrQAQfMixAKClamQSs5vdm/hFJILvukHA3c7M5uf9AfknHfohjZl1ERZNKir
+        y4jEEzWXKIMeKsCowdHPxuwSeSjKogvj5HdDb7Q1o4LZGt0VKPTFchhMLuE8Xw4wzu4btgQtKwcELp4z
+        9E/qb76iVYlOQ6iz+Ds9apcDwvWSZU/+hNIeHb4q/wopvQDfGBzKWzg4OgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="ParcAutoup.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH5gcbCCo6noUakwAAAJ1JREFU
+        OE/dkEEOgjAQRcstDFwDL0Y8BGFDWOjRTMQNN6nv05mksQJu9SWPlJn5E0r4Y2KMFV6ws9L3WHhCZ8TK
+        2vtoEPOwc7xEA5iHHzin48pooyU038MKNnjCuwpG+SUqYBG2tvrbS3TAzbBD7fMSHsP6mtCda8sU0NOV
+        8n/Sq7ik837YYUZLngrAokKLVzwMO8xqyQ3PVvpdQngBu640bEHI9b8AAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="btnConducteurs.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6

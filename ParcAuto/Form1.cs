@@ -238,6 +238,7 @@ namespace ParcAuto
         private void btnParcAuto_Click(object sender, EventArgs e)
         {
             showSubMenu(panelSousVehicules);
+            Arrow_Up_Down(panelSousVehicules, ParcAutoup, ParcAutodown);
         }
 
         private void prdUp_Click(object sender, EventArgs e)

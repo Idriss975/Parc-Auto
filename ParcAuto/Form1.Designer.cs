@@ -70,6 +70,8 @@ namespace ParcAuto
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FormsPlace = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.ParcAutoup = new System.Windows.Forms.PictureBox();
+            this.ParcAutodown = new System.Windows.Forms.PictureBox();
             section2btnCond_Vehicu = new System.Windows.Forms.Panel();
             section2btnCond_Vehicu.SuspendLayout();
             this.panelSousVehicules.SuspendLayout();
@@ -94,11 +96,15 @@ namespace ParcAuto
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.FormsPlace.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ParcAutoup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ParcAutodown)).BeginInit();
             this.SuspendLayout();
             // 
             // section2btnCond_Vehicu
             // 
             section2btnCond_Vehicu.AutoSize = true;
+            section2btnCond_Vehicu.Controls.Add(this.ParcAutodown);
+            section2btnCond_Vehicu.Controls.Add(this.ParcAutoup);
             section2btnCond_Vehicu.Controls.Add(this.btnConducteurs);
             section2btnCond_Vehicu.Controls.Add(this.panelSousVehicules);
             section2btnCond_Vehicu.Controls.Add(this.btnParcAuto);
@@ -725,6 +731,27 @@ namespace ParcAuto
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // ParcAutoup
+            // 
+            this.ParcAutoup.Image = ((System.Drawing.Image)(resources.GetObject("ParcAutoup.Image")));
+            this.ParcAutoup.Location = new System.Drawing.Point(163, 16);
+            this.ParcAutoup.Name = "ParcAutoup";
+            this.ParcAutoup.Size = new System.Drawing.Size(16, 16);
+            this.ParcAutoup.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.ParcAutoup.TabIndex = 7;
+            this.ParcAutoup.TabStop = false;
+            this.ParcAutoup.Visible = false;
+            // 
+            // ParcAutodown
+            // 
+            this.ParcAutodown.Image = ((System.Drawing.Image)(resources.GetObject("ParcAutodown.Image")));
+            this.ParcAutodown.Location = new System.Drawing.Point(163, 16);
+            this.ParcAutodown.Name = "ParcAutodown";
+            this.ParcAutodown.Size = new System.Drawing.Size(16, 16);
+            this.ParcAutodown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.ParcAutodown.TabIndex = 7;
+            this.ParcAutodown.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -772,6 +799,8 @@ namespace ParcAuto
             this.FormsPlace.ResumeLayout(false);
             this.FormsPlace.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ParcAutoup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ParcAutodown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -817,6 +846,8 @@ namespace ParcAuto
         private System.Windows.Forms.Button btnParcPRDMrouge;
         private System.Windows.Forms.Button btnParcPRD;
         private System.Windows.Forms.PictureBox repup;
+        private System.Windows.Forms.PictureBox ParcAutodown;
+        private System.Windows.Forms.PictureBox ParcAutoup;
     }
 }
 
