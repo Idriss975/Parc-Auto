@@ -55,11 +55,11 @@ namespace ParcAuto.Forms
                 sumDExp += ((string)item.Cells[11].Value) == "" ? 0 : float.Parse(item.Cells[11].Value.ToString());
 
             }
-            dgvCarburant.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "");
-            dgvCarburant.Rows.Add("", "", "", "", "", "", "", "", "Dotation Fixe", "Dotation Mission", "Dotation Hebdo", "Dotation Exceptionelle", "", "");
-            dgvCarburant.Rows.Add("","","","","","","","",sumDFixe,sumDMission,sumDHebdo,sumDExp,"","");
-            dgvCarburant.Rows.Add("","","","","","","","","","Total","","","","");
-            dgvCarburant.Rows.Add("","","","","","","","","",sumDFixe+sumDMission+sumDHebdo+sumDExp,"","","","");
+            //dgvCarburant.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "");
+            //dgvCarburant.Rows.Add("", "", "", "", "", "", "", "", "Dotation Fixe", "Dotation Mission", "Dotation Hebdo", "Dotation Exceptionelle", "", "");
+            //dgvCarburant.Rows.Add("","","","","","","","",sumDFixe,sumDMission,sumDHebdo,sumDExp,"","");
+            //dgvCarburant.Rows.Add("","","","","","","","","","Total","","","","");
+            //dgvCarburant.Rows.Add("","","","","","","","","",sumDFixe+sumDMission+sumDHebdo+sumDExp,"","","","");
 
         }
        
@@ -158,8 +158,17 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.id_Carburant = Convert.ToInt32(dgvCarburant.CurrentRow.Cells[12].Value);
-                GLB.Cmd.CommandText = $"delete from CarburantVignettes where id = '{GLB.id_Carburant}'";
+
+               
+                GLB.Con.Open();
+                foreach (DataGridViewRow row in dgvCarburant.SelectedRows)
+                {
+                    GLB.Cmd.CommandText = $"delete from CarburantVignettes where id = {row.Cells[12].Value}";
+                    GLB.Cmd.ExecuteNonQuery();
+                }
+                GLB.Con.Close();
+                RemplirLaGrille();
+
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -167,14 +176,14 @@ namespace ParcAuto.Forms
             }
             //TODO: catch NullReferenceException (idriss)
 
-            DialogResult res = MessageBox.Show("Voulez Vous Vraiment Suprimmer Cette ligne ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-            if (res == DialogResult.Yes)
-            {
-                GLB.Con.Open();
-                GLB.Cmd.ExecuteNonQuery();
-                GLB.Con.Close();
-                RemplirLaGrille();
-            }
+            //DialogResult res = MessageBox.Show("Voulez Vous Vraiment Suprimmer Cette ligne ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            //if (res == DialogResult.Yes)
+            //{
+            //    GLB.Con.Open();
+            //    GLB.Cmd.ExecuteNonQuery();
+            //    GLB.Con.Close();
+                
+            //}
         }
 
         private void dgvCarburant_DoubleClick(object sender, EventArgs e)
@@ -278,24 +287,6 @@ namespace ParcAuto.Forms
                         Dexeptionnelle = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 12].value);
                         observation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 13].value);
 
-                        if (entite == null)
-                            entite = " ";
-                        if (benificiaire == null)
-                            benificiaire = " ";
-                        if (vehicule == null)
-                            vehicule = " ";
-                        if (date == null)
-                            date = DateTime.Now.Date;
-                        if (lieu == null)
-                            lieu = " ";
-                        if (KM == null)
-                            KM = "null";
-                        if (Pourcentage == null)
-                            Pourcentage = "null";
-                        if (omn == null)
-                            omn = " ";
-                        if (observation == null)
-                            observation = " ";
                         GLB.Cmd.CommandText = $"SELECT count(*) FROM CarburantVignettes where Entite = @txtEntite and beneficiaire = @txtBenificiaire and vehicule =@cmbVehicule " +
           $"and date = @DateOper and lieu =@cmbVilles " +
           $"and KM = @txtKM and Pourcentage = @txtpourcentage" ;
@@ -321,8 +312,8 @@ namespace ParcAuto.Forms
                             GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", vehicule);
                             GLB.Cmd.Parameters.AddWithValue("@DateOper", date.ToString("yyyy-MM-dd"));
                             GLB.Cmd.Parameters.AddWithValue("@cmbVilles", lieu);
-                            GLB.Cmd.Parameters.AddWithValue("@txtKM", KM);
-                            GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", Pourcentage);
+                            GLB.Cmd.Parameters.AddWithValue("@txtKM", KM == "null"?null : KM);
+                            GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", Pourcentage == "null" ? null : Pourcentage);
                             GLB.Cmd.Parameters.AddWithValue("@OMN", omn );
                             GLB.Cmd.Parameters.AddWithValue("@DoFixe", Dfixe == "null" ? null : Dfixe);
                             GLB.Cmd.Parameters.AddWithValue("@DoMissions", DMission == "null" ? null : DMission);

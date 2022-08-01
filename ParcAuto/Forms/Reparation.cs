@@ -95,12 +95,29 @@ namespace ParcAuto.Forms
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            GLB.id_Reparation = Convert.ToInt32(dgvReparation.CurrentRow.Cells[0].Value);
-            GLB.Cmd.CommandText = $"delete from Reparation where id = {GLB.id_Reparation}";
-            GLB.Con.Open();
-            GLB.Cmd.ExecuteNonQuery();
-            GLB.Con.Close();
-            datagridviewLoad();
+            try
+            {
+                //string query = $"delete from Reparation where id = {}";
+                //foreach (DataGridViewRow row in dgvReparation.SelectedRows)
+                //{
+                //    query += $" or id = {row.Cells[0].Value}";
+                //}
+                GLB.Con.Open();
+                foreach (DataGridViewRow row in dgvReparation.SelectedRows)
+                {
+                    GLB.Cmd.CommandText = $"delete from Reparation where id = {row.Cells[0].Value}";
+                    GLB.Cmd.ExecuteNonQuery();
+                }
+                GLB.Con.Close();
+                datagridviewLoad();
+
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Il faut selectionner sur la table pour Suprrimer la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            //TODO: catch NullReferenceException (idriss)
+
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
