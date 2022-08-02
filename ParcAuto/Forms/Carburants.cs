@@ -30,7 +30,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], ((DateTime)GLB.dr[3]).ToString("d/M/yyyy"), GLB.dr[4], GLB.dr[5], GLB.dr[6], GLB.dr[7], GLB.dr[8].ToString(), GLB.dr[9].ToString(), GLB.dr[10].ToString(), GLB.dr[11].ToString(), GLB.dr[12], GLB.dr[13]);
+                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToString("d/M/yyyy"), GLB.dr[5], GLB.dr[6], GLB.dr[7], GLB.dr[8], GLB.dr[9].ToString(), GLB.dr[10].ToString(), GLB.dr[11].ToString(), GLB.dr[12].ToString(), GLB.dr[13], GLB.dr[14]);
 
                 GLB.dr.Close();
             }
@@ -49,10 +49,10 @@ namespace ParcAuto.Forms
             float sumDExp = 0;
             foreach (DataGridViewRow item in dgvCarburant.Rows)
             {
-                sumDHebdo += ((string)item.Cells[10].Value) == ""? 0: float.Parse(item.Cells[10].Value.ToString());
-                sumDMission += ((string)item.Cells[9].Value) == "" ? 0 : float.Parse(item.Cells[9].Value.ToString());
-                sumDFixe += ((string)item.Cells[8].Value) == "" ? 0 : float.Parse(item.Cells[8].Value.ToString());
-                sumDExp += ((string)item.Cells[11].Value) == "" ? 0 : float.Parse(item.Cells[11].Value.ToString());
+                sumDHebdo += ((string)item.Cells[11].Value) == ""? 0: float.Parse(item.Cells[11].Value.ToString());
+                sumDMission += ((string)item.Cells[10].Value) == "" ? 0 : float.Parse(item.Cells[10].Value.ToString());
+                sumDFixe += ((string)item.Cells[9].Value) == "" ? 0 : float.Parse(item.Cells[9].Value.ToString());
+                sumDExp += ((string)item.Cells[12].Value) == "" ? 0 : float.Parse(item.Cells[12].Value.ToString());
 
             }
             //dgvCarburant.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "");
@@ -127,21 +127,22 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.id_Carburant = Convert.ToInt32(dgvCarburant.CurrentRow.Cells[12].Value);
+                GLB.id_Carburant = Convert.ToInt32(dgvCarburant.CurrentRow.Cells[13].Value);
                 string Entite = dgvCarburant.CurrentRow.Cells[0].Value.ToString();
                 string Benificiaire = dgvCarburant.CurrentRow.Cells[1].Value.ToString();
                 string vehicules = dgvCarburant.CurrentRow.Cells[2].Value.ToString();
-                DateTime DateOper = DateTime.ParseExact(dgvCarburant.CurrentRow.Cells[3].Value.ToString(),"d/M/yyyy",System.Globalization.CultureInfo.InvariantCulture); 
-                string lieu = dgvCarburant.CurrentRow.Cells[4].Value.ToString();
-                string KM = dgvCarburant.CurrentRow.Cells[5].Value.ToString();
-                string pourcentage = dgvCarburant.CurrentRow.Cells[6].Value.ToString();
-                string omn = dgvCarburant.CurrentRow.Cells[7].Value.ToString().Substring(0, dgvCarburant.CurrentRow.Cells[7].Value.ToString().Length - 3);
-                string Dfix = dgvCarburant.CurrentRow.Cells[8].Value.ToString();
-                string DMiss = dgvCarburant.CurrentRow.Cells[9].Value.ToString();
-                string Dhebdo = dgvCarburant.CurrentRow.Cells[10].Value.ToString();
-                string Dexceptionnel = dgvCarburant.CurrentRow.Cells[11].Value.ToString();
-                string Observation = dgvCarburant.CurrentRow.Cells[13].Value.ToString(); 
-                MajCarburants maj = new MajCarburants(Entite, Benificiaire, vehicules, DateOper, lieu,KM,pourcentage, omn, Dfix, DMiss, Dhebdo, Dexceptionnel, Observation);
+                string Marque = dgvCarburant.CurrentRow.Cells[3].Value.ToString();
+                DateTime DateOper = DateTime.ParseExact(dgvCarburant.CurrentRow.Cells[4].Value.ToString(),"d/M/yyyy",System.Globalization.CultureInfo.InvariantCulture); 
+                string lieu = dgvCarburant.CurrentRow.Cells[5].Value.ToString();
+                string KM = dgvCarburant.CurrentRow.Cells[6].Value.ToString();
+                string pourcentage = dgvCarburant.CurrentRow.Cells[7].Value.ToString();
+                string omn = dgvCarburant.CurrentRow.Cells[8].Value.ToString().Substring(0, dgvCarburant.CurrentRow.Cells[8].Value.ToString().Length - 3);
+                string Dfix = dgvCarburant.CurrentRow.Cells[9].Value.ToString();
+                string DMiss = dgvCarburant.CurrentRow.Cells[10].Value.ToString();
+                string Dhebdo = dgvCarburant.CurrentRow.Cells[11].Value.ToString();
+                string Dexceptionnel = dgvCarburant.CurrentRow.Cells[12].Value.ToString();
+                string Observation = dgvCarburant.CurrentRow.Cells[14].Value.ToString(); 
+                MajCarburants maj = new MajCarburants(Entite, Benificiaire, vehicules, Marque, DateOper, lieu,KM,pourcentage, omn, Dfix, DMiss, Dhebdo, Dexceptionnel, Observation);
                 Commandes.Command = Choix.modifier;
                 maj.ShowDialog();
                 RemplirLaGrille();
@@ -159,10 +160,10 @@ namespace ParcAuto.Forms
             string outp = "";
             try
             {
-                outp = $"delete from CarburantVignettes where id = {dgvCarburant.SelectedRows[0].Cells[12].Value} ";
+                outp = $"delete from CarburantVignettes where id = {dgvCarburant.SelectedRows[0].Cells[13].Value} ";
 
                 for (int i = 1; i < dgvCarburant.SelectedRows.Count; i++)
-                     outp += $" or id = {dgvCarburant.SelectedRows[i].Cells[12].Value}";
+                     outp += $" or id = {dgvCarburant.SelectedRows[i].Cells[13].Value}";
 
                 GLB.Cmd.CommandText = outp;
                 GLB.Con.Open();
@@ -205,7 +206,7 @@ namespace ParcAuto.Forms
 
                     for (int i = 0; i < dgvCarburant.Columns.Count - 1; i++)
                     {
-                        if(i < 12)
+                        if(i < 13)
                         {
                             xcelApp.Cells[1, i + 1] = dgvCarburant.Columns[i].HeaderText;
                         }
@@ -221,7 +222,7 @@ namespace ParcAuto.Forms
                         for (int j = 0; j < dgvCarburant.Columns.Count - 1; j++)
                         {
                             
-                            if (j < 12)
+                            if (j < 13)
                             {
                                 xcelApp.Cells[i + 2, j + 1] = dgvCarburant.Rows[i].Cells[j].Value.ToString().Trim();
                             }
@@ -252,7 +253,7 @@ namespace ParcAuto.Forms
             _Workbook importExceldatagridViewworkbook;
             _Worksheet importExceldatagridViewworksheet;
             Range importdatagridviewRange;
-            string entite, benificiaire, vehicule, lieu, KM, Pourcentage, omn, Dfixe, DMission, Dhebdo, Dexeptionnelle, observation;
+            string entite, benificiaire, vehicule, lieu, KM, Pourcentage, omn, Dfixe, DMission, Dhebdo, Dexeptionnelle, observation, marque;
             string lignesExcel = "Les Lignes Suivants Sont duplique sur le fichier excel : ";
             DateTime date;
             try
@@ -277,16 +278,17 @@ namespace ParcAuto.Forms
                         entite = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
                         benificiaire = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
                         vehicule = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
-                        date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value));
-                        lieu = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value);
-                        KM = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
-                        Pourcentage = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
-                        omn = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value);
-                        Dfixe = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 9].value);
-                        DMission = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 10].value);
-                        Dhebdo = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 11].value);
-                        Dexeptionnelle = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 12].value);
-                        observation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 13].value);
+                        marque = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
+                        date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value));
+                        lieu = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
+                        KM = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
+                        Pourcentage = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value);
+                        omn = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 9].value);
+                        Dfixe = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 10].value);
+                        DMission = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 11].value);
+                        Dhebdo = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 12].value);
+                        Dexeptionnelle = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 13].value);
+                        observation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 14].value);
 
                         GLB.Cmd.CommandText = $"SELECT count(*) FROM CarburantVignettes where Entite = @txtEntite and beneficiaire = @txtBenificiaire and vehicule =@cmbVehicule " +
           $"and date = @DateOper and lieu =@cmbVilles " +

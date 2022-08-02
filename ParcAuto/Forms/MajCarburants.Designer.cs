@@ -52,6 +52,7 @@ namespace ParcAuto.Forms
             this.label9 = new System.Windows.Forms.Label();
             this.txtpourcentage = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtKM = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cmbVehicule = new Guna.UI2.WinForms.Guna2TextBox();
             this.DMissions = new System.Windows.Forms.RadioButton();
             this.DFixe = new System.Windows.Forms.RadioButton();
             this.DHebdo = new System.Windows.Forms.RadioButton();
@@ -59,7 +60,8 @@ namespace ParcAuto.Forms
             this.txtObservation = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Dexceptionnel = new System.Windows.Forms.RadioButton();
-            this.cmbVehicule = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtMarque = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,7 +100,7 @@ namespace ParcAuto.Forms
             this.guna2Button1.HoverState.Parent = this.guna2Button1;
             this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
             this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.Location = new System.Drawing.Point(519, 384);
+            this.guna2Button1.Location = new System.Drawing.Point(519, 440);
             this.guna2Button1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
@@ -122,7 +124,7 @@ namespace ParcAuto.Forms
             this.btnAppliquer.HoverState.Parent = this.btnAppliquer;
             this.btnAppliquer.Image = ((System.Drawing.Image)(resources.GetObject("btnAppliquer.Image")));
             this.btnAppliquer.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAppliquer.Location = new System.Drawing.Point(652, 384);
+            this.btnAppliquer.Location = new System.Drawing.Point(652, 440);
             this.btnAppliquer.Margin = new System.Windows.Forms.Padding(4);
             this.btnAppliquer.Name = "btnAppliquer";
             this.btnAppliquer.ShadowDecoration.Parent = this.btnAppliquer;
@@ -138,7 +140,7 @@ namespace ParcAuto.Forms
             this.lbl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl.AutoSize = true;
             this.lbl.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl.Location = new System.Drawing.Point(19, 13);
+            this.lbl.Location = new System.Drawing.Point(19, 9);
             this.lbl.Name = "lbl";
             this.lbl.Size = new System.Drawing.Size(67, 36);
             this.lbl.TabIndex = 20;
@@ -164,7 +166,7 @@ namespace ParcAuto.Forms
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(415, 324);
+            this.label7.Location = new System.Drawing.Point(412, 363);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 17);
@@ -299,7 +301,7 @@ namespace ParcAuto.Forms
             this.txtDotation.FocusedState.Parent = this.txtDotation;
             this.txtDotation.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDotation.HoverState.Parent = this.txtDotation;
-            this.txtDotation.Location = new System.Drawing.Point(543, 311);
+            this.txtDotation.Location = new System.Drawing.Point(543, 358);
             this.txtDotation.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtDotation.Name = "txtDotation";
             this.txtDotation.PasswordChar = '\0';
@@ -1510,10 +1512,38 @@ namespace ParcAuto.Forms
             this.txtKM.Size = new System.Drawing.Size(202, 30);
             this.txtKM.TabIndex = 15;
             // 
+            // cmbVehicule
+            // 
+            this.cmbVehicule.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbVehicule.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbVehicule.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbVehicule.BorderRadius = 4;
+            this.cmbVehicule.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.cmbVehicule.DefaultText = "";
+            this.cmbVehicule.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.cmbVehicule.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.cmbVehicule.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.cmbVehicule.DisabledState.Parent = this.cmbVehicule;
+            this.cmbVehicule.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.cmbVehicule.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbVehicule.FocusedState.Parent = this.cmbVehicule;
+            this.cmbVehicule.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbVehicule.HoverState.Parent = this.cmbVehicule;
+            this.cmbVehicule.Location = new System.Drawing.Point(147, 58);
+            this.cmbVehicule.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbVehicule.Name = "cmbVehicule";
+            this.cmbVehicule.PasswordChar = '\0';
+            this.cmbVehicule.PlaceholderText = "";
+            this.cmbVehicule.SelectedText = "";
+            this.cmbVehicule.ShadowDecoration.Parent = this.cmbVehicule;
+            this.cmbVehicule.Size = new System.Drawing.Size(215, 30);
+            this.cmbVehicule.TabIndex = 18;
+            this.cmbVehicule.TextChanged += new System.EventHandler(this.cmbVehicule_TextChanged);
+            // 
             // DMissions
             // 
             this.DMissions.AutoSize = true;
-            this.DMissions.Location = new System.Drawing.Point(463, 281);
+            this.DMissions.Location = new System.Drawing.Point(463, 328);
             this.DMissions.Name = "DMissions";
             this.DMissions.Size = new System.Drawing.Size(90, 21);
             this.DMissions.TabIndex = 22;
@@ -1524,7 +1554,7 @@ namespace ParcAuto.Forms
             // DFixe
             // 
             this.DFixe.AutoSize = true;
-            this.DFixe.Location = new System.Drawing.Point(396, 281);
+            this.DFixe.Location = new System.Drawing.Point(396, 328);
             this.DFixe.Name = "DFixe";
             this.DFixe.Size = new System.Drawing.Size(61, 21);
             this.DFixe.TabIndex = 23;
@@ -1535,7 +1565,7 @@ namespace ParcAuto.Forms
             // DHebdo
             // 
             this.DHebdo.AutoSize = true;
-            this.DHebdo.Location = new System.Drawing.Point(564, 281);
+            this.DHebdo.Location = new System.Drawing.Point(564, 328);
             this.DHebdo.Name = "DHebdo";
             this.DHebdo.Size = new System.Drawing.Size(78, 21);
             this.DHebdo.TabIndex = 24;
@@ -1556,7 +1586,7 @@ namespace ParcAuto.Forms
             // 
             // txtObservation
             // 
-            this.txtObservation.Location = new System.Drawing.Point(26, 301);
+            this.txtObservation.Location = new System.Drawing.Point(26, 348);
             this.txtObservation.Name = "txtObservation";
             this.txtObservation.Size = new System.Drawing.Size(356, 83);
             this.txtObservation.TabIndex = 6;
@@ -1565,7 +1595,7 @@ namespace ParcAuto.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 281);
+            this.label1.Location = new System.Drawing.Point(23, 328);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 17);
             this.label1.TabIndex = 27;
@@ -1574,7 +1604,7 @@ namespace ParcAuto.Forms
             // Dexceptionnel
             // 
             this.Dexceptionnel.AutoSize = true;
-            this.Dexceptionnel.Location = new System.Drawing.Point(648, 281);
+            this.Dexceptionnel.Location = new System.Drawing.Point(648, 328);
             this.Dexceptionnel.Name = "Dexceptionnel";
             this.Dexceptionnel.Size = new System.Drawing.Size(120, 21);
             this.Dexceptionnel.TabIndex = 28;
@@ -1582,39 +1612,397 @@ namespace ParcAuto.Forms
             this.Dexceptionnel.Text = "DExceptionnel ";
             this.Dexceptionnel.UseVisualStyleBackColor = true;
             // 
-            // cmbVehicule
+            // label10
             // 
-            this.cmbVehicule.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbVehicule.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbVehicule.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.cmbVehicule.BorderRadius = 4;
-            this.cmbVehicule.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.cmbVehicule.DefaultText = "";
-            this.cmbVehicule.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.cmbVehicule.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.cmbVehicule.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.cmbVehicule.DisabledState.Parent = this.cmbVehicule;
-            this.cmbVehicule.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.cmbVehicule.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbVehicule.FocusedState.Parent = this.cmbVehicule;
-            this.cmbVehicule.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbVehicule.HoverState.Parent = this.cmbVehicule;
-            this.cmbVehicule.Location = new System.Drawing.Point(147, 58);
-            this.cmbVehicule.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cmbVehicule.Name = "cmbVehicule";
-            this.cmbVehicule.PasswordChar = '\0';
-            this.cmbVehicule.PlaceholderText = "";
-            this.cmbVehicule.SelectedText = "";
-            this.cmbVehicule.ShadowDecoration.Parent = this.cmbVehicule;
-            this.cmbVehicule.Size = new System.Drawing.Size(215, 30);
-            this.cmbVehicule.TabIndex = 18;
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(22, 282);
+            this.label10.Margin = new System.Windows.Forms.Padding(0, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(68, 17);
+            this.label10.TabIndex = 29;
+            this.label10.Text = "Marque : ";
+            // 
+            // txtMarque
+            // 
+            this.txtMarque.AutoCompleteCustomSource.AddRange(new string[] {
+            "Casablanca",
+            "Fes",
+            "Salé",
+            "Marrakech",
+            "Tangier",
+            "Rabat",
+            "Meknes",
+            "Oujda",
+            "Kenitra",
+            "Agadir",
+            "Tetuan",
+            "Safi",
+            "Temara",
+            "Inzegan",
+            "Mohammedia",
+            "Laayoune",
+            "Khouribga",
+            "Beni Mellal",
+            "Jdida",
+            "Taza",
+            "Ait Melloul",
+            "Nador",
+            "Settat",
+            "Ksar El Kbir",
+            "Larache",
+            "Khmisset",
+            "Guelmim",
+            "Berrechid",
+            "Wad Zam",
+            "Fkih BenSaleh",
+            "Taourirt",
+            "Berkane",
+            "Sidi Sliman",
+            "Errachidia",
+            "Sidi Kacem",
+            "Khenifra",
+            "Tifelt",
+            "Essaouira",
+            "Taroudant",
+            "Kelaat Sraghna",
+            "Oulad Teima",
+            "Youssoufia",
+            "Sefrou",
+            "Ben Guerir",
+            "Tan-Tan",
+            "Ouazzane",
+            "Guercif",
+            "Dakhla",
+            "Hoceima",
+            "Fnideq",
+            "Ouarzazate",
+            "Tiznit",
+            "Suq Sebt Oulad Nama",
+            "Azrou",
+            "Lahraouyine",
+            "Bensliman",
+            "Midelt",
+            "Jrada",
+            "Skhirat",
+            "Souk Larbaa",
+            "Aïn Harrouda",
+            "Bejaad",
+            "Kasbat Tadla",
+            "Sidi Bennour",
+            "Martil",
+            "Lqliaa",
+            "Boujdor",
+            "Azemour",
+            "M\'dyaq",
+            "Tinghir",
+            "El Arwi",
+            "Chefchawn",
+            "M\'Rirt",
+            "Zagora",
+            "El Aioun Sidi Mellouk",
+            "Lamkansa",
+            "Smara",
+            "Taounate",
+            "Bin Ansar",
+            "Sidi Yahya El Gharb",
+            "Zaio",
+            "Amalou Ighriben",
+            "Assilah",
+            "Azilal",
+            "Mechra Bel Ksiri",
+            "El Hajeb",
+            "Bouznika",
+            "Imzouren",
+            "Tahla",
+            "BouiZazarene Ihaddadene",
+            "Ain El Aouda",
+            "Bouarfa",
+            "Arfoud",
+            "Demnate",
+            "Sidi sliman echraa",
+            "Zawiyat cheikh",
+            "Ain Taoujdat",
+            "Echemaia",
+            "Aourir",
+            "Sabaa Aiyoun",
+            "Oulad Ayad",
+            "Ben Ahmed",
+            "Tabounte",
+            "Jorf El Melha",
+            "Missour",
+            "Laataouia",
+            "Errich",
+            "Zeghanghan",
+            "Rissani",
+            "Sidi Taibi",
+            "Sidi Ifni",
+            "Ait Ourir",
+            "Ahfir",
+            "El Ksiba",
+            "El Gara",
+            "Drargua",
+            "Imin tanout",
+            "Goulmima",
+            "Karia Ba Mohamed",
+            "Mehdya",
+            "El Borouj",
+            "Bouhdila",
+            "Chichaoua",
+            "Beni Bouayach",
+            "Oulad Berhil",
+            "Jmaat Shaim",
+            "Bir Jdid",
+            "Tata",
+            "Boujniba",
+            "Temsia",
+            "Mediouna",
+            "Kelat Megnouna",
+            "Sebt Gzoula",
+            "Outat El Haj",
+            "Imouzzer Kandar",
+            "Ain Bni Mathar",
+            "Bouskoura",
+            "Agourai",
+            "Midar",
+            "Lalla Mimouna",
+            "Ribat El Kheir",
+            "Moulay Driss zarhoun",
+            "Figuig",
+            "Boumia",
+            "Tamallalt",
+            "Nouaceur",
+            "Rommani",
+            "Jorf",
+            "Ifran",
+            "Bouizakarn",
+            "Oulad Mbarek",
+            "Afourar",
+            "Zmamra",
+            "Ait Ishaq",
+            "Tit Mellil",
+            "Assa",
+            "Bhalil",
+            "Targuist",
+            "Beni Yakhlef",
+            "El Menzel",
+            "Aguelmouss",
+            "Sidi EL Mokhtar",
+            "Boumalne Dades",
+            "Farkhana",
+            "Oulad Abbou",
+            "Amizmiz",
+            "Boulanouare",
+            "Ben Taieb",
+            "Ouled Frej",
+            "Driouch",
+            "Deroua",
+            "Hattane",
+            "El Marsa",
+            "Tamanar",
+            "Ait Iaaza",
+            "Sidi Allal El Bahraoui",
+            "Dar Ould Zidouh",
+            "Sid Zouine",
+            "Boudnib",
+            "Foum Zguid",
+            "Tissa",
+            "Jaadar",
+            "Oulmes",
+            "Bouknadel",
+            "Harhoura",
+            "El Guerdan",
+            "Selouane",
+            "Maaziz",
+            "Oulad M\'Rah",
+            "Loudaya",
+            "Massa",
+            "Aklim",
+            "Ouaouizaght",
+            "Bni Drar",
+            "El Kbab",
+            "Oued Amlil",
+            "Sidi Rahel Chatai",
+            "Guigou",
+            "Agdz",
+            "Khnichet",
+            "Karia",
+            "Sidi Ahmed",
+            "Zag",
+            "Oulad Yaich",
+            "Tinjdad",
+            "Ouad Laou",
+            "Tighassaline",
+            "Tounfite",
+            "Bni Tadjite",
+            "Bouanane",
+            "Oulad Hriz Sahel",
+            "Talsint",
+            "Taghjijt",
+            "Boulman",
+            "Zirara",
+            "Taouima",
+            "Tahannaout",
+            "Bradia",
+            "Moulay Abdallah",
+            "Sidi Rahal",
+            "Tameslohte",
+            "Aghbala",
+            "El Ouatia",
+            "Tendrara",
+            "Taznakht",
+            "Fam El Hisn",
+            "Akka",
+            "Dar Gueddari",
+            "Itzer",
+            "Taliouine",
+            "Oualidia",
+            "Aoulouz",
+            "Moulay Bousselham",
+            "Tarfaya",
+            "Ghafsai",
+            "Foum Jemaa",
+            "Ain Leuh",
+            "Moulay Bouazza",
+            "Kariat Arkmane",
+            "Kahf Nsour",
+            "Sidi Bou Othmane",
+            "Oulad Tayeb",
+            "Had Kourt",
+            "Bab Berrad",
+            "Loulad",
+            "Zaida",
+            "Tafrawt",
+            "Khemis Sahel",
+            "Ait Baha",
+            "Biougra",
+            "Dar Bni Karrich",
+            "El Hanchane",
+            "Sidi Jaber",
+            "Irherm",
+            "Debdou",
+            "Ras El Ma",
+            "Laaounate",
+            "Hadj Kaddour",
+            "Skhour Rhamna",
+            "Bzou",
+            "Ain Cheggag",
+            "Bouderbala",
+            "Sidi Smaïl",
+            "Oulad Zbair",
+            "Bni Chiker",
+            "Lakhsas",
+            "Talmest",
+            "Aknoul",
+            "Tiztoutine",
+            "Bab Taza",
+            "Imouzzer Marmoucha",
+            "Gourrama",
+            "Ajdir",
+            "Mhaya",
+            "Oulad Ghadbane",
+            "Zrarda",
+            "Zoumi",
+            "Ain Karma",
+            "Thar Essouk",
+            "Lagouira",
+            "Ras El Ain",
+            "Sidi Ali Ben Hamdouche",
+            "Sebt Jahjouh",
+            "Tiddas",
+            "Zaouiat Bougrin",
+            "Tafersit",
+            "Touissit",
+            "Saidia",
+            "Lalla Takarkoust",
+            "Skhinate",
+            "Moulay Brahim",
+            "Soualem",
+            "Gueznaia",
+            "Moulay Yacoub",
+            "Sidi Allal Tazi",
+            "Laakarta",
+            "Alnif",
+            "Dar El Kebdani",
+            "Jebha",
+            "Ain Erreggada",
+            "Sidi Addi",
+            "Skoura",
+            "Smimou",
+            "Ain Jemaa",
+            "Timahdite",
+            "Aït Dawd",
+            "Souk EL Had",
+            "Had Bouhssoussen",
+            "Oulad Said",
+            "Arbaoua",
+            "Ain Dorij",
+            "Madagh",
+            "Tighza",
+            "Matmata",
+            "Kourouna",
+            "Kassita",
+            "Bni Hadifa",
+            "Oued EL Heimar",
+            "Kerrouchen",
+            "Tainaste",
+            "Guisser",
+            "Sidi Boubker",
+            "Tamassint",
+            "Assahrij",
+            "Aghbalou Nssardane",
+            "Tizi Ouasli",
+            "Moqrisset",
+            "Sebt Lamaarif",
+            "Issaguen",
+            "Bouguedra",
+            "Brikcha",
+            "Ighoud",
+            "Ajdir, Taza",
+            "Oulad Amrane",
+            "Kettara",
+            "Aoufous",
+            "Tafetacht",
+            "Naïma",
+            "Tnin Sidi Lyamani",
+            "Karia",
+            "Nzalat",
+            "Ahrara",
+            "Sidi Abdallah Ghiat",
+            "Sidi Bouzid",
+            "Ounagha"});
+            this.txtMarque.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtMarque.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtMarque.BorderRadius = 4;
+            this.txtMarque.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtMarque.DefaultText = "";
+            this.txtMarque.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtMarque.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtMarque.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMarque.DisabledState.Parent = this.txtMarque;
+            this.txtMarque.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMarque.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMarque.FocusedState.Parent = this.txtMarque;
+            this.txtMarque.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMarque.HoverState.Parent = this.txtMarque;
+            this.txtMarque.Location = new System.Drawing.Point(165, 275);
+            this.txtMarque.Margin = new System.Windows.Forms.Padding(12, 9, 12, 9);
+            this.txtMarque.Name = "txtMarque";
+            this.txtMarque.PasswordChar = '\0';
+            this.txtMarque.PlaceholderText = "";
+            this.txtMarque.SelectedText = "";
+            this.txtMarque.ShadowDecoration.Parent = this.txtMarque;
+            this.txtMarque.Size = new System.Drawing.Size(211, 30);
+            this.txtMarque.TabIndex = 30;
             // 
             // MajCarburants
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(797, 427);
+            this.ClientSize = new System.Drawing.Size(797, 483);
+            this.Controls.Add(this.txtMarque);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.Dexceptionnel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtObservation);
@@ -1676,5 +2064,7 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RadioButton Dexceptionnel;
         private Guna.UI2.WinForms.Guna2TextBox cmbVehicule;
+        private System.Windows.Forms.Label label10;
+        private Guna.UI2.WinForms.Guna2TextBox txtMarque;
     }
 }

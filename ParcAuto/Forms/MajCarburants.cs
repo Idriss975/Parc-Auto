@@ -30,10 +30,15 @@ namespace ParcAuto.Forms
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
         }
-        string Entite, Benificiaire, vehicules, lieu, Dfix, DMiss, Dhebdo, DExceptionnel, omn ,Observation,km,pourcentage;
+        string Entite, Benificiaire, vehicules, lieu, Dfix, DMiss, Dhebdo, DExceptionnel, omn ,Observation,km,pourcentage, Marque;
         DateTime DateOpera;
-        
-        public MajCarburants(string Entite, string Benificiaire, string vehicules,DateTime DateOpera,string lieu,string km,string pourcentage,string omn, string  Dfix, string DMiss, string Dhebdo,string Dexceptionnel, string Observation)
+
+        private void cmbVehicule_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public MajCarburants(string Entite, string Benificiaire, string vehicules,string Marque, DateTime DateOpera,string lieu,string km,string pourcentage,string omn, string  Dfix, string DMiss, string Dhebdo,string Dexceptionnel, string Observation)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
@@ -51,6 +56,7 @@ namespace ParcAuto.Forms
             this.km = km;
             this.DExceptionnel = Dexceptionnel;
             this.pourcentage = pourcentage;
+            this.Marque = Marque;
         }
         private void RemplirChamps()
         {
@@ -63,6 +69,7 @@ namespace ParcAuto.Forms
             txtObservation.Text = Observation;
             txtKM.Text = km;
             txtpourcentage.Text = pourcentage;
+            txtMarque.Text = Marque;
             if (Dhebdo != "")
             {
                 DHebdo.Checked = true;
@@ -144,6 +151,7 @@ namespace ParcAuto.Forms
             txtBenificiaire.Text = "";
             cmbVehicule.Text = "";
             cmbVilles.Text = "";
+            txtMarque.Text = "";
             DateOper.Value = DateTime.Now;
             DFixe.Checked = false;
             DHebdo.Checked = false;
@@ -155,7 +163,7 @@ namespace ParcAuto.Forms
         {
             RemplirComboBoxBenificiaire();
             RemplirComboBoxVehicules();
-           
+            txtMarque.Text = (7.5).ToString();
             switch (Commandes.Command)
             {
                 case Choix.ajouter:
@@ -216,11 +224,12 @@ namespace ParcAuto.Forms
                 {
                     case Choix.ajouter:
                         GLB.Cmd.CommandText = "insert into CarburantVignettes values(@txtEntite,@txtBenificiaire,@cmbVehicule," +
-                    $"@DateOper,@cmbVilles,@txtKM,@txtpourcentage,@OMN,@DoFixe,@DoMissions," +
+                    $"@txtMarque,@DateOper,@cmbVilles,@txtKM,@txtpourcentage,@OMN,@DoFixe,@DoMissions," +
                     $"@DoHebdo,@DoExp,null,@txtObservation)";
                         GLB.Cmd.Parameters.AddWithValue("@txtEntite", txtEntite.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
                         GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtMarque", txtMarque.Text);
                         GLB.Cmd.Parameters.AddWithValue("@DateOper", DateOper.Value.ToString("yyyy-MM-dd"));
                         GLB.Cmd.Parameters.AddWithValue("@cmbVilles", cmbVilles.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtKM", txtKM.Text);
@@ -235,11 +244,12 @@ namespace ParcAuto.Forms
                     case Choix.modifier:
                         GLB.Cmd.CommandText = "update CarburantVignettes set Entite = @txtEntite, beneficiaire = @txtBenificiaire" +
                     $", vehicule = @cmbVehicule , date = @DateOper, lieu = @cmbVilles," +
-                    $" ObjetOMN = @OMN, DFixe = @DoFixe ," +
+                    $" ObjetOMN = @OMN, DFixe = @DoFixe , Marque = @txtMarque ," +
                     $" DMissions = @DoMissions , DHebdo = @DoHebdo,DExceptionnel = @DoExp,Observation = @txtObservation ,KM = @txtKM , Pourcentage = @txtpourcentage where id = @ID";
                         GLB.Cmd.Parameters.AddWithValue("@txtEntite", txtEntite.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
                         GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtMarque", txtMarque.Text);
                         GLB.Cmd.Parameters.AddWithValue("@DateOper", DateOper.Value.ToString("yyyy-MM-dd"));
                         GLB.Cmd.Parameters.AddWithValue("@cmbVilles", cmbVilles.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtKM", txtKM.Text);
