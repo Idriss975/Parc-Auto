@@ -49,7 +49,6 @@ namespace ParcAuto.Classes_Globale
         /// <param name="FontRows">Font for the rows.</param>
         /// <param name="Skipindex">Column index to skip/ not show (-1 to not skip).</param>
         /// <param name="StartingColumnPosition">The X position for where the first column should show.</param>
-        /// <param name="column_gap">Margin between each column.</param>
         /// <param name="StartingRowPosition">The Y position for where the First row should show.</param>
         static public void Drawonprintdoc(PrintPageEventArgs e,  DataGridView DGV, Image Logo, Font FontHeader, Font FontRows, int Skipindex = -1, int StartingColumnPosition = 75, int StartingRowPosition = 220, string Total = "")
         {
@@ -95,7 +94,6 @@ namespace ParcAuto.Classes_Globale
                             } else
                             {
                                 MaxCellInRowLen = longestcellinrow(DGV, i+1);
-                                //e.Graphics.DrawString(DGV.Rows[item].Cells[i + 1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i + 1].Value.ToString(), out _) ? (MaxCellInRowLen.Length - DGV.Rows[item].Cells[i + 1].Value.ToString().Length) * FontRows.Size : 0), StartingRowPosition);
                                 e.Graphics.DrawString(DGV.Rows[item].Cells[i + 1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i + 1].Value.ToString(), out _) ? (e.Graphics.MeasureString(MaxCellInRowLen,FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i + 1].Value.ToString(),FontRows).Width) : 0), StartingRowPosition);
                             }
                         }
@@ -117,7 +115,6 @@ namespace ParcAuto.Classes_Globale
                             else
                             {
                                 MaxCellInRowLen = longestcellinrow(DGV, i + 1);
-                                //e.Graphics.DrawString(DGV.Rows[item].Cells[i + 1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i + 1].Value.ToString(), out _) ? (MaxCellInRowLen.Length - DGV.Rows[item].Cells[i + 1].Value.ToString().Length) * FontRows.Size : 0), StartingRowPosition);
                                 e.Graphics.DrawString(DGV.Rows[item].Cells[i + 1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i + 1].Value.ToString(), out _) ? (e.Graphics.MeasureString(MaxCellInRowLen, FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i + 1].Value.ToString(), FontRows).Width) : 0), StartingRowPosition);
                             }
                         }
