@@ -50,7 +50,7 @@ namespace ParcAuto.Classes_Globale
         /// <param name="Skipindex">Column index to skip/ not show (-1 to not skip).</param>
         /// <param name="StartingColumnPosition">The X position for where the first column should show.</param>
         /// <param name="StartingRowPosition">The Y position for where the First row should show.</param>
-        static public void Drawonprintdoc(PrintPageEventArgs e,  DataGridView DGV, Image Logo, Font FontHeader, Font FontRows, int Skipindex = -1, int StartingColumnPosition = 75, int StartingRowPosition = 220, string Total = "",float bias = 0.0f) // Bias is temporary fix
+        static public void Drawonprintdoc(PrintPageEventArgs e,  DataGridView DGV, Image Logo, Font FontHeader, Font FontRows, int Skipindex = -1, int StartingColumnPosition = 75, int StartingRowPosition = 200, string Total = "",float bias = 0.0f) // Bias is temporary fix
         {
             float column_gap = e.PageSettings.Bounds.Width - StartingColumnPosition - bias;
             foreach (DataGridViewColumn item in DGV.Columns)
@@ -75,7 +75,7 @@ namespace ParcAuto.Classes_Globale
                 foreach (DataGridViewColumn col in DGV.Columns)
                 {
                     if (col.HeaderText == DGV.Columns[Skipindex].HeaderText) continue;
-                    e.Graphics.DrawString(col.HeaderText, FontHeader, Brushes.Black, columns_pos[columns_pos.Count - 1], 200);
+                    e.Graphics.DrawString(col.HeaderText, FontHeader, Brushes.Black, columns_pos[columns_pos.Count - 1], StartingRowPosition - 15);
                     columns_pos.Add(columns_pos[columns_pos.Count - 1] + column_gap + (e.Graphics.MeasureString(longestcellinrow(DGV, col.Index),FontHeader).Width));
                 }
                 e.Graphics.DrawLine(new Pen(Color.Black), columns_pos[0], StartingRowPosition - 5, columns_pos[columns_pos.Count - 1] - column_gap, StartingRowPosition - 5);
@@ -126,7 +126,7 @@ namespace ParcAuto.Classes_Globale
             {                                                                                                                                                              
                 foreach (DataGridViewColumn item in DGV.Columns)
                 {
-                    e.Graphics.DrawString(item.HeaderText, FontHeader, Brushes.Black, columns_pos[columns_pos.Count - 1], 200);                                            
+                    e.Graphics.DrawString(item.HeaderText, FontHeader, Brushes.Black, columns_pos[columns_pos.Count - 1], StartingRowPosition - 15);                                            
                     columns_pos.Add(columns_pos[columns_pos.Count - 1] + column_gap + (e.Graphics.MeasureString(longestcellinrow(DGV, item.Index), FontHeader).Width));                                         
                 }
                 e.Graphics.DrawLine(new Pen(Color.Black), columns_pos[0], StartingRowPosition - 5, columns_pos[columns_pos.Count - 1] - column_gap, StartingRowPosition - 5);
