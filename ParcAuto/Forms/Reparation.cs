@@ -98,10 +98,10 @@ namespace ParcAuto.Forms
             string outp = "";
             try
             {
-                outp = $"delete from CarburantVignettes where id = {dgvReparation.SelectedRows[0].Cells[12].Value} ";
+                outp = $"delete from Reparation where id = {dgvReparation.SelectedRows[0].Cells[0].Value} ";
 
                 for (int i = 1; i < dgvReparation.SelectedRows.Count; i++)
-                    outp += $"or id = {dgvReparation.SelectedRows[i].Cells[12].Value}";
+                    outp += $" or id = {dgvReparation.SelectedRows[i].Cells[0].Value}";
 
                 GLB.Cmd.CommandText = outp;
                 GLB.Con.Open();

@@ -97,15 +97,17 @@ namespace ParcAuto.Forms
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
+            string outp = "";
             try
             {
-                GLB.Con.Open();
-                foreach (DataGridViewRow row in dgvconducteur.SelectedRows)
-                {
+                
+                outp = $"delete from Conducteurs where Matricule = {dgvconducteur.SelectedRows[0].Cells[0].Value} ";
 
-                    GLB.Cmd.CommandText = $"delete from Conducteurs where Matricule = {row.Cells[0].Value}";
-                    GLB.Cmd.ExecuteNonQuery();
-                }
+                for (int i = 1; i < dgvconducteur.SelectedRows.Count; i++)
+                    outp += $" or Matricule = {dgvconducteur.SelectedRows[i].Cells[0].Value}";
+                GLB.Cmd.CommandText = outp;
+                GLB.Con.Open();
+                GLB.Cmd.ExecuteNonQuery();
                 GLB.Con.Close();
                 RemplirLaGrille();
             }
@@ -227,8 +229,6 @@ namespace ParcAuto.Forms
                             MessageBox.Show($"Le Conducteur avec le Matricule {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value} existe déja","Message");
                             continue;
                         }
-                       
-                        
                     }
                     GLB.Con.Close();
                 }

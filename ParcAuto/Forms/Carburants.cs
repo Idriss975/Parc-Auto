@@ -162,7 +162,7 @@ namespace ParcAuto.Forms
                 outp = $"delete from CarburantVignettes where id = {dgvCarburant.SelectedRows[0].Cells[12].Value} ";
 
                 for (int i = 1; i < dgvCarburant.SelectedRows.Count; i++)
-                     outp += $"or id = {dgvCarburant.SelectedRows[i].Cells[12].Value}";
+                     outp += $" or id = {dgvCarburant.SelectedRows[i].Cells[12].Value}";
 
                 GLB.Cmd.CommandText = outp;
                 GLB.Con.Open();
