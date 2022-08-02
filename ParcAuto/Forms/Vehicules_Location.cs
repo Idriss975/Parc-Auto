@@ -95,8 +95,15 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.Matricule_Voiture = (string)dgvVehicules.CurrentRow.Cells[1].Value;
-                GLB.Cmd.CommandText = $"delete from Vehicules where Matricule = '{GLB.Matricule_Voiture}'";
+                GLB.Con.Open();
+                foreach (DataGridViewRow row in dgvVehicules.SelectedRows)
+                {
+
+                    GLB.Cmd.CommandText = $"delete from Vehicules where Matricule = '{row.Cells[1].Value}'";
+                    GLB.Cmd.ExecuteNonQuery();
+                }
+                GLB.Con.Close();
+                RemplirLaGrille();
             }
             catch (ArgumentOutOfRangeException)
             {

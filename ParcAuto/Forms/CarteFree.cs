@@ -86,8 +86,16 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.id_CarteFree = Convert.ToInt32(dgvCarteFree.CurrentRow.Cells[0].Value);
-                GLB.Cmd.CommandText = $"delete from CarteFree where id = {GLB.id_CarteFree}";
+                
+                GLB.Con.Open();
+                foreach (DataGridViewRow row in dgvCarteFree.SelectedRows)
+                {
+
+                    GLB.Cmd.CommandText = $"delete from CarteFree where id = {row.Cells[0].Value}";
+                    GLB.Cmd.ExecuteNonQuery();
+                }
+                GLB.Con.Close();
+                RemplirLaGrille();
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -95,14 +103,7 @@ namespace ParcAuto.Forms
             }
             //TODO: catch NullReferenceException (idriss)
 
-            DialogResult res = MessageBox.Show("Voulez Vous Vraiment Suprimmer Cette ligne ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-            if (res == DialogResult.Yes)
-            {
-                GLB.Con.Open();
-                GLB.Cmd.ExecuteNonQuery();
-                GLB.Con.Close();
-                RemplirLaGrille();
-            }
+       
         }
 
         private void btnSuprimmerTout_Click(object sender, EventArgs e)

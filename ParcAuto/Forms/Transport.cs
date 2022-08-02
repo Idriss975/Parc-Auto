@@ -121,22 +121,22 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.id_Transport = Convert.ToInt32(dgvTransport.CurrentRow.Cells[0].Value);
-                GLB.Cmd.CommandText = $"delete from Transport where id= {GLB.id_Transport}";
+                GLB.Con.Open();
+                foreach (DataGridViewRow row in dgvTransport.SelectedRows)
+                {
+
+                    GLB.Cmd.CommandText = $"delete from Transport where id = {row.Cells[0].Value}";
+                    GLB.Cmd.ExecuteNonQuery();
+                }
+                GLB.Con.Close();
+                RemplirdgvTransport();
             }
             catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("Il faut selectionner sur la table pour Suprrimer la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             //TODO: catch NullReferenceException (idriss)
-            DialogResult res = MessageBox.Show("Voulez Vous Vraiment Suprimmer Cette ligne ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-            if (res == DialogResult.Yes)
-            {
-                GLB.Con.Open();
-                GLB.Cmd.ExecuteNonQuery();
-                GLB.Con.Close();
-                RemplirdgvTransport();
-            }
+          
             
         }
 
@@ -254,8 +254,6 @@ namespace ParcAuto.Forms
                             GLB.Cmd.Parameters.AddWithValue("@txtUtilisation", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
                             GLB.Cmd.Parameters.AddWithValue("@txtPrix", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
                             GLB.Cmd.ExecuteNonQuery();
-
-
                         }
                         else
                         {

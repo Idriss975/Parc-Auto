@@ -105,6 +105,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 foreach (DataGridViewRow row in dgvReparation.SelectedRows)
                 {
+                    
                     GLB.Cmd.CommandText = $"delete from Reparation where id = {row.Cells[0].Value}";
                     GLB.Cmd.ExecuteNonQuery();
                 }

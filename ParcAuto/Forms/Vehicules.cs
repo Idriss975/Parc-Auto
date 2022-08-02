@@ -96,23 +96,21 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.Matricule_Voiture = (string)dgvVehicules.CurrentRow.Cells[1].Value;
-                GLB.Cmd.CommandText = $"delete from Vehicules where Matricule = '{GLB.Matricule_Voiture}'";
+                GLB.Con.Open();
+                foreach (DataGridViewRow row in dgvVehicules.SelectedRows)
+                {
+
+                    GLB.Cmd.CommandText = $"delete from Vehicules where Matricule = '{row.Cells[1].Value}'";
+                    GLB.Cmd.ExecuteNonQuery();
+                }
+                GLB.Con.Close();
+                RemplirLaGrille();
             }
             catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             //TODO: catch NullReferenceException (idriss)
-
-            DialogResult res = MessageBox.Show("Voulez Vous Vraiment Suprimmer Cette Vehicule ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-            if (res == DialogResult.Yes)
-            {
-                GLB.Con.Open();
-                GLB.Cmd.ExecuteNonQuery();
-                GLB.Con.Close();
-                RemplirLaGrille();
-            }
         }
 
         private void btnQuitter_Click(object sender, EventArgs e)

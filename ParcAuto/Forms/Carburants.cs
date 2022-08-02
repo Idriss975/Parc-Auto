@@ -163,6 +163,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 foreach (DataGridViewRow row in dgvCarburant.SelectedRows)
                 {
+                    
                     GLB.Cmd.CommandText = $"delete from CarburantVignettes where id = {row.Cells[12].Value}";
                     GLB.Cmd.ExecuteNonQuery();
                 }
@@ -222,11 +223,11 @@ namespace ParcAuto.Forms
                             
                             if (j < 12)
                             {
-                                xcelApp.Cells[i + 2, j + 1] = dgvCarburant.Rows[i].Cells[j].Value.ToString();
+                                xcelApp.Cells[i + 2, j + 1] = dgvCarburant.Rows[i].Cells[j].Value.ToString().Trim();
                             }
                             else 
                             {
-                                xcelApp.Cells[i + 2, j + 1] = dgvCarburant.Rows[i].Cells[j+1].Value.ToString();
+                                xcelApp.Cells[i + 2, j + 1] = dgvCarburant.Rows[i].Cells[j+1].Value.ToString().Trim();
                             }
                            
 
@@ -325,7 +326,7 @@ namespace ParcAuto.Forms
                         }
                         else
                         {
-                            lignesExcel += $"{excelWorksheetIndex} , ";
+                            lignesExcel += $" {excelWorksheetIndex} ";
                             continue;
                         }
                     }

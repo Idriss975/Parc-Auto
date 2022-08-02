@@ -99,9 +99,15 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.Matricule = Convert.ToInt32(dgvconducteur.CurrentRow.Cells[0].Value);
-                GLB.Cmd.CommandText = $"delete from Conducteurs where Matricule = {GLB.Matricule}";
+                GLB.Con.Open();
+                foreach (DataGridViewRow row in dgvconducteur.SelectedRows)
+                {
 
+                    GLB.Cmd.CommandText = $"delete from Conducteurs where Matricule = {row.Cells[0].Value}";
+                    GLB.Cmd.ExecuteNonQuery();
+                }
+                GLB.Con.Close();
+                RemplirLaGrille();
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -109,14 +115,6 @@ namespace ParcAuto.Forms
             }
             //TODO: catch NullReferenceException (idriss)
 
-            DialogResult res = MessageBox.Show("Voulez Vous Vraiment Suprimmer Ce Conducteur ?","Confirmation",MessageBoxButtons.YesNo,MessageBoxIcon.Question,MessageBoxDefaultButton.Button1);
-            if (res == DialogResult.Yes)
-            {
-                GLB.Con.Open();
-                GLB.Cmd.ExecuteNonQuery();
-                GLB.Con.Close();
-                RemplirLaGrille();
-            }
         }
 
         private void cmbChoix_SelectedIndexChanged(object sender, EventArgs e)
