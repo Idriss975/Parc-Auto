@@ -95,20 +95,17 @@ namespace ParcAuto.Forms
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
+            string outp = "";
             try
             {
-                //string query = $"delete from Reparation where id = {}";
-                //foreach (DataGridViewRow row in dgvReparation.SelectedRows)
-                //{
-                //    query += $" or id = {row.Cells[0].Value}";
-                //}
+                outp = $"delete from CarburantVignettes where id = {dgvReparation.SelectedRows[0].Cells[12].Value} ";
+
+                for (int i = 1; i < dgvReparation.SelectedRows.Count; i++)
+                    outp += $"or id = {dgvReparation.SelectedRows[i].Cells[12].Value}";
+
+                GLB.Cmd.CommandText = outp;
                 GLB.Con.Open();
-                foreach (DataGridViewRow row in dgvReparation.SelectedRows)
-                {
-                    
-                    GLB.Cmd.CommandText = $"delete from Reparation where id = {row.Cells[0].Value}";
-                    GLB.Cmd.ExecuteNonQuery();
-                }
+                GLB.Cmd.ExecuteNonQuery();
                 GLB.Con.Close();
                 datagridviewLoad();
 
