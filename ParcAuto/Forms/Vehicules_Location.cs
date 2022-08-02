@@ -93,15 +93,17 @@ namespace ParcAuto.Forms
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
+            string outp = "";
             try
             {
-                GLB.Con.Open();
-                foreach (DataGridViewRow row in dgvVehicules.SelectedRows)
-                {
+                outp = $"delete from Vehicules where Matricule = '{dgvVehicules.SelectedRows[0].Cells[1].Value}'";
 
-                    GLB.Cmd.CommandText = $"delete from Vehicules where Matricule = '{row.Cells[1].Value}'";
-                    GLB.Cmd.ExecuteNonQuery();
-                }
+                for (int i = 1; i < dgvVehicules.SelectedRows.Count; i++)
+                    outp += $" or Matricule = '{dgvVehicules.SelectedRows[i].Cells[1].Value}'";
+
+                GLB.Cmd.CommandText = outp;
+                GLB.Con.Open();
+                GLB.Cmd.ExecuteNonQuery();
                 GLB.Con.Close();
                 RemplirLaGrille();
             }
@@ -111,14 +113,6 @@ namespace ParcAuto.Forms
             }
             //TODO: catch NullReferenceException (idriss)
 
-            DialogResult res = MessageBox.Show("Voulez Vous Vraiment Suprimmer Cette Vehicule ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-            if (res == DialogResult.Yes)
-            {
-                GLB.Con.Open();
-                GLB.Cmd.ExecuteNonQuery();
-                GLB.Con.Close();
-                RemplirLaGrille();
-            }
         }
 
         private void btnExportExcel_Click(object sender, EventArgs e)

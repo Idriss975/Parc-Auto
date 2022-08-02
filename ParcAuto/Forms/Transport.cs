@@ -119,15 +119,17 @@ namespace ParcAuto.Forms
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
+            string outp = "";
             try
             {
-                GLB.Con.Open();
-                foreach (DataGridViewRow row in dgvTransport.SelectedRows)
-                {
+                outp = $"delete from Transport where id  = {dgvTransport.SelectedRows[0].Cells[0].Value} ";
 
-                    GLB.Cmd.CommandText = $"delete from Transport where id = {row.Cells[0].Value}";
-                    GLB.Cmd.ExecuteNonQuery();
-                }
+                for (int i = 1; i < dgvTransport.SelectedRows.Count; i++)
+                    outp += $" or id = {dgvTransport.SelectedRows[i].Cells[0].Value}";
+
+                GLB.Cmd.CommandText = outp;
+                GLB.Con.Open();
+                GLB.Cmd.ExecuteNonQuery();
                 GLB.Con.Close();
                 RemplirdgvTransport();
             }

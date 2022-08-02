@@ -84,16 +84,18 @@ namespace ParcAuto.Forms
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
+            string outp = "";
             try
             {
-                
-                GLB.Con.Open();
-                foreach (DataGridViewRow row in dgvCarteFree.SelectedRows)
-                {
 
-                    GLB.Cmd.CommandText = $"delete from CarteFree where id = {row.Cells[0].Value}";
-                    GLB.Cmd.ExecuteNonQuery();
-                }
+                outp = $"delete from CarteFree where id = {dgvCarteFree.SelectedRows[0].Cells[0].Value} ";
+
+                for (int i = 1; i < dgvCarteFree.SelectedRows.Count; i++)
+                    outp += $" or id = {dgvCarteFree.SelectedRows[i].Cells[0].Value}";
+
+                GLB.Cmd.CommandText = outp;
+                GLB.Con.Open();
+                GLB.Cmd.ExecuteNonQuery();
                 GLB.Con.Close();
                 RemplirLaGrille();
             }
