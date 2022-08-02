@@ -25,7 +25,7 @@ namespace ParcAuto.Classes_Globale
         public static int id_Transport;
         public static int id_CarteFree;
         public static  int number_of_lines;
-        private static Dictionary<string, string> Entites = new Dictionary<string, string> 
+        public static Dictionary<string, string> Entites = new Dictionary<string, string> 
         { 
             { "DG", "Direction Générale" },
             { "CDG", "Cabinet /Direction  Générale" },
