@@ -25,6 +25,35 @@ namespace ParcAuto.Classes_Globale
         public static int id_Transport;
         public static int id_CarteFree;
         public static  int number_of_lines;
+        private static Dictionary<string, string> Entites = new Dictionary<string, string> 
+        { 
+            { "DG", "Direction Générale" },
+            { "CDG", "Cabinet /Direction  Générale" },
+            { "DC", "Direction de la communication" },
+            { "DA", "Direction de l'Audit" },
+            { "DAL", "Direction de l'approvisionnement et de la logistique" },
+            { "DRH", "Direction des ressources humaines" },
+            { "DFC", "Direction financière et comptable" },
+            { "DAI", "Direction Afrique et International" },
+            { "TP", "Trésorier Payeur" },
+            { "DP", "Direction du patrimoine" },
+            { "DF", "Direction de la formation" },
+            { "DOSI", "Direction organisation et systèmes d'information" },
+            { "DFCE", "Direction de la formation en cours d'emploi" },
+            { "DRIF", "Direction de la recherche et de l'ingénierie de la formation" },
+            { "DDMP", "Direction Développement et Management de Projets" },
+            { "ASOFP", "ASOFP" },
+            { "DRCS", "DR Casablanca-Settat" },
+            { "DRRSK", "DR Rabat-Salé-Kénitra" },
+            { "DRTTH", "DR Tanger-Tétouan-Al Hoceima" },
+            { "DRPS", "DR Province de Sud" },
+            { "DRFM", "DR  Fes -Meknes" },
+            { "DRBK", "DR Béni Mellal-Khénifra" },
+            { "DRMS", "DR Marrakech-Safi" },
+            { "DRO", "DR Oriental " },
+            { "DRSM", "DR Souss Massa" },
+            { "DRDT", "DR Draa Tafilalet" }
+        };
         public static void StyleDataGridView(DataGridView dgv)
         {
             dgv.BorderStyle = BorderStyle.None;
