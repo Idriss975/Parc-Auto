@@ -162,6 +162,7 @@ namespace ParcAuto.Forms
 
         private void btnImprimer_Click(object sender, EventArgs e)
         {
+            /*
             DataSet ds = new DataSet();
             System.Data.DataTable dt = new System.Data.DataTable();
             dt.Columns.Add("Marque", typeof(string));
@@ -182,8 +183,13 @@ namespace ParcAuto.Forms
             ds.Tables.Add(dt);
             ds.WriteXmlSchema("Vehicules.xml");
             ImpressionVehicules vehicules = new ImpressionVehicules(ds);
-            vehicules.Show();
-           
+            vehicules.Show();*/
+            if (printDialog1.ShowDialog(this) == DialogResult.OK)
+            {
+                printPreviewDialog1.Document.PrinterSettings = printDialog1.PrinterSettings;
+                printPreviewDialog1.ShowDialog();
+            }
+
 
         }
 
@@ -235,6 +241,16 @@ namespace ParcAuto.Forms
                 GLB.Con.Close();
                 RemplirLaGrille();
             }
+        }
+
+        private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            GLB.number_of_lines = dgvVehicules.Rows.Count;
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            GLB.Drawonprintdoc(e, dgvVehicules, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6), bias: 55);
         }
     }
 }
