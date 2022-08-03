@@ -81,10 +81,11 @@ namespace ParcAuto.Classes_Globale
         /// <param name="StartingRowPosition">The Y position for where the First row should show.</param>
         static public void Drawonprintdoc(PrintPageEventArgs e,  DataGridView DGV, Image Logo, Font FontHeader, Font FontRows, int Skipindex = -1, int StartingColumnPosition = 5, int StartingRowPosition = 200, string Total = "",float bias = 0.0f) // Bias is temporary fix
         {
-            float column_gap = e.PageSettings.Bounds.Width - StartingColumnPosition - bias;
+            float column_gap = e.PageSettings.Bounds.Width - StartingColumnPosition - 10 + bias;// - bias;
             foreach (DataGridViewColumn item in DGV.Columns)
-                column_gap -= e.Graphics.MeasureString(item.HeaderText,FontHeader).Width;
+                column_gap -= e.Graphics.MeasureString(longestcellinrow(DGV,item.Index),FontHeader).Width;
             column_gap /= DGV.Columns.Count-1;
+            if (column_gap < 0) column_gap = 0;
             //Header
             e.Graphics.DrawImage(Logo, 50, 17);
             e.Graphics.DrawLine(new Pen(Color.Black, 2), 150, 40, 150, 85);            
@@ -104,7 +105,7 @@ namespace ParcAuto.Classes_Globale
                 foreach (DataGridViewColumn col in DGV.Columns)
                 {
                     if (col.HeaderText == DGV.Columns[Skipindex].HeaderText) continue;
-                    e.Graphics.DrawString(col.HeaderText, FontHeader, Brushes.Black, columns_pos[columns_pos.Count - 1], StartingRowPosition - 15);
+                    e.Graphics.DrawString(col.HeaderText, FontHeader, Brushes.Black, columns_pos[columns_pos.Count - 1], StartingRowPosition - 17);
                     columns_pos.Add(columns_pos[columns_pos.Count - 1] + column_gap + (e.Graphics.MeasureString(longestcellinrow(DGV, col.Index),FontHeader).Width));
                 }
                 e.Graphics.DrawLine(new Pen(Color.Black), columns_pos[0], StartingRowPosition - 5, columns_pos[columns_pos.Count - 1] - column_gap, StartingRowPosition - 5);
@@ -156,7 +157,7 @@ namespace ParcAuto.Classes_Globale
             {                                                                                                                                                              
                 foreach (DataGridViewColumn item in DGV.Columns)
                 {
-                    e.Graphics.DrawString(item.HeaderText, FontHeader, Brushes.Black, columns_pos[columns_pos.Count - 1], StartingRowPosition - 15);                                            
+                    e.Graphics.DrawString(item.HeaderText, FontHeader, Brushes.Black, columns_pos[columns_pos.Count - 1], StartingRowPosition - 17);                                            
                     columns_pos.Add(columns_pos[columns_pos.Count - 1] + column_gap + (e.Graphics.MeasureString(longestcellinrow(DGV, item.Index), FontHeader).Width));                                         
                 }
                 e.Graphics.DrawLine(new Pen(Color.Black), columns_pos[0], StartingRowPosition - 5, columns_pos[columns_pos.Count - 1] - column_gap, StartingRowPosition - 5);
