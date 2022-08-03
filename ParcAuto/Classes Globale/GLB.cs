@@ -42,7 +42,6 @@ namespace ParcAuto.Classes_Globale
             { "DFCE", "Direction de la formation en cours d'emploi" },
             { "DRIF", "Direction de la recherche et de l'ingénierie de la formation" },
             { "DDMP", "Direction Développement et Management de Projets" },
-            { "ASOFP", "ASOFP" },
             { "DRCS", "DR Casablanca-Settat" },
             { "DRRSK", "DR Rabat-Salé-Kénitra" },
             { "DRTTH", "DR Tanger-Tétouan-Al Hoceima" },
