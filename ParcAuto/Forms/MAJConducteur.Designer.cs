@@ -437,6 +437,7 @@ namespace ParcAuto.Forms
             this.txtDirections.ShadowDecoration.Parent = this.txtDirections;
             this.txtDirections.Size = new System.Drawing.Size(221, 33);
             this.txtDirections.TabIndex = 25;
+            this.txtDirections.Leave += new System.EventHandler(this.txtDirections_Leave);
             // 
             // btnAppliquer
             // 

@@ -33,6 +33,13 @@ namespace ParcAuto.Forms
         }
         string Nom, Prenom, NumPermis, Adresse, Direction, Tel, Email;
         DateTime DateNaiss, DateEmbauche;
+
+        private void txtDirections_Leave(object sender, EventArgs e)
+        {
+            if (GLB.Entites.Keys.Contains(txtDirections.Text.ToUpper()))
+                txtDirections.Text = GLB.Entites[txtDirections.Text.ToUpper()];
+        }
+
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtnom.Clear();
