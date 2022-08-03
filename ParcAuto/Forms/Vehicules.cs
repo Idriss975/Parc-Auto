@@ -259,9 +259,9 @@ namespace ParcAuto.Forms
             _Workbook importExceldatagridViewworkbook;
             _Worksheet importExceldatagridViewworksheet;
             Range importdatagridviewRange;
-            string entite, Benificiaire, Vehicules, objet, entretien, reparation, Matricule;
+            string marque, matricule,  type, carburant, affectation, conducteur,Dnomination,observation;
             string lignesExcel = "Les Lignes Suivants Sont duplique sur le fichier excel : ";
-            DateTime date;
+            DateTime Misencirculation;
             try
             {
                 importExceldatagridViewApp = new Microsoft.Office.Interop.Excel.Application();
@@ -279,44 +279,32 @@ namespace ParcAuto.Forms
                     importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
                     for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
                     {
-                        entite = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
-                        Benificiaire = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
-                        Vehicules = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
-                        Matricule = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
-                        date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value));
-                        objet = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
-                        entretien = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
-                        reparation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value);
-
-
-                        //if (entite == null)
-                        //    entite = " ";
-                        //if (Benificiaire == null)
-                        //    Benificiaire = " ";
-                        //if (Vehicules == null)
-                        //    Vehicules = " ";
-                        //if (objet == null)
-                        //    objet = " ";
-                        GLB.Cmd.CommandText = $"SELECT count(*) from Reparation where Entite = @txtentite  and beneficiaire = @txtBenificiaire and vehicule =@cmbVehicule " +
-                            $" and Date =@Date and Objet = @txtObjet ";
-                        GLB.Cmd.Parameters.AddWithValue("@txtentite", entite);
-                        GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", Benificiaire);
-                        GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", Vehicules);
-                        GLB.Cmd.Parameters.AddWithValue("@txtMat", Matricule);
-                        GLB.Cmd.Parameters.AddWithValue("@Date", date.ToString("yyyy-MM-dd"));
-                        GLB.Cmd.Parameters.AddWithValue("@txtObjet", objet);
+                        marque = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
+                        matricule = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
+                        Misencirculation = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value));
+                        type = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
+                        carburant = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value);
+                        affectation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
+                        conducteur = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
+                        Dnomination = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value);
+                        observation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 9].value);
+                        
+                        GLB.Cmd.CommandText = $"SELECT count(*) from Reparation where Matricule = @txtMatricule";
+                        GLB.Cmd.Parameters.AddWithValue("@txtMatricule", matricule);
+                        
 
                         if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
                         {
-                            GLB.Cmd.CommandText = "Insert into Reparation values (null,@txtentite, @txtBenificiaire, @cmbVehicule,@txtMat, @Date, @txtObjet, @MontantEntretient, @MontantReparation)";
-                            GLB.Cmd.Parameters.AddWithValue("@txtentite", entite);
-                            GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", Benificiaire);
-                            GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", Vehicules);
-                            GLB.Cmd.Parameters.AddWithValue("@txtMat", Matricule);
-                            GLB.Cmd.Parameters.AddWithValue("@Date", date.ToString("yyyy-MM-dd"));
-                            GLB.Cmd.Parameters.AddWithValue("@txtObjet", objet);
-                            GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", entretien == "null" ? null : entretien);
-                            GLB.Cmd.Parameters.AddWithValue("@MontantReparation", reparation == "null" ? null : reparation);
+                            GLB.Cmd.CommandText = "insert into Vehicules values (@txtMarque, @txtMatricule, @dateMiseEnCirculation, @txtType, @txtCarburant, @txtAffectation, @TempMatricule,@txtDnomination,@txtObservation)";
+                            GLB.Cmd.Parameters.AddWithValue("@txtMarque", marque);
+                            GLB.Cmd.Parameters.AddWithValue("@txtMatricule", matricule);
+                            GLB.Cmd.Parameters.AddWithValue("@dateMiseEnCirculation", Misencirculation.ToString("yyyy-MM-dd") == null ? DateTime.Now.Date : Misencirculation);
+                            GLB.Cmd.Parameters.AddWithValue("@txtCarburant", carburant == "null"?null:carburant);
+                            GLB.Cmd.Parameters.AddWithValue("@cmbType", type == "null" ? null : type);
+                            GLB.Cmd.Parameters.AddWithValue("@txtAffectation", affectation == "null" ?null :affectation);
+                            GLB.Cmd.Parameters.AddWithValue("@TempMatricule", conducteur == "null" ? null : conducteur) ;
+                            GLB.Cmd.Parameters.AddWithValue("@txtDnomination", Dnomination == "null" ? null : Dnomination);
+                            GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation == "null" ? null : observation);
                             GLB.Cmd.ExecuteNonQuery();
                         }
                         else
@@ -331,7 +319,7 @@ namespace ParcAuto.Forms
                     MessageBox.Show(lignesExcel);
 
                 }
-                datagridviewLoad();
+                RemplirLaGrille();
 
             }
             catch (Exception ex)
