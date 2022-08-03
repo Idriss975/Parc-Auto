@@ -120,7 +120,7 @@ namespace ParcAuto.Forms
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
             this.btnClear.ImageSize = new System.Drawing.Size(30, 30);
             this.btnClear.Location = new System.Drawing.Point(721, 14);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(5);
             this.btnClear.Name = "btnClear";
             this.btnClear.ShadowDecoration.Parent = this.btnClear;
             this.btnClear.Size = new System.Drawing.Size(40, 40);
@@ -141,7 +141,7 @@ namespace ParcAuto.Forms
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
             this.btnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnClose.Location = new System.Drawing.Point(523, 236);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.ShadowDecoration.Parent = this.btnClose;
             this.btnClose.Size = new System.Drawing.Size(100, 30);
@@ -165,7 +165,7 @@ namespace ParcAuto.Forms
             this.btnAppliquer.Image = ((System.Drawing.Image)(resources.GetObject("btnAppliquer.Image")));
             this.btnAppliquer.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAppliquer.Location = new System.Drawing.Point(656, 236);
-            this.btnAppliquer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAppliquer.Margin = new System.Windows.Forms.Padding(4);
             this.btnAppliquer.Name = "btnAppliquer";
             this.btnAppliquer.ShadowDecoration.Parent = this.btnAppliquer;
             this.btnAppliquer.Size = new System.Drawing.Size(105, 30);
@@ -194,7 +194,7 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Controls.Add(this.Entite, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtentite, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(24, 70);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -238,6 +238,7 @@ namespace ParcAuto.Forms
             this.txtentite.ShadowDecoration.Parent = this.txtentite;
             this.txtentite.Size = new System.Drawing.Size(257, 28);
             this.txtentite.TabIndex = 0;
+            this.txtentite.Leave += new System.EventHandler(this.txtentite_Leave);
             // 
             // label2
             // 

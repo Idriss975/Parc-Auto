@@ -47,6 +47,13 @@ namespace ParcAuto.Forms
             this.Close();
         }
         string MontantFixe, MontantAutre;
+
+        private void txtentite_Leave(object sender, EventArgs e)
+        {
+            if (GLB.Entites.Keys.Contains(txtentite.Text.ToUpper()))
+                txtentite.Text = GLB.Entites[txtentite.Text.ToUpper()];
+        }
+
         private void RemplirChamps()
         {
             txtentite.Text = entite;
