@@ -147,6 +147,8 @@ namespace ParcAuto.Classes_Globale
                         StartingRowPosition += 20;
                 }
             }
+
+
             e.HasMorePages = number_of_lines > (e.PageSettings.Landscape ? 26 : 45) ? true: false;
             number_of_lines -= (e.PageSettings.Landscape ? 26 : 45);
 
