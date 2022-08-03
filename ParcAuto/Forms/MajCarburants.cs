@@ -35,7 +35,19 @@ namespace ParcAuto.Forms
 
         private void cmbVehicule_TextChanged(object sender, EventArgs e)
         {
-
+            GLB.Cmd.CommandText = $"select Marque from Vehicules where Matricule = '{cmbVehicule.Text}'";
+            GLB.Con.Open();
+            GLB.dr = GLB.Cmd.ExecuteReader();
+            if (!GLB.dr.Read())
+            {
+                txtMarque.Text = " ";
+            }
+            else
+            {
+                txtMarque.Text = GLB.dr[0].ToString();
+            }
+            GLB.dr.Close();
+            GLB.Con.Close();
         }
 
         private void txtEntite_Leave(object sender, EventArgs e)
@@ -117,14 +129,14 @@ namespace ParcAuto.Forms
         }
         private void RemplirComboBoxBenificiaire()
         {
-            if (GLB.ds.Tables["Conducteurs1"] != null)
-                GLB.ds.Tables["Conducteurs1"].Clear();
-            GLB.da = new SQLiteDataAdapter("select Nom, Prenom from Conducteurs", GLB.Con);
-            GLB.da.Fill(GLB.ds, "Conducteurs1");
+            if (GLB.ds.Tables["beneficiaires"] != null)
+                GLB.ds.Tables["beneficiaires"].Clear();
+            GLB.da = new SQLiteDataAdapter("select DISTINCT beneficiaire from CarburantVignettes", GLB.Con);
+            GLB.da.Fill(GLB.ds, "beneficiaires");
             AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
-            foreach (DataRow item in GLB.ds.Tables["Conducteurs1"].Rows)
+            foreach (DataRow item in GLB.ds.Tables["beneficiaires"].Rows)
             {
-                ac.Add(item[0] + " " + item[1]);
+                ac.Add(item[0].ToString());
             }
             txtBenificiaire.AutoCompleteMode = AutoCompleteMode.Suggest;
             txtBenificiaire.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -169,7 +181,7 @@ namespace ParcAuto.Forms
         {
             RemplirComboBoxBenificiaire();
             RemplirComboBoxVehicules();
-            txtMarque.Text = (7.5).ToString();
+            txtpourcentage.Text = (7.5).ToString();
             switch (Commandes.Command)
             {
                 case Choix.ajouter:
