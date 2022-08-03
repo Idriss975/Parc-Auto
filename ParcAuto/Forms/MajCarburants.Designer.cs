@@ -720,9 +720,6 @@ namespace ParcAuto.Forms
             // 
             // txtBenificiaire
             // 
-            this.txtBenificiaire.AutoCompleteCustomSource.AddRange(new string[] {
-            "ooo",
-            "okk"});
             this.txtBenificiaire.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtBenificiaire.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtBenificiaire.BorderRadius = 4;
@@ -746,6 +743,7 @@ namespace ParcAuto.Forms
             this.txtBenificiaire.ShadowDecoration.Parent = this.txtBenificiaire;
             this.txtBenificiaire.Size = new System.Drawing.Size(215, 30);
             this.txtBenificiaire.TabIndex = 1;
+            this.txtBenificiaire.TextChanged += new System.EventHandler(this.txtBenificiaire_TextChanged);
             // 
             // label8
             // 

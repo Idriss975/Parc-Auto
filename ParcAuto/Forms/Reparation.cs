@@ -21,6 +21,7 @@ namespace ParcAuto.Forms
         }
         private void datagridviewLoad()
         {
+            
             dgvReparation.Rows.Clear();
             GLB.Cmd.CommandText = "Select * from Reparation";
             GLB.Con.Open();
@@ -30,7 +31,24 @@ namespace ParcAuto.Forms
             GLB.dr.Close();
             GLB.Con.Close();
         }
-       
+        private void UpdateFromDataGrid()
+        {
+            GLB.id_Reparation = Convert.ToInt32(dgvReparation.CurrentRow.Cells[0].Value);
+            GLB.Cmd.CommandText = "update Reparation set Entite = @txtentite, Beneficiaire=@txtBenificiaire, Vehicule=@cmbVehicule, MatriculeV = @txtMat ,Date= @Date, Objet=@txtObjet, Entretien= @MontantEntretient, Reparation=@MontantReparation where id = @ID";
+            GLB.Cmd.Parameters.AddWithValue("@txtentite",dgvReparation.CurrentRow.Cells[1].Value.ToString() );
+            GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", dgvReparation.CurrentRow.Cells[2].Value.ToString());
+            GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", dgvReparation.CurrentRow.Cells[3].Value.ToString());
+            GLB.Cmd.Parameters.AddWithValue("@txtMat", dgvReparation.CurrentRow.Cells[4].Value.ToString());
+            GLB.Cmd.Parameters.AddWithValue("@Date", (Convert.ToDateTime(dgvReparation.CurrentRow.Cells[5].Value)).ToString("yyyy-MM-dd"));
+            GLB.Cmd.Parameters.AddWithValue("@txtObjet", dgvReparation.CurrentRow.Cells[6].Value.ToString());
+            GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", dgvReparation.CurrentRow.Cells[7].Value.ToString());
+            GLB.Cmd.Parameters.AddWithValue("@MontantReparation", dgvReparation.CurrentRow.Cells[8].Value.ToString());
+            GLB.Cmd.Parameters.AddWithValue("@ID", GLB.id_Reparation);
+            GLB.Con.Open();
+            GLB.Cmd.ExecuteNonQuery();
+            GLB.Con.Close();
+            this.Close();
+        }
         private void Reparation_Load(object sender, EventArgs e)
         {
             panelDate.Visible = false;
@@ -120,6 +138,7 @@ namespace ParcAuto.Forms
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            //UpdateFromDataGrid();
             datagridviewLoad();
         }
 

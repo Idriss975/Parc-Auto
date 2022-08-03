@@ -10,11 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ParcAuto.Classes_Globale;
 using System.Data.SQLite;
+using System.Text.RegularExpressions;
+
 namespace ParcAuto.Forms
 {
     public partial class MajCarburants : Form
     {
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+
         private static extern IntPtr CreateRoundRectRgn
         (
             int nLeftRect,     // x-coordinate of upper-left corner
@@ -24,6 +27,8 @@ namespace ParcAuto.Forms
             int nWidthEllipse, // height of ellipse
             int nHeightEllipse // width of ellipse
         );
+        AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
+
         public MajCarburants()
         {
             InitializeComponent();
@@ -54,6 +59,18 @@ namespace ParcAuto.Forms
         {
             if (GLB.Entites.Keys.Contains(txtEntite.Text.ToUpper()))
                 txtEntite.Text = GLB.Entites[txtEntite.Text.ToUpper()];
+        }
+
+        private void txtBenificiaire_TextChanged(object sender, EventArgs e)
+        {
+
+            //ac.Clear();
+            //for (int i = ac.Count -1 ; i >= 0; i--)
+            //{
+            //    if (!(new Regex(txtBenificiaire.Text.ToLower()).IsMatch(ac[i].ToLower())))
+            //        ac.RemoveAt(i);
+            //}
+
         }
 
         public MajCarburants(string Entite, string Benificiaire, string vehicules,string Marque, DateTime DateOpera,string lieu,string km,string pourcentage,string omn, string  Dfix, string DMiss, string Dhebdo,string Dexceptionnel, string Observation)
@@ -127,22 +144,7 @@ namespace ParcAuto.Forms
 
 
         }
-        private void RemplirComboBoxBenificiaire()
-        {
-            if (GLB.ds.Tables["beneficiaires"] != null)
-                GLB.ds.Tables["beneficiaires"].Clear();
-            GLB.da = new SQLiteDataAdapter("select DISTINCT beneficiaire from CarburantVignettes", GLB.Con);
-            GLB.da.Fill(GLB.ds, "beneficiaires");
-            AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
-            foreach (DataRow item in GLB.ds.Tables["beneficiaires"].Rows)
-            {
-                ac.Add(item[0].ToString());
-            }
-            txtBenificiaire.AutoCompleteMode = AutoCompleteMode.Suggest;
-            txtBenificiaire.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            txtBenificiaire.AutoCompleteCustomSource = ac;
-           
-        }
+
 
         private void RemplirComboBoxVehicules()
         {
@@ -176,10 +178,26 @@ namespace ParcAuto.Forms
             DMissions.Checked = false;
             Dexceptionnel.Checked = false;
         }
+        private void RemplirBenificiaire()
+        {
 
+            if (GLB.ds.Tables["beneficiaires"] != null)
+                GLB.ds.Tables["beneficiaires"].Clear();
+            GLB.da = new SQLiteDataAdapter($"select DISTINCT beneficiaire from CarburantVignettes", GLB.Con);
+            GLB.da.Fill(GLB.ds, "beneficiaires");
+          
+            foreach (DataRow item in GLB.ds.Tables["beneficiaires"].Rows)
+            {
+                ac.Add(item[0].ToString());
+            }
+            txtBenificiaire.AutoCompleteMode = AutoCompleteMode.Append;
+            txtBenificiaire.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtBenificiaire.AutoCompleteCustomSource = ac;
+        }
         private void MajCarburants_Load(object sender, EventArgs e)
         {
-            RemplirComboBoxBenificiaire();
+
+            RemplirBenificiaire();
             RemplirComboBoxVehicules();
             txtpourcentage.Text = (7.5).ToString();
             switch (Commandes.Command)
