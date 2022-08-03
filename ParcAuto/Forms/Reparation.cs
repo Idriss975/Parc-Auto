@@ -287,7 +287,7 @@ namespace ParcAuto.Forms
                             continue;
                         }
 
-                    }
+                    }           
                     GLB.Con.Close();
                     importExceldatagridViewApp.Workbooks.Close();
                     MessageBox.Show(lignesExcel);
