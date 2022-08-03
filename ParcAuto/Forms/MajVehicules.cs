@@ -54,6 +54,12 @@ namespace ParcAuto.Forms
 
         }
 
+        private void txtAffectation_Leave(object sender, EventArgs e)
+        {
+            if (GLB.Entites.Keys.Contains(txtAffectation.Text.ToUpper()))
+                txtAffectation.Text = GLB.Entites[txtAffectation.Text.ToUpper()];
+        }
+
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtMarque.Clear();
