@@ -34,6 +34,12 @@ namespace ParcAuto.Forms
         string entite, benificiaire, vehicule, objet, entretien, reparation , MontantEntretient, MontantReparation, MatriculeV;
         DateTime date;
 
+        private void txtentite_Leave(object sender, EventArgs e)
+        {
+            if (GLB.Entites.Keys.Contains(txtentite.Text.ToUpper()))
+                txtentite.Text = GLB.Entites[txtentite.Text.ToUpper()];
+        }
+
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtBenificiaire.Clear();

@@ -43,14 +43,14 @@ namespace ParcAuto.Forms
             this.lbl = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtMatricule = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.cmbVehicule = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtObjet = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMontant = new Guna.UI2.WinForms.Guna2TextBox();
             this.rbEntretien = new System.Windows.Forms.RadioButton();
             this.rbRepartion = new System.Windows.Forms.RadioButton();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtMatricule = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -144,6 +144,7 @@ namespace ParcAuto.Forms
             this.txtentite.ShadowDecoration.Parent = this.txtentite;
             this.txtentite.Size = new System.Drawing.Size(211, 28);
             this.txtentite.TabIndex = 0;
+            this.txtentite.Leave += new System.EventHandler(this.txtentite_Leave);
             // 
             // guna2Button1
             // 
@@ -289,6 +290,44 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Size = new System.Drawing.Size(745, 159);
             this.tableLayoutPanel1.TabIndex = 17;
             // 
+            // txtMatricule
+            // 
+            this.txtMatricule.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtMatricule.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtMatricule.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtMatricule.BorderRadius = 4;
+            this.txtMatricule.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtMatricule.DefaultText = "";
+            this.txtMatricule.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtMatricule.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtMatricule.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMatricule.DisabledState.Parent = this.txtMatricule;
+            this.txtMatricule.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMatricule.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMatricule.FocusedState.Parent = this.txtMatricule;
+            this.txtMatricule.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMatricule.HoverState.Parent = this.txtMatricule;
+            this.txtMatricule.Location = new System.Drawing.Point(524, 65);
+            this.txtMatricule.Margin = new System.Windows.Forms.Padding(9, 7, 9, 7);
+            this.txtMatricule.Name = "txtMatricule";
+            this.txtMatricule.PasswordChar = '\0';
+            this.txtMatricule.PlaceholderText = "";
+            this.txtMatricule.SelectedText = "";
+            this.txtMatricule.ShadowDecoration.Parent = this.txtMatricule;
+            this.txtMatricule.Size = new System.Drawing.Size(211, 28);
+            this.txtMatricule.TabIndex = 30;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(394, 124);
+            this.label6.Margin = new System.Windows.Forms.Padding(25, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(50, 17);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "Date  :";
+            // 
             // cmbVehicule
             // 
             this.cmbVehicule.BorderRadius = 4;
@@ -394,44 +433,6 @@ namespace ParcAuto.Forms
             this.rbRepartion.TabStop = true;
             this.rbRepartion.Text = "Reparation";
             this.rbRepartion.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(394, 124);
-            this.label6.Margin = new System.Windows.Forms.Padding(25, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 17);
-            this.label6.TabIndex = 30;
-            this.label6.Text = "Date  :";
-            // 
-            // txtMatricule
-            // 
-            this.txtMatricule.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtMatricule.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtMatricule.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtMatricule.BorderRadius = 4;
-            this.txtMatricule.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtMatricule.DefaultText = "";
-            this.txtMatricule.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtMatricule.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtMatricule.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMatricule.DisabledState.Parent = this.txtMatricule;
-            this.txtMatricule.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMatricule.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMatricule.FocusedState.Parent = this.txtMatricule;
-            this.txtMatricule.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMatricule.HoverState.Parent = this.txtMatricule;
-            this.txtMatricule.Location = new System.Drawing.Point(524, 65);
-            this.txtMatricule.Margin = new System.Windows.Forms.Padding(9, 7, 9, 7);
-            this.txtMatricule.Name = "txtMatricule";
-            this.txtMatricule.PasswordChar = '\0';
-            this.txtMatricule.PlaceholderText = "";
-            this.txtMatricule.SelectedText = "";
-            this.txtMatricule.ShadowDecoration.Parent = this.txtMatricule;
-            this.txtMatricule.Size = new System.Drawing.Size(211, 28);
-            this.txtMatricule.TabIndex = 30;
             // 
             // MajReparation
             // 
