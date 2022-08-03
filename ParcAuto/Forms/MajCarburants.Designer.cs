@@ -129,7 +129,7 @@ namespace ParcAuto.Forms
             this.btnAppliquer.Name = "btnAppliquer";
             this.btnAppliquer.ShadowDecoration.Parent = this.btnAppliquer;
             this.btnAppliquer.Size = new System.Drawing.Size(105, 30);
-            this.btnAppliquer.TabIndex = 18;
+            this.btnAppliquer.TabIndex = 11;
             this.btnAppliquer.Text = "Appliquer";
             this.btnAppliquer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnAppliquer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
@@ -286,7 +286,7 @@ namespace ParcAuto.Forms
             this.txtOMN.SelectedText = "";
             this.txtOMN.ShadowDecoration.Parent = this.txtOMN;
             this.txtOMN.Size = new System.Drawing.Size(117, 30);
-            this.txtOMN.TabIndex = 5;
+            this.txtOMN.TabIndex = 7;
             // 
             // txtDotation
             // 
@@ -310,7 +310,7 @@ namespace ParcAuto.Forms
             this.txtDotation.SelectedText = "";
             this.txtDotation.ShadowDecoration.Parent = this.txtDotation;
             this.txtDotation.Size = new System.Drawing.Size(215, 30);
-            this.txtDotation.TabIndex = 7;
+            this.txtDotation.TabIndex = 10;
             // 
             // tableLayoutPanel1
             // 
@@ -1139,7 +1139,7 @@ namespace ParcAuto.Forms
             this.txtpourcentage.SelectedText = "";
             this.txtpourcentage.ShadowDecoration.Parent = this.txtpourcentage;
             this.txtpourcentage.Size = new System.Drawing.Size(197, 27);
-            this.txtpourcentage.TabIndex = 17;
+            this.txtpourcentage.TabIndex = 6;
             // 
             // txtKM
             // 
@@ -1511,7 +1511,7 @@ namespace ParcAuto.Forms
             this.txtKM.SelectedText = "";
             this.txtKM.ShadowDecoration.Parent = this.txtKM;
             this.txtKM.Size = new System.Drawing.Size(202, 30);
-            this.txtKM.TabIndex = 15;
+            this.txtKM.TabIndex = 5;
             // 
             // cmbVehicule
             // 
@@ -1538,7 +1538,7 @@ namespace ParcAuto.Forms
             this.cmbVehicule.SelectedText = "";
             this.cmbVehicule.ShadowDecoration.Parent = this.cmbVehicule;
             this.cmbVehicule.Size = new System.Drawing.Size(215, 30);
-            this.cmbVehicule.TabIndex = 18;
+            this.cmbVehicule.TabIndex = 2;
             this.cmbVehicule.TextChanged += new System.EventHandler(this.cmbVehicule_TextChanged);
             // 
             // DMissions
@@ -1590,7 +1590,7 @@ namespace ParcAuto.Forms
             this.txtObservation.Location = new System.Drawing.Point(26, 348);
             this.txtObservation.Name = "txtObservation";
             this.txtObservation.Size = new System.Drawing.Size(356, 83);
-            this.txtObservation.TabIndex = 6;
+            this.txtObservation.TabIndex = 9;
             this.txtObservation.Text = "";
             // 
             // label1
@@ -1994,7 +1994,7 @@ namespace ParcAuto.Forms
             this.txtMarque.SelectedText = "";
             this.txtMarque.ShadowDecoration.Parent = this.txtMarque;
             this.txtMarque.Size = new System.Drawing.Size(211, 30);
-            this.txtMarque.TabIndex = 30;
+            this.txtMarque.TabIndex = 8;
             // 
             // MajCarburants
             // 
