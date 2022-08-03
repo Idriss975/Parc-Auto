@@ -109,48 +109,24 @@ namespace ParcAuto.Classes_Globale
                 }
                 e.Graphics.DrawLine(new Pen(Color.Black), columns_pos[0], StartingRowPosition - 5, columns_pos[columns_pos.Count - 1] - column_gap, StartingRowPosition - 5);
 
-                //if (!e.PageSettings.Landscape)
-                //{
-                    for (int item = DGV.Rows.Count - number_of_lines; item < DGV.Rows.Count - number_of_lines + (number_of_lines < (e.PageSettings.Landscape? 26:45) ? number_of_lines : (e.PageSettings.Landscape ? 26 : 45)); item++)
+                for (int item = DGV.Rows.Count - number_of_lines; item < DGV.Rows.Count - number_of_lines + (number_of_lines < (e.PageSettings.Landscape? 26:45) ? number_of_lines : (e.PageSettings.Landscape ? 26 : 45)); item++)
+                {
+                    for (int i = 0; i < DGV.Rows[item].Cells.Count - 1; i++)
                     {
-                        for (int i = 0; i < DGV.Rows[item].Cells.Count - 1; i++)
+                        string MaxCellInRowLen;
+                        if (i < Skipindex)
                         {
-                            string MaxCellInRowLen;
-                            if (i < Skipindex)
-                            {
-                                MaxCellInRowLen = longestcellinrow(DGV, i);
-                                e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i].Value.ToString(), out _) ? ((e.Graphics.MeasureString(MaxCellInRowLen,FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i].Value.ToString(),FontRows).Width)) : 0), StartingRowPosition);
-                            } 
-                            else
-                            {
-                                MaxCellInRowLen = longestcellinrow(DGV, i+1);
-                                e.Graphics.DrawString(DGV.Rows[item].Cells[i + 1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i + 1].Value.ToString(), out _) ? (e.Graphics.MeasureString(MaxCellInRowLen,FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i + 1].Value.ToString(),FontRows).Width) : 0), StartingRowPosition);
-                            }
+                            MaxCellInRowLen = longestcellinrow(DGV, i);
+                            e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i].Value.ToString(), out _) ? ((e.Graphics.MeasureString(MaxCellInRowLen,FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i].Value.ToString(),FontRows).Width)) : 0), StartingRowPosition);
+                        } 
+                        else
+                        {
+                            MaxCellInRowLen = longestcellinrow(DGV, i+1);
+                            e.Graphics.DrawString(DGV.Rows[item].Cells[i + 1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i + 1].Value.ToString(), out _) ? (e.Graphics.MeasureString(MaxCellInRowLen,FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i + 1].Value.ToString(),FontRows).Width) : 0), StartingRowPosition);
                         }
-                        StartingRowPosition += 20;
                     }
-                //}
-                //else
-                //{
-                //    for (int item = DGV.Rows.Count - number_of_lines; item < DGV.Rows.Count - number_of_lines + (number_of_lines < 26 ? number_of_lines : 26); item++)
-                //    {
-                //        for (int i = 0; i < DGV.Rows[item].Cells.Count - 1; i++)
-                //        {
-                //            string MaxCellInRowLen;
-                //            if (i < Skipindex)
-                //            {
-                //                MaxCellInRowLen = longestcellinrow(DGV, i);
-                //                e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i].Value.ToString(), out _) ? ((e.Graphics.MeasureString(MaxCellInRowLen, FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows).Width)) : 0), StartingRowPosition);
-                //            }
-                //            else
-                //            {
-                //                MaxCellInRowLen = longestcellinrow(DGV, i + 1);
-                //                e.Graphics.DrawString(DGV.Rows[item].Cells[i + 1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i + 1].Value.ToString(), out _) ? (e.Graphics.MeasureString(MaxCellInRowLen, FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i + 1].Value.ToString(), FontRows).Width) : 0), StartingRowPosition);
-                //            }
-                //        }
-                //        StartingRowPosition += 20;
-                //    }
-                //}
+                    StartingRowPosition += 20;
+                }
             }
             else  //If Nothing to skip
             {                                                                                                                                                              
@@ -160,46 +136,19 @@ namespace ParcAuto.Classes_Globale
                     columns_pos.Add(columns_pos[columns_pos.Count - 1] + column_gap + (e.Graphics.MeasureString(longestcellinrow(DGV, item.Index), FontHeader).Width));                                         
                 }
                 e.Graphics.DrawLine(new Pen(Color.Black), columns_pos[0], StartingRowPosition - 5, columns_pos[columns_pos.Count - 1] - column_gap, StartingRowPosition - 5);
-
-                //if (!e.PageSettings.Landscape)
-                //{
-                    for (int item = DGV.Rows.Count - number_of_lines; item < DGV.Rows.Count - number_of_lines + (number_of_lines < (e.PageSettings.Landscape ? 26 : 45) ? number_of_lines : (e.PageSettings.Landscape ? 26 : 45)); item++)
+                for (int item = DGV.Rows.Count - number_of_lines; item < DGV.Rows.Count - number_of_lines + (number_of_lines < (e.PageSettings.Landscape ? 26 : 45) ? number_of_lines : (e.PageSettings.Landscape ? 26 : 45)); item++)
+                {
+                    for (int i = 0; i < DGV.Rows[item].Cells.Count; i++)
                     {
-                        for (int i = 0; i < DGV.Rows[item].Cells.Count; i++)
-                        {
-                            string MaxCellInRowLen;
-                            MaxCellInRowLen = longestcellinrow(DGV, i);
-                            e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i].Value.ToString(), out _) ? (e.Graphics.MeasureString(MaxCellInRowLen, FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows).Width) : 0), StartingRowPosition);
-                        }
-                        StartingRowPosition += 20;
+                        string MaxCellInRowLen;
+                        MaxCellInRowLen = longestcellinrow(DGV, i);
+                        e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i].Value.ToString(), out _) ? (e.Graphics.MeasureString(MaxCellInRowLen, FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows).Width) : 0), StartingRowPosition);
                     }
-                //}
-                //else
-                //{
-                //    for (int item = DGV.Rows.Count - number_of_lines; item < DGV.Rows.Count - number_of_lines + (number_of_lines<26?number_of_lines:26); item++)
-                //    {
-                //        for (int i = 0; i < DGV.Rows[item].Cells.Count; i++)
-                //        {
-                //            string MaxCellInRowLen;
-                //            MaxCellInRowLen = longestcellinrow(DGV, i);
-                //            e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i].Value.ToString(), out _) ? (e.Graphics.MeasureString(MaxCellInRowLen, FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows).Width) : 0), StartingRowPosition);
-                //        }
-                //        StartingRowPosition += 20;
-                //    }
-                //}
+                        StartingRowPosition += 20;
+                }
             }
-
-
-            //if (!e.PageSettings.Landscape)
-            //{
-                e.HasMorePages = number_of_lines > (e.PageSettings.Landscape ? 26 : 45) ? true: false;
-                number_of_lines -= (e.PageSettings.Landscape ? 26 : 45);
-            //}
-            //else
-            //{
-            //    e.HasMorePages = number_of_lines > 26? true: false;
-            //    number_of_lines -= 26;
-            //}
+            e.HasMorePages = number_of_lines > (e.PageSettings.Landscape ? 26 : 45) ? true: false;
+            number_of_lines -= (e.PageSettings.Landscape ? 26 : 45);
 
             if (!e.HasMorePages)
                 e.Graphics.DrawString(Total, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, e.PageSettings.Bounds.Width - (Total.Length*12)-10, StartingRowPosition + 30);
