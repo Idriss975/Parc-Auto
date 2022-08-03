@@ -65,6 +65,7 @@ namespace ParcAuto.Forms
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btnImportExcel = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicules)).BeginInit();
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
@@ -550,6 +551,27 @@ namespace ParcAuto.Forms
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "OFPPT_logo.png");
             // 
+            // btnImportExcel
+            // 
+            this.btnImportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnImportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnImportExcel.BorderRadius = 4;
+            this.btnImportExcel.CheckedState.Parent = this.btnImportExcel;
+            this.btnImportExcel.CustomImages.Parent = this.btnImportExcel;
+            this.btnImportExcel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnImportExcel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnImportExcel.ForeColor = System.Drawing.Color.White;
+            this.btnImportExcel.HoverState.Parent = this.btnImportExcel;
+            this.btnImportExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnImportExcel.Image")));
+            this.btnImportExcel.Location = new System.Drawing.Point(914, 13);
+            this.btnImportExcel.Margin = new System.Windows.Forms.Padding(5);
+            this.btnImportExcel.Name = "btnImportExcel";
+            this.btnImportExcel.ShadowDecoration.Parent = this.btnImportExcel;
+            this.btnImportExcel.Size = new System.Drawing.Size(40, 40);
+            this.btnImportExcel.TabIndex = 58;
+            this.btnImportExcel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnImportExcel.Click += new System.EventHandler(this.btnImportExcel_Click);
+            // 
             // Vehicules
             // 
             this.AcceptButton = this.btnAjouter;
@@ -558,6 +580,7 @@ namespace ParcAuto.Forms
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1111, 669);
+            this.Controls.Add(this.btnImportExcel);
             this.Controls.Add(this.btnSuprimmerTout);
             this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.btnImprimer);
@@ -623,5 +646,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.ImageList imageList1;
+        private Guna.UI2.WinForms.Guna2Button btnImportExcel;
     }
 }
