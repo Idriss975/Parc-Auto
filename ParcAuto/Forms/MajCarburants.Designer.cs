@@ -218,6 +218,7 @@ namespace ParcAuto.Forms
             this.txtEntite.ShadowDecoration.Parent = this.txtEntite;
             this.txtEntite.Size = new System.Drawing.Size(215, 30);
             this.txtEntite.TabIndex = 0;
+            this.txtEntite.Leave += new System.EventHandler(this.txtEntite_Leave);
             // 
             // label4
             // 

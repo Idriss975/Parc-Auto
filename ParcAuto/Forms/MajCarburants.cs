@@ -38,6 +38,12 @@ namespace ParcAuto.Forms
 
         }
 
+        private void txtEntite_Leave(object sender, EventArgs e)
+        {
+            if (GLB.Entites.Keys.Contains(txtEntite.Text.ToUpper()))
+                txtEntite.Text = GLB.Entites[txtEntite.Text.ToUpper()];
+        }
+
         public MajCarburants(string Entite, string Benificiaire, string vehicules,string Marque, DateTime DateOpera,string lieu,string km,string pourcentage,string omn, string  Dfix, string DMiss, string Dhebdo,string Dexceptionnel, string Observation)
         {
             InitializeComponent();
