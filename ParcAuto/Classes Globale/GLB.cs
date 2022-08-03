@@ -153,7 +153,7 @@ namespace ParcAuto.Classes_Globale
             number_of_lines -= (e.PageSettings.Landscape ? 26 : 45);
 
             if (!e.HasMorePages)
-                e.Graphics.DrawString(Total, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, e.PageSettings.Bounds.Width - (Total.Length*12)-10, StartingRowPosition + 30);
+                e.Graphics.DrawString(Total, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, e.PageSettings.Bounds.Width - e.Graphics.MeasureString(Total, new Font("Arial", 12, FontStyle.Bold)).Width - 50, StartingRowPosition + 30);
         }
 
         private static string longestcellinrow(DataGridView DGV, int Column_index)
