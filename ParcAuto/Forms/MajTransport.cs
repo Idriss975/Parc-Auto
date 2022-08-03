@@ -107,7 +107,7 @@ namespace ParcAuto.Forms
             {
                 ac.Add(item[0] + " " + item[1]);
             }
-            txtBenificiaire.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtBenificiaire.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             txtBenificiaire.AutoCompleteSource = AutoCompleteSource.CustomSource;
             txtBenificiaire.AutoCompleteCustomSource = ac;
 

@@ -157,7 +157,7 @@ namespace ParcAuto.Forms
                 ac.Add(item[1].ToString());
 
             }
-            cmbVehicule.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cmbVehicule.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cmbVehicule.AutoCompleteSource = AutoCompleteSource.CustomSource;
             cmbVehicule.AutoCompleteCustomSource = ac;
         }
