@@ -90,6 +90,12 @@ namespace ParcAuto.Forms
             }
         }
 
+        private void txtentite_Leave(object sender, EventArgs e)
+        {
+            if (GLB.Entites.Keys.Contains(txtentite.Text.ToUpper()))
+                txtentite.Text = GLB.Entites[txtentite.Text.ToUpper()];
+        }
+
         private void RemplirtxtBenificiaire()
         {
             if (GLB.ds.Tables["Conducteurs1"] != null)

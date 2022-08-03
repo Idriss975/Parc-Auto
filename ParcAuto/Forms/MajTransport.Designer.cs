@@ -525,6 +525,7 @@ namespace ParcAuto.Forms
             this.txtentite.ShadowDecoration.Parent = this.txtentite;
             this.txtentite.Size = new System.Drawing.Size(211, 28);
             this.txtentite.TabIndex = 0;
+            this.txtentite.Leave += new System.EventHandler(this.txtentite_Leave);
             // 
             // txtBenificiaire
             // 
