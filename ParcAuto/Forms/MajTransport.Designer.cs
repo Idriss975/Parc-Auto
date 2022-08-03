@@ -931,7 +931,7 @@ namespace ParcAuto.Forms
             "Sidi Abdallah Ghiat",
             "Sidi Bouzid",
             "Ounagha"});
-            this.txtDestination.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtDestination.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtDestination.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtDestination.BorderRadius = 4;
             this.txtDestination.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -997,7 +997,7 @@ namespace ParcAuto.Forms
             "Achat jawaz",
             "Recharge jawaz",
             "Train"});
-            this.txtUtilisation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtUtilisation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtUtilisation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtUtilisation.BorderRadius = 4;
             this.txtUtilisation.Cursor = System.Windows.Forms.Cursors.IBeam;

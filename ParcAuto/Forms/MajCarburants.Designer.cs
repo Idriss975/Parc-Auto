@@ -211,12 +211,13 @@ namespace ParcAuto.Forms
             this.txtEntite.HoverState.Parent = this.txtEntite;
             this.txtEntite.Location = new System.Drawing.Point(147, 6);
             this.txtEntite.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtEntite.Multiline = true;
             this.txtEntite.Name = "txtEntite";
             this.txtEntite.PasswordChar = '\0';
             this.txtEntite.PlaceholderText = "";
             this.txtEntite.SelectedText = "";
             this.txtEntite.ShadowDecoration.Parent = this.txtEntite;
-            this.txtEntite.Size = new System.Drawing.Size(215, 30);
+            this.txtEntite.Size = new System.Drawing.Size(215, 37);
             this.txtEntite.TabIndex = 0;
             this.txtEntite.Leave += new System.EventHandler(this.txtEntite_Leave);
             // 
@@ -694,7 +695,7 @@ namespace ParcAuto.Forms
             "Sidi Abdallah Ghiat",
             "Sidi Bouzid",
             "Ounagha"});
-            this.cmbVilles.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbVilles.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbVilles.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cmbVilles.BorderRadius = 4;
             this.cmbVilles.Cursor = System.Windows.Forms.Cursors.IBeam;

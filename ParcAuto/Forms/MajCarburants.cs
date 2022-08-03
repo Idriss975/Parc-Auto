@@ -158,7 +158,7 @@ namespace ParcAuto.Forms
                 ac.Add(item[1].ToString());
 
             }
-            cmbVehicule.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cmbVehicule.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cmbVehicule.AutoCompleteSource = AutoCompleteSource.CustomSource;
             cmbVehicule.AutoCompleteCustomSource = ac;
         }
@@ -190,7 +190,7 @@ namespace ParcAuto.Forms
             {
                 ac.Add(item[0].ToString());
             }
-            txtBenificiaire.AutoCompleteMode = AutoCompleteMode.Append;
+            txtBenificiaire.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             txtBenificiaire.AutoCompleteSource = AutoCompleteSource.CustomSource;
             txtBenificiaire.AutoCompleteCustomSource = ac;
         }
@@ -270,7 +270,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@cmbVilles", cmbVilles.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtKM", txtKM.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", txtpourcentage.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@OMN", txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2));
+                        GLB.Cmd.Parameters.AddWithValue("@OMN", "ADMINISTRATIVE OMN° " + txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2));
                         GLB.Cmd.Parameters.AddWithValue("@DoFixe", DoFixe == "null"?null: DoFixe);
                         GLB.Cmd.Parameters.AddWithValue("@DoMissions", DoMissions =="null"?null:DoMissions);
                         GLB.Cmd.Parameters.AddWithValue("@DoHebdo", DoHebdo=="null"?null:DoHebdo);

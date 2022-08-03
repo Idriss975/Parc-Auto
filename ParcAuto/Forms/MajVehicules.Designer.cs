@@ -351,13 +351,13 @@ namespace ParcAuto.Forms
             // cmbType
             // 
             this.cmbType.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbType.FormattingEnabled = true;
             this.cmbType.Items.AddRange(new object[] {
             "M.Rouge",
             "Location"});
-            this.cmbType.Location = new System.Drawing.Point(538, 58);
+            this.cmbType.Location = new System.Drawing.Point(538, 57);
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(216, 24);
             this.cmbType.TabIndex = 18;
@@ -365,10 +365,10 @@ namespace ParcAuto.Forms
             // cmbConducteur
             // 
             this.cmbConducteur.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbConducteur.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbConducteur.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbConducteur.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbConducteur.FormattingEnabled = true;
-            this.cmbConducteur.Location = new System.Drawing.Point(156, 151);
+            this.cmbConducteur.Location = new System.Drawing.Point(156, 150);
             this.cmbConducteur.Name = "cmbConducteur";
             this.cmbConducteur.Size = new System.Drawing.Size(216, 24);
             this.cmbConducteur.TabIndex = 7;
