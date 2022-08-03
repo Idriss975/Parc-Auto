@@ -270,7 +270,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@cmbVilles", cmbVilles.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtKM", txtKM.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", txtpourcentage.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@OMN", "ADMINISTRATIVE OMN° " + txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2));
+                        GLB.Cmd.Parameters.AddWithValue("@OMN", txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2));
                         GLB.Cmd.Parameters.AddWithValue("@DoFixe", DoFixe == "null"?null: DoFixe);
                         GLB.Cmd.Parameters.AddWithValue("@DoMissions", DoMissions =="null"?null:DoMissions);
                         GLB.Cmd.Parameters.AddWithValue("@DoHebdo", DoHebdo=="null"?null:DoHebdo);
@@ -297,7 +297,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@DoExp", DoExp == "null" ? null : DoExp);
                         GLB.Cmd.Parameters.AddWithValue("@txtObservation", txtObservation.Text);
                         GLB.Cmd.Parameters.AddWithValue("@ID", GLB.id_Carburant);
-                        RemplirChamps();
+                        //RemplirChamps();
                         break;
                     case Choix.supprimer:
                         throw new Exception("Impossible de supprimer avec MajCaarburants.");

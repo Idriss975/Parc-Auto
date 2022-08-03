@@ -308,11 +308,12 @@ namespace ParcAuto.Forms
                         {
 
                             GLB.Cmd.CommandText = "insert into CarburantVignettes values(@txtEntite,@txtBenificiaire,@cmbVehicule," +
-                   $"@DateOper,@cmbVilles,@txtKM,@txtpourcentage,@OMN,@DoFixe,@DoMissions," +
+                   $"@txtMarque,@DateOper,@cmbVilles,@txtKM,@txtpourcentage,@OMN,@DoFixe,@DoMissions," +
                    $"@DoHebdo,@DoExp,null,@txtObservation)";
                             GLB.Cmd.Parameters.AddWithValue("@txtEntite", entite);
                             GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", benificiaire);
                             GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", vehicule);
+                            GLB.Cmd.Parameters.AddWithValue("@txtMarque", marque);
                             GLB.Cmd.Parameters.AddWithValue("@DateOper", date.ToString("yyyy-MM-dd"));
                             GLB.Cmd.Parameters.AddWithValue("@cmbVilles", lieu);
                             GLB.Cmd.Parameters.AddWithValue("@txtKM", KM == "null"?null : KM);
@@ -382,10 +383,10 @@ namespace ParcAuto.Forms
 
         private void btnSuprimmerTout_Click(object sender, EventArgs e)
         {
-            string query1 = $"delete from CarburantVignettes where id = {dgvCarburant.Rows[0].Cells[12].Value}";
+            string query1 = $"delete from CarburantVignettes where id = {dgvCarburant.Rows[0].Cells[13].Value}";
             for (int i = 1; i < dgvCarburant.Rows.Count; i++)
             {
-                query1 += $" or id = {dgvCarburant.Rows[i].Cells[12].Value} ";
+                query1 += $" or id = {dgvCarburant.Rows[i].Cells[13].Value} ";
             }
             if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
