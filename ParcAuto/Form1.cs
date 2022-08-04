@@ -222,7 +222,7 @@ namespace ParcAuto
 
         private void btnRepPRD_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new Forms.ReparationPRD(), sender);
         }
 
         private void FormsPlace_Paint(object sender, PaintEventArgs e)
@@ -269,6 +269,16 @@ namespace ParcAuto
         private void btnCarteFree_Click(object sender, EventArgs e)
         {
             openChildForm(new Forms.CarteFree(), sender);
+        }
+
+        private void btnPRDCarb_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.CarburantPRD(), sender);
+        }
+
+        private void btnParcPRDMrouge_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.VehiculesPRD(), sender);
         }
     }
 }

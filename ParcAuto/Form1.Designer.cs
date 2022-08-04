@@ -31,6 +31,8 @@ namespace ParcAuto
         {
             System.Windows.Forms.Panel section2btnCond_Vehicu;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.ParcAutodown = new System.Windows.Forms.PictureBox();
+            this.ParcAutoup = new System.Windows.Forms.PictureBox();
             this.btnConducteurs = new System.Windows.Forms.Button();
             this.panelSousVehicules = new System.Windows.Forms.Panel();
             this.panelPRD = new System.Windows.Forms.Panel();
@@ -70,10 +72,10 @@ namespace ParcAuto
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FormsPlace = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.ParcAutoup = new System.Windows.Forms.PictureBox();
-            this.ParcAutodown = new System.Windows.Forms.PictureBox();
             section2btnCond_Vehicu = new System.Windows.Forms.Panel();
             section2btnCond_Vehicu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ParcAutodown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ParcAutoup)).BeginInit();
             this.panelSousVehicules.SuspendLayout();
             this.panelPRD.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prdUp)).BeginInit();
@@ -96,8 +98,6 @@ namespace ParcAuto
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.FormsPlace.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ParcAutoup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ParcAutodown)).BeginInit();
             this.SuspendLayout();
             // 
             // section2btnCond_Vehicu
@@ -113,6 +113,27 @@ namespace ParcAuto
             section2btnCond_Vehicu.Name = "section2btnCond_Vehicu";
             section2btnCond_Vehicu.Size = new System.Drawing.Size(183, 344);
             section2btnCond_Vehicu.TabIndex = 4;
+            // 
+            // ParcAutodown
+            // 
+            this.ParcAutodown.Image = ((System.Drawing.Image)(resources.GetObject("ParcAutodown.Image")));
+            this.ParcAutodown.Location = new System.Drawing.Point(163, 16);
+            this.ParcAutodown.Name = "ParcAutodown";
+            this.ParcAutodown.Size = new System.Drawing.Size(16, 16);
+            this.ParcAutodown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.ParcAutodown.TabIndex = 7;
+            this.ParcAutodown.TabStop = false;
+            // 
+            // ParcAutoup
+            // 
+            this.ParcAutoup.Image = ((System.Drawing.Image)(resources.GetObject("ParcAutoup.Image")));
+            this.ParcAutoup.Location = new System.Drawing.Point(163, 16);
+            this.ParcAutoup.Name = "ParcAutoup";
+            this.ParcAutoup.Size = new System.Drawing.Size(16, 16);
+            this.ParcAutoup.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.ParcAutoup.TabIndex = 7;
+            this.ParcAutoup.TabStop = false;
+            this.ParcAutoup.Visible = false;
             // 
             // btnConducteurs
             // 
@@ -181,6 +202,7 @@ namespace ParcAuto
             this.btnParcPRDMrouge.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnParcPRDMrouge.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnParcPRDMrouge.UseVisualStyleBackColor = false;
+            this.btnParcPRDMrouge.Click += new System.EventHandler(this.btnParcPRDMrouge_Click);
             // 
             // prdUp
             // 
@@ -537,6 +559,7 @@ namespace ParcAuto
             this.btnPRDCarb.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPRDCarb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPRDCarb.UseVisualStyleBackColor = false;
+            this.btnPRDCarb.Click += new System.EventHandler(this.btnPRDCarb_Click);
             // 
             // btnCarteFree
             // 
@@ -731,27 +754,6 @@ namespace ParcAuto
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // ParcAutoup
-            // 
-            this.ParcAutoup.Image = ((System.Drawing.Image)(resources.GetObject("ParcAutoup.Image")));
-            this.ParcAutoup.Location = new System.Drawing.Point(163, 16);
-            this.ParcAutoup.Name = "ParcAutoup";
-            this.ParcAutoup.Size = new System.Drawing.Size(16, 16);
-            this.ParcAutoup.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.ParcAutoup.TabIndex = 7;
-            this.ParcAutoup.TabStop = false;
-            this.ParcAutoup.Visible = false;
-            // 
-            // ParcAutodown
-            // 
-            this.ParcAutodown.Image = ((System.Drawing.Image)(resources.GetObject("ParcAutodown.Image")));
-            this.ParcAutodown.Location = new System.Drawing.Point(163, 16);
-            this.ParcAutodown.Name = "ParcAutodown";
-            this.ParcAutodown.Size = new System.Drawing.Size(16, 16);
-            this.ParcAutodown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.ParcAutodown.TabIndex = 7;
-            this.ParcAutodown.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -769,6 +771,8 @@ namespace ParcAuto
             this.Load += new System.EventHandler(this.Form1_Load);
             section2btnCond_Vehicu.ResumeLayout(false);
             section2btnCond_Vehicu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ParcAutodown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ParcAutoup)).EndInit();
             this.panelSousVehicules.ResumeLayout(false);
             this.panelSousVehicules.PerformLayout();
             this.panelPRD.ResumeLayout(false);
@@ -799,8 +803,6 @@ namespace ParcAuto
             this.FormsPlace.ResumeLayout(false);
             this.FormsPlace.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ParcAutoup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ParcAutodown)).EndInit();
             this.ResumeLayout(false);
 
         }

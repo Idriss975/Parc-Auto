@@ -144,6 +144,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CarburantPRD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CarburantPRD.Designer.cs">
+      <DependentUpon>CarburantPRD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Carburants.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +216,12 @@
     <Compile Include="Forms\Reparation.Designer.cs">
       <DependentUpon>Reparation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ReparationPRD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReparationPRD.Designer.cs">
+      <DependentUpon>ReparationPRD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Transport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,6 +261,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CarburantPRD.resx">
+      <DependentUpon>CarburantPRD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Carburants.resx">
       <DependentUpon>Carburants.cs</DependentUpon>
     </EmbeddedResource>
@@ -281,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reparation.resx">
       <DependentUpon>Reparation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReparationPRD.resx">
+      <DependentUpon>ReparationPRD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transport.resx">
       <DependentUpon>Transport.cs</DependentUpon>
