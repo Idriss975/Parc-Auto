@@ -10,11 +10,14 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using ParcAuto.Classes_Globale;
 using System.Data.SQLite;
+using GuiLabs.Undo;
 
 namespace ParcAuto.Forms
 {
     public partial class MajVehicules : Form
     {
+        private static ActionManager actionManager = new ActionManager();
+        private Form Source;
         //Make the Corner Rounded
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
@@ -35,9 +38,12 @@ namespace ParcAuto.Forms
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
         }
-        public MajVehicules(string Marque,DateTime MiseEncirculation,string type,string Carburant,string affectation,  string Conducteur ,string decision_nomination, string Observation)
+        public MajVehicules(Form Source):this()
         {
-            InitializeComponent();
+            this.Source = Source;
+        }
+        public MajVehicules(string Marque,DateTime MiseEncirculation,string type,string Carburant,string affectation,  string Conducteur ,string decision_nomination, string Observation, Form Source) : this(Source)
+        {
             //Make the Corner Rounded
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
@@ -99,18 +105,17 @@ namespace ParcAuto.Forms
         }
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
-            string TempMatricule = ""; //Pour Voir si Matricule est null ou pas.
             if (!(txtMarque.Text == "" || txtAffectation.Text == "" ||  txtCarburant.Text == ""))
             {
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
-                        GLB.Cmd.CommandText = "insert into Vehicules values (@txtMarque, @txtMatricule, @dateMiseEnCirculation, @cmbType, @txtCarburant, @txtAffectation, @TempMatricule,@txtDnomination,@txtObservation)";
+                        GLB.Cmd.CommandText = $"insert into {(Source.GetType().Name == "Vehicules" ? "Vehicules" : "VehiculesPRD")} values (@txtMarque, @txtMatricule, @dateMiseEnCirculation, {(Source.GetType().Name == "Vehicules" ? "@cmbType,":"")} @txtCarburant, @txtAffectation, @TempMatricule,@txtDnomination,@txtObservation)";
                         GLB.Cmd.Parameters.AddWithValue("@txtMarque", txtMarque.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtMatricule", txtMatricule.Text);
                         GLB.Cmd.Parameters.AddWithValue("@dateMiseEnCirculation", dateMiseEnCirculation.Value.ToString("yyyy-MM-dd"));
                         GLB.Cmd.Parameters.AddWithValue("@txtCarburant", txtCarburant.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@cmbType", cmbType.SelectedItem);
+                        if (Source.GetType().Name == "Vehicules") GLB.Cmd.Parameters.AddWithValue("@cmbType", cmbType.SelectedItem);
                         GLB.Cmd.Parameters.AddWithValue("@txtAffectation", txtAffectation.Text);
                         GLB.Cmd.Parameters.AddWithValue("@TempMatricule", ((CmbMatNom)cmbConducteur.SelectedItem).Matricule);
                         GLB.Cmd.Parameters.AddWithValue("@txtDnomination", txtDnomination.Text);
@@ -118,7 +123,7 @@ namespace ParcAuto.Forms
                         break;
                     case Choix.modifier:
 
-                        GLB.Cmd.CommandText = "update Vehicules set  Marque=@txtMarque, Type=@cmbType, MiseEnCirculation=@dateMiseEnCirculation, Carburant=@txtCarburant, Observation=@txtObservation,decision_nomination = @txtDnomination, Conducteur=@TempMatricule , affectation = @txtAffectation where Matricule=@Matricule";
+                        GLB.Cmd.CommandText = $"update {(Source.GetType().Name == "Vehicules" ? "Vehicules" : "VehiculesPRD")} set  Marque=@txtMarque, {(Source.GetType().Name == "Vehicules" ? "Type=@cmbType," : "")}, MiseEnCirculation=@dateMiseEnCirculation, Carburant=@txtCarburant, Observation=@txtObservation,decision_nomination = @txtDnomination, Conducteur=@TempMatricule , affectation = @txtAffectation where Matricule=@Matricule";
                         GLB.Cmd.Parameters.AddWithValue("@txtMarque", txtMarque.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtAffectation", txtAffectation.Text);
                         GLB.Cmd.Parameters.AddWithValue("@dateMiseEnCirculation", dateMiseEnCirculation.Value.ToString("yyyy-MM-dd"));
@@ -127,7 +132,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@txtDnomination", txtDnomination.Text);
                         GLB.Cmd.Parameters.AddWithValue("@TempMatricule", ((CmbMatNom)cmbConducteur.SelectedItem).Matricule);
                         GLB.Cmd.Parameters.AddWithValue("@Matricule", GLB.Matricule_Voiture);
-                        GLB.Cmd.Parameters.AddWithValue("@cmbType", cmbType.SelectedItem);
+                        if (Source.GetType().Name == "Vehicules") GLB.Cmd.Parameters.AddWithValue("@cmbType", cmbType.SelectedItem);
                         break;
                     case Choix.supprimer:
                         throw new Exception("Impossible de supprimer dans l'interface MajVehicules.");
@@ -169,6 +174,22 @@ namespace ParcAuto.Forms
 
         private void MajVehicules_Load(object sender, EventArgs e)
         {
+            if (Source.GetType().Name == "VehiculesPRD")
+                cmbType.Enabled = false;
+            else if (Source.GetType().Name == "Vehicules_Location")
+            {
+                cmbType.SelectedIndex = 1;
+                cmbType.Enabled = false;
+            }
+            else if (Source.GetType().Name == "Vehicules_MRouge")
+            {
+                cmbType.SelectedIndex = 0;
+                cmbType.Enabled = false;
+            }
+            else
+                cmbType.SelectedIndex = 0;
+
+
             cmbConducteur.Items.Add(new CmbMatNom(null,"Sans Conducteur"));
             cmbConducteur.SelectedIndex = 0;
             RemplirComboBoxConducteur();
@@ -184,8 +205,6 @@ namespace ParcAuto.Forms
                     RemplirLesChamps();
                     break;
             }
-            
-            
         }
     }
 }

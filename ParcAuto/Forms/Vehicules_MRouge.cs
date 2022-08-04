@@ -76,7 +76,7 @@ namespace ParcAuto.Forms
         {
             try
             {
-                MajVehicules maj = new MajVehicules();
+                MajVehicules maj = new MajVehicules(this);
                 Commandes.Command = Choix.ajouter;
                 maj.ShowDialog();
                 RemplirLaGrille();
@@ -103,7 +103,7 @@ namespace ParcAuto.Forms
                 string Conducteur = dgvVehicules.Rows[pos].Cells[7].Value.ToString(); //Normalement type cmbMatNom
                 string decision_nomination = dgvVehicules.Rows[pos].Cells[8].Value.ToString();
                 string Observation = dgvVehicules.Rows[pos].Cells[9].Value.ToString();
-                MajVehicules maj = new MajVehicules(Marque, MiseEncirculation, Type, Carburant, Affectation, Conducteur, decision_nomination, Observation);
+                MajVehicules maj = new MajVehicules(Marque, MiseEncirculation, Type, Carburant, Affectation, Conducteur, decision_nomination, Observation, this);
                 Commandes.Command = Choix.modifier;
                 maj.ShowDialog();
                 RemplirLaGrille();

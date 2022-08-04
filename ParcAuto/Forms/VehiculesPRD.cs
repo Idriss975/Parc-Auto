@@ -18,7 +18,7 @@ namespace ParcAuto.Forms
         {
             InitializeComponent();
         }
-        private void RemplirLaGrille()
+        private void RemplirLaGrille() //Todo: Fix error out of bound. 
         {
             dgvVehicules.Rows.Clear();
             try
@@ -27,7 +27,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], ((DateTime)GLB.dr[2]).ToString("d/M/yyyy"), GLB.dr[3], DateTime.Now.Year - ((DateTime)GLB.dr[2]).Year, GLB.dr[4], GLB.dr[5], GLB.dr[6], GLB.dr[7], GLB.dr[8]);
+                    dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], ((DateTime)GLB.dr[2]).ToString("d/M/yyyy"), Math.Floor((DateTime.Now - ((DateTime)GLB.dr[2])).TotalDays/365.2425), GLB.dr[3], GLB.dr[4], GLB.dr[5], GLB.dr[6], GLB.dr[7]);
             }
             catch (Exception ex) //TODO: Implement Sql Exemption error (idriss)
             {
@@ -125,11 +125,13 @@ namespace ParcAuto.Forms
                 (new MajVehicules(
                     dgvVehicules.Rows[pos].Cells[0].Value.ToString(),
                     DateTime.ParseExact(dgvVehicules.Rows[pos].Cells[2].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                    "",
                     dgvVehicules.Rows[pos].Cells[3].Value.ToString(),
+                    dgvVehicules.Rows[pos].Cells[4].Value.ToString(),
                     dgvVehicules.Rows[pos].Cells[5].Value.ToString(),
                     dgvVehicules.Rows[pos].Cells[6].Value.ToString(),
                     dgvVehicules.Rows[pos].Cells[7].Value.ToString(),
-                    dgvVehicules.Rows[pos].Cells[8].Value.ToString(), dgvVehicules.Rows[pos].Cells[9].Value.ToString()
+                    this
                 )).ShowDialog();
 
                 RemplirLaGrille();
@@ -150,9 +152,8 @@ namespace ParcAuto.Forms
             try
             {
                 Commandes.Command = Choix.ajouter;
-                new MajVehicules().ShowDialog();
+                new MajVehicules(this).ShowDialog();
                 RemplirLaGrille();
-                MessageBox.Show("La Vehicules à été ajouté avec succes", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {

@@ -28,12 +28,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                {
-                    if (GLB.dr.IsDBNull(6))
-                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], ((DateTime)GLB.dr[2]).ToString("d/M/yyyy"), GLB.dr[3], DateTime.Now.Year - ((DateTime)GLB.dr[2]).Year  ,GLB.dr[4], GLB.dr[5], new CmbMatNom(null, "Sans conducteur"), GLB.dr[7], GLB.dr[8]);
-                    else
-                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], ((DateTime)GLB.dr[2]).ToString("d/M/yyyy"), GLB.dr[3], DateTime.Now.Year - ((DateTime)GLB.dr[2]).Year, GLB.dr[4], GLB.dr[5], new CmbMatNom(Convert.ToInt32(GLB.dr[6]), $"{GLB.dr[9]} {GLB.dr[10]}"),GLB.dr[7], GLB.dr[8]);
-                } 
+                    dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], ((DateTime)GLB.dr[2]).ToString("d/M/yyyy"), GLB.dr[3], DateTime.Now.Year - ((DateTime)GLB.dr[2]).Year  ,GLB.dr[4], GLB.dr[5], GLB.dr.IsDBNull(6)? new CmbMatNom(null, "Sans conducteur"): new CmbMatNom(Convert.ToInt32(GLB.dr[6]), $"{GLB.dr[9]} {GLB.dr[10]}"), GLB.dr[7], GLB.dr[8]);
             }
             catch (Exception ex) //TODO: Implement Sql Exemption error (idriss)
             {
@@ -58,7 +53,7 @@ namespace ParcAuto.Forms
         {
             try
             {
-                MajVehicules maj = new MajVehicules();
+                MajVehicules maj = new MajVehicules(this);
                 Commandes.Command = Choix.ajouter;
                 maj.ShowDialog();
                 RemplirLaGrille();
@@ -86,7 +81,7 @@ namespace ParcAuto.Forms
                 string Conducteur = dgvVehicules.Rows[pos].Cells[7].Value.ToString(); 
                 string decision_nomination = dgvVehicules.Rows[pos].Cells[8].Value.ToString();
                 string Observation = dgvVehicules.Rows[pos].Cells[9].Value.ToString();
-                MajVehicules maj = new MajVehicules(Marque, MiseEncirculation,Type , Carburant,Affectation,Conducteur, decision_nomination, Observation) ;
+                MajVehicules maj = new MajVehicules(Marque, MiseEncirculation,Type , Carburant,Affectation,Conducteur, decision_nomination, Observation,this) ;
                 Commandes.Command = Choix.modifier;
                 maj.ShowDialog();
                 RemplirLaGrille();
