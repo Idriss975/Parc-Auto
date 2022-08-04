@@ -78,10 +78,21 @@ namespace ParcAuto.Forms
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            MajReparation rep = new MajReparation();
-            Commandes.Command = Choix.ajouter;
-            rep.ShowDialog();
-            datagridviewLoad();
+            try
+            {
+                MajReparation rep = new MajReparation();
+                Commandes.Command = Choix.ajouter;
+                rep.ShowDialog();
+                datagridviewLoad();
+                MessageBox.Show("La vignettes à été ajouté avec succes", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+          
 
         }
 

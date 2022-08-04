@@ -117,10 +117,19 @@ namespace ParcAuto.Forms
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            MajCarburants maj = new MajCarburants();
-            Commandes.Command = Choix.ajouter;
-            maj.ShowDialog();
-            RemplirLaGrille();
+            try
+            {
+                MajCarburants maj = new MajCarburants();
+                Commandes.Command = Choix.ajouter;
+                maj.ShowDialog();
+                RemplirLaGrille();
+                MessageBox.Show("La vignettes à été ajouté avec succes","Message",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
         }
 
         private void btnModifier_Click(object sender, EventArgs e)

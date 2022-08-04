@@ -24,10 +24,20 @@ namespace ParcAuto.Forms
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            MAJConducteur maj = new MAJConducteur();
-            Commandes.Command = Choix.ajouter;
-            maj.ShowDialog();
-            RemplirLaGrille();
+            try
+            {
+                MAJConducteur maj = new MAJConducteur();
+                Commandes.Command = Choix.ajouter;
+                maj.ShowDialog();
+                RemplirLaGrille();
+                MessageBox.Show("Le Conducteur à été ajouté avec succes", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+         
         }
        
         private void RemplirLaGrille()

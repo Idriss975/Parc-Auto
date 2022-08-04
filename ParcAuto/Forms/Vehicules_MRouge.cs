@@ -74,10 +74,19 @@ namespace ParcAuto.Forms
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            MajVehicules maj = new MajVehicules();
-            Commandes.Command = Choix.ajouter;
-            maj.ShowDialog();
-            RemplirLaGrille();
+            try
+            {
+                MajVehicules maj = new MajVehicules();
+                Commandes.Command = Choix.ajouter;
+                maj.ShowDialog();
+                RemplirLaGrille();
+                MessageBox.Show("La Vehicules à été ajouté avec succes", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnModifier_Click(object sender, EventArgs e)

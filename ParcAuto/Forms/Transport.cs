@@ -60,10 +60,20 @@ namespace ParcAuto.Forms
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            MajTransport maj = new MajTransport();
-            Commandes.Command = Choix.ajouter;
-            maj.ShowDialog();
-            RemplirdgvTransport();
+            try
+            {
+                MajTransport maj = new MajTransport();
+                Commandes.Command = Choix.ajouter;
+                maj.ShowDialog();
+                RemplirdgvTransport();
+                MessageBox.Show("La vignettes à été ajouté avec succes", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+           
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
