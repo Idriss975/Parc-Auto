@@ -87,23 +87,25 @@ namespace ParcAuto.Forms
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-
+            int pos = dgvReparation.CurrentRow.Index;
             try
             {
-                GLB.id_Reparation = Convert.ToInt32(dgvReparation.CurrentRow.Cells[0].Value);
-                string entite = dgvReparation.CurrentRow.Cells[1].Value.ToString();
-                string benificiaire = dgvReparation.CurrentRow.Cells[2].Value.ToString();
-                string vehicule = dgvReparation.CurrentRow.Cells[3].Value.ToString();
-                string MatriculeV = dgvReparation.CurrentRow.Cells[4].Value.ToString(); ;
-                DateTime Date = DateTime.ParseExact(dgvReparation.CurrentRow.Cells[5].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                string objet = dgvReparation.CurrentRow.Cells[6].Value.ToString();
-                string entretien = dgvReparation.CurrentRow.Cells[7].Value.ToString();
-                string reparation = dgvReparation.CurrentRow.Cells[8].Value.ToString();
+                GLB.id_Reparation = Convert.ToInt32(dgvReparation.Rows[pos].Cells[0].Value);
+                string entite = dgvReparation.Rows[pos].Cells[1].Value.ToString();
+                string benificiaire = dgvReparation.Rows[pos].Cells[2].Value.ToString();
+                string vehicule = dgvReparation.Rows[pos].Cells[3].Value.ToString();
+                string MatriculeV = dgvReparation.Rows[pos].Cells[4].Value.ToString(); ;
+                DateTime Date = DateTime.ParseExact(dgvReparation.Rows[pos].Cells[5].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                string objet = dgvReparation.Rows[pos].Cells[6].Value.ToString();
+                string entretien = dgvReparation.Rows[pos].Cells[7].Value.ToString();
+                string reparation = dgvReparation.Rows[pos].Cells[8].Value.ToString();
 
                 MajReparation maj = new MajReparation(entite, benificiaire, vehicule, MatriculeV, Date, objet, entretien, reparation);
                 Commandes.Command = Choix.modifier;
                 maj.ShowDialog();
                 datagridviewLoad();
+                dgvReparation.Rows[pos].Selected = true;
+                dgvReparation.FirstDisplayedScrollingRowIndex = pos;
             }
             catch (ArgumentOutOfRangeException)
             {

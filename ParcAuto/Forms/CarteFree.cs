@@ -63,18 +63,21 @@ namespace ParcAuto.Forms
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
+            int pos = dgvCarteFree.CurrentRow.Index;
             try
             {
-                GLB.id_CarteFree = Convert.ToInt32(dgvCarteFree.CurrentRow.Cells[0].Value);
+                GLB.id_CarteFree = Convert.ToInt32(dgvCarteFree.Rows[pos].Cells[0].Value);
                 Commandes.Command = Choix.modifier;
                 
-                string entite = dgvCarteFree.CurrentRow.Cells[1].Value.ToString();
-                string Fixe = dgvCarteFree.CurrentRow.Cells[2].Value.ToString();
-                string autre = dgvCarteFree.CurrentRow.Cells[3].Value.ToString();
-                string objet = dgvCarteFree.CurrentRow.Cells[4].Value.ToString();
+                string entite = dgvCarteFree.Rows[pos].Cells[1].Value.ToString();
+                string Fixe = dgvCarteFree.Rows[pos].Cells[2].Value.ToString();
+                string autre = dgvCarteFree.Rows[pos].Cells[3].Value.ToString();
+                string objet = dgvCarteFree.Rows[pos].Cells[4].Value.ToString();
                 MajCarteFree maj = new MajCarteFree(entite,Fixe,autre,objet);
                 maj.ShowDialog();
                 RemplirLaGrille();
+                dgvCarteFree.Rows[pos].Selected = true;
+                dgvCarteFree.FirstDisplayedScrollingRowIndex = pos;
             }
             catch (ArgumentOutOfRangeException)
             {

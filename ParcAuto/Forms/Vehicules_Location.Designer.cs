@@ -440,7 +440,6 @@ namespace ParcAuto.Forms
             this.Column7});
             this.dgvVehicules.Location = new System.Drawing.Point(1, 99);
             this.dgvVehicules.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvVehicules.MultiSelect = false;
             this.dgvVehicules.Name = "dgvVehicules";
             this.dgvVehicules.ReadOnly = true;
             this.dgvVehicules.RowHeadersVisible = false;

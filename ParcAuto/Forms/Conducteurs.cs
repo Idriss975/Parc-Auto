@@ -70,23 +70,25 @@ namespace ParcAuto.Forms
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-
+            int pos = dgvconducteur.CurrentRow.Index;
             try
             {
-                GLB.Matricule = Convert.ToInt32(dgvconducteur.CurrentRow.Cells[0].Value);
-                string Nom = dgvconducteur.CurrentRow.Cells[1].Value.ToString() ;
-                string Prenom= dgvconducteur.CurrentRow.Cells[2].Value.ToString();
-                DateTime DateNaiss = DateTime.ParseExact(dgvconducteur.CurrentRow.Cells[3].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                DateTime DateEmbauche = DateTime.ParseExact(dgvconducteur.CurrentRow.Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                string NumPermis = dgvconducteur.CurrentRow.Cells[5].Value.ToString();
-                string Adresse  = dgvconducteur.CurrentRow.Cells[6].Value.ToString();
-                string Direction = dgvconducteur.CurrentRow.Cells[7].Value.ToString();
-                string Tel = dgvconducteur.CurrentRow.Cells[8].Value.ToString();
-                string Email = dgvconducteur.CurrentRow.Cells[9].Value.ToString();    
+                GLB.Matricule = Convert.ToInt32(dgvconducteur.Rows[pos].Cells[0].Value);
+                string Nom = dgvconducteur.Rows[pos].Cells[1].Value.ToString() ;
+                string Prenom= dgvconducteur.Rows[pos].Cells[2].Value.ToString();
+                DateTime DateNaiss = DateTime.ParseExact(dgvconducteur.Rows[pos].Cells[3].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                DateTime DateEmbauche = DateTime.ParseExact(dgvconducteur.Rows[pos].Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                string NumPermis = dgvconducteur.Rows[pos].Cells[5].Value.ToString();
+                string Adresse  = dgvconducteur.Rows[pos].Cells[6].Value.ToString();
+                string Direction = dgvconducteur.Rows[pos].Cells[7].Value.ToString();
+                string Tel = dgvconducteur.Rows[pos].Cells[8].Value.ToString();
+                string Email = dgvconducteur.Rows[pos].Cells[9].Value.ToString();    
                 MAJConducteur maj = new MAJConducteur(Nom,Prenom,DateNaiss,DateEmbauche,NumPermis,Adresse,Direction,Tel,Email);
                 Commandes.Command = Choix.modifier;
                 maj.ShowDialog();
                 RemplirLaGrille();
+                dgvconducteur.Rows[pos].Selected = true;
+                dgvconducteur.FirstDisplayedScrollingRowIndex = pos;
             }
             catch (ArgumentOutOfRangeException)
             {

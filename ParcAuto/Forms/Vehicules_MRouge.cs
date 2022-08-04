@@ -82,21 +82,24 @@ namespace ParcAuto.Forms
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
+            int pos = dgvVehicules.CurrentRow.Index;
             try
             {
-                GLB.Matricule_Voiture = dgvVehicules.CurrentRow.Cells[1].Value.ToString();
-                string Marque = dgvVehicules.CurrentRow.Cells[0].Value.ToString();
-                DateTime MiseEncirculation = DateTime.ParseExact(dgvVehicules.CurrentRow.Cells[2].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                string Type = dgvVehicules.CurrentRow.Cells[3].Value.ToString();
-                string Carburant = dgvVehicules.CurrentRow.Cells[5].Value.ToString();
-                string Affectation = dgvVehicules.CurrentRow.Cells[6].Value.ToString();
-                string Conducteur = dgvVehicules.CurrentRow.Cells[7].Value.ToString(); //Normalement type cmbMatNom
-                string decision_nomination = dgvVehicules.CurrentRow.Cells[8].Value.ToString();
-                string Observation = dgvVehicules.CurrentRow.Cells[9].Value.ToString();
+                GLB.Matricule_Voiture = dgvVehicules.Rows[pos].Cells[1].Value.ToString();
+                string Marque = dgvVehicules.Rows[pos].Cells[0].Value.ToString();
+                DateTime MiseEncirculation = DateTime.ParseExact(dgvVehicules.Rows[pos].Cells[2].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                string Type = dgvVehicules.Rows[pos].Cells[3].Value.ToString();
+                string Carburant = dgvVehicules.Rows[pos].Cells[5].Value.ToString();
+                string Affectation = dgvVehicules.Rows[pos].Cells[6].Value.ToString();
+                string Conducteur = dgvVehicules.Rows[pos].Cells[7].Value.ToString(); //Normalement type cmbMatNom
+                string decision_nomination = dgvVehicules.Rows[pos].Cells[8].Value.ToString();
+                string Observation = dgvVehicules.Rows[pos].Cells[9].Value.ToString();
                 MajVehicules maj = new MajVehicules(Marque, MiseEncirculation, Type, Carburant, Affectation, Conducteur, decision_nomination, Observation);
                 Commandes.Command = Choix.modifier;
                 maj.ShowDialog();
                 RemplirLaGrille();
+                dgvVehicules.Rows[pos].Selected = true;
+                dgvVehicules.FirstDisplayedScrollingRowIndex = pos;
             }
             catch (ArgumentOutOfRangeException)
             {

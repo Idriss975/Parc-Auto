@@ -68,20 +68,23 @@ namespace ParcAuto.Forms
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
+            int pos = dgvTransport.CurrentRow.Index;
             try
             {
-                GLB.id_Transport = Convert.ToInt32(dgvTransport.CurrentRow.Cells[0].Value);
-                string Entite = dgvTransport.CurrentRow.Cells[1].Value.ToString();
-                string Benificiaire = dgvTransport.CurrentRow.Cells[2].Value.ToString();
-                string N_BON_email = dgvTransport.CurrentRow.Cells[3].Value.ToString();
-                DateTime DateMission = DateTime.ParseExact(dgvTransport.CurrentRow.Cells[4].Value.ToString(), "dd/MM/yyyy",System.Globalization.CultureInfo.InvariantCulture);
-                string destination = dgvTransport.CurrentRow.Cells[5].Value.ToString();
-                string type_utilisation = dgvTransport.CurrentRow.Cells[6].Value.ToString();
-                string prix = dgvTransport.CurrentRow.Cells[7].Value.ToString();
+                GLB.id_Transport = Convert.ToInt32(dgvTransport.Rows[pos].Cells[0].Value);
+                string Entite = dgvTransport.Rows[pos].Cells[1].Value.ToString();
+                string Benificiaire = dgvTransport.Rows[pos].Cells[2].Value.ToString();
+                string N_BON_email = dgvTransport.Rows[pos].Cells[3].Value.ToString();
+                DateTime DateMission = DateTime.ParseExact(dgvTransport.Rows[pos].Cells[4].Value.ToString(), "d/M/yyyy",System.Globalization.CultureInfo.InvariantCulture);
+                string destination = dgvTransport.Rows[pos].Cells[5].Value.ToString();
+                string type_utilisation = dgvTransport.Rows[pos].Cells[6].Value.ToString();
+                string prix = dgvTransport.Rows[pos].Cells[7].Value.ToString();
                 MajTransport maj = new MajTransport(Entite, Benificiaire, N_BON_email, DateMission, destination, type_utilisation, prix);
                 Commandes.Command = Choix.modifier;
                 maj.ShowDialog();
                 RemplirdgvTransport();
+                dgvTransport.Rows[pos].Selected = true;
+                dgvTransport.FirstDisplayedScrollingRowIndex = pos;
             }
 
             catch (ArgumentOutOfRangeException)
