@@ -73,7 +73,7 @@ namespace ParcAuto.Forms
         }
         private void cmbChoix_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            if (cmbChoix.SelectedIndex == 3)
+            if (cmbChoix.SelectedIndex == 4)
             {
                 TextPanel.Visible = false;
                 panelDate.Visible = true;
@@ -101,7 +101,7 @@ namespace ParcAuto.Forms
 
         private void btnFiltrer_Click(object sender, EventArgs e)
         {
-            if (!(cmbChoix.SelectedIndex == 3))
+            if (!(cmbChoix.SelectedIndex == 4))
             {
                 for (int i = dgvCarburant.Rows.Count - 1; i >= 0; i--)
                 {
@@ -119,11 +119,28 @@ namespace ParcAuto.Forms
         {
             try
             {
-                MajCarburants maj = new MajCarburants();
+                string Dfix = dgvCarburant.Rows[dgvCarburant.Rows.Count - 1].Cells[9].Value.ToString();
+                string DMiss = dgvCarburant.Rows[dgvCarburant.Rows.Count - 1].Cells[10].Value.ToString();
+                string Dhebdo = dgvCarburant.Rows[dgvCarburant.Rows.Count - 1].Cells[11].Value.ToString();
+                string Dexceptionnel = dgvCarburant.Rows[dgvCarburant.Rows.Count - 1].Cells[12].Value.ToString();
+
+                if (Dfix != "")
+                    GLB.DotationCarburant = "Dfix";
+                if (DMiss != "")
+                    GLB.DotationCarburant = "DMiss";
+                if (Dhebdo != "")
+                    GLB.DotationCarburant = "Dhebdo";
+                if (Dexceptionnel != "")
+                    GLB.DotationCarburant = "Dexceptionnel";
+                MajCarburants maj = new MajCarburants(GLB.DotationCarburant);
                 Commandes.Command = Choix.ajouter;
+                Commandes.MAJ = TypeCarb.Carburant;
+
                 maj.ShowDialog();
                 RemplirLaGrille();
-                MessageBox.Show("La vignettes à été ajouté avec succes","Message",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                dgvCarburant.Rows[dgvCarburant.Rows.Count - 1].Selected = true;
+                dgvCarburant.FirstDisplayedScrollingRowIndex = dgvCarburant.Rows.Count - 1;
+
             }
             catch (Exception ex)
             {
@@ -151,9 +168,10 @@ namespace ParcAuto.Forms
                 string DMiss = dgvCarburant.Rows[pos].Cells[10].Value.ToString();
                 string Dhebdo = dgvCarburant.Rows[pos].Cells[11].Value.ToString();
                 string Dexceptionnel = dgvCarburant.Rows[pos].Cells[12].Value.ToString();
-                string Observation = dgvCarburant.Rows[pos].Cells[14].Value.ToString(); 
+                string Observation = dgvCarburant.Rows[pos].Cells[14].Value.ToString();
                 MajCarburants maj = new MajCarburants(Entite, Benificiaire, vehicules, Marque, DateOper, lieu,KM,pourcentage, omn, Dfix, DMiss, Dhebdo, Dexceptionnel, Observation);
                 Commandes.Command = Choix.modifier;
+                Commandes.MAJ = TypeCarb.Carburant;
                 maj.ShowDialog();
                 RemplirLaGrille();
                 dgvCarburant.Rows[pos].Selected = true;

@@ -12,8 +12,14 @@ namespace ParcAuto.Classes_Globale
         modifier,
         supprimer
     }
+    public enum TypeCarb
+    {
+        Carburant,
+        CarburantSNTLPRD
+    }
     public class Commandes
     {
         public static Choix Command = Choix.ajouter;
+        public static TypeCarb MAJ = TypeCarb.Carburant;
     }
 }
