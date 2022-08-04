@@ -251,9 +251,10 @@ namespace ParcAuto.Forms
             "Entite",
             "Benificiaire",
             "Vehicule",
+            "Marque",
             "Date",
             "Destination",
-            "Kilometrage parcourit",
+            "Kilometrage parcourir",
             "Consomation %",
             "Objet",
             "Dotation Fixe",
@@ -531,7 +532,7 @@ namespace ParcAuto.Forms
             // 
             // Column3
             // 
-            this.Column3.HeaderText = "Vehicule";
+            this.Column3.HeaderText = "Matricule";
             this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
             this.Column3.Width = 150;
@@ -557,7 +558,7 @@ namespace ParcAuto.Forms
             // 
             // Column12
             // 
-            this.Column12.HeaderText = "Kilometrage Parcourir";
+            this.Column12.HeaderText = "Kilometrage Parcouru";
             this.Column12.MinimumWidth = 8;
             this.Column12.Name = "Column12";
             this.Column12.Width = 150;

@@ -35,7 +35,14 @@ namespace ParcAuto.Forms
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
         }
-        string Entite, Benificiaire, vehicules, lieu, Dfix, DMiss, Dhebdo, DExceptionnel, omn ,Observation,km,pourcentage, Marque;
+        public MajCarburants(string DotationCarburant)
+        {
+            InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
+            this.DotationCarburant = DotationCarburant;
+        }
+        string Entite, Benificiaire, vehicules, lieu, Dfix, DMiss, Dhebdo, DExceptionnel, omn, DotationCarburant, Observation,km,pourcentage, Marque;
         DateTime DateOpera;
 
         private void cmbVehicule_TextChanged(object sender, EventArgs e)
@@ -200,6 +207,21 @@ namespace ParcAuto.Forms
             RemplirBenificiaire();
             RemplirComboBoxVehicules();
             txtpourcentage.Text = (7.5).ToString();
+            switch (DotationCarburant)
+            {
+                case "Dfix":
+                    DFixe.Checked = true;
+                    break;
+                case "DMiss":
+                    DMissions.Checked = true;
+                    break;
+                case "Dhebdo":
+                    DHebdo.Checked = true;
+                    break;
+                case "Dexceptionnel":
+                    Dexceptionnel.Checked = true;
+                    break;
+            }
             switch (Commandes.Command)
             {
                 case Choix.ajouter:
@@ -259,7 +281,7 @@ namespace ParcAuto.Forms
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
-                        GLB.Cmd.CommandText = "insert into CarburantVignettes values(@txtEntite,@txtBenificiaire,@cmbVehicule," +
+                        GLB.Cmd.CommandText = $"insert into {(Commandes.MAJ == TypeCarb.Carburant ? "CarburantVignettes" : "CarburantSNTLPRD")}  values(@txtEntite,@txtBenificiaire,@cmbVehicule," +
                     $"@txtMarque,@DateOper,@cmbVilles,@txtKM,@txtpourcentage,@OMN,@DoFixe,@DoMissions," +
                     $"@DoHebdo,@DoExp,null,@txtObservation)";
                         GLB.Cmd.Parameters.AddWithValue("@txtEntite", txtEntite.Text);
@@ -278,7 +300,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@txtObservation", txtObservation.Text);
                         break;
                     case Choix.modifier:
-                        GLB.Cmd.CommandText = "update CarburantVignettes set Entite = @txtEntite, beneficiaire = @txtBenificiaire" +
+                        GLB.Cmd.CommandText = $"update {(Commandes.MAJ == TypeCarb.Carburant ? "CarburantVignettes" : "CarburantSNTLPRD")} set Entite = @txtEntite, beneficiaire = @txtBenificiaire" +
                     $", vehicule = @cmbVehicule , date = @DateOper, lieu = @cmbVilles," +
                     $" ObjetOMN = @OMN, DFixe = @DoFixe , Marque = @txtMarque ," +
                     $" DMissions = @DoMissions , DHebdo = @DoHebdo,DExceptionnel = @DoExp,Observation = @txtObservation ,KM = @txtKM , Pourcentage = @txtpourcentage where id = @ID";
@@ -297,7 +319,6 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@DoExp", DoExp == "null" ? null : DoExp);
                         GLB.Cmd.Parameters.AddWithValue("@txtObservation", txtObservation.Text);
                         GLB.Cmd.Parameters.AddWithValue("@ID", GLB.id_Carburant);
-                        //RemplirChamps();
                         break;
                     case Choix.supprimer:
                         throw new Exception("Impossible de supprimer avec MajCaarburants.");

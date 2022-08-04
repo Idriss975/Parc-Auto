@@ -92,6 +92,7 @@ namespace ParcAuto.Forms
             this.btnSuprimmerTout.Text = "Supprimer Tout";
             this.btnSuprimmerTout.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnSuprimmerTout.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnSuprimmerTout.Click += new System.EventHandler(this.btnSuprimmerTout_Click);
             // 
             // btnImprimer
             // 
@@ -134,6 +135,7 @@ namespace ParcAuto.Forms
             this.btnImportExcel.Size = new System.Drawing.Size(40, 40);
             this.btnImportExcel.TabIndex = 69;
             this.btnImportExcel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnImportExcel.Click += new System.EventHandler(this.btnImportExcel_Click);
             // 
             // btnExportExcel
             // 
@@ -154,6 +156,7 @@ namespace ParcAuto.Forms
             this.btnExportExcel.Size = new System.Drawing.Size(40, 40);
             this.btnExportExcel.TabIndex = 68;
             this.btnExportExcel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
             // panelDate
             // 
@@ -289,6 +292,7 @@ namespace ParcAuto.Forms
             this.btnFiltrer.Text = "Filtrer";
             this.btnFiltrer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnFiltrer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnFiltrer.Click += new System.EventHandler(this.btnFiltrer_Click);
             // 
             // btnRefresh
             // 
@@ -309,6 +313,7 @@ namespace ParcAuto.Forms
             this.btnRefresh.Size = new System.Drawing.Size(40, 40);
             this.btnRefresh.TabIndex = 64;
             this.btnRefresh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // cmbChoix
             // 
@@ -327,9 +332,10 @@ namespace ParcAuto.Forms
             "Entite",
             "Benificiaire",
             "Vehicule",
+            "Marque",
             "Date",
             "Destination",
-            "Kilometrage parcourit",
+            "Kilometrage parcourir",
             "Consomation %",
             "Objet",
             "Dotation Fixe",
@@ -343,6 +349,7 @@ namespace ParcAuto.Forms
             this.cmbChoix.ShadowDecoration.Parent = this.cmbChoix;
             this.cmbChoix.Size = new System.Drawing.Size(176, 36);
             this.cmbChoix.TabIndex = 63;
+            this.cmbChoix.SelectedIndexChanged += new System.EventHandler(this.cmbChoix_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -372,6 +379,7 @@ namespace ParcAuto.Forms
             this.btnQuitter.Size = new System.Drawing.Size(40, 40);
             this.btnQuitter.TabIndex = 57;
             this.btnQuitter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
             // btnAjouter
             // 
@@ -394,6 +402,7 @@ namespace ParcAuto.Forms
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAjouter.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // btnModifier
             // 
@@ -416,6 +425,7 @@ namespace ParcAuto.Forms
             this.btnModifier.Text = "Modifier";
             this.btnModifier.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnModifier.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // btnSupprimer
             // 
@@ -436,6 +446,7 @@ namespace ParcAuto.Forms
             this.btnSupprimer.TabIndex = 59;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // dgvCarburant
             // 
@@ -597,6 +608,7 @@ namespace ParcAuto.Forms
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "CarburantPRD";
             this.Text = "CarburantPRD";
+            this.Load += new System.EventHandler(this.CarburantPRD_Load);
             this.panelDate.ResumeLayout(false);
             this.panelDate.PerformLayout();
             this.TextPanel.ResumeLayout(false);
