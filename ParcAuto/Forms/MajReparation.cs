@@ -54,60 +54,69 @@ namespace ParcAuto.Forms
 
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
-            if (!(txtBenificiaire.Text == "" || txtentite.Text == "" || txtMontant.Text == "" || txtObjet.Text == ""))
+            try
             {
-                if (rbEntretien.Checked)
+                if (!(txtBenificiaire.Text == "" || txtentite.Text == "" || txtMontant.Text == "" || cmbVehicule.Text == "" || txtMatricule.Text == ""||txtObjet.Text == ""))
                 {
-                    MontantEntretient = txtMontant.Text;
-                    MontantReparation = "null";
+                    if (rbEntretien.Checked)
+                    {
+                        MontantEntretient = txtMontant.Text;
+                        MontantReparation = "null";
+                    }
+                    else if (rbRepartion.Checked)
+                    {
+                        MontantReparation = txtMontant.Text;
+                        MontantEntretient = "null";
+                    }
+                    switch (Commandes.Command)
+                    {
+                        case Choix.ajouter:
+                            GLB.Cmd.CommandText = "Insert into Reparation values (null,@txtentite, @txtBenificiaire, @cmbVehicule,@txtMat, @Date, @txtObjet, @MontantEntretient, @MontantReparation)";
+                            GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtMat", txtMatricule.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@Date", Date.Value.ToString("yyyy-MM-dd"));
+                            GLB.Cmd.Parameters.AddWithValue("@txtObjet", txtObjet.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", MontantEntretient == "null" ? null : MontantEntretient);
+                            GLB.Cmd.Parameters.AddWithValue("@MontantReparation", MontantReparation == "null" ? null : MontantReparation);
+                            break;
+                        case Choix.modifier:
+                            GLB.Cmd.CommandText = "update Reparation set Entite = @txtentite, Beneficiaire=@txtBenificiaire, Vehicule=@cmbVehicule, MatriculeV = @txtMat ,Date= @Date, Objet=@txtObjet, Entretien= @MontantEntretient, Reparation=@MontantReparation where id = @ID";
+                            GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtMat", txtMatricule.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@Date", Date.Value.ToString("yyyy-MM-dd"));
+                            GLB.Cmd.Parameters.AddWithValue("@txtObjet", txtObjet.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", MontantEntretient == "null" ? null : MontantEntretient);
+                            GLB.Cmd.Parameters.AddWithValue("@MontantReparation", MontantReparation == "null" ? null : MontantReparation);
+                            GLB.Cmd.Parameters.AddWithValue("@ID", GLB.id_Reparation);
+                            break;
+                        case Choix.supprimer:
+                            //On peut pas ouvrir MajConducteur avec l'option de suppression.
+                            throw new Exception("MajReparation a été appellé mais avec le Choix supprimer");
+
+                    }
+
+                    //Executer le requette
+                    GLB.Con.Open();
+                    GLB.Cmd.ExecuteNonQuery();
+                    GLB.Con.Close();
+                    this.Close();
                 }
-                else if (rbRepartion.Checked)
+                else
                 {
-                    MontantReparation = txtMontant.Text;
-                    MontantEntretient = "null";
-                }
-                switch (Commandes.Command)
-                {
-                    case Choix.ajouter:
-                        GLB.Cmd.CommandText = "Insert into Reparation values (null,@txtentite, @txtBenificiaire, @cmbVehicule,@txtMat, @Date, @txtObjet, @MontantEntretient, @MontantReparation)";
-                        GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtMat", txtMatricule.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@Date", Date.Value.ToString("yyyy-MM-dd"));
-                        GLB.Cmd.Parameters.AddWithValue("@txtObjet", txtObjet.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", MontantEntretient=="null"?null:MontantEntretient);
-                        GLB.Cmd.Parameters.AddWithValue("@MontantReparation", MontantReparation == "null" ? null : MontantReparation);
-                        break;
-                    case Choix.modifier:
-                        GLB.Cmd.CommandText = "update Reparation set Entite = @txtentite, Beneficiaire=@txtBenificiaire, Vehicule=@cmbVehicule, MatriculeV = @txtMat ,Date= @Date, Objet=@txtObjet, Entretien= @MontantEntretient, Reparation=@MontantReparation where id = @ID";
-                        GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtMat", txtMatricule.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@Date", Date.Value.ToString("yyyy-MM-dd"));
-                        GLB.Cmd.Parameters.AddWithValue("@txtObjet", txtObjet.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", MontantEntretient == "null" ? null : MontantEntretient);
-                        GLB.Cmd.Parameters.AddWithValue("@MontantReparation", MontantReparation == "null" ? null : MontantReparation);
-                        GLB.Cmd.Parameters.AddWithValue("@ID", GLB.id_Reparation);
-                        break;
-                    case Choix.supprimer:
-                        //On peut pas ouvrir MajConducteur avec l'option de suppression.
-                        throw new Exception("MajReparation a été appellé mais avec le Choix supprimer");
+                    MessageBox.Show("Tous les Champs sont Obligatoire", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
-
-                //Executer le requette
-                GLB.Con.Open();
-                GLB.Cmd.ExecuteNonQuery();
-                GLB.Con.Close();
-                this.Close();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Tous les Champs sont Obligatoire", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                MessageBox.Show(ex.Message);
             }
+           
         }
 
         public MajReparation(string entite , string benificiaire ,string vehicule ,string MatriculeV, DateTime date , string objet ,string entretien ,string reparation )
