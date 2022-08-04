@@ -154,6 +154,7 @@ namespace ParcAuto.Forms
                 Commandes.Command = Choix.ajouter;
                 new MajVehicules(this).ShowDialog();
                 RemplirLaGrille();
+               
             }
             catch (Exception ex)
             {

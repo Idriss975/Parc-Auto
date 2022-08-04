@@ -80,7 +80,8 @@ namespace ParcAuto.Forms
                 Commandes.Command = Choix.ajouter;
                 maj.ShowDialog();
                 RemplirLaGrille();
-                MessageBox.Show("La Vehicules à été ajouté avec succes", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dgvVehicules.Rows[dgvVehicules.Rows.Count - 1].Selected = true;
+                dgvVehicules.FirstDisplayedScrollingRowIndex = dgvVehicules.Rows.Count - 1;
             }
             catch (Exception ex)
             {

@@ -30,7 +30,8 @@ namespace ParcAuto.Forms
                 Commandes.Command = Choix.ajouter;
                 maj.ShowDialog();
                 RemplirLaGrille();
-                MessageBox.Show("Le Conducteur à été ajouté avec succes", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dgvconducteur.Rows[dgvconducteur.Rows.Count - 1].Selected = true;
+                dgvconducteur.FirstDisplayedScrollingRowIndex = dgvconducteur.Rows.Count - 1;
             }
             catch (Exception ex)
             {

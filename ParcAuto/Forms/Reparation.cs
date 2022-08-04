@@ -84,7 +84,8 @@ namespace ParcAuto.Forms
                 Commandes.Command = Choix.ajouter;
                 rep.ShowDialog();
                 datagridviewLoad();
-                MessageBox.Show("La vignettes à été ajouté avec succes", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dgvReparation.Rows[dgvReparation.Rows.Count - 1].Selected = true;
+                dgvReparation.FirstDisplayedScrollingRowIndex = dgvReparation.Rows.Count - 1;
 
             }
             catch (Exception ex)
