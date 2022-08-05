@@ -109,18 +109,7 @@ namespace ParcAuto.Forms
 
         private void btnFiltrer_Click(object sender, EventArgs e)
         {
-            if (!(cmbChoix.SelectedIndex == 4))
-            {
-                for (int i = dgvCarburant.Rows.Count - 1; i >= 0; i--)
-                {
-                    if (!(new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(dgvCarburant.Rows[i].Cells[cmbChoix.SelectedIndex == 12? 13: cmbChoix.SelectedIndex].Value.ToString().ToLower())))
-                        dgvCarburant.Rows.Remove(dgvCarburant.Rows[i]);
-                }
-            }
-            else
-                for (int i = dgvCarburant.Rows.Count - 1; i >= 0; i--)
-                    if (!(DateTime.ParseExact(dgvCarburant.Rows[i].Cells[cmbChoix.SelectedIndex].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture) >= Date1.Value.Date && DateTime.ParseExact(dgvCarburant.Rows[i].Cells[cmbChoix.SelectedIndex].Value.ToString(),"d/M/yyyy",System.Globalization.CultureInfo.InvariantCulture) <= Date2.Value.Date))
-                        dgvCarburant.Rows.Remove(dgvCarburant.Rows[i]);
+            GLB.Filter(cmbChoix, dgvCarburant, txtValueToFiltre, new string[] { "Date" },Date1, Date2);
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)

@@ -288,11 +288,7 @@ namespace ParcAuto.Forms
 
         private void btnFiltrer_Click(object sender, EventArgs e)
         {
-            for (int i = dgvCarteFree.Rows.Count - 1; i >= 0; i--)
-            {
-                if (!(new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(dgvCarteFree.Rows[i].Cells[cmbChoix.SelectedIndex + 1].Value.ToString().ToLower())))
-                    dgvCarteFree.Rows.Remove(dgvCarteFree.Rows[i]);
-            }
+            GLB.Filter(cmbChoix, dgvCarteFree, txtValueToFiltre);
         }
 
         private void btnImprimer_Click(object sender, EventArgs e)

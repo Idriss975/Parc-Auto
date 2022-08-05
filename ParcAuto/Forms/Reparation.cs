@@ -182,18 +182,7 @@ namespace ParcAuto.Forms
 
         private void btnFiltrer_Click(object sender, EventArgs e)
         {
-            if (!(cmbChoix.SelectedIndex == 3))
-            {
-                for (int i = dgvReparation.Rows.Count - 1; i >= 0; i--)
-                {
-                    if (!(new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(dgvReparation.Rows[i].Cells[cmbChoix.SelectedIndex+1].Value.ToString().ToLower())))
-                        dgvReparation.Rows.Remove(dgvReparation.Rows[i]);
-                }
-            }
-            else
-                for (int i = dgvReparation.Rows.Count - 1; i >= 0; i--)
-                    if (!(DateTime.ParseExact(dgvReparation.Rows[i].Cells[cmbChoix.SelectedIndex + 1].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture) >= Date1.Value.Date && DateTime.ParseExact(dgvReparation.Rows[i].Cells[cmbChoix.SelectedIndex + 1].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture) <= Date2.Value.Date))
-                        dgvReparation.Rows.Remove(dgvReparation.Rows[i]);
+            GLB.Filter(cmbChoix, dgvReparation, txtValueToFiltre, new string[] { "Date" }, Date1, Date2);
         }
 
         private void btnQuitter_Click(object sender, EventArgs e)
