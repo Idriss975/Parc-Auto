@@ -19,7 +19,16 @@ namespace ParcAuto.Forms
         {
             InitializeComponent();
         }
-        
+
+        private void Total()
+        {
+            float somme = 0;
+            foreach (DataGridViewRow item in dgvTransport.Rows)
+            {
+                somme += ((string)item.Cells[7].Value) == "" ? 0 : float.Parse(item.Cells[7].Value.ToString());
+            }
+            lblSommePrix.Text = somme.ToString();
+        }
         private void RemplirdgvTransport()
         {
             dgvTransport.Rows.Clear();
@@ -37,6 +46,7 @@ namespace ParcAuto.Forms
             cmbChoix.SelectedIndex = 0;
             RemplirdgvTransport();
             GLB.StyleDataGridView(dgvTransport);
+            Total();
         }
 
         private void cmbChoix_SelectedIndexChanged(object sender, EventArgs e)
@@ -68,6 +78,7 @@ namespace ParcAuto.Forms
                 RemplirdgvTransport();
                 dgvTransport.Rows[dgvTransport.Rows.Count - 1].Selected = true;
                 dgvTransport.FirstDisplayedScrollingRowIndex = dgvTransport.Rows.Count - 1;
+                Total();
             }
             catch (Exception ex)
             {
@@ -96,6 +107,7 @@ namespace ParcAuto.Forms
                 RemplirdgvTransport();
                 dgvTransport.Rows[pos].Selected = true;
                 dgvTransport.FirstDisplayedScrollingRowIndex = pos;
+                Total();
             }
 
             catch (ArgumentOutOfRangeException)
@@ -108,6 +120,7 @@ namespace ParcAuto.Forms
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             RemplirdgvTransport();
+            Total();
         }
 
         private void btnFiltrer_Click(object sender, EventArgs e)
@@ -146,6 +159,7 @@ namespace ParcAuto.Forms
                 GLB.Cmd.ExecuteNonQuery();
                 GLB.Con.Close();
                 RemplirdgvTransport();
+                Total();
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -270,6 +284,7 @@ namespace ParcAuto.Forms
                             GLB.Cmd.Parameters.AddWithValue("@txtUtilisation", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
                             GLB.Cmd.Parameters.AddWithValue("@txtPrix", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
                             GLB.Cmd.ExecuteNonQuery();
+                            Total();
                         }
                         else
                         {
@@ -309,6 +324,7 @@ namespace ParcAuto.Forms
                 GLB.Cmd.ExecuteNonQuery();
                 GLB.Con.Close();
                 RemplirdgvTransport();
+                Total();
             }
         }
     }

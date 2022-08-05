@@ -65,9 +65,22 @@ namespace ParcAuto.Forms
             this.btnImportExcel = new Guna.UI2.WinForms.Guna2Button();
             this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
             this.btnSuprimmerTout = new Guna.UI2.WinForms.Guna2Button();
+            this.PanelTautaux = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.lblSommePrix = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransport)).BeginInit();
+            this.PanelTautaux.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelDate
@@ -377,7 +390,7 @@ namespace ParcAuto.Forms
             this.dgvTransport.RowHeadersVisible = false;
             this.dgvTransport.RowHeadersWidth = 62;
             this.dgvTransport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTransport.Size = new System.Drawing.Size(1109, 500);
+            this.dgvTransport.Size = new System.Drawing.Size(1109, 470);
             this.dgvTransport.TabIndex = 44;
             // 
             // Column1
@@ -553,11 +566,108 @@ namespace ParcAuto.Forms
             this.btnSuprimmerTout.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             this.btnSuprimmerTout.Click += new System.EventHandler(this.btnSuprimmerTout_Click);
             // 
+            // PanelTautaux
+            // 
+            this.PanelTautaux.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PanelTautaux.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(203)))), ((int)(((byte)(173)))));
+            this.PanelTautaux.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanelTautaux.Controls.Add(this.panel2);
+            this.PanelTautaux.Controls.Add(this.panel1);
+            this.PanelTautaux.Location = new System.Drawing.Point(2, 578);
+            this.PanelTautaux.Name = "PanelTautaux";
+            this.PanelTautaux.Size = new System.Drawing.Size(1087, 43);
+            this.PanelTautaux.TabIndex = 73;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.tableLayoutPanel1);
+            this.panel2.Location = new System.Drawing.Point(558, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(529, 41);
+            this.panel2.TabIndex = 1;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(527, 39);
+            this.tableLayoutPanel1.TabIndex = 60;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel4.Controls.Add(this.lblSommePrix);
+            this.panel4.Controls.Add(this.label8);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(521, 33);
+            this.panel4.TabIndex = 59;
+            // 
+            // lblSommePrix
+            // 
+            this.lblSommePrix.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblSommePrix.AutoSize = true;
+            this.lblSommePrix.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSommePrix.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblSommePrix.Location = new System.Drawing.Point(265, 7);
+            this.lblSommePrix.Name = "lblSommePrix";
+            this.lblSommePrix.Size = new System.Drawing.Size(55, 21);
+            this.lblSommePrix.TabIndex = 3;
+            this.lblSommePrix.Text = "10000";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label8.Location = new System.Drawing.Point(215, 7);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 21);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Fixe : ";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(558, 41);
+            this.panel1.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(175, 7);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(209, 26);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Consommation Total";
+            // 
             // Transport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 669);
+            this.Controls.Add(this.PanelTautaux);
             this.Controls.Add(this.btnSuprimmerTout);
             this.Controls.Add(this.btnImportExcel);
             this.Controls.Add(this.btnExportExcel);
@@ -583,6 +693,13 @@ namespace ParcAuto.Forms
             this.TextPanel.ResumeLayout(false);
             this.TextPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransport)).EndInit();
+            this.PanelTautaux.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -624,5 +741,13 @@ namespace ParcAuto.Forms
         private Guna.UI2.WinForms.Guna2Button btnExportExcel;
         private System.Windows.Forms.ImageList imageList1;
         private Guna.UI2.WinForms.Guna2Button btnSuprimmerTout;
+        private System.Windows.Forms.Panel PanelTautaux;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label lblSommePrix;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label5;
     }
 }
