@@ -154,17 +154,7 @@ namespace ParcAuto.Forms
      
         private void btnFiltrer_Click(object sender, EventArgs e)
         {
-            if (!(cmbChoix.Text == "Date de Naissance" || cmbChoix.Text == "Date d'embauche"))
-            {
-                for (int i = dgvconducteur.Rows.Count - 1; i >= 0; i--)
-                    if (!new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(dgvconducteur.Rows[i].Cells[cmbChoix.Text.Replace(" ", "_").Replace("'", "")].Value.ToString().ToLower()))
-                        dgvconducteur.Rows.Remove(dgvconducteur.Rows[i]);
-            }
-            else
-                for (int i = dgvconducteur.Rows.Count - 1; i >= 0; i--)
-                    if (!( (Convert.ToDateTime(dgvconducteur.Rows[i].Cells[cmbChoix.Text.Replace(" ", "_").Replace("'", "")].Value)).Date >= Date1.Value.Date && (Convert.ToDateTime(dgvconducteur.Rows[i].Cells[cmbChoix.Text.Replace(" ","_").Replace("'","")].Value)).Date <= Date2.Value.Date))
-                        dgvconducteur.Rows.Remove(dgvconducteur.Rows[i]);
-            txtValueToFiltre.Text = "";
+            GLB.Filter(cmbChoix, dgvconducteur, txtValueToFiltre, new string[] { "Date de naissance", "Date d'embauch" }, Date1, Date2);
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
