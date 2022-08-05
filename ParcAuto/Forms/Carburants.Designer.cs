@@ -49,14 +49,6 @@ namespace ParcAuto.Forms
             this.btnModifier = new Guna.UI2.WinForms.Guna2Button();
             this.btnSupprimer = new Guna.UI2.WinForms.Guna2Button();
             this.dgvCarburant = new System.Windows.Forms.DataGridView();
-            this.btnImportExcel = new Guna.UI2.WinForms.Guna2Button();
-            this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
-            this.btnImprimer = new Guna.UI2.WinForms.Guna2Button();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.btnSuprimmerTout = new Guna.UI2.WinForms.Guna2Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,9 +64,42 @@ namespace ParcAuto.Forms
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnImportExcel = new Guna.UI2.WinForms.Guna2Button();
+            this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
+            this.btnImprimer = new Guna.UI2.WinForms.Guna2Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btnSuprimmerTout = new Guna.UI2.WinForms.Guna2Button();
+            this.PanelTautaux = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.lblSommeDMissions = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.lblSommeDExceptionnel = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lblSommeDHebdo = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblSommeDfix = new System.Windows.Forms.Label();
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarburant)).BeginInit();
+            this.PanelTautaux.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
@@ -250,7 +275,7 @@ namespace ParcAuto.Forms
             this.cmbChoix.Items.AddRange(new object[] {
             "Entite",
             "Benificiaire",
-            "Vehicule",
+            "Matricule",
             "Marque",
             "Date",
             "Destination",
@@ -396,10 +421,114 @@ namespace ParcAuto.Forms
             this.dgvCarburant.RowHeadersVisible = false;
             this.dgvCarburant.RowHeadersWidth = 62;
             this.dgvCarburant.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCarburant.Size = new System.Drawing.Size(1109, 500);
+            this.dgvCarburant.Size = new System.Drawing.Size(1109, 423);
             this.dgvCarburant.TabIndex = 22;
             this.dgvCarburant.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarburant_CellContentClick);
             this.dgvCarburant.DoubleClick += new System.EventHandler(this.dgvCarburant_DoubleClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Entité";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Bénéficiaire";
+            this.Column2.MinimumWidth = 8;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Matricule";
+            this.Column3.MinimumWidth = 8;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 150;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "Marque";
+            this.Column15.Name = "Column15";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Date";
+            this.Column4.MinimumWidth = 8;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 150;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Destination";
+            this.Column5.MinimumWidth = 8;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 150;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Kilometrage Parcouru";
+            this.Column12.MinimumWidth = 8;
+            this.Column12.Name = "Column12";
+            this.Column12.Width = 150;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Consomation %";
+            this.Column13.MinimumWidth = 8;
+            this.Column13.Name = "Column13";
+            this.Column13.Width = 150;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Objet";
+            this.Column6.MinimumWidth = 8;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 250;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Dotation Fixe";
+            this.Column7.MinimumWidth = 8;
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 150;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Dotation Mission";
+            this.Column8.MinimumWidth = 8;
+            this.Column8.Name = "Column8";
+            this.Column8.Width = 150;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Dotation Hebdo";
+            this.Column9.MinimumWidth = 8;
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 150;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Dotation exceptionnel ";
+            this.Column14.MinimumWidth = 8;
+            this.Column14.Name = "Column14";
+            this.Column14.Width = 150;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "id";
+            this.Column10.MinimumWidth = 8;
+            this.Column10.Name = "Column10";
+            this.Column10.Visible = false;
+            this.Column10.Width = 150;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Observation";
+            this.Column11.MinimumWidth = 8;
+            this.Column11.Name = "Column11";
+            this.Column11.Width = 150;
             // 
             // btnImportExcel
             // 
@@ -516,115 +645,223 @@ namespace ParcAuto.Forms
             this.btnSuprimmerTout.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             this.btnSuprimmerTout.Click += new System.EventHandler(this.btnSuprimmerTout_Click);
             // 
-            // Column1
+            // PanelTautaux
             // 
-            this.Column1.HeaderText = "Entité";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 150;
+            this.PanelTautaux.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PanelTautaux.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(203)))), ((int)(((byte)(173)))));
+            this.PanelTautaux.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanelTautaux.Controls.Add(this.label11);
+            this.PanelTautaux.Controls.Add(this.lblTotal);
+            this.PanelTautaux.Controls.Add(this.panel2);
+            this.PanelTautaux.Controls.Add(this.panel1);
+            this.PanelTautaux.Location = new System.Drawing.Point(11, 531);
+            this.PanelTautaux.Name = "PanelTautaux";
+            this.PanelTautaux.Size = new System.Drawing.Size(1087, 86);
+            this.PanelTautaux.TabIndex = 59;
             // 
-            // Column2
+            // label11
             // 
-            this.Column2.HeaderText = "Bénéficiaire";
-            this.Column2.MinimumWidth = 8;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 150;
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label11.Location = new System.Drawing.Point(574, 53);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(61, 21);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Total : ";
             // 
-            // Column3
+            // lblTotal
             // 
-            this.Column3.HeaderText = "Matricule";
-            this.Column3.MinimumWidth = 8;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 150;
+            this.lblTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblTotal.Location = new System.Drawing.Point(641, 50);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(72, 27);
+            this.lblTotal.TabIndex = 2;
+            this.lblTotal.Text = "10000";
             // 
-            // Column15
+            // panel2
             // 
-            this.Column15.HeaderText = "Marque";
-            this.Column15.Name = "Column15";
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.panel5);
+            this.panel2.Location = new System.Drawing.Point(205, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(883, 41);
+            this.panel2.TabIndex = 1;
             // 
-            // Column4
+            // panel4
             // 
-            this.Column4.HeaderText = "Date";
-            this.Column4.MinimumWidth = 8;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 150;
+            this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.lblSommeDMissions);
+            this.panel4.Controls.Add(this.label8);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel4.Location = new System.Drawing.Point(220, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(220, 41);
+            this.panel4.TabIndex = 59;
             // 
-            // Column5
+            // lblSommeDMissions
             // 
-            this.Column5.HeaderText = "Destination";
-            this.Column5.MinimumWidth = 8;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 150;
+            this.lblSommeDMissions.AutoSize = true;
+            this.lblSommeDMissions.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSommeDMissions.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblSommeDMissions.Location = new System.Drawing.Point(100, 12);
+            this.lblSommeDMissions.Name = "lblSommeDMissions";
+            this.lblSommeDMissions.Size = new System.Drawing.Size(55, 21);
+            this.lblSommeDMissions.TabIndex = 3;
+            this.lblSommeDMissions.Text = "10000";
             // 
-            // Column12
+            // label8
             // 
-            this.Column12.HeaderText = "Kilometrage Parcouru";
-            this.Column12.MinimumWidth = 8;
-            this.Column12.Name = "Column12";
-            this.Column12.Width = 150;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label8.Location = new System.Drawing.Point(3, 11);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(104, 21);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "D.Missions : ";
             // 
-            // Column13
+            // panel3
             // 
-            this.Column13.HeaderText = "Consomation %";
-            this.Column13.MinimumWidth = 8;
-            this.Column13.Name = "Column13";
-            this.Column13.Width = 150;
+            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.lblSommeDHebdo);
+            this.panel3.Controls.Add(this.label9);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(440, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(220, 41);
+            this.panel3.TabIndex = 0;
             // 
-            // Column6
+            // panel1
             // 
-            this.Column6.HeaderText = "Objet";
-            this.Column6.MinimumWidth = 8;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 250;
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(206, 84);
+            this.panel1.TabIndex = 0;
             // 
-            // Column7
+            // label5
             // 
-            this.Column7.HeaderText = "Dotation Fixe";
-            this.Column7.MinimumWidth = 8;
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 150;
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(-2, 29);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(209, 26);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Consommation Total";
             // 
-            // Column8
+            // panel5
             // 
-            this.Column8.HeaderText = "Dotation Mission";
-            this.Column8.MinimumWidth = 8;
-            this.Column8.Name = "Column8";
-            this.Column8.Width = 150;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.label7);
+            this.panel5.Controls.Add(this.lblSommeDfix);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(220, 41);
+            this.panel5.TabIndex = 60;
             // 
-            // Column9
+            // panel6
             // 
-            this.Column9.HeaderText = "Dotation Hebdo";
-            this.Column9.MinimumWidth = 8;
-            this.Column9.Name = "Column9";
-            this.Column9.Width = 150;
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.lblSommeDExceptionnel);
+            this.panel6.Controls.Add(this.label12);
+            this.panel6.Location = new System.Drawing.Point(660, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(220, 41);
+            this.panel6.TabIndex = 61;
             // 
-            // Column14
+            // lblSommeDExceptionnel
             // 
-            this.Column14.HeaderText = "Dotation exceptionnel ";
-            this.Column14.MinimumWidth = 8;
-            this.Column14.Name = "Column14";
-            this.Column14.Width = 150;
+            this.lblSommeDExceptionnel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblSommeDExceptionnel.AutoSize = true;
+            this.lblSommeDExceptionnel.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSommeDExceptionnel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblSommeDExceptionnel.Location = new System.Drawing.Point(149, 10);
+            this.lblSommeDExceptionnel.Name = "lblSommeDExceptionnel";
+            this.lblSommeDExceptionnel.Size = new System.Drawing.Size(55, 21);
+            this.lblSommeDExceptionnel.TabIndex = 7;
+            this.lblSommeDExceptionnel.Text = "10000";
             // 
-            // Column10
+            // label12
             // 
-            this.Column10.HeaderText = "id";
-            this.Column10.MinimumWidth = 8;
-            this.Column10.Name = "Column10";
-            this.Column10.Visible = false;
-            this.Column10.Width = 150;
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label12.Location = new System.Drawing.Point(18, 9);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(138, 21);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "D.Exceptionnel : ";
             // 
-            // Column11
+            // lblSommeDHebdo
             // 
-            this.Column11.HeaderText = "Observation";
-            this.Column11.MinimumWidth = 8;
-            this.Column11.Name = "Column11";
-            this.Column11.Width = 150;
+            this.lblSommeDHebdo.AutoSize = true;
+            this.lblSommeDHebdo.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSommeDHebdo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblSommeDHebdo.Location = new System.Drawing.Point(88, 11);
+            this.lblSommeDHebdo.Name = "lblSommeDHebdo";
+            this.lblSommeDHebdo.Size = new System.Drawing.Size(55, 21);
+            this.lblSommeDHebdo.TabIndex = 61;
+            this.lblSommeDHebdo.Text = "10000";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label9.Location = new System.Drawing.Point(5, 10);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(89, 21);
+            this.label9.TabIndex = 60;
+            this.label9.Text = "D.Hebdo : ";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label7.Location = new System.Drawing.Point(8, 11);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(73, 21);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "D.Fixe  : ";
+            // 
+            // lblSommeDfix
+            // 
+            this.lblSommeDfix.AutoSize = true;
+            this.lblSommeDfix.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSommeDfix.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblSommeDfix.Location = new System.Drawing.Point(77, 12);
+            this.lblSommeDfix.Name = "lblSommeDfix";
+            this.lblSommeDfix.Size = new System.Drawing.Size(55, 21);
+            this.lblSommeDfix.TabIndex = 2;
+            this.lblSommeDfix.Text = "10000";
             // 
             // Carburants
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 669);
+            this.Controls.Add(this.PanelTautaux);
             this.Controls.Add(this.btnSuprimmerTout);
             this.Controls.Add(this.btnImprimer);
             this.Controls.Add(this.btnImportExcel);
@@ -650,6 +887,19 @@ namespace ParcAuto.Forms
             this.TextPanel.ResumeLayout(false);
             this.TextPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarburant)).EndInit();
+            this.PanelTautaux.ResumeLayout(false);
+            this.PanelTautaux.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -698,5 +948,23 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.Panel PanelTautaux;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label lblSommeDMissions;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblSommeDExceptionnel;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblSommeDHebdo;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblSommeDfix;
     }
 }

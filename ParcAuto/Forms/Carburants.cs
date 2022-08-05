@@ -20,7 +20,30 @@ namespace ParcAuto.Forms
         {
             InitializeComponent();
         }
- 
+        
+        private void Total()
+        {
+            float sumDFixe = 0;
+            float sumDMission = 0;
+            float sumDHebdo = 0;
+            float sumDExp = 0;
+            float Total = 0;
+            foreach (DataGridViewRow item in dgvCarburant.Rows)
+            {
+                sumDHebdo += ((string)item.Cells[11].Value) == "" ? 0 : float.Parse(item.Cells[11].Value.ToString());
+                sumDMission += ((string)item.Cells[10].Value) == "" ? 0 : float.Parse(item.Cells[10].Value.ToString());
+                sumDFixe += ((string)item.Cells[9].Value) == "" ? 0 : float.Parse(item.Cells[9].Value.ToString());
+                sumDExp += ((string)item.Cells[12].Value) == "" ? 0 : float.Parse(item.Cells[12].Value.ToString());
+
+            }
+            Total = sumDFixe + sumDMission + sumDHebdo + sumDExp;
+            lblSommeDfix.Text = sumDFixe.ToString();
+            lblSommeDMissions.Text = sumDMission.ToString();
+            lblSommeDHebdo.Text = sumDHebdo.ToString();
+            lblSommeDExceptionnel.Text = sumDExp.ToString();
+            lblTotal.Text = Total.ToString();
+
+        }
         private void RemplirLaGrille()
         {
             dgvCarburant.Rows.Clear();
@@ -43,24 +66,6 @@ namespace ParcAuto.Forms
             {
                 GLB.Con.Close();
             }
-            float sumDFixe = 0;
-            float sumDMission = 0;
-            float sumDHebdo = 0;
-            float sumDExp = 0;
-            foreach (DataGridViewRow item in dgvCarburant.Rows)
-            {
-                sumDHebdo += ((string)item.Cells[11].Value) == ""? 0: float.Parse(item.Cells[11].Value.ToString());
-                sumDMission += ((string)item.Cells[10].Value) == "" ? 0 : float.Parse(item.Cells[10].Value.ToString());
-                sumDFixe += ((string)item.Cells[9].Value) == "" ? 0 : float.Parse(item.Cells[9].Value.ToString());
-                sumDExp += ((string)item.Cells[12].Value) == "" ? 0 : float.Parse(item.Cells[12].Value.ToString());
-
-            }
-            //dgvCarburant.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "");
-            //dgvCarburant.Rows.Add("", "", "", "", "", "", "", "", "Dotation Fixe", "Dotation Mission", "Dotation Hebdo", "Dotation Exceptionelle", "", "");
-            //dgvCarburant.Rows.Add("","","","","","","","",sumDFixe,sumDMission,sumDHebdo,sumDExp,"","");
-            //dgvCarburant.Rows.Add("","","","","","","","","","Total","","","","");
-            //dgvCarburant.Rows.Add("","","","","","","","","",sumDFixe+sumDMission+sumDHebdo+sumDExp,"","","","");
-
         }
        
         private void Carburants_Load(object sender, EventArgs e)
@@ -70,6 +75,8 @@ namespace ParcAuto.Forms
             cmbChoix.SelectedIndex = 0;
             GLB.StyleDataGridView(dgvCarburant);
             RemplirLaGrille();
+            Total();
+
         }
         private void cmbChoix_SelectedIndexChanged_1(object sender, EventArgs e)
         {
@@ -92,6 +99,7 @@ namespace ParcAuto.Forms
         private void btnRefresh_Click_1(object sender, EventArgs e)
         {
             RemplirLaGrille();
+            Total();
         }
 
         private void btnQuitter_Click_1(object sender, EventArgs e)
@@ -140,7 +148,7 @@ namespace ParcAuto.Forms
                 RemplirLaGrille();
                 dgvCarburant.Rows[dgvCarburant.Rows.Count - 1].Selected = true;
                 dgvCarburant.FirstDisplayedScrollingRowIndex = dgvCarburant.Rows.Count - 1;
-
+                Total();
             }
             catch (Exception ex)
             {
@@ -176,6 +184,7 @@ namespace ParcAuto.Forms
                 RemplirLaGrille();
                 dgvCarburant.Rows[pos].Selected = true;
                 dgvCarburant.FirstDisplayedScrollingRowIndex = pos;
+                Total();
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -200,7 +209,7 @@ namespace ParcAuto.Forms
                 GLB.Cmd.ExecuteNonQuery();
                 GLB.Con.Close();
                 RemplirLaGrille();
-
+                Total();
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -355,7 +364,7 @@ namespace ParcAuto.Forms
                             GLB.Cmd.Parameters.AddWithValue("@DoExp", Dexeptionnelle == "null" ? null : Dexeptionnelle);
                             GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation);
                             GLB.Cmd.ExecuteNonQuery();
-
+                            Total();
                         }
                         else
                         {
@@ -425,9 +434,10 @@ namespace ParcAuto.Forms
                 GLB.Cmd.ExecuteNonQuery();
                 GLB.Con.Close();
                 RemplirLaGrille();
+                Total();
             }
-            
-           
+
+
 
         }
     }

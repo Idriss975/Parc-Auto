@@ -29,7 +29,7 @@ namespace ParcAuto
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Panel section2btnCond_Vehicu;
+            System.Windows.Forms.Panel section2btnCond_Vehicule;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.ParcAutodown = new System.Windows.Forms.PictureBox();
             this.ParcAutoup = new System.Windows.Forms.PictureBox();
@@ -72,8 +72,8 @@ namespace ParcAuto
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FormsPlace = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            section2btnCond_Vehicu = new System.Windows.Forms.Panel();
-            section2btnCond_Vehicu.SuspendLayout();
+            section2btnCond_Vehicule = new System.Windows.Forms.Panel();
+            section2btnCond_Vehicule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ParcAutodown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ParcAutoup)).BeginInit();
             this.panelSousVehicules.SuspendLayout();
@@ -100,19 +100,19 @@ namespace ParcAuto
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // section2btnCond_Vehicu
+            // section2btnCond_Vehicule
             // 
-            section2btnCond_Vehicu.AutoSize = true;
-            section2btnCond_Vehicu.Controls.Add(this.ParcAutodown);
-            section2btnCond_Vehicu.Controls.Add(this.ParcAutoup);
-            section2btnCond_Vehicu.Controls.Add(this.btnConducteurs);
-            section2btnCond_Vehicu.Controls.Add(this.panelSousVehicules);
-            section2btnCond_Vehicu.Controls.Add(this.btnParcAuto);
-            section2btnCond_Vehicu.Dock = System.Windows.Forms.DockStyle.Top;
-            section2btnCond_Vehicu.Location = new System.Drawing.Point(0, 471);
-            section2btnCond_Vehicu.Name = "section2btnCond_Vehicu";
-            section2btnCond_Vehicu.Size = new System.Drawing.Size(183, 344);
-            section2btnCond_Vehicu.TabIndex = 4;
+            section2btnCond_Vehicule.AutoSize = true;
+            section2btnCond_Vehicule.Controls.Add(this.ParcAutodown);
+            section2btnCond_Vehicule.Controls.Add(this.ParcAutoup);
+            section2btnCond_Vehicule.Controls.Add(this.btnConducteurs);
+            section2btnCond_Vehicule.Controls.Add(this.panelSousVehicules);
+            section2btnCond_Vehicule.Controls.Add(this.btnParcAuto);
+            section2btnCond_Vehicule.Dock = System.Windows.Forms.DockStyle.Top;
+            section2btnCond_Vehicule.Location = new System.Drawing.Point(0, 471);
+            section2btnCond_Vehicule.Name = "section2btnCond_Vehicule";
+            section2btnCond_Vehicule.Size = new System.Drawing.Size(183, 344);
+            section2btnCond_Vehicule.TabIndex = 4;
             // 
             // ParcAutodown
             // 
@@ -366,7 +366,7 @@ namespace ParcAuto
             // 
             this.panelSideMenu.AutoScroll = true;
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
-            this.panelSideMenu.Controls.Add(section2btnCond_Vehicu);
+            this.panelSideMenu.Controls.Add(section2btnCond_Vehicule);
             this.panelSideMenu.Controls.Add(this.panelSousVignettes);
             this.panelSideMenu.Controls.Add(this.VignettesUp);
             this.panelSideMenu.Controls.Add(this.Vignettesdown);
@@ -769,8 +769,8 @@ namespace ParcAuto
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Parc Auto-mobile";
             this.Load += new System.EventHandler(this.Form1_Load);
-            section2btnCond_Vehicu.ResumeLayout(false);
-            section2btnCond_Vehicu.PerformLayout();
+            section2btnCond_Vehicule.ResumeLayout(false);
+            section2btnCond_Vehicule.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ParcAutodown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ParcAutoup)).EndInit();
             this.panelSousVehicules.ResumeLayout(false);

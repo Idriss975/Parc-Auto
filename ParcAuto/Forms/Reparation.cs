@@ -30,6 +30,8 @@ namespace ParcAuto.Forms
                 dgvReparation.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr[4],((DateTime)GLB.dr[5]).ToString("d/M/yyyy"), GLB.dr[6], GLB.dr[7].ToString(), GLB.dr[8].ToString());
             GLB.dr.Close();
             GLB.Con.Close();
+           
+
         }
         private void UpdateFromDataGrid()
         {
@@ -56,6 +58,7 @@ namespace ParcAuto.Forms
             cmbChoix.SelectedIndex = 0;
             GLB.StyleDataGridView(dgvReparation);
             datagridviewLoad();
+            Total();
         }
 
         private void cmbChoix_SelectedIndexChanged(object sender, EventArgs e)
@@ -86,7 +89,8 @@ namespace ParcAuto.Forms
                 datagridviewLoad();
                 dgvReparation.Rows[dgvReparation.Rows.Count - 1].Selected = true;
                 dgvReparation.FirstDisplayedScrollingRowIndex = dgvReparation.Rows.Count - 1;
-
+                dgvReparation.Rows[0].Selected = false;
+                Total();
             }
             catch (Exception ex)
             {
@@ -96,7 +100,21 @@ namespace ParcAuto.Forms
           
 
         }
-
+        private void Total()
+        {
+            float sommeEntretien = 0;
+            float sommeReparation = 0;
+            float Total = 0;
+            foreach (DataGridViewRow item in dgvReparation.Rows)
+            {
+                sommeEntretien += ((string)item.Cells[7].Value) == "" ? 0 : float.Parse(item.Cells[7].Value.ToString());
+                sommeReparation += ((string)item.Cells[8].Value) == "" ? 0 : float.Parse(item.Cells[8].Value.ToString());
+            }
+            Total = sommeReparation + sommeEntretien;
+            lblSommeEntretien.Text = sommeEntretien.ToString();
+            lblSommeReparation.Text = sommeReparation.ToString();
+            lblTotal.Text = Total.ToString();
+        }
         private void btnModifier_Click(object sender, EventArgs e)
         {
             int pos = dgvReparation.CurrentRow.Index;
@@ -118,6 +136,8 @@ namespace ParcAuto.Forms
                 datagridviewLoad();
                 dgvReparation.Rows[pos].Selected = true;
                 dgvReparation.FirstDisplayedScrollingRowIndex = pos;
+                dgvReparation.Rows[0].Selected = false;
+                Total();
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -140,7 +160,7 @@ namespace ParcAuto.Forms
                 GLB.Cmd.ExecuteNonQuery();
                 GLB.Con.Close();
                 datagridviewLoad();
-
+                Total();
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -154,6 +174,7 @@ namespace ParcAuto.Forms
         {
             //UpdateFromDataGrid();
             datagridviewLoad();
+            Total();
         }
 
         private void btnFiltrer_Click(object sender, EventArgs e)
@@ -308,7 +329,7 @@ namespace ParcAuto.Forms
 
                 }
                 datagridviewLoad();
-
+                Total();
             }
             catch (Exception ex)
             {
@@ -329,6 +350,7 @@ namespace ParcAuto.Forms
                 GLB.Cmd.ExecuteNonQuery();
                 GLB.Con.Close();
                 datagridviewLoad();
+                Total();
             }
         }
     }
