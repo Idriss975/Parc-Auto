@@ -711,11 +711,10 @@ namespace ParcAuto.Forms
             // 
             // lblSommeDExceptionnel
             // 
-            this.lblSommeDExceptionnel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSommeDExceptionnel.AutoSize = true;
             this.lblSommeDExceptionnel.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSommeDExceptionnel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblSommeDExceptionnel.Location = new System.Drawing.Point(147, 6);
+            this.lblSommeDExceptionnel.Location = new System.Drawing.Point(134, 6);
             this.lblSommeDExceptionnel.Name = "lblSommeDExceptionnel";
             this.lblSommeDExceptionnel.Size = new System.Drawing.Size(55, 21);
             this.lblSommeDExceptionnel.TabIndex = 7;
@@ -723,11 +722,10 @@ namespace ParcAuto.Forms
             // 
             // label12
             // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label12.Location = new System.Drawing.Point(16, 5);
+            this.label12.Location = new System.Drawing.Point(3, 5);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(138, 21);
             this.label12.TabIndex = 6;

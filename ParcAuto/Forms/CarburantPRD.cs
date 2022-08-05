@@ -19,6 +19,29 @@ namespace ParcAuto.Forms
         {
             InitializeComponent();
         }
+        private void Total()
+        {
+            float sumDFixe = 0;
+            float sumDMission = 0;
+            float sumDHebdo = 0;
+            float sumDExp = 0;
+            float Total = 0;
+            foreach (DataGridViewRow item in dgvCarburant.Rows)
+            {
+                sumDHebdo += ((string)item.Cells[11].Value) == "" ? 0 : float.Parse(item.Cells[11].Value.ToString());
+                sumDMission += ((string)item.Cells[10].Value) == "" ? 0 : float.Parse(item.Cells[10].Value.ToString());
+                sumDFixe += ((string)item.Cells[9].Value) == "" ? 0 : float.Parse(item.Cells[9].Value.ToString());
+                sumDExp += ((string)item.Cells[12].Value) == "" ? 0 : float.Parse(item.Cells[12].Value.ToString());
+
+            }
+            Total = sumDFixe + sumDMission + sumDHebdo + sumDExp;
+            lblSommeDfix.Text = sumDFixe.ToString();
+            lblSommeDMissions.Text = sumDMission.ToString();
+            lblSommeDHebdo.Text = sumDHebdo.ToString();
+            lblSommeDExceptionnel.Text = sumDExp.ToString();
+            lblTotal.Text = Total.ToString();
+
+        }
         private void RemplirLaGrille()
         {
             dgvCarburant.Rows.Clear();
@@ -67,6 +90,7 @@ namespace ParcAuto.Forms
             cmbChoix.SelectedIndex = 0;
             GLB.StyleDataGridView(dgvCarburant);
             RemplirLaGrille();
+            Total();
         }
 
         private void cmbChoix_SelectedIndexChanged(object sender, EventArgs e)
@@ -106,6 +130,7 @@ namespace ParcAuto.Forms
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             RemplirLaGrille();
+            Total();
         }
 
         private void btnQuitter_Click(object sender, EventArgs e)
@@ -137,6 +162,7 @@ namespace ParcAuto.Forms
                 RemplirLaGrille();
                 dgvCarburant.Rows[dgvCarburant.Rows.Count - 1].Selected = true;
                 dgvCarburant.FirstDisplayedScrollingRowIndex = dgvCarburant.Rows.Count - 1;
+                Total();
             }
             catch (Exception ex)
             {
@@ -148,35 +174,37 @@ namespace ParcAuto.Forms
         {
             try
             {
-                
+                int pos = dgvCarburant.CurrentRow.Index;
+                GLB.id_Carburant = Convert.ToInt32(dgvCarburant.Rows[pos].Cells[13].Value);
+                string Entite = dgvCarburant.Rows[pos].Cells[0].Value.ToString();
+                string Benificiaire = dgvCarburant.Rows[pos].Cells[1].Value.ToString();
+                string vehicules = dgvCarburant.Rows[pos].Cells[2].Value.ToString();
+                string Marque = dgvCarburant.Rows[pos].Cells[3].Value.ToString();
+                DateTime DateOper = DateTime.ParseExact(dgvCarburant.Rows[pos].Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                string lieu = dgvCarburant.Rows[pos].Cells[5].Value.ToString();
+                string KM = dgvCarburant.Rows[pos].Cells[6].Value.ToString();
+                string pourcentage = dgvCarburant.Rows[pos].Cells[7].Value.ToString();
+                string omn = dgvCarburant.Rows[pos].Cells[8].Value.ToString().Substring(0, (dgvCarburant.Rows[pos].Cells[8].Value.ToString().Length != 0 ? dgvCarburant.Rows[pos].Cells[8].Value.ToString().Length - 3 : 0));
+                string Dfix = dgvCarburant.Rows[pos].Cells[9].Value.ToString();
+                string DMiss = dgvCarburant.Rows[pos].Cells[10].Value.ToString();
+                string Dhebdo = dgvCarburant.Rows[pos].Cells[11].Value.ToString();
+                string Dexceptionnel = dgvCarburant.Rows[pos].Cells[12].Value.ToString();
+                string Observation = dgvCarburant.Rows[pos].Cells[14].Value.ToString();
+                MajCarburants maj = new MajCarburants(Entite, Benificiaire, vehicules, Marque, DateOper, lieu, KM, pourcentage, omn, Dfix, DMiss, Dhebdo, Dexceptionnel, Observation);
+                Commandes.Command = Choix.modifier;
+                Commandes.MAJ = TypeCarb.CarburantSNTLPRD;
+                maj.ShowDialog();
+                RemplirLaGrille();
+                dgvCarburant.Rows[pos].Selected = true;
+                dgvCarburant.FirstDisplayedScrollingRowIndex = pos;
+                dgvCarburant.Rows[0].Selected = false;
+                Total();
             }
             catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            int pos = dgvCarburant.CurrentRow.Index;
-            GLB.id_Carburant = Convert.ToInt32(dgvCarburant.Rows[pos].Cells[13].Value);
-            string Entite = dgvCarburant.Rows[pos].Cells[0].Value.ToString();
-            string Benificiaire = dgvCarburant.Rows[pos].Cells[1].Value.ToString();
-            string vehicules = dgvCarburant.Rows[pos].Cells[2].Value.ToString();
-            string Marque = dgvCarburant.Rows[pos].Cells[3].Value.ToString();
-            DateTime DateOper = DateTime.ParseExact(dgvCarburant.Rows[pos].Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-            string lieu = dgvCarburant.Rows[pos].Cells[5].Value.ToString();
-            string KM = dgvCarburant.Rows[pos].Cells[6].Value.ToString();
-            string pourcentage = dgvCarburant.Rows[pos].Cells[7].Value.ToString();
-            string omn = dgvCarburant.Rows[pos].Cells[8].Value.ToString().Substring(0, (dgvCarburant.Rows[pos].Cells[8].Value.ToString().Length != 0 ? dgvCarburant.Rows[pos].Cells[8].Value.ToString().Length - 3 : 0));
-            string Dfix = dgvCarburant.Rows[pos].Cells[9].Value.ToString();
-            string DMiss = dgvCarburant.Rows[pos].Cells[10].Value.ToString();
-            string Dhebdo = dgvCarburant.Rows[pos].Cells[11].Value.ToString();
-            string Dexceptionnel = dgvCarburant.Rows[pos].Cells[12].Value.ToString();
-            string Observation = dgvCarburant.Rows[pos].Cells[14].Value.ToString();
-            MajCarburants maj = new MajCarburants(Entite, Benificiaire, vehicules, Marque, DateOper, lieu, KM, pourcentage, omn, Dfix, DMiss, Dhebdo, Dexceptionnel, Observation);
-            Commandes.Command = Choix.modifier;
-            Commandes.MAJ = TypeCarb.CarburantSNTLPRD;
-            maj.ShowDialog();
-            RemplirLaGrille();
-            dgvCarburant.Rows[pos].Selected = true;
-            dgvCarburant.FirstDisplayedScrollingRowIndex = pos;
+            
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
@@ -194,7 +222,7 @@ namespace ParcAuto.Forms
                 GLB.Cmd.ExecuteNonQuery();
                 GLB.Con.Close();
                 RemplirLaGrille();
-
+                Total();
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -334,7 +362,7 @@ namespace ParcAuto.Forms
                             GLB.Cmd.Parameters.AddWithValue("@DoExp", Dexeptionnelle == "null" ? null : Dexeptionnelle);
                             GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation);
                             GLB.Cmd.ExecuteNonQuery();
-
+                            Total();
                         }
                         else
                         {
@@ -375,6 +403,7 @@ namespace ParcAuto.Forms
                 GLB.Cmd.ExecuteNonQuery();
                 GLB.Con.Close();
                 RemplirLaGrille();
+                Total();
             }
         }
     }
