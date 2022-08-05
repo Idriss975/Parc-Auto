@@ -8,6 +8,7 @@ using System.Data;
 using System.Windows.Forms;
 using System.Drawing.Printing;
 using System.Drawing;
+using System.Text.RegularExpressions;
 
 namespace ParcAuto.Classes_Globale
 {
@@ -156,6 +157,56 @@ namespace ParcAuto.Classes_Globale
             if (!e.HasMorePages)
                 e.Graphics.DrawString(Total, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, e.PageSettings.Bounds.Width - e.Graphics.MeasureString(Total, new Font("Arial", 12, FontStyle.Bold)).Width - 50, StartingRowPosition + 30);
         }
+
+        public static void Filter(Guna.UI2.WinForms.Guna2ComboBox cmbChoix, DataGridView DGV, Guna.UI2.WinForms.Guna2TextBox txtValueToFiltre,string[] ColumnDates, Guna.UI2.WinForms.Guna2DateTimePicker Date1, Guna.UI2.WinForms.Guna2DateTimePicker Date2)
+        {
+            int index=-1;
+            foreach (DataGridViewColumn item in DGV.Columns)
+            {
+                if (item.HeaderText == cmbChoix.Text)
+                {
+                    index = item.Index;
+                    break;
+                }
+            }
+
+
+            if (!(ColumnDates.Contains(cmbChoix.Text)))
+            {
+                for (int i = DGV.Rows.Count - 1; i >= 0; i--)
+                    if (!new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(DGV.Rows[i].Cells[index].Value.ToString().ToLower()))
+                        DGV.Rows.Remove(DGV.Rows[i]);
+            }
+            else
+                for (int i = DGV.Rows.Count - 1; i >= 0; i--)
+                    if (!((Convert.ToDateTime(DGV.Rows[i].Cells[index].Value)).Date >= Date1.Value.Date && (Convert.ToDateTime(DGV.Rows[i].Cells[index].Value)).Date <= Date2.Value.Date))
+                        DGV.Rows.Remove(DGV.Rows[i]);
+            txtValueToFiltre.Text = "";
+        }
+
+        public static void Filter(Guna.UI2.WinForms.Guna2ComboBox cmbChoix, DataGridView DGV, Guna.UI2.WinForms.Guna2TextBox txtValueToFiltre)
+        {
+            int index = -1;
+            foreach (DataGridViewColumn item in DGV.Columns)
+            {
+                if (item.HeaderText == cmbChoix.Text)
+                {
+                    index = item.Index;
+                    break;
+                }
+            }
+
+            for (int i = DGV.Rows.Count - 1; i >= 0; i--)
+                if (!new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(DGV.Rows[i].Cells[index].Value.ToString().ToLower()))
+                    DGV.Rows.Remove(DGV.Rows[i]);
+            
+            txtValueToFiltre.Text = "";
+        }
+
+
+
+
+
 
         private static string longestcellinrow(DataGridView DGV, int Column_index)
         {
