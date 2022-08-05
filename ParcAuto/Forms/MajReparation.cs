@@ -71,7 +71,7 @@ namespace ParcAuto.Forms
                     switch (Commandes.Command)
                     {
                         case Choix.ajouter:
-                            GLB.Cmd.CommandText = "Insert into Reparation values (null,@txtentite, @txtBenificiaire, @cmbVehicule,@txtMat, @Date, @txtObjet, @MontantEntretient, @MontantReparation)";
+                            GLB.Cmd.CommandText = $"Insert into {(Commandes.MAJRep != TypeRep.Reparation ? "ReparationPRDSNTL" : "Reparation")} values (null,@txtentite, @txtBenificiaire, @cmbVehicule,@txtMat, @Date, @txtObjet, @MontantEntretient, @MontantReparation)";
                             GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
                             GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
                             GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.Text);
@@ -82,7 +82,7 @@ namespace ParcAuto.Forms
                             GLB.Cmd.Parameters.AddWithValue("@MontantReparation", MontantReparation == "null" ? null : MontantReparation);
                             break;
                         case Choix.modifier:
-                            GLB.Cmd.CommandText = "update Reparation set Entite = @txtentite, Beneficiaire=@txtBenificiaire, Vehicule=@cmbVehicule, MatriculeV = @txtMat ,Date= @Date, Objet=@txtObjet, Entretien= @MontantEntretient, Reparation=@MontantReparation where id = @ID";
+                            GLB.Cmd.CommandText = $"update {(Commandes.MAJRep != TypeRep.ReparationSNTL ? "ReparationPRDSNTL" : "Reparation")} set Entite = @txtentite, Beneficiaire=@txtBenificiaire, Vehicule=@cmbVehicule, MatriculeV = @txtMat ,Date= @Date, Objet=@txtObjet, Entretien= @MontantEntretient, Reparation=@MontantReparation where id = @ID";
                             GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
                             GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
                             GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.Text);

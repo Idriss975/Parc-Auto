@@ -104,6 +104,7 @@ namespace ParcAuto.Forms
             this.btnSuprimmerTout.Text = "Supprimer Tout";
             this.btnSuprimmerTout.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnSuprimmerTout.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnSuprimmerTout.Click += new System.EventHandler(this.btnSuprimmerTout_Click);
             // 
             // btnImportExcel
             // 
@@ -124,6 +125,7 @@ namespace ParcAuto.Forms
             this.btnImportExcel.Size = new System.Drawing.Size(40, 40);
             this.btnImportExcel.TabIndex = 70;
             this.btnImportExcel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnImportExcel.Click += new System.EventHandler(this.btnImportExcel_Click);
             // 
             // btnExportExcel
             // 
@@ -144,6 +146,7 @@ namespace ParcAuto.Forms
             this.btnExportExcel.Size = new System.Drawing.Size(40, 40);
             this.btnExportExcel.TabIndex = 69;
             this.btnExportExcel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
             // panelDate
             // 
@@ -299,6 +302,7 @@ namespace ParcAuto.Forms
             this.btnRefresh.Size = new System.Drawing.Size(40, 40);
             this.btnRefresh.TabIndex = 65;
             this.btnRefresh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // cmbChoix
             // 
@@ -357,6 +361,7 @@ namespace ParcAuto.Forms
             this.btnQuitter.Size = new System.Drawing.Size(40, 40);
             this.btnQuitter.TabIndex = 58;
             this.btnQuitter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
             // btnAjouter
             // 
