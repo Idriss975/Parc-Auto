@@ -46,11 +46,26 @@ namespace ParcAuto.Forms
            
 
         }
-
+        private void Total()
+        {
+            float sommeFixe = 0;
+            float sommeAutre = 0;
+            float Total = 0;
+            foreach (DataGridViewRow item in dgvCarteFree.Rows)
+            {
+                sommeFixe += ((string)item.Cells[2].Value) == "" ? 0 : float.Parse(item.Cells[2].Value.ToString());
+                sommeAutre += ((string)item.Cells[3].Value) == "" ? 0 : float.Parse(item.Cells[3].Value.ToString());
+            }
+            Total = sommeAutre + sommeFixe;
+            lblSommeFixe.Text = sommeFixe.ToString();
+            lblSommeAutre.Text = sommeAutre.ToString();
+            lblTotal.Text = Total.ToString();
+        }
         private void CarteFree_Load(object sender, EventArgs e)
         {
             GLB.StyleDataGridView(dgvCarteFree);
             RemplirLaGrille();
+            Total();
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
@@ -63,6 +78,7 @@ namespace ParcAuto.Forms
                 RemplirLaGrille();
                 dgvCarteFree.Rows[dgvCarteFree.Rows.Count - 1].Selected = true;
                 dgvCarteFree.FirstDisplayedScrollingRowIndex = dgvCarteFree.Rows.Count - 1;
+                Total();
             }
             catch (Exception ex)
             {
@@ -88,6 +104,7 @@ namespace ParcAuto.Forms
                 RemplirLaGrille();
                 dgvCarteFree.Rows[pos].Selected = true;
                 dgvCarteFree.FirstDisplayedScrollingRowIndex = pos;
+                Total();
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -111,6 +128,7 @@ namespace ParcAuto.Forms
                 GLB.Cmd.ExecuteNonQuery();
                 GLB.Con.Close();
                 RemplirLaGrille();
+                Total();
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -133,6 +151,7 @@ namespace ParcAuto.Forms
                 GLB.Cmd.ExecuteNonQuery();
                 GLB.Con.Close();
                 RemplirLaGrille();
+                Total();
             }
         }
 
@@ -144,6 +163,7 @@ namespace ParcAuto.Forms
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             RemplirLaGrille();
+            Total();
         }
 
         private void btnExportExcel_Click(object sender, EventArgs e)
@@ -242,7 +262,7 @@ namespace ParcAuto.Forms
                             GLB.Cmd.Parameters.AddWithValue("@Fixe", Fixe == "null" ? null : Fixe);
                             GLB.Cmd.Parameters.AddWithValue("@objet", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
                             GLB.Cmd.ExecuteNonQuery();
-
+                            Total();
                         }
                         else
                         {
