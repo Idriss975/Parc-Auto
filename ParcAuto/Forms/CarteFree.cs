@@ -94,13 +94,10 @@ namespace ParcAuto.Forms
             {
                 GLB.id_CarteFree = Convert.ToInt32(dgvCarteFree.Rows[pos].Cells[0].Value);
                 Commandes.Command = Choix.modifier;
-                
-                string entite = dgvCarteFree.Rows[pos].Cells[1].Value.ToString();
-                string Fixe = dgvCarteFree.Rows[pos].Cells[2].Value.ToString();
-                string autre = dgvCarteFree.Rows[pos].Cells[3].Value.ToString();
-                string objet = dgvCarteFree.Rows[pos].Cells[4].Value.ToString();
-                MajCarteFree maj = new MajCarteFree(entite,Fixe,autre,objet);
-                maj.ShowDialog();
+                (new MajCarteFree(dgvCarteFree.Rows[pos].Cells[1].Value.ToString(),
+                    dgvCarteFree.Rows[pos].Cells[2].Value.ToString(),
+                    dgvCarteFree.Rows[pos].Cells[3].Value.ToString(),
+                    dgvCarteFree.Rows[pos].Cells[4].Value.ToString())).ShowDialog();
                 RemplirLaGrille();
                 dgvCarteFree.Rows[pos].Selected = true;
                 dgvCarteFree.FirstDisplayedScrollingRowIndex = pos;

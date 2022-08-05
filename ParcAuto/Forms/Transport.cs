@@ -94,16 +94,14 @@ namespace ParcAuto.Forms
             try
             {
                 GLB.id_Transport = Convert.ToInt32(dgvTransport.Rows[pos].Cells[0].Value);
-                string Entite = dgvTransport.Rows[pos].Cells[1].Value.ToString();
-                string Benificiaire = dgvTransport.Rows[pos].Cells[2].Value.ToString();
-                string N_BON_email = dgvTransport.Rows[pos].Cells[3].Value.ToString();
-                DateTime DateMission = DateTime.ParseExact(dgvTransport.Rows[pos].Cells[4].Value.ToString(), "d/M/yyyy",System.Globalization.CultureInfo.InvariantCulture);
-                string destination = dgvTransport.Rows[pos].Cells[5].Value.ToString();
-                string type_utilisation = dgvTransport.Rows[pos].Cells[6].Value.ToString();
-                string prix = dgvTransport.Rows[pos].Cells[7].Value.ToString();
-                MajTransport maj = new MajTransport(Entite, Benificiaire, N_BON_email, DateMission, destination, type_utilisation, prix);
                 Commandes.Command = Choix.modifier;
-                maj.ShowDialog();
+                (new MajTransport(dgvTransport.Rows[pos].Cells[1].Value.ToString(),
+                    dgvTransport.Rows[pos].Cells[2].Value.ToString(),
+                    dgvTransport.Rows[pos].Cells[3].Value.ToString(),
+                    DateTime.ParseExact(dgvTransport.Rows[pos].Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                    dgvTransport.Rows[pos].Cells[5].Value.ToString(),
+                    dgvTransport.Rows[pos].Cells[6].Value.ToString(),
+                    dgvTransport.Rows[pos].Cells[7].Value.ToString())).ShowDialog();
                 RemplirdgvTransport();
                 dgvTransport.Rows[pos].Selected = true;
                 dgvTransport.FirstDisplayedScrollingRowIndex = pos;

@@ -85,18 +85,16 @@ namespace ParcAuto.Forms
             try
             {
                 GLB.Matricule = Convert.ToInt32(dgvconducteur.Rows[pos].Cells[0].Value);
-                string Nom = dgvconducteur.Rows[pos].Cells[1].Value.ToString() ;
-                string Prenom= dgvconducteur.Rows[pos].Cells[2].Value.ToString();
-                DateTime DateNaiss = DateTime.ParseExact(dgvconducteur.Rows[pos].Cells[3].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                DateTime DateEmbauche = DateTime.ParseExact(dgvconducteur.Rows[pos].Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                string NumPermis = dgvconducteur.Rows[pos].Cells[5].Value.ToString();
-                string Adresse  = dgvconducteur.Rows[pos].Cells[6].Value.ToString();
-                string Direction = dgvconducteur.Rows[pos].Cells[7].Value.ToString();
-                string Tel = dgvconducteur.Rows[pos].Cells[8].Value.ToString();
-                string Email = dgvconducteur.Rows[pos].Cells[9].Value.ToString();    
-                MAJConducteur maj = new MAJConducteur(Nom,Prenom,DateNaiss,DateEmbauche,NumPermis,Adresse,Direction,Tel,Email);
                 Commandes.Command = Choix.modifier;
-                maj.ShowDialog();
+                (new MAJConducteur(dgvconducteur.Rows[pos].Cells[1].Value.ToString(),
+                    dgvconducteur.Rows[pos].Cells[2].Value.ToString(),
+                     DateTime.ParseExact(dgvconducteur.Rows[pos].Cells[3].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                      DateTime.ParseExact(dgvconducteur.Rows[pos].Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                       dgvconducteur.Rows[pos].Cells[5].Value.ToString(),
+                        dgvconducteur.Rows[pos].Cells[6].Value.ToString(),
+                         dgvconducteur.Rows[pos].Cells[7].Value.ToString(),
+                          dgvconducteur.Rows[pos].Cells[8].Value.ToString(),
+                           dgvconducteur.Rows[pos].Cells[9].Value.ToString())).ShowDialog();
                 RemplirLaGrille();
                 dgvconducteur.Rows[pos].Selected = true;
                 dgvconducteur.FirstDisplayedScrollingRowIndex = pos;

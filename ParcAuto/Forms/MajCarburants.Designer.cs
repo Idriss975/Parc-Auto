@@ -764,9 +764,9 @@ namespace ParcAuto.Forms
             this.label9.Location = new System.Drawing.Point(0, 163);
             this.label9.Margin = new System.Windows.Forms.Padding(0, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(97, 17);
+            this.label9.Size = new System.Drawing.Size(125, 17);
             this.label9.TabIndex = 16;
-            this.label9.Text = "Pourcentage :";
+            this.label9.Text = "Consommation % :";
             // 
             // txtpourcentage
             // 

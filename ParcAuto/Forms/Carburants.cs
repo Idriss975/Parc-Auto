@@ -152,24 +152,22 @@ namespace ParcAuto.Forms
             {
                 int pos = dgvCarburant.CurrentRow.Index;
                 GLB.id_Carburant = Convert.ToInt32(dgvCarburant.Rows[pos].Cells[13].Value);
-                string Entite = dgvCarburant.Rows[pos].Cells[0].Value.ToString();
-                string Benificiaire = dgvCarburant.Rows[pos].Cells[1].Value.ToString();
-                string vehicules = dgvCarburant.Rows[pos].Cells[2].Value.ToString();
-                string Marque = dgvCarburant.Rows[pos].Cells[3].Value.ToString();
-                DateTime DateOper = DateTime.ParseExact(dgvCarburant.Rows[pos].Cells[4].Value.ToString(),"d/M/yyyy",System.Globalization.CultureInfo.InvariantCulture); 
-                string lieu = dgvCarburant.Rows[pos].Cells[5].Value.ToString();
-                string KM = dgvCarburant.Rows[pos].Cells[6].Value.ToString();
-                string pourcentage = dgvCarburant.Rows[pos].Cells[7].Value.ToString();
-                string omn = dgvCarburant.Rows[pos].Cells[8].Value.ToString().Substring(0, dgvCarburant.Rows[pos].Cells[8].Value.ToString().Length - 3);
-                string Dfix = dgvCarburant.Rows[pos].Cells[9].Value.ToString();
-                string DMiss = dgvCarburant.Rows[pos].Cells[10].Value.ToString();
-                string Dhebdo = dgvCarburant.Rows[pos].Cells[11].Value.ToString();
-                string Dexceptionnel = dgvCarburant.Rows[pos].Cells[12].Value.ToString();
-                string Observation = dgvCarburant.Rows[pos].Cells[14].Value.ToString();
-                MajCarburants maj = new MajCarburants(Entite, Benificiaire, vehicules, Marque, DateOper, lieu,KM,pourcentage, omn, Dfix, DMiss, Dhebdo, Dexceptionnel, Observation);
                 Commandes.Command = Choix.modifier;
                 Commandes.MAJ = TypeCarb.Carburant;
-                maj.ShowDialog();
+                (new MajCarburants(dgvCarburant.Rows[pos].Cells[0].Value.ToString(),
+                    dgvCarburant.Rows[pos].Cells[1].Value.ToString(),
+                    dgvCarburant.Rows[pos].Cells[2].Value.ToString(),
+                    dgvCarburant.Rows[pos].Cells[3].Value.ToString(),
+                    DateTime.ParseExact(dgvCarburant.Rows[pos].Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                    dgvCarburant.Rows[pos].Cells[5].Value.ToString(),
+                    dgvCarburant.Rows[pos].Cells[6].Value.ToString(),
+                    dgvCarburant.Rows[pos].Cells[7].Value.ToString(),
+                    dgvCarburant.Rows[pos].Cells[8].Value.ToString().Substring(0, (dgvCarburant.Rows[pos].Cells[8].Value.ToString().Length != 0 ? dgvCarburant.Rows[pos].Cells[8].Value.ToString().Length - 3 : 0)),
+                    dgvCarburant.Rows[pos].Cells[9].Value.ToString(),
+                    dgvCarburant.Rows[pos].Cells[10].Value.ToString(),
+                    dgvCarburant.Rows[pos].Cells[11].Value.ToString(),
+                    dgvCarburant.Rows[pos].Cells[12].Value.ToString(),
+                    dgvCarburant.Rows[pos].Cells[14].Value.ToString())).ShowDialog();
                 RemplirLaGrille();
                 dgvCarburant.Rows[pos].Selected = true;
                 dgvCarburant.FirstDisplayedScrollingRowIndex = pos;

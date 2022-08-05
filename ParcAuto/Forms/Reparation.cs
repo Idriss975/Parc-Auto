@@ -123,19 +123,15 @@ namespace ParcAuto.Forms
             try
             {
                 GLB.id_Reparation = Convert.ToInt32(dgvReparation.Rows[pos].Cells[0].Value);
-                string entite = dgvReparation.Rows[pos].Cells[1].Value.ToString();
-                string benificiaire = dgvReparation.Rows[pos].Cells[2].Value.ToString();
-                string vehicule = dgvReparation.Rows[pos].Cells[3].Value.ToString();
-                string MatriculeV = dgvReparation.Rows[pos].Cells[4].Value.ToString(); ;
-                DateTime Date = DateTime.ParseExact(dgvReparation.Rows[pos].Cells[5].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                string objet = dgvReparation.Rows[pos].Cells[6].Value.ToString();
-                string entretien = dgvReparation.Rows[pos].Cells[7].Value.ToString();
-                string reparation = dgvReparation.Rows[pos].Cells[8].Value.ToString();
-
-                MajReparation maj = new MajReparation(entite, benificiaire, vehicule, MatriculeV, Date, objet, entretien, reparation);
                 Commandes.Command = Choix.modifier;
                 Commandes.MAJRep = TypeRep.Reparation;
-                maj.ShowDialog();
+                (new MajReparation(dgvReparation.Rows[pos].Cells[1].Value.ToString(),
+                    dgvReparation.Rows[pos].Cells[2].Value.ToString(),
+                    dgvReparation.Rows[pos].Cells[3].Value.ToString(),
+                     dgvReparation.Rows[pos].Cells[4].Value.ToString(),
+                      DateTime.ParseExact(dgvReparation.Rows[pos].Cells[5].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                      dgvReparation.Rows[pos].Cells[6].Value.ToString(),
+                      dgvReparation.Rows[pos].Cells[7].Value.ToString(), dgvReparation.Rows[pos].Cells[8].Value.ToString())).ShowDialog();
                 datagridviewLoad();
                 dgvReparation.Rows[pos].Selected = true;
                 dgvReparation.FirstDisplayedScrollingRowIndex = pos;

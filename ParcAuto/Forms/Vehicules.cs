@@ -73,18 +73,19 @@ namespace ParcAuto.Forms
             int pos = dgvVehicules.CurrentRow.Index;
             try
             {
+
                 GLB.Matricule_Voiture = dgvVehicules.Rows[pos].Cells[1].Value.ToString();
-                string Marque = dgvVehicules.Rows[pos].Cells[0].Value.ToString();
-                DateTime MiseEncirculation = DateTime.ParseExact(dgvVehicules.Rows[pos].Cells[2].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                string Type = dgvVehicules.Rows[pos].Cells[3].Value.ToString();
-                string Carburant = dgvVehicules.Rows[pos].Cells[5].Value.ToString();
-                string Affectation = dgvVehicules.Rows[pos].Cells[6].Value.ToString();
-                string Conducteur = dgvVehicules.Rows[pos].Cells[7].Value.ToString(); 
-                string decision_nomination = dgvVehicules.Rows[pos].Cells[8].Value.ToString();
-                string Observation = dgvVehicules.Rows[pos].Cells[9].Value.ToString();
-                MajVehicules maj = new MajVehicules(Marque, MiseEncirculation,Type , Carburant,Affectation,Conducteur, decision_nomination, Observation,this) ;
                 Commandes.Command = Choix.modifier;
-                maj.ShowDialog();
+                (new MajVehicules(
+                   dgvVehicules.Rows[pos].Cells[0].Value.ToString(),
+                   DateTime.ParseExact(dgvVehicules.Rows[pos].Cells[2].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                   dgvVehicules.Rows[pos].Cells[3].Value.ToString(),
+                   dgvVehicules.Rows[pos].Cells[5].Value.ToString(),
+                   dgvVehicules.Rows[pos].Cells[6].Value.ToString(),
+                   dgvVehicules.Rows[pos].Cells[7].Value.ToString(),
+                   dgvVehicules.Rows[pos].Cells[8].Value.ToString(),
+                   dgvVehicules.Rows[pos].Cells[9].Value.ToString(),this)).ShowDialog();
+                
                 RemplirLaGrille();
                 dgvVehicules.Rows[pos].Selected = true;
                 dgvVehicules.FirstDisplayedScrollingRowIndex = pos;

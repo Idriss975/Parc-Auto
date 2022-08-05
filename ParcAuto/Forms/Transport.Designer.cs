@@ -636,9 +636,9 @@ namespace ParcAuto.Forms
             this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label8.Location = new System.Drawing.Point(215, 7);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 21);
+            this.label8.Size = new System.Drawing.Size(61, 21);
             this.label8.TabIndex = 2;
-            this.label8.Text = "Fixe : ";
+            this.label8.Text = "Total : ";
             // 
             // panel1
             // 
