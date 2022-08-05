@@ -42,18 +42,7 @@ namespace ParcAuto.Forms
 
         private void btnFiltrer_Click(object sender, EventArgs e)
         {
-            if (!(cmbChoix.SelectedIndex == 2))
-            {
-                for (int i = dgvVehicules.Rows.Count - 1; i >= 0; i--)
-                {
-                    if (!(new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(dgvVehicules.Rows[i].Cells[cmbChoix.SelectedIndex].Value.ToString().ToLower())))
-                        dgvVehicules.Rows.Remove(dgvVehicules.Rows[i]);
-                }
-            }
-            else
-                for (int i = dgvVehicules.Rows.Count - 1; i >= 0; i--)
-                    if (!((Convert.ToDateTime(dgvVehicules.Rows[i].Cells[cmbChoix.SelectedIndex].Value)).Date >= Date1.Value.Date && (Convert.ToDateTime(dgvVehicules.Rows[i].Cells[cmbChoix.SelectedIndex].Value)).Date <= Date2.Value.Date))
-                        dgvVehicules.Rows.Remove(dgvVehicules.Rows[i]);
+            GLB.Filter(cmbChoix, dgvVehicules, txtValueToFiltre, new string[] { "Mise En Circulation" }, Date1, Date2);
         }
 
         private void cmbChoix_SelectedIndexChanged(object sender, EventArgs e)
