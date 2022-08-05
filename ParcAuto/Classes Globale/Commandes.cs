@@ -17,9 +17,15 @@ namespace ParcAuto.Classes_Globale
         Carburant,
         CarburantSNTLPRD
     }
+    public enum TypeRep
+    {
+        Reparation,
+        ReparationSNTL
+    }
     public class Commandes
     {
         public static Choix Command = Choix.ajouter;
         public static TypeCarb MAJ = TypeCarb.Carburant;
+        public static TypeRep MAJRep = TypeRep.Reparation;
     }
 }

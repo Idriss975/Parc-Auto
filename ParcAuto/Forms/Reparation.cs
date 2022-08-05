@@ -51,6 +51,21 @@ namespace ParcAuto.Forms
             GLB.Con.Close();
             this.Close();
         }
+        private void Total()
+        {
+            float sommeEntretien = 0;
+            float sommeReparation = 0;
+            float Total = 0;
+            foreach (DataGridViewRow item in dgvReparation.Rows)
+            {
+                sommeEntretien += ((string)item.Cells[7].Value) == "" ? 0 : float.Parse(item.Cells[7].Value.ToString());
+                sommeReparation += ((string)item.Cells[8].Value) == "" ? 0 : float.Parse(item.Cells[8].Value.ToString());
+            }
+            Total = sommeReparation + sommeEntretien;
+            lblSommeEntretien.Text = sommeEntretien.ToString();
+            lblSommeReparation.Text = sommeReparation.ToString();
+            lblTotal.Text = Total.ToString();
+        }
         private void Reparation_Load(object sender, EventArgs e)
         {
             panelDate.Visible = false;
@@ -85,6 +100,7 @@ namespace ParcAuto.Forms
             {
                 MajReparation rep = new MajReparation();
                 Commandes.Command = Choix.ajouter;
+                Commandes.MAJRep = TypeRep.Reparation;
                 rep.ShowDialog();
                 datagridviewLoad();
                 dgvReparation.Rows[dgvReparation.Rows.Count - 1].Selected = true;
@@ -100,21 +116,7 @@ namespace ParcAuto.Forms
           
 
         }
-        private void Total()
-        {
-            float sommeEntretien = 0;
-            float sommeReparation = 0;
-            float Total = 0;
-            foreach (DataGridViewRow item in dgvReparation.Rows)
-            {
-                sommeEntretien += ((string)item.Cells[7].Value) == "" ? 0 : float.Parse(item.Cells[7].Value.ToString());
-                sommeReparation += ((string)item.Cells[8].Value) == "" ? 0 : float.Parse(item.Cells[8].Value.ToString());
-            }
-            Total = sommeReparation + sommeEntretien;
-            lblSommeEntretien.Text = sommeEntretien.ToString();
-            lblSommeReparation.Text = sommeReparation.ToString();
-            lblTotal.Text = Total.ToString();
-        }
+        
         private void btnModifier_Click(object sender, EventArgs e)
         {
             int pos = dgvReparation.CurrentRow.Index;
@@ -132,6 +134,7 @@ namespace ParcAuto.Forms
 
                 MajReparation maj = new MajReparation(entite, benificiaire, vehicule, MatriculeV, Date, objet, entretien, reparation);
                 Commandes.Command = Choix.modifier;
+                Commandes.MAJRep = TypeRep.Reparation;
                 maj.ShowDialog();
                 datagridviewLoad();
                 dgvReparation.Rows[pos].Selected = true;
