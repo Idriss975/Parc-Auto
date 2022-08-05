@@ -123,7 +123,7 @@ namespace ParcAuto.Forms
                         break;
                     case Choix.modifier:
 
-                        GLB.Cmd.CommandText = $"update {(Source.GetType().Name == "Vehicules" ? "Vehicules" : "VehiculesPRD")} set  Marque=@txtMarque, {(Source.GetType().Name == "Vehicules" ? "Type=@cmbType," : "")}, MiseEnCirculation=@dateMiseEnCirculation, Carburant=@txtCarburant, Observation=@txtObservation,decision_nomination = @txtDnomination, Conducteur=@TempMatricule , affectation = @txtAffectation where Matricule=@Matricule";
+                        GLB.Cmd.CommandText = $"update {(Source.GetType().Name == "Vehicules" ? "Vehicules" : "VehiculesPRD")} set  Marque=@txtMarque, {(Source.GetType().Name == "Vehicules" ? "Type=@cmbType," : "")}Fix Bug  MiseEnCirculation=@dateMiseEnCirculation, Carburant=@txtCarburant, Observation=@txtObservation,decision_nomination = @txtDnomination, Conducteur=@TempMatricule , affectation = @txtAffectation where Matricule=@Matricule";
                         GLB.Cmd.Parameters.AddWithValue("@txtMarque", txtMarque.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtAffectation", txtAffectation.Text);
                         GLB.Cmd.Parameters.AddWithValue("@dateMiseEnCirculation", dateMiseEnCirculation.Value.ToString("yyyy-MM-dd"));
