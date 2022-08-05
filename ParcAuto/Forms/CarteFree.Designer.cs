@@ -56,8 +56,25 @@ namespace ParcAuto.Forms
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.PanelTautaux = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.lblSommeReparation = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblSommeEntretien = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.TextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarteFree)).BeginInit();
+            this.PanelTautaux.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSuprimmerTout
@@ -383,7 +400,7 @@ namespace ParcAuto.Forms
             this.dgvCarteFree.RowHeadersVisible = false;
             this.dgvCarteFree.RowHeadersWidth = 62;
             this.dgvCarteFree.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCarteFree.Size = new System.Drawing.Size(1109, 500);
+            this.dgvCarteFree.Size = new System.Drawing.Size(1109, 423);
             this.dgvCarteFree.TabIndex = 58;
             // 
             // Column1
@@ -444,11 +461,157 @@ namespace ParcAuto.Forms
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "OFPPT_logo.png");
             // 
+            // PanelTautaux
+            // 
+            this.PanelTautaux.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PanelTautaux.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(203)))), ((int)(((byte)(173)))));
+            this.PanelTautaux.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanelTautaux.Controls.Add(this.label11);
+            this.PanelTautaux.Controls.Add(this.lblTotal);
+            this.PanelTautaux.Controls.Add(this.panel2);
+            this.PanelTautaux.Controls.Add(this.panel1);
+            this.PanelTautaux.Location = new System.Drawing.Point(12, 534);
+            this.PanelTautaux.Name = "PanelTautaux";
+            this.PanelTautaux.Size = new System.Drawing.Size(1087, 86);
+            this.PanelTautaux.TabIndex = 72;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label11.Location = new System.Drawing.Point(753, 52);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(61, 21);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Total : ";
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblTotal.Location = new System.Drawing.Point(820, 49);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(72, 27);
+            this.lblTotal.TabIndex = 2;
+            this.lblTotal.Text = "10000";
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Location = new System.Drawing.Point(558, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(529, 41);
+            this.panel2.TabIndex = 1;
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.lblSommeReparation);
+            this.panel4.Controls.Add(this.label8);
+            this.panel4.Location = new System.Drawing.Point(260, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(269, 41);
+            this.panel4.TabIndex = 59;
+            // 
+            // lblSommeReparation
+            // 
+            this.lblSommeReparation.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblSommeReparation.AutoSize = true;
+            this.lblSommeReparation.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSommeReparation.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblSommeReparation.Location = new System.Drawing.Point(150, 11);
+            this.lblSommeReparation.Name = "lblSommeReparation";
+            this.lblSommeReparation.Size = new System.Drawing.Size(55, 21);
+            this.lblSommeReparation.TabIndex = 3;
+            this.lblSommeReparation.Text = "10000";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label8.Location = new System.Drawing.Point(52, 10);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(106, 21);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Reparation : ";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.lblSommeEntretien);
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(269, 41);
+            this.panel3.TabIndex = 0;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label7.Location = new System.Drawing.Point(60, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 21);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Fixe : ";
+            // 
+            // lblSommeEntretien
+            // 
+            this.lblSommeEntretien.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblSommeEntretien.AutoSize = true;
+            this.lblSommeEntretien.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSommeEntretien.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblSommeEntretien.Location = new System.Drawing.Point(110, 9);
+            this.lblSommeEntretien.Name = "lblSommeEntretien";
+            this.lblSommeEntretien.Size = new System.Drawing.Size(55, 21);
+            this.lblSommeEntretien.TabIndex = 0;
+            this.lblSommeEntretien.Text = "10000";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(558, 84);
+            this.panel1.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(175, 29);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(209, 26);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Consommation Total";
+            // 
             // CarteFree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 669);
+            this.Controls.Add(this.PanelTautaux);
             this.Controls.Add(this.btnSuprimmerTout);
             this.Controls.Add(this.btnImprimer);
             this.Controls.Add(this.btnImportExcel);
@@ -471,6 +634,15 @@ namespace ParcAuto.Forms
             this.TextPanel.ResumeLayout(false);
             this.TextPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarteFree)).EndInit();
+            this.PanelTautaux.ResumeLayout(false);
+            this.PanelTautaux.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -503,5 +675,17 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Panel PanelTautaux;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label lblSommeReparation;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblSommeEntretien;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label5;
     }
 }

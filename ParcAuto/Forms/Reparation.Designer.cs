@@ -72,6 +72,7 @@ namespace ParcAuto.Forms
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReparation)).BeginInit();
@@ -80,6 +81,7 @@ namespace ParcAuto.Forms
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelDate
@@ -535,8 +537,8 @@ namespace ParcAuto.Forms
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.panel3);
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.tableLayoutPanel1);
             this.panel2.Location = new System.Drawing.Point(558, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(529, 41);
@@ -544,15 +546,14 @@ namespace ParcAuto.Forms
             // 
             // panel4
             // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.lblSommeReparation);
             this.panel4.Controls.Add(this.label8);
-            this.panel4.Location = new System.Drawing.Point(260, 0);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(269, 41);
+            this.panel4.Size = new System.Drawing.Size(257, 33);
             this.panel4.TabIndex = 59;
             // 
             // lblSommeReparation
@@ -561,7 +562,7 @@ namespace ParcAuto.Forms
             this.lblSommeReparation.AutoSize = true;
             this.lblSommeReparation.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSommeReparation.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblSommeReparation.Location = new System.Drawing.Point(150, 11);
+            this.lblSommeReparation.Location = new System.Drawing.Point(144, 7);
             this.lblSommeReparation.Name = "lblSommeReparation";
             this.lblSommeReparation.Size = new System.Drawing.Size(55, 21);
             this.lblSommeReparation.TabIndex = 3;
@@ -573,7 +574,7 @@ namespace ParcAuto.Forms
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label8.Location = new System.Drawing.Point(52, 10);
+            this.label8.Location = new System.Drawing.Point(46, 6);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(106, 21);
             this.label8.TabIndex = 2;
@@ -585,9 +586,10 @@ namespace ParcAuto.Forms
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.lblSommeEntretien);
-            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(266, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(269, 41);
+            this.panel3.Size = new System.Drawing.Size(258, 33);
             this.panel3.TabIndex = 0;
             // 
             // label7
@@ -596,7 +598,7 @@ namespace ParcAuto.Forms
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(60, 9);
+            this.label7.Location = new System.Drawing.Point(55, 5);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(92, 21);
             this.label7.TabIndex = 1;
@@ -608,7 +610,7 @@ namespace ParcAuto.Forms
             this.lblSommeEntretien.AutoSize = true;
             this.lblSommeEntretien.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSommeEntretien.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblSommeEntretien.Location = new System.Drawing.Point(158, 9);
+            this.lblSommeEntretien.Location = new System.Drawing.Point(153, 5);
             this.lblSommeEntretien.Name = "lblSommeEntretien";
             this.lblSommeEntretien.Size = new System.Drawing.Size(55, 21);
             this.lblSommeEntretien.TabIndex = 0;
@@ -647,6 +649,22 @@ namespace ParcAuto.Forms
             this.label11.Size = new System.Drawing.Size(61, 21);
             this.label11.TabIndex = 2;
             this.label11.Text = "Total : ";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel3, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(527, 39);
+            this.tableLayoutPanel1.TabIndex = 60;
             // 
             // Reparation
             // 
@@ -687,6 +705,7 @@ namespace ParcAuto.Forms
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -736,5 +755,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }
