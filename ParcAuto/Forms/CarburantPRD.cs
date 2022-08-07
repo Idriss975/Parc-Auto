@@ -164,6 +164,7 @@ namespace ParcAuto.Forms
             try
             {
                 int pos = dgvCarburant.CurrentRow.Index;
+                GLB.id_Carburant = int.Parse(dgvCarburant.Rows[pos].Cells[13].Value.ToString());
                 Commandes.Command = Choix.modifier;
                 Commandes.MAJ = TypeCarb.CarburantSNTLPRD;
                 (new MajCarburants(dgvCarburant.Rows[pos].Cells[0].Value.ToString(),
