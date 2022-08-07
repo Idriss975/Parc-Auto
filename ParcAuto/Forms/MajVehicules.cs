@@ -110,7 +110,7 @@ namespace ParcAuto.Forms
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
-                        GLB.Cmd.CommandText = $"insert into {(Source.GetType().Name == "Vehicules" || Source.GetType().Name == "Vehicules_Location" || Source.GetType().Name == "Vehicules_MRouge" ? "Vehicules" : "VehiculesPRD")} values (@txtMarque, @txtMatricule, @dateMiseEnCirculation, {(Source.GetType().Name != "Vehicules" ? "" : "@cmbType,")} @txtCarburant, @txtAffectation, @TempMatricule,@txtDnomination,@txtObservation)";
+                        GLB.Cmd.CommandText = $"insert into {(Source.GetType().Name == "Vehicules" || Source.GetType().Name == "Vehicules_Location" || Source.GetType().Name == "Vehicules_MRouge" ? "Vehicules" : "VehiculesPRD")} values (@txtMarque, @txtMatricule, @dateMiseEnCirculation, {(Source.GetType().Name == "Vehicules" || Source.GetType().Name == "Vehicules_Location" || Source.GetType().Name == "Vehicules_MRouge" ? "@cmbType," : "")} @txtCarburant, @txtAffectation, @TempMatricule,@txtDnomination,@txtObservation)";
                         GLB.Cmd.Parameters.AddWithValue("@txtMarque", txtMarque.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtMatricule", txtMatricule.Text);
                         GLB.Cmd.Parameters.AddWithValue("@dateMiseEnCirculation", dateMiseEnCirculation.Value.ToString("yyyy-MM-dd"));
@@ -123,7 +123,7 @@ namespace ParcAuto.Forms
                         break;
                     case Choix.modifier:
 
-                        GLB.Cmd.CommandText = $"update {(Source.GetType().Name == "Vehicules" || Source.GetType().Name == "Vehicules_Location" || Source.GetType().Name == "Vehicules_MRouge" ? "Vehicules" : "VehiculesPRD")} set  Marque=@txtMarque, {(Source.GetType().Name != "Vehicules" ? "" : "Type=@cmbType,")} MiseEnCirculation=@dateMiseEnCirculation, Carburant=@txtCarburant, Observation=@txtObservation,decision_nomination = @txtDnomination, Conducteur=@TempMatricule , affectation = @txtAffectation where Matricule=@Matricule";
+                        GLB.Cmd.CommandText = $"update {(Source.GetType().Name == "Vehicules" || Source.GetType().Name == "Vehicules_Location" || Source.GetType().Name == "Vehicules_MRouge" ? "Vehicules" : "VehiculesPRD")} set  Marque=@txtMarque, {(Source.GetType().Name == "Vehicules" || Source.GetType().Name == "Vehicules_Location" || Source.GetType().Name == "Vehicules_MRouge" ? "Type=@cmbType," : "")} MiseEnCirculation=@dateMiseEnCirculation, Carburant=@txtCarburant, Observation=@txtObservation,decision_nomination = @txtDnomination, Conducteur=@TempMatricule , affectation = @txtAffectation where Matricule=@Matricule";
                         GLB.Cmd.Parameters.AddWithValue("@txtMarque", txtMarque.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtAffectation", txtAffectation.Text);
                         GLB.Cmd.Parameters.AddWithValue("@dateMiseEnCirculation", dateMiseEnCirculation.Value.ToString("yyyy-MM-dd"));
