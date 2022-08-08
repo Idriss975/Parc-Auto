@@ -117,7 +117,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@txtCarburant", txtCarburant.Text);
                         if (Source.GetType().Name != "VehiculesPRD") GLB.Cmd.Parameters.AddWithValue("@cmbType", cmbType.SelectedItem);
                         GLB.Cmd.Parameters.AddWithValue("@txtAffectation", txtAffectation.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@TempMatricule", cmbConducteur.SelectedItem);
+                        GLB.Cmd.Parameters.AddWithValue("@TempMatricule", (Source.GetType().Name == "VehiculesPRD" ? cmbConducteur.SelectedItem : ((CmbMatNom)cmbConducteur.SelectedItem).Matricule));
                         GLB.Cmd.Parameters.AddWithValue("@txtDnomination", txtDnomination.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtObservation", txtObservation.Text);
                         break;
@@ -130,7 +130,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@txtCarburant", txtCarburant.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtObservation", txtObservation.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtDnomination", txtDnomination.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@TempMatricule", cmbConducteur.SelectedItem);
+                        GLB.Cmd.Parameters.AddWithValue("@TempMatricule", (Source.GetType().Name == "VehiculesPRD" ? cmbConducteur.SelectedItem : ((CmbMatNom)cmbConducteur.SelectedItem).Matricule));
                         GLB.Cmd.Parameters.AddWithValue("@Matricule", GLB.Matricule_Voiture);
                         if (Source.GetType().Name != "VehiculesPRD") GLB.Cmd.Parameters.AddWithValue("@cmbType", cmbType.SelectedItem);
                         break;
