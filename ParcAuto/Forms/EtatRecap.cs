@@ -17,18 +17,75 @@ namespace ParcAuto.Forms
         {
             InitializeComponent();
         }
-
-        private void EtatRecap_Load(object sender, EventArgs e)
+        private void ConsommationcarburantSNTL()
         {
-            //Les Consommation des Cartes Free
+            GLB.Cmd.CommandText = $"select Report,Achat from EtatRecapCarburantSNTL where Annee = {DateTime.Now.Year}";
+            GLB.Con.Open();
+            GLB.dr = GLB.Cmd.ExecuteReader();
+            if (GLB.dr.Read())
+            {
+                ReportCarbSNTL.Text = String.Format("{0:0.00}", GLB.dr[0]);
+                AchatCarbSNTL.Text = String.Format("{0:0.00}", GLB.dr[1]);
+                SumStockCarbSNTL.Text = String.Format("{0:0.00}", (float.Parse(GLB.dr[0].ToString()) + float.Parse(GLB.dr[1].ToString())));
+            }
+            GLB.dr.Close();
+            GLB.Cmd.CommandText = $"select DFixe , DMissions , DHebdo ,DExceptionnel from CarburantVignettes where date >= '{DateTime.Now.Year}-01-01' and date <= '{DateTime.Now.Year}-03-31'";
+            GLB.dr = GLB.Cmd.ExecuteReader();
+
+            while (GLB.dr.Read())
+            {
+                trim1CarbSNTL.Text = String.Format("{0:0.00}", double.Parse(trim1CarbSNTL.Text) + (GLB.dr.IsDBNull(0) ? 0.0 : int.Parse(GLB.dr[0].ToString())) + (GLB.dr.IsDBNull(1) ? 0.0 : int.Parse(GLB.dr[1].ToString())) + (GLB.dr.IsDBNull(2) ? 0.0 : int.Parse(GLB.dr[2].ToString())) + (GLB.dr.IsDBNull(3) ? 0.0 : int.Parse(GLB.dr[3].ToString())));
+            }
+            GLB.dr.Close();
+            GLB.Cmd.CommandText = $"select DFixe , DMissions , DHebdo ,DExceptionnel from CarburantVignettes where date >= '{DateTime.Now.Year}-04-01' and date <= '{DateTime.Now.Year}-06-30'";
+            GLB.dr = GLB.Cmd.ExecuteReader();
+
+            while (GLB.dr.Read())
+            {
+                trim2CarbSNTL.Text = String.Format("{0:0.00}", double.Parse(trim2CarbSNTL.Text) + (GLB.dr.IsDBNull(0) ? 0.0 : int.Parse(GLB.dr[0].ToString())) + (GLB.dr.IsDBNull(1) ? 0.0 : int.Parse(GLB.dr[1].ToString())) + (GLB.dr.IsDBNull(2) ? 0.0 : int.Parse(GLB.dr[2].ToString())) + (GLB.dr.IsDBNull(3) ? 0.0 : int.Parse(GLB.dr[3].ToString())));
+            }
+            GLB.dr.Close();
+            GLB.Cmd.CommandText = $"select DFixe , DMissions , DHebdo ,DExceptionnel from CarburantVignettes where date >= '{DateTime.Now.Year}-07-01' and date <= '{DateTime.Now.Year}-09-30'";
+            GLB.dr = GLB.Cmd.ExecuteReader();
+
+            while (GLB.dr.Read())
+            {
+                trim3CarbSNTL.Text = String.Format("{0:0.00}", double.Parse(trim3CarbSNTL.Text) + (GLB.dr.IsDBNull(0) ? 0.0 : int.Parse(GLB.dr[0].ToString())) + (GLB.dr.IsDBNull(1) ? 0.0 : int.Parse(GLB.dr[1].ToString())) + (GLB.dr.IsDBNull(2) ? 0.0 : int.Parse(GLB.dr[2].ToString())) + (GLB.dr.IsDBNull(3) ? 0.0 : int.Parse(GLB.dr[3].ToString())));
+            }
+            GLB.dr.Close();
+            GLB.Cmd.CommandText = $"select DFixe , DMissions , DHebdo ,DExceptionnel from CarburantVignettes where date >= '{DateTime.Now.Year}-10-01' and date <= '{DateTime.Now.Year}-12-31'";
+            GLB.dr = GLB.Cmd.ExecuteReader();
+
+            while (GLB.dr.Read())
+            {
+                trim4CarbSNTL.Text = String.Format("{0:0.00}", double.Parse(trim4CarbSNTL.Text) + (GLB.dr.IsDBNull(0) ? 0.0 : int.Parse(GLB.dr[0].ToString())) + (GLB.dr.IsDBNull(1) ? 0.0 : int.Parse(GLB.dr[1].ToString())) + (GLB.dr.IsDBNull(2) ? 0.0 : int.Parse(GLB.dr[2].ToString())) + (GLB.dr.IsDBNull(3) ? 0.0 : int.Parse(GLB.dr[3].ToString())));
+            }
+            GLB.dr.Close();
+            sumtrimestresCarbSNTL.Text = String.Format("{0:0.00}", (double.Parse(trim1CarbSNTL.Text) + double.Parse(trim2CarbSNTL.Text) + double.Parse(trim3CarbSNTL.Text) + double.Parse(trim4CarbSNTL.Text)));
+            DisponibleCarbSNTL.Text = String.Format("{0:0.00}", (double.Parse(SumStockCarbSNTL.Text) - double.Parse(sumtrimestresCarbSNTL.Text)));
+
+            GLB.Cmd.CommandText = $"update EtatRecapCarburantSNTL set TotalReport_Achat = @TotalReport_Achat , trim1 = @trim1, trim2 = @trim2, trim3 = @trim3, trim4 = @trim4, Totalconsommation = @Totalconsommation, DispoAnneeProch = @DispoAnneeProch where Annee = @Annee";
+            GLB.Cmd.Parameters.AddWithValue("@TotalReport_Achat", double.Parse(SumStockCarbSNTL.Text));
+            GLB.Cmd.Parameters.AddWithValue("@trim1", double.Parse(trim1CarbSNTL.Text));
+            GLB.Cmd.Parameters.AddWithValue("@trim2", double.Parse(trim2CarbSNTL.Text));
+            GLB.Cmd.Parameters.AddWithValue("@trim3", double.Parse(trim3CarbSNTL.Text));
+            GLB.Cmd.Parameters.AddWithValue("@trim4", double.Parse(trim4CarbSNTL.Text));
+            GLB.Cmd.Parameters.AddWithValue("@Totalconsommation", double.Parse(sumtrimestresCarbSNTL.Text));
+            GLB.Cmd.Parameters.AddWithValue("@DispoAnneeProch", double.Parse(DisponibleCarbSNTL.Text));
+            GLB.Cmd.Parameters.AddWithValue("@Annee", DateTime.Now.Year);
+            GLB.Cmd.ExecuteNonQuery();
+            GLB.Con.Close();
+        }
+        private void ConsommationCarteFree()
+        {
             GLB.Cmd.CommandText = $"select Report,Achat from EtatRecapCartefree where Annee = {DateTime.Now.Year}";
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             if (GLB.dr.Read())
             {
-                ReportCarteFree.Text = String.Format("{0:0.00}",GLB.dr[0]);
+                ReportCarteFree.Text = String.Format("{0:0.00}", GLB.dr[0]);
                 AchatCarteFree.Text = String.Format("{0:0.00}", GLB.dr[1]);
-                SumStockCarteFree.Text = String.Format("{0:0.00}", (float.Parse( GLB.dr[0].ToString()) + float.Parse( GLB.dr[1].ToString())));
+                SumStockCarteFree.Text = String.Format("{0:0.00}", (float.Parse(GLB.dr[0].ToString()) + float.Parse(GLB.dr[1].ToString())));
             }
             GLB.dr.Close();
             GLB.Cmd.CommandText = $"select Fixe , Autre from CarteFree where dateCarte >= '{DateTime.Now.Year}-01-01' and dateCarte <= '{DateTime.Now.Year}-03-31'";
@@ -36,7 +93,7 @@ namespace ParcAuto.Forms
 
             while (GLB.dr.Read())
             {
-                trim1CarteFree.Text = String.Format("{0:0.00}", (double.Parse(trim1CarteFree.Text) + (GLB.dr.IsDBNull(0) ? 0.0:(double)GLB.dr[0]) + (GLB.dr.IsDBNull(1)?0.0:(double)GLB.dr[1])));
+                trim1CarteFree.Text = String.Format("{0:0.00}", (double.Parse(trim1CarteFree.Text) + (GLB.dr.IsDBNull(0) ? 0.0 : (double)GLB.dr[0]) + (GLB.dr.IsDBNull(1) ? 0.0 : (double)GLB.dr[1])));
             }
             GLB.dr.Close();
 
@@ -66,7 +123,7 @@ namespace ParcAuto.Forms
                 trim4CarteFree.Text = String.Format("{0:0.00}", (double.Parse(trim4CarteFree.Text) + (GLB.dr.IsDBNull(0) ? 0.0 : (double)GLB.dr[0]) + (GLB.dr.IsDBNull(1) ? 0.0 : (double)GLB.dr[1])));
             }
             GLB.dr.Close();
-           
+
             sumtrimestres.Text = String.Format("{0:0.00}", (double.Parse(trim1CarteFree.Text) + double.Parse(trim2CarteFree.Text) + double.Parse(trim3CarteFree.Text) + double.Parse(trim4CarteFree.Text)));
             Disponible.Text = String.Format("{0:0.00}", (double.Parse(SumStockCarteFree.Text) - double.Parse(sumtrimestres.Text)));
 
@@ -81,30 +138,132 @@ namespace ParcAuto.Forms
             GLB.Cmd.Parameters.AddWithValue("@Annee", DateTime.Now.Year);
             GLB.Cmd.ExecuteNonQuery();
             GLB.Con.Close();
-            //Les Consommation des Cartes Free
-
-            //Les Consommation Carburant SNTL
-            GLB.Cmd.CommandText = $"select Report,Achat from EtatRecapCarburantSNTL where Annee = {DateTime.Now.Year}";
+        }
+        private void ConsommationReparation()
+        {
+            GLB.Cmd.CommandText = $"select Report,Achat from EtatRecapReparation where Annee = {DateTime.Now.Year}";
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             if (GLB.dr.Read())
             {
-                ReportCarbSNTL.Text = String.Format("{0:0.00}", GLB.dr[0]);
-                AchatCarbSNTL.Text = String.Format("{0:0.00}", GLB.dr[1]);
-                SumStockCarbSNTL.Text = String.Format("{0:0.00}", (float.Parse(GLB.dr[0].ToString()) + float.Parse(GLB.dr[1].ToString())));
+                ReportReparation.Text = String.Format("{0:0.00}", GLB.dr[0]);
+                AchatReparation.Text = String.Format("{0:0.00}", GLB.dr[1]);
+                sumStockReparation.Text = String.Format("{0:0.00}", (float.Parse(GLB.dr[0].ToString()) + float.Parse(GLB.dr[1].ToString())));
             }
             GLB.dr.Close();
-            GLB.Cmd.CommandText = $"select DFixe , DMissions , DHebdo ,DExceptionnel from CarburantVignettes where date >= '{DateTime.Now.Year}-01-01' and date <= '{DateTime.Now.Year}-03-31'";
+            GLB.Cmd.CommandText = $"SELECT Entretien , Reparation from Reparation where Date >= '{DateTime.Now.Year}-01-01' and Date <= '{DateTime.Now.Year}-03-31'";
             GLB.dr = GLB.Cmd.ExecuteReader();
 
             while (GLB.dr.Read())
             {
-                trim1CarbSNTL.Text = String.Format("{0:0.00}", double.Parse(trim1CarbSNTL.Text) + (GLB.dr.IsDBNull(0) ? 0.0 : int.Parse(GLB.dr[0].ToString())) + (GLB.dr.IsDBNull(1) ? 0.0 : int.Parse(GLB.dr[1].ToString())) + (GLB.dr.IsDBNull(2) ? 0.0 : int.Parse(GLB.dr[2].ToString())) + (GLB.dr.IsDBNull(3) ? 0.0 : int.Parse(GLB.dr[3].ToString())));
+                trim1Reparation.Text = String.Format("{0:0.00}", (double.Parse(trim1Reparation.Text) + (GLB.dr.IsDBNull(0) ? 0.0 : (double)GLB.dr[0]) + (GLB.dr.IsDBNull(1) ? 0.0 : (double)GLB.dr[1])));
             }
             GLB.dr.Close();
-            GLB.Con.Close();
-            //Les Consommation Carburant SNTL
+            GLB.Cmd.CommandText = $"SELECT Entretien , Reparation from Reparation where Date >= '{DateTime.Now.Year}-04-01' and Date <= '{DateTime.Now.Year}-06-30'";
+            GLB.dr = GLB.Cmd.ExecuteReader();
 
+            while (GLB.dr.Read())
+            {
+                trim2Reparation.Text = String.Format("{0:0.00}", (double.Parse(trim2Reparation.Text) + (GLB.dr.IsDBNull(0) ? 0.0 : (double)GLB.dr[0]) + (GLB.dr.IsDBNull(1) ? 0.0 : (double)GLB.dr[1])));
+            }
+            GLB.dr.Close();
+            GLB.Cmd.CommandText = $"SELECT Entretien , Reparation from Reparation where Date >= '{DateTime.Now.Year}-07-01' and Date <= '{DateTime.Now.Year}-09-30'";
+            GLB.dr = GLB.Cmd.ExecuteReader();
+
+            while (GLB.dr.Read())
+            {
+                trim3Reparation.Text = String.Format("{0:0.00}", (double.Parse(trim3Reparation.Text) + (GLB.dr.IsDBNull(0) ? 0.0 : (double)GLB.dr[0]) + (GLB.dr.IsDBNull(1) ? 0.0 : (double)GLB.dr[1])));
+            }
+            GLB.dr.Close();
+            GLB.Cmd.CommandText = $"SELECT Entretien , Reparation from Reparation where Date >= '{DateTime.Now.Year}-10-01' and Date <= '{DateTime.Now.Year}-12-31'";
+            GLB.dr = GLB.Cmd.ExecuteReader();
+
+            while (GLB.dr.Read())
+            {
+                trim4Reparation.Text = String.Format("{0:0.00}", (double.Parse(trim4Reparation.Text) + (GLB.dr.IsDBNull(0) ? 0.0 : (double)GLB.dr[0]) + (GLB.dr.IsDBNull(1) ? 0.0 : (double)GLB.dr[1])));
+            }
+            GLB.dr.Close();
+
+            sumtrimestresReparation.Text = String.Format("{0:0.00}", (double.Parse(trim1Reparation.Text) + double.Parse(trim2Reparation.Text) + double.Parse(trim3Reparation.Text) + double.Parse(trim4Reparation.Text)));
+            DisponibleReparation.Text = String.Format("{0:0.00}", (double.Parse(sumStockReparation.Text) - double.Parse(sumtrimestresReparation.Text)));
+
+            GLB.Cmd.CommandText = $"update EtatRecapCartefree set TotalReport_Achat = @TotalReport_Achat , trim1 = @trim1, trim2 = @trim2, trim3 = @trim3, trim4 = @trim4, Totalconsommation = @Totalconsommation, DispoAnneeProch = @DispoAnneeProch where Annee = @Annee";
+            GLB.Cmd.Parameters.AddWithValue("@TotalReport_Achat", double.Parse(sumStockReparation.Text));
+            GLB.Cmd.Parameters.AddWithValue("@trim1", double.Parse(trim1Reparation.Text));
+            GLB.Cmd.Parameters.AddWithValue("@trim2", double.Parse(trim2Reparation.Text));
+            GLB.Cmd.Parameters.AddWithValue("@trim3", double.Parse(trim3Reparation.Text));
+            GLB.Cmd.Parameters.AddWithValue("@trim4", double.Parse(trim4Reparation.Text));
+            GLB.Cmd.Parameters.AddWithValue("@Totalconsommation", double.Parse(sumtrimestresReparation.Text));
+            GLB.Cmd.Parameters.AddWithValue("@DispoAnneeProch", double.Parse(DisponibleReparation.Text));
+            GLB.Cmd.Parameters.AddWithValue("@Annee", DateTime.Now.Year);
+            GLB.Cmd.ExecuteNonQuery();
+            GLB.Con.Close();
+        }
+        private void ConsommationTransport()
+        {
+            GLB.Cmd.CommandText = $"select Report,Achat from EtatRecapTransport where Annee = {DateTime.Now.Year}";
+            GLB.Con.Open();
+            GLB.dr = GLB.Cmd.ExecuteReader();
+            if (GLB.dr.Read())
+            {
+                ReportTransport.Text = String.Format("{0:0.00}", GLB.dr[0]);
+                AchatTransport.Text = String.Format("{0:0.00}", GLB.dr[1]);
+                SumStockTransport.Text = String.Format("{0:0.00}", (float.Parse(GLB.dr[0].ToString()) + float.Parse(GLB.dr[1].ToString())));
+            }
+            GLB.dr.Close();
+            GLB.Cmd.CommandText = $"select prix from Transport where Date >= '{DateTime.Now.Year}-01-01' and Date <= '{DateTime.Now.Year}-03-31'";
+            GLB.dr = GLB.Cmd.ExecuteReader();
+            while (GLB.dr.Read())
+            {
+                trim1transport.Text = String.Format("{0:0.00}", (double.Parse(trim1transport.Text) + (GLB.dr.IsDBNull(0) ? 0.0 : (double)GLB.dr[0])));
+            }
+            GLB.dr.Close();
+
+            GLB.Cmd.CommandText = $"select prix from Transport where Date >= '{DateTime.Now.Year}-04-01' and Date <= '{DateTime.Now.Year}-06-30'";
+            GLB.dr = GLB.Cmd.ExecuteReader();
+            while (GLB.dr.Read())
+            {
+                trim2transport.Text = String.Format("{0:0.00}", (double.Parse(trim2transport.Text) + (GLB.dr.IsDBNull(0) ? 0.0 : (double)GLB.dr[0])));
+            }
+            GLB.dr.Close();
+
+            GLB.Cmd.CommandText = $"select prix from Transport where Date >= '{DateTime.Now.Year}-07-01' and Date <= '{DateTime.Now.Year}-09-30'";
+            GLB.dr = GLB.Cmd.ExecuteReader();
+            while (GLB.dr.Read())
+            {
+                trim3transport.Text = String.Format("{0:0.00}", (double.Parse(trim3transport.Text) + (GLB.dr.IsDBNull(0) ? 0.0 : (double)GLB.dr[0])));
+            }
+            GLB.dr.Close();
+
+            GLB.Cmd.CommandText = $"select prix from Transport where Date >= '{DateTime.Now.Year}-10-01' and Date <= '{DateTime.Now.Year}-12-31'";
+            GLB.dr = GLB.Cmd.ExecuteReader();
+            while (GLB.dr.Read())
+            {
+                trim4transport.Text = String.Format("{0:0.00}", (double.Parse(trim4transport.Text) + (GLB.dr.IsDBNull(0) ? 0.0 : (double)GLB.dr[0])));
+            }
+            GLB.dr.Close();
+
+            sumTrimestresTransport.Text = String.Format("{0:0.00}", (double.Parse(trim1transport.Text) + double.Parse(trim2transport.Text) + double.Parse(trim3transport.Text) + double.Parse(trim4transport.Text)));
+            DisponibleTransport.Text = String.Format("{0:0.00}", (double.Parse(SumStockTransport.Text) - double.Parse(sumTrimestresTransport.Text)));
+
+            GLB.Cmd.CommandText = $"update EtatRecapCartefree set TotalReport_Achat = @TotalReport_Achat , trim1 = @trim1, trim2 = @trim2, trim3 = @trim3, trim4 = @trim4, Totalconsommation = @Totalconsommation, DispoAnneeProch = @DispoAnneeProch where Annee = @Annee";
+            GLB.Cmd.Parameters.AddWithValue("@TotalReport_Achat", double.Parse(SumStockTransport.Text));
+            GLB.Cmd.Parameters.AddWithValue("@trim1", double.Parse(trim1transport.Text));
+            GLB.Cmd.Parameters.AddWithValue("@trim2", double.Parse(trim2transport.Text));
+            GLB.Cmd.Parameters.AddWithValue("@trim3", double.Parse(trim3transport.Text));
+            GLB.Cmd.Parameters.AddWithValue("@trim4", double.Parse(trim4transport.Text));
+            GLB.Cmd.Parameters.AddWithValue("@Totalconsommation", double.Parse(sumTrimestresTransport.Text));
+            GLB.Cmd.Parameters.AddWithValue("@DispoAnneeProch", double.Parse(DisponibleTransport.Text));
+            GLB.Cmd.Parameters.AddWithValue("@Annee", DateTime.Now.Year);
+            GLB.Cmd.ExecuteNonQuery();
+            GLB.Con.Close();
+        }
+        private void EtatRecap_Load(object sender, EventArgs e)
+        {
+            ConsommationCarteFree();
+            ConsommationcarburantSNTL();
+            ConsommationReparation();
+            ConsommationTransport();
         }
     }
 }

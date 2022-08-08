@@ -68,11 +68,11 @@ namespace ParcAuto
             this.VignettesUp = new System.Windows.Forms.PictureBox();
             this.Vignettesdown = new System.Windows.Forms.PictureBox();
             this.btnVignettes = new System.Windows.Forms.Button();
+            this.btnEtatRecap = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FormsPlace = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnEtatRecap = new System.Windows.Forms.Button();
             section2btnCond_Vehicule = new System.Windows.Forms.Panel();
             section2btnCond_Vehicule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ParcAutodown)).BeginInit();
@@ -711,6 +711,25 @@ namespace ParcAuto
             this.btnVignettes.UseVisualStyleBackColor = false;
             this.btnVignettes.Click += new System.EventHandler(this.btnVignettes_Click);
             // 
+            // btnEtatRecap
+            // 
+            this.btnEtatRecap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnEtatRecap.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEtatRecap.FlatAppearance.BorderSize = 0;
+            this.btnEtatRecap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEtatRecap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEtatRecap.ForeColor = System.Drawing.Color.White;
+            this.btnEtatRecap.Image = ((System.Drawing.Image)(resources.GetObject("btnEtatRecap.Image")));
+            this.btnEtatRecap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEtatRecap.Location = new System.Drawing.Point(0, 100);
+            this.btnEtatRecap.Name = "btnEtatRecap";
+            this.btnEtatRecap.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnEtatRecap.Size = new System.Drawing.Size(183, 45);
+            this.btnEtatRecap.TabIndex = 5;
+            this.btnEtatRecap.Text = "Etat Recap";
+            this.btnEtatRecap.UseVisualStyleBackColor = false;
+            this.btnEtatRecap.Click += new System.EventHandler(this.btnEtatRecap_Click);
+            // 
             // panelLogo
             // 
             this.panelLogo.Controls.Add(this.pictureBox1);
@@ -755,25 +774,6 @@ namespace ParcAuto
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
-            // 
-            // btnEtatRecap
-            // 
-            this.btnEtatRecap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
-            this.btnEtatRecap.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEtatRecap.FlatAppearance.BorderSize = 0;
-            this.btnEtatRecap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEtatRecap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEtatRecap.ForeColor = System.Drawing.Color.White;
-            this.btnEtatRecap.Image = ((System.Drawing.Image)(resources.GetObject("btnEtatRecap.Image")));
-            this.btnEtatRecap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEtatRecap.Location = new System.Drawing.Point(0, 100);
-            this.btnEtatRecap.Name = "btnEtatRecap";
-            this.btnEtatRecap.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnEtatRecap.Size = new System.Drawing.Size(183, 45);
-            this.btnEtatRecap.TabIndex = 5;
-            this.btnEtatRecap.Text = "Vignettes ";
-            this.btnEtatRecap.UseVisualStyleBackColor = false;
-            this.btnEtatRecap.Click += new System.EventHandler(this.btnEtatRecap_Click);
             // 
             // Form1
             // 

@@ -32,11 +32,11 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.SumStockTransport = new System.Windows.Forms.Label();
+            this.AchatTransport = new System.Windows.Forms.Label();
             this.ReportTransport = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
+            this.sumStockReparation = new System.Windows.Forms.Label();
+            this.AchatReparation = new System.Windows.Forms.Label();
             this.ReportReparation = new System.Windows.Forms.Label();
             this.SumStockCarbSNTL = new System.Windows.Forms.Label();
             this.AchatCarbSNTL = new System.Windows.Forms.Label();
@@ -61,10 +61,10 @@ namespace ParcAuto.Forms
             this.label45 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.trim2transport = new System.Windows.Forms.Label();
+            this.trim1transport = new System.Windows.Forms.Label();
+            this.trim4transport = new System.Windows.Forms.Label();
+            this.trim3transport = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -77,23 +77,23 @@ namespace ParcAuto.Forms
             this.trim2CarbSNTL = new System.Windows.Forms.Label();
             this.trim3CarbSNTL = new System.Windows.Forms.Label();
             this.trim4CarbSNTL = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
+            this.trim1Reparation = new System.Windows.Forms.Label();
+            this.trim2Reparation = new System.Windows.Forms.Label();
+            this.trim3Reparation = new System.Windows.Forms.Label();
+            this.trim4Reparation = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
+            this.sumTrimestresTransport = new System.Windows.Forms.Label();
+            this.DisponibleTransport = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.sumtrimestres = new System.Windows.Forms.Label();
             this.Disponible = new System.Windows.Forms.Label();
             this.sumtrimestresCarbSNTL = new System.Windows.Forms.Label();
             this.DisponibleCarbSNTL = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
+            this.sumtrimestresReparation = new System.Windows.Forms.Label();
+            this.DisponibleReparation = new System.Windows.Forms.Label();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -147,11 +147,11 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel7.Controls.Add(this.label17, 2, 4);
-            this.tableLayoutPanel7.Controls.Add(this.label18, 1, 4);
+            this.tableLayoutPanel7.Controls.Add(this.SumStockTransport, 2, 4);
+            this.tableLayoutPanel7.Controls.Add(this.AchatTransport, 1, 4);
             this.tableLayoutPanel7.Controls.Add(this.ReportTransport, 0, 4);
-            this.tableLayoutPanel7.Controls.Add(this.label20, 2, 3);
-            this.tableLayoutPanel7.Controls.Add(this.label21, 1, 3);
+            this.tableLayoutPanel7.Controls.Add(this.sumStockReparation, 2, 3);
+            this.tableLayoutPanel7.Controls.Add(this.AchatReparation, 1, 3);
             this.tableLayoutPanel7.Controls.Add(this.ReportReparation, 0, 3);
             this.tableLayoutPanel7.Controls.Add(this.SumStockCarbSNTL, 2, 2);
             this.tableLayoutPanel7.Controls.Add(this.AchatCarbSNTL, 1, 2);
@@ -175,68 +175,72 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel7.Size = new System.Drawing.Size(256, 192);
             this.tableLayoutPanel7.TabIndex = 2;
             // 
-            // label17
+            // SumStockTransport
             // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.Yellow;
-            this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(170, 148);
-            this.label17.Margin = new System.Windows.Forms.Padding(0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(85, 43);
-            this.label17.TabIndex = 15;
-            this.label17.Text = "0";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.SumStockTransport.AutoSize = true;
+            this.SumStockTransport.BackColor = System.Drawing.Color.Yellow;
+            this.SumStockTransport.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SumStockTransport.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SumStockTransport.Location = new System.Drawing.Point(170, 148);
+            this.SumStockTransport.Margin = new System.Windows.Forms.Padding(0);
+            this.SumStockTransport.Name = "SumStockTransport";
+            this.SumStockTransport.Size = new System.Drawing.Size(85, 43);
+            this.SumStockTransport.TabIndex = 15;
+            this.SumStockTransport.Text = "0";
+            this.SumStockTransport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label18
+            // AchatTransport
             // 
-            this.label18.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(151, 161);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(15, 16);
-            this.label18.TabIndex = 14;
-            this.label18.Text = "0";
+            this.AchatTransport.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.AchatTransport.AutoSize = true;
+            this.AchatTransport.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AchatTransport.Location = new System.Drawing.Point(151, 161);
+            this.AchatTransport.Name = "AchatTransport";
+            this.AchatTransport.Size = new System.Drawing.Size(15, 16);
+            this.AchatTransport.TabIndex = 14;
+            this.AchatTransport.Text = "0";
             // 
             // ReportTransport
             // 
             this.ReportTransport.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ReportTransport.AutoSize = true;
+            this.ReportTransport.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReportTransport.Location = new System.Drawing.Point(66, 161);
             this.ReportTransport.Name = "ReportTransport";
             this.ReportTransport.Size = new System.Drawing.Size(15, 16);
             this.ReportTransport.TabIndex = 13;
             this.ReportTransport.Text = "0";
             // 
-            // label20
+            // sumStockReparation
             // 
-            this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.Color.Yellow;
-            this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(170, 109);
-            this.label20.Margin = new System.Windows.Forms.Padding(0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(85, 38);
-            this.label20.TabIndex = 12;
-            this.label20.Text = "0";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.sumStockReparation.AutoSize = true;
+            this.sumStockReparation.BackColor = System.Drawing.Color.Yellow;
+            this.sumStockReparation.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sumStockReparation.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sumStockReparation.Location = new System.Drawing.Point(170, 109);
+            this.sumStockReparation.Margin = new System.Windows.Forms.Padding(0);
+            this.sumStockReparation.Name = "sumStockReparation";
+            this.sumStockReparation.Size = new System.Drawing.Size(85, 38);
+            this.sumStockReparation.TabIndex = 12;
+            this.sumStockReparation.Text = "0";
+            this.sumStockReparation.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label21
+            // AchatReparation
             // 
-            this.label21.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(151, 120);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(15, 16);
-            this.label21.TabIndex = 11;
-            this.label21.Text = "0";
+            this.AchatReparation.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.AchatReparation.AutoSize = true;
+            this.AchatReparation.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AchatReparation.Location = new System.Drawing.Point(151, 120);
+            this.AchatReparation.Name = "AchatReparation";
+            this.AchatReparation.Size = new System.Drawing.Size(15, 16);
+            this.AchatReparation.TabIndex = 11;
+            this.AchatReparation.Text = "0";
             // 
             // ReportReparation
             // 
             this.ReportReparation.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ReportReparation.AutoSize = true;
+            this.ReportReparation.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReportReparation.Location = new System.Drawing.Point(66, 120);
             this.ReportReparation.Name = "ReportReparation";
             this.ReportReparation.Size = new System.Drawing.Size(15, 16);
@@ -248,7 +252,7 @@ namespace ParcAuto.Forms
             this.SumStockCarbSNTL.AutoSize = true;
             this.SumStockCarbSNTL.BackColor = System.Drawing.Color.Yellow;
             this.SumStockCarbSNTL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SumStockCarbSNTL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SumStockCarbSNTL.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SumStockCarbSNTL.Location = new System.Drawing.Point(170, 74);
             this.SumStockCarbSNTL.Margin = new System.Windows.Forms.Padding(0);
             this.SumStockCarbSNTL.Name = "SumStockCarbSNTL";
@@ -261,6 +265,7 @@ namespace ParcAuto.Forms
             // 
             this.AchatCarbSNTL.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.AchatCarbSNTL.AutoSize = true;
+            this.AchatCarbSNTL.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AchatCarbSNTL.Location = new System.Drawing.Point(151, 83);
             this.AchatCarbSNTL.Name = "AchatCarbSNTL";
             this.AchatCarbSNTL.Size = new System.Drawing.Size(15, 16);
@@ -271,6 +276,7 @@ namespace ParcAuto.Forms
             // 
             this.ReportCarbSNTL.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ReportCarbSNTL.AutoSize = true;
+            this.ReportCarbSNTL.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReportCarbSNTL.Location = new System.Drawing.Point(66, 83);
             this.ReportCarbSNTL.Name = "ReportCarbSNTL";
             this.ReportCarbSNTL.Size = new System.Drawing.Size(15, 16);
@@ -282,7 +288,7 @@ namespace ParcAuto.Forms
             this.SumStockCarteFree.AutoSize = true;
             this.SumStockCarteFree.BackColor = System.Drawing.Color.Yellow;
             this.SumStockCarteFree.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SumStockCarteFree.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SumStockCarteFree.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SumStockCarteFree.Location = new System.Drawing.Point(170, 37);
             this.SumStockCarteFree.Margin = new System.Windows.Forms.Padding(0);
             this.SumStockCarteFree.Name = "SumStockCarteFree";
@@ -295,6 +301,7 @@ namespace ParcAuto.Forms
             // 
             this.AchatCarteFree.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.AchatCarteFree.AutoSize = true;
+            this.AchatCarteFree.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AchatCarteFree.Location = new System.Drawing.Point(151, 47);
             this.AchatCarteFree.Name = "AchatCarteFree";
             this.AchatCarteFree.Size = new System.Drawing.Size(15, 16);
@@ -344,6 +351,7 @@ namespace ParcAuto.Forms
             // 
             this.ReportCarteFree.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ReportCarteFree.AutoSize = true;
+            this.ReportCarteFree.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReportCarteFree.Location = new System.Drawing.Point(66, 47);
             this.ReportCarteFree.Name = "ReportCarteFree";
             this.ReportCarteFree.Size = new System.Drawing.Size(15, 16);
@@ -526,10 +534,10 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label8, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.trim2transport, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.trim1transport, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.trim4transport, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.trim3transport, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label3, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 0);
@@ -542,10 +550,10 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Controls.Add(this.trim2CarbSNTL, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.trim3CarbSNTL, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.trim4CarbSNTL, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label25, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label26, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label27, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label28, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.trim1Reparation, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.trim2Reparation, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.trim3Reparation, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.trim4Reparation, 3, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 45);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -559,53 +567,57 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Size = new System.Drawing.Size(354, 192);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // label9
+            // trim2transport
             // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Location = new System.Drawing.Point(158, 161);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(15, 16);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "0";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.trim2transport.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.trim2transport.AutoSize = true;
+            this.trim2transport.BackColor = System.Drawing.Color.Transparent;
+            this.trim2transport.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trim2transport.Location = new System.Drawing.Point(158, 161);
+            this.trim2transport.Name = "trim2transport";
+            this.trim2transport.Size = new System.Drawing.Size(15, 16);
+            this.trim2transport.TabIndex = 10;
+            this.trim2transport.Text = "0";
+            this.trim2transport.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label8
+            // trim1transport
             // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Location = new System.Drawing.Point(70, 161);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(15, 16);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "0";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.trim1transport.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.trim1transport.AutoSize = true;
+            this.trim1transport.BackColor = System.Drawing.Color.Transparent;
+            this.trim1transport.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trim1transport.Location = new System.Drawing.Point(70, 161);
+            this.trim1transport.Name = "trim1transport";
+            this.trim1transport.Size = new System.Drawing.Size(15, 16);
+            this.trim1transport.TabIndex = 9;
+            this.trim1transport.Text = "0";
+            this.trim1transport.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label7
+            // trim4transport
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(335, 161);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(15, 16);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "0";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.trim4transport.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.trim4transport.AutoSize = true;
+            this.trim4transport.BackColor = System.Drawing.Color.Transparent;
+            this.trim4transport.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trim4transport.Location = new System.Drawing.Point(335, 161);
+            this.trim4transport.Name = "trim4transport";
+            this.trim4transport.Size = new System.Drawing.Size(15, 16);
+            this.trim4transport.TabIndex = 8;
+            this.trim4transport.Text = "0";
+            this.trim4transport.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label6
+            // trim3transport
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(246, 161);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(15, 16);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "0";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.trim3transport.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.trim3transport.AutoSize = true;
+            this.trim3transport.BackColor = System.Drawing.Color.Transparent;
+            this.trim3transport.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trim3transport.Location = new System.Drawing.Point(246, 161);
+            this.trim3transport.Name = "trim3transport";
+            this.trim3transport.Size = new System.Drawing.Size(15, 16);
+            this.trim3transport.TabIndex = 7;
+            this.trim3transport.Text = "0";
+            this.trim3transport.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -659,6 +671,7 @@ namespace ParcAuto.Forms
             // 
             this.trim1CarteFree.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.trim1CarteFree.AutoSize = true;
+            this.trim1CarteFree.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trim1CarteFree.Location = new System.Drawing.Point(70, 47);
             this.trim1CarteFree.Name = "trim1CarteFree";
             this.trim1CarteFree.Size = new System.Drawing.Size(15, 16);
@@ -669,6 +682,7 @@ namespace ParcAuto.Forms
             // 
             this.trim2CarteFree.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.trim2CarteFree.AutoSize = true;
+            this.trim2CarteFree.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trim2CarteFree.Location = new System.Drawing.Point(158, 47);
             this.trim2CarteFree.Name = "trim2CarteFree";
             this.trim2CarteFree.Size = new System.Drawing.Size(15, 16);
@@ -679,6 +693,7 @@ namespace ParcAuto.Forms
             // 
             this.trim3CarteFree.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.trim3CarteFree.AutoSize = true;
+            this.trim3CarteFree.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trim3CarteFree.Location = new System.Drawing.Point(246, 47);
             this.trim3CarteFree.Name = "trim3CarteFree";
             this.trim3CarteFree.Size = new System.Drawing.Size(15, 16);
@@ -689,6 +704,7 @@ namespace ParcAuto.Forms
             // 
             this.trim4CarteFree.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.trim4CarteFree.AutoSize = true;
+            this.trim4CarteFree.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trim4CarteFree.Location = new System.Drawing.Point(335, 47);
             this.trim4CarteFree.Name = "trim4CarteFree";
             this.trim4CarteFree.Size = new System.Drawing.Size(15, 16);
@@ -699,6 +715,7 @@ namespace ParcAuto.Forms
             // 
             this.trim1CarbSNTL.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.trim1CarbSNTL.AutoSize = true;
+            this.trim1CarbSNTL.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trim1CarbSNTL.Location = new System.Drawing.Point(70, 83);
             this.trim1CarbSNTL.Name = "trim1CarbSNTL";
             this.trim1CarbSNTL.Size = new System.Drawing.Size(15, 16);
@@ -709,6 +726,7 @@ namespace ParcAuto.Forms
             // 
             this.trim2CarbSNTL.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.trim2CarbSNTL.AutoSize = true;
+            this.trim2CarbSNTL.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trim2CarbSNTL.Location = new System.Drawing.Point(158, 83);
             this.trim2CarbSNTL.Name = "trim2CarbSNTL";
             this.trim2CarbSNTL.Size = new System.Drawing.Size(15, 16);
@@ -719,6 +737,7 @@ namespace ParcAuto.Forms
             // 
             this.trim3CarbSNTL.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.trim3CarbSNTL.AutoSize = true;
+            this.trim3CarbSNTL.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trim3CarbSNTL.Location = new System.Drawing.Point(246, 83);
             this.trim3CarbSNTL.Name = "trim3CarbSNTL";
             this.trim3CarbSNTL.Size = new System.Drawing.Size(15, 16);
@@ -729,51 +748,56 @@ namespace ParcAuto.Forms
             // 
             this.trim4CarbSNTL.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.trim4CarbSNTL.AutoSize = true;
+            this.trim4CarbSNTL.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trim4CarbSNTL.Location = new System.Drawing.Point(335, 83);
             this.trim4CarbSNTL.Name = "trim4CarbSNTL";
             this.trim4CarbSNTL.Size = new System.Drawing.Size(15, 16);
             this.trim4CarbSNTL.TabIndex = 18;
             this.trim4CarbSNTL.Text = "0";
             // 
-            // label25
+            // trim1Reparation
             // 
-            this.label25.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(70, 120);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(15, 16);
-            this.label25.TabIndex = 19;
-            this.label25.Text = "0";
+            this.trim1Reparation.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.trim1Reparation.AutoSize = true;
+            this.trim1Reparation.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trim1Reparation.Location = new System.Drawing.Point(70, 120);
+            this.trim1Reparation.Name = "trim1Reparation";
+            this.trim1Reparation.Size = new System.Drawing.Size(15, 16);
+            this.trim1Reparation.TabIndex = 19;
+            this.trim1Reparation.Text = "0";
             // 
-            // label26
+            // trim2Reparation
             // 
-            this.label26.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(158, 120);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(15, 16);
-            this.label26.TabIndex = 20;
-            this.label26.Text = "0";
+            this.trim2Reparation.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.trim2Reparation.AutoSize = true;
+            this.trim2Reparation.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trim2Reparation.Location = new System.Drawing.Point(158, 120);
+            this.trim2Reparation.Name = "trim2Reparation";
+            this.trim2Reparation.Size = new System.Drawing.Size(15, 16);
+            this.trim2Reparation.TabIndex = 20;
+            this.trim2Reparation.Text = "0";
             // 
-            // label27
+            // trim3Reparation
             // 
-            this.label27.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(246, 120);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(15, 16);
-            this.label27.TabIndex = 21;
-            this.label27.Text = "0";
+            this.trim3Reparation.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.trim3Reparation.AutoSize = true;
+            this.trim3Reparation.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trim3Reparation.Location = new System.Drawing.Point(246, 120);
+            this.trim3Reparation.Name = "trim3Reparation";
+            this.trim3Reparation.Size = new System.Drawing.Size(15, 16);
+            this.trim3Reparation.TabIndex = 21;
+            this.trim3Reparation.Text = "0";
             // 
-            // label28
+            // trim4Reparation
             // 
-            this.label28.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(335, 120);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(15, 16);
-            this.label28.TabIndex = 22;
-            this.label28.Text = "0";
+            this.trim4Reparation.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.trim4Reparation.AutoSize = true;
+            this.trim4Reparation.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trim4Reparation.Location = new System.Drawing.Point(335, 120);
+            this.trim4Reparation.Name = "trim4Reparation";
+            this.trim4Reparation.Size = new System.Drawing.Size(15, 16);
+            this.trim4Reparation.TabIndex = 22;
+            this.trim4Reparation.Text = "0";
             // 
             // panel2
             // 
@@ -803,16 +827,16 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.label47, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.label46, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.sumTrimestresTransport, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.DisponibleTransport, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.label29, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label48, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.sumtrimestres, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.Disponible, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.sumtrimestresCarbSNTL, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.DisponibleCarbSNTL, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label53, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.label54, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.sumtrimestresReparation, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.DisponibleReparation, 1, 3);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(888, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -827,31 +851,31 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel2.Size = new System.Drawing.Size(199, 237);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
-            // label47
+            // sumTrimestresTransport
             // 
-            this.label47.AutoSize = true;
-            this.label47.BackColor = System.Drawing.Color.Yellow;
-            this.label47.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label47.Location = new System.Drawing.Point(1, 193);
-            this.label47.Margin = new System.Windows.Forms.Padding(0);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(98, 43);
-            this.label47.TabIndex = 3;
-            this.label47.Text = "0";
-            this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.sumTrimestresTransport.AutoSize = true;
+            this.sumTrimestresTransport.BackColor = System.Drawing.Color.Yellow;
+            this.sumTrimestresTransport.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sumTrimestresTransport.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sumTrimestresTransport.Location = new System.Drawing.Point(1, 193);
+            this.sumTrimestresTransport.Margin = new System.Windows.Forms.Padding(0);
+            this.sumTrimestresTransport.Name = "sumTrimestresTransport";
+            this.sumTrimestresTransport.Size = new System.Drawing.Size(98, 43);
+            this.sumTrimestresTransport.TabIndex = 3;
+            this.sumTrimestresTransport.Text = "0";
+            this.sumTrimestresTransport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label46
+            // DisponibleTransport
             // 
-            this.label46.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.Location = new System.Drawing.Point(179, 206);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(16, 16);
-            this.label46.TabIndex = 2;
-            this.label46.Text = "0";
-            this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.DisponibleTransport.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.DisponibleTransport.AutoSize = true;
+            this.DisponibleTransport.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisponibleTransport.Location = new System.Drawing.Point(180, 206);
+            this.DisponibleTransport.Name = "DisponibleTransport";
+            this.DisponibleTransport.Size = new System.Drawing.Size(15, 16);
+            this.DisponibleTransport.TabIndex = 2;
+            this.DisponibleTransport.Text = "0";
+            this.DisponibleTransport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label29
             // 
@@ -884,7 +908,7 @@ namespace ParcAuto.Forms
             this.sumtrimestres.AutoSize = true;
             this.sumtrimestres.BackColor = System.Drawing.Color.Yellow;
             this.sumtrimestres.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sumtrimestres.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sumtrimestres.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sumtrimestres.Location = new System.Drawing.Point(1, 82);
             this.sumtrimestres.Margin = new System.Windows.Forms.Padding(0);
             this.sumtrimestres.Name = "sumtrimestres";
@@ -897,10 +921,10 @@ namespace ParcAuto.Forms
             // 
             this.Disponible.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Disponible.AutoSize = true;
-            this.Disponible.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Disponible.Location = new System.Drawing.Point(179, 92);
+            this.Disponible.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Disponible.Location = new System.Drawing.Point(180, 92);
             this.Disponible.Name = "Disponible";
-            this.Disponible.Size = new System.Drawing.Size(16, 16);
+            this.Disponible.Size = new System.Drawing.Size(15, 16);
             this.Disponible.TabIndex = 6;
             this.Disponible.Text = "0";
             this.Disponible.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -910,7 +934,7 @@ namespace ParcAuto.Forms
             this.sumtrimestresCarbSNTL.AutoSize = true;
             this.sumtrimestresCarbSNTL.BackColor = System.Drawing.Color.Yellow;
             this.sumtrimestresCarbSNTL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sumtrimestresCarbSNTL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sumtrimestresCarbSNTL.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sumtrimestresCarbSNTL.Location = new System.Drawing.Point(1, 119);
             this.sumtrimestresCarbSNTL.Margin = new System.Windows.Forms.Padding(0);
             this.sumtrimestresCarbSNTL.Name = "sumtrimestresCarbSNTL";
@@ -923,39 +947,39 @@ namespace ParcAuto.Forms
             // 
             this.DisponibleCarbSNTL.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.DisponibleCarbSNTL.AutoSize = true;
-            this.DisponibleCarbSNTL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DisponibleCarbSNTL.Location = new System.Drawing.Point(179, 128);
+            this.DisponibleCarbSNTL.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisponibleCarbSNTL.Location = new System.Drawing.Point(180, 128);
             this.DisponibleCarbSNTL.Name = "DisponibleCarbSNTL";
-            this.DisponibleCarbSNTL.Size = new System.Drawing.Size(16, 16);
+            this.DisponibleCarbSNTL.Size = new System.Drawing.Size(15, 16);
             this.DisponibleCarbSNTL.TabIndex = 8;
             this.DisponibleCarbSNTL.Text = "0";
             this.DisponibleCarbSNTL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label53
+            // sumtrimestresReparation
             // 
-            this.label53.AutoSize = true;
-            this.label53.BackColor = System.Drawing.Color.Yellow;
-            this.label53.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.Location = new System.Drawing.Point(1, 154);
-            this.label53.Margin = new System.Windows.Forms.Padding(0);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(98, 38);
-            this.label53.TabIndex = 9;
-            this.label53.Text = "0";
-            this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.sumtrimestresReparation.AutoSize = true;
+            this.sumtrimestresReparation.BackColor = System.Drawing.Color.Yellow;
+            this.sumtrimestresReparation.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sumtrimestresReparation.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sumtrimestresReparation.Location = new System.Drawing.Point(1, 154);
+            this.sumtrimestresReparation.Margin = new System.Windows.Forms.Padding(0);
+            this.sumtrimestresReparation.Name = "sumtrimestresReparation";
+            this.sumtrimestresReparation.Size = new System.Drawing.Size(98, 38);
+            this.sumtrimestresReparation.TabIndex = 9;
+            this.sumtrimestresReparation.Text = "0";
+            this.sumtrimestresReparation.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label54
+            // DisponibleReparation
             // 
-            this.label54.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label54.AutoSize = true;
-            this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.Location = new System.Drawing.Point(179, 165);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(16, 16);
-            this.label54.TabIndex = 10;
-            this.label54.Text = "0";
-            this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.DisponibleReparation.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.DisponibleReparation.AutoSize = true;
+            this.DisponibleReparation.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisponibleReparation.Location = new System.Drawing.Point(180, 165);
+            this.DisponibleReparation.Name = "DisponibleReparation";
+            this.DisponibleReparation.Size = new System.Drawing.Size(15, 16);
+            this.DisponibleReparation.TabIndex = 10;
+            this.DisponibleReparation.Text = "0";
+            this.DisponibleReparation.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // EtatRecap
             // 
@@ -997,11 +1021,11 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label SumStockTransport;
+        private System.Windows.Forms.Label AchatTransport;
         private System.Windows.Forms.Label ReportTransport;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label sumStockReparation;
+        private System.Windows.Forms.Label AchatReparation;
         private System.Windows.Forms.Label ReportReparation;
         private System.Windows.Forms.Label SumStockCarbSNTL;
         private System.Windows.Forms.Label AchatCarbSNTL;
@@ -1028,10 +1052,10 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label trim2transport;
+        private System.Windows.Forms.Label trim1transport;
+        private System.Windows.Forms.Label trim4transport;
+        private System.Windows.Forms.Label trim3transport;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -1044,20 +1068,20 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label trim2CarbSNTL;
         private System.Windows.Forms.Label trim3CarbSNTL;
         private System.Windows.Forms.Label trim4CarbSNTL;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label trim1Reparation;
+        private System.Windows.Forms.Label trim2Reparation;
+        private System.Windows.Forms.Label trim3Reparation;
+        private System.Windows.Forms.Label trim4Reparation;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label sumTrimestresTransport;
+        private System.Windows.Forms.Label DisponibleTransport;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label sumtrimestres;
         private System.Windows.Forms.Label Disponible;
         private System.Windows.Forms.Label sumtrimestresCarbSNTL;
         private System.Windows.Forms.Label DisponibleCarbSNTL;
-        private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label sumtrimestresReparation;
+        private System.Windows.Forms.Label DisponibleReparation;
     }
 }
