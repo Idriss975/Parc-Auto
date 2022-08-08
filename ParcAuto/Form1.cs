@@ -280,5 +280,10 @@ namespace ParcAuto
         {
             openChildForm(new Forms.VehiculesPRD(), sender);
         }
+
+        private void btnEtatRecap_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.EtatRecap(), sender);
+        }
     }
 }

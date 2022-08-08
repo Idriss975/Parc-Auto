@@ -171,6 +171,12 @@
     <Compile Include="Forms\Conducteurs.Designer.cs">
       <DependentUpon>Conducteurs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EtatRecap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EtatRecap.Designer.cs">
+      <DependentUpon>EtatRecap.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ImpressionVehicules.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Conducteurs.resx">
       <DependentUpon>Conducteurs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EtatRecap.resx">
+      <DependentUpon>EtatRecap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ImpressionVehicules.resx">
       <DependentUpon>ImpressionVehicules.cs</DependentUpon>

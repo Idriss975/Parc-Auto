@@ -72,6 +72,7 @@ namespace ParcAuto
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FormsPlace = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnEtatRecap = new System.Windows.Forms.Button();
             section2btnCond_Vehicule = new System.Windows.Forms.Panel();
             section2btnCond_Vehicule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ParcAutodown)).BeginInit();
@@ -109,7 +110,7 @@ namespace ParcAuto
             section2btnCond_Vehicule.Controls.Add(this.panelSousVehicules);
             section2btnCond_Vehicule.Controls.Add(this.btnParcAuto);
             section2btnCond_Vehicule.Dock = System.Windows.Forms.DockStyle.Top;
-            section2btnCond_Vehicule.Location = new System.Drawing.Point(0, 471);
+            section2btnCond_Vehicule.Location = new System.Drawing.Point(0, 516);
             section2btnCond_Vehicule.Name = "section2btnCond_Vehicule";
             section2btnCond_Vehicule.Size = new System.Drawing.Size(183, 344);
             section2btnCond_Vehicule.TabIndex = 4;
@@ -371,6 +372,7 @@ namespace ParcAuto
             this.panelSideMenu.Controls.Add(this.VignettesUp);
             this.panelSideMenu.Controls.Add(this.Vignettesdown);
             this.panelSideMenu.Controls.Add(this.btnVignettes);
+            this.panelSideMenu.Controls.Add(this.btnEtatRecap);
             this.panelSideMenu.Controls.Add(this.panelLogo);
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
@@ -388,7 +390,7 @@ namespace ParcAuto
             this.panelSousVignettes.Controls.Add(this.panelsousCar);
             this.panelSousVignettes.Controls.Add(this.panelCarburant);
             this.panelSousVignettes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSousVignettes.Location = new System.Drawing.Point(0, 145);
+            this.panelSousVignettes.Location = new System.Drawing.Point(0, 190);
             this.panelSousVignettes.Name = "panelSousVignettes";
             this.panelSousVignettes.Size = new System.Drawing.Size(183, 326);
             this.panelSousVignettes.TabIndex = 1;
@@ -671,7 +673,7 @@ namespace ParcAuto
             this.VignettesUp.BackColor = System.Drawing.Color.Transparent;
             this.VignettesUp.Image = ((System.Drawing.Image)(resources.GetObject("VignettesUp.Image")));
             this.VignettesUp.InitialImage = null;
-            this.VignettesUp.Location = new System.Drawing.Point(165, 117);
+            this.VignettesUp.Location = new System.Drawing.Point(163, 160);
             this.VignettesUp.Name = "VignettesUp";
             this.VignettesUp.Size = new System.Drawing.Size(16, 16);
             this.VignettesUp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -683,7 +685,7 @@ namespace ParcAuto
             // 
             this.Vignettesdown.BackColor = System.Drawing.Color.Transparent;
             this.Vignettesdown.Image = ((System.Drawing.Image)(resources.GetObject("Vignettesdown.Image")));
-            this.Vignettesdown.Location = new System.Drawing.Point(164, 117);
+            this.Vignettesdown.Location = new System.Drawing.Point(163, 160);
             this.Vignettesdown.Name = "Vignettesdown";
             this.Vignettesdown.Size = new System.Drawing.Size(16, 16);
             this.Vignettesdown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -700,7 +702,7 @@ namespace ParcAuto
             this.btnVignettes.ForeColor = System.Drawing.Color.White;
             this.btnVignettes.Image = ((System.Drawing.Image)(resources.GetObject("btnVignettes.Image")));
             this.btnVignettes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVignettes.Location = new System.Drawing.Point(0, 100);
+            this.btnVignettes.Location = new System.Drawing.Point(0, 145);
             this.btnVignettes.Name = "btnVignettes";
             this.btnVignettes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnVignettes.Size = new System.Drawing.Size(183, 45);
@@ -753,6 +755,25 @@ namespace ParcAuto
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
+            // 
+            // btnEtatRecap
+            // 
+            this.btnEtatRecap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnEtatRecap.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEtatRecap.FlatAppearance.BorderSize = 0;
+            this.btnEtatRecap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEtatRecap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEtatRecap.ForeColor = System.Drawing.Color.White;
+            this.btnEtatRecap.Image = ((System.Drawing.Image)(resources.GetObject("btnEtatRecap.Image")));
+            this.btnEtatRecap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEtatRecap.Location = new System.Drawing.Point(0, 100);
+            this.btnEtatRecap.Name = "btnEtatRecap";
+            this.btnEtatRecap.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnEtatRecap.Size = new System.Drawing.Size(183, 45);
+            this.btnEtatRecap.TabIndex = 5;
+            this.btnEtatRecap.Text = "Vignettes ";
+            this.btnEtatRecap.UseVisualStyleBackColor = false;
+            this.btnEtatRecap.Click += new System.EventHandler(this.btnEtatRecap_Click);
             // 
             // Form1
             // 
@@ -850,6 +871,7 @@ namespace ParcAuto
         private System.Windows.Forms.PictureBox repup;
         private System.Windows.Forms.PictureBox ParcAutodown;
         private System.Windows.Forms.PictureBox ParcAutoup;
+        private System.Windows.Forms.Button btnEtatRecap;
     }
 }
 

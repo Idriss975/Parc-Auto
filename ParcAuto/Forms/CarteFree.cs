@@ -301,7 +301,8 @@ namespace ParcAuto.Forms
                 (new MajCarteFree(dgvCarteFree.Rows[pos].Cells[1].Value.ToString(),
                     dgvCarteFree.Rows[pos].Cells[2].Value.ToString(),
                     dgvCarteFree.Rows[pos].Cells[3].Value.ToString(),
-                    dgvCarteFree.Rows[pos].Cells[4].Value.ToString())).ShowDialog();
+                    dgvCarteFree.Rows[pos].Cells[4].Value.ToString(),
+                    dgvCarteFree.Rows[pos].Cells[5].Value.ToString())).ShowDialog();
                 RemplirLaGrille();
                 dgvCarteFree.Rows[pos].Selected = true;
                 dgvCarteFree.FirstDisplayedScrollingRowIndex = Lastscrollindex;
