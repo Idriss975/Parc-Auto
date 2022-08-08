@@ -78,7 +78,7 @@ namespace ParcAuto.Forms
 
         private void cmbChoix_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbChoix.SelectedIndex == 3)
+            if (cmbChoix.SelectedIndex == 4)
             {
                 TextPanel.Visible = false;
                 panelDate.Visible = true;
@@ -119,9 +119,10 @@ namespace ParcAuto.Forms
         
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            int pos = dgvReparation.CurrentRow.Index;
+           
             try
             {
+                int pos = dgvReparation.CurrentRow.Index;
                 GLB.id_Reparation = Convert.ToInt32(dgvReparation.Rows[pos].Cells[0].Value);
                 Commandes.Command = Choix.modifier;
                 Commandes.MAJRep = TypeRep.Reparation;

@@ -80,9 +80,9 @@ namespace ParcAuto.Forms
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            int pos = dgvReparation.CurrentRow.Index;
             try
             {
+                int pos = dgvReparation.CurrentRow.Index;
                 GLB.id_Reparation = Convert.ToInt32(dgvReparation.Rows[pos].Cells[0].Value);
                 Commandes.Command = Choix.modifier;
                 Commandes.MAJRep = TypeRep.ReparationSNTL;
@@ -294,6 +294,29 @@ namespace ParcAuto.Forms
                 datagridviewLoad();
                 Total();
             }
+        }
+
+        private void cmbChoix_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbChoix.SelectedIndex == 4)
+            {
+                TextPanel.Visible = false;
+                panelDate.Visible = true;
+                panelDate.Location = new System.Drawing.Point(287, 3);
+                btnFiltrer.Location = new System.Drawing.Point(858, 14);
+            }
+            else
+            {
+                TextPanel.Visible = true;
+                panelDate.Visible = false;
+                TextPanel.Location = new System.Drawing.Point(287, 12);
+                btnFiltrer.Location = new System.Drawing.Point(635, 18);
+            }
+        }
+
+        private void btnFiltrer_Click(object sender, EventArgs e)
+        {
+            GLB.Filter(cmbChoix, dgvReparation, txtValueToFiltre, new string[] { "Date" }, Date1, Date2);
         }
     }
 }

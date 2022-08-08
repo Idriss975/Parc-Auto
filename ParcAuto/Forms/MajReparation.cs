@@ -82,7 +82,7 @@ namespace ParcAuto.Forms
                             GLB.Cmd.Parameters.AddWithValue("@MontantReparation", MontantReparation == "null" ? null : MontantReparation);
                             break;
                         case Choix.modifier:
-                            GLB.Cmd.CommandText = $"update {(Commandes.MAJRep != TypeRep.ReparationSNTL ? "ReparationPRDSNTL" : "Reparation")} set Entite = @txtentite, Beneficiaire=@txtBenificiaire, Vehicule=@cmbVehicule, MatriculeV = @txtMat ,Date= @Date, Objet=@txtObjet, Entretien= @MontantEntretient, Reparation=@MontantReparation where id = @ID";
+                            GLB.Cmd.CommandText = $"update {(Commandes.MAJRep != TypeRep.Reparation ? "ReparationPRDSNTL" : "Reparation")} set Entite = @txtentite, Beneficiaire=@txtBenificiaire, Vehicule=@cmbVehicule, MatriculeV = @txtMat ,Date= @Date, Objet=@txtObjet, Entretien= @MontantEntretient, Reparation=@MontantReparation where id = @ID";
                             GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
                             GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
                             GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.Text);
@@ -166,9 +166,9 @@ namespace ParcAuto.Forms
                 ac.Add(item[1].ToString());
 
             }
-            cmbVehicule.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cmbVehicule.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            cmbVehicule.AutoCompleteCustomSource = ac;
+            txtMatricule.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtMatricule.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtMatricule.AutoCompleteCustomSource = ac;
         }
         private void RemplirComboBoxBeneficiaire()
         {

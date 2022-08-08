@@ -154,7 +154,7 @@ namespace ParcAuto.Forms
             this.panelDate.Controls.Add(this.label3);
             this.panelDate.Controls.Add(this.Date1);
             this.panelDate.Controls.Add(this.Date2);
-            this.panelDate.Location = new System.Drawing.Point(290, 9);
+            this.panelDate.Location = new System.Drawing.Point(290, 39);
             this.panelDate.Name = "panelDate";
             this.panelDate.Size = new System.Drawing.Size(549, 60);
             this.panelDate.TabIndex = 68;
@@ -282,6 +282,7 @@ namespace ParcAuto.Forms
             this.btnFiltrer.Text = "Filtrer";
             this.btnFiltrer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnFiltrer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnFiltrer.Click += new System.EventHandler(this.btnFiltrer_Click);
             // 
             // btnRefresh
             // 
@@ -332,6 +333,7 @@ namespace ParcAuto.Forms
             this.cmbChoix.ShadowDecoration.Parent = this.cmbChoix;
             this.cmbChoix.Size = new System.Drawing.Size(176, 36);
             this.cmbChoix.TabIndex = 64;
+            this.cmbChoix.SelectedIndexChanged += new System.EventHandler(this.cmbChoix_SelectedIndexChanged);
             // 
             // label1
             // 
