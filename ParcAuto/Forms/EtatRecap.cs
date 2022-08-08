@@ -25,9 +25,9 @@ namespace ParcAuto.Forms
             GLB.dr = GLB.Cmd.ExecuteReader();
             if (GLB.dr.Read())
             {
-                ReportCarteFree.Text = GLB.dr[0].ToString();
-                AchatCarteFree.Text = GLB.dr[1].ToString();
-                SumStockCarteFree.Text = (float.Parse( GLB.dr[0].ToString()) + float.Parse( GLB.dr[1].ToString())).ToString();
+                ReportCarteFree.Text = String.Format("{0:0.00}",GLB.dr[0]);
+                AchatCarteFree.Text = String.Format("{0:0.00}", GLB.dr[1]);
+                SumStockCarteFree.Text = String.Format("{0:0.00}", (float.Parse( GLB.dr[0].ToString()) + float.Parse( GLB.dr[1].ToString())));
             }
             GLB.dr.Close();
             GLB.Cmd.CommandText = $"select Fixe , Autre from CarteFree where dateCarte >= '{DateTime.Now.Year}-01-01' and dateCarte < '{DateTime.Now.Year}-04-01'";
@@ -35,12 +35,12 @@ namespace ParcAuto.Forms
 
             while (GLB.dr.Read())
             {
-                trim1CarteFree.Text = (double.Parse(trim1CarteFree.Text) + (GLB.dr.IsDBNull(0) ? 0.0:(double)GLB.dr[0]) + (GLB.dr.IsDBNull(1)?0.0:(double)GLB.dr[1])).ToString();
+                trim1CarteFree.Text = String.Format("{0:0.00}", (double.Parse(trim1CarteFree.Text) + (GLB.dr.IsDBNull(0) ? 0.0:(double)GLB.dr[0]) + (GLB.dr.IsDBNull(1)?0.0:(double)GLB.dr[1])));
             }
             GLB.dr.Close();
             GLB.Con.Close();
-            sumtrimestres.Text = (double.Parse(trim1CarteFree.Text) + double.Parse(trim2CarteFree.Text) + double.Parse(trim3CarteFree.Text) + double.Parse(trim4CarteFree.Text)).ToString();
-            Disponible.Text = (double.Parse(SumStockCarteFree.Text) - double.Parse(sumtrimestres.Text)).ToString();
+            sumtrimestres.Text = String.Format("{0:0.00}", (double.Parse(trim1CarteFree.Text) + double.Parse(trim2CarteFree.Text) + double.Parse(trim3CarteFree.Text) + double.Parse(trim4CarteFree.Text)));
+            Disponible.Text = String.Format("{0:0.00}", (double.Parse(SumStockCarteFree.Text) - double.Parse(sumtrimestres.Text)));
         }
     }
 }
