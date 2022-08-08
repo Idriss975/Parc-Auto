@@ -231,7 +231,6 @@ namespace ParcAuto.Forms
 
             }
             //TODO: catch NullReferenceException (idriss)
-            RemplirLaGrille();
         }
     }
 }

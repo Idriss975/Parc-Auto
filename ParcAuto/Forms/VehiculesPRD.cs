@@ -133,7 +133,6 @@ namespace ParcAuto.Forms
 
             }
             //TODO: catch NullReferenceException (idriss)
-            RemplirLaGrille();
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
