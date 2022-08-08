@@ -38,8 +38,8 @@ namespace ParcAuto.Forms
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.ReportReparation = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
+            this.SumStockCarbSNTL = new System.Windows.Forms.Label();
+            this.AchatCarbSNTL = new System.Windows.Forms.Label();
             this.ReportCarbSNTL = new System.Windows.Forms.Label();
             this.SumStockCarteFree = new System.Windows.Forms.Label();
             this.AchatCarteFree = new System.Windows.Forms.Label();
@@ -73,10 +73,10 @@ namespace ParcAuto.Forms
             this.trim2CarteFree = new System.Windows.Forms.Label();
             this.trim3CarteFree = new System.Windows.Forms.Label();
             this.trim4CarteFree = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
+            this.trim1CarbSNTL = new System.Windows.Forms.Label();
+            this.trim2CarbSNTL = new System.Windows.Forms.Label();
+            this.trim3CarbSNTL = new System.Windows.Forms.Label();
+            this.trim4CarbSNTL = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -90,8 +90,8 @@ namespace ParcAuto.Forms
             this.label48 = new System.Windows.Forms.Label();
             this.sumtrimestres = new System.Windows.Forms.Label();
             this.Disponible = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
+            this.sumtrimestresCarbSNTL = new System.Windows.Forms.Label();
+            this.DisponibleCarbSNTL = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
             this.tableLayoutPanel6.SuspendLayout();
@@ -153,8 +153,8 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel7.Controls.Add(this.label20, 2, 3);
             this.tableLayoutPanel7.Controls.Add(this.label21, 1, 3);
             this.tableLayoutPanel7.Controls.Add(this.ReportReparation, 0, 3);
-            this.tableLayoutPanel7.Controls.Add(this.label24, 2, 2);
-            this.tableLayoutPanel7.Controls.Add(this.label30, 1, 2);
+            this.tableLayoutPanel7.Controls.Add(this.SumStockCarbSNTL, 2, 2);
+            this.tableLayoutPanel7.Controls.Add(this.AchatCarbSNTL, 1, 2);
             this.tableLayoutPanel7.Controls.Add(this.ReportCarbSNTL, 0, 2);
             this.tableLayoutPanel7.Controls.Add(this.SumStockCarteFree, 2, 1);
             this.tableLayoutPanel7.Controls.Add(this.AchatCarteFree, 1, 1);
@@ -186,28 +186,28 @@ namespace ParcAuto.Forms
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(85, 43);
             this.label17.TabIndex = 15;
-            this.label17.Text = "0,00";
+            this.label17.Text = "0";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label18
             // 
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(134, 161);
+            this.label18.Location = new System.Drawing.Point(151, 161);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(32, 16);
+            this.label18.Size = new System.Drawing.Size(15, 16);
             this.label18.TabIndex = 14;
-            this.label18.Text = "0,00";
+            this.label18.Text = "0";
             // 
             // ReportTransport
             // 
             this.ReportTransport.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ReportTransport.AutoSize = true;
-            this.ReportTransport.Location = new System.Drawing.Point(49, 161);
+            this.ReportTransport.Location = new System.Drawing.Point(66, 161);
             this.ReportTransport.Name = "ReportTransport";
-            this.ReportTransport.Size = new System.Drawing.Size(32, 16);
+            this.ReportTransport.Size = new System.Drawing.Size(15, 16);
             this.ReportTransport.TabIndex = 13;
-            this.ReportTransport.Text = "0,00";
+            this.ReportTransport.Text = "0";
             // 
             // label20
             // 
@@ -220,62 +220,62 @@ namespace ParcAuto.Forms
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(85, 38);
             this.label20.TabIndex = 12;
-            this.label20.Text = "0,00";
+            this.label20.Text = "0";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label21
             // 
             this.label21.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(134, 120);
+            this.label21.Location = new System.Drawing.Point(151, 120);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(32, 16);
+            this.label21.Size = new System.Drawing.Size(15, 16);
             this.label21.TabIndex = 11;
-            this.label21.Text = "0,00";
+            this.label21.Text = "0";
             // 
             // ReportReparation
             // 
             this.ReportReparation.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ReportReparation.AutoSize = true;
-            this.ReportReparation.Location = new System.Drawing.Point(49, 120);
+            this.ReportReparation.Location = new System.Drawing.Point(66, 120);
             this.ReportReparation.Name = "ReportReparation";
-            this.ReportReparation.Size = new System.Drawing.Size(32, 16);
+            this.ReportReparation.Size = new System.Drawing.Size(15, 16);
             this.ReportReparation.TabIndex = 10;
-            this.ReportReparation.Text = "0,00";
+            this.ReportReparation.Text = "0";
             // 
-            // label24
+            // SumStockCarbSNTL
             // 
-            this.label24.AutoSize = true;
-            this.label24.BackColor = System.Drawing.Color.Yellow;
-            this.label24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(170, 74);
-            this.label24.Margin = new System.Windows.Forms.Padding(0);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(85, 34);
-            this.label24.TabIndex = 9;
-            this.label24.Text = "0,00";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.SumStockCarbSNTL.AutoSize = true;
+            this.SumStockCarbSNTL.BackColor = System.Drawing.Color.Yellow;
+            this.SumStockCarbSNTL.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SumStockCarbSNTL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SumStockCarbSNTL.Location = new System.Drawing.Point(170, 74);
+            this.SumStockCarbSNTL.Margin = new System.Windows.Forms.Padding(0);
+            this.SumStockCarbSNTL.Name = "SumStockCarbSNTL";
+            this.SumStockCarbSNTL.Size = new System.Drawing.Size(85, 34);
+            this.SumStockCarbSNTL.TabIndex = 9;
+            this.SumStockCarbSNTL.Text = "0";
+            this.SumStockCarbSNTL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label30
+            // AchatCarbSNTL
             // 
-            this.label30.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(134, 83);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(32, 16);
-            this.label30.TabIndex = 8;
-            this.label30.Text = "0,00";
+            this.AchatCarbSNTL.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.AchatCarbSNTL.AutoSize = true;
+            this.AchatCarbSNTL.Location = new System.Drawing.Point(151, 83);
+            this.AchatCarbSNTL.Name = "AchatCarbSNTL";
+            this.AchatCarbSNTL.Size = new System.Drawing.Size(15, 16);
+            this.AchatCarbSNTL.TabIndex = 8;
+            this.AchatCarbSNTL.Text = "0";
             // 
             // ReportCarbSNTL
             // 
             this.ReportCarbSNTL.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ReportCarbSNTL.AutoSize = true;
-            this.ReportCarbSNTL.Location = new System.Drawing.Point(49, 83);
+            this.ReportCarbSNTL.Location = new System.Drawing.Point(66, 83);
             this.ReportCarbSNTL.Name = "ReportCarbSNTL";
-            this.ReportCarbSNTL.Size = new System.Drawing.Size(32, 16);
+            this.ReportCarbSNTL.Size = new System.Drawing.Size(15, 16);
             this.ReportCarbSNTL.TabIndex = 7;
-            this.ReportCarbSNTL.Text = "0,00";
+            this.ReportCarbSNTL.Text = "0";
             // 
             // SumStockCarteFree
             // 
@@ -288,18 +288,18 @@ namespace ParcAuto.Forms
             this.SumStockCarteFree.Name = "SumStockCarteFree";
             this.SumStockCarteFree.Size = new System.Drawing.Size(85, 36);
             this.SumStockCarteFree.TabIndex = 6;
-            this.SumStockCarteFree.Text = "0,00";
+            this.SumStockCarteFree.Text = "0";
             this.SumStockCarteFree.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // AchatCarteFree
             // 
             this.AchatCarteFree.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.AchatCarteFree.AutoSize = true;
-            this.AchatCarteFree.Location = new System.Drawing.Point(134, 47);
+            this.AchatCarteFree.Location = new System.Drawing.Point(151, 47);
             this.AchatCarteFree.Name = "AchatCarteFree";
-            this.AchatCarteFree.Size = new System.Drawing.Size(32, 16);
+            this.AchatCarteFree.Size = new System.Drawing.Size(15, 16);
             this.AchatCarteFree.TabIndex = 5;
-            this.AchatCarteFree.Text = "0,00";
+            this.AchatCarteFree.Text = "0";
             // 
             // label34
             // 
@@ -344,11 +344,11 @@ namespace ParcAuto.Forms
             // 
             this.ReportCarteFree.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ReportCarteFree.AutoSize = true;
-            this.ReportCarteFree.Location = new System.Drawing.Point(49, 47);
+            this.ReportCarteFree.Location = new System.Drawing.Point(66, 47);
             this.ReportCarteFree.Name = "ReportCarteFree";
-            this.ReportCarteFree.Size = new System.Drawing.Size(32, 16);
+            this.ReportCarteFree.Size = new System.Drawing.Size(15, 16);
             this.ReportCarteFree.TabIndex = 4;
-            this.ReportCarteFree.Text = "0,00";
+            this.ReportCarteFree.Text = "0";
             // 
             // panel4
             // 
@@ -538,10 +538,10 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Controls.Add(this.trim2CarteFree, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.trim3CarteFree, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.trim4CarteFree, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label14, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label15, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label16, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label23, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.trim1CarbSNTL, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.trim2CarbSNTL, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.trim3CarbSNTL, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.trim4CarbSNTL, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.label25, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label26, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label27, 2, 3);
@@ -564,11 +564,11 @@ namespace ParcAuto.Forms
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Location = new System.Drawing.Point(141, 161);
+            this.label9.Location = new System.Drawing.Point(158, 161);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(32, 16);
+            this.label9.Size = new System.Drawing.Size(15, 16);
             this.label9.TabIndex = 10;
-            this.label9.Text = "0,00";
+            this.label9.Text = "0";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
@@ -576,11 +576,11 @@ namespace ParcAuto.Forms
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Location = new System.Drawing.Point(53, 161);
+            this.label8.Location = new System.Drawing.Point(70, 161);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(32, 16);
+            this.label8.Size = new System.Drawing.Size(15, 16);
             this.label8.TabIndex = 9;
-            this.label8.Text = "0,00";
+            this.label8.Text = "0";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
@@ -588,11 +588,11 @@ namespace ParcAuto.Forms
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(318, 161);
+            this.label7.Location = new System.Drawing.Point(335, 161);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(32, 16);
+            this.label7.Size = new System.Drawing.Size(15, 16);
             this.label7.TabIndex = 8;
-            this.label7.Text = "0,00";
+            this.label7.Text = "0";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
@@ -600,11 +600,11 @@ namespace ParcAuto.Forms
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(229, 161);
+            this.label6.Location = new System.Drawing.Point(246, 161);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 16);
+            this.label6.Size = new System.Drawing.Size(15, 16);
             this.label6.TabIndex = 7;
-            this.label6.Text = "0,00";
+            this.label6.Text = "0";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -659,121 +659,121 @@ namespace ParcAuto.Forms
             // 
             this.trim1CarteFree.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.trim1CarteFree.AutoSize = true;
-            this.trim1CarteFree.Location = new System.Drawing.Point(53, 47);
+            this.trim1CarteFree.Location = new System.Drawing.Point(70, 47);
             this.trim1CarteFree.Name = "trim1CarteFree";
-            this.trim1CarteFree.Size = new System.Drawing.Size(32, 16);
+            this.trim1CarteFree.Size = new System.Drawing.Size(15, 16);
             this.trim1CarteFree.TabIndex = 11;
-            this.trim1CarteFree.Text = "0,00";
+            this.trim1CarteFree.Text = "0";
             // 
             // trim2CarteFree
             // 
             this.trim2CarteFree.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.trim2CarteFree.AutoSize = true;
-            this.trim2CarteFree.Location = new System.Drawing.Point(141, 47);
+            this.trim2CarteFree.Location = new System.Drawing.Point(158, 47);
             this.trim2CarteFree.Name = "trim2CarteFree";
-            this.trim2CarteFree.Size = new System.Drawing.Size(32, 16);
+            this.trim2CarteFree.Size = new System.Drawing.Size(15, 16);
             this.trim2CarteFree.TabIndex = 12;
-            this.trim2CarteFree.Text = "0,00";
+            this.trim2CarteFree.Text = "0";
             // 
             // trim3CarteFree
             // 
             this.trim3CarteFree.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.trim3CarteFree.AutoSize = true;
-            this.trim3CarteFree.Location = new System.Drawing.Point(229, 47);
+            this.trim3CarteFree.Location = new System.Drawing.Point(246, 47);
             this.trim3CarteFree.Name = "trim3CarteFree";
-            this.trim3CarteFree.Size = new System.Drawing.Size(32, 16);
+            this.trim3CarteFree.Size = new System.Drawing.Size(15, 16);
             this.trim3CarteFree.TabIndex = 13;
-            this.trim3CarteFree.Text = "0,00";
+            this.trim3CarteFree.Text = "0";
             // 
             // trim4CarteFree
             // 
             this.trim4CarteFree.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.trim4CarteFree.AutoSize = true;
-            this.trim4CarteFree.Location = new System.Drawing.Point(318, 47);
+            this.trim4CarteFree.Location = new System.Drawing.Point(335, 47);
             this.trim4CarteFree.Name = "trim4CarteFree";
-            this.trim4CarteFree.Size = new System.Drawing.Size(32, 16);
+            this.trim4CarteFree.Size = new System.Drawing.Size(15, 16);
             this.trim4CarteFree.TabIndex = 14;
-            this.trim4CarteFree.Text = "0,00";
+            this.trim4CarteFree.Text = "0";
             // 
-            // label14
+            // trim1CarbSNTL
             // 
-            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(53, 83);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(32, 16);
-            this.label14.TabIndex = 15;
-            this.label14.Text = "0,00";
+            this.trim1CarbSNTL.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.trim1CarbSNTL.AutoSize = true;
+            this.trim1CarbSNTL.Location = new System.Drawing.Point(70, 83);
+            this.trim1CarbSNTL.Name = "trim1CarbSNTL";
+            this.trim1CarbSNTL.Size = new System.Drawing.Size(15, 16);
+            this.trim1CarbSNTL.TabIndex = 15;
+            this.trim1CarbSNTL.Text = "0";
             // 
-            // label15
+            // trim2CarbSNTL
             // 
-            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(141, 83);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(32, 16);
-            this.label15.TabIndex = 16;
-            this.label15.Text = "0,00";
+            this.trim2CarbSNTL.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.trim2CarbSNTL.AutoSize = true;
+            this.trim2CarbSNTL.Location = new System.Drawing.Point(158, 83);
+            this.trim2CarbSNTL.Name = "trim2CarbSNTL";
+            this.trim2CarbSNTL.Size = new System.Drawing.Size(15, 16);
+            this.trim2CarbSNTL.TabIndex = 16;
+            this.trim2CarbSNTL.Text = "0";
             // 
-            // label16
+            // trim3CarbSNTL
             // 
-            this.label16.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(229, 83);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(32, 16);
-            this.label16.TabIndex = 17;
-            this.label16.Text = "0,00";
+            this.trim3CarbSNTL.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.trim3CarbSNTL.AutoSize = true;
+            this.trim3CarbSNTL.Location = new System.Drawing.Point(246, 83);
+            this.trim3CarbSNTL.Name = "trim3CarbSNTL";
+            this.trim3CarbSNTL.Size = new System.Drawing.Size(15, 16);
+            this.trim3CarbSNTL.TabIndex = 17;
+            this.trim3CarbSNTL.Text = "0";
             // 
-            // label23
+            // trim4CarbSNTL
             // 
-            this.label23.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(318, 83);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(32, 16);
-            this.label23.TabIndex = 18;
-            this.label23.Text = "0,00";
+            this.trim4CarbSNTL.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.trim4CarbSNTL.AutoSize = true;
+            this.trim4CarbSNTL.Location = new System.Drawing.Point(335, 83);
+            this.trim4CarbSNTL.Name = "trim4CarbSNTL";
+            this.trim4CarbSNTL.Size = new System.Drawing.Size(15, 16);
+            this.trim4CarbSNTL.TabIndex = 18;
+            this.trim4CarbSNTL.Text = "0";
             // 
             // label25
             // 
             this.label25.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(53, 120);
+            this.label25.Location = new System.Drawing.Point(70, 120);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(32, 16);
+            this.label25.Size = new System.Drawing.Size(15, 16);
             this.label25.TabIndex = 19;
-            this.label25.Text = "0,00";
+            this.label25.Text = "0";
             // 
             // label26
             // 
             this.label26.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(141, 120);
+            this.label26.Location = new System.Drawing.Point(158, 120);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(32, 16);
+            this.label26.Size = new System.Drawing.Size(15, 16);
             this.label26.TabIndex = 20;
-            this.label26.Text = "0,00";
+            this.label26.Text = "0";
             // 
             // label27
             // 
             this.label27.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(229, 120);
+            this.label27.Location = new System.Drawing.Point(246, 120);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(32, 16);
+            this.label27.Size = new System.Drawing.Size(15, 16);
             this.label27.TabIndex = 21;
-            this.label27.Text = "0,00";
+            this.label27.Text = "0";
             // 
             // label28
             // 
             this.label28.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(318, 120);
+            this.label28.Location = new System.Drawing.Point(335, 120);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(32, 16);
+            this.label28.Size = new System.Drawing.Size(15, 16);
             this.label28.TabIndex = 22;
-            this.label28.Text = "0,00";
+            this.label28.Text = "0";
             // 
             // panel2
             // 
@@ -809,8 +809,8 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel2.Controls.Add(this.label48, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.sumtrimestres, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.Disponible, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label51, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label52, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.sumtrimestresCarbSNTL, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.DisponibleCarbSNTL, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.label53, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.label54, 1, 3);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -838,7 +838,7 @@ namespace ParcAuto.Forms
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(98, 43);
             this.label47.TabIndex = 3;
-            this.label47.Text = "0,00";
+            this.label47.Text = "0";
             this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label46
@@ -846,11 +846,11 @@ namespace ParcAuto.Forms
             this.label46.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.Location = new System.Drawing.Point(159, 206);
+            this.label46.Location = new System.Drawing.Point(179, 206);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(36, 16);
+            this.label46.Size = new System.Drawing.Size(16, 16);
             this.label46.TabIndex = 2;
-            this.label46.Text = "0,00";
+            this.label46.Text = "0";
             this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label29
@@ -890,7 +890,7 @@ namespace ParcAuto.Forms
             this.sumtrimestres.Name = "sumtrimestres";
             this.sumtrimestres.Size = new System.Drawing.Size(98, 36);
             this.sumtrimestres.TabIndex = 5;
-            this.sumtrimestres.Text = "0,00";
+            this.sumtrimestres.Text = "0";
             this.sumtrimestres.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Disponible
@@ -898,38 +898,38 @@ namespace ParcAuto.Forms
             this.Disponible.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Disponible.AutoSize = true;
             this.Disponible.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Disponible.Location = new System.Drawing.Point(159, 92);
+            this.Disponible.Location = new System.Drawing.Point(179, 92);
             this.Disponible.Name = "Disponible";
-            this.Disponible.Size = new System.Drawing.Size(36, 16);
+            this.Disponible.Size = new System.Drawing.Size(16, 16);
             this.Disponible.TabIndex = 6;
-            this.Disponible.Text = "0,00";
+            this.Disponible.Text = "0";
             this.Disponible.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label51
+            // sumtrimestresCarbSNTL
             // 
-            this.label51.AutoSize = true;
-            this.label51.BackColor = System.Drawing.Color.Yellow;
-            this.label51.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label51.Location = new System.Drawing.Point(1, 119);
-            this.label51.Margin = new System.Windows.Forms.Padding(0);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(98, 34);
-            this.label51.TabIndex = 7;
-            this.label51.Text = "0,00";
-            this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.sumtrimestresCarbSNTL.AutoSize = true;
+            this.sumtrimestresCarbSNTL.BackColor = System.Drawing.Color.Yellow;
+            this.sumtrimestresCarbSNTL.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sumtrimestresCarbSNTL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sumtrimestresCarbSNTL.Location = new System.Drawing.Point(1, 119);
+            this.sumtrimestresCarbSNTL.Margin = new System.Windows.Forms.Padding(0);
+            this.sumtrimestresCarbSNTL.Name = "sumtrimestresCarbSNTL";
+            this.sumtrimestresCarbSNTL.Size = new System.Drawing.Size(98, 34);
+            this.sumtrimestresCarbSNTL.TabIndex = 7;
+            this.sumtrimestresCarbSNTL.Text = "0";
+            this.sumtrimestresCarbSNTL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label52
+            // DisponibleCarbSNTL
             // 
-            this.label52.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label52.AutoSize = true;
-            this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label52.Location = new System.Drawing.Point(159, 128);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(36, 16);
-            this.label52.TabIndex = 8;
-            this.label52.Text = "0,00";
-            this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.DisponibleCarbSNTL.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.DisponibleCarbSNTL.AutoSize = true;
+            this.DisponibleCarbSNTL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisponibleCarbSNTL.Location = new System.Drawing.Point(179, 128);
+            this.DisponibleCarbSNTL.Name = "DisponibleCarbSNTL";
+            this.DisponibleCarbSNTL.Size = new System.Drawing.Size(16, 16);
+            this.DisponibleCarbSNTL.TabIndex = 8;
+            this.DisponibleCarbSNTL.Text = "0";
+            this.DisponibleCarbSNTL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label53
             // 
@@ -942,7 +942,7 @@ namespace ParcAuto.Forms
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(98, 38);
             this.label53.TabIndex = 9;
-            this.label53.Text = "0,00";
+            this.label53.Text = "0";
             this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label54
@@ -950,11 +950,11 @@ namespace ParcAuto.Forms
             this.label54.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label54.AutoSize = true;
             this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.Location = new System.Drawing.Point(159, 165);
+            this.label54.Location = new System.Drawing.Point(179, 165);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(36, 16);
+            this.label54.Size = new System.Drawing.Size(16, 16);
             this.label54.TabIndex = 10;
-            this.label54.Text = "0,00";
+            this.label54.Text = "0";
             this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // EtatRecap
@@ -1003,8 +1003,8 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label ReportReparation;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label SumStockCarbSNTL;
+        private System.Windows.Forms.Label AchatCarbSNTL;
         private System.Windows.Forms.Label ReportCarbSNTL;
         private System.Windows.Forms.Label SumStockCarteFree;
         private System.Windows.Forms.Label AchatCarteFree;
@@ -1040,10 +1040,10 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label trim2CarteFree;
         private System.Windows.Forms.Label trim3CarteFree;
         private System.Windows.Forms.Label trim4CarteFree;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label trim1CarbSNTL;
+        private System.Windows.Forms.Label trim2CarbSNTL;
+        private System.Windows.Forms.Label trim3CarbSNTL;
+        private System.Windows.Forms.Label trim4CarbSNTL;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
@@ -1055,8 +1055,8 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label sumtrimestres;
         private System.Windows.Forms.Label Disponible;
-        private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label sumtrimestresCarbSNTL;
+        private System.Windows.Forms.Label DisponibleCarbSNTL;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Label label54;
     }
