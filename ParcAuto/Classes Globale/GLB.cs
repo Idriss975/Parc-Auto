@@ -30,7 +30,7 @@ namespace ParcAuto.Classes_Globale
         public static Dictionary<string, string> Entites = new Dictionary<string, string> 
         { 
             { "DG", "Direction Générale" },
-            { "CDG", "Cabinet/Direction Générale" },
+            { "CDG", "Cabinet /Direction Générale" },
             { "DC", "Direction de la communication" },
             { "DA", "Direction de l'Audit" },
             { "DAL", "Direction de l'approvisionnement et de la logistique" },
