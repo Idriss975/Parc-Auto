@@ -115,11 +115,11 @@ namespace ParcAuto.Forms
                     dgvVehicules.Rows[pos].Cells[0].Value.ToString(),
                     DateTime.ParseExact(dgvVehicules.Rows[pos].Cells[2].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
                     "",
-                    dgvVehicules.Rows[pos].Cells[3].Value.ToString(),
                     dgvVehicules.Rows[pos].Cells[4].Value.ToString(),
                     dgvVehicules.Rows[pos].Cells[5].Value.ToString(),
                     dgvVehicules.Rows[pos].Cells[6].Value.ToString(),
                     dgvVehicules.Rows[pos].Cells[7].Value.ToString(),
+                    dgvVehicules.Rows[pos].Cells[8].Value.ToString(),
                     this
                 )).ShowDialog();
 
