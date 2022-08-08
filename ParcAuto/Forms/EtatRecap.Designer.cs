@@ -180,6 +180,7 @@ namespace ParcAuto.Forms
             this.label17.AutoSize = true;
             this.label17.BackColor = System.Drawing.Color.Yellow;
             this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(170, 182);
             this.label17.Margin = new System.Windows.Forms.Padding(0);
             this.label17.Name = "label17";
@@ -213,6 +214,7 @@ namespace ParcAuto.Forms
             this.label20.AutoSize = true;
             this.label20.BackColor = System.Drawing.Color.Yellow;
             this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(170, 135);
             this.label20.Margin = new System.Windows.Forms.Padding(0);
             this.label20.Name = "label20";
@@ -246,6 +248,7 @@ namespace ParcAuto.Forms
             this.label24.AutoSize = true;
             this.label24.BackColor = System.Drawing.Color.Yellow;
             this.label24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.Location = new System.Drawing.Point(170, 90);
             this.label24.Margin = new System.Windows.Forms.Padding(0);
             this.label24.Name = "label24";
@@ -279,6 +282,7 @@ namespace ParcAuto.Forms
             this.SumStockCarteFree.AutoSize = true;
             this.SumStockCarteFree.BackColor = System.Drawing.Color.Yellow;
             this.SumStockCarteFree.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SumStockCarteFree.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SumStockCarteFree.Location = new System.Drawing.Point(170, 45);
             this.SumStockCarteFree.Margin = new System.Windows.Forms.Padding(0);
             this.SumStockCarteFree.Name = "SumStockCarteFree";
@@ -815,9 +819,9 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.21555F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.90106F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.25442F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.19435F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.66784F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.96113F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.37456F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(199, 284);
@@ -828,6 +832,7 @@ namespace ParcAuto.Forms
             this.label47.AutoSize = true;
             this.label47.BackColor = System.Drawing.Color.Yellow;
             this.label47.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label47.Location = new System.Drawing.Point(1, 231);
             this.label47.Margin = new System.Windows.Forms.Padding(0);
             this.label47.Name = "label47";
@@ -840,9 +845,10 @@ namespace ParcAuto.Forms
             // 
             this.label46.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(163, 249);
+            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(159, 249);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(32, 16);
+            this.label46.Size = new System.Drawing.Size(36, 16);
             this.label46.TabIndex = 2;
             this.label46.Text = "0,00";
             this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -878,10 +884,11 @@ namespace ParcAuto.Forms
             this.sumtrimestres.AutoSize = true;
             this.sumtrimestres.BackColor = System.Drawing.Color.Yellow;
             this.sumtrimestres.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sumtrimestres.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sumtrimestres.Location = new System.Drawing.Point(1, 94);
             this.sumtrimestres.Margin = new System.Windows.Forms.Padding(0);
             this.sumtrimestres.Name = "sumtrimestres";
-            this.sumtrimestres.Size = new System.Drawing.Size(98, 44);
+            this.sumtrimestres.Size = new System.Drawing.Size(98, 45);
             this.sumtrimestres.TabIndex = 5;
             this.sumtrimestres.Text = "0,00";
             this.sumtrimestres.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -890,9 +897,10 @@ namespace ParcAuto.Forms
             // 
             this.Disponible.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Disponible.AutoSize = true;
-            this.Disponible.Location = new System.Drawing.Point(163, 108);
+            this.Disponible.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Disponible.Location = new System.Drawing.Point(159, 108);
             this.Disponible.Name = "Disponible";
-            this.Disponible.Size = new System.Drawing.Size(32, 16);
+            this.Disponible.Size = new System.Drawing.Size(36, 16);
             this.Disponible.TabIndex = 6;
             this.Disponible.Text = "0,00";
             this.Disponible.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -902,7 +910,8 @@ namespace ParcAuto.Forms
             this.label51.AutoSize = true;
             this.label51.BackColor = System.Drawing.Color.Yellow;
             this.label51.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label51.Location = new System.Drawing.Point(1, 139);
+            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.Location = new System.Drawing.Point(1, 140);
             this.label51.Margin = new System.Windows.Forms.Padding(0);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(98, 42);
@@ -914,9 +923,10 @@ namespace ParcAuto.Forms
             // 
             this.label52.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(163, 152);
+            this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.Location = new System.Drawing.Point(159, 153);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(32, 16);
+            this.label52.Size = new System.Drawing.Size(36, 16);
             this.label52.TabIndex = 8;
             this.label52.Text = "0,00";
             this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -926,10 +936,11 @@ namespace ParcAuto.Forms
             this.label53.AutoSize = true;
             this.label53.BackColor = System.Drawing.Color.Yellow;
             this.label53.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label53.Location = new System.Drawing.Point(1, 182);
+            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.Location = new System.Drawing.Point(1, 183);
             this.label53.Margin = new System.Windows.Forms.Padding(0);
             this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(98, 48);
+            this.label53.Size = new System.Drawing.Size(98, 47);
             this.label53.TabIndex = 9;
             this.label53.Text = "0,00";
             this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -938,9 +949,10 @@ namespace ParcAuto.Forms
             // 
             this.label54.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(163, 198);
+            this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label54.Location = new System.Drawing.Point(159, 198);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(32, 16);
+            this.label54.Size = new System.Drawing.Size(36, 16);
             this.label54.TabIndex = 10;
             this.label54.Text = "0,00";
             this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
