@@ -148,37 +148,6 @@ namespace ParcAuto.Forms
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int pos = dgvCarburant.CurrentRow.Index;
-                GLB.id_Carburant = Convert.ToInt32(dgvCarburant.Rows[pos].Cells[13].Value);
-                Commandes.Command = Choix.modifier;
-                Commandes.MAJ = TypeCarb.Carburant;
-                (new MajCarburants(dgvCarburant.Rows[pos].Cells[0].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[1].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[2].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[3].Value.ToString(),
-                    DateTime.ParseExact(dgvCarburant.Rows[pos].Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
-                    dgvCarburant.Rows[pos].Cells[5].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[6].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[7].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[8].Value.ToString().Substring(0, (dgvCarburant.Rows[pos].Cells[8].Value.ToString().Length != 0 ? dgvCarburant.Rows[pos].Cells[8].Value.ToString().Length - 3 : 0)),
-                    dgvCarburant.Rows[pos].Cells[9].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[10].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[11].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[12].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[14].Value.ToString())).ShowDialog();
-                RemplirLaGrille();
-                dgvCarburant.Rows[pos].Selected = true;
-                dgvCarburant.FirstDisplayedScrollingRowIndex = pos;
-                Total();
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
@@ -216,7 +185,35 @@ namespace ParcAuto.Forms
 
         private void dgvCarburant_DoubleClick(object sender, EventArgs e)
         {
-          
+            try
+            {
+                int pos = dgvCarburant.CurrentRow.Index;
+                GLB.id_Carburant = Convert.ToInt32(dgvCarburant.Rows[pos].Cells[13].Value);
+                Commandes.Command = Choix.modifier;
+                Commandes.MAJ = TypeCarb.Carburant;
+                (new MajCarburants(dgvCarburant.Rows[pos].Cells[0].Value.ToString(),
+                    dgvCarburant.Rows[pos].Cells[1].Value.ToString(),
+                    dgvCarburant.Rows[pos].Cells[2].Value.ToString(),
+                    dgvCarburant.Rows[pos].Cells[3].Value.ToString(),
+                    DateTime.ParseExact(dgvCarburant.Rows[pos].Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                    dgvCarburant.Rows[pos].Cells[5].Value.ToString(),
+                    dgvCarburant.Rows[pos].Cells[6].Value.ToString(),
+                    dgvCarburant.Rows[pos].Cells[7].Value.ToString(),
+                    dgvCarburant.Rows[pos].Cells[8].Value.ToString().Substring(0, (dgvCarburant.Rows[pos].Cells[8].Value.ToString().Length != 0 ? dgvCarburant.Rows[pos].Cells[8].Value.ToString().Length - 3 : 0)),
+                    dgvCarburant.Rows[pos].Cells[9].Value.ToString(),
+                    dgvCarburant.Rows[pos].Cells[10].Value.ToString(),
+                    dgvCarburant.Rows[pos].Cells[11].Value.ToString(),
+                    dgvCarburant.Rows[pos].Cells[12].Value.ToString(),
+                    dgvCarburant.Rows[pos].Cells[14].Value.ToString())).ShowDialog();
+                RemplirLaGrille();
+                dgvCarburant.Rows[pos].Selected = true;
+                dgvCarburant.FirstDisplayedScrollingRowIndex = pos;
+                Total();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
       
         private void btnExportExcel_Click(object sender, EventArgs e)

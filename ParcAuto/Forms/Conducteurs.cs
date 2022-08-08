@@ -81,29 +81,8 @@ namespace ParcAuto.Forms
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            int pos = dgvconducteur.CurrentRow.Index;
-            try
-            {
-                GLB.Matricule = Convert.ToInt32(dgvconducteur.Rows[pos].Cells[0].Value);
-                Commandes.Command = Choix.modifier;
-                (new MAJConducteur(dgvconducteur.Rows[pos].Cells[1].Value.ToString(),
-                    dgvconducteur.Rows[pos].Cells[2].Value.ToString(),
-                     DateTime.ParseExact(dgvconducteur.Rows[pos].Cells[3].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
-                      DateTime.ParseExact(dgvconducteur.Rows[pos].Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
-                       dgvconducteur.Rows[pos].Cells[5].Value.ToString(),
-                        dgvconducteur.Rows[pos].Cells[6].Value.ToString(),
-                         dgvconducteur.Rows[pos].Cells[7].Value.ToString(),
-                          dgvconducteur.Rows[pos].Cells[8].Value.ToString(),
-                           dgvconducteur.Rows[pos].Cells[9].Value.ToString())).ShowDialog();
-                RemplirLaGrille();
-                dgvconducteur.Rows[pos].Selected = true;
-                dgvconducteur.FirstDisplayedScrollingRowIndex = pos;
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur",MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            //TODO: catch NullReferenceException (idriss)
+            
+            
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
@@ -255,6 +234,33 @@ namespace ParcAuto.Forms
                 GLB.Con.Close();
                 RemplirLaGrille();
             }
+        }
+
+        private void dgvconducteur_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                int pos = dgvconducteur.CurrentRow.Index;
+                GLB.Matricule = Convert.ToInt32(dgvconducteur.Rows[pos].Cells[0].Value);
+                Commandes.Command = Choix.modifier;
+                (new MAJConducteur(dgvconducteur.Rows[pos].Cells[1].Value.ToString(),
+                    dgvconducteur.Rows[pos].Cells[2].Value.ToString(),
+                     DateTime.ParseExact(dgvconducteur.Rows[pos].Cells[3].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                      DateTime.ParseExact(dgvconducteur.Rows[pos].Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                       dgvconducteur.Rows[pos].Cells[5].Value.ToString(),
+                        dgvconducteur.Rows[pos].Cells[6].Value.ToString(),
+                         dgvconducteur.Rows[pos].Cells[7].Value.ToString(),
+                          dgvconducteur.Rows[pos].Cells[8].Value.ToString(),
+                           dgvconducteur.Rows[pos].Cells[9].Value.ToString())).ShowDialog();
+                RemplirLaGrille();
+                dgvconducteur.Rows[pos].Selected = true;
+                dgvconducteur.FirstDisplayedScrollingRowIndex = pos;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            //TODO: catch NullReferenceException (idriss)
         }
     }
 }

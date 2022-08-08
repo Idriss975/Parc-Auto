@@ -34,6 +34,16 @@ namespace ParcAuto.Forms
             this.btnModifier = new Guna.UI2.WinForms.Guna2Button();
             this.btnSupprimer = new Guna.UI2.WinForms.Guna2Button();
             this.dgvconducteur = new System.Windows.Forms.DataGridView();
+            this.Matricule = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date_de_naissance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date_dembauch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Numero_de_permis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Adresse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direction = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telephone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnQuitter = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbChoix = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -51,16 +61,6 @@ namespace ParcAuto.Forms
             this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
             this.btnImportExcel = new Guna.UI2.WinForms.Guna2Button();
             this.btnSuprimmerTout = new Guna.UI2.WinForms.Guna2Button();
-            this.Matricule = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date_de_naissance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date_dembauch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Numero_de_permis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Adresse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Direction = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telephone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvconducteur)).BeginInit();
             this.TextPanel.SuspendLayout();
             this.panelDate.SuspendLayout();
@@ -160,6 +160,85 @@ namespace ParcAuto.Forms
             this.dgvconducteur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvconducteur.Size = new System.Drawing.Size(1109, 500);
             this.dgvconducteur.TabIndex = 6;
+            this.dgvconducteur.DoubleClick += new System.EventHandler(this.dgvconducteur_DoubleClick);
+            // 
+            // Matricule
+            // 
+            this.Matricule.HeaderText = "Matricule";
+            this.Matricule.MinimumWidth = 8;
+            this.Matricule.Name = "Matricule";
+            this.Matricule.ReadOnly = true;
+            // 
+            // Nom
+            // 
+            this.Nom.HeaderText = "Nom";
+            this.Nom.MinimumWidth = 8;
+            this.Nom.Name = "Nom";
+            this.Nom.ReadOnly = true;
+            this.Nom.Width = 110;
+            // 
+            // Prenom
+            // 
+            this.Prenom.HeaderText = "Prenom";
+            this.Prenom.MinimumWidth = 8;
+            this.Prenom.Name = "Prenom";
+            this.Prenom.ReadOnly = true;
+            this.Prenom.Width = 110;
+            // 
+            // Date_de_naissance
+            // 
+            this.Date_de_naissance.HeaderText = "Date de naissance";
+            this.Date_de_naissance.MinimumWidth = 8;
+            this.Date_de_naissance.Name = "Date_de_naissance";
+            this.Date_de_naissance.ReadOnly = true;
+            this.Date_de_naissance.Width = 150;
+            // 
+            // Date_dembauch
+            // 
+            this.Date_dembauch.HeaderText = "Date d\'embauch";
+            this.Date_dembauch.MinimumWidth = 8;
+            this.Date_dembauch.Name = "Date_dembauch";
+            this.Date_dembauch.ReadOnly = true;
+            this.Date_dembauch.Width = 150;
+            // 
+            // Numero_de_permis
+            // 
+            this.Numero_de_permis.HeaderText = "Numero de permis";
+            this.Numero_de_permis.MinimumWidth = 8;
+            this.Numero_de_permis.Name = "Numero_de_permis";
+            this.Numero_de_permis.ReadOnly = true;
+            // 
+            // Adresse
+            // 
+            this.Adresse.HeaderText = "Adresse";
+            this.Adresse.MinimumWidth = 8;
+            this.Adresse.Name = "Adresse";
+            this.Adresse.ReadOnly = true;
+            this.Adresse.Width = 250;
+            // 
+            // Direction
+            // 
+            this.Direction.HeaderText = "Direction";
+            this.Direction.MinimumWidth = 8;
+            this.Direction.Name = "Direction";
+            this.Direction.ReadOnly = true;
+            this.Direction.Width = 150;
+            // 
+            // Telephone
+            // 
+            this.Telephone.HeaderText = "Telephone";
+            this.Telephone.MinimumWidth = 8;
+            this.Telephone.Name = "Telephone";
+            this.Telephone.ReadOnly = true;
+            this.Telephone.Width = 150;
+            // 
+            // Email
+            // 
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 8;
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            this.Email.Width = 200;
             // 
             // btnQuitter
             // 
@@ -444,84 +523,6 @@ namespace ParcAuto.Forms
             this.btnSuprimmerTout.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnSuprimmerTout.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             this.btnSuprimmerTout.Click += new System.EventHandler(this.btnSuprimmerTout_Click);
-            // 
-            // Matricule
-            // 
-            this.Matricule.HeaderText = "Matricule";
-            this.Matricule.MinimumWidth = 8;
-            this.Matricule.Name = "Matricule";
-            this.Matricule.ReadOnly = true;
-            // 
-            // Nom
-            // 
-            this.Nom.HeaderText = "Nom";
-            this.Nom.MinimumWidth = 8;
-            this.Nom.Name = "Nom";
-            this.Nom.ReadOnly = true;
-            this.Nom.Width = 110;
-            // 
-            // Prenom
-            // 
-            this.Prenom.HeaderText = "Prenom";
-            this.Prenom.MinimumWidth = 8;
-            this.Prenom.Name = "Prenom";
-            this.Prenom.ReadOnly = true;
-            this.Prenom.Width = 110;
-            // 
-            // Date_de_naissance
-            // 
-            this.Date_de_naissance.HeaderText = "Date de naissance";
-            this.Date_de_naissance.MinimumWidth = 8;
-            this.Date_de_naissance.Name = "Date_de_naissance";
-            this.Date_de_naissance.ReadOnly = true;
-            this.Date_de_naissance.Width = 150;
-            // 
-            // Date_dembauch
-            // 
-            this.Date_dembauch.HeaderText = "Date d\'embauch";
-            this.Date_dembauch.MinimumWidth = 8;
-            this.Date_dembauch.Name = "Date_dembauch";
-            this.Date_dembauch.ReadOnly = true;
-            this.Date_dembauch.Width = 150;
-            // 
-            // Numero_de_permis
-            // 
-            this.Numero_de_permis.HeaderText = "Numero de permis";
-            this.Numero_de_permis.MinimumWidth = 8;
-            this.Numero_de_permis.Name = "Numero_de_permis";
-            this.Numero_de_permis.ReadOnly = true;
-            // 
-            // Adresse
-            // 
-            this.Adresse.HeaderText = "Adresse";
-            this.Adresse.MinimumWidth = 8;
-            this.Adresse.Name = "Adresse";
-            this.Adresse.ReadOnly = true;
-            this.Adresse.Width = 250;
-            // 
-            // Direction
-            // 
-            this.Direction.HeaderText = "Direction";
-            this.Direction.MinimumWidth = 8;
-            this.Direction.Name = "Direction";
-            this.Direction.ReadOnly = true;
-            this.Direction.Width = 150;
-            // 
-            // Telephone
-            // 
-            this.Telephone.HeaderText = "Telephone";
-            this.Telephone.MinimumWidth = 8;
-            this.Telephone.Name = "Telephone";
-            this.Telephone.ReadOnly = true;
-            this.Telephone.Width = 150;
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 8;
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            this.Email.Width = 200;
             // 
             // Conducteurs
             // 

@@ -392,6 +392,7 @@ namespace ParcAuto.Forms
             this.dgvTransport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTransport.Size = new System.Drawing.Size(1109, 470);
             this.dgvTransport.TabIndex = 44;
+            this.dgvTransport.DoubleClick += new System.EventHandler(this.dgvTransport_DoubleClick);
             // 
             // Column1
             // 

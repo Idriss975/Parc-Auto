@@ -89,24 +89,7 @@ namespace ParcAuto.Forms
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            int pos = dgvCarteFree.CurrentRow.Index;
-            try
-            {
-                GLB.id_CarteFree = Convert.ToInt32(dgvCarteFree.Rows[pos].Cells[0].Value);
-                Commandes.Command = Choix.modifier;
-                (new MajCarteFree(dgvCarteFree.Rows[pos].Cells[1].Value.ToString(),
-                    dgvCarteFree.Rows[pos].Cells[2].Value.ToString(),
-                    dgvCarteFree.Rows[pos].Cells[3].Value.ToString(),
-                    dgvCarteFree.Rows[pos].Cells[4].Value.ToString())).ShowDialog();
-                RemplirLaGrille();
-                dgvCarteFree.Rows[pos].Selected = true;
-                dgvCarteFree.FirstDisplayedScrollingRowIndex = pos;
-                Total();
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
@@ -305,6 +288,28 @@ namespace ParcAuto.Forms
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             GLB.Drawonprintdoc(e, dgvCarteFree, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6),0,5);
+        }
+
+        private void dgvCarteFree_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                int pos = dgvCarteFree.CurrentRow.Index;
+                GLB.id_CarteFree = Convert.ToInt32(dgvCarteFree.Rows[pos].Cells[0].Value);
+                Commandes.Command = Choix.modifier;
+                (new MajCarteFree(dgvCarteFree.Rows[pos].Cells[1].Value.ToString(),
+                    dgvCarteFree.Rows[pos].Cells[2].Value.ToString(),
+                    dgvCarteFree.Rows[pos].Cells[3].Value.ToString(),
+                    dgvCarteFree.Rows[pos].Cells[4].Value.ToString())).ShowDialog();
+                RemplirLaGrille();
+                dgvCarteFree.Rows[pos].Selected = true;
+                dgvCarteFree.FirstDisplayedScrollingRowIndex = pos;
+                Total();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

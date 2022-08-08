@@ -120,6 +120,7 @@ namespace ParcAuto.Forms
             this.dgvVehicules.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvVehicules.Size = new System.Drawing.Size(1109, 500);
             this.dgvVehicules.TabIndex = 1;
+            this.dgvVehicules.DoubleClick += new System.EventHandler(this.dgvVehicules_DoubleClick);
             // 
             // Column2
             // 

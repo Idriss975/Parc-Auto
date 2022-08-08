@@ -404,6 +404,7 @@ namespace ParcAuto.Forms
             this.dgvCarteFree.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCarteFree.Size = new System.Drawing.Size(1109, 423);
             this.dgvCarteFree.TabIndex = 58;
+            this.dgvCarteFree.DoubleClick += new System.EventHandler(this.dgvCarteFree_DoubleClick);
             // 
             // Column1
             // 
