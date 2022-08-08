@@ -47,6 +47,12 @@ namespace ParcAuto.Forms
             this.btnModifier = new Guna.UI2.WinForms.Guna2Button();
             this.btnSupprimer = new Guna.UI2.WinForms.Guna2Button();
             this.dgvCarteFree = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
@@ -64,12 +70,6 @@ namespace ParcAuto.Forms
             this.lblSommeAutre = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarteFree)).BeginInit();
             this.PanelTautaux.SuspendLayout();
@@ -408,6 +408,43 @@ namespace ParcAuto.Forms
             this.dgvCarteFree.TabIndex = 58;
             this.dgvCarteFree.DoubleClick += new System.EventHandler(this.dgvCarteFree_DoubleClick);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "id";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Entite";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Date";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Fixe";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Autre";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Objet";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
             // printDocument1
             // 
             this.printDocument1.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument1_BeginPrint);
@@ -505,7 +542,6 @@ namespace ParcAuto.Forms
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.lblSommeFixe);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -520,7 +556,7 @@ namespace ParcAuto.Forms
             this.lblSommeFixe.AutoSize = true;
             this.lblSommeFixe.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSommeFixe.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblSommeFixe.Location = new System.Drawing.Point(132, 6);
+            this.lblSommeFixe.Location = new System.Drawing.Point(133, 7);
             this.lblSommeFixe.Name = "lblSommeFixe";
             this.lblSommeFixe.Size = new System.Drawing.Size(55, 21);
             this.lblSommeFixe.TabIndex = 3;
@@ -532,7 +568,7 @@ namespace ParcAuto.Forms
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label8.Location = new System.Drawing.Point(82, 6);
+            this.label8.Location = new System.Drawing.Point(83, 7);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 21);
             this.label8.TabIndex = 2;
@@ -541,7 +577,6 @@ namespace ParcAuto.Forms
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.lblSommeAutre);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -556,7 +591,7 @@ namespace ParcAuto.Forms
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(67, 5);
+            this.label7.Location = new System.Drawing.Point(68, 6);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 21);
             this.label7.TabIndex = 1;
@@ -568,7 +603,7 @@ namespace ParcAuto.Forms
             this.lblSommeAutre.AutoSize = true;
             this.lblSommeAutre.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSommeAutre.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblSommeAutre.Location = new System.Drawing.Point(127, 5);
+            this.lblSommeAutre.Location = new System.Drawing.Point(128, 6);
             this.lblSommeAutre.Name = "lblSommeAutre";
             this.lblSommeAutre.Size = new System.Drawing.Size(55, 21);
             this.lblSommeAutre.TabIndex = 0;
@@ -595,43 +630,6 @@ namespace ParcAuto.Forms
             this.label5.Size = new System.Drawing.Size(209, 26);
             this.label5.TabIndex = 0;
             this.label5.Text = "Consommation Total";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "id";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Entite";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Date";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Fixe";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Autre";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Objet";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
             // 
             // CarteFree
             // 

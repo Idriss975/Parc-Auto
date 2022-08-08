@@ -577,7 +577,6 @@ namespace ParcAuto.Forms
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.lblSommeReparation);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -592,7 +591,7 @@ namespace ParcAuto.Forms
             this.lblSommeReparation.AutoSize = true;
             this.lblSommeReparation.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSommeReparation.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblSommeReparation.Location = new System.Drawing.Point(144, 7);
+            this.lblSommeReparation.Location = new System.Drawing.Point(145, 8);
             this.lblSommeReparation.Name = "lblSommeReparation";
             this.lblSommeReparation.Size = new System.Drawing.Size(55, 21);
             this.lblSommeReparation.TabIndex = 3;
@@ -604,7 +603,7 @@ namespace ParcAuto.Forms
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label8.Location = new System.Drawing.Point(46, 6);
+            this.label8.Location = new System.Drawing.Point(47, 7);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(106, 21);
             this.label8.TabIndex = 2;
@@ -613,7 +612,6 @@ namespace ParcAuto.Forms
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.lblSommeEntretien);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -628,7 +626,7 @@ namespace ParcAuto.Forms
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(55, 5);
+            this.label7.Location = new System.Drawing.Point(56, 6);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(92, 21);
             this.label7.TabIndex = 1;
@@ -640,7 +638,7 @@ namespace ParcAuto.Forms
             this.lblSommeEntretien.AutoSize = true;
             this.lblSommeEntretien.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSommeEntretien.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblSommeEntretien.Location = new System.Drawing.Point(153, 5);
+            this.lblSommeEntretien.Location = new System.Drawing.Point(154, 6);
             this.lblSommeEntretien.Name = "lblSommeEntretien";
             this.lblSommeEntretien.Size = new System.Drawing.Size(55, 21);
             this.lblSommeEntretien.TabIndex = 0;
