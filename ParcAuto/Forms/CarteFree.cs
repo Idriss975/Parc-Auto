@@ -29,7 +29,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvCarteFree.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2].ToString(), GLB.dr[3].ToString(), GLB.dr[4]);
+                    dgvCarteFree.Rows.Add(GLB.dr[0], GLB.dr[1], ((DateTime) GLB.dr[5]).ToString("d/M/yyyy"), GLB.dr[2].ToString(), GLB.dr[3].ToString(), GLB.dr[4]);
 
                 GLB.dr.Close();
             }
@@ -53,8 +53,8 @@ namespace ParcAuto.Forms
             float Total = 0;
             foreach (DataGridViewRow item in dgvCarteFree.Rows)
             {
-                sommeFixe += ((string)item.Cells[2].Value) == "" ? 0 : float.Parse(item.Cells[2].Value.ToString());
-                sommeAutre += ((string)item.Cells[3].Value) == "" ? 0 : float.Parse(item.Cells[3].Value.ToString());
+                sommeFixe += ((string)item.Cells[3].Value) == "" ? 0 : float.Parse(item.Cells[3].Value.ToString());
+                sommeAutre += ((string)item.Cells[4].Value) == "" ? 0 : float.Parse(item.Cells[4].Value.ToString());
             }
             Total = sommeAutre + sommeFixe;
             lblSommeFixe.Text = sommeFixe.ToString();
@@ -299,7 +299,7 @@ namespace ParcAuto.Forms
                 GLB.id_CarteFree = Convert.ToInt32(dgvCarteFree.Rows[pos].Cells[0].Value);
                 Commandes.Command = Choix.modifier;
                 (new MajCarteFree(dgvCarteFree.Rows[pos].Cells[1].Value.ToString(),
-                    dgvCarteFree.Rows[pos].Cells[2].Value.ToString(),
+                     DateTime.ParseExact(dgvCarteFree.Rows[pos].Cells[2].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
                     dgvCarteFree.Rows[pos].Cells[3].Value.ToString(),
                     dgvCarteFree.Rows[pos].Cells[4].Value.ToString(),
                     dgvCarteFree.Rows[pos].Cells[5].Value.ToString())).ShowDialog();

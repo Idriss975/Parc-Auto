@@ -31,7 +31,8 @@ namespace ParcAuto.Forms
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
         }
         string entite, fixe, autre, objet;
-        public MajCarteFree(string entite, string fixe, string autre, string objet)
+        DateTime dateCarte;
+        public MajCarteFree(string entite,DateTime date, string fixe, string autre, string objet)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
@@ -40,6 +41,7 @@ namespace ParcAuto.Forms
             this.fixe = fixe;
             this.autre = autre;
             this.objet = objet;
+            this.dateCarte = date; 
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -58,6 +60,7 @@ namespace ParcAuto.Forms
         {
             txtentite.Text = entite;
             txtObjet.Text = objet;
+            date.Value = dateCarte;
             if(fixe != "")
             {
                 rbFixe.Checked = true;
