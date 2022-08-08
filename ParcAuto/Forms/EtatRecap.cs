@@ -30,7 +30,7 @@ namespace ParcAuto.Forms
                 SumStockCarteFree.Text = (float.Parse( GLB.dr[0].ToString()) + float.Parse( GLB.dr[1].ToString())).ToString();
             }
             GLB.dr.Close();
-            GLB.Cmd.CommandText = $"select Fixe , Autre from CarteFree";
+            GLB.Cmd.CommandText = $"select Fixe , Autre from CarteFree where dateCarte >= '{DateTime.Now.Year}-01-01' and dateCarte < '{DateTime.Now.Year}-04-01'";
             GLB.dr = GLB.Cmd.ExecuteReader();
 
             while (GLB.dr.Read())
