@@ -111,7 +111,6 @@ namespace ParcAuto.Forms
             // 
             this.tableLayoutPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel6.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel6.ColumnCount = 4;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.68203F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.61242F));
@@ -122,6 +121,7 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel6.Controls.Add(this.panel1, 2, 0);
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel2, 3, 0);
             this.tableLayoutPanel6.Location = new System.Drawing.Point(12, 12);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -133,9 +133,10 @@ namespace ParcAuto.Forms
             this.panel3.Controls.Add(this.tableLayoutPanel7);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(282, 4);
+            this.panel3.Location = new System.Drawing.Point(278, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(249, 276);
+            this.panel3.Size = new System.Drawing.Size(256, 284);
             this.panel3.TabIndex = 0;
             // 
             // tableLayoutPanel7
@@ -163,14 +164,15 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel7.Controls.Add(this.ReportCarteFree, 0, 1);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 50);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 5;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.09726F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.47569F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.47569F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.47569F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.47569F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(249, 226);
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.88412F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.3133F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.3133F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.60086F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.88841F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(256, 234);
             this.tableLayoutPanel7.TabIndex = 2;
             // 
             // label17
@@ -178,9 +180,10 @@ namespace ParcAuto.Forms
             this.label17.AutoSize = true;
             this.label17.BackColor = System.Drawing.Color.Yellow;
             this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label17.Location = new System.Drawing.Point(168, 179);
+            this.label17.Location = new System.Drawing.Point(170, 182);
+            this.label17.Margin = new System.Windows.Forms.Padding(0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(77, 46);
+            this.label17.Size = new System.Drawing.Size(85, 51);
             this.label17.TabIndex = 15;
             this.label17.Text = "0,00";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -189,7 +192,7 @@ namespace ParcAuto.Forms
             // 
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(129, 194);
+            this.label18.Location = new System.Drawing.Point(134, 199);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(32, 16);
             this.label18.TabIndex = 14;
@@ -199,7 +202,7 @@ namespace ParcAuto.Forms
             // 
             this.ReportTransport.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ReportTransport.AutoSize = true;
-            this.ReportTransport.Location = new System.Drawing.Point(47, 194);
+            this.ReportTransport.Location = new System.Drawing.Point(49, 199);
             this.ReportTransport.Name = "ReportTransport";
             this.ReportTransport.Size = new System.Drawing.Size(32, 16);
             this.ReportTransport.TabIndex = 13;
@@ -210,9 +213,10 @@ namespace ParcAuto.Forms
             this.label20.AutoSize = true;
             this.label20.BackColor = System.Drawing.Color.Yellow;
             this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label20.Location = new System.Drawing.Point(168, 133);
+            this.label20.Location = new System.Drawing.Point(170, 135);
+            this.label20.Margin = new System.Windows.Forms.Padding(0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(77, 45);
+            this.label20.Size = new System.Drawing.Size(85, 46);
             this.label20.TabIndex = 12;
             this.label20.Text = "0,00";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -221,7 +225,7 @@ namespace ParcAuto.Forms
             // 
             this.label21.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(129, 147);
+            this.label21.Location = new System.Drawing.Point(134, 150);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(32, 16);
             this.label21.TabIndex = 11;
@@ -231,7 +235,7 @@ namespace ParcAuto.Forms
             // 
             this.ReportReparation.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ReportReparation.AutoSize = true;
-            this.ReportReparation.Location = new System.Drawing.Point(47, 147);
+            this.ReportReparation.Location = new System.Drawing.Point(49, 150);
             this.ReportReparation.Name = "ReportReparation";
             this.ReportReparation.Size = new System.Drawing.Size(32, 16);
             this.ReportReparation.TabIndex = 10;
@@ -242,9 +246,10 @@ namespace ParcAuto.Forms
             this.label24.AutoSize = true;
             this.label24.BackColor = System.Drawing.Color.Yellow;
             this.label24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label24.Location = new System.Drawing.Point(168, 87);
+            this.label24.Location = new System.Drawing.Point(170, 90);
+            this.label24.Margin = new System.Windows.Forms.Padding(0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(77, 45);
+            this.label24.Size = new System.Drawing.Size(85, 44);
             this.label24.TabIndex = 9;
             this.label24.Text = "0,00";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -253,7 +258,7 @@ namespace ParcAuto.Forms
             // 
             this.label30.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(129, 101);
+            this.label30.Location = new System.Drawing.Point(134, 104);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(32, 16);
             this.label30.TabIndex = 8;
@@ -263,7 +268,7 @@ namespace ParcAuto.Forms
             // 
             this.ReportCarbSNTL.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ReportCarbSNTL.AutoSize = true;
-            this.ReportCarbSNTL.Location = new System.Drawing.Point(47, 101);
+            this.ReportCarbSNTL.Location = new System.Drawing.Point(49, 104);
             this.ReportCarbSNTL.Name = "ReportCarbSNTL";
             this.ReportCarbSNTL.Size = new System.Drawing.Size(32, 16);
             this.ReportCarbSNTL.TabIndex = 7;
@@ -274,9 +279,10 @@ namespace ParcAuto.Forms
             this.SumStockCarteFree.AutoSize = true;
             this.SumStockCarteFree.BackColor = System.Drawing.Color.Yellow;
             this.SumStockCarteFree.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SumStockCarteFree.Location = new System.Drawing.Point(168, 41);
+            this.SumStockCarteFree.Location = new System.Drawing.Point(170, 45);
+            this.SumStockCarteFree.Margin = new System.Windows.Forms.Padding(0);
             this.SumStockCarteFree.Name = "SumStockCarteFree";
-            this.SumStockCarteFree.Size = new System.Drawing.Size(77, 45);
+            this.SumStockCarteFree.Size = new System.Drawing.Size(85, 44);
             this.SumStockCarteFree.TabIndex = 6;
             this.SumStockCarteFree.Text = "0,00";
             this.SumStockCarteFree.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -285,7 +291,7 @@ namespace ParcAuto.Forms
             // 
             this.AchatCarteFree.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.AchatCarteFree.AutoSize = true;
-            this.AchatCarteFree.Location = new System.Drawing.Point(129, 55);
+            this.AchatCarteFree.Location = new System.Drawing.Point(134, 59);
             this.AchatCarteFree.Name = "AchatCarteFree";
             this.AchatCarteFree.Size = new System.Drawing.Size(32, 16);
             this.AchatCarteFree.TabIndex = 5;
@@ -293,12 +299,13 @@ namespace ParcAuto.Forms
             // 
             // label34
             // 
-            this.label34.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label34.AutoSize = true;
+            this.label34.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label34.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(5, 1);
+            this.label34.Location = new System.Drawing.Point(1, 1);
+            this.label34.Margin = new System.Windows.Forms.Padding(0);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(72, 39);
+            this.label34.Size = new System.Drawing.Size(83, 43);
             this.label34.TabIndex = 1;
             this.label34.Text = "Report sur Exercice 2022";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -308,9 +315,9 @@ namespace ParcAuto.Forms
             this.label35.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(89, 1);
+            this.label35.Location = new System.Drawing.Point(89, 6);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(69, 39);
+            this.label35.Size = new System.Drawing.Size(76, 32);
             this.label35.TabIndex = 2;
             this.label35.Text = "Achat au 31/03/2022";
             this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -321,9 +328,10 @@ namespace ParcAuto.Forms
             this.label36.BackColor = System.Drawing.Color.Yellow;
             this.label36.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label36.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(168, 1);
+            this.label36.Location = new System.Drawing.Point(170, 1);
+            this.label36.Margin = new System.Windows.Forms.Padding(0);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(77, 39);
+            this.label36.Size = new System.Drawing.Size(85, 43);
             this.label36.TabIndex = 3;
             this.label36.Text = "Total au 31/03/2022";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -332,7 +340,7 @@ namespace ParcAuto.Forms
             // 
             this.ReportCarteFree.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ReportCarteFree.AutoSize = true;
-            this.ReportCarteFree.Location = new System.Drawing.Point(47, 55);
+            this.ReportCarteFree.Location = new System.Drawing.Point(49, 59);
             this.ReportCarteFree.Name = "ReportCarteFree";
             this.ReportCarteFree.Size = new System.Drawing.Size(32, 16);
             this.ReportCarteFree.TabIndex = 4;
@@ -346,8 +354,9 @@ namespace ParcAuto.Forms
             this.panel4.Controls.Add(this.label39);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(249, 50);
+            this.panel4.Size = new System.Drawing.Size(256, 50);
             this.panel4.TabIndex = 1;
             // 
             // label38
@@ -363,7 +372,7 @@ namespace ParcAuto.Forms
             this.label39.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(79, 16);
+            this.label39.Location = new System.Drawing.Point(83, 16);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(92, 16);
             this.label39.TabIndex = 0;
@@ -381,14 +390,15 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel8.Controls.Add(this.label42, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel9, 0, 1);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(4, 4);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 4;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.97102F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.6087F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.30435F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.75362F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(271, 276);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(278, 284);
             this.tableLayoutPanel8.TabIndex = 1;
             // 
             // label40
@@ -396,9 +406,9 @@ namespace ParcAuto.Forms
             this.label40.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.Location = new System.Drawing.Point(4, 242);
+            this.label40.Location = new System.Drawing.Point(4, 249);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(263, 16);
+            this.label40.Size = new System.Drawing.Size(270, 16);
             this.label40.TabIndex = 4;
             this.label40.Text = "Vignettes transport terestre";
             // 
@@ -407,9 +417,9 @@ namespace ParcAuto.Forms
             this.label41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(4, 194);
+            this.label41.Location = new System.Drawing.Point(4, 200);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(263, 16);
+            this.label41.Size = new System.Drawing.Size(270, 16);
             this.label41.TabIndex = 3;
             this.label41.Text = "Vignettes Réparation ";
             // 
@@ -418,27 +428,27 @@ namespace ParcAuto.Forms
             this.label42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label42.AutoSize = true;
             this.label42.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(4, 37);
+            this.label42.Location = new System.Drawing.Point(4, 39);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(263, 16);
+            this.label42.Size = new System.Drawing.Size(270, 16);
             this.label42.TabIndex = 1;
             this.label42.Text = "Désignation";
             this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel9
             // 
-            this.tableLayoutPanel9.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel9.ColumnCount = 2;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel10, 1, 0);
             this.tableLayoutPanel9.Controls.Add(this.label45, 0, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(4, 94);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(1, 94);
+            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(263, 82);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(276, 91);
             this.tableLayoutPanel9.TabIndex = 0;
             // 
             // tableLayoutPanel10
@@ -449,12 +459,13 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel10.Controls.Add(this.label43, 0, 0);
             this.tableLayoutPanel10.Controls.Add(this.label44, 0, 1);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(135, 4);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(138, 0);
+            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(124, 74);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(138, 91);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
             // label43
@@ -462,9 +473,9 @@ namespace ParcAuto.Forms
             this.label43.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(4, 10);
+            this.label43.Location = new System.Drawing.Point(4, 15);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(116, 16);
+            this.label43.Size = new System.Drawing.Size(130, 16);
             this.label43.TabIndex = 1;
             this.label43.Text = "Carte Free";
             // 
@@ -473,9 +484,9 @@ namespace ParcAuto.Forms
             this.label44.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(4, 39);
+            this.label44.Location = new System.Drawing.Point(4, 52);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(116, 32);
+            this.label44.Size = new System.Drawing.Size(130, 32);
             this.label44.TabIndex = 2;
             this.label44.Text = "Vignettes SNTL (Carburant)";
             this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -485,9 +496,9 @@ namespace ParcAuto.Forms
             this.label45.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label45.AutoSize = true;
             this.label45.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.Location = new System.Drawing.Point(4, 17);
+            this.label45.Location = new System.Drawing.Point(3, 21);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(124, 48);
+            this.label45.Size = new System.Drawing.Size(132, 48);
             this.label45.TabIndex = 2;
             this.label45.Text = "Carburant \r\n(Vignettes SNTL \r\net Carte Free)";
             this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -497,9 +508,10 @@ namespace ParcAuto.Forms
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(538, 4);
+            this.panel1.Location = new System.Drawing.Point(534, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(346, 276);
+            this.panel1.Size = new System.Drawing.Size(354, 284);
             this.panel1.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -534,13 +546,13 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 50);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.14159F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.9115F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.9115F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.23894F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.79646F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.88412F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.3133F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.45494F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.60086F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.88841F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(346, 226);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(354, 234);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // label9
@@ -548,7 +560,7 @@ namespace ParcAuto.Forms
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Location = new System.Drawing.Point(137, 192);
+            this.label9.Location = new System.Drawing.Point(141, 199);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(32, 16);
             this.label9.TabIndex = 10;
@@ -560,7 +572,7 @@ namespace ParcAuto.Forms
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Location = new System.Drawing.Point(51, 192);
+            this.label8.Location = new System.Drawing.Point(53, 199);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 16);
             this.label8.TabIndex = 9;
@@ -572,7 +584,7 @@ namespace ParcAuto.Forms
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(310, 192);
+            this.label7.Location = new System.Drawing.Point(318, 199);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(32, 16);
             this.label7.TabIndex = 8;
@@ -584,7 +596,7 @@ namespace ParcAuto.Forms
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(223, 192);
+            this.label6.Location = new System.Drawing.Point(229, 199);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 16);
             this.label6.TabIndex = 7;
@@ -596,7 +608,7 @@ namespace ParcAuto.Forms
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(11, 4);
+            this.label2.Location = new System.Drawing.Point(12, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 32);
             this.label2.TabIndex = 2;
@@ -608,7 +620,7 @@ namespace ParcAuto.Forms
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(97, 4);
+            this.label3.Location = new System.Drawing.Point(100, 6);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 32);
             this.label3.TabIndex = 3;
@@ -620,7 +632,7 @@ namespace ParcAuto.Forms
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(183, 4);
+            this.label4.Location = new System.Drawing.Point(188, 6);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 32);
             this.label4.TabIndex = 4;
@@ -632,7 +644,7 @@ namespace ParcAuto.Forms
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(270, 4);
+            this.label5.Location = new System.Drawing.Point(277, 6);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 32);
             this.label5.TabIndex = 5;
@@ -643,7 +655,7 @@ namespace ParcAuto.Forms
             // 
             this.trim1CarteFree.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.trim1CarteFree.AutoSize = true;
-            this.trim1CarteFree.Location = new System.Drawing.Point(51, 54);
+            this.trim1CarteFree.Location = new System.Drawing.Point(53, 59);
             this.trim1CarteFree.Name = "trim1CarteFree";
             this.trim1CarteFree.Size = new System.Drawing.Size(32, 16);
             this.trim1CarteFree.TabIndex = 11;
@@ -653,7 +665,7 @@ namespace ParcAuto.Forms
             // 
             this.trim2CarteFree.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.trim2CarteFree.AutoSize = true;
-            this.trim2CarteFree.Location = new System.Drawing.Point(137, 54);
+            this.trim2CarteFree.Location = new System.Drawing.Point(141, 59);
             this.trim2CarteFree.Name = "trim2CarteFree";
             this.trim2CarteFree.Size = new System.Drawing.Size(32, 16);
             this.trim2CarteFree.TabIndex = 12;
@@ -663,7 +675,7 @@ namespace ParcAuto.Forms
             // 
             this.trim3CarteFree.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.trim3CarteFree.AutoSize = true;
-            this.trim3CarteFree.Location = new System.Drawing.Point(223, 54);
+            this.trim3CarteFree.Location = new System.Drawing.Point(229, 59);
             this.trim3CarteFree.Name = "trim3CarteFree";
             this.trim3CarteFree.Size = new System.Drawing.Size(32, 16);
             this.trim3CarteFree.TabIndex = 13;
@@ -673,7 +685,7 @@ namespace ParcAuto.Forms
             // 
             this.trim4CarteFree.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.trim4CarteFree.AutoSize = true;
-            this.trim4CarteFree.Location = new System.Drawing.Point(310, 54);
+            this.trim4CarteFree.Location = new System.Drawing.Point(318, 59);
             this.trim4CarteFree.Name = "trim4CarteFree";
             this.trim4CarteFree.Size = new System.Drawing.Size(32, 16);
             this.trim4CarteFree.TabIndex = 14;
@@ -683,7 +695,7 @@ namespace ParcAuto.Forms
             // 
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(51, 98);
+            this.label14.Location = new System.Drawing.Point(53, 103);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(32, 16);
             this.label14.TabIndex = 15;
@@ -693,7 +705,7 @@ namespace ParcAuto.Forms
             // 
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(137, 98);
+            this.label15.Location = new System.Drawing.Point(141, 103);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(32, 16);
             this.label15.TabIndex = 16;
@@ -703,7 +715,7 @@ namespace ParcAuto.Forms
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(223, 98);
+            this.label16.Location = new System.Drawing.Point(229, 103);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(32, 16);
             this.label16.TabIndex = 17;
@@ -713,7 +725,7 @@ namespace ParcAuto.Forms
             // 
             this.label23.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(310, 98);
+            this.label23.Location = new System.Drawing.Point(318, 103);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(32, 16);
             this.label23.TabIndex = 18;
@@ -723,7 +735,7 @@ namespace ParcAuto.Forms
             // 
             this.label25.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(51, 144);
+            this.label25.Location = new System.Drawing.Point(53, 148);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(32, 16);
             this.label25.TabIndex = 19;
@@ -733,7 +745,7 @@ namespace ParcAuto.Forms
             // 
             this.label26.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(137, 144);
+            this.label26.Location = new System.Drawing.Point(141, 148);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(32, 16);
             this.label26.TabIndex = 20;
@@ -743,7 +755,7 @@ namespace ParcAuto.Forms
             // 
             this.label27.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(223, 144);
+            this.label27.Location = new System.Drawing.Point(229, 148);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(32, 16);
             this.label27.TabIndex = 21;
@@ -753,7 +765,7 @@ namespace ParcAuto.Forms
             // 
             this.label28.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(310, 144);
+            this.label28.Location = new System.Drawing.Point(318, 148);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(32, 16);
             this.label28.TabIndex = 22;
@@ -766,7 +778,7 @@ namespace ParcAuto.Forms
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(346, 50);
+            this.panel2.Size = new System.Drawing.Size(354, 50);
             this.panel2.TabIndex = 0;
             // 
             // label1
@@ -774,7 +786,7 @@ namespace ParcAuto.Forms
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(41, 17);
+            this.label1.Location = new System.Drawing.Point(45, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(285, 16);
             this.label1.TabIndex = 1;
@@ -798,16 +810,17 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel2.Controls.Add(this.label53, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.label54, 1, 3);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(891, 4);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(888, 0);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.6087F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.94203F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.94203F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.3913F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.11594F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.21555F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.90106F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.19435F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.66784F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.37456F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(192, 276);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(199, 284);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // label47
@@ -815,9 +828,10 @@ namespace ParcAuto.Forms
             this.label47.AutoSize = true;
             this.label47.BackColor = System.Drawing.Color.Yellow;
             this.label47.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label47.Location = new System.Drawing.Point(4, 225);
+            this.label47.Location = new System.Drawing.Point(1, 231);
+            this.label47.Margin = new System.Windows.Forms.Padding(0);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(88, 50);
+            this.label47.Size = new System.Drawing.Size(98, 52);
             this.label47.TabIndex = 3;
             this.label47.Text = "0,00";
             this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -826,7 +840,7 @@ namespace ParcAuto.Forms
             // 
             this.label46.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(156, 242);
+            this.label46.Location = new System.Drawing.Point(163, 249);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(32, 16);
             this.label46.TabIndex = 2;
@@ -839,9 +853,10 @@ namespace ParcAuto.Forms
             this.label29.BackColor = System.Drawing.Color.Yellow;
             this.label29.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label29.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(4, 1);
+            this.label29.Location = new System.Drawing.Point(1, 1);
+            this.label29.Margin = new System.Windows.Forms.Padding(0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(88, 88);
+            this.label29.Size = new System.Drawing.Size(98, 92);
             this.label29.TabIndex = 1;
             this.label29.Text = "Total Consomation au 31 Mars 2022";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -851,9 +866,9 @@ namespace ParcAuto.Forms
             this.label48.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label48.AutoSize = true;
             this.label48.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.Location = new System.Drawing.Point(99, 21);
+            this.label48.Location = new System.Drawing.Point(103, 23);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(89, 48);
+            this.label48.Size = new System.Drawing.Size(92, 48);
             this.label48.TabIndex = 4;
             this.label48.Text = "Disponible au 1er Avril 2022";
             this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -863,9 +878,10 @@ namespace ParcAuto.Forms
             this.sumtrimestres.AutoSize = true;
             this.sumtrimestres.BackColor = System.Drawing.Color.Yellow;
             this.sumtrimestres.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sumtrimestres.Location = new System.Drawing.Point(4, 90);
+            this.sumtrimestres.Location = new System.Drawing.Point(1, 94);
+            this.sumtrimestres.Margin = new System.Windows.Forms.Padding(0);
             this.sumtrimestres.Name = "sumtrimestres";
-            this.sumtrimestres.Size = new System.Drawing.Size(88, 43);
+            this.sumtrimestres.Size = new System.Drawing.Size(98, 44);
             this.sumtrimestres.TabIndex = 5;
             this.sumtrimestres.Text = "0,00";
             this.sumtrimestres.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -874,7 +890,7 @@ namespace ParcAuto.Forms
             // 
             this.Disponible.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Disponible.AutoSize = true;
-            this.Disponible.Location = new System.Drawing.Point(156, 103);
+            this.Disponible.Location = new System.Drawing.Point(163, 108);
             this.Disponible.Name = "Disponible";
             this.Disponible.Size = new System.Drawing.Size(32, 16);
             this.Disponible.TabIndex = 6;
@@ -886,9 +902,10 @@ namespace ParcAuto.Forms
             this.label51.AutoSize = true;
             this.label51.BackColor = System.Drawing.Color.Yellow;
             this.label51.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label51.Location = new System.Drawing.Point(4, 134);
+            this.label51.Location = new System.Drawing.Point(1, 139);
+            this.label51.Margin = new System.Windows.Forms.Padding(0);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(88, 43);
+            this.label51.Size = new System.Drawing.Size(98, 42);
             this.label51.TabIndex = 7;
             this.label51.Text = "0,00";
             this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -897,7 +914,7 @@ namespace ParcAuto.Forms
             // 
             this.label52.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(156, 147);
+            this.label52.Location = new System.Drawing.Point(163, 152);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(32, 16);
             this.label52.TabIndex = 8;
@@ -909,9 +926,10 @@ namespace ParcAuto.Forms
             this.label53.AutoSize = true;
             this.label53.BackColor = System.Drawing.Color.Yellow;
             this.label53.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label53.Location = new System.Drawing.Point(4, 178);
+            this.label53.Location = new System.Drawing.Point(1, 182);
+            this.label53.Margin = new System.Windows.Forms.Padding(0);
             this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(88, 46);
+            this.label53.Size = new System.Drawing.Size(98, 48);
             this.label53.TabIndex = 9;
             this.label53.Text = "0,00";
             this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -920,7 +938,7 @@ namespace ParcAuto.Forms
             // 
             this.label54.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(156, 193);
+            this.label54.Location = new System.Drawing.Point(163, 198);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(32, 16);
             this.label54.TabIndex = 10;
