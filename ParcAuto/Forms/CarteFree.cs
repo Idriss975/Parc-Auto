@@ -294,6 +294,7 @@ namespace ParcAuto.Forms
         {
             try
             {
+                int Lastscrollindex = dgvCarteFree.FirstDisplayedScrollingRowIndex;
                 int pos = dgvCarteFree.CurrentRow.Index;
                 GLB.id_CarteFree = Convert.ToInt32(dgvCarteFree.Rows[pos].Cells[0].Value);
                 Commandes.Command = Choix.modifier;
@@ -303,7 +304,7 @@ namespace ParcAuto.Forms
                     dgvCarteFree.Rows[pos].Cells[4].Value.ToString())).ShowDialog();
                 RemplirLaGrille();
                 dgvCarteFree.Rows[pos].Selected = true;
-                dgvCarteFree.FirstDisplayedScrollingRowIndex = pos;
+                dgvCarteFree.FirstDisplayedScrollingRowIndex = Lastscrollindex;
                 Total();
             }
             catch (ArgumentOutOfRangeException)

@@ -240,6 +240,7 @@ namespace ParcAuto.Forms
         {
             try
             {
+                int Lastscrollindex = dgvconducteur.FirstDisplayedScrollingRowIndex;
                 int pos = dgvconducteur.CurrentRow.Index;
                 GLB.Matricule = Convert.ToInt32(dgvconducteur.Rows[pos].Cells[0].Value);
                 Commandes.Command = Choix.modifier;
@@ -254,7 +255,7 @@ namespace ParcAuto.Forms
                            dgvconducteur.Rows[pos].Cells[9].Value.ToString())).ShowDialog();
                 RemplirLaGrille();
                 dgvconducteur.Rows[pos].Selected = true;
-                dgvconducteur.FirstDisplayedScrollingRowIndex = pos;
+                dgvconducteur.FirstDisplayedScrollingRowIndex = Lastscrollindex;
             }
             catch (ArgumentOutOfRangeException)
             {

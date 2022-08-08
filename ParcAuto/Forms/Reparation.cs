@@ -324,6 +324,7 @@ namespace ParcAuto.Forms
         {
             try
             {
+                int Lastscrollindex = dgvReparation.FirstDisplayedScrollingRowIndex;
                 int pos = dgvReparation.CurrentRow.Index;
                 GLB.id_Reparation = Convert.ToInt32(dgvReparation.Rows[pos].Cells[0].Value);
                 Commandes.Command = Choix.modifier;
@@ -338,7 +339,7 @@ namespace ParcAuto.Forms
                       dgvReparation.Rows[pos].Cells[8].Value.ToString())).ShowDialog();
                 datagridviewLoad();
                 dgvReparation.Rows[pos].Selected = true;
-                dgvReparation.FirstDisplayedScrollingRowIndex = pos;
+                dgvReparation.FirstDisplayedScrollingRowIndex = Lastscrollindex;
                 dgvReparation.Rows[0].Selected = false;
                 Total();
             }

@@ -298,6 +298,7 @@ namespace ParcAuto.Forms
         {
             try
             {
+                int Lastindexscroll = dgvTransport.FirstDisplayedScrollingRowIndex;
                 int pos = dgvTransport.CurrentRow.Index;
                 GLB.id_Transport = Convert.ToInt32(dgvTransport.Rows[pos].Cells[0].Value);
                 Commandes.Command = Choix.modifier;
@@ -310,7 +311,7 @@ namespace ParcAuto.Forms
                     dgvTransport.Rows[pos].Cells[7].Value.ToString())).ShowDialog();
                 RemplirdgvTransport();
                 dgvTransport.Rows[pos].Selected = true;
-                dgvTransport.FirstDisplayedScrollingRowIndex = pos;
+                dgvTransport.FirstDisplayedScrollingRowIndex = Lastindexscroll;
                 Total();
             }
 

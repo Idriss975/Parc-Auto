@@ -308,6 +308,7 @@ namespace ParcAuto.Forms
         {
             try
             {
+                int Lastindexscroll = dgvVehicules.FirstDisplayedScrollingRowIndex;
                 int pos = dgvVehicules.CurrentRow.Index;
                 GLB.Matricule_Voiture = dgvVehicules.Rows[pos].Cells[1].Value.ToString();
                 Commandes.Command = Choix.modifier;
@@ -323,7 +324,7 @@ namespace ParcAuto.Forms
 
                 RemplirLaGrille();
                 dgvVehicules.Rows[pos].Selected = true;
-                dgvVehicules.FirstDisplayedScrollingRowIndex = pos;
+                dgvVehicules.FirstDisplayedScrollingRowIndex = Lastindexscroll;
             }
             catch (ArgumentOutOfRangeException)
             {

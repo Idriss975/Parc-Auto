@@ -163,6 +163,7 @@ namespace ParcAuto.Forms
         {
             try
             {
+                int Lastscrollindex = dgvCarburant.FirstDisplayedScrollingRowIndex;
                 int pos = dgvCarburant.CurrentRow.Index;
                 GLB.id_Carburant = int.Parse(dgvCarburant.Rows[pos].Cells[13].Value.ToString());
                 Commandes.Command = Choix.modifier;
@@ -183,7 +184,7 @@ namespace ParcAuto.Forms
                     dgvCarburant.Rows[pos].Cells[14].Value.ToString())).ShowDialog();
                 RemplirLaGrille();
                 dgvCarburant.Rows[pos].Selected = true;
-                dgvCarburant.FirstDisplayedScrollingRowIndex = pos;
+                dgvCarburant.FirstDisplayedScrollingRowIndex = Lastscrollindex;
                 dgvCarburant.Rows[0].Selected = false;
                 Total();
             }
