@@ -70,7 +70,15 @@ namespace ParcAuto.Forms
             sumtrimestres.Text = String.Format("{0:0.00}", (double.Parse(trim1CarteFree.Text) + double.Parse(trim2CarteFree.Text) + double.Parse(trim3CarteFree.Text) + double.Parse(trim4CarteFree.Text)));
             Disponible.Text = String.Format("{0:0.00}", (double.Parse(SumStockCarteFree.Text) - double.Parse(sumtrimestres.Text)));
 
-            GLB.Cmd.CommandText = $"update EtatRecapCartefree set TotalReport_Achat = {double.Parse( SumStockCarteFree.Text)} , trim1 = {double.Parse(trim1CarteFree.Text)}, trim2 = {double.Parse(trim2CarteFree.Text)}, trim3 = {double.Parse(trim3CarteFree.Text)}, trim4 = {double.Parse(trim4CarteFree.Text)}, Totalconsommation = {double.Parse(sumtrimestres.Text)}, DispoAnneeProch ={double.Parse(Disponible.Text)} where Annee ={DateTime.Now.Year}";
+            GLB.Cmd.CommandText = $"update EtatRecapCartefree set TotalReport_Achat = @TotalReport_Achat , trim1 = @trim1, trim2 = @trim2, trim3 = @trim3, trim4 = @trim4, Totalconsommation = @Totalconsommation, DispoAnneeProch = @DispoAnneeProch where Annee = @Annee";
+            GLB.Cmd.Parameters.AddWithValue("@TotalReport_Achat", double.Parse(SumStockCarteFree.Text));
+            GLB.Cmd.Parameters.AddWithValue("@trim1", double.Parse(trim1CarteFree.Text));
+            GLB.Cmd.Parameters.AddWithValue("@trim2", double.Parse(trim2CarteFree.Text));
+            GLB.Cmd.Parameters.AddWithValue("@trim3", double.Parse(trim3CarteFree.Text));
+            GLB.Cmd.Parameters.AddWithValue("@trim4", double.Parse(trim4CarteFree.Text));
+            GLB.Cmd.Parameters.AddWithValue("@Totalconsommation", double.Parse(sumtrimestres.Text));
+            GLB.Cmd.Parameters.AddWithValue("@DispoAnneeProch", double.Parse(Disponible.Text));
+            GLB.Cmd.Parameters.AddWithValue("@Annee", DateTime.Now.Year);
             GLB.Cmd.ExecuteNonQuery();
             GLB.Con.Close();
             //Les Consommation des Cartes Free
