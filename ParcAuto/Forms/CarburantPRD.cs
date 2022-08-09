@@ -47,7 +47,7 @@ namespace ParcAuto.Forms
             dgvCarburant.Rows.Clear();
             try
             {
-                GLB.Cmd.CommandText = $"select * from CarburantSNTLPRD";
+                GLB.Cmd.CommandText = $"select * from CarburantSNTLPRD where strftime('%Y', date) = '{GLB.SelectedDate}'";
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())

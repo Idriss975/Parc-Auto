@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ParcAuto.Forms;
 
 namespace ParcAuto
 {
@@ -177,8 +178,8 @@ namespace ParcAuto
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if (ActiveForm != null)
-                ActiveForm.Close();
+            (new Login()).Show();
+            this.Close();
         }
 
 
@@ -284,6 +285,11 @@ namespace ParcAuto
         private void btnEtatRecap_Click(object sender, EventArgs e)
         {
             openChildForm(new Forms.EtatRecap(), sender);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Application.Exit();
         }
     }
 }

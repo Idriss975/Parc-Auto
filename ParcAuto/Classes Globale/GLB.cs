@@ -27,6 +27,7 @@ namespace ParcAuto.Classes_Globale
         public static int id_CarteFree;
         public static  int number_of_lines;
         public static string DotationCarburant ;
+        public static string SelectedDate;
         public static Dictionary<string, string> Entites = new Dictionary<string, string> 
         { 
             { "DG", "Direction Générale" },

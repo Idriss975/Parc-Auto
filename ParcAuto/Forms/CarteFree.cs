@@ -25,7 +25,7 @@ namespace ParcAuto.Forms
             dgvCarteFree.Rows.Clear();
             try
             {
-                GLB.Cmd.CommandText = $"select * from CarteFree";
+                GLB.Cmd.CommandText = $"select * from CarteFree where strftime('%Y',dateCarte) = '{GLB.SelectedDate}'";
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())

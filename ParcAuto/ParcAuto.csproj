@@ -183,6 +183,12 @@
     <Compile Include="Forms\ImpressionVehicules.Designer.cs">
       <DependentUpon>ImpressionVehicules.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MajCarburants.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -293,6 +299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ImpressionVehicules.resx">
       <DependentUpon>ImpressionVehicules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MajCarburants.resx">
       <DependentUpon>MajCarburants.cs</DependentUpon>

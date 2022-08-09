@@ -19,7 +19,7 @@ namespace ParcAuto.Forms
         }
         private void ConsommationcarburantSNTL()
         {
-            GLB.Cmd.CommandText = $"select Report,Achat from EtatRecapCarburantSNTL where Annee = {DateTime.Now.Year}";
+            GLB.Cmd.CommandText = $"select Report,Achat from EtatRecapCarburantSNTL where Annee = {GLB.SelectedDate}";
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             if (GLB.dr.Read())
@@ -29,16 +29,16 @@ namespace ParcAuto.Forms
                 SumStockCarbSNTL.Text = String.Format("{0:0.00}", (float.Parse(GLB.dr[0].ToString()) + float.Parse(GLB.dr[1].ToString())));
             }
             GLB.dr.Close();
-            GLB.Cmd.CommandText = $"select sum(ifnull(DFixe,0)) + sum(ifnull(DMissions,0)) + sum(ifnull(DHebdo,0)) + sum(ifnull(DExceptionnel,0)) as SommeCarburantSNTL from CarburantVignettes where date >= '{DateTime.Now.Year}-01-01' and date <= '{DateTime.Now.Year}-03-31'";
+            GLB.Cmd.CommandText = $"select ifnull(sum(ifnull(DFixe,0)) + sum(ifnull(DMissions,0)) + sum(ifnull(DHebdo,0)) + sum(ifnull(DExceptionnel,0)),0) as SommeCarburantSNTL from CarburantVignettes where date >= '{GLB.SelectedDate}-01-01' and date <= '{GLB.SelectedDate}-03-31'";
             trim1CarbSNTL.Text = String.Format("{0:0.00}", GLB.Cmd.ExecuteScalar().ToString());
 
-            GLB.Cmd.CommandText = $"select sum(ifnull(DFixe,0)) + sum(ifnull(DMissions,0)) + sum(ifnull(DHebdo,0)) + sum(ifnull(DExceptionnel,0)) as SommeCarburantSNTL from CarburantVignettes where date >= '{DateTime.Now.Year}-04-01' and date <= '{DateTime.Now.Year}-06-30'";
+            GLB.Cmd.CommandText = $"select ifnull(sum(ifnull(DFixe,0)) + sum(ifnull(DMissions,0)) + sum(ifnull(DHebdo,0)) + sum(ifnull(DExceptionnel,0)),0) as SommeCarburantSNTL from CarburantVignettes where date >= '{GLB.SelectedDate}-04-01' and date <= '{GLB.SelectedDate}-06-30'";
             trim2CarbSNTL.Text = String.Format("{0:0.00}", GLB.Cmd.ExecuteScalar().ToString());
 
-            GLB.Cmd.CommandText = $"select sum(ifnull(DFixe,0)) + sum(ifnull(DMissions,0)) + sum(ifnull(DHebdo,0)) + sum(ifnull(DExceptionnel,0)) as SommeCarburantSNTL from CarburantVignettes where date >= '{DateTime.Now.Year}-07-01' and date <= '{DateTime.Now.Year}-09-30'";
+            GLB.Cmd.CommandText = $"select ifnull(sum(ifnull(DFixe,0)) + sum(ifnull(DMissions,0)) + sum(ifnull(DHebdo,0)) + sum(ifnull(DExceptionnel,0)),0) as SommeCarburantSNTL from CarburantVignettes where date >= '{GLB.SelectedDate}-07-01' and date <= '{GLB.SelectedDate}-09-30'";
             trim3CarbSNTL.Text = String.Format("{0:0.00}", GLB.Cmd.ExecuteScalar().ToString());
 
-            GLB.Cmd.CommandText = $"select sum(ifnull(DFixe,0)) + sum(ifnull(DMissions,0)) + sum(ifnull(DHebdo,0)) + sum(ifnull(DExceptionnel,0)) as SommeCarburantSNTL from CarburantVignettes where date >= '{DateTime.Now.Year}-10-01' and date <= '{DateTime.Now.Year}-12-31'";
+            GLB.Cmd.CommandText = $"select ifnull(sum(ifnull(DFixe,0)) + sum(ifnull(DMissions,0)) + sum(ifnull(DHebdo,0)) + sum(ifnull(DExceptionnel,0)),0) as SommeCarburantSNTL from CarburantVignettes where date >= '{GLB.SelectedDate}-10-01' and date <= '{GLB.SelectedDate}-12-31'";
             trim4CarbSNTL.Text = String.Format("{0:0.00}", GLB.Cmd.ExecuteScalar().ToString());
 
             sumtrimestresCarbSNTL.Text = String.Format("{0:0.00}", (double.Parse(trim1CarbSNTL.Text) + double.Parse(trim2CarbSNTL.Text) + double.Parse(trim3CarbSNTL.Text) + double.Parse(trim4CarbSNTL.Text)));
@@ -58,7 +58,7 @@ namespace ParcAuto.Forms
         }
         private void ConsommationCarteFree()
         {
-            GLB.Cmd.CommandText = $"select Report,Achat from EtatRecapCartefree where Annee = {DateTime.Now.Year}";
+            GLB.Cmd.CommandText = $"select Report,Achat from EtatRecapCartefree where Annee = {GLB.SelectedDate}";
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             if (GLB.dr.Read())
@@ -68,17 +68,17 @@ namespace ParcAuto.Forms
                 SumStockCarteFree.Text = String.Format("{0:0.00}", (float.Parse(GLB.dr[0].ToString()) + float.Parse(GLB.dr[1].ToString())));
             }
             GLB.dr.Close();
-            GLB.Cmd.CommandText = $"select sum(ifnull(Fixe,0)) + sum(ifnull(Autre,0)) SommeCarteFree from CarteFree where dateCarte >= '{DateTime.Now.Year}-01-01' and dateCarte <= '{DateTime.Now.Year}-03-31'";
+            GLB.Cmd.CommandText = $"select ifnull(sum(ifnull(Fixe,0)) + sum(ifnull(Autre,0)),0) SommeCarteFree from CarteFree where dateCarte >= '{GLB.SelectedDate}-01-01' and dateCarte <= '{GLB.SelectedDate}-03-31'";
             trim1CarteFree.Text = String.Format("{0:0.00}",GLB.Cmd.ExecuteScalar().ToString());
             
 
-            GLB.Cmd.CommandText = $"select sum(ifnull(Fixe,0)) + sum(ifnull(Autre,0)) SommeCarteFree from CarteFree where dateCarte >= '{DateTime.Now.Year}-04-01' and dateCarte < '{DateTime.Now.Year}-06-30'";
+            GLB.Cmd.CommandText = $"select ifnull(sum(ifnull(Fixe,0)) + sum(ifnull(Autre,0)),0) SommeCarteFree from CarteFree where dateCarte >= '{GLB.SelectedDate}-04-01' and dateCarte < '{GLB.SelectedDate}-06-30'";
             trim2CarteFree.Text = String.Format("{0:0.00}",GLB.Cmd.ExecuteScalar().ToString()); 
 
-            GLB.Cmd.CommandText = $"select sum(ifnull(Fixe,0)) + sum(ifnull(Autre,0)) SommeCarteFree from CarteFree where dateCarte >= '{DateTime.Now.Year}-07-01' and dateCarte < '{DateTime.Now.Year}-09-30'";
+            GLB.Cmd.CommandText = $"select ifnull(sum(ifnull(Fixe,0)) + sum(ifnull(Autre,0)),0) SommeCarteFree from CarteFree where dateCarte >= '{GLB.SelectedDate}-07-01' and dateCarte < '{GLB.SelectedDate}-09-30'";
             trim3CarteFree.Text = String.Format("{0:0.00}",GLB.Cmd.ExecuteScalar().ToString());
 
-            GLB.Cmd.CommandText = $"select sum(ifnull(Fixe,0)) + sum(ifnull(Autre,0)) SommeCarteFree from CarteFree where dateCarte >= '{DateTime.Now.Year}-10-01' and dateCarte < '{DateTime.Now.Year}-12-31'";
+            GLB.Cmd.CommandText = $"select ifnull(sum(ifnull(Fixe,0)) + sum(ifnull(Autre,0)),0) SommeCarteFree from CarteFree where dateCarte >= '{GLB.SelectedDate}-10-01' and dateCarte < '{GLB.SelectedDate}-12-31'";
             trim4CarteFree.Text = String.Format("{0:0.00}",GLB.Cmd.ExecuteScalar().ToString());
 
             sumtrimestres.Text = String.Format("{0:0.00}", (double.Parse(trim1CarteFree.Text) + double.Parse(trim2CarteFree.Text) + double.Parse(trim3CarteFree.Text) + double.Parse(trim4CarteFree.Text)));
@@ -98,7 +98,7 @@ namespace ParcAuto.Forms
         }
         private void ConsommationReparation()
         {
-            GLB.Cmd.CommandText = $"select Report,Achat from EtatRecapReparation where Annee = {DateTime.Now.Year}";
+            GLB.Cmd.CommandText = $"select Report,Achat from EtatRecapReparation where Annee = {GLB.SelectedDate}";
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             if (GLB.dr.Read())
@@ -108,16 +108,16 @@ namespace ParcAuto.Forms
                 sumStockReparation.Text = String.Format("{0:0.00}", (float.Parse(GLB.dr[0].ToString()) + float.Parse(GLB.dr[1].ToString())));
             }
             GLB.dr.Close();
-            GLB.Cmd.CommandText = $"SELECT sum(ifnull(Entretien,0)) + sum(ifnull(Reparation,0)) SommeReparation from Reparation where Date >= '{DateTime.Now.Year}-01-01' and Date <= '{DateTime.Now.Year}-03-31'";
+            GLB.Cmd.CommandText = $"SELECT ifnull(sum(ifnull(Entretien,0)) + sum(ifnull(Reparation,0)),0) SommeReparation from Reparation where Date >= '{GLB.SelectedDate}-01-01' and Date <= '{GLB.SelectedDate}-03-31'";
             trim1Reparation.Text = String.Format("{0:0.00}", GLB.Cmd.ExecuteScalar().ToString());
 
-            GLB.Cmd.CommandText = $"SELECT sum(ifnull(Entretien,0)) + sum(ifnull(Reparation,0)) SommeReparation from Reparation where Date >= '{DateTime.Now.Year}-04-01' and Date <= '{DateTime.Now.Year}-06-30'";
+            GLB.Cmd.CommandText = $"SELECT ifnull(sum(ifnull(Entretien,0)) + sum(ifnull(Reparation,0)),0) SommeReparation from Reparation where Date >= '{GLB.SelectedDate}-04-01' and Date <= '{GLB.SelectedDate}-06-30'";
             trim2Reparation.Text = String.Format("{0:0.00}", GLB.Cmd.ExecuteScalar().ToString());
 
-            GLB.Cmd.CommandText = $"SELECT sum(ifnull(Entretien,0)) + sum(ifnull(Reparation,0)) SommeReparation from Reparation where Date >= '{DateTime.Now.Year}-07-01' and Date <= '{DateTime.Now.Year}-09-30'";
+            GLB.Cmd.CommandText = $"SELECT ifnull(sum(ifnull(Entretien,0)) + sum(ifnull(Reparation,0)),0) SommeReparation from Reparation where Date >= '{GLB.SelectedDate}-07-01' and Date <= '{GLB.SelectedDate}-09-30'";
             trim3Reparation.Text = String.Format("{0:0.00}", GLB.Cmd.ExecuteScalar().ToString());
 
-            GLB.Cmd.CommandText = $"SELECT sum(ifnull(Entretien,0)) + sum(ifnull(Reparation,0)) SommeReparation from Reparation where Date >= '{DateTime.Now.Year}-10-01' and Date <= '{DateTime.Now.Year}-12-31'";
+            GLB.Cmd.CommandText = $"SELECT ifnull(sum(ifnull(Entretien,0)) + sum(ifnull(Reparation,0)),0) SommeReparation from Reparation where Date >= '{GLB.SelectedDate}-10-01' and Date <= '{GLB.SelectedDate}-12-31'";
             trim4Reparation.Text = String.Format("{0:0.00}", GLB.Cmd.ExecuteScalar().ToString());
 
             sumtrimestresReparation.Text = String.Format("{0:0.00}", (double.Parse(trim1Reparation.Text) + double.Parse(trim2Reparation.Text) + double.Parse(trim3Reparation.Text) + double.Parse(trim4Reparation.Text)));
@@ -137,7 +137,7 @@ namespace ParcAuto.Forms
         }
         private void ConsommationTransport()
         {
-            GLB.Cmd.CommandText = $"select Report,Achat from EtatRecapTransport where Annee = {DateTime.Now.Year}";
+            GLB.Cmd.CommandText = $"select Report,Achat from EtatRecapTransport where Annee = {GLB.SelectedDate}";
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             if (GLB.dr.Read())
@@ -147,16 +147,16 @@ namespace ParcAuto.Forms
                 SumStockTransport.Text = String.Format("{0:0.00}", (float.Parse(GLB.dr[0].ToString()) + float.Parse(GLB.dr[1].ToString())));
             }
             GLB.dr.Close();
-            GLB.Cmd.CommandText = $"select sum(ifnull(prix,0)) from Transport where Date >= '{DateTime.Now.Year}-01-01' and Date <= '{DateTime.Now.Year}-03-31'";
+            GLB.Cmd.CommandText = $"select ifnull(sum(ifnull(prix,0)),0) from Transport where Date >= '{GLB.SelectedDate}-01-01' and Date <= '{GLB.SelectedDate}-03-31'";
             trim1transport.Text = String.Format("{0:0.00}", GLB.Cmd.ExecuteScalar().ToString());
             
-            GLB.Cmd.CommandText = $"select sum(ifnull(prix,0)) from Transport where Date >= '{DateTime.Now.Year}-04-01' and Date <= '{DateTime.Now.Year}-06-30'";
+            GLB.Cmd.CommandText = $"select ifnull(sum(ifnull(prix,0)),0) from Transport where Date >= '{GLB.SelectedDate}-04-01' and Date <= '{GLB.SelectedDate}-06-30'";
             trim2transport.Text = String.Format("{0:0.00}", GLB.Cmd.ExecuteScalar().ToString());
 
-            GLB.Cmd.CommandText = $"select sum(ifnull(prix,0)) from Transport where Date >= '{DateTime.Now.Year}-07-01' and Date <= '{DateTime.Now.Year}-09-30'";
+            GLB.Cmd.CommandText = $"select ifnull(sum(ifnull(prix,0)),0) from Transport where Date >= '{GLB.SelectedDate}-07-01' and Date <= '{GLB.SelectedDate}-09-30'";
             trim3transport.Text = String.Format("{0:0.00}", GLB.Cmd.ExecuteScalar().ToString());
 
-            GLB.Cmd.CommandText = $"select sum(ifnull(prix,0)) from Transport where Date >= '{DateTime.Now.Year}-10-01' and Date <= '{DateTime.Now.Year}-12-31'";
+            GLB.Cmd.CommandText = $"select ifnull(sum(ifnull(prix,0)),0) from Transport where Date >= '{GLB.SelectedDate}-10-01' and Date <= '{GLB.SelectedDate}-12-31'";
             trim4transport.Text = String.Format("{0:0.00}", GLB.Cmd.ExecuteScalar().ToString());
 
             sumTrimestresTransport.Text = String.Format("{0:0.00}", (double.Parse(trim1transport.Text) + double.Parse(trim2transport.Text) + double.Parse(trim3transport.Text) + double.Parse(trim4transport.Text)));
