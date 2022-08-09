@@ -165,8 +165,6 @@ namespace ParcAuto.Forms
                 ac.Add(item[1].ToString());
 
             }
-            cmbVehicule.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cmbVehicule.AutoCompleteSource = AutoCompleteSource.CustomSource;
             cmbVehicule.AutoCompleteCustomSource = ac;
         }
 
@@ -197,8 +195,6 @@ namespace ParcAuto.Forms
             {
                 ac.Add(item[0].ToString());
             }
-            txtBenificiaire.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            txtBenificiaire.AutoCompleteSource = AutoCompleteSource.CustomSource;
             txtBenificiaire.AutoCompleteCustomSource = ac;
         }
         private void MajCarburants_Load(object sender, EventArgs e)

@@ -181,5 +181,10 @@ namespace ParcAuto.Forms
             ConsommationReparation();
             ConsommationTransport();
         }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            (new MajEtatRecap()).ShowDialog();
+        }
     }
 }

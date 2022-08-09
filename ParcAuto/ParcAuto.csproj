@@ -201,6 +201,12 @@
     <Compile Include="Forms\MAJConducteur.Designer.cs">
       <DependentUpon>MAJConducteur.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MajEtatRecap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MajEtatRecap.Designer.cs">
+      <DependentUpon>MajEtatRecap.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MajReparation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -296,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MAJConducteur.resx">
       <DependentUpon>MAJConducteur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MajEtatRecap.resx">
+      <DependentUpon>MajEtatRecap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MajReparation.resx">
       <DependentUpon>MajReparation.cs</DependentUpon>

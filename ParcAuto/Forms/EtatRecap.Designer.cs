@@ -94,6 +94,7 @@ namespace ParcAuto.Forms
             this.DisponibleCarbSNTL = new System.Windows.Forms.Label();
             this.sumtrimestresReparation = new System.Windows.Forms.Label();
             this.DisponibleReparation = new System.Windows.Forms.Label();
+            this.btnNew = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -981,12 +982,30 @@ namespace ParcAuto.Forms
             this.DisponibleReparation.Text = "0";
             this.DisponibleReparation.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // btnNew
+            // 
+            this.btnNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNew.BorderRadius = 4;
+            this.btnNew.CheckedState.Parent = this.btnNew;
+            this.btnNew.CustomImages.Parent = this.btnNew;
+            this.btnNew.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnNew.ForeColor = System.Drawing.Color.White;
+            this.btnNew.HoverState.Parent = this.btnNew;
+            this.btnNew.Location = new System.Drawing.Point(979, 263);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.ShadowDecoration.Parent = this.btnNew;
+            this.btnNew.Size = new System.Drawing.Size(120, 40);
+            this.btnNew.TabIndex = 4;
+            this.btnNew.Text = "Nouvelle Annee";
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
             // EtatRecap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1111, 669);
+            this.Controls.Add(this.btnNew);
             this.Controls.Add(this.tableLayoutPanel6);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -1083,5 +1102,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label DisponibleCarbSNTL;
         private System.Windows.Forms.Label sumtrimestresReparation;
         private System.Windows.Forms.Label DisponibleReparation;
+        private Guna.UI2.WinForms.Guna2Button btnNew;
     }
 }
