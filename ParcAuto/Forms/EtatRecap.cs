@@ -176,10 +176,10 @@ namespace ParcAuto.Forms
         }
         private void EtatRecap_Load(object sender, EventArgs e)
         {
-            ConsommationCarteFree();
-            ConsommationcarburantSNTL();
-            ConsommationReparation();
-            ConsommationTransport();
+            //ConsommationCarteFree();
+            ////ConsommationcarburantSNTL();
+            //ConsommationReparation();
+            //ConsommationTransport();
         }
 
         private void btnNew_Click(object sender, EventArgs e)

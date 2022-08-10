@@ -117,6 +117,14 @@ namespace ParcAuto.Forms
         {
             try
             {
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            if (dgvCarburant.Rows.Count > 0)
+            {
                 string Dfix = dgvCarburant.Rows[dgvCarburant.Rows.Count - 1].Cells[9].Value.ToString();
                 string DMiss = dgvCarburant.Rows[dgvCarburant.Rows.Count - 1].Cells[10].Value.ToString();
                 string Dhebdo = dgvCarburant.Rows[dgvCarburant.Rows.Count - 1].Cells[11].Value.ToString();
@@ -130,21 +138,21 @@ namespace ParcAuto.Forms
                     GLB.DotationCarburant = "Dhebdo";
                 if (Dexceptionnel != "")
                     GLB.DotationCarburant = "Dexceptionnel";
-                MajCarburants maj = new MajCarburants(GLB.DotationCarburant);
-                Commandes.Command = Choix.ajouter;
-                Commandes.MAJ = TypeCarb.Carburant;
+            }
 
-                maj.ShowDialog();
-                RemplirLaGrille();
+            MajCarburants maj = new MajCarburants(GLB.DotationCarburant);
+            Commandes.Command = Choix.ajouter;
+            Commandes.MAJ = TypeCarb.Carburant;
+
+            maj.ShowDialog();
+            RemplirLaGrille();
+            if(dgvCarburant.Rows.Count > 0)
+            {
                 dgvCarburant.Rows[dgvCarburant.Rows.Count - 1].Selected = true;
                 dgvCarburant.FirstDisplayedScrollingRowIndex = dgvCarburant.Rows.Count - 1;
-                Total();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-           
+            
+            Total();
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
