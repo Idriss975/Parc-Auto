@@ -22,7 +22,8 @@ namespace ParcAuto.Forms
         {
             GLB.SelectedDate = comboBox1.SelectedItem.ToString().Trim();
             this.Hide();
-            (new Form1()).Show();
+            (new Form1()).ShowDialog();
+            this.Close();
 
         }
     }
