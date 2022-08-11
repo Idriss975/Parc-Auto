@@ -178,8 +178,9 @@ namespace ParcAuto
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            (new Login()).Show();
             this.Close();
+            (new Login()).Show();
+
         }
 
 
