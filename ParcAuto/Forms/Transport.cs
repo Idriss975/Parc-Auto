@@ -32,7 +32,7 @@ namespace ParcAuto.Forms
         private void RemplirdgvTransport()
         {
             dgvTransport.Rows.Clear();
-            GLB.Cmd.CommandText = $"Select * from Transport where Date = '{GLB.SelectedDate}'";
+            GLB.Cmd.CommandText = $"Select * from Transport where year(Date) = '{GLB.SelectedDate}'";
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             while (GLB.dr.Read())

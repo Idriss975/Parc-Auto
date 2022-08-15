@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
@@ -158,7 +159,7 @@ namespace ParcAuto.Forms
         {
             if (GLB.ds.Tables["Vehicules1"] != null)
                 GLB.ds.Tables["Vehicules1"].Clear();
-            GLB.da = new SQLiteDataAdapter("select * from Vehicules", GLB.Con);
+            GLB.da = new SqlDataAdapter("select * from Vehicules", GLB.Con);
             GLB.da.Fill(GLB.ds, "Vehicules1");
             AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
             foreach (DataRow item in GLB.ds.Tables["Vehicules1"].Rows)
@@ -174,7 +175,7 @@ namespace ParcAuto.Forms
         {
             if (GLB.ds.Tables["ConducteursRep"] != null)
                 GLB.ds.Tables["ConducteursRep"].Clear();
-            GLB.da = new SQLiteDataAdapter("select Nom, Prenom from Conducteurs", GLB.Con);
+            GLB.da = new SqlDataAdapter("select Nom, Prenom from Conducteurs", GLB.Con);
             GLB.da.Fill(GLB.ds, "ConducteursRep");
             AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
             foreach (DataRow item in GLB.ds.Tables["ConducteursRep"].Rows)

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using ParcAuto.Classes_Globale;
 using System.Data.SQLite;
 using System.Text.RegularExpressions;
+using System.Data.SqlClient;
 
 namespace ParcAuto.Forms
 {
@@ -157,7 +158,7 @@ namespace ParcAuto.Forms
         {
             if (GLB.ds.Tables["Vehicules1"] != null)
                 GLB.ds.Tables["Vehicules1"].Clear();
-            GLB.da = new SQLiteDataAdapter("select * from Vehicules", GLB.Con);
+            GLB.da = new SqlDataAdapter("select * from Vehicules", GLB.Con);
             GLB.da.Fill(GLB.ds, "Vehicules1");
             AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
             foreach (DataRow item in GLB.ds.Tables["Vehicules1"].Rows)
@@ -188,7 +189,7 @@ namespace ParcAuto.Forms
 
             if (GLB.ds.Tables["beneficiaires"] != null)
                 GLB.ds.Tables["beneficiaires"].Clear();
-            GLB.da = new SQLiteDataAdapter($"select DISTINCT beneficiaire from CarburantVignettes", GLB.Con);
+            GLB.da = new SqlDataAdapter($"select DISTINCT beneficiaire from CarburantVignettes", GLB.Con);
             GLB.da.Fill(GLB.ds, "beneficiaires");
           
             foreach (DataRow item in GLB.ds.Tables["beneficiaires"].Rows)

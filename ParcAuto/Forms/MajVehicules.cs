@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using ParcAuto.Classes_Globale;
 using System.Data.SQLite;
 using GuiLabs.Undo;
+using System.Data.SqlClient;
 
 namespace ParcAuto.Forms
 {
@@ -94,7 +95,7 @@ namespace ParcAuto.Forms
         {
             if (GLB.ds.Tables["Conducteurs"] != null)
                 GLB.ds.Tables["Conducteurs"].Clear();
-            GLB.da = new SQLiteDataAdapter("select * from Conducteurs", GLB.Con);
+            GLB.da = new SqlDataAdapter("select * from Conducteurs", GLB.Con);
             GLB.da.Fill(GLB.ds, "Conducteurs");
             foreach (DataRow item in GLB.ds.Tables["Conducteurs"].Rows)
                 cmbConducteur.Items.Add(new CmbMatNom(Convert.ToInt32(item[0]), item[1] + " "+item[2]));
