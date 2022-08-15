@@ -244,100 +244,100 @@ namespace ParcAuto.Forms
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
             //TODO: Try catch sql exception
-            try
-            {
-                if (txtEntite.Text != "" || txtMarque.Text != "" || cmbVilles.Text != "" || txtDotation.Text != "" || txtBenificiaire.Text != "")
-                {
-                    if (DMissions.Checked)
-                    {
-                        DoMissions = txtDotation.Text;
-                        DoFixe = "null";
-                        DoHebdo = "null";
-                        DoExp = "null";
-                    }
-                    else if (DFixe.Checked)
-                    {
-                        DoMissions = "null";
-                        DoFixe = txtDotation.Text;
-                        DoExp = "null";
-                        DoHebdo = "null";
-                    }
-                    else if (DHebdo.Checked)
-                    {
-                        DoFixe = "null";
-                        DoExp = "null";
-                        DoMissions = "null";
-                        DoHebdo = txtDotation.Text;
-                    }
-                    else if (Dexceptionnel.Checked)
-                    {
-                        DoFixe = "null";
-                        DoExp = txtDotation.Text;
-                        DoMissions = "null";
-                        DoHebdo = "null";
-                    }
-                    switch (Commandes.Command)
-                    {
-                        case Choix.ajouter:
-                            GLB.Cmd.CommandText = $"insert into {(Commandes.MAJ == TypeCarb.Carburant ? "CarburantVignettes" : "CarburantSNTLPRD")}  values(@txtEntite,@txtBenificiaire,@cmbVehicule," +
-                        $"@txtMarque,@DateOper,@cmbVilles,@txtKM,@txtpourcentage,@OMN,@DoFixe,@DoMissions," +
-                        $"@DoHebdo,@DoExp,null,@txtObservation)";
-                            GLB.Cmd.Parameters.AddWithValue("@txtEntite", txtEntite.Text);
-                            GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
-                            GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.Text);
-                            GLB.Cmd.Parameters.AddWithValue("@txtMarque", txtMarque.Text);
-                            GLB.Cmd.Parameters.AddWithValue("@DateOper", DateOper.Value.ToString("yyyy-MM-dd"));
-                            GLB.Cmd.Parameters.AddWithValue("@cmbVilles", cmbVilles.Text);
-                            GLB.Cmd.Parameters.AddWithValue("@txtKM", txtKM.Text);
-                            GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", txtpourcentage.Text);
-                            GLB.Cmd.Parameters.AddWithValue("@OMN", txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2));
-                            GLB.Cmd.Parameters.AddWithValue("@DoFixe", DoFixe == "null" ? null : DoFixe);
-                            GLB.Cmd.Parameters.AddWithValue("@DoMissions", DoMissions == "null" ? null : DoMissions);
-                            GLB.Cmd.Parameters.AddWithValue("@DoHebdo", DoHebdo == "null" ? null : DoHebdo);
-                            GLB.Cmd.Parameters.AddWithValue("@DoExp", DoExp == "null" ? null : DoExp);
-                            GLB.Cmd.Parameters.AddWithValue("@txtObservation", txtObservation.Text);
-                            break;
-                        case Choix.modifier:
-                            GLB.Cmd.CommandText = $"update {(Commandes.MAJ == TypeCarb.Carburant ? "CarburantVignettes" : "CarburantSNTLPRD")} set Entite = @txtEntite, beneficiaire = @txtBenificiaire" +
-                        $", vehicule = @cmbVehicule , date = @DateOper, lieu = @cmbVilles," +
-                        $" ObjetOMN = @OMN, DFixe = @DoFixe , Marque = @txtMarque ," +
-                        $" DMissions = @DoMissions , DHebdo = @DoHebdo,DExceptionnel = @DoExp,Observation = @txtObservation ,KM = @txtKM , Pourcentage = @txtpourcentage where id = @ID";
-                            GLB.Cmd.Parameters.AddWithValue("@txtEntite", txtEntite.Text);
-                            GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
-                            GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.Text);
-                            GLB.Cmd.Parameters.AddWithValue("@txtMarque", txtMarque.Text);
-                            GLB.Cmd.Parameters.AddWithValue("@DateOper", DateOper.Value.ToString("yyyy-MM-dd"));
-                            GLB.Cmd.Parameters.AddWithValue("@cmbVilles", cmbVilles.Text);
-                            GLB.Cmd.Parameters.AddWithValue("@txtKM", txtKM.Text);
-                            GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", txtpourcentage.Text);
-                            GLB.Cmd.Parameters.AddWithValue("@OMN", txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2));
-                            GLB.Cmd.Parameters.AddWithValue("@DoFixe", DoFixe == "null" ? null : DoFixe);
-                            GLB.Cmd.Parameters.AddWithValue("@DoMissions", DoMissions == "null" ? null : DoMissions);
-                            GLB.Cmd.Parameters.AddWithValue("@DoHebdo", DoHebdo == "null" ? null : DoHebdo);
-                            GLB.Cmd.Parameters.AddWithValue("@DoExp", DoExp == "null" ? null : DoExp);
-                            GLB.Cmd.Parameters.AddWithValue("@txtObservation", txtObservation.Text);
-                            GLB.Cmd.Parameters.AddWithValue("@ID", GLB.id_Carburant);
-                            break;
-                        case Choix.supprimer:
-                            throw new Exception("Impossible de supprimer avec MajCaarburants.");
-                    }
-                    GLB.Con.Open();
-                    GLB.Cmd.ExecuteNonQuery();
-                    GLB.Con.Close();
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Tous les Champs sont Obligatoire", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //try
+            //{
+            //}
+            //catch (Exception ex)
+            //{
 
-                }
-            }
-            catch (Exception ex)
-            {
+            //    MessageBox.Show(ex.Message);
+            //}
 
-                MessageBox.Show(ex.Message);
+            if (txtEntite.Text != "" || txtMarque.Text != "" || cmbVilles.Text != "" || txtDotation.Text != "" || txtBenificiaire.Text != "")
+            {
+                if (DMissions.Checked)
+                {
+                    DoMissions = txtDotation.Text;
+                    DoFixe = "null";
+                    DoHebdo = "null";
+                    DoExp = "null";
+                }
+                else if (DFixe.Checked)
+                {
+                    DoMissions = "null";
+                    DoFixe = txtDotation.Text;
+                    DoExp = "null";
+                    DoHebdo = "null";
+                }
+                else if (DHebdo.Checked)
+                {
+                    DoFixe = "null";
+                    DoExp = "null";
+                    DoMissions = "null";
+                    DoHebdo = txtDotation.Text;
+                }
+                else if (Dexceptionnel.Checked)
+                {
+                    DoFixe = "null";
+                    DoExp = txtDotation.Text;
+                    DoMissions = "null";
+                    DoHebdo = "null";
+                }
+                switch (Commandes.Command)
+                {
+                    case Choix.ajouter:
+                        GLB.Cmd.CommandText = $"insert into {(Commandes.MAJ == TypeCarb.Carburant ? "CarburantVignettes" : "CarburantSNTLPRD")}  values(@txtEntite,@txtBenificiaire,@cmbVehicule," +
+                    $"@txtMarque,@DateOper,@cmbVilles,@txtKM,@txtpourcentage,@OMN,@DoFixe,@DoMissions," +
+                    $"@DoHebdo,@DoExp,null,@txtObservation)";
+                        GLB.Cmd.Parameters.AddWithValue("@txtEntite", txtEntite.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtMarque", txtMarque.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@DateOper", DateOper.Value.ToString("yyyy-MM-dd"));
+                        GLB.Cmd.Parameters.AddWithValue("@cmbVilles", cmbVilles.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtKM", txtKM.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", txtpourcentage.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@OMN", txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2));
+                        GLB.Cmd.Parameters.AddWithValue("@DoFixe", DoFixe == "null" ? null : DoFixe);
+                        GLB.Cmd.Parameters.AddWithValue("@DoMissions", DoMissions == "null" ? null : DoMissions);
+                        GLB.Cmd.Parameters.AddWithValue("@DoHebdo", DoHebdo == "null" ? null : DoHebdo);
+                        GLB.Cmd.Parameters.AddWithValue("@DoExp", DoExp == "null" ? null : DoExp);
+                        GLB.Cmd.Parameters.AddWithValue("@txtObservation", txtObservation.Text);
+                        break;
+                    case Choix.modifier:
+                        GLB.Cmd.CommandText = $"update {(Commandes.MAJ == TypeCarb.Carburant ? "CarburantVignettes" : "CarburantSNTLPRD")} set Entite = @txtEntite, beneficiaire = @txtBenificiaire" +
+                    $", vehicule = @cmbVehicule , date = @DateOper, lieu = @cmbVilles," +
+                    $" ObjetOMN = @OMN, DFixe = @DoFixe , Marque = @txtMarque ," +
+                    $" DMissions = @DoMissions , DHebdo = @DoHebdo,DExceptionnel = @DoExp,Observation = @txtObservation ,KM = @txtKM , Pourcentage = @txtpourcentage where id = @ID";
+                        GLB.Cmd.Parameters.AddWithValue("@txtEntite", txtEntite.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtMarque", txtMarque.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@DateOper", DateOper.Value.ToString("yyyy-MM-dd"));
+                        GLB.Cmd.Parameters.AddWithValue("@cmbVilles", cmbVilles.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtKM", txtKM.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", txtpourcentage.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@OMN", txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2));
+                        GLB.Cmd.Parameters.AddWithValue("@DoFixe", DoFixe == "null" ? null : DoFixe);
+                        GLB.Cmd.Parameters.AddWithValue("@DoMissions", DoMissions == "null" ? null : DoMissions);
+                        GLB.Cmd.Parameters.AddWithValue("@DoHebdo", DoHebdo == "null" ? null : DoHebdo);
+                        GLB.Cmd.Parameters.AddWithValue("@DoExp", DoExp == "null" ? null : DoExp);
+                        GLB.Cmd.Parameters.AddWithValue("@txtObservation", txtObservation.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@ID", GLB.id_Carburant);
+                        break;
+                    case Choix.supprimer:
+                        throw new Exception("Impossible de supprimer avec MajCaarburants.");
+                }
+                GLB.Con.Open();
+                GLB.Cmd.ExecuteNonQuery();
+                GLB.Con.Close();
+                this.Close();
             }
-            
+            else
+            {
+                MessageBox.Show("Tous les Champs sont Obligatoire", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
         }
     }
 }
