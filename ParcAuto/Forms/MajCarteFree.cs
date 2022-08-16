@@ -109,32 +109,34 @@ namespace ParcAuto.Forms
             switch (Commandes.Command)
             {
                 case Choix.ajouter:
+                    GLB.Cmd.Parameters.Clear();
                     GLB.Cmd.CommandText = "Insert into CarteFree values (@txtentite,@Fixe,@Autre,@objet,@date)";
                     GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
                     GLB.Cmd.Parameters.AddWithValue("@date", date.Value.ToString("yyyy-MM-dd"));
                     if (MontantAutre == null)
                         GLB.Cmd.Parameters.AddWithValue("@Autre", DBNull.Value);
                     else
-                        GLB.Cmd.Parameters.AddWithValue("@Autre", MontantAutre);
+                        GLB.Cmd.Parameters.AddWithValue("@Autre", Double.Parse(MontantAutre));
                     if(MontantFixe == null)
                         GLB.Cmd.Parameters.AddWithValue("@Fixe", DBNull.Value);
                     else
-                        GLB.Cmd.Parameters.AddWithValue("@Fixe", MontantFixe);
+                        GLB.Cmd.Parameters.AddWithValue("@Fixe", Double.Parse(MontantFixe));
 
                     GLB.Cmd.Parameters.AddWithValue("@objet", txtObjet.Text);
                     break;
                 case Choix.modifier:
+                    GLB.Cmd.Parameters.Clear();
                     GLB.Cmd.CommandText = "update CarteFree set Entite = @txtentite,Fixe = @Fixe,Autre = @Autre ,dateCarte = @date,objet =@Objet where id = @ID";
                     GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
                     GLB.Cmd.Parameters.AddWithValue("@date", date.Value.ToString("yyyy-MM-dd"));
                     if (MontantAutre == null)
                         GLB.Cmd.Parameters.AddWithValue("@Autre", DBNull.Value);
                     else
-                        GLB.Cmd.Parameters.AddWithValue("@Autre", MontantAutre);
+                        GLB.Cmd.Parameters.AddWithValue("@Autre", Double.Parse(MontantAutre));
                     if (MontantFixe == null)
                         GLB.Cmd.Parameters.AddWithValue("@Fixe", DBNull.Value);
                     else
-                        GLB.Cmd.Parameters.AddWithValue("@Fixe", MontantFixe);
+                        GLB.Cmd.Parameters.AddWithValue("@Fixe", Double.Parse(MontantFixe));
                     GLB.Cmd.Parameters.AddWithValue("@objet", txtObjet.Text);
                     GLB.Cmd.Parameters.AddWithValue("@ID", GLB.id_CarteFree);
 

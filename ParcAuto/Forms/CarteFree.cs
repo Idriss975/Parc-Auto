@@ -202,7 +202,8 @@ namespace ParcAuto.Forms
             _Workbook importExceldatagridViewworkbook;
             _Worksheet importExceldatagridViewworksheet;
             Range importdatagridviewRange;
-            string Fixe, Autre;
+            string Fixe, Autre, objet, entite;
+            DateTime date;
             string lignesExcel = "Les Lignes Suivants Sont duplique sur le fichier excel : ";
             try
             {
@@ -221,32 +222,32 @@ namespace ParcAuto.Forms
                     importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
                     for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
                     {
-                        Fixe = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value) ; 
-                        Autre = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
-
-                        GLB.Cmd.CommandText = $"SELECT count(*) from CarteFree where Entite = @txtentite  and Autre = @Autre and Fixe = @Fixe " +
-                            $" and Objet = @objet ";
-                        GLB.Cmd.Parameters.AddWithValue("@txtentite", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
-                        GLB.Cmd.Parameters.AddWithValue("@Autre", Autre == "null" ? null : Autre);
-                        GLB.Cmd.Parameters.AddWithValue("@Fixe", Fixe == "null" ? null : Fixe);
-                        GLB.Cmd.Parameters.AddWithValue("@objet", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
+                        entite = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
+                        Fixe = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value) ; 
+                        Autre = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
+                        date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value));
+                        objet = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value);
+                        GLB.Cmd.Parameters.Clear();
+                        GLB.Cmd.CommandText = $"SELECT count(*) from CarteFree where Entite = @txtentite  " +
+                            $"and Objet = @objet and dateCarte = @dateCarte and (Autre = @Autre or Fixe = @Fixe ) ";
+                        GLB.Cmd.Parameters.AddWithValue("@txtentite", entite ?? "");
+                        GLB.Cmd.Parameters.AddWithValue("@Autre", Autre ?? (object)DBNull.Value);
+                        GLB.Cmd.Parameters.AddWithValue("@Fixe", Fixe ?? (object)DBNull.Value);
+                        GLB.Cmd.Parameters.AddWithValue("@objet", objet ?? "");
+                        GLB.Cmd.Parameters.AddWithValue("@dateCarte", date.ToString("yyyy-MM-dd"));
 
                         if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
                         {
-
-                            GLB.Cmd.CommandText = "Insert into CarteFree values (@txtentite,@Fixe,@Autre,@objet)";
-                            GLB.Cmd.Parameters.AddWithValue("@txtentite", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
-                            if (Fixe == null)
-                                GLB.Cmd.Parameters.AddWithValue("@Autre", DBNull.Value);
-                            else
-                                GLB.Cmd.Parameters.AddWithValue("@Autre", Fixe);
-                            if (Autre == null)
-                                GLB.Cmd.Parameters.AddWithValue("@Fixe", DBNull.Value);
-                            else
-                                GLB.Cmd.Parameters.AddWithValue("@Fixe", Autre);
-                            GLB.Cmd.Parameters.AddWithValue("@objet", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
+                            GLB.Cmd.Parameters.Clear();
+                            GLB.Cmd.CommandText = $"Insert into CarteFree values (@txtentite,@Fixe,@Autre,@objet,@dateCarte)";
+                            GLB.Cmd.Parameters.AddWithValue("@txtentite", entite ?? "");
+                            GLB.Cmd.Parameters.AddWithValue("@Autre", Autre ?? (object)DBNull.Value);
+                            GLB.Cmd.Parameters.AddWithValue("@Fixe", Fixe ?? (object)DBNull.Value);
+                            GLB.Cmd.Parameters.AddWithValue("@objet", objet ?? "");
+                            GLB.Cmd.Parameters.AddWithValue("@dateCarte", date.ToString("yyyy-MM-dd"));
                             GLB.Cmd.ExecuteNonQuery();
                             Total();
+
                         }
                         else
                         {
