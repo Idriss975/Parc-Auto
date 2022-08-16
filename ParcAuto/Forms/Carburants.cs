@@ -161,17 +161,14 @@ namespace ParcAuto.Forms
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            string outp = "";
             try
             {
-                outp = $"delete from CarburantVignettes where id = {dgvCarburant.SelectedRows[0].Cells[13].Value} ";
-
-                for (int i = 1; i < dgvCarburant.SelectedRows.Count; i++)
-                     outp += $" or id = {dgvCarburant.SelectedRows[i].Cells[13].Value}";
-
-                GLB.Cmd.CommandText = outp;
                 GLB.Con.Open();
-                GLB.Cmd.ExecuteNonQuery();
+                for (int i = 0; i < dgvCarburant.SelectedRows.Count; i++)
+                {
+                    GLB.Cmd.CommandText = $"delete from CarburantVignettes where id = {dgvCarburant.SelectedRows[i].Cells[13].Value} ";
+                    GLB.Cmd.ExecuteNonQuery();
+                }
                 GLB.Con.Close();
                 RemplirLaGrille();
                 Total();
@@ -323,48 +320,68 @@ namespace ParcAuto.Forms
                         Dexeptionnelle = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 13].value);
                         observation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 14].value);
 
-                        GLB.Cmd.CommandText = $"SELECT count(*) FROM CarburantVignettes where Entite = @txtEntite and beneficiaire = @txtBenificiaire and vehicule =@cmbVehicule " +
-          $"and date = @DateOper and lieu =@cmbVilles " +
-          $"and KM = @txtKM and Pourcentage = @txtpourcentage" ;
+                        //              GLB.Cmd.CommandText = $"SELECT count(*) FROM CarburantVignettes where Entite = @txtEntite and beneficiaire = @txtBenificiaire and vehicule =@cmbVehicule " +
+                        //$"and date = @DateOper and lieu =@cmbVilles " +
+                        //$"and KM = @txtKM and Pourcentage = @txtpourcentage" ;
 
+                        //              GLB.Cmd.Parameters.AddWithValue("@txtEntite", entite);
+                        //              GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", benificiaire);
+                        //              GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", vehicule);
+                        //              GLB.Cmd.Parameters.AddWithValue("@DateOper", date.ToString("yyyy-MM-dd"));
+                        //              GLB.Cmd.Parameters.AddWithValue("@cmbVilles", lieu);
+                        //              GLB.Cmd.Parameters.AddWithValue("@txtKM", KM);
+                        //              GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", Pourcentage);
+                        //GLB.Cmd.Parameters.AddWithValue("@OMN", omn + "/" + DateTime.Now.Year.ToString().Substring(2));
+
+                        //MessageBox.Show($"{entite} - {benificiaire} - {vehicule} - {marque} - {date.ToString("yyyy-MM-dd")} - {lieu} - {KM} - {Pourcentage} - {omn} - {Dfixe} - {DMission} - {Dhebdo} - {Dexeptionnelle} - {observation}");
+                        GLB.Cmd.Parameters.Clear();
+                        GLB.Cmd.CommandText = "insert into CarburantVignettes values(@txtEntite,@txtBenificiaire,@cmbVehicule," +
+                  $"@txtMarque,@DateOper,@cmbVilles,@txtKM,@txtpourcentage,@OMN,@DoFixe,@DoMissions," +
+                  $"@DoHebdo,@DoExp,@txtObservation)";
                         GLB.Cmd.Parameters.AddWithValue("@txtEntite", entite);
                         GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", benificiaire);
                         GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", vehicule);
+                        GLB.Cmd.Parameters.AddWithValue("@txtMarque", marque);
                         GLB.Cmd.Parameters.AddWithValue("@DateOper", date.ToString("yyyy-MM-dd"));
                         GLB.Cmd.Parameters.AddWithValue("@cmbVilles", lieu);
-                        GLB.Cmd.Parameters.AddWithValue("@txtKM", KM);
-                        GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", Pourcentage);
-                        //GLB.Cmd.Parameters.AddWithValue("@OMN", omn + "/" + DateTime.Now.Year.ToString().Substring(2));
-
-
-                        if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
-                        {
-
-                            GLB.Cmd.CommandText = "insert into CarburantVignettes values(@txtEntite,@txtBenificiaire,@cmbVehicule," +
-                   $"@txtMarque,@DateOper,@cmbVilles,@txtKM,@txtpourcentage,@OMN,@DoFixe,@DoMissions," +
-                   $"@DoHebdo,@DoExp,null,@txtObservation)";
-                            GLB.Cmd.Parameters.AddWithValue("@txtEntite", entite);
-                            GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", benificiaire);
-                            GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", vehicule);
-                            GLB.Cmd.Parameters.AddWithValue("@txtMarque", marque);
-                            GLB.Cmd.Parameters.AddWithValue("@DateOper", date.ToString("yyyy-MM-dd"));
-                            GLB.Cmd.Parameters.AddWithValue("@cmbVilles", lieu);
-                            GLB.Cmd.Parameters.AddWithValue("@txtKM", KM == "null"?null : KM);
-                            GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", Pourcentage == "null" ? null : Pourcentage);
-                            GLB.Cmd.Parameters.AddWithValue("@OMN", omn );
-                            GLB.Cmd.Parameters.AddWithValue("@DoFixe", Dfixe == "null" ? null : Dfixe);
-                            GLB.Cmd.Parameters.AddWithValue("@DoMissions", DMission == "null" ? null : DMission);
-                            GLB.Cmd.Parameters.AddWithValue("@DoHebdo", Dhebdo == "null" ? null : Dhebdo);
-                            GLB.Cmd.Parameters.AddWithValue("@DoExp", Dexeptionnelle == "null" ? null : Dexeptionnelle);
-                            GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation);
-                            GLB.Cmd.ExecuteNonQuery();
-                            Total();
-                        }
+                        if(KM == null)
+                            GLB.Cmd.Parameters.AddWithValue("@txtKM", DBNull.Value);
                         else
-                        {
-                            lignesExcel += $" {excelWorksheetIndex} ";
-                            continue;
-                        }
+                            GLB.Cmd.Parameters.AddWithValue("@txtKM", Double.Parse(KM));
+                        if (Pourcentage == null)
+                            GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", DBNull.Value);
+                        else
+                            GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", Double.Parse(Pourcentage));
+                        GLB.Cmd.Parameters.AddWithValue("@OMN", omn);
+                        if (Dfixe == null)
+                            GLB.Cmd.Parameters.AddWithValue("@DoFixe", DBNull.Value);
+                        else
+                            GLB.Cmd.Parameters.AddWithValue("@DoFixe", Dfixe);
+                        if (DMission == null)
+                            GLB.Cmd.Parameters.AddWithValue("@DoMissions", DBNull.Value);
+                        else
+                            GLB.Cmd.Parameters.AddWithValue("@DoMissions", DMission);
+                        if (Dhebdo == null)
+                            GLB.Cmd.Parameters.AddWithValue("@DoHebdo", DBNull.Value);
+                        else
+                            GLB.Cmd.Parameters.AddWithValue("@DoHebdo", Dhebdo);
+                        if (Dexeptionnelle == null)
+                            GLB.Cmd.Parameters.AddWithValue("@DoExp", DBNull.Value);
+                        else
+                            GLB.Cmd.Parameters.AddWithValue("@DoExp", Dexeptionnelle);
+                        GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation);
+                        GLB.Cmd.ExecuteNonQuery();
+                        Total();
+                        //if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
+                        //{
+
+                           
+                        //}
+                        //else
+                        //{
+                        //    lignesExcel += $" {excelWorksheetIndex} ";
+                        //    continue;
+                        //}
                     }
                     importExceldatagridViewApp.Workbooks.Close();
                     MessageBox.Show(lignesExcel);
@@ -416,20 +433,16 @@ namespace ParcAuto.Forms
 
         private void btnSuprimmerTout_Click(object sender, EventArgs e)
         {
-            string query1 = $"delete from CarburantVignettes where id = {dgvCarburant.Rows[0].Cells[13].Value}";
-            for (int i = 1; i < dgvCarburant.Rows.Count; i++)
+            GLB.Con.Open();
+            for (int i = 0; i < dgvCarburant.Rows.Count; i++)
             {
-                query1 += $" or id = {dgvCarburant.Rows[i].Cells[13].Value} ";
-            }
-            if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                GLB.Cmd.CommandText = query1;
-                GLB.Con.Open();
+                GLB.Cmd.CommandText = $"delete from CarburantVignettes where id = {dgvCarburant.Rows[i].Cells[13].Value}";
                 GLB.Cmd.ExecuteNonQuery();
-                GLB.Con.Close();
-                RemplirLaGrille();
-                Total();
             }
+            GLB.Con.Close();
+            RemplirLaGrille();
+            Total();
+           
 
 
 

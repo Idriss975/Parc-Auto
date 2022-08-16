@@ -112,17 +112,16 @@ namespace ParcAuto.Forms
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            string outp = "";
+            
             try
             {
-                outp = $"delete from Transport where id  = {dgvTransport.SelectedRows[0].Cells[0].Value} ";
-
-                for (int i = 1; i < dgvTransport.SelectedRows.Count; i++)
-                    outp += $" or id = {dgvTransport.SelectedRows[i].Cells[0].Value}";
-
-                GLB.Cmd.CommandText = outp;
                 GLB.Con.Open();
-                GLB.Cmd.ExecuteNonQuery();
+                for (int i = 0; i < dgvTransport.SelectedRows.Count; i++)
+                {
+                    GLB.Cmd.CommandText = $"delete from Transport where id  = {dgvTransport.SelectedRows[i].Cells[0].Value} ";
+                    GLB.Cmd.ExecuteNonQuery();
+                }
+                
                 GLB.Con.Close();
                 RemplirdgvTransport();
                 Total();
@@ -241,7 +240,7 @@ namespace ParcAuto.Forms
 
                         if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
                         {
-                            GLB.Cmd.CommandText = "insert into Transport values(null,@txtentite, @txtBenificiaire, @txtNBon_Email,@DateMission, @txtDestination, @txtUtilisation, @txtPrix)";
+                            GLB.Cmd.CommandText = "insert into Transport values(@txtentite, @txtBenificiaire, @txtNBon_Email,@DateMission, @txtDestination, @txtUtilisation, @txtPrix)";
                             GLB.Cmd.Parameters.AddWithValue("@txtentite", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
                             GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
                             GLB.Cmd.Parameters.AddWithValue("@txtNBon_Email", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
@@ -280,18 +279,17 @@ namespace ParcAuto.Forms
 
         private void btnSuprimmerTout_Click(object sender, EventArgs e)
         {
-            string query1 = $"delete from Transport where id = '{dgvTransport.Rows[0].Cells[0].Value}'";
-            for (int i = 1; i < dgvTransport.Rows.Count; i++)
-                query1 += $" or id = '{dgvTransport.Rows[i].Cells[0].Value}' ";
-            if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            GLB.Con.Open();
+
+            for (int i = 0; i < dgvTransport.Rows.Count; i++)
             {
-                GLB.Cmd.CommandText = query1;
-                GLB.Con.Open();
+                GLB.Cmd.CommandText = $"delete from Transport where id  = {dgvTransport.SelectedRows[i].Cells[0].Value} ";
                 GLB.Cmd.ExecuteNonQuery();
-                GLB.Con.Close();
-                RemplirdgvTransport();
-                Total();
             }
+            GLB.Con.Close();
+            RemplirdgvTransport();
+            Total();
+           
         }
 
         private void dgvTransport_DoubleClick(object sender, EventArgs e)

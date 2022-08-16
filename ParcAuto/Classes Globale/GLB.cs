@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SQLite;
 using System.Data;
 using System.Windows.Forms;
 using System.Drawing.Printing;
@@ -62,7 +61,7 @@ namespace ParcAuto.Classes_Globale
         {
             dgv.BorderStyle = BorderStyle.None;
             dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
-            dgv.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgv.CellBorderStyle = DataGridViewCellBorderStyle.Single;
             dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(115, 139, 215);
             dgv.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
             dgv.BackgroundColor = Color.White;

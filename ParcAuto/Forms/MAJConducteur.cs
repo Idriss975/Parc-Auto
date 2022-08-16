@@ -95,6 +95,7 @@ namespace ParcAuto.Forms
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
+                        GLB.Cmd.Parameters.Clear();
                         GLB.Cmd.CommandText = "Insert into Conducteurs values (@txtmatricule, @txtnom, @txtprenom, @DateNais, @DateEmb, @txtnumpermis, @txtadr, @txttel, @txtemail, @txtDirections)";
                         GLB.Cmd.Parameters.AddWithValue("@txtmatricule", txtmatricule.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtnom", txtnom.Text);
@@ -108,6 +109,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@txtDirections", txtDirections.Text);
                         break;
                     case Choix.modifier:
+                        GLB.Cmd.Parameters.Clear();
                         GLB.Cmd.CommandText = "update Conducteurs set nom= @txtnom, prenom= @txtprenom, DateNais= @DateNais, DateEmbauche= @DateEmb, NumPermis= @txtnumpermis, Adresse= @txtadr, Direction= @txtDirections, Tel= @txttel, Email= @txtemail where Matricule = @Matricule";
                         GLB.Cmd.Parameters.AddWithValue("@txtnom", txtnom.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtprenom", txtprenom.Text);

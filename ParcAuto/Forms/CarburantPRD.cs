@@ -131,26 +131,34 @@ namespace ParcAuto.Forms
         {
             try
             {
-                string Dfix = dgvCarburant.Rows[dgvCarburant.Rows.Count - 1].Cells[9].Value.ToString();
-                string DMiss = dgvCarburant.Rows[dgvCarburant.Rows.Count - 1].Cells[10].Value.ToString();
-                string Dhebdo = dgvCarburant.Rows[dgvCarburant.Rows.Count - 1].Cells[11].Value.ToString();
-                string Dexceptionnel = dgvCarburant.Rows[dgvCarburant.Rows.Count - 1].Cells[12].Value.ToString();
+                if(dgvCarburant.Rows.Count > 0)
+                {
+                    string Dfix = dgvCarburant.Rows[dgvCarburant.Rows.Count - 1].Cells[9].Value.ToString();
+                    string DMiss = dgvCarburant.Rows[dgvCarburant.Rows.Count - 1].Cells[10].Value.ToString();
+                    string Dhebdo = dgvCarburant.Rows[dgvCarburant.Rows.Count - 1].Cells[11].Value.ToString();
+                    string Dexceptionnel = dgvCarburant.Rows[dgvCarburant.Rows.Count - 1].Cells[12].Value.ToString();
 
-                if (Dfix != "")
-                    GLB.DotationCarburant = "Dfix";
-                if (DMiss != "")
-                    GLB.DotationCarburant = "DMiss";
-                if (Dhebdo != "")
-                    GLB.DotationCarburant = "Dhebdo";
-                if (Dexceptionnel != "")
-                    GLB.DotationCarburant = "Dexceptionnel";
+                    if (Dfix != "")
+                        GLB.DotationCarburant = "Dfix";
+                    if (DMiss != "")
+                        GLB.DotationCarburant = "DMiss";
+                    if (Dhebdo != "")
+                        GLB.DotationCarburant = "Dhebdo";
+                    if (Dexceptionnel != "")
+                        GLB.DotationCarburant = "Dexceptionnel";
+                }
+               
                 MajCarburants maj = new MajCarburants();
                 Commandes.Command = Choix.ajouter;
                 Commandes.MAJ = TypeCarb.CarburantSNTLPRD;
                 maj.ShowDialog();
                 RemplirLaGrille();
-                dgvCarburant.Rows[dgvCarburant.Rows.Count - 1].Selected = true;
-                dgvCarburant.FirstDisplayedScrollingRowIndex = dgvCarburant.Rows.Count - 1;
+                if(dgvCarburant.Rows.Count > 0)
+                {
+                    dgvCarburant.Rows[dgvCarburant.Rows.Count - 1].Selected = true;
+                    dgvCarburant.FirstDisplayedScrollingRowIndex = dgvCarburant.Rows.Count - 1;
+                }
+                
                 Total();
             }
             catch (Exception ex)
@@ -197,17 +205,16 @@ namespace ParcAuto.Forms
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            string outp = "";
+            
             try
             {
-                outp = $"delete from CarburantSNTLPRD where id = {dgvCarburant.SelectedRows[0].Cells[13].Value} ";
-
-                for (int i = 1; i < dgvCarburant.SelectedRows.Count; i++)
-                    outp += $" or id = {dgvCarburant.SelectedRows[i].Cells[13].Value}";
-
-                GLB.Cmd.CommandText = outp;
                 GLB.Con.Open();
-                GLB.Cmd.ExecuteNonQuery();
+                for (int i = 0; i < dgvCarburant.SelectedRows.Count; i++)
+                {
+                    GLB.Cmd.CommandText = $"delete from CarburantSNTLPRD where id = {dgvCarburant.SelectedRows[i].Cells[13].Value} ";
+                    GLB.Cmd.ExecuteNonQuery();
+                }
+
                 GLB.Con.Close();
                 RemplirLaGrille();
                 Total();
@@ -334,7 +341,7 @@ namespace ParcAuto.Forms
 
                             GLB.Cmd.CommandText = "insert into CarburantSNTLPRD values(@txtEntite,@txtBenificiaire,@cmbVehicule," +
                    $"@txtMarque,@DateOper,@cmbVilles,@txtKM,@txtpourcentage,@OMN,@DoFixe,@DoMissions," +
-                   $"@DoHebdo,@DoExp,null,@txtObservation)";
+                   $"@DoHebdo,@DoExp,@txtObservation)";
                             GLB.Cmd.Parameters.AddWithValue("@txtEntite", entite);
                             GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", benificiaire);
                             GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", vehicule);
@@ -379,20 +386,15 @@ namespace ParcAuto.Forms
         private void btnSuprimmerTout_Click(object sender, EventArgs e)
         {
 
-            string query1 = $"delete from CarburantSNTLPRD where id = {dgvCarburant.Rows[0].Cells[13].Value}";
-            for (int i = 1; i < dgvCarburant.Rows.Count; i++)
+            GLB.Con.Open();
+            for (int i = 0; i < dgvCarburant.Rows.Count; i++)
             {
-                query1 += $" or id = {dgvCarburant.Rows[i].Cells[13].Value} ";
-            }
-            if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                GLB.Cmd.CommandText = query1;
-                GLB.Con.Open();
+                GLB.Cmd.CommandText = $"delete from CarburantSNTLPRD where id = {dgvCarburant.Rows[i].Cells[13].Value}";
                 GLB.Cmd.ExecuteNonQuery();
-                GLB.Con.Close();
-                RemplirLaGrille();
-                Total();
             }
+            GLB.Con.Close();
+            RemplirLaGrille();
+            Total();
         }
     }
 }

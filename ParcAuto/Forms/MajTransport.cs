@@ -56,16 +56,18 @@ namespace ParcAuto.Forms
                 switch (Commandes.Command)
                 {
                     case Choix.ajouter:
-                        GLB.Cmd.CommandText = "insert into Transport values(null,@txtentite, @txtBenificiaire, @txtNBon_Email,@DateMission, @txtDestination, @txtUtilisation, @txtPrix)";
+                        GLB.Cmd.Parameters.Clear();
+                        GLB.Cmd.CommandText = "insert into Transport values(@txtentite, @txtBenificiaire, @txtNBon_Email,@DateMission, @txtDestination, @txtUtilisation, @txtPrix)";
                         GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtNBon_Email", txtNBon_Email.Text);
                         GLB.Cmd.Parameters.AddWithValue("@DateMission", DateMission.Value.ToString("yyyy-MM-dd"));
                         GLB.Cmd.Parameters.AddWithValue("@txtDestination", txtDestination.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtUtilisation", txtUtilisation.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtPrix", txtPrix.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtPrix", Double.Parse(txtPrix.Text));
                         break;
                     case Choix.modifier:
+                        GLB.Cmd.Parameters.Clear();
                         GLB.Cmd.CommandText = "update Transport set Entite = @txtentite , Beneficiaire = @txtBenificiaire, NBonSNTL= @txtNBon_Email,Date = @DateMission, Destination= @txtDestination, Type_utilsation = @txtUtilisation, Prix = @txtPrix where id = @id_Transport";
                         GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
@@ -73,7 +75,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@DateMission", DateMission.Value.ToString("yyyy-MM-dd"));
                         GLB.Cmd.Parameters.AddWithValue("@txtDestination", txtDestination.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtUtilisation", txtUtilisation.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtPrix", txtPrix.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtPrix", Double.Parse(txtPrix.Text));
                         GLB.Cmd.Parameters.AddWithValue("@id_Transport", GLB.id_Transport);
                         break;
                     case Choix.supprimer:

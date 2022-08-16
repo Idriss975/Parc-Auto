@@ -124,17 +124,14 @@ namespace ParcAuto.Forms
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            string outp = "";
             try
             {
-                outp = $"delete from Reparation where id = {dgvReparation.SelectedRows[0].Cells[0].Value} ";
-
-                for (int i = 1; i < dgvReparation.SelectedRows.Count; i++)
-                    outp += $" or id = {dgvReparation.SelectedRows[i].Cells[0].Value}";
-
-                GLB.Cmd.CommandText = outp;
                 GLB.Con.Open();
-                GLB.Cmd.ExecuteNonQuery();
+                for (int i = 0; i < dgvReparation.SelectedRows.Count; i++)
+                {
+                    GLB.Cmd.CommandText = $"delete from Reparation where id = {dgvReparation.SelectedRows[i].Cells[0].Value} "; ;
+                    GLB.Cmd.ExecuteNonQuery();
+                }
                 GLB.Con.Close();
                 datagridviewLoad();
                 Total();
@@ -271,7 +268,7 @@ namespace ParcAuto.Forms
 
                         if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
                         {
-                            GLB.Cmd.CommandText = "Insert into Reparation values (null,@txtentite, @txtBenificiaire, @cmbVehicule,@txtMat, @Date, @txtObjet, @MontantEntretient, @MontantReparation)";
+                            GLB.Cmd.CommandText = "Insert into Reparation values (@txtentite, @txtBenificiaire, @cmbVehicule,@txtMat, @Date, @txtObjet, @MontantEntretient, @MontantReparation)";
                             GLB.Cmd.Parameters.AddWithValue("@txtentite", entite);
                             GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", Benificiaire);
                             GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", Vehicules);
@@ -306,18 +303,16 @@ namespace ParcAuto.Forms
 
         private void btnSuprimmerTout_Click(object sender, EventArgs e)
         {
-            string query1 = $"delete from Reparation where id = '{dgvReparation.Rows[0].Cells[0].Value}'";
-            for (int i = 1; i < dgvReparation.Rows.Count; i++)
-                query1 += $" or id = '{dgvReparation.Rows[i].Cells[0].Value}' ";
-            if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            GLB.Con.Open();
+            for (int i = 0; i < dgvReparation.Rows.Count; i++)
             {
-                GLB.Cmd.CommandText = query1;
-                GLB.Con.Open();
+                GLB.Cmd.CommandText = $"delete from Reparation where id = '{dgvReparation.Rows[i].Cells[0].Value}'";
                 GLB.Cmd.ExecuteNonQuery();
-                GLB.Con.Close();
-                datagridviewLoad();
-                Total();
             }
+            GLB.Con.Close();
+            datagridviewLoad();
+            Total();
+           
         }
 
         private void dgvReparation_DoubleClick(object sender, EventArgs e)

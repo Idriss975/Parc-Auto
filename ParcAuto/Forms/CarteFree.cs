@@ -70,19 +70,23 @@ namespace ParcAuto.Forms
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            try
+            //try
             {
                 MajCarteFree maj = new MajCarteFree();
                 Commandes.Command = Choix.ajouter;
                 maj.ShowDialog();
                 RemplirLaGrille();
-                dgvCarteFree.Rows[dgvCarteFree.Rows.Count - 1].Selected = true;
-                dgvCarteFree.FirstDisplayedScrollingRowIndex = dgvCarteFree.Rows.Count - 1;
+                if(dgvCarteFree.Rows.Count > 0)
+                {
+                    dgvCarteFree.Rows[dgvCarteFree.Rows.Count - 1].Selected = true;
+                    dgvCarteFree.FirstDisplayedScrollingRowIndex = dgvCarteFree.Rows.Count - 1;
+                }
+                
                 Total();
             }
-            catch (Exception ex)
+            //catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
             }
             
         }
@@ -94,18 +98,15 @@ namespace ParcAuto.Forms
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            string outp = "";
+            
             try
             {
-
-                outp = $"delete from CarteFree where id = {dgvCarteFree.SelectedRows[0].Cells[0].Value} ";
-
-                for (int i = 1; i < dgvCarteFree.SelectedRows.Count; i++)
-                    outp += $" or id = {dgvCarteFree.SelectedRows[i].Cells[0].Value}";
-
-                GLB.Cmd.CommandText = outp;
                 GLB.Con.Open();
-                GLB.Cmd.ExecuteNonQuery();
+                for (int i = 0; i < dgvCarteFree.SelectedRows.Count; i++)
+                {
+                    GLB.Cmd.CommandText = $"delete from CarteFree where id = {dgvCarteFree.SelectedRows[i].Cells[0].Value} ";
+                    GLB.Cmd.ExecuteNonQuery();
+                }
                 GLB.Con.Close();
                 RemplirLaGrille();
                 Total();
@@ -121,18 +122,15 @@ namespace ParcAuto.Forms
 
         private void btnSuprimmerTout_Click(object sender, EventArgs e)
         {
-            string query1 = $"delete from CarteFree where id = '{dgvCarteFree.Rows[0].Cells[0].Value}'";
-            for (int i = 1; i < dgvCarteFree.Rows.Count; i++)
-                query1 += $" or id = '{dgvCarteFree.Rows[i].Cells[0].Value}' ";
-            if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            GLB.Con.Open();
+            for (int i = 0; i < dgvCarteFree.Rows.Count; i++)
             {
-                GLB.Cmd.CommandText = query1;
-                GLB.Con.Open();
+                GLB.Cmd.CommandText = $"delete from CarteFree where id = '{dgvCarteFree.Rows[i].Cells[0].Value}'";
                 GLB.Cmd.ExecuteNonQuery();
-                GLB.Con.Close();
-                RemplirLaGrille();
-                Total();
             }
+            GLB.Con.Close();
+            RemplirLaGrille();
+            Total();
         }
 
         private void btnQuitter_Click(object sender, EventArgs e)
@@ -236,10 +234,16 @@ namespace ParcAuto.Forms
                         if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
                         {
 
-                            GLB.Cmd.CommandText = "Insert into CarteFree values (null,@txtentite,@Fixe,@Autre,@objet)";
+                            GLB.Cmd.CommandText = "Insert into CarteFree values (@txtentite,@Fixe,@Autre,@objet)";
                             GLB.Cmd.Parameters.AddWithValue("@txtentite", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
-                            GLB.Cmd.Parameters.AddWithValue("@Autre", Autre == "null" ? null : Autre);
-                            GLB.Cmd.Parameters.AddWithValue("@Fixe", Fixe == "null" ? null : Fixe);
+                            if (Fixe == null)
+                                GLB.Cmd.Parameters.AddWithValue("@Autre", DBNull.Value);
+                            else
+                                GLB.Cmd.Parameters.AddWithValue("@Autre", Fixe);
+                            if (Autre == null)
+                                GLB.Cmd.Parameters.AddWithValue("@Fixe", DBNull.Value);
+                            else
+                                GLB.Cmd.Parameters.AddWithValue("@Fixe", Autre);
                             GLB.Cmd.Parameters.AddWithValue("@objet", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
                             GLB.Cmd.ExecuteNonQuery();
                             Total();

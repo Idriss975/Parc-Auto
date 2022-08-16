@@ -62,27 +62,36 @@ namespace ParcAuto.Forms
                     if (rbEntretien.Checked)
                     {
                         MontantEntretient = txtMontant.Text;
-                        MontantReparation = "null";
+                        MontantReparation = null;
                     }
                     else if (rbRepartion.Checked)
                     {
                         MontantReparation = txtMontant.Text;
-                        MontantEntretient = "null";
+                        MontantEntretient = null;
                     }
                     switch (Commandes.Command)
                     {
                         case Choix.ajouter:
-                            GLB.Cmd.CommandText = $"Insert into {(Commandes.MAJRep != TypeRep.Reparation ? "ReparationPRDSNTL" : "Reparation")} values (null,@txtentite, @txtBenificiaire, @cmbVehicule,@txtMat, @Date, @txtObjet, @MontantEntretient, @MontantReparation)";
+                            GLB.Cmd.Parameters.Clear();
+                            GLB.Cmd.CommandText = $"Insert into {(Commandes.MAJRep != TypeRep.Reparation ? "ReparationPRDSNTL" : "Reparation")} values (@txtentite, @txtBenificiaire, @cmbVehicule,@txtMat, @Date, @txtObjet, @MontantEntretient, @MontantReparation)";
                             GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
                             GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
                             GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.Text);
                             GLB.Cmd.Parameters.AddWithValue("@txtMat", txtMatricule.Text);
                             GLB.Cmd.Parameters.AddWithValue("@Date", Date.Value.ToString("yyyy-MM-dd"));
                             GLB.Cmd.Parameters.AddWithValue("@txtObjet", txtObjet.Text);
-                            GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", MontantEntretient == "null" ? null : MontantEntretient);
-                            GLB.Cmd.Parameters.AddWithValue("@MontantReparation", MontantReparation == "null" ? null : MontantReparation);
+                            if(MontantEntretient == null)
+                                GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", DBNull.Value);
+                            else
+                                GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", Double.Parse(MontantEntretient));
+
+                            if(MontantReparation == null)
+                                GLB.Cmd.Parameters.AddWithValue("@MontantReparation", DBNull.Value);
+                            else
+                                GLB.Cmd.Parameters.AddWithValue("@MontantReparation", Double.Parse(MontantReparation));
                             break;
                         case Choix.modifier:
+                            GLB.Cmd.Parameters.Clear();
                             GLB.Cmd.CommandText = $"update {(Commandes.MAJRep != TypeRep.Reparation ? "ReparationPRDSNTL" : "Reparation")} set Entite = @txtentite, Beneficiaire=@txtBenificiaire, Vehicule=@cmbVehicule, MatriculeV = @txtMat ,Date= @Date, Objet=@txtObjet, Entretien= @MontantEntretient, Reparation=@MontantReparation where id = @ID";
                             GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
                             GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
@@ -90,8 +99,15 @@ namespace ParcAuto.Forms
                             GLB.Cmd.Parameters.AddWithValue("@txtMat", txtMatricule.Text);
                             GLB.Cmd.Parameters.AddWithValue("@Date", Date.Value.ToString("yyyy-MM-dd"));
                             GLB.Cmd.Parameters.AddWithValue("@txtObjet", txtObjet.Text);
-                            GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", MontantEntretient == "null" ? null : MontantEntretient);
-                            GLB.Cmd.Parameters.AddWithValue("@MontantReparation", MontantReparation == "null" ? null : MontantReparation);
+                            if (MontantEntretient == null)
+                                GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", DBNull.Value);
+                            else
+                                GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", Double.Parse(MontantEntretient));
+
+                            if (MontantReparation == null)
+                                GLB.Cmd.Parameters.AddWithValue("@MontantReparation", DBNull.Value);
+                            else
+                                GLB.Cmd.Parameters.AddWithValue("@MontantReparation", Double.Parse(MontantReparation));
                             GLB.Cmd.Parameters.AddWithValue("@ID", GLB.id_Reparation);
                             break;
                         case Choix.supprimer:
