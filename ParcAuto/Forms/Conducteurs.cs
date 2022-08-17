@@ -11,6 +11,7 @@ using ParcAuto.Classes_Globale;
 using System.Text.RegularExpressions; // import Regex()
 using System.Data.SqlClient;
 using Microsoft.Office.Interop.Excel;
+using System.Runtime.InteropServices;
 //using System.Drawing;
 
 namespace ParcAuto.Forms
@@ -172,13 +173,13 @@ namespace ParcAuto.Forms
                 MessageBox.Show("Quelque chose s'est mal passé", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        _Application importExceldatagridViewApp;
+        _Worksheet importExceldatagridViewworksheet;
+        Range importdatagridviewRange;
+        Workbook excelWorkbook;
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
-            _Application importExceldatagridViewApp;
-            _Workbook importExceldatagridViewworkbook;
-            _Worksheet importExceldatagridViewworksheet;
-            Range importdatagridviewRange;
+            
             try
             {
                 importExceldatagridViewApp = new Microsoft.Office.Interop.Excel.Application();
@@ -191,15 +192,16 @@ namespace ParcAuto.Forms
                         GLB.Con.Close();
                     GLB.Con.Open();
 
-                    importExceldatagridViewworkbook = importExceldatagridViewApp.Workbooks.Open(importOpenDialoge.FileName);
-                    importExceldatagridViewworksheet = importExceldatagridViewworkbook.ActiveSheet;
+                    Workbooks excelWorkbooks = importExceldatagridViewApp.Workbooks;
+                    excelWorkbook = excelWorkbooks.Open(importOpenDialoge.FileName);
+                    importExceldatagridViewworksheet = excelWorkbook.ActiveSheet;
                     importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
                     for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
                     {
-                        GLB.Cmd.CommandText = $"select count(*) from Conducteurs where Matricule = '{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}'";
+                        GLB.Cmd.CommandText = $"select count(*) from Conducteurs where Matricule = {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}";
                         if(int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
                         {
-                            GLB.Cmd.CommandText = $"insert into Conducteurs values ('{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}'," +
+                            GLB.Cmd.CommandText = $"insert into Conducteurs values ({importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value},'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}'," +
                             $"'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value}'," +
                             $"'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 9].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 10].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value}')";
                             GLB.Cmd.ExecuteNonQuery();
@@ -218,6 +220,15 @@ namespace ParcAuto.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                GLB.Con.Close();
+                excelWorkbook.Close();
+                Marshal.ReleaseComObject(excelWorkbook);
+                Marshal.ReleaseComObject(importExceldatagridViewworksheet);
+                Marshal.ReleaseComObject(importdatagridviewRange);
+                importExceldatagridViewApp.Quit();
             }
         }
 
