@@ -9,14 +9,16 @@ using System.Drawing.Printing;
 using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Data.SqlClient;
+using ParcAuto.Forms;
 
 namespace ParcAuto.Classes_Globale
 {
     public class GLB
     {
-        //public static SQLiteConnection Con = new SQLiteConnection("Data Source=Parcautodb.sqlite3;Version=3;new=False;Compress=True;FailIfMissing=True;;datetimeformat=CurrentCulture"); 
-        public static SqlConnection Con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=Parc_Automobile;Integrated Security=True");
-        public static SqlCommand Cmd = Con.CreateCommand();
+
+        public static SqlConnection Con;
+        //public static SqlConnection Con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=Parc_Automobile;Integrated Security=True");
+        public static SqlCommand Cmd;
         public static SqlDataReader dr;
         public static DataSet ds = new DataSet();
         public static SqlDataAdapter da;

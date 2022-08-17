@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -195,16 +196,16 @@ namespace ParcAuto.Forms
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        _Application importExceldatagridViewApp;
+        _Worksheet importExceldatagridViewworksheet;
+        Range importdatagridviewRange;
+        Workbook excelWorkbook;
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
-            _Application importExceldatagridViewApp;
-            _Workbook importExceldatagridViewworkbook;
-            _Worksheet importExceldatagridViewworksheet;
-            Range importdatagridviewRange;
+            
             string Fixe, Autre, objet, entite;
             DateTime date;
-            string lignesExcel = "Les Lignes Suivants Sont duplique sur le fichier excel : ";
+            //string lignesExcel = "Les Lignes Suivants Sont duplique sur le fichier excel : ";
             try
             {
                 importExceldatagridViewApp = new Microsoft.Office.Interop.Excel.Application();
@@ -217,8 +218,9 @@ namespace ParcAuto.Forms
                         GLB.Con.Close();
                     GLB.Con.Open();
 
-                    importExceldatagridViewworkbook = importExceldatagridViewApp.Workbooks.Open(importOpenDialoge.FileName);
-                    importExceldatagridViewworksheet = importExceldatagridViewworkbook.ActiveSheet;
+                    Workbooks excelWorkbooks = importExceldatagridViewApp.Workbooks;
+                    excelWorkbook = excelWorkbooks.Open(importOpenDialoge.FileName);
+                    importExceldatagridViewworksheet = excelWorkbook.ActiveSheet;
                     importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
                     for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
                     {
@@ -234,7 +236,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@Autre", Autre ?? (object)DBNull.Value);
                         GLB.Cmd.Parameters.AddWithValue("@Fixe", Fixe ?? (object)DBNull.Value);
                         GLB.Cmd.Parameters.AddWithValue("@objet", objet ?? "");
-                        GLB.Cmd.Parameters.AddWithValue("@dateCarte", date.ToString("yyyy-MM-dd"));
+                        GLB.Cmd.Parameters.AddWithValue("@dateCarte",  date.ToString("yyyy-MM-dd"));
 
                         if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
                         {
@@ -251,14 +253,14 @@ namespace ParcAuto.Forms
                         }
                         else
                         {
-                            lignesExcel += $" {excelWorksheetIndex} ";
+                            //lignesExcel += $" {excelWorksheetIndex} ";
                             continue;
                         }
 
                     }
-                    GLB.Con.Close();
-                    importExceldatagridViewApp.Workbooks.Close();
-                    MessageBox.Show(lignesExcel);
+                  
+                    
+                    //MessageBox.Show(lignesExcel);
 
                 }
                 RemplirLaGrille();
@@ -268,6 +270,15 @@ namespace ParcAuto.Forms
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+            }
+            finally
+            {
+                GLB.Con.Close();
+                excelWorkbook.Close();
+                Marshal.ReleaseComObject(excelWorkbook);
+                Marshal.ReleaseComObject(importExceldatagridViewworksheet);
+                Marshal.ReleaseComObject(importdatagridviewRange);
+                importExceldatagridViewApp.Quit();
             }
         }
 
