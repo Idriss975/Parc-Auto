@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -168,15 +169,15 @@ namespace ParcAuto.Forms
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        _Application importExceldatagridViewApp;
+        _Worksheet importExceldatagridViewworksheet;
+        Range importdatagridviewRange;
+        Workbook excelWorkbook;
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
-            _Application importExceldatagridViewApp;
-            _Workbook importExceldatagridViewworkbook;
-            _Worksheet importExceldatagridViewworksheet;
-            Range importdatagridviewRange;
+            
             string entite, Benificiaire, Vehicules, objet, entretien, reparation, Matricule;
-            string lignesExcel = "Les Lignes Suivants Sont duplique sur le fichier excel : ";
+            //string lignesExcel = "Les Lignes Suivants Sont duplique sur le fichier excel : ";
             DateTime date;
             try
             {
@@ -190,8 +191,9 @@ namespace ParcAuto.Forms
                         GLB.Con.Close();
                     GLB.Con.Open();
 
-                    importExceldatagridViewworkbook = importExceldatagridViewApp.Workbooks.Open(importOpenDialoge.FileName);
-                    importExceldatagridViewworksheet = importExceldatagridViewworkbook.ActiveSheet;
+                    Workbooks excelWorkbooks = importExceldatagridViewApp.Workbooks;
+                    excelWorkbook = excelWorkbooks.Open(importOpenDialoge.FileName);
+                    importExceldatagridViewworksheet = excelWorkbook.ActiveSheet;
                     importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
                     for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
                     {
@@ -205,46 +207,39 @@ namespace ParcAuto.Forms
                         reparation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value);
 
 
-                        //if (entite == null)
-                        //    entite = " ";
-                        //if (Benificiaire == null)
-                        //    Benificiaire = " ";
-                        //if (Vehicules == null)
-                        //    Vehicules = " ";
-                        //if (objet == null)
-                        //    objet = " ";
-                        GLB.Cmd.CommandText = $"SELECT count(*) from Reparation where Entite = @txtentite  and beneficiaire = @txtBenificiaire and vehicule =@cmbVehicule " +
-                            $" and Date =@Date and Objet = @txtObjet ";
-                        GLB.Cmd.Parameters.AddWithValue("@txtentite", entite);
-                        GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", Benificiaire);
-                        GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", Vehicules);
-                        GLB.Cmd.Parameters.AddWithValue("@txtMat", Matricule);
-                        GLB.Cmd.Parameters.AddWithValue("@Date", date.ToString("yyyy-MM-dd"));
-                        GLB.Cmd.Parameters.AddWithValue("@txtObjet", objet);
 
-                        if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
-                        {
-                            GLB.Cmd.CommandText = "Insert into Reparation values (null,@txtentite, @txtBenificiaire, @cmbVehicule,@txtMat, @Date, @txtObjet, @MontantEntretient, @MontantReparation)";
-                            GLB.Cmd.Parameters.AddWithValue("@txtentite", entite);
-                            GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", Benificiaire);
-                            GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", Vehicules);
-                            GLB.Cmd.Parameters.AddWithValue("@txtMat", Matricule);
-                            GLB.Cmd.Parameters.AddWithValue("@Date", date.ToString("yyyy-MM-dd"));
-                            GLB.Cmd.Parameters.AddWithValue("@txtObjet", objet);
-                            GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", entretien == "null" ? null : entretien);
-                            GLB.Cmd.Parameters.AddWithValue("@MontantReparation", reparation == "null" ? null : reparation);
-                            GLB.Cmd.ExecuteNonQuery();
-                        }
-                        else
-                        {
-                            lignesExcel += $" {excelWorksheetIndex} ";
-                            continue;
-                        }
+                        //GLB.Cmd.CommandText = $"SELECT count(*) from ReparationPRDSNTL where Entite = @txtentite  and beneficiaire = @txtBenificiaire and vehicule =@cmbVehicule " +
+                        //    $" and Date =@Date and Objet = @txtObjet ";
+                        //GLB.Cmd.Parameters.AddWithValue("@txtentite", entite);
+                        //GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", Benificiaire);
+                        //GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", Vehicules);
+                        //GLB.Cmd.Parameters.AddWithValue("@txtMat", Matricule);
+                        //GLB.Cmd.Parameters.AddWithValue("@Date", date.ToString("yyyy-MM-dd"));
+                        //GLB.Cmd.Parameters.AddWithValue("@txtObjet", objet);
+                        GLB.Cmd.Parameters.Clear();
+                        GLB.Cmd.CommandText = "Insert into ReparationPRDSNTL values (@txtentite, @txtBenificiaire, @cmbVehicule,@txtMat, @Date, @txtObjet, @MontantEntretient, @MontantReparation)";
+                        GLB.Cmd.Parameters.AddWithValue("@txtentite", entite ?? "");
+                        GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", Benificiaire ?? "");
+                        GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", Vehicules ?? "");
+                        GLB.Cmd.Parameters.AddWithValue("@txtMat", Matricule ?? "");
+                        GLB.Cmd.Parameters.AddWithValue("@Date", date.ToString("yyyy-MM-dd"));
+                        GLB.Cmd.Parameters.AddWithValue("@txtObjet", objet ?? "");
+                        GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", entretien ?? (object)DBNull.Value);
+                        GLB.Cmd.Parameters.AddWithValue("@MontantReparation", reparation ?? (object)DBNull.Value);
+                        GLB.Cmd.ExecuteNonQuery();
+                        //if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
+                        //{
+
+                        //}
+                        //else
+                        //{
+                        //    lignesExcel += $" {excelWorksheetIndex} ";
+                        //    continue;
+                        //}
 
                     }
                     GLB.Con.Close();
-                    importExceldatagridViewApp.Workbooks.Close();
-                    MessageBox.Show(lignesExcel);
+                    //MessageBox.Show(lignesExcel);
 
                 }
                 datagridviewLoad();
@@ -254,6 +249,15 @@ namespace ParcAuto.Forms
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+            }
+            finally
+            {
+                GLB.Con.Close();
+                excelWorkbook.Close();
+                Marshal.ReleaseComObject(excelWorkbook);
+                Marshal.ReleaseComObject(importExceldatagridViewworksheet);
+                Marshal.ReleaseComObject(importdatagridviewRange);
+                importExceldatagridViewApp.Quit();
             }
         }
 

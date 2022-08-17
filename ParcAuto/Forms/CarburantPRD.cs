@@ -376,7 +376,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.ExecuteNonQuery();
                         Total();
                     }
-
+                    GLB.Con.Close();
                     //MessageBox.Show(lignesExcel);
                 }
             }

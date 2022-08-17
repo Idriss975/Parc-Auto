@@ -263,6 +263,7 @@ namespace ParcAuto.Forms
                     //MessageBox.Show(lignesExcel);
 
                 }
+                GLB.Con.Close();
                 RemplirLaGrille();
 
             }

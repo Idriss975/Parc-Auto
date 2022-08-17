@@ -65,6 +65,7 @@ namespace ParcAuto.Forms
 
         private void VehiculesPRD_Load(object sender, EventArgs e)
         {
+            GLB.StyleDataGridView(dgvVehicules);
             cmbChoix.SelectedIndex = 0;
             RemplirLaGrille();
         }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ParcAuto.Classes_Globale;
 using System.Text.RegularExpressions; // import Regex()
 using Microsoft.Office.Interop.Excel;
+using System.Runtime.InteropServices;
 
 namespace ParcAuto.Forms
 {
@@ -225,13 +226,13 @@ namespace ParcAuto.Forms
         {
             GLB.Drawonprintdoc(e, dgvVehicules, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6));
         }
-
+        _Application importExceldatagridViewApp;
+        _Worksheet importExceldatagridViewworksheet;
+        Range importdatagridviewRange;
+        Workbook excelWorkbook;
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
-            _Application importExceldatagridViewApp;
-            _Workbook importExceldatagridViewworkbook;
-            _Worksheet importExceldatagridViewworksheet;
-            Range importdatagridviewRange;
+            
             string marque, matricule,  type, carburant, affectation, conducteur,Dnomination,observation;
             string lignesExcel = "Les Lignes Suivants Sont duplique sur le fichier excel : ";
             DateTime Misencirculation;
@@ -248,8 +249,9 @@ namespace ParcAuto.Forms
                         GLB.Con.Close();
                     GLB.Con.Open();
 
-                    importExceldatagridViewworkbook = importExceldatagridViewApp.Workbooks.Open(importOpenDialoge.FileName);
-                    importExceldatagridViewworksheet = importExceldatagridViewworkbook.ActiveSheet;
+                    Workbooks excelWorkbooks = importExceldatagridViewApp.Workbooks;
+                    excelWorkbook = excelWorkbooks.Open(importOpenDialoge.FileName);
+                    importExceldatagridViewworksheet = excelWorkbook.ActiveSheet;
                     importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
                     for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
                     {
@@ -262,23 +264,24 @@ namespace ParcAuto.Forms
                         conducteur = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
                         Dnomination = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value);
                         observation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 9].value);
-
+                        GLB.Cmd.Parameters.Clear();
                         GLB.Cmd.CommandText = $"SELECT count(*) from Vehicules where Matricule = @txtMatricule";
                         GLB.Cmd.Parameters.AddWithValue("@txtMatricule", matricule);
 
 
                         if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
                         {
+                            GLB.Cmd.Parameters.Clear();
                             GLB.Cmd.CommandText = "insert into Vehicules values (@txtMarque, @txtMatricule, @dateMiseEnCirculation, @cmbType, @txtCarburant, @txtAffectation, @TempMatricule,@txtDnomination,@txtObservation)";
-                            GLB.Cmd.Parameters.AddWithValue("@txtMarque", marque);
-                            GLB.Cmd.Parameters.AddWithValue("@txtMatricule", matricule);
+                            GLB.Cmd.Parameters.AddWithValue("@txtMarque", marque ?? "");
+                            GLB.Cmd.Parameters.AddWithValue("@txtMatricule", matricule ?? "");
                             GLB.Cmd.Parameters.AddWithValue("@dateMiseEnCirculation", Misencirculation.ToString("yyyy-MM-dd"));
-                            GLB.Cmd.Parameters.AddWithValue("@txtCarburant", carburant);
-                            GLB.Cmd.Parameters.AddWithValue("@cmbType", type);
-                            GLB.Cmd.Parameters.AddWithValue("@txtAffectation", affectation);
-                            GLB.Cmd.Parameters.AddWithValue("@TempMatricule", conducteur);
-                            GLB.Cmd.Parameters.AddWithValue("@txtDnomination", Dnomination);
-                            GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation);
+                            GLB.Cmd.Parameters.AddWithValue("@txtCarburant", carburant ?? "");
+                            GLB.Cmd.Parameters.AddWithValue("@cmbType", type ?? "");
+                            GLB.Cmd.Parameters.AddWithValue("@txtAffectation", affectation ?? "");
+                            GLB.Cmd.Parameters.AddWithValue("@TempMatricule", conducteur ?? (object)DBNull.Value);
+                            GLB.Cmd.Parameters.AddWithValue("@txtDnomination", Dnomination ?? "");
+                            GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation ?? "");
                             //MessageBox.Show($"{marque} , {matricule} , {Misencirculation.ToString("yyyy-MM-dd")} , {carburant} , {type} , {affectation} , {conducteur} , {Dnomination} , {observation}");
                             GLB.Cmd.ExecuteNonQuery();
                         }
@@ -290,7 +293,6 @@ namespace ParcAuto.Forms
 
                     }
                     GLB.Con.Close();
-                    importExceldatagridViewApp.Workbooks.Close();
                     MessageBox.Show(lignesExcel);
 
                 }
@@ -301,7 +303,16 @@ namespace ParcAuto.Forms
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-         
+            finally
+            {
+                GLB.Con.Close();
+                excelWorkbook.Close();
+                Marshal.ReleaseComObject(excelWorkbook);
+                Marshal.ReleaseComObject(importExceldatagridViewworksheet);
+                Marshal.ReleaseComObject(importdatagridviewRange);
+                importExceldatagridViewApp.Quit();
+            }
+
         }
 
         private void dgvVehicules_DoubleClick(object sender, EventArgs e)
