@@ -24,10 +24,23 @@ namespace ParcAuto.Forms
         private void btnValider_Click(object sender, EventArgs e)
         {
             GLB.SelectedDate = comboBox1.SelectedItem.ToString().Trim();
-            this.Hide();
+            
             GLB.Con = new SqlConnection($"Data Source=DAL1251\\SQLEXPRESS,1433;Initial Catalog=Parc_Automobile;Persist Security Info=True;User ID={textBox1.Text.Trim()};Password={textBox2.Text.Trim()}");
             GLB.Cmd = GLB.Con.CreateCommand();
-            (new Form1()).ShowDialog();
+            try
+            {
+                GLB.Con.Open();
+                GLB.Con.Close();
+                this.Hide();
+                (new Form1()).ShowDialog();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Login Error");
+            }
+
+            
+            
             //this.Close();
 
         }
