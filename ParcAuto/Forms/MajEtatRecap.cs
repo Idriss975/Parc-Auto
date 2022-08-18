@@ -52,6 +52,7 @@ namespace ParcAuto.Forms
             GLB.Con.Open();
             GLB.Cmd.ExecuteNonQuery();
             GLB.Con.Close();
+            this.Close();
         }
     }
 }
