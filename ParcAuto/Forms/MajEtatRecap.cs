@@ -30,6 +30,7 @@ namespace ParcAuto.Forms
 
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
+            GLB.Cmd.Parameters.Clear();
             GLB.Cmd.CommandText = @"insert into EtatRecapCarburantSNTL (Annee,Report, Achat) values(@anneeCarb,@reportCarb,@achatCarb);
             insert into EtatRecapCartefree(Annee, Report, Achat) values(@anneeCarte, @reportCarte, @achatCarte);
             insert into EtatRecapReparation(Annee, Report, Achat) values(@anneeRep, @reportRep, @achatRep);
@@ -57,8 +58,14 @@ namespace ParcAuto.Forms
             GLB.Cmd.CommandText = "insert into Directions (Direction, Annee) values ";
 
             foreach (string item in GLB.Entites.Values)
-                GLB.Cmd.CommandText += $"({item},{txtAnnee.Text}),";
-            GLB.Cmd.CommandText.Remove(GLB.Cmd.CommandText.Length - 1, 1);
+            {
+                GLB.Cmd.Parameters.Clear();
+                GLB.Cmd.CommandText += $"(@Direction,@Annee),";
+                GLB.Cmd.Parameters.Add("@Direction", SqlDbType.VarChar, int.MaxValue).Value = item;
+                GLB.Cmd.Parameters.Add("@Annee", SqlDbType.Int).Value = int.Parse(txtAnnee.Text);
+            }
+                
+            GLB.Cmd.CommandText = GLB.Cmd.CommandText.Remove(GLB.Cmd.CommandText.Length - 1, 1);
 
             GLB.Con.Open();
             GLB.Cmd.ExecuteNonQuery();
