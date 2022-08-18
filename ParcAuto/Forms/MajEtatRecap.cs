@@ -52,6 +52,19 @@ namespace ParcAuto.Forms
             GLB.Con.Open();
             GLB.Cmd.ExecuteNonQuery();
             GLB.Con.Close();
+
+
+            GLB.Cmd.CommandText = "insert into Directions (Direction, Annee) values ";
+
+            foreach (string item in GLB.Entites.Values)
+                GLB.Cmd.CommandText += $"({item},{GLB.SelectedDate}),";
+            GLB.Cmd.CommandText.Remove(GLB.Cmd.CommandText.Length - 1, 1);
+
+            GLB.Con.Open();
+            GLB.Cmd.ExecuteNonQuery();
+            GLB.Con.Close();
+
+
             this.Close();
         }
     }
