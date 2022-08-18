@@ -153,6 +153,7 @@ namespace ParcAuto.Forms
                     break;
                 case Choix.modifier:
                     lbl.Text = "La modification d'une Vignette Transport";
+                    txtentite.Enabled = false;
                     RemplirChamps();
                     break;
                 case Choix.supprimer:
