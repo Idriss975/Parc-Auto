@@ -49,8 +49,9 @@ namespace ParcAuto.Forms
             {
                 this.Close();
                 (new Form1()).ShowDialog();
+                //this.Close();
             }
-                
+
 
         }
     }

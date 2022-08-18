@@ -73,6 +73,7 @@ namespace ParcAuto
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FormsPlace = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.Quitter = new System.Windows.Forms.Button();
             section2btnCond_Vehicule = new System.Windows.Forms.Panel();
             section2btnCond_Vehicule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ParcAutodown)).BeginInit();
@@ -372,6 +373,7 @@ namespace ParcAuto
             this.panelSideMenu.Controls.Add(this.VignettesUp);
             this.panelSideMenu.Controls.Add(this.Vignettesdown);
             this.panelSideMenu.Controls.Add(this.btnVignettes);
+            this.panelSideMenu.Controls.Add(this.Quitter);
             this.panelSideMenu.Controls.Add(this.btnEtatRecap);
             this.panelSideMenu.Controls.Add(this.panelLogo);
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
@@ -775,6 +777,25 @@ namespace ParcAuto
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // Quitter
+            // 
+            this.Quitter.AutoSize = true;
+            this.Quitter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.Quitter.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Quitter.FlatAppearance.BorderSize = 0;
+            this.Quitter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Quitter.ForeColor = System.Drawing.Color.White;
+            this.Quitter.Image = ((System.Drawing.Image)(resources.GetObject("Quitter.Image")));
+            this.Quitter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Quitter.Location = new System.Drawing.Point(0, 860);
+            this.Quitter.Name = "Quitter";
+            this.Quitter.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.Quitter.Size = new System.Drawing.Size(183, 45);
+            this.Quitter.TabIndex = 98;
+            this.Quitter.Text = "Quitter";
+            this.Quitter.UseVisualStyleBackColor = false;
+            this.Quitter.Click += new System.EventHandler(this.Quitter_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -873,6 +894,7 @@ namespace ParcAuto
         private System.Windows.Forms.PictureBox ParcAutodown;
         private System.Windows.Forms.PictureBox ParcAutoup;
         private System.Windows.Forms.Button btnEtatRecap;
+        private System.Windows.Forms.Button Quitter;
     }
 }
 
