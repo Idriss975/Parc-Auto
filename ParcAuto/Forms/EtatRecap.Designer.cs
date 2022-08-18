@@ -29,6 +29,7 @@ namespace ParcAuto.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
@@ -95,6 +96,16 @@ namespace ParcAuto.Forms
             this.sumtrimestresReparation = new System.Windows.Forms.Label();
             this.DisponibleReparation = new System.Windows.Forms.Label();
             this.btnNew = new Guna.UI2.WinForms.Guna2Button();
+            this.txtDirectionsCentrales = new System.Windows.Forms.Label();
+            this.dgvDirectionsCentrales = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -106,6 +117,7 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDirectionsCentrales)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel6
@@ -999,12 +1011,103 @@ namespace ParcAuto.Forms
             this.btnNew.Text = "Nouvelle Annee";
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
+            // txtDirectionsCentrales
+            // 
+            this.txtDirectionsCentrales.AutoSize = true;
+            this.txtDirectionsCentrales.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDirectionsCentrales.Location = new System.Drawing.Point(12, 283);
+            this.txtDirectionsCentrales.Name = "txtDirectionsCentrales";
+            this.txtDirectionsCentrales.Size = new System.Drawing.Size(172, 20);
+            this.txtDirectionsCentrales.TabIndex = 5;
+            this.txtDirectionsCentrales.Text = "Directions Centrales";
+            // 
+            // dgvDirectionsCentrales
+            // 
+            this.dgvDirectionsCentrales.AllowUserToAddRows = false;
+            this.dgvDirectionsCentrales.AllowUserToDeleteRows = false;
+            this.dgvDirectionsCentrales.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvDirectionsCentrales.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDirectionsCentrales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvDirectionsCentrales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDirectionsCentrales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8});
+            this.dgvDirectionsCentrales.Location = new System.Drawing.Point(12, 307);
+            this.dgvDirectionsCentrales.Name = "dgvDirectionsCentrales";
+            this.dgvDirectionsCentrales.ReadOnly = true;
+            this.dgvDirectionsCentrales.RowHeadersVisible = false;
+            this.dgvDirectionsCentrales.Size = new System.Drawing.Size(888, 331);
+            this.dgvDirectionsCentrales.TabIndex = 6;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Les Directions";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Dotations fixe";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Missions";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Dotations Fixe";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Missions";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Reparation";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Achat des cartes";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Train et recharge Jawaz";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
             // EtatRecap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1111, 669);
+            this.Controls.Add(this.dgvDirectionsCentrales);
+            this.Controls.Add(this.txtDirectionsCentrales);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.tableLayoutPanel6);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1031,7 +1134,9 @@ namespace ParcAuto.Forms
             this.panel2.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDirectionsCentrales)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1103,5 +1208,15 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label sumtrimestresReparation;
         private System.Windows.Forms.Label DisponibleReparation;
         private Guna.UI2.WinForms.Guna2Button btnNew;
+        private System.Windows.Forms.Label txtDirectionsCentrales;
+        private System.Windows.Forms.DataGridView dgvDirectionsCentrales;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
     }
 }

@@ -97,12 +97,29 @@ namespace ParcAuto.Forms
             GLB.dr.Close();
             GLB.Con.Close();
         }
+
+        private void DirectionsCentrales()
+        {
+            GLB.Cmd.CommandText = "select * from Directions where Annee = @Annee and Direction not like 'DR%'";
+            GLB.Cmd.Parameters.Add("@Annee", SqlDbType.Int).Value = int.Parse(GLB.SelectedDate);
+
+            GLB.Con.Open();
+            GLB.dr = GLB.Cmd.ExecuteReader();
+            while (GLB.dr.Read())
+            {
+                dgvDirectionsCentrales.Rows.Add(GLB.dr["Direction"], GLB.dr["DFixeCarteFree"], GLB.dr["AutreCarteFree"], GLB.dr["DFixeCarb"], GLB.dr["DMissionsCarb"], GLB.dr["Reparation"], 0, GLB.dr["Jawaz_Train"]);
+            }
+            GLB.dr.Close();
+            GLB.Con.Close();
+        }
+
         private void EtatRecap_Load(object sender, EventArgs e)
         {
             ConsommationCarteFree();
             ConsommationcarburantSNTL();
             ConsommationReparation();
             ConsommationTransport();
+            DirectionsCentrales();
         }
 
         private void btnNew_Click(object sender, EventArgs e)
