@@ -100,6 +100,7 @@ namespace ParcAuto.Forms
 
         private void DirectionsCentrales()
         {
+            GLB.Cmd.Parameters.Clear();
             GLB.Cmd.CommandText = "select * from Directions where Annee = @Annee and Direction not like 'DR%'";
             GLB.Cmd.Parameters.Add("@Annee", SqlDbType.Int).Value = int.Parse(GLB.SelectedDate);
 
@@ -107,7 +108,7 @@ namespace ParcAuto.Forms
             GLB.dr = GLB.Cmd.ExecuteReader();
             while (GLB.dr.Read())
             {
-                dgvDirectionsCentrales.Rows.Add(GLB.dr["Direction"], GLB.dr["DFixeCarteFree"], GLB.dr["AutreCarteFree"], GLB.dr["DFixeCarb"], GLB.dr["DMissionsCarb"], GLB.dr["Reparation"], 0, GLB.dr["Jawaz_Train"]);
+                dgvDirectionsCentrales.Rows.Add(GLB.dr["Direction"], GLB.dr["DFixeCarteFree"], GLB.dr["AutreCarteFree"], GLB.dr["DFixeCarb"], GLB.dr["DMissionsCarb"], GLB.dr["DHebdoCarb"], GLB.dr["DExpCarb"], GLB.dr["Reparation"], GLB.dr["Jawaz_Train"], GLB.dr["Annee"]);
             }
             GLB.dr.Close();
             GLB.Con.Close();
