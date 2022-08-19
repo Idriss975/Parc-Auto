@@ -57,7 +57,8 @@ namespace ParcAuto.Classes_Globale
             { "DRMS", "DR Marrakech-Safi" },
             { "DRO", "DR Oriental" },
             { "DRSM", "DR Souss Massa" },
-            { "DRDT", "DR Draa Tafilalet" }
+            { "DRDT", "DR Draa Tafilalet" },
+            {  "ASOFP", "ASOFP" }
         };
         public static void StyleDataGridView(DataGridView dgv)
         {
