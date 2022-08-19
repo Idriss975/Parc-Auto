@@ -78,9 +78,8 @@ namespace ParcAuto.Forms
             this.txtuser.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtuser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
             this.txtuser.Location = new System.Drawing.Point(60, 180);
-            this.txtuser.Multiline = true;
             this.txtuser.Name = "txtuser";
-            this.txtuser.Size = new System.Drawing.Size(205, 24);
+            this.txtuser.Size = new System.Drawing.Size(205, 17);
             this.txtuser.TabIndex = 21;
             // 
             // quitter

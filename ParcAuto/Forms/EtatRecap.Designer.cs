@@ -1026,6 +1026,10 @@ namespace ParcAuto.Forms
             // 
             this.dgvDirectionsCentrales.AllowUserToAddRows = false;
             this.dgvDirectionsCentrales.AllowUserToDeleteRows = false;
+            this.dgvDirectionsCentrales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDirectionsCentrales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDirectionsCentrales.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvDirectionsCentrales.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDirectionsCentrales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1049,60 +1053,70 @@ namespace ParcAuto.Forms
             // 
             // Column1
             // 
+            this.Column1.FillWeight = 108F;
             this.Column1.HeaderText = "Les Directions";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
+            this.Column2.FillWeight = 25.38069F;
             this.Column2.HeaderText = "D.Fixe Carte Free";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
+            this.Column3.FillWeight = 25.38069F;
             this.Column3.HeaderText = "D.Missions Carte Free";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
+            this.Column4.FillWeight = 25.38069F;
             this.Column4.HeaderText = "D.Fixe Carburants";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
+            this.Column5.FillWeight = 25.38069F;
             this.Column5.HeaderText = "D.Missions Carburants";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
             // Column6
             // 
+            this.Column6.FillWeight = 25.38069F;
             this.Column6.HeaderText = "D.Hebdo Carburants";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
             // Column7
             // 
+            this.Column7.FillWeight = 25.38069F;
             this.Column7.HeaderText = "D.Exp Carburants";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
             // Column8
             // 
+            this.Column8.FillWeight = 25.38069F;
             this.Column8.HeaderText = "Reparation";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
             // col9
             // 
+            this.col9.FillWeight = 25.38069F;
             this.col9.HeaderText = "Jawaz | Train";
             this.col9.Name = "col9";
             this.col9.ReadOnly = true;
             // 
             // Column9
             // 
+            this.Column9.FillWeight = 25.38069F;
             this.Column9.HeaderText = "Annee";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
