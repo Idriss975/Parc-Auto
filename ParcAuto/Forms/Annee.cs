@@ -52,7 +52,7 @@ namespace ParcAuto.Forms
                 //this.Close();
             }
 
-
+            GetYears();
         }
     }
 }

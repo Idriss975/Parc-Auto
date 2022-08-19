@@ -224,7 +224,7 @@ namespace ParcAuto.Forms
                     importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
                     for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
                     {
-                        entite = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
+                        entite = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value)).Trim();
                         Fixe = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value) ; 
                         Autre = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
                         date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value));

@@ -240,7 +240,7 @@ namespace ParcAuto.Forms
 
                         GLB.Cmd.Parameters.Clear();
                         GLB.Cmd.CommandText = "insert into Transport values(@txtentite, @txtBenificiaire, @txtNBon_Email,@DateMission, @txtDestination, @txtUtilisation, @txtPrix)";
-                        GLB.Cmd.Parameters.AddWithValue("@txtentite", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value ?? "");
+                        GLB.Cmd.Parameters.AddWithValue("@txtentite", (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value)).Trim() ?? "");
                         GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value ?? "");
                         GLB.Cmd.Parameters.AddWithValue("@txtNBon_Email", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value ?? "");
                         GLB.Cmd.Parameters.AddWithValue("@DateMission", date.ToString("yyyy-MM-dd"));
