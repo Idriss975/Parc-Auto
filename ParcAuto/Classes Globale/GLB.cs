@@ -87,9 +87,13 @@ namespace ParcAuto.Classes_Globale
         /// <param name="StartingRowPosition">The Y position for where the First row should show.</param>
         static public void Drawonprintdoc(PrintPageEventArgs e,  DataGridView DGV, Image Logo, Font FontHeader, Font FontRows, int Skipindex = -1, int StartingColumnPosition = 5, int StartingRowPosition = 200, string Total = "",float bias = 0.0f) // Bias is temporary fix
         {
-            float column_gap = e.PageSettings.Bounds.Width - StartingColumnPosition - 10 + bias;
+            float column_gap = e.PageSettings.PaperSize.Width - StartingColumnPosition - 10;// - bias;
             foreach (DataGridViewColumn item in DGV.Columns)
-                column_gap -= e.Graphics.MeasureString(longestcellinrow(DGV,item.Index),FontHeader).Width;
+            {
+                if (item.Index == Skipindex) continue;
+                column_gap -= e.Graphics.MeasureString(longestcellinrow(DGV, item.Index), FontHeader).Width;
+            }
+                
             column_gap /= DGV.Columns.Count-1;
             if (column_gap < 0) 
                 column_gap = 0;

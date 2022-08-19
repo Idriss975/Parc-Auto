@@ -304,7 +304,7 @@ namespace ParcAuto.Forms
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            GLB.Drawonprintdoc(e, dgvCarteFree, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6),0,5);
+            GLB.Drawonprintdoc(e, dgvCarteFree, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6),0,5,bias:400);
         }
 
         private void dgvCarteFree_DoubleClick(object sender, EventArgs e)
