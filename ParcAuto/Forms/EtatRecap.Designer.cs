@@ -29,7 +29,6 @@ namespace ParcAuto.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
@@ -106,6 +105,8 @@ namespace ParcAuto.Forms
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -1027,14 +1028,6 @@ namespace ParcAuto.Forms
             this.dgvDirectionsCentrales.AllowUserToDeleteRows = false;
             this.dgvDirectionsCentrales.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvDirectionsCentrales.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDirectionsCentrales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDirectionsCentrales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDirectionsCentrales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -1044,12 +1037,14 @@ namespace ParcAuto.Forms
             this.Column5,
             this.Column6,
             this.Column7,
-            this.Column8});
+            this.Column8,
+            this.col9,
+            this.Column9});
             this.dgvDirectionsCentrales.Location = new System.Drawing.Point(12, 307);
             this.dgvDirectionsCentrales.Name = "dgvDirectionsCentrales";
             this.dgvDirectionsCentrales.ReadOnly = true;
             this.dgvDirectionsCentrales.RowHeadersVisible = false;
-            this.dgvDirectionsCentrales.Size = new System.Drawing.Size(888, 331);
+            this.dgvDirectionsCentrales.Size = new System.Drawing.Size(1083, 331);
             this.dgvDirectionsCentrales.TabIndex = 6;
             // 
             // Column1
@@ -1060,45 +1055,57 @@ namespace ParcAuto.Forms
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Dotations fixe";
+            this.Column2.HeaderText = "D.Fixe Carte Free";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
-            this.Column3.HeaderText = "Missions";
+            this.Column3.HeaderText = "D.Missions Carte Free";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
-            this.Column4.HeaderText = "Dotations Fixe";
+            this.Column4.HeaderText = "D.Fixe Carburants";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
-            this.Column5.HeaderText = "Missions";
+            this.Column5.HeaderText = "D.Missions Carburants";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
             // Column6
             // 
-            this.Column6.HeaderText = "Reparation";
+            this.Column6.HeaderText = "D.Hebdo Carburants";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
             // Column7
             // 
-            this.Column7.HeaderText = "Achat des cartes";
+            this.Column7.HeaderText = "D.Exp Carburants";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
             // Column8
             // 
-            this.Column8.HeaderText = "Train et recharge Jawaz";
+            this.Column8.HeaderText = "Reparation";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
+            // 
+            // col9
+            // 
+            this.col9.HeaderText = "Jawaz | Train";
+            this.col9.Name = "col9";
+            this.col9.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Annee";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
             // 
             // EtatRecap
             // 
@@ -1218,5 +1225,7 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
     }
 }

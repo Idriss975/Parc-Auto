@@ -59,7 +59,7 @@ namespace ParcAuto.Forms
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            
+            //GLB.Con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=Parc_Automobile;Integrated Security=True");
             GLB.Con = new SqlConnection($"Data Source=DAL1251\\SQLEXPRESS,1433;Initial Catalog=Parc_Automobile;Persist Security Info=True;User ID={txtuser.Text.Trim()};Password={txtpass.Text.Trim()}");
             GLB.Cmd = GLB.Con.CreateCommand();
             try
