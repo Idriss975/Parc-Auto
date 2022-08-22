@@ -68,7 +68,7 @@ namespace ParcAuto.Forms
             catch (SqlException ex)
             {
                 if (ex.Number == 18456)
-                    MessageBox.Show("Login Error");
+                    MessageBox.Show("Nom d'utilisateur ou/et mot de passe incorrecte(s).");
                 else
                     MessageBox.Show(ex.Message, "SQLERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
