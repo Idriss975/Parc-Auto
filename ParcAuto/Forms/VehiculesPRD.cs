@@ -29,7 +29,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], ((DateTime)GLB.dr[2]).ToString("d/M/yyyy"), Math.Floor((DateTime.Now - ((DateTime)GLB.dr[2])).TotalDays/365.2425), GLB.dr[3], GLB.dr[4], GLB.dr[5], GLB.dr[6], GLB.dr[7]);
+                    dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr.IsDBNull(2) ? "" : ((DateTime)GLB.dr[2]).ToString("d/M/yyyy") , Math.Floor((DateTime.Now - (GLB.dr.IsDBNull(2) ? DateTime.Now : (DateTime)GLB.dr[2])).TotalDays/365.2425), GLB.dr[3], GLB.dr[4], GLB.dr[5], GLB.dr[6], GLB.dr[7]);
             }
             catch (Exception ex) //TODO: Implement Sql Exemption error (idriss)
             {
@@ -225,7 +225,7 @@ namespace ParcAuto.Forms
                     {
                         marque = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
                         matricule = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
-                        Misencirculation = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value));
+                        Misencirculation = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value ?? "0001-01-01")) ;
                         carburant = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value);
                         affectation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
                         conducteur = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
@@ -234,17 +234,17 @@ namespace ParcAuto.Forms
                         age = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
 
                         GLB.Cmd.Parameters.Clear();
-                        GLB.Cmd.CommandText = $"SELECT count(*) from Vehicules where Matricule = @txtMatricule";
+                        GLB.Cmd.CommandText = $"SELECT count(*) from VehiculesPRD where Matricule = @txtMatricule";
                         GLB.Cmd.Parameters.AddWithValue("@txtMatricule", matricule);
 
 
                         if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
                         {
                             GLB.Cmd.Parameters.Clear();
-                            GLB.Cmd.CommandText = "insert into Vehicules values (@txtMarque, @txtMatricule, @dateMiseEnCirculation, @txtCarburant, @txtAffectation, @TempMatricule,@txtDnomination,@txtObservation)";
+                            GLB.Cmd.CommandText = "insert into VehiculesPRD values (@txtMarque, @txtMatricule, @dateMiseEnCirculation, @txtCarburant, @txtAffectation, @TempMatricule,@txtDnomination,@txtObservation)";
                             GLB.Cmd.Parameters.AddWithValue("@txtMarque", marque ?? "");
                             GLB.Cmd.Parameters.AddWithValue("@txtMatricule", matricule ?? "");
-                            GLB.Cmd.Parameters.AddWithValue("@dateMiseEnCirculation", Misencirculation.ToString("yyyy-MM-dd"));
+                            GLB.Cmd.Parameters.AddWithValue("@dateMiseEnCirculation", Misencirculation.ToString("yyyy-MM-dd") == "0001-01-01" ? (object)DBNull.Value : Misencirculation.ToString("yyyy-MM-dd"));
                             GLB.Cmd.Parameters.AddWithValue("@txtCarburant", carburant ?? "");
                             GLB.Cmd.Parameters.AddWithValue("@txtAffectation", affectation ?? "");
                             GLB.Cmd.Parameters.AddWithValue("@TempMatricule", conducteur ?? "");
