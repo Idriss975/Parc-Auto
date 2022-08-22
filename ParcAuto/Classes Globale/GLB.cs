@@ -126,16 +126,16 @@ namespace ParcAuto.Classes_Globale
                     for (int i = 0; i < DGV.Rows[item].Cells.Count - 1; i++)
                     {
                         string MaxCellInRowLen;
-                        if (i < Skipindex)
-                        {
-                            MaxCellInRowLen = longestcellinrow(DGV, i);
-                            e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i].Value.ToString(), out _) ? ((e.Graphics.MeasureString(MaxCellInRowLen,FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i].Value.ToString(),FontRows).Width)) : 0), StartingRowPosition);
-                        } 
-                        else
-                        {
-                            MaxCellInRowLen = longestcellinrow(DGV, i+1);
-                            e.Graphics.DrawString(DGV.Rows[item].Cells[i + 1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i + 1].Value.ToString(), out _) ? (e.Graphics.MeasureString(MaxCellInRowLen,FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i + 1].Value.ToString(),FontRows).Width) : 0), StartingRowPosition);
-                        }
+                        //if (i < Skipindex)
+                        //{
+                            MaxCellInRowLen = longestcellinrow(DGV, i < Skipindex? i: i+1);
+                            e.Graphics.DrawString(DGV.Rows[item].Cells[i < Skipindex ? i : i + 1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i < Skipindex ? i : i + 1].Value.ToString(), out _) ? ((e.Graphics.MeasureString(MaxCellInRowLen,FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i < Skipindex ? i : i + 1].Value.ToString(),FontRows).Width)) : 0), StartingRowPosition);
+                        //} 
+                        //else
+                        //{
+                            //MaxCellInRowLen = longestcellinrow(DGV, i+1);
+                            //e.Graphics.DrawString(DGV.Rows[item].Cells[i + 1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i + 1].Value.ToString(), out _) ? (e.Graphics.MeasureString(MaxCellInRowLen,FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i + 1].Value.ToString(),FontRows).Width) : 0), StartingRowPosition);
+                        //}
                     }
                     StartingRowPosition += 20;
                 }
