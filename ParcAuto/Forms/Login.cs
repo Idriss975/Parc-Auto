@@ -70,5 +70,11 @@ namespace ParcAuto.Forms
                 MessageBox.Show("Login Error");
             }
         }
+
+        private void txtpass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                btnLogIn_Click(this, EventArgs.Empty);
+        }
     }
 }
