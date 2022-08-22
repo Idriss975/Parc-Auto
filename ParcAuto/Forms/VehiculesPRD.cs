@@ -88,10 +88,12 @@ namespace ParcAuto.Forms
             try
             {
 
-                outp = $"delete from Vehicules where Matricule = '{dgvVehicules.SelectedRows[0].Cells[1].Value}'";
+                outp = $"delete from VehiculesPRD where Matricule = '{dgvVehicules.SelectedRows[0].Cells[1].Value}'";
 
                 for (int i = 1; i < dgvVehicules.SelectedRows.Count; i++)
                     outp += $" or Matricule = '{dgvVehicules.SelectedRows[i].Cells[1].Value}'";
+
+                MessageBox.Show(outp);
 
                 GLB.Cmd.CommandText = outp;
                 GLB.Con.Open();
@@ -159,10 +161,10 @@ namespace ParcAuto.Forms
             try
             {
 
-                outp = $"delete from Vehicules where Matricule = '{dgvVehicules.SelectedRows[0].Cells[1].Value}'";
+                outp = $"delete from VehiculesPRD where Matricule = '{dgvVehicules.Rows[0].Cells[1].Value}'";
 
-                for (int i = 1; i < dgvVehicules.SelectedRows.Count; i++)
-                    outp += $" or Matricule = '{dgvVehicules.SelectedRows[i].Cells[1].Value}'";
+                for (int i = 1; i < dgvVehicules.Rows.Count; i++)
+                    outp += $" or Matricule = '{dgvVehicules.Rows[i].Cells[1].Value}'";
 
                 GLB.Cmd.CommandText = outp;
                 GLB.Con.Open();
