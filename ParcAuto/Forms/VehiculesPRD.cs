@@ -9,6 +9,8 @@ using System.Text.RegularExpressions;
 using ParcAuto.Classes_Globale;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Office.Interop.Excel;
+using System.Runtime.InteropServices;
 
 namespace ParcAuto.Forms
 {
@@ -192,6 +194,127 @@ namespace ParcAuto.Forms
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             GLB.Drawonprintdoc( e, dgvVehicules, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6));
+        }
+        _Application importExceldatagridViewApp;
+        _Worksheet importExceldatagridViewworksheet;
+        Range importdatagridviewRange;
+        Workbook excelWorkbook;
+        private void btnImportExcel_Click(object sender, EventArgs e)
+        {
+            string marque, matricule, type, carburant, affectation, conducteur, Dnomination, observation, age;
+            string lignesExcel = "Les Lignes Suivants Sont duplique sur le fichier excel : ";
+            DateTime Misencirculation;
+            try
+            {
+
+                importExceldatagridViewApp = new Microsoft.Office.Interop.Excel.Application();
+                OpenFileDialog importOpenDialoge = new OpenFileDialog();
+                importOpenDialoge.Title = "Import Excel File";
+                importOpenDialoge.Filter = "Import Excel File|*.xlsx;*xls;*xlm";
+                if (importOpenDialoge.ShowDialog() == DialogResult.OK)
+                {
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
+                    GLB.Con.Open();
+
+                    Workbooks excelWorkbooks = importExceldatagridViewApp.Workbooks;
+                    excelWorkbook = excelWorkbooks.Open(importOpenDialoge.FileName);
+                    importExceldatagridViewworksheet = excelWorkbook.ActiveSheet;
+                    importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
+                    for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
+                    {
+                        marque = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
+                        matricule = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
+                        Misencirculation = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value));
+                        carburant = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value);
+                        affectation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
+                        conducteur = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
+                        Dnomination = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value);
+                        observation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 9].value);
+                        age = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
+
+                        GLB.Cmd.Parameters.Clear();
+                        GLB.Cmd.CommandText = $"SELECT count(*) from Vehicules where Matricule = @txtMatricule";
+                        GLB.Cmd.Parameters.AddWithValue("@txtMatricule", matricule);
+
+
+                        if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
+                        {
+                            GLB.Cmd.Parameters.Clear();
+                            GLB.Cmd.CommandText = "insert into Vehicules values (@txtMarque, @txtMatricule, @dateMiseEnCirculation, @txtCarburant, @txtAffectation, @TempMatricule,@txtDnomination,@txtObservation)";
+                            GLB.Cmd.Parameters.AddWithValue("@txtMarque", marque ?? "");
+                            GLB.Cmd.Parameters.AddWithValue("@txtMatricule", matricule ?? "");
+                            GLB.Cmd.Parameters.AddWithValue("@dateMiseEnCirculation", Misencirculation.ToString("yyyy-MM-dd"));
+                            GLB.Cmd.Parameters.AddWithValue("@txtCarburant", carburant ?? "");
+                            GLB.Cmd.Parameters.AddWithValue("@txtAffectation", affectation ?? "");
+                            GLB.Cmd.Parameters.AddWithValue("@TempMatricule", conducteur ?? "");
+                            GLB.Cmd.Parameters.AddWithValue("@txtDnomination", Dnomination ?? "");
+                            GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation ?? "");
+                            //MessageBox.Show($"{marque} , {matricule} , {Misencirculation.ToString("yyyy-MM-dd")} , {carburant} , {type} , {affectation} , {conducteur} , {Dnomination} , {observation}");
+                            GLB.Cmd.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            lignesExcel += $" {excelWorksheetIndex} ";
+                            continue;
+                        }
+
+                    }
+                    GLB.Con.Close();
+                    MessageBox.Show(lignesExcel);
+
+                }
+                RemplirLaGrille();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            finally
+            {
+                GLB.Con.Close();
+                excelWorkbook.Close();
+                Marshal.ReleaseComObject(excelWorkbook);
+                Marshal.ReleaseComObject(importExceldatagridViewworksheet);
+                Marshal.ReleaseComObject(importdatagridviewRange);
+                importExceldatagridViewApp.Quit();
+            }
+        }
+
+        private void btnExportExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvVehicules.Rows.Count > 0)
+                {
+
+                    Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
+                    xcelApp.Application.Workbooks.Add(Type.Missing);
+
+                    for (int i = 1; i < dgvVehicules.Columns.Count + 1; i++)
+                    {
+                        xcelApp.Cells[1, i] = dgvVehicules.Columns[i - 1].HeaderText;
+                    }
+
+                    for (int i = 0; i < dgvVehicules.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < dgvVehicules.Columns.Count; j++)
+                        {
+                            xcelApp.Cells[i + 2, j + 1] = dgvVehicules.Rows[i].Cells[j].Value.ToString();
+                        }
+                    }
+                    xcelApp.Columns.AutoFit();
+                    xcelApp.Visible = true;
+                    xcelApp.Workbooks.Close();
+                }
+
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Quelque chose s'est mal passé", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
