@@ -68,12 +68,12 @@ namespace ParcAuto
             this.VignettesUp = new System.Windows.Forms.PictureBox();
             this.Vignettesdown = new System.Windows.Forms.PictureBox();
             this.btnVignettes = new System.Windows.Forms.Button();
+            this.Quitter = new System.Windows.Forms.Button();
             this.btnEtatRecap = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FormsPlace = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.Quitter = new System.Windows.Forms.Button();
             section2btnCond_Vehicule = new System.Windows.Forms.Panel();
             section2btnCond_Vehicule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ParcAutodown)).BeginInit();
@@ -713,6 +713,25 @@ namespace ParcAuto
             this.btnVignettes.UseVisualStyleBackColor = false;
             this.btnVignettes.Click += new System.EventHandler(this.btnVignettes_Click);
             // 
+            // Quitter
+            // 
+            this.Quitter.AutoSize = true;
+            this.Quitter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.Quitter.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Quitter.FlatAppearance.BorderSize = 0;
+            this.Quitter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Quitter.ForeColor = System.Drawing.Color.White;
+            this.Quitter.Image = ((System.Drawing.Image)(resources.GetObject("Quitter.Image")));
+            this.Quitter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Quitter.Location = new System.Drawing.Point(0, 860);
+            this.Quitter.Name = "Quitter";
+            this.Quitter.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.Quitter.Size = new System.Drawing.Size(183, 45);
+            this.Quitter.TabIndex = 98;
+            this.Quitter.Text = "Quitter";
+            this.Quitter.UseVisualStyleBackColor = false;
+            this.Quitter.Click += new System.EventHandler(this.Quitter_Click);
+            // 
             // btnEtatRecap
             // 
             this.btnEtatRecap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
@@ -777,25 +796,6 @@ namespace ParcAuto
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // Quitter
-            // 
-            this.Quitter.AutoSize = true;
-            this.Quitter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
-            this.Quitter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Quitter.FlatAppearance.BorderSize = 0;
-            this.Quitter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Quitter.ForeColor = System.Drawing.Color.White;
-            this.Quitter.Image = ((System.Drawing.Image)(resources.GetObject("Quitter.Image")));
-            this.Quitter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Quitter.Location = new System.Drawing.Point(0, 860);
-            this.Quitter.Name = "Quitter";
-            this.Quitter.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.Quitter.Size = new System.Drawing.Size(183, 45);
-            this.Quitter.TabIndex = 98;
-            this.Quitter.Text = "Quitter";
-            this.Quitter.UseVisualStyleBackColor = false;
-            this.Quitter.Click += new System.EventHandler(this.Quitter_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -810,7 +810,7 @@ namespace ParcAuto
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Parc Auto-mobile";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             section2btnCond_Vehicule.ResumeLayout(false);
             section2btnCond_Vehicule.PerformLayout();

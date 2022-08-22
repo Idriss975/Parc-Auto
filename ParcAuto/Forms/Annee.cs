@@ -44,14 +44,15 @@ namespace ParcAuto.Forms
         {
             GLB.SelectedDate = cmbAnnee.SelectedItem.ToString().Trim();
             if (GLB.SelectedDate == "-- Nouvelle annee --")
-                (new MajEtatRecap()).ShowDialog();
-            else
             {
-                this.Close();
-                (new Form1()).ShowDialog();
+                (new MajEtatRecap()).ShowDialog();
                 //this.Close();
             }
-
+            else
+            {
+                (new Form1()).ShowDialog();
+                this.Close();
+            }
             GetYears();
         }
     }
