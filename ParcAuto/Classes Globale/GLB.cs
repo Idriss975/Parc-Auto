@@ -99,7 +99,7 @@ namespace ParcAuto.Classes_Globale
                 column_gap = 0;
             //Header
             e.Graphics.DrawImage(Logo, 50, 17);
-            e.Graphics.DrawLine(new Pen(Color.Black, 2), 150, 40, 150, 85);            
+            e.Graphics.DrawLine(new Pen(Color.Black, 2), 150, 40, 150, 85);
             e.Graphics.DrawString("مكتب التكوين المهني و إنعاش الشغل", new Font("PFDinTextArabic-Light", 9, FontStyle.Bold), Brushes.Black, 158, 40);
             e.Graphics.DrawString("Office de la Formation Professionnelle\net de la Promotion du Travail", new Font("Arial",9), Brushes.Black, 158, 60);
 
