@@ -115,7 +115,7 @@ namespace ParcAuto.Classes_Globale
             {
                 foreach (DataGridViewColumn col in DGV.Columns)
                 {
-                    if (col.HeaderText == DGV.Columns[Skipindex].HeaderText) continue;
+                    if (col.Index == Skipindex) continue;
                     e.Graphics.DrawString(col.HeaderText, FontHeader, Brushes.Black, columns_pos[columns_pos.Count - 1], StartingRowPosition - 17);
                     columns_pos.Add(columns_pos[columns_pos.Count - 1] + column_gap + (e.Graphics.MeasureString(longestcellinrow(DGV, col.Index),FontHeader).Width));
                 }
