@@ -66,10 +66,8 @@ namespace ParcAuto.Forms
             this.txtpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
             this.txtpass.Location = new System.Drawing.Point(60, 252);
-            this.txtpass.Multiline = true;
             this.txtpass.Name = "txtpass";
-            this.txtpass.PasswordChar = '*';
-            this.txtpass.Size = new System.Drawing.Size(205, 24);
+            this.txtpass.Size = new System.Drawing.Size(205, 17);
             this.txtpass.TabIndex = 22;
             // 
             // txtuser
