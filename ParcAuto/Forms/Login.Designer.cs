@@ -66,11 +66,10 @@ namespace ParcAuto.Forms
             this.txtpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
             this.txtpass.Location = new System.Drawing.Point(60, 252);
-            this.txtpass.Multiline = true;
             this.txtpass.Name = "txtpass";
-            this.txtpass.PasswordChar = '*';
-            this.txtpass.Size = new System.Drawing.Size(205, 24);
-            this.txtpass.TabIndex = 22;
+            this.txtpass.Size = new System.Drawing.Size(205, 17);
+            this.txtpass.TabIndex = 1;
+            this.txtpass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpass_KeyPress);
             // 
             // txtuser
             // 
@@ -80,7 +79,7 @@ namespace ParcAuto.Forms
             this.txtuser.Location = new System.Drawing.Point(60, 180);
             this.txtuser.Name = "txtuser";
             this.txtuser.Size = new System.Drawing.Size(205, 17);
-            this.txtuser.TabIndex = 21;
+            this.txtuser.TabIndex = 0;
             // 
             // quitter
             // 
@@ -116,7 +115,7 @@ namespace ParcAuto.Forms
             this.btnLogIn.Location = new System.Drawing.Point(29, 330);
             this.btnLogIn.Name = "btnLogIn";
             this.btnLogIn.Size = new System.Drawing.Size(236, 33);
-            this.btnLogIn.TabIndex = 18;
+            this.btnLogIn.TabIndex = 2;
             this.btnLogIn.Text = "CONNECTER";
             this.btnLogIn.UseVisualStyleBackColor = false;
             this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);

@@ -99,7 +99,7 @@ namespace ParcAuto.Classes_Globale
                 column_gap = 0;
             //Header
             e.Graphics.DrawImage(Logo, 50, 17);
-            e.Graphics.DrawLine(new Pen(Color.Black, 2), 150, 40, 150, 85);            
+            e.Graphics.DrawLine(new Pen(Color.Black, 2), 150, 40, 150, 85);
             e.Graphics.DrawString("مكتب التكوين المهني و إنعاش الشغل", new Font("PFDinTextArabic-Light", 9, FontStyle.Bold), Brushes.Black, 158, 40);
             e.Graphics.DrawString("Office de la Formation Professionnelle\net de la Promotion du Travail", new Font("Arial",9), Brushes.Black, 158, 60);
 
@@ -115,7 +115,7 @@ namespace ParcAuto.Classes_Globale
             {
                 foreach (DataGridViewColumn col in DGV.Columns)
                 {
-                    if (col.HeaderText == DGV.Columns[Skipindex].HeaderText) continue;
+                    if (col.Index == Skipindex) continue;
                     e.Graphics.DrawString(col.HeaderText, FontHeader, Brushes.Black, columns_pos[columns_pos.Count - 1], StartingRowPosition - 17);
                     columns_pos.Add(columns_pos[columns_pos.Count - 1] + column_gap + (e.Graphics.MeasureString(longestcellinrow(DGV, col.Index),FontHeader).Width));
                 }
@@ -126,16 +126,8 @@ namespace ParcAuto.Classes_Globale
                     for (int i = 0; i < DGV.Rows[item].Cells.Count - 1; i++)
                     {
                         string MaxCellInRowLen;
-                        if (i < Skipindex)
-                        {
-                            MaxCellInRowLen = longestcellinrow(DGV, i);
-                            e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i].Value.ToString(), out _) ? ((e.Graphics.MeasureString(MaxCellInRowLen,FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i].Value.ToString(),FontRows).Width)) : 0), StartingRowPosition);
-                        } 
-                        else
-                        {
-                            MaxCellInRowLen = longestcellinrow(DGV, i+1);
-                            e.Graphics.DrawString(DGV.Rows[item].Cells[i + 1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i + 1].Value.ToString(), out _) ? (e.Graphics.MeasureString(MaxCellInRowLen,FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i + 1].Value.ToString(),FontRows).Width) : 0), StartingRowPosition);
-                        }
+                        MaxCellInRowLen = longestcellinrow(DGV, i < Skipindex? i: i+1);
+                        e.Graphics.DrawString(DGV.Rows[item].Cells[i < Skipindex ? i : i + 1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i < Skipindex ? i : i + 1].Value.ToString(), out _) ? ((e.Graphics.MeasureString(MaxCellInRowLen,FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i < Skipindex ? i : i + 1].Value.ToString(),FontRows).Width)) : 0), StartingRowPosition);
                     }
                     StartingRowPosition += 20;
                 }

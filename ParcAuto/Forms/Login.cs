@@ -26,7 +26,8 @@ namespace ParcAuto.Forms
 
         private void Login_Load(object sender, EventArgs e)
         {
-            this.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, 20, 20));
+            txtpass.UseSystemPasswordChar = true;
+           this.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, 20, 20));
             
         }
 
@@ -47,14 +48,7 @@ namespace ParcAuto.Forms
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)
-            {
-                txtpass.UseSystemPasswordChar = true;
-            }
-            else
-            {
-                txtpass.UseSystemPasswordChar = false;
-            }
+            txtpass.UseSystemPasswordChar = !checkBox1.Checked;
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)
@@ -71,10 +65,19 @@ namespace ParcAuto.Forms
                 (new Annee()).ShowDialog();
 
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
-                MessageBox.Show("Login Error");
+                if (ex.Number == 18456)
+                    MessageBox.Show("Nom d'utilisateur ou/et mot de passe incorrecte(s).");
+                else
+                    MessageBox.Show(ex.Message, "SQLERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void txtpass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                btnLogIn_Click(this, EventArgs.Empty);
         }
     }
 }
