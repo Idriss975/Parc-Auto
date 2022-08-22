@@ -288,12 +288,13 @@ namespace ParcAuto
             openChildForm(new Forms.EtatRecap(), sender);
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        
+        private void Quitter_Click(object sender, EventArgs e)
         {
-            //
+            Application.Exit();
         }
 
-        private void Quitter_Click(object sender, EventArgs e)
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
