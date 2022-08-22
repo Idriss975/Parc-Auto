@@ -65,9 +65,12 @@ namespace ParcAuto.Forms
                 (new Annee()).ShowDialog();
 
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
-                MessageBox.Show("Login Error");
+                if (ex.Number == 18456)
+                    MessageBox.Show("Login Error");
+                else
+                    MessageBox.Show(ex.Message, "SQLERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
