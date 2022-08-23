@@ -129,11 +129,6 @@
     <Compile Include="Classes Globale\CmbMatNom.cs" />
     <Compile Include="Classes Globale\Commandes.cs" />
     <Compile Include="Classes Globale\GLB.cs" />
-    <Compile Include="CrystalReport\Vehicules.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Vehicules.rpt</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,12 +170,6 @@
     </Compile>
     <Compile Include="Forms\EtatRecap.Designer.cs">
       <DependentUpon>EtatRecap.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\ImpressionVehicules.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ImpressionVehicules.Designer.cs">
-      <DependentUpon>ImpressionVehicules.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
@@ -274,10 +263,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CrystalReport\Vehicules.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Vehicules.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -298,9 +283,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EtatRecap.resx">
       <DependentUpon>EtatRecap.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ImpressionVehicules.resx">
-      <DependentUpon>ImpressionVehicules.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
