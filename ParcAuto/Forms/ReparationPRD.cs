@@ -27,7 +27,7 @@ namespace ParcAuto.Forms
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             while (GLB.dr.Read())
-                dgvReparation.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr[4], ((DateTime)GLB.dr[5]).ToString("d/M/yyyy"), GLB.dr[6], GLB.dr[7].ToString(), GLB.dr[8].ToString());
+                dgvReparation.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr[4],GLB.dr.IsDBNull(5) ? "" : ((DateTime)GLB.dr[5]).ToString("d/M/yyyy"), GLB.dr[6], GLB.dr[7].ToString(), GLB.dr[8].ToString());
             GLB.dr.Close();
             GLB.Con.Close();
 
@@ -201,7 +201,7 @@ namespace ParcAuto.Forms
                         Benificiaire = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
                         Vehicules = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
                         Matricule = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
-                        date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value));
+                        date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value ?? "0001-01-01"));
                         objet = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
                         entretien = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
                         reparation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value);
@@ -222,7 +222,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", Benificiaire ?? "");
                         GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", Vehicules ?? "");
                         GLB.Cmd.Parameters.AddWithValue("@txtMat", Matricule ?? "");
-                        GLB.Cmd.Parameters.AddWithValue("@Date", date.ToString("yyyy-MM-dd"));
+                        GLB.Cmd.Parameters.AddWithValue("@Date", date.ToString("yyyy-MM-dd") == "0001-01-01" ? (object)DBNull.Value : date.ToString("yyyy-MM-dd"));
                         GLB.Cmd.Parameters.AddWithValue("@txtObjet", objet ?? "");
                         GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", entretien ?? (object)DBNull.Value);
                         GLB.Cmd.Parameters.AddWithValue("@MontantReparation", reparation ?? (object)DBNull.Value);

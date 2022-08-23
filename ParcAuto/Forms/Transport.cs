@@ -37,7 +37,7 @@ namespace ParcAuto.Forms
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             while (GLB.dr.Read())
-                dgvTransport.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], ((DateTime)GLB.dr[4]).ToString("d/M/yyyy"), GLB.dr[5], GLB.dr[6], GLB.dr[7].ToString());
+                dgvTransport.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3],GLB.dr.IsDBNull(4) ? "" : ((DateTime)GLB.dr[4]).ToString("d/M/yyyy"), GLB.dr[5], GLB.dr[6], GLB.dr[7].ToString());
             GLB.dr.Close();
             GLB.Con.Close();
         }
@@ -226,7 +226,7 @@ namespace ParcAuto.Forms
                     for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
                     {
                   
-                        DateTime date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value));
+                        DateTime date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value ?? "0001-01-01"));
 
                         //GLB.Cmd.CommandText = $"select count(*) from Transport where Entite = @txtentite and Beneficiaire =  @txtBenificiaire and NBonSNTL = @txtNBon_Email " +
                         //    $"and Date = @DateMission and Destination = @txtDestination and Type_utilsation = @txtUtilisation and prix = @txtPrix";
@@ -243,7 +243,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@txtentite", (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value)).Trim() ?? "");
                         GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value ?? "");
                         GLB.Cmd.Parameters.AddWithValue("@txtNBon_Email", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value ?? "");
-                        GLB.Cmd.Parameters.AddWithValue("@DateMission", date.ToString("yyyy-MM-dd"));
+                        GLB.Cmd.Parameters.AddWithValue("@DateMission", date.ToString("yyyy-MM-dd") == "0001-01-01" ? (object)DBNull.Value : date.ToString("yyyy-MM-dd"));
                         GLB.Cmd.Parameters.AddWithValue("@txtDestination", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value ?? "");
                         GLB.Cmd.Parameters.AddWithValue("@txtUtilisation", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value ?? "");
                         GLB.Cmd.Parameters.AddWithValue("@txtPrix", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value ?? DBNull.Value);

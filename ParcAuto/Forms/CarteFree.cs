@@ -30,7 +30,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvCarteFree.Rows.Add(GLB.dr[0], GLB.dr[1], ((DateTime) GLB.dr[5]).ToString("d/M/yyyy"), GLB.dr[2].ToString(), GLB.dr[3].ToString(), GLB.dr[4]);
+                    dgvCarteFree.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr.IsDBNull(5) ? " " : ((DateTime) GLB.dr[5]).ToString("d/M/yyyy"), GLB.dr[2].ToString(), GLB.dr[3].ToString(), GLB.dr[4]);
 
                 GLB.dr.Close();
             }
@@ -71,7 +71,7 @@ namespace ParcAuto.Forms
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            //try
+            try
             {
                 MajCarteFree maj = new MajCarteFree();
                 Commandes.Command = Choix.ajouter;
@@ -85,9 +85,9 @@ namespace ParcAuto.Forms
                 
                 Total();
             }
-            //catch (Exception ex)
+            catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
             
         }
@@ -227,7 +227,7 @@ namespace ParcAuto.Forms
                         entite = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value)).Trim();
                         Fixe = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value) ; 
                         Autre = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
-                        date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value));
+                        date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value ?? "0001-01-01"));
                         objet = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value);
                         GLB.Cmd.Parameters.Clear();
                         GLB.Cmd.CommandText = $"SELECT count(*) from CarteFree where Entite = @txtentite  " +
@@ -246,7 +246,7 @@ namespace ParcAuto.Forms
                             GLB.Cmd.Parameters.AddWithValue("@Autre", Autre ?? (object)DBNull.Value);
                             GLB.Cmd.Parameters.AddWithValue("@Fixe", Fixe ?? (object)DBNull.Value);
                             GLB.Cmd.Parameters.AddWithValue("@objet", objet ?? "");
-                            GLB.Cmd.Parameters.AddWithValue("@dateCarte", date.ToString("yyyy-MM-dd"));
+                            GLB.Cmd.Parameters.AddWithValue("@dateCarte", date.ToString("yyyy-MM-dd") == "0001-01-01" ? (object)DBNull.Value : date.ToString("yyyy-MM-dd"));
                             GLB.Cmd.ExecuteNonQuery();
                             Total();
 
