@@ -278,7 +278,7 @@ namespace ParcAuto.Forms
             this.cmbChoix.ItemHeight = 30;
             this.cmbChoix.Items.AddRange(new object[] {
             "Entite",
-            "Benificiaire",
+            "Bénéficiaire",
             "Matricule",
             "Marque",
             "Date",
