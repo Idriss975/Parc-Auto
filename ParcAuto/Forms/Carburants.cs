@@ -78,6 +78,7 @@ namespace ParcAuto.Forms
             GLB.StyleDataGridView(dgvCarburant);
             RemplirLaGrille();
             Total();
+            printDialog1.Document.DefaultPageSettings.Landscape = true;
 
         }
         private void cmbChoix_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -399,27 +400,27 @@ namespace ParcAuto.Forms
 
         private void btnImprimer_Click(object sender, EventArgs e)
         {
-           
-            //if (printDialog1.ShowDialog(this) == DialogResult.OK)
-            //{
-            //    printPreviewDialog1.Document.PrinterSettings = printDialog1.PrinterSettings;
-            //    if (!printDialog1.Document.DefaultPageSettings.Landscape)
-            //    {
-            //        MessageBox.Show("La table ne peut pas tenir à l'intérieur du papier avec cette orientation.\nChangement d'orientation en portait.","Attention!",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-            //        printDialog1.Document.DefaultPageSettings.Landscape = true;
-            //    }
-            //    printPreviewDialog1.ShowDialog();
-            //}
+
+            if (printDialog1.ShowDialog(this) == DialogResult.OK)
+            {
+                printPreviewDialog1.Document.PrinterSettings = printDialog1.PrinterSettings;
+                if (!printDialog1.Document.DefaultPageSettings.Landscape)
+                {
+                    MessageBox.Show("La table ne peut pas tenir à l'intérieur du papier avec cette orientation.\nChangement d'orientation en portait.", "Attention!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    printDialog1.Document.DefaultPageSettings.Landscape = true;
+                }
+                printPreviewDialog1.ShowDialog();
+            }
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            //GLB.Drawonprintdoc(e, dgvCarburant, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6), dgvCarburant.Columns["id"].Index, 5,bias:1500);
+            GLB.Drawonprintdoc(e, dgvCarburant, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6), dgvCarburant.Columns["id"].Index, 5);
         }
 
         private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //GLB.number_of_lines = dgvCarburant.Rows.Count;
+            GLB.number_of_lines = dgvCarburant.Rows.Count;
         }
 
         private void btnSuprimmerTout_Click(object sender, EventArgs e)

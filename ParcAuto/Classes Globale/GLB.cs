@@ -87,10 +87,10 @@ namespace ParcAuto.Classes_Globale
         /// <param name="StartingRowPosition">The Y position for where the First row should show.</param>
         static public void Drawonprintdoc(PrintPageEventArgs e,  DataGridView DGV, Image Logo, Font FontHeader, Font FontRows, int Skipindex = -1, int StartingColumnPosition = 5, int StartingRowPosition = 200, string Total = "")
         {
-            float column_gap = e.PageSettings.PaperSize.Width - StartingColumnPosition - 10;
+            float column_gap = e.PageSettings.PaperSize.Width - StartingColumnPosition;// - 10;
             foreach (DataGridViewColumn item in DGV.Columns)
             {
-                if (item.Index == Skipindex) continue;
+                if (item.Index == Skipindex || item.HeaderText == "Observation") continue;
                 column_gap -= e.Graphics.MeasureString(longestcellinrow(DGV, item.Index), FontHeader).Width;
             }
                 
@@ -115,17 +115,18 @@ namespace ParcAuto.Classes_Globale
             {
                 foreach (DataGridViewColumn col in DGV.Columns)
                 {
-                    if (col.Index == Skipindex) continue;
-                    e.Graphics.DrawString(col.HeaderText, FontHeader, Brushes.Black, columns_pos[columns_pos.Count - 1], StartingRowPosition - 17);
+                    if (col.Index == Skipindex || col.HeaderText == "Observation") continue;
+                    e.Graphics.DrawString(col.HeaderText.Replace("Dotation", "D. ").Replace("exceptionnel", "Except"), FontHeader, Brushes.Black, columns_pos[columns_pos.Count - 1], StartingRowPosition - 17);
                     columns_pos.Add(columns_pos[columns_pos.Count - 1] + column_gap + (e.Graphics.MeasureString(longestcellinrow(DGV, col.Index),FontHeader).Width));
                 }
                 e.Graphics.DrawLine(new Pen(Color.Black), columns_pos[0], StartingRowPosition - 5, columns_pos[columns_pos.Count - 1] - column_gap, StartingRowPosition - 5);
-
+                
+                string MaxCellInRowLen;
                 for (int item = DGV.Rows.Count - number_of_lines; item < DGV.Rows.Count - number_of_lines + (number_of_lines < (e.PageSettings.Landscape? 26:45) ? number_of_lines : (e.PageSettings.Landscape ? 26 : 45)); item++)
                 {
                     for (int i = 0; i < DGV.Rows[item].Cells.Count - 1; i++)
                     {
-                        string MaxCellInRowLen;
+                        if (DGV.Columns[i].HeaderText == "Observation") continue;
                         MaxCellInRowLen = longestcellinrow(DGV, i < Skipindex? i: i+1);
                         e.Graphics.DrawString(DGV.Rows[item].Cells[i < Skipindex ? i : i + 1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i < Skipindex ? i : i + 1].Value.ToString(), out _) ? ((e.Graphics.MeasureString(MaxCellInRowLen,FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i < Skipindex ? i : i + 1].Value.ToString(),FontRows).Width)) : 0), StartingRowPosition);
                     }
@@ -136,15 +137,18 @@ namespace ParcAuto.Classes_Globale
             {                                                                                                                                                              
                 foreach (DataGridViewColumn item in DGV.Columns)
                 {
+                    if (item.HeaderText == "Observation") continue;
                     e.Graphics.DrawString(item.HeaderText, FontHeader, Brushes.Black, columns_pos[columns_pos.Count - 1], StartingRowPosition - 17);                                            
                     columns_pos.Add(columns_pos[columns_pos.Count - 1] + column_gap + (e.Graphics.MeasureString(longestcellinrow(DGV, item.Index), FontHeader).Width));                                         
                 }
                 e.Graphics.DrawLine(new Pen(Color.Black), columns_pos[0], StartingRowPosition - 5, columns_pos[columns_pos.Count - 1] - column_gap, StartingRowPosition - 5);
+
+                string MaxCellInRowLen;
                 for (int item = DGV.Rows.Count - number_of_lines; item < DGV.Rows.Count - number_of_lines + (number_of_lines < (e.PageSettings.Landscape ? 26 : 45) ? number_of_lines : (e.PageSettings.Landscape ? 26 : 45)); item++)
                 {
                     for (int i = 0; i < DGV.Rows[item].Cells.Count; i++)
                     {
-                        string MaxCellInRowLen;
+                        if (DGV.Columns[i].HeaderText == "Observation") continue;
                         MaxCellInRowLen = longestcellinrow(DGV, i);
                         e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i].Value.ToString(), out _) ? (e.Graphics.MeasureString(MaxCellInRowLen, FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows).Width) : 0), StartingRowPosition);
                     }
@@ -204,7 +208,7 @@ namespace ParcAuto.Classes_Globale
 
         private static string longestcellinrow(DataGridView DGV, int Column_index)
         {
-            string output= DGV.Columns[Column_index].HeaderText;
+            string output= DGV.Columns[Column_index].HeaderText.Replace("Dotation", "D. ").Replace("exceptionnel", "Except");
             foreach (DataGridViewRow item in DGV.Rows)
                 if (item.Cells[Column_index].Value.ToString().Length > output.Length)
                     output = item.Cells[Column_index].Value.ToString();
