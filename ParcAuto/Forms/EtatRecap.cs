@@ -128,6 +128,7 @@ namespace ParcAuto.Forms
         {
             Commandes.Command = Choix.modifier;
             (new MajEtatRecap()).ShowDialog();
+            EtatRecap_Load(sender,e);
 
         }
     }

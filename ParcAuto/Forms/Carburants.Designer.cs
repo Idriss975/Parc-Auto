@@ -437,7 +437,7 @@ namespace ParcAuto.Forms
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCarburant.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvCarburant.Location = new System.Drawing.Point(0, 100);
+            this.dgvCarburant.Location = new System.Drawing.Point(0, 98);
             this.dgvCarburant.Margin = new System.Windows.Forms.Padding(5);
             this.dgvCarburant.Name = "dgvCarburant";
             this.dgvCarburant.RowHeadersVisible = false;

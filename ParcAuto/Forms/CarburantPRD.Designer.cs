@@ -498,7 +498,7 @@ namespace ParcAuto.Forms
             this.Column14,
             this.Column10,
             this.Column11});
-            this.dgvCarburant.Location = new System.Drawing.Point(1, 103);
+            this.dgvCarburant.Location = new System.Drawing.Point(0, 98);
             this.dgvCarburant.Margin = new System.Windows.Forms.Padding(5);
             this.dgvCarburant.Name = "dgvCarburant";
             this.dgvCarburant.RowHeadersVisible = false;

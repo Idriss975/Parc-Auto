@@ -21,14 +21,18 @@ namespace ParcAuto.Forms
         {
             InitializeComponent();
         }
-        
+        float sumDFixe ;
+        float sumDMission ;
+        float sumDHebdo;
+        float sumDExp;
+        float total;
         private void Total()
         {
-            float sumDFixe = 0;
-            float sumDMission = 0;
-            float sumDHebdo = 0;
-            float sumDExp = 0;
-            float Total = 0;
+            sumDFixe = 0;
+            sumDMission = 0;
+            sumDHebdo = 0;
+            sumDExp = 0;
+            total = 0;
             foreach (DataGridViewRow item in dgvCarburant.Rows)
             {
                 sumDHebdo += ((string)item.Cells[11].Value) == "" ? 0 : float.Parse(item.Cells[11].Value.ToString());
@@ -37,12 +41,12 @@ namespace ParcAuto.Forms
                 sumDExp += ((string)item.Cells[12].Value) == "" ? 0 : float.Parse(item.Cells[12].Value.ToString());
 
             }
-            Total = sumDFixe + sumDMission + sumDHebdo + sumDExp;
+            total = sumDFixe + sumDMission + sumDHebdo + sumDExp;
             lblSommeDfix.Text = sumDFixe.ToString();
             lblSommeDMissions.Text = sumDMission.ToString();
             lblSommeDHebdo.Text = sumDHebdo.ToString();
             lblSommeDExceptionnel.Text = sumDExp.ToString();
-            lblTotal.Text = Total.ToString();
+            lblTotal.Text = total.ToString();
 
         }
         private void RemplirLaGrille()

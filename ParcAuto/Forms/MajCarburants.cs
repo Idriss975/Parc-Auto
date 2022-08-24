@@ -255,7 +255,7 @@ namespace ParcAuto.Forms
             //    MessageBox.Show(ex.Message);
             //}
 
-            if (txtEntite.Text != "" || txtMarque.Text != "" || cmbVilles.Text != "" || txtDotation.Text != "" || txtBenificiaire.Text != "")
+            if (txtEntite.Text != "" || txtMarque.Text != "" ||txtKM.Text != ""|| cmbVilles.Text != "" || txtDotation.Text != "" || txtBenificiaire.Text != "")
             {
                 if (DMissions.Checked)
                 {
@@ -298,8 +298,8 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@txtMarque", txtMarque.Text);
                         GLB.Cmd.Parameters.AddWithValue("@DateOper", DateOper.Value.ToString("yyyy-MM-dd"));
                         GLB.Cmd.Parameters.AddWithValue("@cmbVilles", cmbVilles.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtKM", Double.Parse(txtKM.Text));
-                        GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", Double.Parse(txtpourcentage.Text));
+                        GLB.Cmd.Parameters.AddWithValue("@txtKM", txtKM.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", txtpourcentage.Text);
                         GLB.Cmd.Parameters.AddWithValue("@OMN", txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2));
                         if(DoFixe == null)
                             GLB.Cmd.Parameters.AddWithValue("@DoFixe", DBNull.Value);
@@ -331,8 +331,8 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@txtMarqueU", txtMarque.Text);
                         GLB.Cmd.Parameters.AddWithValue("@DateOperU", DateOper.Value.ToString("yyyy-MM-dd"));
                         GLB.Cmd.Parameters.AddWithValue("@cmbVillesU", cmbVilles.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtKMU", Double.Parse(txtKM.Text));
-                        GLB.Cmd.Parameters.AddWithValue("@txtpourcentageU", Double.Parse(txtpourcentage.Text));
+                        GLB.Cmd.Parameters.AddWithValue("@txtKMU", txtKM.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtpourcentageU", txtpourcentage.Text);
                         GLB.Cmd.Parameters.AddWithValue("@OMNU", txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2));
                         if (DoFixe == null)
                             GLB.Cmd.Parameters.AddWithValue("@DoFixeU", DBNull.Value);
