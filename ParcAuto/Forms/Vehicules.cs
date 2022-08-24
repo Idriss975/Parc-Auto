@@ -156,8 +156,8 @@ namespace ParcAuto.Forms
             }
             ds.Tables.Add(dt);
             ds.WriteXmlSchema("Vehicules.xml");
-            ImpressionVehicules vehicules = new ImpressionVehicules(ds);
-            vehicules.Show();
+            //ImpressionVehicules vehicules = new ImpressionVehicules(ds);
+            //vehicules.Show();
             //if (printDialog1.ShowDialog(this) == DialogResult.OK)
             //{
             //    printPreviewDialog1.Document.PrinterSettings = printDialog1.PrinterSettings;
