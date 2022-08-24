@@ -29,6 +29,7 @@ namespace ParcAuto.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Annee));
             this.cmbAnnee = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnConfirmer = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
@@ -79,6 +80,7 @@ namespace ParcAuto.Forms
             this.Controls.Add(this.btnConfirmer);
             this.Controls.Add(this.cmbAnnee);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Annee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Annee";
