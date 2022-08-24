@@ -136,35 +136,34 @@ namespace ParcAuto.Forms
 
         private void btnImprimer_Click(object sender, EventArgs e)
         {
-
-            DataSet ds = new DataSet();
-            System.Data.DataTable dt = new System.Data.DataTable();
-            dt.Columns.Add("Marque", typeof(string));
-            dt.Columns.Add("Matricule", typeof(string));
-            dt.Columns.Add("Mise En circulation", typeof(string));
-            dt.Columns.Add("Type", typeof(string));
-            dt.Columns.Add("Age", typeof(string));
-            dt.Columns.Add("Carburant", typeof(string));
-            dt.Columns.Add("Affectation", typeof(string));
-            dt.Columns.Add("Utilisateur", typeof(string));
-            dt.Columns.Add("decision de nomination ", typeof(string));
-            dt.Columns.Add("Observation", typeof(string));
-            foreach (DataGridViewRow dgv in dgvVehicules.Rows)
-            {
-                dt.Rows.Add(dgv.Cells[0].Value, dgv.Cells[1].Value, (DateTime.Parse(dgv.Cells[2].Value.ToString())).ToString("d/M/yyyy"), dgv.Cells[3].Value, dgv.Cells[4].Value, dgv.Cells[5].Value, dgv.Cells[6].Value
-                    , dgv.Cells[7].Value, dgv.Cells[8].Value, dgv.Cells[9].Value);
-            }
-            ds.Tables.Add(dt);
-            ds.WriteXmlSchema("Vehicules.xml");
-            //ImpressionVehicules vehicules = new ImpressionVehicules(ds);
-            //vehicules.Show();
-            //if (printDialog1.ShowDialog(this) == DialogResult.OK)
+            //DataSet ds = new DataSet();
+            //System.Data.DataTable dt = new System.Data.DataTable();
+            //dt.Columns.Add("Marque", typeof(string));
+            //dt.Columns.Add("Matricule", typeof(string));
+            //dt.Columns.Add("Mise En circulation", typeof(string));
+            //dt.Columns.Add("Type", typeof(string));
+            //dt.Columns.Add("Age", typeof(string));
+            //dt.Columns.Add("Carburant", typeof(string));
+            //dt.Columns.Add("Affectation", typeof(string));
+            //dt.Columns.Add("Utilisateur", typeof(string));
+            //dt.Columns.Add("decision de nomination ", typeof(string));
+            //dt.Columns.Add("Observation", typeof(string));
+            //foreach (DataGridViewRow dgv in dgvVehicules.Rows)
             //{
-            //    printPreviewDialog1.Document.PrinterSettings = printDialog1.PrinterSettings;
-            //    printPreviewDialog1.ShowDialog();
+            //    dt.Rows.Add(dgv.Cells[0].Value, dgv.Cells[1].Value, (DateTime.Parse(dgv.Cells[2].Value.ToString())).ToString("d/M/yyyy"), dgv.Cells[3].Value, dgv.Cells[4].Value, dgv.Cells[5].Value, dgv.Cells[6].Value
+            //        , dgv.Cells[7].Value, dgv.Cells[8].Value, dgv.Cells[9].Value);
             //}
+            //ds.Tables.Add(dt);
+            //ds.WriteXmlSchema("Vehicules.xml");
+            ////ImpressionVehicules vehicules = new ImpressionVehicules(ds);
+            ////vehicules.Show();
 
 
+            if (printDialog1.ShowDialog(this) == DialogResult.OK)
+            {
+                printPreviewDialog1.Document.PrinterSettings = printDialog1.PrinterSettings;
+                printPreviewDialog1.ShowDialog();
+            }
         }
 
         private void btnExportExcel_Click(object sender, EventArgs e)
@@ -220,12 +219,12 @@ namespace ParcAuto.Forms
 
         private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //GLB.number_of_lines = dgvVehicules.Rows.Count;
+            GLB.number_of_lines = dgvVehicules.Rows.Count;
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            //GLB.Drawonprintdoc(e, dgvVehicules, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6));
+            GLB.Drawonprintdoc(e, dgvVehicules, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6));
         }
         _Application importExceldatagridViewApp;
         _Worksheet importExceldatagridViewworksheet;
