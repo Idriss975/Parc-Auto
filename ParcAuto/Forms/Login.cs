@@ -39,11 +39,7 @@ namespace ParcAuto.Forms
 
         private void quitter_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("Voulez vous vraiment Quitter ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (res == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
+            Application.Exit();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -63,7 +59,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Close();
                 this.Hide();
                 (new Annee()).ShowDialog();
-
+                this.Close();
             }
             catch (SqlException ex)
             {

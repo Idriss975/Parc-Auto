@@ -810,7 +810,7 @@ namespace ParcAuto
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Parc Auto-mobile";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             section2btnCond_Vehicule.ResumeLayout(false);
             section2btnCond_Vehicule.PerformLayout();
