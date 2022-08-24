@@ -85,9 +85,9 @@ namespace ParcAuto.Classes_Globale
         /// <param name="Skipindex">Column index to skip/ not show (-1 to not skip).</param>
         /// <param name="StartingColumnPosition">The X position for where the first column should show.</param>
         /// <param name="StartingRowPosition">The Y position for where the First row should show.</param>
-        static public void Drawonprintdoc(PrintPageEventArgs e,  DataGridView DGV, Image Logo, Font FontHeader, Font FontRows, int Skipindex = -1, int StartingColumnPosition = 5, int StartingRowPosition = 200, string Total = "",float bias = 0.0f) // Bias is temporary fix
+        static public void Drawonprintdoc(PrintPageEventArgs e,  DataGridView DGV, Image Logo, Font FontHeader, Font FontRows, int Skipindex = -1, int StartingColumnPosition = 5, int StartingRowPosition = 200, string Total = "")
         {
-            float column_gap = e.PageSettings.PaperSize.Width - StartingColumnPosition - 10;// - bias;
+            float column_gap = e.PageSettings.PaperSize.Width - StartingColumnPosition - 10;
             foreach (DataGridViewColumn item in DGV.Columns)
             {
                 if (item.Index == Skipindex) continue;
@@ -108,8 +108,8 @@ namespace ParcAuto.Classes_Globale
             //Footer
             e.Graphics.DrawString("Intersection Route BO 50 et R.N. n°11 (Route Nouaceur) BP 40207 Sidi Maârouf Casablanca 20 270\n 20 270 و الطريق الوطنية رفم 11 (طريق النواصر) ص. ب 40207 سيدي معروف الدار البيضاء B.O 50 ملتمى طريق\nTél.: 05 22 78 72 60/61 - Fax : 05 22 32 15 09", new Font("Arial", 9), Brushes.Black, e.PageSettings.Bounds.Width/2, e.PageSettings.Bounds.Height - 35, new StringFormat() { LineAlignment = StringAlignment.Center, Alignment = StringAlignment.Center });
 
-            List<float> columns_pos = new List<float>();
-            columns_pos.Add(StartingColumnPosition);
+            List<float> columns_pos = new List<float> { StartingColumnPosition };
+
             //45 lines per page (26 per page paysage)
             if (Skipindex != -1) // When skipping
             {
@@ -148,7 +148,7 @@ namespace ParcAuto.Classes_Globale
                         MaxCellInRowLen = longestcellinrow(DGV, i);
                         e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i].Value.ToString(), out _) ? (e.Graphics.MeasureString(MaxCellInRowLen, FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows).Width) : 0), StartingRowPosition);
                     }
-                        StartingRowPosition += 20;
+                    StartingRowPosition += 20;
                 }
             }
 
