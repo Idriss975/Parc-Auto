@@ -45,6 +45,7 @@ namespace ParcAuto.Forms
 
         private void btnConfirmer_Click(object sender, EventArgs e)
         {
+            Commandes.Command = Choix.ajouter;
             GLB.SelectedDate = cmbAnnee.SelectedItem.ToString().Trim();
             if (GLB.SelectedDate == "-- Nouvelle annee --")
             {

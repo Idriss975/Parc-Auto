@@ -94,7 +94,7 @@ namespace ParcAuto.Forms
             this.DisponibleCarbSNTL = new System.Windows.Forms.Label();
             this.sumtrimestresReparation = new System.Windows.Forms.Label();
             this.DisponibleReparation = new System.Windows.Forms.Label();
-            this.btnNew = new Guna.UI2.WinForms.Guna2Button();
+            this.btnModifier = new Guna.UI2.WinForms.Guna2Button();
             this.txtDirectionsCentrales = new System.Windows.Forms.Label();
             this.dgvDirectionsCentrales = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -134,7 +134,7 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel8, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.panel1, 2, 0);
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel2, 3, 0);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(12, 12);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(12, 60);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
@@ -995,28 +995,28 @@ namespace ParcAuto.Forms
             this.DisponibleReparation.Text = "0";
             this.DisponibleReparation.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // btnNew
+            // btnModifier
             // 
-            this.btnNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNew.BorderRadius = 4;
-            this.btnNew.CheckedState.Parent = this.btnNew;
-            this.btnNew.CustomImages.Parent = this.btnNew;
-            this.btnNew.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnNew.ForeColor = System.Drawing.Color.White;
-            this.btnNew.HoverState.Parent = this.btnNew;
-            this.btnNew.Location = new System.Drawing.Point(979, 263);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.ShadowDecoration.Parent = this.btnNew;
-            this.btnNew.Size = new System.Drawing.Size(120, 40);
-            this.btnNew.TabIndex = 4;
-            this.btnNew.Text = "Nouvelle Annee";
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            this.btnModifier.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModifier.BorderRadius = 4;
+            this.btnModifier.CheckedState.Parent = this.btnModifier;
+            this.btnModifier.CustomImages.Parent = this.btnModifier;
+            this.btnModifier.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnModifier.ForeColor = System.Drawing.Color.White;
+            this.btnModifier.HoverState.Parent = this.btnModifier;
+            this.btnModifier.Location = new System.Drawing.Point(979, 12);
+            this.btnModifier.Name = "btnModifier";
+            this.btnModifier.ShadowDecoration.Parent = this.btnModifier;
+            this.btnModifier.Size = new System.Drawing.Size(120, 40);
+            this.btnModifier.TabIndex = 4;
+            this.btnModifier.Text = "Modifier l\'annee";
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // txtDirectionsCentrales
             // 
             this.txtDirectionsCentrales.AutoSize = true;
             this.txtDirectionsCentrales.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDirectionsCentrales.Location = new System.Drawing.Point(12, 283);
+            this.txtDirectionsCentrales.Location = new System.Drawing.Point(12, 304);
             this.txtDirectionsCentrales.Name = "txtDirectionsCentrales";
             this.txtDirectionsCentrales.Size = new System.Drawing.Size(172, 20);
             this.txtDirectionsCentrales.TabIndex = 5;
@@ -1044,7 +1044,7 @@ namespace ParcAuto.Forms
             this.Column8,
             this.col9,
             this.Column9});
-            this.dgvDirectionsCentrales.Location = new System.Drawing.Point(12, 307);
+            this.dgvDirectionsCentrales.Location = new System.Drawing.Point(12, 328);
             this.dgvDirectionsCentrales.Name = "dgvDirectionsCentrales";
             this.dgvDirectionsCentrales.ReadOnly = true;
             this.dgvDirectionsCentrales.RowHeadersVisible = false;
@@ -1129,7 +1129,7 @@ namespace ParcAuto.Forms
             this.ClientSize = new System.Drawing.Size(1111, 669);
             this.Controls.Add(this.dgvDirectionsCentrales);
             this.Controls.Add(this.txtDirectionsCentrales);
-            this.Controls.Add(this.btnNew);
+            this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.tableLayoutPanel6);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -1228,7 +1228,7 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label DisponibleCarbSNTL;
         private System.Windows.Forms.Label sumtrimestresReparation;
         private System.Windows.Forms.Label DisponibleReparation;
-        private Guna.UI2.WinForms.Guna2Button btnNew;
+        private Guna.UI2.WinForms.Guna2Button btnModifier;
         private System.Windows.Forms.Label txtDirectionsCentrales;
         private System.Windows.Forms.DataGridView dgvDirectionsCentrales;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
