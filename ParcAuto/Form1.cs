@@ -298,5 +298,10 @@ namespace ParcAuto
         {
             Application.Exit();
         }
+
+        private void btnEtatJournalier_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.EtatJournalier(), sender);
+        }
     }
 }
