@@ -31,6 +31,7 @@ namespace ParcAuto.Classes_Globale
         public static  int number_of_lines;
         public static string DotationCarburant ;
         public static string SelectedDate;
+        public static string CurrentUser;
         public static Dictionary<string, string> Entites = new Dictionary<string, string> 
         { 
             { "DG", "Direction Générale" },
@@ -73,7 +74,55 @@ namespace ParcAuto.Classes_Globale
             dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(115, 139, 215);
             dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
         }
-        
+        //public static void Permissions(string tableName ,Button btnAjouter,Button btnModifier , Button btnSupprimer)
+        //{
+        //    GLB.Cmd.CommandText = "SELECT  pri.name As Username " +
+        //           ",       pri.type_desc AS[User Type] " +
+        //           ", permit.permission_name AS[Permission] " +
+        //           ", permit.state_desc AS[Permission State] " +
+        //           ", permit.class_desc Class " +
+        //           ", object_name(permit.major_id) AS[Object Name] " +
+        //           "FROM sys.database_principals pri " +
+        //           "LEFT JOIN " +
+        //           "sys.database_permissions permit " +
+        //           "ON permit.grantee_principal_id = pri.principal_id " +
+        //           $"WHERE object_name(permit.major_id) = '{tableName}' " +
+        //           "and pri.name = SUSER_NAME()";
+        //    GLB.Con.Open();
+        //    GLB.dr = GLB.Cmd.ExecuteReader();
+        //    while (GLB.dr.Read())
+        //    {
+        //        if (GLB.dr[2].ToString() == "INSERT")
+        //        {
+        //            if (GLB.dr[3].ToString() == "DENY")
+        //                btnAjouter.Visible = false;
+        //            else
+        //                btnAjouter.Visible = true;
+        //        }
+        //        else if (GLB.dr[2].ToString() == "DELETE")
+        //        {
+        //            if (GLB.dr[3].ToString() == "DENY")
+        //                btnSupprimer.Visible = false;
+        //            else
+        //                btnSupprimer.Visible = true;
+        //        }
+        //        //else if (GLB.dr[2].ToString() == "SELECT")
+        //        //{
+        //        //    if (GLB.dr[3].ToString() == "DENY")
+        //        //        MessageBox.Show("Vous n'avez pas le droit de voire cette table.");
+        //        //}
+        //        else if (GLB.dr[2].ToString() == "UPDATE")
+        //        {
+        //            if (GLB.dr[3].ToString() == "DENY")
+        //                btnModifier.Visible = false;
+        //            else
+        //                btnModifier.Visible = true;
+        //        }
+        //    }
+        //    GLB.dr.Close();
+        //    GLB.Con.Close();
+        //}
+
         /// <summary>
         ///     Draws on "print document" with a formal document layout.
         /// </summary>
@@ -86,6 +135,7 @@ namespace ParcAuto.Classes_Globale
         /// <param name="StartingColumnPosition">The X position for where the first column should show.</param>
         /// <param name="StartingRowPosition">The Y position for where the First row should show.</param>
         static public void Drawonprintdoc(PrintPageEventArgs e,  DataGridView DGV, Image Logo, Font FontHeader, Font FontRows, int Skipindex = -1, int StartingColumnPosition = 5, int StartingRowPosition = 200, string Total = "")
+        
         {
             float column_gap = (e.PageSettings.Landscape? e.PageSettings.PaperSize.Height : e.PageSettings.PaperSize.Width) - StartingColumnPosition;
             foreach (DataGridViewColumn item in DGV.Columns)

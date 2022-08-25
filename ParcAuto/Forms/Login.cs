@@ -70,6 +70,7 @@ namespace ParcAuto.Forms
                 this.Hide();
                 (new Annee()).ShowDialog();
                 this.Close();
+                GLB.CurrentUser = txtuser.Text.Trim();
             }
             catch (SqlException ex)
             {
