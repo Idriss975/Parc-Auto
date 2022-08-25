@@ -48,6 +48,7 @@ namespace ParcAuto.Forms
             RemplirdgvTransport();
             GLB.StyleDataGridView(dgvTransport);
             Total();
+            printDialog1.Document.DefaultPageSettings.PaperSize.RawKind = (int)System.Drawing.Printing.PaperKind.A4;
         }
 
         private void cmbChoix_SelectedIndexChanged(object sender, EventArgs e)

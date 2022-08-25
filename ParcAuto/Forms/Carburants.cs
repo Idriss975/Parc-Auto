@@ -132,6 +132,7 @@ namespace ParcAuto.Forms
             Permissions();
             Total();
             printDialog1.Document.DefaultPageSettings.Landscape = true;
+            printDialog1.Document.DefaultPageSettings.PaperSize.RawKind = (int) System.Drawing.Printing.PaperKind.A4;
 
         }
         private void cmbChoix_SelectedIndexChanged_1(object sender, EventArgs e)
