@@ -298,25 +298,25 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@txtMarque", txtMarque.Text);
                         GLB.Cmd.Parameters.AddWithValue("@DateOper", DateOper.Value.ToString("yyyy-MM-dd"));
                         GLB.Cmd.Parameters.AddWithValue("@cmbVilles", cmbVilles.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtKM", txtKM.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", txtpourcentage.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtKM", Double.Parse(txtKM.Text));
+                        GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", Double.Parse(txtpourcentage.Text));
                         GLB.Cmd.Parameters.AddWithValue("@OMN", txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2));
                         if(DoFixe == null)
                             GLB.Cmd.Parameters.AddWithValue("@DoFixe", DBNull.Value);
                         else
-                            GLB.Cmd.Parameters.AddWithValue("@DoFixe", DoFixe);
+                            GLB.Cmd.Parameters.AddWithValue("@DoFixe", Double.Parse(DoFixe));
                         if(DoMissions == null)
                             GLB.Cmd.Parameters.AddWithValue("@DoMissions", DBNull.Value);
                         else
-                            GLB.Cmd.Parameters.AddWithValue("@DoMissions", DoMissions );
+                            GLB.Cmd.Parameters.AddWithValue("@DoMissions", Double.Parse(DoMissions ));
                         if(DoHebdo == null)
                             GLB.Cmd.Parameters.AddWithValue("@DoHebdo",DBNull.Value);
                         else
-                            GLB.Cmd.Parameters.AddWithValue("@DoHebdo", DoHebdo);
+                            GLB.Cmd.Parameters.AddWithValue("@DoHebdo", Double.Parse(DoHebdo));
                         if(DoExp == null)
                             GLB.Cmd.Parameters.AddWithValue("@DoExp", DBNull.Value);
                         else
-                            GLB.Cmd.Parameters.AddWithValue("@DoExp", DoExp);
+                            GLB.Cmd.Parameters.AddWithValue("@DoExp", Double.Parse(DoExp));
                         GLB.Cmd.Parameters.AddWithValue("@txtObservation", txtObservation.Text);
                         break;
                     case Choix.modifier:
@@ -331,25 +331,25 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@txtMarqueU", txtMarque.Text);
                         GLB.Cmd.Parameters.AddWithValue("@DateOperU", DateOper.Value.ToString("yyyy-MM-dd"));
                         GLB.Cmd.Parameters.AddWithValue("@cmbVillesU", cmbVilles.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtKMU", txtKM.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtpourcentageU", txtpourcentage.Text);
+                        GLB.Cmd.Parameters.AddWithValue("@txtKMU", Double.Parse(txtKM.Text));
+                        GLB.Cmd.Parameters.AddWithValue("@txtpourcentageU", Double.Parse(txtpourcentage.Text));
                         GLB.Cmd.Parameters.AddWithValue("@OMNU", txtOMN.Text + "/" + DateTime.Now.Year.ToString().Substring(2));
                         if (DoFixe == null)
                             GLB.Cmd.Parameters.AddWithValue("@DoFixeU", DBNull.Value);
                         else
-                            GLB.Cmd.Parameters.AddWithValue("@DoFixeU", DoFixe);
+                            GLB.Cmd.Parameters.AddWithValue("@DoFixeU",Double.Parse(DoFixe));
                         if (DoMissions == null)
                             GLB.Cmd.Parameters.AddWithValue("@DoMissionsU", DBNull.Value);
                         else
-                            GLB.Cmd.Parameters.AddWithValue("@DoMissionsU", DoMissions);
+                            GLB.Cmd.Parameters.AddWithValue("@DoMissionsU", Double.Parse(DoMissions));
                         if (DoHebdo == null)
                             GLB.Cmd.Parameters.AddWithValue("@DoHebdoU", DBNull.Value);
                         else
-                            GLB.Cmd.Parameters.AddWithValue("@DoHebdoU", DoHebdo);
+                            GLB.Cmd.Parameters.AddWithValue("@DoHebdoU", Double.Parse(DoHebdo));
                         if (DoExp == null)
                             GLB.Cmd.Parameters.AddWithValue("@DoExpU", DBNull.Value);
                         else
-                            GLB.Cmd.Parameters.AddWithValue("@DoExpU", DoExp);
+                            GLB.Cmd.Parameters.AddWithValue("@DoExpU", Double.Parse(DoExp));
                         GLB.Cmd.Parameters.AddWithValue("@txtObservationU", txtObservation.Text);
                         GLB.Cmd.Parameters.AddWithValue("@ID", GLB.id_Carburant);
                         break;

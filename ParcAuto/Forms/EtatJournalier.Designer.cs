@@ -51,9 +51,6 @@ namespace ParcAuto.Forms
             // dgvEtatJournalier
             // 
             this.dgvEtatJournalier.AllowUserToAddRows = false;
-            this.dgvEtatJournalier.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEtatJournalier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEtatJournalier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEtatJournalier.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -72,14 +69,15 @@ namespace ParcAuto.Forms
             this.Column13,
             this.Column14,
             this.Column15});
-            this.dgvEtatJournalier.Location = new System.Drawing.Point(1, 13);
+            this.dgvEtatJournalier.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvEtatJournalier.Location = new System.Drawing.Point(0, 0);
             this.dgvEtatJournalier.Margin = new System.Windows.Forms.Padding(4);
             this.dgvEtatJournalier.Name = "dgvEtatJournalier";
             this.dgvEtatJournalier.ReadOnly = true;
             this.dgvEtatJournalier.RowHeadersVisible = false;
             this.dgvEtatJournalier.RowHeadersWidth = 62;
             this.dgvEtatJournalier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEtatJournalier.Size = new System.Drawing.Size(1109, 643);
+            this.dgvEtatJournalier.Size = new System.Drawing.Size(1111, 669);
             this.dgvEtatJournalier.TabIndex = 61;
             // 
             // Column1
@@ -179,7 +177,7 @@ namespace ParcAuto.Forms
             this.ClientSize = new System.Drawing.Size(1111, 669);
             this.Controls.Add(this.dgvEtatJournalier);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EtatJournalier";
             this.Text = "EtatJournalier";
             this.Load += new System.EventHandler(this.EtatJournalier_Load);

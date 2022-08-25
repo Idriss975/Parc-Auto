@@ -26,6 +26,8 @@ namespace ParcAuto.Forms
 
         private void DeleteOldHistory()
         {
+            if (GLB.Con.State == ConnectionState.Open)
+                GLB.Con.Close();
             GLB.Con.Open();
             GLB.Cmd.CommandText = "delete from EtatJournalier where Date < Cast(getdate() as date)";
             GLB.Cmd.ExecuteNonQuery();
