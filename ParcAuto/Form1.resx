@@ -121,6 +121,24 @@
     <value>False</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnEtatJournalier.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH5gcJDzMkANUHeQAAAoVJREFU
+        WEe1lr1rFEEchi+JBk1E1CaaSiFFghAxNpai2GttiJjYWwQURIIIiaRQk1gYGwVBQcHSRls/42fjH6CC
+        ICh+Yun5vLPv7q1nbrNL5h54YGd+H3N3zM1srSr1er0Lj+ND/GX1PIFdTmsPLNCLD7AV97HX6fGh+c2w
+        TDE3nB4XGu/CP2GJYpQz7LJ40PRMaF+O0y6LB00Xk96luOKyeNB0JuldimmXxYOmB5PepTjgsnjQtAOX
+        QvtinmCHy+JC4x34Qau04D1ud3p7YIE+vI6/MUXP17DPae2HxXQq6myQPZ6OC43X4jl8ii8qqhrVrnG7
+        6lB8HlfLjNtVg8Ie/BparI5vWP2CokhXbiwm3LY8FD1PaqOw5LbloGAkqVuWt3gS92K/1fMpVKwVI26/
+        MiRfTWr+4TuewE6nKW+99FBjnZZj+AWbWXRaMSRuwB+hpIE24x7H9Y3nUKdeyju8hP3OGcbPmOcnblS8
+        EJJGQ3oDvQUNOjaEzY3zKDbk3EFsfoM6olghJB1LcjOmHAowHsDl3ow0N+C0AOOpEGlw1KHWkKQj9llI
+        T/iIGo86Pq5JeInajPKVJmDcOfoVVaPaFI3LHdkkrsNbqspxyLF7eBuzV3A94x3FPD6Mee5itfuCAu3o
+        s6oGbSDteM3pfN+KWvQyLvh5GyqmHH2BdCPPY/bPqQzF+lvNepjBnG7BlP/egpmbxTEP40DDSdQZkf4C
+        F/ECdqJ+AcUmnR4PmnbjTkxfQrQHsmtWz6g9IJSj3G6H40DDx+qe4zWGkxDfaCLHI5fFg6a6H7QZ82yy
+        ebT5drssLjTej5+0imn+AIrtc3p7YIEtqDcl3XzpB9DzNG52Wklqtb/ZlZEdR2NsHwAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
   <data name="ParcAutodown.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6

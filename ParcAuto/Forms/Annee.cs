@@ -28,6 +28,10 @@ namespace ParcAuto.Forms
                 GLB.ds.Tables["Annee"].Clear();
             GLB.da = new SqlDataAdapter("select Annee from EtatRecapCarburantSNTL", GLB.Con);
             GLB.da.Fill(GLB.ds, "Annee");
+            if (cmbAnnee.Items.Count != 0)
+                cmbAnnee.Items.Clear();
+            cmbAnnee.Items.Add("-- Nouvelle annee --");
+            cmbAnnee.SelectedIndex = 0;
             foreach (DataRow item in GLB.ds.Tables["Annee"].Rows)
             {
                 cmbAnnee.Items.Add(item[0].ToString());
@@ -36,12 +40,12 @@ namespace ParcAuto.Forms
         private void Annee_Load(object sender, EventArgs e)
         {
             this.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, 20, 20));
-            cmbAnnee.SelectedIndex = 0;
             GetYears();
         }
 
         private void btnConfirmer_Click(object sender, EventArgs e)
         {
+            Commandes.Command = Choix.ajouter;
             GLB.SelectedDate = cmbAnnee.SelectedItem.ToString().Trim();
             if (GLB.SelectedDate == "-- Nouvelle annee --")
             {

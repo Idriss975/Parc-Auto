@@ -151,7 +151,7 @@ namespace ParcAuto.Forms
             this.Direction,
             this.Telephone,
             this.Email});
-            this.dgvconducteur.Location = new System.Drawing.Point(0, 100);
+            this.dgvconducteur.Location = new System.Drawing.Point(0, 98);
             this.dgvconducteur.Margin = new System.Windows.Forms.Padding(5);
             this.dgvconducteur.Name = "dgvconducteur";
             this.dgvconducteur.ReadOnly = true;

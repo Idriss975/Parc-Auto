@@ -178,8 +178,8 @@ namespace ParcAuto
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            this.Close();
-            (new Annee()).Show();
+            //this.Close();
+            //(new Annee()).Show();
 
         }
 
@@ -299,6 +299,11 @@ namespace ParcAuto
             if (MessageBox.Show("Voulez vous vraiment Quitter ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 e.Cancel = true;
 
+        }
+
+        private void btnEtatJournalier_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.EtatJournalier(), sender);
         }
     }
 }

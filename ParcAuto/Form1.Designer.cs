@@ -74,6 +74,7 @@ namespace ParcAuto
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FormsPlace = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnEtatJournalier = new System.Windows.Forms.Button();
             section2btnCond_Vehicule = new System.Windows.Forms.Panel();
             section2btnCond_Vehicule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ParcAutodown)).BeginInit();
@@ -105,6 +106,7 @@ namespace ParcAuto
             // section2btnCond_Vehicule
             // 
             section2btnCond_Vehicule.AutoSize = true;
+            section2btnCond_Vehicule.Controls.Add(this.btnEtatJournalier);
             section2btnCond_Vehicule.Controls.Add(this.ParcAutodown);
             section2btnCond_Vehicule.Controls.Add(this.ParcAutoup);
             section2btnCond_Vehicule.Controls.Add(this.btnConducteurs);
@@ -113,7 +115,7 @@ namespace ParcAuto
             section2btnCond_Vehicule.Dock = System.Windows.Forms.DockStyle.Top;
             section2btnCond_Vehicule.Location = new System.Drawing.Point(0, 516);
             section2btnCond_Vehicule.Name = "section2btnCond_Vehicule";
-            section2btnCond_Vehicule.Size = new System.Drawing.Size(183, 344);
+            section2btnCond_Vehicule.Size = new System.Drawing.Size(183, 389);
             section2btnCond_Vehicule.TabIndex = 4;
             // 
             // ParcAutodown
@@ -723,7 +725,7 @@ namespace ParcAuto
             this.Quitter.ForeColor = System.Drawing.Color.White;
             this.Quitter.Image = ((System.Drawing.Image)(resources.GetObject("Quitter.Image")));
             this.Quitter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Quitter.Location = new System.Drawing.Point(0, 860);
+            this.Quitter.Location = new System.Drawing.Point(0, 905);
             this.Quitter.Name = "Quitter";
             this.Quitter.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.Quitter.Size = new System.Drawing.Size(183, 45);
@@ -795,6 +797,25 @@ namespace ParcAuto
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
+            // 
+            // btnEtatJournalier
+            // 
+            this.btnEtatJournalier.AutoSize = true;
+            this.btnEtatJournalier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnEtatJournalier.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEtatJournalier.FlatAppearance.BorderSize = 0;
+            this.btnEtatJournalier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEtatJournalier.ForeColor = System.Drawing.Color.White;
+            this.btnEtatJournalier.Image = ((System.Drawing.Image)(resources.GetObject("btnEtatJournalier.Image")));
+            this.btnEtatJournalier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEtatJournalier.Location = new System.Drawing.Point(0, 344);
+            this.btnEtatJournalier.Name = "btnEtatJournalier";
+            this.btnEtatJournalier.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnEtatJournalier.Size = new System.Drawing.Size(183, 45);
+            this.btnEtatJournalier.TabIndex = 98;
+            this.btnEtatJournalier.Text = "Conducteurs ";
+            this.btnEtatJournalier.UseVisualStyleBackColor = false;
+            this.btnEtatJournalier.Click += new System.EventHandler(this.btnEtatJournalier_Click);
             // 
             // Form1
             // 
@@ -895,6 +916,7 @@ namespace ParcAuto
         private System.Windows.Forms.PictureBox ParcAutoup;
         private System.Windows.Forms.Button btnEtatRecap;
         private System.Windows.Forms.Button Quitter;
+        private System.Windows.Forms.Button btnEtatJournalier;
     }
 }
 

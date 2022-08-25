@@ -101,7 +101,8 @@ namespace ParcAuto.Forms
         private void DirectionsCentrales()
         {
             GLB.Cmd.Parameters.Clear();
-            GLB.Cmd.CommandText = "select * from Directions where Annee = @Annee and Direction not like 'DR%'";
+            //GLB.Cmd.CommandText = "select * from Directions where Annee = @Annee and Direction not like 'DR%'";
+            GLB.Cmd.CommandText = "select * from Directions where Annee = @Annee";
             GLB.Cmd.Parameters.Add("@Annee", SqlDbType.Int).Value = int.Parse(GLB.SelectedDate);
 
             GLB.Con.Open();
@@ -123,9 +124,12 @@ namespace ParcAuto.Forms
             DirectionsCentrales();
         }
 
-        private void btnNew_Click(object sender, EventArgs e)
+        private void btnModifier_Click(object sender, EventArgs e)
         {
+            Commandes.Command = Choix.modifier;
             (new MajEtatRecap()).ShowDialog();
+            EtatRecap_Load(sender,e);
+
         }
     }
 }

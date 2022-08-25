@@ -31,12 +31,12 @@ namespace ParcAuto.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MajEtatRecap));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtAnnee = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtAchatCarb = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtReportCarb = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtAchatCarb = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtAnnee = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.btnAppliquer = new Guna.UI2.WinForms.Guna2Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -82,41 +82,41 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Size = new System.Drawing.Size(551, 51);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // label1
+            // label3
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(28, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Annee :";
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(16, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 17);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Achat :";
             // 
-            // txtAnnee
+            // txtAchatCarb
             // 
-            this.txtAnnee.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtAnnee.BorderRadius = 4;
-            this.txtAnnee.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtAnnee.DefaultText = "";
-            this.txtAnnee.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtAnnee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtAnnee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtAnnee.DisabledState.Parent = this.txtAnnee;
-            this.txtAnnee.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtAnnee.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtAnnee.FocusedState.Parent = this.txtAnnee;
-            this.txtAnnee.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtAnnee.HoverState.Parent = this.txtAnnee;
-            this.txtAnnee.Location = new System.Drawing.Point(103, 32);
-            this.txtAnnee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtAnnee.Name = "txtAnnee";
-            this.txtAnnee.PasswordChar = '\0';
-            this.txtAnnee.PlaceholderText = "";
-            this.txtAnnee.SelectedText = "";
-            this.txtAnnee.ShadowDecoration.Parent = this.txtAnnee;
-            this.txtAnnee.Size = new System.Drawing.Size(160, 30);
-            this.txtAnnee.TabIndex = 1;
+            this.txtAchatCarb.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtAchatCarb.BorderRadius = 4;
+            this.txtAchatCarb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtAchatCarb.DefaultText = "";
+            this.txtAchatCarb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtAchatCarb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtAchatCarb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtAchatCarb.DisabledState.Parent = this.txtAchatCarb;
+            this.txtAchatCarb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtAchatCarb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtAchatCarb.FocusedState.Parent = this.txtAchatCarb;
+            this.txtAchatCarb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtAchatCarb.HoverState.Parent = this.txtAchatCarb;
+            this.txtAchatCarb.Location = new System.Drawing.Point(91, 10);
+            this.txtAchatCarb.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAchatCarb.Name = "txtAchatCarb";
+            this.txtAchatCarb.PasswordChar = '\0';
+            this.txtAchatCarb.PlaceholderText = "";
+            this.txtAchatCarb.SelectedText = "";
+            this.txtAchatCarb.ShadowDecoration.Parent = this.txtAchatCarb;
+            this.txtAchatCarb.Size = new System.Drawing.Size(160, 30);
+            this.txtAchatCarb.TabIndex = 2;
             // 
             // label2
             // 
@@ -145,7 +145,7 @@ namespace ParcAuto.Forms
             this.txtReportCarb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtReportCarb.HoverState.Parent = this.txtReportCarb;
             this.txtReportCarb.Location = new System.Drawing.Point(377, 10);
-            this.txtReportCarb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtReportCarb.Margin = new System.Windows.Forms.Padding(4);
             this.txtReportCarb.Name = "txtReportCarb";
             this.txtReportCarb.PasswordChar = '\0';
             this.txtReportCarb.PlaceholderText = "";
@@ -154,41 +154,42 @@ namespace ParcAuto.Forms
             this.txtReportCarb.Size = new System.Drawing.Size(160, 30);
             this.txtReportCarb.TabIndex = 3;
             // 
-            // txtAchatCarb
+            // label1
             // 
-            this.txtAchatCarb.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtAchatCarb.BorderRadius = 4;
-            this.txtAchatCarb.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtAchatCarb.DefaultText = "";
-            this.txtAchatCarb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtAchatCarb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtAchatCarb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtAchatCarb.DisabledState.Parent = this.txtAchatCarb;
-            this.txtAchatCarb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtAchatCarb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtAchatCarb.FocusedState.Parent = this.txtAchatCarb;
-            this.txtAchatCarb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtAchatCarb.HoverState.Parent = this.txtAchatCarb;
-            this.txtAchatCarb.Location = new System.Drawing.Point(91, 10);
-            this.txtAchatCarb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtAchatCarb.Name = "txtAchatCarb";
-            this.txtAchatCarb.PasswordChar = '\0';
-            this.txtAchatCarb.PlaceholderText = "";
-            this.txtAchatCarb.SelectedText = "";
-            this.txtAchatCarb.ShadowDecoration.Parent = this.txtAchatCarb;
-            this.txtAchatCarb.Size = new System.Drawing.Size(160, 30);
-            this.txtAchatCarb.TabIndex = 2;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(28, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 18);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Annee :";
             // 
-            // label3
+            // txtAnnee
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(16, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 17);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Achat :";
+            this.txtAnnee.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtAnnee.BorderRadius = 4;
+            this.txtAnnee.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtAnnee.DefaultText = "";
+            this.txtAnnee.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtAnnee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtAnnee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtAnnee.DisabledState.Parent = this.txtAnnee;
+            this.txtAnnee.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtAnnee.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtAnnee.FocusedState.Parent = this.txtAnnee;
+            this.txtAnnee.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtAnnee.HoverState.Parent = this.txtAnnee;
+            this.txtAnnee.Location = new System.Drawing.Point(103, 32);
+            this.txtAnnee.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAnnee.Name = "txtAnnee";
+            this.txtAnnee.PasswordChar = '\0';
+            this.txtAnnee.PlaceholderText = "";
+            this.txtAnnee.SelectedText = "";
+            this.txtAnnee.ShadowDecoration.Parent = this.txtAnnee;
+            this.txtAnnee.Size = new System.Drawing.Size(160, 30);
+            this.txtAnnee.TabIndex = 1;
+            this.txtAnnee.TextChanged += new System.EventHandler(this.txtAnnee_TextChanged);
             // 
             // btnClose
             // 

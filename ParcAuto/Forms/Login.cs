@@ -24,8 +24,16 @@ namespace ParcAuto.Forms
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn(int nLeft, int nTop, int nRight, int nBottom, int nWidthEllipse, int nHeightEllipse);
 
+        private void DeleteOldHistory()
+        {
+            GLB.Con.Open();
+            GLB.Cmd.CommandText = "delete from EtatJournalier where Date < Cast(getdate() as date)";
+            GLB.Cmd.ExecuteNonQuery();
+            GLB.Con.Close();
+        }
         private void Login_Load(object sender, EventArgs e)
         {
+
             txtpass.UseSystemPasswordChar = true;
            this.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, 20, 20));
             
@@ -50,7 +58,7 @@ namespace ParcAuto.Forms
         private void btnLogIn_Click(object sender, EventArgs e)
         {
             //GLB.Con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=Parc_Automobile;Integrated Security=True");
-            //GLB.Con = new SqlConnection($"Data Source=DAL1251\\SQLEXPRESS,1433;Initial Catalog=Parc_Automobile;Persist Security Info=True;User ID={txtuser.Text.Trim()};Password={txtpass.Text.Trim()}");
+            //GLB.Con = new SqlConnection($"Data Source=DESKTOP-0HDF3CT\\SQLEXPRESS,1434;Network Library=DBMSSOCN;Initial Catalog=Parc_Automobile;Persist Security Info=True;User ID={txtuser.Text.Trim()};Password={txtpass.Text.Trim()}");
             GLB.Con = new SqlConnection($"Data Source=DAL1251\\SQLEXPRESS,1433;Network Library=DBMSSOCN;Initial Catalog=Parc_Automobile;Persist Security Info=True;User ID={txtuser.Text.Trim()};Password={txtpass.Text.Trim()}");
             GLB.Cmd = GLB.Con.CreateCommand();
             try
@@ -70,6 +78,7 @@ namespace ParcAuto.Forms
                 else
                     MessageBox.Show(ex.Message, "SQLERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            DeleteOldHistory();
         }
 
         private void txtpass_KeyPress(object sender, KeyPressEventArgs e)

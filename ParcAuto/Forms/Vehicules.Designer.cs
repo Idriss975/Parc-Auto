@@ -111,7 +111,7 @@ namespace ParcAuto.Forms
             this.Column8,
             this.Column10,
             this.Column7});
-            this.dgvVehicules.Location = new System.Drawing.Point(0, 100);
+            this.dgvVehicules.Location = new System.Drawing.Point(0, 98);
             this.dgvVehicules.Margin = new System.Windows.Forms.Padding(4);
             this.dgvVehicules.Name = "dgvVehicules";
             this.dgvVehicules.ReadOnly = true;

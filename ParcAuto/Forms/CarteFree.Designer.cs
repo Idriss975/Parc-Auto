@@ -397,7 +397,7 @@ namespace ParcAuto.Forms
             this.Column3,
             this.Column4,
             this.Column5});
-            this.dgvCarteFree.Location = new System.Drawing.Point(1, 103);
+            this.dgvCarteFree.Location = new System.Drawing.Point(0, 98);
             this.dgvCarteFree.Margin = new System.Windows.Forms.Padding(5);
             this.dgvCarteFree.Name = "dgvCarteFree";
             this.dgvCarteFree.ReadOnly = true;
