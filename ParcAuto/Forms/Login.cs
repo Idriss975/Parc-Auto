@@ -24,8 +24,16 @@ namespace ParcAuto.Forms
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn(int nLeft, int nTop, int nRight, int nBottom, int nWidthEllipse, int nHeightEllipse);
 
+        private void DeleteOldHistory()
+        {
+            GLB.Con.Open();
+            GLB.Cmd.CommandText = "delete from EtatJournalier where Date < Cast(getdate() as date)";
+            GLB.Cmd.ExecuteNonQuery();
+            GLB.Con.Close();
+        }
         private void Login_Load(object sender, EventArgs e)
         {
+
             txtpass.UseSystemPasswordChar = true;
            this.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, 20, 20));
             
@@ -72,6 +80,7 @@ namespace ParcAuto.Forms
                 else
                     MessageBox.Show(ex.Message, "SQLERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            DeleteOldHistory();
         }
 
         private void txtpass_KeyPress(object sender, KeyPressEventArgs e)
