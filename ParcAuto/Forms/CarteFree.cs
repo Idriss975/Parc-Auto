@@ -67,6 +67,7 @@ namespace ParcAuto.Forms
             GLB.StyleDataGridView(dgvCarteFree);
             RemplirLaGrille();
             Total();
+            printDialog1.Document.DefaultPageSettings.PaperSize.RawKind = (int)System.Drawing.Printing.PaperKind.A4;
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
