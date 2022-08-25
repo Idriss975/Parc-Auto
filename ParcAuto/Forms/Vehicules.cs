@@ -137,13 +137,6 @@ namespace ParcAuto.Forms
         private void btnImprimer_Click(object sender, EventArgs e)
         {
 
-            //if (printDialog1.ShowDialog(this) == DialogResult.OK)
-            //{
-            //    printPreviewDialog1.Document.PrinterSettings = printDialog1.PrinterSettings;
-            //    printPreviewDialog1.ShowDialog();
-            //}
-
-
             if (printDialog1.ShowDialog(this) == DialogResult.OK)
             {
                 printPreviewDialog1.Document.PrinterSettings = printDialog1.PrinterSettings;
