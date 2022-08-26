@@ -48,6 +48,54 @@ namespace ParcAuto.Forms
             lblSommeReparation.Text = sommeReparation.ToString();
             lblTotal.Text = Total.ToString();
         }
+        private void Permissions()
+        {
+            GLB.Cmd.CommandText = "SELECT  pri.name As Username " +
+                   ",       pri.type_desc AS[User Type] " +
+                   ", permit.permission_name AS[Permission] " +
+                   ", permit.state_desc AS[Permission State] " +
+                   ", permit.class_desc Class " +
+                   ", object_name(permit.major_id) AS[Object Name] " +
+                   "FROM sys.database_principals pri " +
+                   "LEFT JOIN " +
+                   "sys.database_permissions permit " +
+                   "ON permit.grantee_principal_id = pri.principal_id " +
+                   "WHERE object_name(permit.major_id) = 'ReparationPRDSNTL' " +
+                   $"and pri.name = SUSER_NAME()";
+            GLB.Con.Open();
+            GLB.dr = GLB.Cmd.ExecuteReader();
+            while (GLB.dr.Read())
+            {
+                if (GLB.dr[2].ToString() == "INSERT")
+                {
+                    if (GLB.dr[3].ToString() == "DENY")
+                    {
+                        btnAjouter.FillColor = Color.FromArgb(127, 165, 127);
+                        btnAjouter.Click -= btnAjouter_Click;
+                    }
+                }
+                else if (GLB.dr[2].ToString() == "DELETE")
+                {
+                    if (GLB.dr[3].ToString() == "DENY")
+                    {
+                        btnSupprimer.FillColor = Color.FromArgb(204, 144, 133);
+                        btnSupprimer.Click -= btnSupprimer_Click;
+                        btnSuprimmerTout.FillColor = Color.FromArgb(204, 144, 133);
+                        btnSuprimmerTout.Click -= btnSuprimmerTout_Click;
+                    }
+                }
+                else if (GLB.dr[2].ToString() == "UPDATE")
+                {
+                    if (GLB.dr[3].ToString() == "DENY")
+                    {
+                        btnModifier.FillColor = Color.FromArgb(85, 95, 128);
+                        btnModifier.Click -= btnModifier_Click;
+                    }
+                }
+            }
+            GLB.dr.Close();
+            GLB.Con.Close();
+        }
         private void ReparationPRD_Load(object sender, EventArgs e)
         {
             panelDate.Visible = false;
@@ -55,6 +103,7 @@ namespace ParcAuto.Forms
             cmbChoix.SelectedIndex = 0;
             GLB.StyleDataGridView(dgvReparation);
             datagridviewLoad();
+            Permissions();
             Total();
         }
 

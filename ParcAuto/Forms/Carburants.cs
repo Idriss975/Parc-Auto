@@ -79,19 +79,20 @@ namespace ParcAuto.Forms
                 else if (GLB.dr[2].ToString() == "DELETE")
                 {
                     if (GLB.dr[3].ToString() == "DENY")
-                        btnSupprimer.Enabled = false;
-
+                    {
+                        btnSupprimer.FillColor = Color.FromArgb(204, 144, 133);
+                        btnSupprimer.Click -= btnSupprimer_Click;
+                        btnSuprimmerTout.FillColor = Color.FromArgb(204, 144, 133);
+                        btnSuprimmerTout.Click -= btnSuprimmerTout_Click; 
+                    }
                 }
-                //else if (GLB.dr[2].ToString() == "SELECT")
-                //{
-                //    if (GLB.dr[3].ToString() == "DENY")
-                //        MessageBox.Show("Vous n'avez pas le droit de voire cette table.");
-                //}
                 else if (GLB.dr[2].ToString() == "UPDATE")
                 {
                     if (GLB.dr[3].ToString() == "DENY")
-                        btnModifier.Enabled = false;
-
+                    {
+                        btnModifier.FillColor = Color.FromArgb(85, 95, 128);
+                        btnModifier.Click -= btnModifier_Click;
+                    }
                 }
             }
             GLB.dr.Close();
