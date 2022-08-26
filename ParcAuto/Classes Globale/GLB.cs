@@ -137,14 +137,16 @@ namespace ParcAuto.Classes_Globale
         static public void Drawonprintdoc(PrintPageEventArgs e,  DataGridView DGV, Image Logo, Font FontHeader, Font FontRows, int Skipindex = -1, int StartingColumnPosition = 5, int StartingRowPosition = 200, string Total = "")
         
         {
-            float column_gap = (e.PageSettings.Landscape? e.PageSettings.PaperSize.Height : e.PageSettings.PaperSize.Width) - StartingColumnPosition;
+            float column_gap = (e.PageSettings.Landscape? e.PageSettings.PaperSize.Height : e.PageSettings.PaperSize.Width) - (StartingColumnPosition * 2);
+            int Divide_col = 0;
             foreach (DataGridViewColumn item in DGV.Columns)
             {
                 if (item.Index == Skipindex || item.HeaderText == "Observation") continue;
                 column_gap -= e.Graphics.MeasureString(longestcellinrow(DGV, item.Index), FontHeader).Width;
+                Divide_col++;
             }
                 
-            column_gap /= DGV.Columns.Count-1;
+            column_gap /= Divide_col-1;
             if (column_gap < 0) 
                 column_gap = 0;
             //Header
@@ -153,7 +155,7 @@ namespace ParcAuto.Classes_Globale
             e.Graphics.DrawString("مكتب التكوين المهني و إنعاش الشغل", new Font("PFDinTextArabic-Light", 9, FontStyle.Bold), Brushes.Black, 158, 40);
             e.Graphics.DrawString("Office de la Formation Professionnelle\net de la Promotion du Travail", new Font("Arial",9), Brushes.Black, 158, 60);
 
-            e.Graphics.DrawString($"Casablanca, le {DateTime.Now.ToString("dd/MM/yyyy")}", new Font("Arial", 9), Brushes.Black, e.PageSettings.Bounds.Width - 180, 105 );
+            e.Graphics.DrawString($"Casablanca, le {DateTime.Now.ToString("dd/MM/yyyy")}", new Font("Arial", 9), Brushes.Black, (e.PageSettings.Landscape ? e.PageSettings.PaperSize.Height : e.PageSettings.PaperSize.Width) - 180, 105 );
 
             //Footer
             e.Graphics.DrawString("Intersection Route BO 50 et R.N. n°11 (Route Nouaceur) BP 40207 Sidi Maârouf Casablanca 20 270\n 20 270 و الطريق الوطنية رفم 11 (طريق النواصر) ص. ب 40207 سيدي معروف الدار البيضاء B.O 50 ملتمى طريق\nTél.: 05 22 78 72 60/61 - Fax : 05 22 32 15 09", new Font("Arial", 9), Brushes.Black, e.PageSettings.Bounds.Width/2, e.PageSettings.Bounds.Height - 35, new StringFormat() { LineAlignment = StringAlignment.Center, Alignment = StringAlignment.Center });
