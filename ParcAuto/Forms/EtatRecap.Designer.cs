@@ -1130,7 +1130,6 @@ namespace ParcAuto.Forms
             // 
             // btnImprimer
             // 
-            this.btnImprimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnImprimer.BorderRadius = 4;
             this.btnImprimer.CheckedState.Parent = this.btnImprimer;
             this.btnImprimer.CustomImages.Parent = this.btnImprimer;
