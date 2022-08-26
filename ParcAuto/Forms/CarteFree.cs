@@ -144,7 +144,26 @@ namespace ParcAuto.Forms
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                int Lastscrollindex = dgvCarteFree.FirstDisplayedScrollingRowIndex;
+                int pos = dgvCarteFree.CurrentRow.Index;
+                GLB.id_CarteFree = Convert.ToInt32(dgvCarteFree.Rows[pos].Cells[0].Value);
+                Commandes.Command = Choix.modifier;
+                (new MajCarteFree(dgvCarteFree.Rows[pos].Cells[1].Value.ToString(),
+                     DateTime.ParseExact(dgvCarteFree.Rows[pos].Cells[2].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                    dgvCarteFree.Rows[pos].Cells[3].Value.ToString(),
+                    dgvCarteFree.Rows[pos].Cells[4].Value.ToString(),
+                    dgvCarteFree.Rows[pos].Cells[5].Value.ToString())).ShowDialog();
+                RemplirLaGrille();
+                dgvCarteFree.Rows[pos].Selected = true;
+                dgvCarteFree.FirstDisplayedScrollingRowIndex = Lastscrollindex;
+                Total();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
@@ -359,26 +378,7 @@ namespace ParcAuto.Forms
 
         private void dgvCarteFree_DoubleClick(object sender, EventArgs e)
         {
-            try
-            {
-                int Lastscrollindex = dgvCarteFree.FirstDisplayedScrollingRowIndex;
-                int pos = dgvCarteFree.CurrentRow.Index;
-                GLB.id_CarteFree = Convert.ToInt32(dgvCarteFree.Rows[pos].Cells[0].Value);
-                Commandes.Command = Choix.modifier;
-                (new MajCarteFree(dgvCarteFree.Rows[pos].Cells[1].Value.ToString(),
-                     DateTime.ParseExact(dgvCarteFree.Rows[pos].Cells[2].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
-                    dgvCarteFree.Rows[pos].Cells[3].Value.ToString(),
-                    dgvCarteFree.Rows[pos].Cells[4].Value.ToString(),
-                    dgvCarteFree.Rows[pos].Cells[5].Value.ToString())).ShowDialog();
-                RemplirLaGrille();
-                dgvCarteFree.Rows[pos].Selected = true;
-                dgvCarteFree.FirstDisplayedScrollingRowIndex = Lastscrollindex;
-                Total();
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+           
         }
     }
 }

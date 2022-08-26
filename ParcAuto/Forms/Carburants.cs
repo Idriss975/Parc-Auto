@@ -216,32 +216,6 @@ namespace ParcAuto.Forms
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-        }
-
-        private void btnSupprimer_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                GLB.Con.Open();
-                for (int i = 0; i < dgvCarburant.SelectedRows.Count; i++)
-                {
-                    GLB.Cmd.CommandText = $"delete from CarburantVignettes where id = {dgvCarburant.SelectedRows[i].Cells[13].Value} ";
-                    GLB.Cmd.ExecuteNonQuery();
-                }
-                GLB.Con.Close();
-                RemplirLaGrille();
-                Total();
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                MessageBox.Show("Il faut selectionner sur la table pour Suprrimer la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            //TODO: catch NullReferenceException (idriss)
-
-        }
-
-        private void dgvCarburant_DoubleClick(object sender, EventArgs e)
-        {
             try
             {
                 int Lastscrollindex = dgvCarburant.FirstDisplayedScrollingRowIndex;
@@ -272,6 +246,33 @@ namespace ParcAuto.Forms
             {
                 MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GLB.Con.Open();
+                for (int i = 0; i < dgvCarburant.SelectedRows.Count; i++)
+                {
+                    GLB.Cmd.CommandText = $"delete from CarburantVignettes where id = {dgvCarburant.SelectedRows[i].Cells[13].Value} ";
+                    GLB.Cmd.ExecuteNonQuery();
+                }
+                GLB.Con.Close();
+                RemplirLaGrille();
+                Total();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Il faut selectionner sur la table pour Suprrimer la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            //TODO: catch NullReferenceException (idriss)
+
+        }
+
+        private void dgvCarburant_DoubleClick(object sender, EventArgs e)
+        {
+           
         }
       
         private void btnExportExcel_Click(object sender, EventArgs e)

@@ -440,6 +440,7 @@ namespace ParcAuto.Forms
             this.dgvCarburant.Location = new System.Drawing.Point(0, 98);
             this.dgvCarburant.Margin = new System.Windows.Forms.Padding(5);
             this.dgvCarburant.Name = "dgvCarburant";
+            this.dgvCarburant.ReadOnly = true;
             this.dgvCarburant.RowHeadersVisible = false;
             this.dgvCarburant.RowHeadersWidth = 62;
             this.dgvCarburant.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -453,83 +454,97 @@ namespace ParcAuto.Forms
             this.Column1.HeaderText = "Entité";
             this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Bénéficiaire";
             this.Column2.MinimumWidth = 8;
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Matricule";
             this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column15
             // 
             this.Column15.HeaderText = "Marque";
             this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Date";
             this.Column4.MinimumWidth = 8;
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Destination";
             this.Column5.MinimumWidth = 8;
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // Column12
             // 
             this.Column12.HeaderText = "Kilometrage Parcouru";
             this.Column12.MinimumWidth = 8;
             this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
             // 
             // Column13
             // 
             this.Column13.HeaderText = "Consomation %";
             this.Column13.MinimumWidth = 8;
             this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
             // 
             // Column6
             // 
             this.Column6.HeaderText = "Objet";
             this.Column6.MinimumWidth = 8;
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // Column7
             // 
             this.Column7.HeaderText = "Dotation Fixe";
             this.Column7.MinimumWidth = 8;
             this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // Column8
             // 
             this.Column8.HeaderText = "Dotation Mission";
             this.Column8.MinimumWidth = 8;
             this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // Column9
             // 
             this.Column9.HeaderText = "Dotation Hebdo";
             this.Column9.MinimumWidth = 8;
             this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
             // 
             // Column14
             // 
             this.Column14.HeaderText = "Dotation exceptionnel ";
             this.Column14.MinimumWidth = 8;
             this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
             // 
             // id
             // 
             this.id.HeaderText = "id";
             this.id.MinimumWidth = 8;
             this.id.Name = "id";
+            this.id.ReadOnly = true;
             this.id.Visible = false;
             // 
             // Column11
@@ -537,6 +552,7 @@ namespace ParcAuto.Forms
             this.Column11.HeaderText = "Observation";
             this.Column11.MinimumWidth = 8;
             this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
             // 
             // btnImportExcel
             // 

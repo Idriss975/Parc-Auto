@@ -151,8 +151,32 @@ namespace ParcAuto.Forms
         
         private void btnModifier_Click(object sender, EventArgs e)
         {
-           
-            
+            try
+            {
+                int Lastscrollindex = dgvReparation.FirstDisplayedScrollingRowIndex;
+                int pos = dgvReparation.CurrentRow.Index;
+                GLB.id_Reparation = Convert.ToInt32(dgvReparation.Rows[pos].Cells[0].Value);
+                Commandes.Command = Choix.modifier;
+                Commandes.MAJRep = TypeRep.Reparation;
+                (new MajReparation(dgvReparation.Rows[pos].Cells[1].Value.ToString(),
+                    dgvReparation.Rows[pos].Cells[2].Value.ToString(),
+                    dgvReparation.Rows[pos].Cells[3].Value.ToString(),
+                     dgvReparation.Rows[pos].Cells[4].Value.ToString(),
+                      DateTime.ParseExact(dgvReparation.Rows[pos].Cells[5].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                      dgvReparation.Rows[pos].Cells[6].Value.ToString(),
+                      dgvReparation.Rows[pos].Cells[7].Value.ToString(),
+                      dgvReparation.Rows[pos].Cells[8].Value.ToString())).ShowDialog();
+                datagridviewLoad();
+                dgvReparation.Rows[pos].Selected = true;
+                dgvReparation.FirstDisplayedScrollingRowIndex = Lastscrollindex;
+                dgvReparation.Rows[0].Selected = false;
+                Total();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
@@ -356,31 +380,7 @@ namespace ParcAuto.Forms
 
         private void dgvReparation_DoubleClick(object sender, EventArgs e)
         {
-            try
-            {
-                int Lastscrollindex = dgvReparation.FirstDisplayedScrollingRowIndex;
-                int pos = dgvReparation.CurrentRow.Index;
-                GLB.id_Reparation = Convert.ToInt32(dgvReparation.Rows[pos].Cells[0].Value);
-                Commandes.Command = Choix.modifier;
-                Commandes.MAJRep = TypeRep.Reparation;
-                (new MajReparation(dgvReparation.Rows[pos].Cells[1].Value.ToString(),
-                    dgvReparation.Rows[pos].Cells[2].Value.ToString(),
-                    dgvReparation.Rows[pos].Cells[3].Value.ToString(),
-                     dgvReparation.Rows[pos].Cells[4].Value.ToString(),
-                      DateTime.ParseExact(dgvReparation.Rows[pos].Cells[5].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
-                      dgvReparation.Rows[pos].Cells[6].Value.ToString(),
-                      dgvReparation.Rows[pos].Cells[7].Value.ToString(),
-                      dgvReparation.Rows[pos].Cells[8].Value.ToString())).ShowDialog();
-                datagridviewLoad();
-                dgvReparation.Rows[pos].Selected = true;
-                dgvReparation.FirstDisplayedScrollingRowIndex = Lastscrollindex;
-                dgvReparation.Rows[0].Selected = false;
-                Total();
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
         }
     }
 }

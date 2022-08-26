@@ -141,8 +141,31 @@ namespace ParcAuto.Forms
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            
-            
+
+            try
+            {
+                int Lastindexscroll = dgvTransport.FirstDisplayedScrollingRowIndex;
+                int pos = dgvTransport.CurrentRow.Index;
+                GLB.id_Transport = Convert.ToInt32(dgvTransport.Rows[pos].Cells[0].Value);
+                Commandes.Command = Choix.modifier;
+                (new MajTransport(dgvTransport.Rows[pos].Cells[1].Value.ToString(),
+                    dgvTransport.Rows[pos].Cells[2].Value.ToString(),
+                    dgvTransport.Rows[pos].Cells[3].Value.ToString(),
+                    DateTime.ParseExact(dgvTransport.Rows[pos].Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                    dgvTransport.Rows[pos].Cells[5].Value.ToString(),
+                    dgvTransport.Rows[pos].Cells[6].Value.ToString(),
+                    dgvTransport.Rows[pos].Cells[7].Value.ToString())).ShowDialog();
+                RemplirdgvTransport();
+                dgvTransport.Rows[pos].Selected = true;
+                dgvTransport.FirstDisplayedScrollingRowIndex = Lastindexscroll;
+                Total();
+            }
+
+            catch (ArgumentOutOfRangeException)
+            {
+
+                MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -354,30 +377,7 @@ namespace ParcAuto.Forms
 
         private void dgvTransport_DoubleClick(object sender, EventArgs e)
         {
-            try
-            {
-                int Lastindexscroll = dgvTransport.FirstDisplayedScrollingRowIndex;
-                int pos = dgvTransport.CurrentRow.Index;
-                GLB.id_Transport = Convert.ToInt32(dgvTransport.Rows[pos].Cells[0].Value);
-                Commandes.Command = Choix.modifier;
-                (new MajTransport(dgvTransport.Rows[pos].Cells[1].Value.ToString(),
-                    dgvTransport.Rows[pos].Cells[2].Value.ToString(),
-                    dgvTransport.Rows[pos].Cells[3].Value.ToString(),
-                    DateTime.ParseExact(dgvTransport.Rows[pos].Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
-                    dgvTransport.Rows[pos].Cells[5].Value.ToString(),
-                    dgvTransport.Rows[pos].Cells[6].Value.ToString(),
-                    dgvTransport.Rows[pos].Cells[7].Value.ToString())).ShowDialog();
-                RemplirdgvTransport();
-                dgvTransport.Rows[pos].Selected = true;
-                dgvTransport.FirstDisplayedScrollingRowIndex = Lastindexscroll;
-                Total();
-            }
-
-            catch (ArgumentOutOfRangeException)
-            {
-
-                MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
         }
     }
 }
