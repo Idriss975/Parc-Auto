@@ -134,8 +134,7 @@ namespace ParcAuto.Classes_Globale
         /// <param name="Skipindex">Column index to skip/ not show (-1 to not skip).</param>
         /// <param name="StartingColumnPosition">The X position for where the first column should show.</param>
         /// <param name="StartingRowPosition">The Y position for where the First row should show.</param>
-        static public void Drawonprintdoc(PrintPageEventArgs e,  DataGridView DGV, Image Logo, Font FontHeader, Font FontRows, int Skipindex = -1, int StartingColumnPosition = 5, int StartingRowPosition = 200, string Total = "")
-        
+        public static void Drawonprintdoc(PrintPageEventArgs e, DataGridView DGV, Image Logo, Font FontHeader, Font FontRows, int Skipindex = -1, int StartingColumnPosition = 5, int StartingRowPosition = 200, string Total = "", string Titre = "")
         {
             float column_gap = (e.PageSettings.Landscape? e.PageSettings.PaperSize.Height : e.PageSettings.PaperSize.Width) - (StartingColumnPosition * 2);
             int Divide_col = 0;
