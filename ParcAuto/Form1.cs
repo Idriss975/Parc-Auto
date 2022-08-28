@@ -142,11 +142,67 @@ namespace ParcAuto
             GLB.dr.Close();
             GLB.Con.Close();
         }
+        private void ChartCarburant()
+        {
+            GLB.Cmd.CommandText = "select Totalconsommation , DispoAnneeProch , Annee from EtatRecapCarburantSNTL group by Totalconsommation , DispoAnneeProch , Annee";
+            GLB.Con.Open();
+            GLB.dr = GLB.Cmd.ExecuteReader();
+            while (GLB.dr.Read())
+            {
+                Carburantchart.Series["Annee"].Points.AddXY($"{GLB.dr[2]}",GLB.dr[0].ToString());
+                Carburantchart.Series["Report"].Points.AddXY($"{GLB.dr[2]}",GLB.dr[1].ToString());
+            }
+            GLB.dr.Close();
+            GLB.Con.Close();
+        }
+        private void ChartCarteFree()
+        {
+            GLB.Cmd.CommandText = "select Totalconsommation , DispoAnneeProch , Annee from EtatRecapCartefree group by Totalconsommation , DispoAnneeProch , Annee";
+            GLB.Con.Open();
+            GLB.dr = GLB.Cmd.ExecuteReader();
+            while (GLB.dr.Read())
+            {
+                carteFreeChart.Series["Annee"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[0].ToString());
+                carteFreeChart.Series["Report"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[1].ToString());
+            }
+            GLB.dr.Close();
+            GLB.Con.Close();
+        }
+        private void ChartReparation()
+        {
+            GLB.Cmd.CommandText = "select Totalconsommation , DispoAnneeProch , Annee from EtatRecapReparation group by Totalconsommation , DispoAnneeProch , Annee";
+            GLB.Con.Open();
+            GLB.dr = GLB.Cmd.ExecuteReader();
+            while (GLB.dr.Read())
+            {
+                ReparationChart.Series["Annee"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[0].ToString());
+                ReparationChart.Series["Report"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[1].ToString());
+            }
+            GLB.dr.Close();
+            GLB.Con.Close();
+        }
+        private void ChartTransport()
+        {
+            GLB.Cmd.CommandText = "select Totalconsommation , DispoAnneeProch , Annee from EtatRecapTransport group by Totalconsommation , DispoAnneeProch , Annee";
+            GLB.Con.Open();
+            GLB.dr = GLB.Cmd.ExecuteReader();
+            while (GLB.dr.Read())
+            {
+                TransportChart.Series["Annee"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[0].ToString());
+                TransportChart.Series["Report"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[1].ToString());
+            }
+            GLB.dr.Close();
+            GLB.Con.Close();
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
             customizeDesign();
             Permissions();
+            ChartCarburant();
+            ChartCarteFree();
+            ChartReparation();
+            ChartTransport();
         }
 
         private void btnVehicules_Click(object sender, EventArgs e)
@@ -368,6 +424,11 @@ namespace ParcAuto
         private void btnEtatJournalier_Click(object sender, EventArgs e)
         {
             openChildForm(new Forms.EtatJournalier(), sender);
+        }
+
+        private void guna2GroupBox5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

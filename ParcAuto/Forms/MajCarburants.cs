@@ -67,6 +67,7 @@ namespace ParcAuto.Forms
         {
             if (GLB.Entites.Keys.Contains(txtEntite.Text.ToUpper()))
                 txtEntite.Text = GLB.Entites[txtEntite.Text.ToUpper()];
+
         }
 
         private void txtBenificiaire_TextChanged(object sender, EventArgs e)
