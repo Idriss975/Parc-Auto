@@ -38,6 +38,11 @@ namespace ParcAuto.Forms
         {
             if (GLB.Entites.Keys.Contains(txtDirections.Text.ToUpper()))
                 txtDirections.Text = GLB.Entites[txtDirections.Text.ToUpper()];
+            if (!GLB.Entites.Values.Contains(txtDirections.Text))
+            {
+                MessageBox.Show("Ecrire Correctement l'abreviation ou le nom de la Direction");
+                txtDirections.Text = "";
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -90,7 +95,7 @@ namespace ParcAuto.Forms
         {
 
             //Definir la requette SQL
-            if (!(txtnom.Text == "" || txtprenom.Text == "" || txtnumpermis.Text == "" || txtadr.Text == "" || txttel.Text == "" || txtemail.Text == "" || DateNaissance.Value == DateTime.Now))
+            if (!(txtnom.Text == "" || txtprenom.Text == "" || txtnumpermis.Text == "" || txtadr.Text == "" || txttel.Text == "" || txtemail.Text == "" || txtDirections.Text == "" || DateNaissance.Value == DateTime.Now))
             {
                 switch (Commandes.Command)
                 {

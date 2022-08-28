@@ -39,6 +39,11 @@ namespace ParcAuto.Forms
         {
             if (GLB.Entites.Keys.Contains(txtentite.Text.ToUpper()))
                 txtentite.Text = GLB.Entites[txtentite.Text.ToUpper()];
+            if (!GLB.Entites.Values.Contains(txtentite.Text))
+            {
+                MessageBox.Show("Ecrire Correctement l'abreviation ou le nom de la Direction");
+                txtentite.Text = "";
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)

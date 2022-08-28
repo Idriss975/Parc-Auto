@@ -62,11 +62,16 @@ namespace ParcAuto.Forms
             GLB.dr.Close();
             GLB.Con.Close();
         }
-
         private void txtEntite_Leave(object sender, EventArgs e)
         {
             if (GLB.Entites.Keys.Contains(txtEntite.Text.ToUpper()))
                 txtEntite.Text = GLB.Entites[txtEntite.Text.ToUpper()];
+            if (!GLB.Entites.Values.Contains(txtEntite.Text))
+            {
+                MessageBox.Show("Ecrire Correctement l'abreviation ou le nom de la Direction");
+                txtEntite.Text = "";
+            }
+                
 
         }
 
@@ -256,7 +261,7 @@ namespace ParcAuto.Forms
             //    MessageBox.Show(ex.Message);
             //}
 
-            if (txtEntite.Text != "" || txtMarque.Text != "" ||txtKM.Text != ""|| cmbVilles.Text != "" || txtDotation.Text != "" || txtBenificiaire.Text != "")
+            if (txtEntite.Text != "" || txtMarque.Text != "" ||txtKM.Text != ""|| cmbVilles.Text != "" || txtDotation.Text != "" || txtBenificiaire.Text != "" )
             {
                 if (DMissions.Checked)
                 {
