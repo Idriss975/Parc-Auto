@@ -215,6 +215,15 @@ namespace ParcAuto.Forms
             dynamic Rep_Total_Consom = Print_Rectangle(e, Total_Consomation.x, Vign_Reparation.y, Total_Consomation.width, Cell_surfaces[1], Text: sumtrimestresReparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
             dynamic Rep_Dispo = Print_Rectangle(e, Dispo.x, Vign_Reparation.y, Dispo.width, Cell_surfaces[1], Text: DisponibleReparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
 
+            dynamic Tran_Report = Print_Rectangle(e, Report.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: ReportTransport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Tran_Achat = Print_Rectangle(e, Achat.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: AchatTransport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Tran_Total = Print_Rectangle(e, Total_Stock.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: SumStockTransport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Tran_Per_trim = Print_Rectangle(e, Per_trim.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim1transport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Tran_Der_trim = Print_Rectangle(e, Der_trim.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim2transport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Tran_Ter_trim = Print_Rectangle(e, Ter_trim.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim3transport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Tran_Qer_trim = Print_Rectangle(e, Qer_trim.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim4transport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Tran_Total_Consom = Print_Rectangle(e, Total_Consomation.x, Vign_Transport.y, Total_Consomation.width, Cell_surfaces[1], Text: sumTrimestresTransport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Tran_Dispo = Print_Rectangle(e, Dispo.x, Vign_Transport.y, Dispo.width, Cell_surfaces[1], Text: DisponibleTransport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
         }
         private void Print_EtatRecapTable_Paysage(PrintPageEventArgs e)
         {
