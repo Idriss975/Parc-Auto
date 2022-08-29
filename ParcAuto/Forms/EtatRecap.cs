@@ -118,6 +118,8 @@ namespace ParcAuto.Forms
 
         private void EtatRecap_Load(object sender, EventArgs e)
         {
+            lblAnne.Text = GLB.SelectedDate;
+            lbldateConsommation.Text = $"01/01/{ GLB.SelectedDate } au 31/12/{ GLB.SelectedDate }";
             ConsommationCarteFree();
             ConsommationcarburantSNTL();
             ConsommationReparation();
@@ -181,6 +183,11 @@ namespace ParcAuto.Forms
             e.Graphics.DrawRectangle(new Pen(Brushes.Black), new Rectangle(x, y, width, heigth));
             e.Graphics.DrawString(Text, new Font("Arial", fontSize, fontStyle), Brushes.Black, x+(width/2), y+(heigth/2), new StringFormat() { LineAlignment = StringAlignment.Center, Alignment = StringAlignment.Center });
 
+        }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            (new AjouterUneDirection()).ShowDialog();
         }
     }
 }

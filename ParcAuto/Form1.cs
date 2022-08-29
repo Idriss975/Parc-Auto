@@ -196,6 +196,29 @@ namespace ParcAuto
             GLB.dr.Close();
             GLB.Con.Close();
         }
+        private void RemplirLeDictionnaire()
+        {
+            try
+            {
+                GLB.Cmd.CommandText = $"select * from Entites";
+                GLB.Con.Open();
+                GLB.dr = GLB.Cmd.ExecuteReader();
+                while (GLB.dr.Read())
+                {
+                    GLB.Entites.Add(GLB.dr[1].ToString().ToUpper(), GLB.dr[0].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                GLB.dr.Close();
+                GLB.Con.Close();
+            }
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
@@ -205,6 +228,7 @@ namespace ParcAuto
             ChartCarteFree();
             ChartReparation();
             ChartTransport();
+            RemplirLeDictionnaire();
         }
 
         private void btnVehicules_Click(object sender, EventArgs e)
