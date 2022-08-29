@@ -64,14 +64,42 @@ namespace ParcAuto.Forms
         }
         private void txtEntite_Leave(object sender, EventArgs e)
         {
-            if (GLB.Entites.Keys.Contains(txtEntite.Text.ToUpper()))
-                txtEntite.Text = GLB.Entites[txtEntite.Text.ToUpper()];
-            if (!GLB.Entites.Values.Contains(txtEntite.Text))
+            //if (GLB.Entites.Keys.Contains(txtEntite.Text.ToUpper()))
+            //    txtEntite.Text = GLB.Entites[txtEntite.Text.ToUpper()];
+            //if (!GLB.Entites.Values.Contains(txtEntite.Text))
+            //{
+            //    MessageBox.Show("Ecrire Correctement l'abreviation ou le nom de la Direction");
+            //    txtEntite.Text = "";
+            //}
+            try
             {
-                MessageBox.Show("Ecrire Correctement l'abreviation ou le nom de la Direction");
-                txtEntite.Text = "";
-            }
+                GLB.Cmd.CommandText = $"select Entite from Entites where Abreviation = @entite or Entite = @entite";
+                GLB.Cmd.Parameters.Add("@entite", SqlDbType.VarChar, 500).Value = txtEntite.Text.ToUpper();
+                GLB.Con.Open();
+                GLB.dr = GLB.Cmd.ExecuteReader();
+                if (GLB.dr.Read())
+                {
+                    txtEntite.Text = GLB.dr[0].ToString();
+                }
+                else
+                {
+                    txtEntite.Text = "";
+                    MessageBox.Show("Ecrire Correctement l'abreviation ou le nom de la Direction");
+                    
+                }
                 
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                GLB.dr.Close();
+                GLB.Con.Close();
+            }
+
 
         }
 
