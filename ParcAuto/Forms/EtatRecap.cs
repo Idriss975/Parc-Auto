@@ -119,7 +119,6 @@ namespace ParcAuto.Forms
         private void EtatRecap_Load(object sender, EventArgs e)
         {
             lblAnne.Text = GLB.SelectedDate;
-            lbldateConsommation.Text = $"01/01/{ GLB.SelectedDate } au 31/12/{ GLB.SelectedDate }";
             ConsommationCarteFree();
             ConsommationcarburantSNTL();
             ConsommationReparation();
