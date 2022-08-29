@@ -150,10 +150,12 @@ namespace ParcAuto
             while (GLB.dr.Read())
             {
                 Carburantchart.Series["Annee"].Points.AddXY($"{GLB.dr[2]}",GLB.dr[0].ToString());
-                Carburantchart.Series["Report"].Points.AddXY($"{GLB.dr[2]}",GLB.dr[1].ToString());
+                Carburantchart.Series["Report"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[1].ToString());
             }
             GLB.dr.Close();
             GLB.Con.Close();
+            Carburantchart.Series["Annee"].Points.AddXY($"Annee", 300000);
+            Carburantchart.Series["Report"].Points.AddXY($"Annee", 40000);
         }
         private void ChartCarteFree()
         {
