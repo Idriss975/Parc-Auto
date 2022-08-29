@@ -256,11 +256,11 @@ namespace ParcAuto.Forms
             this.cmbChoix.Items.AddRange(new object[] {
             "Entité",
             "Beneficiaire",
-            "NBonSNTL ou Email",
+            "N°Bon SNTL ou Email",
             "Date",
-            "Destinataire",
+            "Destination",
             "Type d\'utilisation",
-            "Prix"});
+            "Montant"});
             this.cmbChoix.ItemsAppearance.Parent = this.cmbChoix;
             this.cmbChoix.Location = new System.Drawing.Point(96, 18);
             this.cmbChoix.Name = "cmbChoix";
@@ -616,14 +616,14 @@ namespace ParcAuto.Forms
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Entite";
+            this.Column2.HeaderText = "Entité";
             this.Column2.MinimumWidth = 8;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
-            this.Column3.HeaderText = "Benificiaire";
+            this.Column3.HeaderText = "Beneficiaire";
             this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;

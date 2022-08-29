@@ -362,17 +362,17 @@ namespace ParcAuto.Forms
             this.cmbChoix.HoverState.Parent = this.cmbChoix;
             this.cmbChoix.ItemHeight = 30;
             this.cmbChoix.Items.AddRange(new object[] {
-            "Entite",
-            "Benificiaire",
+            "Entité",
+            "Bénéficiaire",
             "Vehicule",
             "Marque",
             "Date",
             "Destination",
-            "Kilometrage parcourir",
+            "Kilometrage parcouru",
             "Consomation %",
             "Objet",
             "Dotation Fixe",
-            "Dotation Missions",
+            "Dotation Mission",
             "Dotation Hebdo",
             "Dotation exceptionnel",
             "Observation"});
@@ -850,7 +850,7 @@ namespace ParcAuto.Forms
             // 
             // Column14
             // 
-            this.Column14.HeaderText = "Dotation exceptionnel ";
+            this.Column14.HeaderText = "Dotation exceptionnel";
             this.Column14.MinimumWidth = 8;
             this.Column14.Name = "Column14";
             this.Column14.Width = 150;

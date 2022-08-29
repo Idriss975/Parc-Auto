@@ -70,6 +70,11 @@ namespace ParcAuto.Forms
             this.lblSommeAutre = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.panelDate = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Date1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.Date2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.TextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarteFree)).BeginInit();
             this.PanelTautaux.SuspendLayout();
@@ -78,6 +83,7 @@ namespace ParcAuto.Forms
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panelDate.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSuprimmerTout
@@ -172,7 +178,7 @@ namespace ParcAuto.Forms
             // 
             this.TextPanel.Controls.Add(this.label2);
             this.TextPanel.Controls.Add(this.txtValueToFiltre);
-            this.TextPanel.Location = new System.Drawing.Point(289, 16);
+            this.TextPanel.Location = new System.Drawing.Point(289, 15);
             this.TextPanel.Name = "TextPanel";
             this.TextPanel.Size = new System.Drawing.Size(340, 51);
             this.TextPanel.TabIndex = 66;
@@ -275,6 +281,7 @@ namespace ParcAuto.Forms
             this.cmbChoix.ItemHeight = 30;
             this.cmbChoix.Items.AddRange(new object[] {
             "Entite",
+            "Date",
             "Fixe",
             "Autre",
             "Objet"});
@@ -284,6 +291,7 @@ namespace ParcAuto.Forms
             this.cmbChoix.ShadowDecoration.Parent = this.cmbChoix;
             this.cmbChoix.Size = new System.Drawing.Size(176, 36);
             this.cmbChoix.TabIndex = 63;
+            this.cmbChoix.SelectedIndexChanged += new System.EventHandler(this.cmbChoix_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -631,6 +639,71 @@ namespace ParcAuto.Forms
             this.label5.TabIndex = 0;
             this.label5.Text = "Consommation Total";
             // 
+            // panelDate
+            // 
+            this.panelDate.Controls.Add(this.label4);
+            this.panelDate.Controls.Add(this.label3);
+            this.panelDate.Controls.Add(this.Date1);
+            this.panelDate.Controls.Add(this.Date2);
+            this.panelDate.Location = new System.Drawing.Point(289, 64);
+            this.panelDate.Name = "panelDate";
+            this.panelDate.Size = new System.Drawing.Size(549, 60);
+            this.panelDate.TabIndex = 73;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(315, 21);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(16, 17);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "à";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 17);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Date de :";
+            // 
+            // Date1
+            // 
+            this.Date1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Date1.BorderRadius = 4;
+            this.Date1.CheckedState.Parent = this.Date1;
+            this.Date1.FillColor = System.Drawing.Color.White;
+            this.Date1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Date1.HoverState.Parent = this.Date1;
+            this.Date1.Location = new System.Drawing.Point(109, 11);
+            this.Date1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.Date1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.Date1.Name = "Date1";
+            this.Date1.ShadowDecoration.Parent = this.Date1;
+            this.Date1.Size = new System.Drawing.Size(200, 36);
+            this.Date1.TabIndex = 13;
+            this.Date1.Value = new System.DateTime(2022, 7, 6, 14, 42, 15, 85);
+            // 
+            // Date2
+            // 
+            this.Date2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Date2.BorderRadius = 4;
+            this.Date2.CheckedState.Parent = this.Date2;
+            this.Date2.FillColor = System.Drawing.Color.White;
+            this.Date2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Date2.HoverState.Parent = this.Date2;
+            this.Date2.Location = new System.Drawing.Point(346, 11);
+            this.Date2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.Date2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.Date2.Name = "Date2";
+            this.Date2.ShadowDecoration.Parent = this.Date2;
+            this.Date2.Size = new System.Drawing.Size(200, 36);
+            this.Date2.TabIndex = 14;
+            this.Date2.Value = new System.DateTime(2022, 7, 6, 14, 45, 58, 151);
+            // 
             // CarteFree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -638,6 +711,7 @@ namespace ParcAuto.Forms
             this.ClientSize = new System.Drawing.Size(1111, 669);
             this.Controls.Add(this.PanelTautaux);
             this.Controls.Add(this.btnSuprimmerTout);
+            this.Controls.Add(this.panelDate);
             this.Controls.Add(this.btnImprimer);
             this.Controls.Add(this.btnImportExcel);
             this.Controls.Add(this.btnExportExcel);
@@ -669,6 +743,8 @@ namespace ParcAuto.Forms
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panelDate.ResumeLayout(false);
+            this.panelDate.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -715,5 +791,10 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.Panel panelDate;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2DateTimePicker Date1;
+        private Guna.UI2.WinForms.Guna2DateTimePicker Date2;
     }
 }

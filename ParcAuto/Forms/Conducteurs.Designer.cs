@@ -289,7 +289,7 @@ namespace ParcAuto.Forms
             "Prenom",
             "Date de Naissance",
             "Date d\'embauche",
-            "NumPermis",
+            "Numero de permis",
             "Adresse",
             "Direction",
             "Telephone",

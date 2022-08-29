@@ -112,6 +112,9 @@ namespace ParcAuto.Forms
         }
         private void CarteFree_Load(object sender, EventArgs e)
         {
+            panelDate.Visible = false;
+            TextPanel.Visible = false;
+            cmbChoix.SelectedIndex = 0;
             GLB.StyleDataGridView(dgvCarteFree);
             RemplirLaGrille();
             Total();
@@ -354,7 +357,7 @@ namespace ParcAuto.Forms
 
         private void btnFiltrer_Click(object sender, EventArgs e)
         {
-            GLB.Filter(cmbChoix, dgvCarteFree, txtValueToFiltre);
+            GLB.Filter(cmbChoix, dgvCarteFree, txtValueToFiltre, new string[] { "Date" }, Date1, Date2);
         }
 
         private void btnImprimer_Click(object sender, EventArgs e)
@@ -379,6 +382,24 @@ namespace ParcAuto.Forms
         private void dgvCarteFree_DoubleClick(object sender, EventArgs e)
         {
            
+        }
+
+        private void cmbChoix_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbChoix.SelectedIndex == 1)
+            {
+                TextPanel.Visible = false;
+                panelDate.Visible = true;
+                panelDate.Location = new System.Drawing.Point(287, 3);
+                btnFiltrer.Location = new System.Drawing.Point(858, 14);
+            }
+            else
+            {
+                TextPanel.Visible = true;
+                panelDate.Visible = false;
+                TextPanel.Location = new System.Drawing.Point(287, 12);
+                btnFiltrer.Location = new System.Drawing.Point(635, 18);
+            }
         }
     }
 }
