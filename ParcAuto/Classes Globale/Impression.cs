@@ -13,6 +13,19 @@ namespace ParcAuto.Classes_Globale
     {
         public static int number_of_lines;
 
+
+
+        /// <summary>
+        ///     Draws on "print document" with a formal document layout.
+        /// </summary>
+        /// <param name="e">Print event</param>
+        /// <param name="DGV">Datagridview to add columns and rows into document.</param>
+        /// <param name="Logo">OFPPT logo to add into header with its text.</param>
+        /// <param name="FontHeader">Font for the columns.</param>
+        /// <param name="FontRows">Font for the rows.</param>
+        /// <param name="Skipindex">Column index to skip/ not show (-1 to not skip).</param>
+        /// <param name="StartingColumnPosition">The X position for where the first column should show.</param>
+        /// <param name="StartingRowPosition">The Y position for where the First row should show.</param>
         public static void Drawonprintdoc(PrintPageEventArgs e, DataGridView DGV, Image Logo, Font FontHeader, Font FontRows, int Skipindex = -1, int StartingColumnPosition = 5, int StartingRowPosition = 200, string Total = "", string Titre = "TEST")
         {
             float column_gap = Print_columngap(e, StartingColumnPosition, FontHeader, DGV, Skipindex);
@@ -82,7 +95,7 @@ namespace ParcAuto.Classes_Globale
                 e.Graphics.DrawString(Total, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, e.PageSettings.Bounds.Width - e.Graphics.MeasureString(Total, new Font("Arial", 12, FontStyle.Bold)).Width - 50, StartingRowPosition + 30);
         }
 
-        public static void Print_Header(PrintPageEventArgs e, Image Logo, int  StartingRowPosition, string Titre)
+        public static void Print_Header(PrintPageEventArgs e, Image Logo, int StartingRowPosition=200, string Titre="")
         {
             e.Graphics.DrawImage(Logo, 50, 17);
             e.Graphics.DrawLine(new Pen(Color.Black, 2), 150, 40, 150, 85);

@@ -143,19 +143,10 @@ namespace ParcAuto.Forms
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            //Header
-            e.Graphics.DrawImage(imageList1.Images[0], 50, 17);
-            e.Graphics.DrawLine(new Pen(Color.Black, 2), 150, 40, 150, 85);
-            e.Graphics.DrawString("مكتب التكوين المهني و إنعاش الشغل", new Font("PFDinTextArabic-Light", 9, FontStyle.Bold), Brushes.Black, 158, 40);
-            e.Graphics.DrawString("Office de la Formation Professionnelle\net de la Promotion du Travail", new Font("Arial", 9), Brushes.Black, 158, 60);
+            Impression.Print_Header(e, imageList1.Images[0]);
+            Impression.Print_footer(e);
 
-            e.Graphics.DrawString($"Casablanca, le {DateTime.Now.ToString("dd/MM/yyyy")}", new Font("Arial", 9), Brushes.Black, (e.PageSettings.Landscape ? e.PageSettings.PaperSize.Height : e.PageSettings.PaperSize.Width) - 180, 105);
-
-            //Footer
-            e.Graphics.DrawString("Intersection Route BO 50 et R.N. n°11 (Route Nouaceur) BP 40207 Sidi Maârouf Casablanca 20 270\n 20 270 و الطريق الوطنية رفم 11 (طريق النواصر) ص. ب 40207 سيدي معروف الدار البيضاء B.O 50 ملتمى طريق\nTél.: 05 22 78 72 60/61 - Fax : 05 22 32 15 09", new Font("Arial", 9), Brushes.Black, e.PageSettings.Bounds.Width / 2, e.PageSettings.Bounds.Height - 35, new StringFormat() { LineAlignment = StringAlignment.Center, Alignment = StringAlignment.Center });
-
-
-            //e.Graphics.DrawRectangle(new Pen(Brushes.Black),new Rectangle() )
+            //e.Graphics.DrawRectangle(new Pen(Brushes.Black), new Rectangle(10, 10, 10, 10));
         }
     }
 }
