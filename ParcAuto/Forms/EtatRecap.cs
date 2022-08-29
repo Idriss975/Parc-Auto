@@ -202,7 +202,19 @@ namespace ParcAuto.Forms
             dynamic Vign_Total_Consom = Print_Rectangle(e, Total_Consomation.x, Vign_SNTL.y, Total_Consomation.width, Cell_surfaces[1], Text: sumtrimestresCarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
             dynamic Vign_Dispo = Print_Rectangle(e, Dispo.x, Vign_SNTL.y, Dispo.width, Cell_surfaces[1], Text: DisponibleCarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
 
-            //TODO: Make column and Cells for 2 last vignettes 
+            dynamic Vign_Reparation = Print_Rectangle(e, Starting_coords[0], Vign_SNTL.y + Vign_SNTL.heigth, Design.width, Cell_surfaces[1], Text: label41.Text, fontSize: 7, fontStyle: FontStyle.Bold);
+            dynamic Vign_Transport = Print_Rectangle(e, Starting_coords[0], Vign_Reparation.y + Vign_Reparation.heigth, Design.width, Cell_surfaces[1], Text: label40.Text, fontSize: 7, fontStyle: FontStyle.Bold);
+
+            dynamic Rep_Report = Print_Rectangle(e, Report.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: ReportReparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Rep_Achat = Print_Rectangle(e, Achat.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: AchatReparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Rep_Total = Print_Rectangle(e, Total_Stock.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: sumStockReparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Rep_Per_trim = Print_Rectangle(e, Per_trim.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim1Reparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Rep_Der_trim = Print_Rectangle(e, Der_trim.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim2Reparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Rep_Ter_trim = Print_Rectangle(e, Ter_trim.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim3Reparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Rep_Qer_trim = Print_Rectangle(e, Qer_trim.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim4Reparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Rep_Total_Consom = Print_Rectangle(e, Total_Consomation.x, Vign_Reparation.y, Total_Consomation.width, Cell_surfaces[1], Text: sumtrimestresReparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Rep_Dispo = Print_Rectangle(e, Dispo.x, Vign_Reparation.y, Dispo.width, Cell_surfaces[1], Text: DisponibleReparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+
         }
         private void Print_EtatRecapTable_Paysage(PrintPageEventArgs e)
         {
