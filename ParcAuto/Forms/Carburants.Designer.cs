@@ -122,7 +122,7 @@ namespace ParcAuto.Forms
             this.panelDate.Controls.Add(this.label3);
             this.panelDate.Controls.Add(this.Date1);
             this.panelDate.Controls.Add(this.Date2);
-            this.panelDate.Location = new System.Drawing.Point(288, 7);
+            this.panelDate.Location = new System.Drawing.Point(288, 35);
             this.panelDate.Name = "panelDate";
             this.panelDate.Size = new System.Drawing.Size(549, 60);
             this.panelDate.TabIndex = 31;

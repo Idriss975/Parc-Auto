@@ -200,5 +200,20 @@ namespace ParcAuto.Forms
                 btnFiltrer.Location = new System.Drawing.Point(635, 18);
             }
         }
+
+        private void btnFiltrer_Click(object sender, EventArgs e)
+        {
+            GLB.Filter(cmbChoix, dgvMissions, txtValueToFiltre, new string[] { "Date" }, Date1, Date2);
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            RemplirLaGrille();
+        }
+
+        private void btnQuitter_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

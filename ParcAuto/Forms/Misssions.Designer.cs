@@ -31,8 +31,8 @@ namespace ParcAuto.Forms
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Misssions));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnImprimer = new Guna.UI2.WinForms.Guna2Button();
             this.btnImportExcel = new Guna.UI2.WinForms.Guna2Button();
             this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
@@ -197,7 +197,7 @@ namespace ParcAuto.Forms
             this.panelDate.Controls.Add(this.label3);
             this.panelDate.Controls.Add(this.Date1);
             this.panelDate.Controls.Add(this.Date2);
-            this.panelDate.Location = new System.Drawing.Point(289, 10);
+            this.panelDate.Location = new System.Drawing.Point(289, 16);
             this.panelDate.Name = "panelDate";
             this.panelDate.Size = new System.Drawing.Size(549, 60);
             this.panelDate.TabIndex = 70;
@@ -315,6 +315,7 @@ namespace ParcAuto.Forms
             this.btnFiltrer.Text = "Filtrer";
             this.btnFiltrer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnFiltrer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnFiltrer.Click += new System.EventHandler(this.btnFiltrer_Click);
             // 
             // btnRefresh
             // 
@@ -335,6 +336,7 @@ namespace ParcAuto.Forms
             this.btnRefresh.Size = new System.Drawing.Size(40, 40);
             this.btnRefresh.TabIndex = 67;
             this.btnRefresh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // cmbChoix
             // 
@@ -395,6 +397,7 @@ namespace ParcAuto.Forms
             this.btnQuitter.Size = new System.Drawing.Size(40, 40);
             this.btnQuitter.TabIndex = 60;
             this.btnQuitter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
             // btnAjouter
             // 
@@ -471,14 +474,14 @@ namespace ParcAuto.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvMissions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMissions.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMissions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMissions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dgvMissions.ColumnHeadersHeight = 50;
             this.dgvMissions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -491,14 +494,14 @@ namespace ParcAuto.Forms
             this.Column12,
             this.Column11,
             this.id});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMissions.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMissions.DefaultCellStyle = dataGridViewCellStyle22;
             this.dgvMissions.Location = new System.Drawing.Point(1, 78);
             this.dgvMissions.Margin = new System.Windows.Forms.Padding(5);
             this.dgvMissions.Name = "dgvMissions";
