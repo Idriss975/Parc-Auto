@@ -191,6 +191,18 @@ namespace ParcAuto.Forms
             dynamic CF_Qer_trim = Print_Rectangle(e, Qer_trim.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim4CarteFree.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
             dynamic CF_Total_Consom = Print_Rectangle(e, Total_Consomation.x, Carte_Free.y,Total_Consomation.width,Cell_surfaces[1], Text: sumtrimestres.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
             dynamic CF_Dispo = Print_Rectangle(e, Dispo.x, Carte_Free.y, Dispo.width, Cell_surfaces[1], Text: Disponible.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+
+            dynamic Vign_Report = Print_Rectangle(e, Report.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: ReportCarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Vign_Achat = Print_Rectangle(e, Achat.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: AchatCarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Vign_Total = Print_Rectangle(e, Total_Stock.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: SumStockCarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Vign_Per_trim = Print_Rectangle(e, Per_trim.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim1CarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Vign_Der_trim = Print_Rectangle(e, Der_trim.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim2CarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Vign_Ter_trim = Print_Rectangle(e, Ter_trim.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim3CarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Vign_Qer_trim = Print_Rectangle(e, Qer_trim.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim4CarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Vign_Total_Consom = Print_Rectangle(e, Total_Consomation.x, Vign_SNTL.y, Total_Consomation.width, Cell_surfaces[1], Text: sumtrimestresCarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic Vign_Dispo = Print_Rectangle(e, Dispo.x, Vign_SNTL.y, Dispo.width, Cell_surfaces[1], Text: DisponibleCarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+
+            //TODO: Make column and Cells for 2 last vignettes 
         }
         private void Print_EtatRecapTable_Paysage(PrintPageEventArgs e)
         {
