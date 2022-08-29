@@ -50,7 +50,6 @@ namespace ParcAuto.Forms
             this.label36 = new System.Windows.Forms.Label();
             this.ReportCarteFree = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label38 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.label40 = new System.Windows.Forms.Label();
@@ -114,6 +113,8 @@ namespace ParcAuto.Forms
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.lblAnne = new System.Windows.Forms.Label();
+            this.lbldateConsommation = new System.Windows.Forms.Label();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -347,11 +348,11 @@ namespace ParcAuto.Forms
             this.label35.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(89, 2);
+            this.label35.Location = new System.Drawing.Point(105, 10);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(76, 32);
+            this.label35.Size = new System.Drawing.Size(43, 16);
             this.label35.TabIndex = 2;
-            this.label35.Text = "Achat au 31/03/2022";
+            this.label35.Text = "Achat";
             this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label36
@@ -365,7 +366,7 @@ namespace ParcAuto.Forms
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(85, 35);
             this.label36.TabIndex = 3;
-            this.label36.Text = "Total au 31/03/2022";
+            this.label36.Text = "Total";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ReportCarteFree
@@ -383,7 +384,7 @@ namespace ParcAuto.Forms
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.label38);
+            this.panel4.Controls.Add(this.lblAnne);
             this.panel4.Controls.Add(this.label39);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
@@ -392,24 +393,16 @@ namespace ParcAuto.Forms
             this.panel4.Size = new System.Drawing.Size(256, 45);
             this.panel4.TabIndex = 1;
             // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(208, 16);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(0, 16);
-            this.label38.TabIndex = 1;
-            // 
             // label39
             // 
             this.label39.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(83, 13);
+            this.label39.Location = new System.Drawing.Point(65, 14);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(92, 16);
+            this.label39.Size = new System.Drawing.Size(64, 16);
             this.label39.TabIndex = 0;
-            this.label39.Text = "Stock en 2022";
+            this.label39.Text = "Stock en ";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel8
@@ -823,6 +816,7 @@ namespace ParcAuto.Forms
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.lbldateConsommation);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -837,9 +831,9 @@ namespace ParcAuto.Forms
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(45, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(285, 16);
+            this.label1.Size = new System.Drawing.Size(126, 16);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Consommation du 02/01/2022 au 31/03/2022";
+            this.label1.Text = "Consommation du ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel2
@@ -909,7 +903,7 @@ namespace ParcAuto.Forms
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(98, 80);
             this.label29.TabIndex = 1;
-            this.label29.Text = "Total Consomation au 31 Mars 2022";
+            this.label29.Text = "Total Consomation";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label48
@@ -917,11 +911,11 @@ namespace ParcAuto.Forms
             this.label48.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label48.AutoSize = true;
             this.label48.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.Location = new System.Drawing.Point(103, 17);
+            this.label48.Location = new System.Drawing.Point(103, 33);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(92, 48);
+            this.label48.Size = new System.Drawing.Size(92, 16);
             this.label48.TabIndex = 4;
-            this.label48.Text = "Disponible au 1er Avril 2022";
+            this.label48.Text = "Disponible";
             this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // sumtrimestres
@@ -1176,6 +1170,28 @@ namespace ParcAuto.Forms
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "OFPPT_logo.png");
             // 
+            // lblAnne
+            // 
+            this.lblAnne.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblAnne.AutoSize = true;
+            this.lblAnne.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAnne.Location = new System.Drawing.Point(124, 14);
+            this.lblAnne.Name = "lblAnne";
+            this.lblAnne.Size = new System.Drawing.Size(0, 16);
+            this.lblAnne.TabIndex = 1;
+            this.lblAnne.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbldateConsommation
+            // 
+            this.lbldateConsommation.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbldateConsommation.AutoSize = true;
+            this.lbldateConsommation.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldateConsommation.Location = new System.Drawing.Point(164, 14);
+            this.lbldateConsommation.Name = "lbldateConsommation";
+            this.lbldateConsommation.Size = new System.Drawing.Size(0, 16);
+            this.lbldateConsommation.TabIndex = 2;
+            this.lbldateConsommation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // EtatRecap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1238,7 +1254,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label ReportCarteFree;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Label label40;
@@ -1302,5 +1317,7 @@ namespace ParcAuto.Forms
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Label lblAnne;
+        private System.Windows.Forms.Label lbldateConsommation;
     }
 }
