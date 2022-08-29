@@ -55,7 +55,7 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.label40 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
+            this.Designation = new System.Windows.Forms.Label();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.label43 = new System.Windows.Forms.Label();
@@ -420,7 +420,7 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.Controls.Add(this.label40, 0, 3);
             this.tableLayoutPanel8.Controls.Add(this.label41, 0, 2);
-            this.tableLayoutPanel8.Controls.Add(this.label42, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.Designation, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel9, 0, 1);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
@@ -456,17 +456,17 @@ namespace ParcAuto.Forms
             this.label41.TabIndex = 3;
             this.label41.Text = "Vignettes Réparation ";
             // 
-            // label42
+            // Designation
             // 
-            this.label42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(4, 32);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(270, 16);
-            this.label42.TabIndex = 1;
-            this.label42.Text = "Désignation";
-            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Designation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Designation.AutoSize = true;
+            this.Designation.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Designation.Location = new System.Drawing.Point(4, 32);
+            this.Designation.Name = "Designation";
+            this.Designation.Size = new System.Drawing.Size(270, 16);
+            this.Designation.TabIndex = 1;
+            this.Designation.Text = "Désignation";
+            this.Designation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel9
             // 
@@ -1243,7 +1243,7 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label Designation;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.Label label43;

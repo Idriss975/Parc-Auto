@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -141,12 +142,45 @@ namespace ParcAuto.Forms
             }
         }
 
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
             Impression.Print_Header(e, imageList1.Images[0]);
             Impression.Print_footer(e);
 
-            //e.Graphics.DrawRectangle(new Pen(Brushes.Black), new Rectangle(10, 10, 10, 10));
+            if (e.PageSettings.Landscape)
+                Print_EtatRecapTable_Paysage(e);
+            else
+                Print_EtatRecapTable_Portrait(e);
+            
+        }
+        private void Print_EtatRecapTable_Portrait(PrintPageEventArgs e)
+        {
+            int[] Cell_surfaces = { 52, 46 };
+
+            Print_Rectangle(e, 10, 200, 200, 45, fontStyle: FontStyle.Bold, Text: Designation.Text);
+
+            Print_Rectangle(e, 210, 200, 156, 22, Text: $"Stock en {GLB.SelectedDate}", fontStyle: FontStyle.Bold, fontSize: 9);
+            Print_Rectangle(e, 210, 222, Cell_surfaces[0], Cell_surfaces[1]/2, Text: "Report", fontStyle: FontStyle.Bold, fontSize: 7);
+            Print_Rectangle(e, 262, 222, Cell_surfaces[0], Cell_surfaces[1]/2, Text: "Achat", fontStyle: FontStyle.Bold, fontSize: 7);
+            Print_Rectangle(e, 314, 222, Cell_surfaces[0], Cell_surfaces[1]/2, Text: "Total", fontStyle: FontStyle.Bold, fontSize: 7);
+
+            Print_Rectangle(e, 366, 200, Cell_surfaces[0] * 4, 45, Text: label1.Text, fontStyle: FontStyle.Bold, fontSize: 9);
+            Print_Rectangle(e, 366, 222, Cell_surfaces[0], Cell_surfaces[1] / 2, Text: "1er Trim", fontStyle: FontStyle.Bold, fontSize: 6);
+            Print_Rectangle(e, 418, 222, Cell_surfaces[0], Cell_surfaces[1] / 2, Text: "2eme Trim", fontStyle: FontStyle.Bold, fontSize: 6);
+            Print_Rectangle(e, 470, 222, Cell_surfaces[0], Cell_surfaces[1] / 2, Text: "3eme Trim", fontStyle: FontStyle.Bold, fontSize: 6);
+            Print_Rectangle(e, 522, 222, Cell_surfaces[0], Cell_surfaces[1] / 2, Text: "4eme Trim", fontStyle: FontStyle.Bold, fontSize: 6);
+        }
+        private void Print_EtatRecapTable_Paysage(PrintPageEventArgs e)
+        {
+            e.Graphics.DrawRectangle(new Pen(Brushes.Black), new Rectangle(10, 200, 200, 45));
+        }
+
+        private void Print_Rectangle(PrintPageEventArgs e, int x, int y, int width, int heigth, float fontSize=9, FontStyle fontStyle = FontStyle.Regular, string Text = "")
+        {
+            //new Font("Arial", 9, FontStyle.Bold), Brushes.Black, 110, 222, new StringFormat() { LineAlignment = StringAlignment.Center, Alignment = StringAlignment.Center }
+            e.Graphics.DrawRectangle(new Pen(Brushes.Black), new Rectangle(x, y, width, heigth));
+            e.Graphics.DrawString(Text, new Font("Arial", fontSize, fontStyle), Brushes.Black, x+(width/2), y+(heigth/2), new StringFormat() { LineAlignment = StringAlignment.Center, Alignment = StringAlignment.Center });
+
         }
     }
 }
