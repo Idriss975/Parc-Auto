@@ -115,6 +115,7 @@ namespace ParcAuto.Forms
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.lblAnne = new System.Windows.Forms.Label();
             this.lbldateConsommation = new System.Windows.Forms.Label();
+            this.btnAjouter = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -1192,12 +1193,35 @@ namespace ParcAuto.Forms
             this.lbldateConsommation.TabIndex = 2;
             this.lbldateConsommation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnAjouter
+            // 
+            this.btnAjouter.BorderRadius = 4;
+            this.btnAjouter.CheckedState.Parent = this.btnAjouter;
+            this.btnAjouter.CustomImages.Parent = this.btnAjouter;
+            this.btnAjouter.FillColor = System.Drawing.Color.LimeGreen;
+            this.btnAjouter.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAjouter.ForeColor = System.Drawing.Color.White;
+            this.btnAjouter.HoverState.Parent = this.btnAjouter;
+            this.btnAjouter.Image = ((System.Drawing.Image)(resources.GetObject("btnAjouter.Image")));
+            this.btnAjouter.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAjouter.Location = new System.Drawing.Point(143, 14);
+            this.btnAjouter.Margin = new System.Windows.Forms.Padding(5);
+            this.btnAjouter.Name = "btnAjouter";
+            this.btnAjouter.ShadowDecoration.Parent = this.btnAjouter;
+            this.btnAjouter.Size = new System.Drawing.Size(183, 30);
+            this.btnAjouter.TabIndex = 72;
+            this.btnAjouter.Text = "Ajouter une direction";
+            this.btnAjouter.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAjouter.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
+            // 
             // EtatRecap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1111, 669);
+            this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.btnImprimer);
             this.Controls.Add(this.dgvDirectionsCentrales);
             this.Controls.Add(this.txtDirectionsCentrales);
@@ -1319,5 +1343,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Label lblAnne;
         private System.Windows.Forms.Label lbldateConsommation;
+        private Guna.UI2.WinForms.Guna2Button btnAjouter;
     }
 }

@@ -150,5 +150,10 @@ namespace ParcAuto.Forms
 
             //e.Graphics.DrawRectangle(new Pen(Brushes.Black), new Rectangle(10, 10, 10, 10));
         }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            (new AjouterUneDirection()).ShowDialog();
+        }
     }
 }
