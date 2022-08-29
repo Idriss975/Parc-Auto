@@ -50,11 +50,12 @@ namespace ParcAuto.Forms
             this.label36 = new System.Windows.Forms.Label();
             this.ReportCarteFree = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lblAnne = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.label40 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
+            this.Designation = new System.Windows.Forms.Label();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.label43 = new System.Windows.Forms.Label();
@@ -113,8 +114,6 @@ namespace ParcAuto.Forms
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.lblAnne = new System.Windows.Forms.Label();
-            this.lbldateConsommation = new System.Windows.Forms.Label();
             this.btnAjouter = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -394,6 +393,17 @@ namespace ParcAuto.Forms
             this.panel4.Size = new System.Drawing.Size(256, 45);
             this.panel4.TabIndex = 1;
             // 
+            // lblAnne
+            // 
+            this.lblAnne.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblAnne.AutoSize = true;
+            this.lblAnne.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAnne.Location = new System.Drawing.Point(124, 14);
+            this.lblAnne.Name = "lblAnne";
+            this.lblAnne.Size = new System.Drawing.Size(0, 16);
+            this.lblAnne.TabIndex = 1;
+            this.lblAnne.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label39
             // 
             this.label39.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -414,7 +424,7 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.Controls.Add(this.label40, 0, 3);
             this.tableLayoutPanel8.Controls.Add(this.label41, 0, 2);
-            this.tableLayoutPanel8.Controls.Add(this.label42, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.Designation, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel9, 0, 1);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
@@ -450,17 +460,17 @@ namespace ParcAuto.Forms
             this.label41.TabIndex = 3;
             this.label41.Text = "Vignettes Réparation ";
             // 
-            // label42
+            // Designation
             // 
-            this.label42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(4, 32);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(270, 16);
-            this.label42.TabIndex = 1;
-            this.label42.Text = "Désignation";
-            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Designation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Designation.AutoSize = true;
+            this.Designation.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Designation.Location = new System.Drawing.Point(4, 32);
+            this.Designation.Name = "Designation";
+            this.Designation.Size = new System.Drawing.Size(270, 16);
+            this.Designation.TabIndex = 1;
+            this.Designation.Text = "Désignation";
+            this.Designation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel9
             // 
@@ -817,7 +827,6 @@ namespace ParcAuto.Forms
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.lbldateConsommation);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -830,11 +839,11 @@ namespace ParcAuto.Forms
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(45, 14);
+            this.label1.Location = new System.Drawing.Point(130, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 16);
+            this.label1.Size = new System.Drawing.Size(102, 16);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Consommation du ";
+            this.label1.Text = "Consommation";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel2
@@ -1171,28 +1180,6 @@ namespace ParcAuto.Forms
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "OFPPT_logo.png");
             // 
-            // lblAnne
-            // 
-            this.lblAnne.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblAnne.AutoSize = true;
-            this.lblAnne.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAnne.Location = new System.Drawing.Point(124, 14);
-            this.lblAnne.Name = "lblAnne";
-            this.lblAnne.Size = new System.Drawing.Size(0, 16);
-            this.lblAnne.TabIndex = 1;
-            this.lblAnne.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbldateConsommation
-            // 
-            this.lbldateConsommation.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbldateConsommation.AutoSize = true;
-            this.lbldateConsommation.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldateConsommation.Location = new System.Drawing.Point(164, 14);
-            this.lbldateConsommation.Name = "lbldateConsommation";
-            this.lbldateConsommation.Size = new System.Drawing.Size(0, 16);
-            this.lbldateConsommation.TabIndex = 2;
-            this.lbldateConsommation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // btnAjouter
             // 
             this.btnAjouter.BorderRadius = 4;
@@ -1282,7 +1269,7 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label Designation;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.Label label43;
@@ -1342,7 +1329,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Label lblAnne;
-        private System.Windows.Forms.Label lbldateConsommation;
         private Guna.UI2.WinForms.Guna2Button btnAjouter;
     }
 }
