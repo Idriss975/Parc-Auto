@@ -122,17 +122,6 @@ namespace ParcAuto.Classes_Globale
         //    GLB.Con.Close();
         //}
 
-        /// <summary>
-        ///     Draws on "print document" with a formal document layout.
-        /// </summary>
-        /// <param name="e">Print event</param>
-        /// <param name="DGV">Datagridview to add columns and rows into document.</param>
-        /// <param name="Logo">OFPPT logo to add into header with its text.</param>
-        /// <param name="FontHeader">Font for the columns.</param>
-        /// <param name="FontRows">Font for the rows.</param>
-        /// <param name="Skipindex">Column index to skip/ not show (-1 to not skip).</param>
-        /// <param name="StartingColumnPosition">The X position for where the first column should show.</param>
-        /// <param name="StartingRowPosition">The Y position for where the First row should show.</param>
         
 
         public static void Filter(Guna.UI2.WinForms.Guna2ComboBox cmbChoix, DataGridView DGV, Guna.UI2.WinForms.Guna2TextBox txtValueToFiltre,string[] ColumnDates, Guna.UI2.WinForms.Guna2DateTimePicker Date1, Guna.UI2.WinForms.Guna2DateTimePicker Date2)
