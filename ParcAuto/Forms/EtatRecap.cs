@@ -156,32 +156,58 @@ namespace ParcAuto.Forms
         }
         private void Print_EtatRecapTable_Portrait(PrintPageEventArgs e)
         {
-            int[] Cell_surfaces = { 52, 46 };
+            int[] Cell_surfaces = { 52, 23 };
 
-            Print_Rectangle(e, 10, 200, 200, 45, fontStyle: FontStyle.Bold, Text: Designation.Text);
+            int[] Starting_coords = { 10, 200 };
 
-            Print_Rectangle(e, 210, 200, 156, 22, Text: $"Stock en {GLB.SelectedDate}", fontStyle: FontStyle.Bold, fontSize: 9);
-            Print_Rectangle(e, 210, 222, Cell_surfaces[0], Cell_surfaces[1]/2, Text: "Report", fontStyle: FontStyle.Bold, fontSize: 7);
-            Print_Rectangle(e, 262, 222, Cell_surfaces[0], Cell_surfaces[1]/2, Text: "Achat", fontStyle: FontStyle.Bold, fontSize: 7);
-            Print_Rectangle(e, 314, 222, Cell_surfaces[0], Cell_surfaces[1]/2, Text: "Total", fontStyle: FontStyle.Bold, fontSize: 7);
+            dynamic Design = Print_Rectangle(e, Starting_coords[0], Starting_coords[1], 200, 45, fontStyle: FontStyle.Bold, Text: Designation.Text);
 
-            Print_Rectangle(e, 366, 200, Cell_surfaces[0] * 4, 45, Text: label1.Text, fontStyle: FontStyle.Bold, fontSize: 9);
-            Print_Rectangle(e, 366, 222, Cell_surfaces[0], Cell_surfaces[1] / 2, Text: "1er Trim", fontStyle: FontStyle.Bold, fontSize: 6);
-            Print_Rectangle(e, 418, 222, Cell_surfaces[0], Cell_surfaces[1] / 2, Text: "2eme Trim", fontStyle: FontStyle.Bold, fontSize: 6);
-            Print_Rectangle(e, 470, 222, Cell_surfaces[0], Cell_surfaces[1] / 2, Text: "3eme Trim", fontStyle: FontStyle.Bold, fontSize: 6);
-            Print_Rectangle(e, 522, 222, Cell_surfaces[0], Cell_surfaces[1] / 2, Text: "4eme Trim", fontStyle: FontStyle.Bold, fontSize: 6);
+            dynamic Stock = Print_Rectangle(e, Design.x + 200, Design.y, 156, 22, Text: $"Stock en {GLB.SelectedDate}", fontStyle: FontStyle.Bold);
+            dynamic Report = Print_Rectangle(e, Stock.x, Stock.y + 22, Cell_surfaces[0], Cell_surfaces[1], Text: "Report", fontStyle: FontStyle.Bold, fontSize: 7);
+            dynamic Achat = Print_Rectangle(e, Stock.x + Cell_surfaces[0], Report.y, Cell_surfaces[0], Cell_surfaces[1], Text: "Achat", fontStyle: FontStyle.Bold, fontSize: 7);
+            dynamic Total_Stock = Print_Rectangle(e, Achat.x + Cell_surfaces[0], Achat.y, Cell_surfaces[0], Cell_surfaces[1], Text: "Total", fontStyle: FontStyle.Bold, fontSize: 7);
+
+            dynamic Consomation = Print_Rectangle(e, 366, Starting_coords[1], Cell_surfaces[0] * 4, 22, Text: "Consommation", fontStyle: FontStyle.Bold, fontSize: 9);
+            dynamic Per_trim =  Print_Rectangle(e, Consomation.x, Starting_coords[1] + 22, Cell_surfaces[0], Cell_surfaces[1], Text: "1ᵉʳ Trim", fontStyle: FontStyle.Bold, fontSize: 6);
+            dynamic Der_trim =  Print_Rectangle(e, Per_trim.x + Cell_surfaces[0], Per_trim.y, Cell_surfaces[0], Cell_surfaces[1], Text: "2ᵉᵐᵉ Trim", fontStyle: FontStyle.Bold, fontSize: 6);
+            dynamic Ter_trim =  Print_Rectangle(e, Der_trim.x + Cell_surfaces[0], Per_trim.y, Cell_surfaces[0], Cell_surfaces[1], Text: "3ᵉᵐᵉ Trim", fontStyle: FontStyle.Bold, fontSize: 6);
+            dynamic Qer_trim =  Print_Rectangle(e, Ter_trim.x + Cell_surfaces[0], Per_trim.y, Cell_surfaces[0], Cell_surfaces[1], Text: "4ᵉᵐᵉ Trim", fontStyle: FontStyle.Bold, fontSize: 6);
+
+            dynamic Total_Consomation = Print_Rectangle(e, Qer_trim.x + Qer_trim.width, Stock.y, Cell_surfaces[0] * 2, Design.heigth, Text: label29.Text, fontStyle: FontStyle.Bold);
+
+            dynamic Dispo = Print_Rectangle(e, Total_Consomation.x + Total_Consomation.width, Total_Consomation.y, Total_Consomation.width, Total_Consomation.heigth, Text: label48.Text, fontStyle: FontStyle.Bold);
+
+
+            dynamic Carburant = Print_Rectangle(e, Design.x, Design.y + Design.heigth, Design.width / 2, Cell_surfaces[1] * 2, Text: label45.Text, fontSize: 7, fontStyle:FontStyle.Bold);
+            dynamic Carte_Free = Print_Rectangle(e, Carburant.x + Carburant.width, Carburant.y, Carburant.width, Cell_surfaces[1], Text: label43.Text, fontSize: 7, fontStyle: FontStyle.Bold);
+            dynamic Vign_SNTL = Print_Rectangle(e, Carte_Free.x, Carte_Free.y + Carte_Free.heigth,Carte_Free.width,Carte_Free.heigth, Text: label44.Text, fontSize: 6.7F, fontStyle: FontStyle.Bold);
+
+            dynamic CF_Report = Print_Rectangle(e, Report.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: ReportCarteFree.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic CF_Achat = Print_Rectangle(e, Achat.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: AchatCarteFree.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic CF_Total = Print_Rectangle(e, Total_Stock.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: SumStockCarteFree.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic CF_Per_trim = Print_Rectangle(e, Per_trim.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim1CarteFree.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic CF_Der_trim = Print_Rectangle(e, Der_trim.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim2CarteFree.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic CF_Ter_trim = Print_Rectangle(e, Ter_trim.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim3CarteFree.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic CF_Qer_trim = Print_Rectangle(e, Qer_trim.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim4CarteFree.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic CF_Total_Consom = Print_Rectangle(e, Total_Consomation.x, Carte_Free.y,Total_Consomation.width,Cell_surfaces[1], Text: sumtrimestres.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            dynamic CF_Dispo = Print_Rectangle(e, Dispo.x, Carte_Free.y, Dispo.width, Cell_surfaces[1], Text: Disponible.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
         }
         private void Print_EtatRecapTable_Paysage(PrintPageEventArgs e)
         {
             e.Graphics.DrawRectangle(new Pen(Brushes.Black), new Rectangle(10, 200, 200, 45));
         }
 
-        private void Print_Rectangle(PrintPageEventArgs e, int x, int y, int width, int heigth, float fontSize=9, FontStyle fontStyle = FontStyle.Regular, string Text = "")
+        private object Print_Rectangle(PrintPageEventArgs e, int x, int y, int width, int heigth, float fontSize=9, FontStyle fontStyle = FontStyle.Regular, StringAlignment Alignement = StringAlignment.Center, string Text = "")
         {
-            //new Font("Arial", 9, FontStyle.Bold), Brushes.Black, 110, 222, new StringFormat() { LineAlignment = StringAlignment.Center, Alignment = StringAlignment.Center }
             e.Graphics.DrawRectangle(new Pen(Brushes.Black), new Rectangle(x, y, width, heigth));
-            e.Graphics.DrawString(Text, new Font("Arial", fontSize, fontStyle), Brushes.Black, x+(width/2), y+(heigth/2), new StringFormat() { LineAlignment = StringAlignment.Center, Alignment = StringAlignment.Center });
-
+            e.Graphics.DrawString(Text, new Font("Arial", fontSize, fontStyle), Brushes.Black, new Rectangle(x, y, width, heigth), new StringFormat() { LineAlignment = StringAlignment.Center, Alignment = Alignement });
+            return new { 
+                x = x, 
+                y = y, 
+                width = width, 
+                heigth = heigth, 
+                Text = Text 
+            };
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
