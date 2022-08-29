@@ -60,7 +60,7 @@ namespace ParcAuto.Forms
         private void btnLogIn_Click(object sender, EventArgs e)
         {
             //GLB.Con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=Parc_Automobile;Integrated Security=True");
-            GLB.Con = new SqlConnection($"Data Source=DESKTOP-0HDF3CT\\SQLEXPRESS,1434;Network Library=DBMSSOCN;Initial Catalog=Parc_Automobile;Persist Security Info=True;User ID={txtuser.Text.Trim()};Password={txtpass.Text.Trim()}");
+            GLB.Con = new SqlConnection($"Data Source=DAL1251\\SQLEXPRESS,1433;Network Library=DBMSSOCN;Initial Catalog=Parc_Automobile;Persist Security Info=True;User ID={txtuser.Text.Trim()};Password={txtpass.Text.Trim()}");
             //GLB.Con = new SqlConnection($"Data Source=DAL1251\\SQLEXPRESS,1433;Network Library=DBMSSOCN;Initial Catalog=Parc_Automobile;Persist Security Info=True;User ID={txtuser.Text.Trim()};Password={txtpass.Text.Trim()}");
             GLB.Cmd = GLB.Con.CreateCommand();
             try
@@ -71,6 +71,7 @@ namespace ParcAuto.Forms
                 (new Annee()).ShowDialog();
                 this.Close();
                 GLB.CurrentUser = txtuser.Text.Trim();
+                DeleteOldHistory();
             }
             catch (SqlException ex)
             {
@@ -81,7 +82,7 @@ namespace ParcAuto.Forms
                 else
                     MessageBox.Show(ex.Message, "SQLERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            DeleteOldHistory();
+            
         }
 
         private void txtpass_KeyPress(object sender, KeyPressEventArgs e)

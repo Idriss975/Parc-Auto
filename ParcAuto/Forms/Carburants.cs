@@ -473,12 +473,12 @@ namespace ParcAuto.Forms
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            GLB.Drawonprintdoc(e, dgvCarburant, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6), dgvCarburant.Columns["id"].Index,Total:$"Dotation Fixe : {sumDFixe}\tDotation Missions : {sumDMission}\tDotation Hebdomadaire : {sumDHebdo}\tDotation Exceptionnel : {sumDExp}\n\nTotal : {total}");
+            Impression.Drawonprintdoc(e, dgvCarburant, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6), dgvCarburant.Columns["id"].Index,Total:$"Dotation Fixe : {sumDFixe}\tDotation Missions : {sumDMission}\tDotation Hebdomadaire : {sumDHebdo}\tDotation Exceptionnel : {sumDExp}\n\nTotal : {total}");
         }
 
         private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            GLB.number_of_lines = dgvCarburant.Rows.Count;
+            Impression.number_of_lines = dgvCarburant.Rows.Count;
         }
 
         private void btnSuprimmerTout_Click(object sender, EventArgs e)
