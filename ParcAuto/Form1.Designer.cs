@@ -30,23 +30,23 @@ namespace ParcAuto
         private void InitializeComponent()
         {
             System.Windows.Forms.Panel section2btnCond_Vehicule;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnEtatJournalier = new System.Windows.Forms.Button();
             this.ParcAutodown = new System.Windows.Forms.PictureBox();
             this.ParcAutoup = new System.Windows.Forms.PictureBox();
@@ -90,14 +90,15 @@ namespace ParcAuto
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FormsPlace = new System.Windows.Forms.Panel();
-            this.Carburantchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.carteFreeChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.guna2GroupBox3 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.ReparationChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.guna2GroupBox4 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.TransportChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.guna2GroupBox3 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.ReparationChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.carteFreeChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.Carburantchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnMissions = new System.Windows.Forms.Button();
             section2btnCond_Vehicule = new System.Windows.Forms.Panel();
             section2btnCond_Vehicule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ParcAutodown)).BeginInit();
@@ -123,19 +124,20 @@ namespace ParcAuto
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.FormsPlace.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Carburantchart)).BeginInit();
-            this.guna2GroupBox1.SuspendLayout();
-            this.guna2GroupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.carteFreeChart)).BeginInit();
-            this.guna2GroupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ReparationChart)).BeginInit();
             this.guna2GroupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TransportChart)).BeginInit();
+            this.guna2GroupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ReparationChart)).BeginInit();
+            this.guna2GroupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.carteFreeChart)).BeginInit();
+            this.guna2GroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Carburantchart)).BeginInit();
             this.SuspendLayout();
             // 
             // section2btnCond_Vehicule
             // 
             section2btnCond_Vehicule.AutoSize = true;
+            section2btnCond_Vehicule.Controls.Add(this.btnMissions);
             section2btnCond_Vehicule.Controls.Add(this.btnEtatJournalier);
             section2btnCond_Vehicule.Controls.Add(this.ParcAutodown);
             section2btnCond_Vehicule.Controls.Add(this.ParcAutoup);
@@ -145,7 +147,7 @@ namespace ParcAuto
             section2btnCond_Vehicule.Dock = System.Windows.Forms.DockStyle.Top;
             section2btnCond_Vehicule.Location = new System.Drawing.Point(0, 516);
             section2btnCond_Vehicule.Name = "section2btnCond_Vehicule";
-            section2btnCond_Vehicule.Size = new System.Drawing.Size(183, 389);
+            section2btnCond_Vehicule.Size = new System.Drawing.Size(183, 434);
             section2btnCond_Vehicule.TabIndex = 4;
             // 
             // btnEtatJournalier
@@ -774,7 +776,7 @@ namespace ParcAuto
             this.Quitter.ForeColor = System.Drawing.Color.White;
             this.Quitter.Image = ((System.Drawing.Image)(resources.GetObject("Quitter.Image")));
             this.Quitter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Quitter.Location = new System.Drawing.Point(0, 905);
+            this.Quitter.Location = new System.Drawing.Point(0, 950);
             this.Quitter.Name = "Quitter";
             this.Quitter.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.Quitter.Size = new System.Drawing.Size(183, 45);
@@ -839,70 +841,38 @@ namespace ParcAuto
             this.FormsPlace.TabIndex = 1;
             this.FormsPlace.Paint += new System.Windows.Forms.PaintEventHandler(this.FormsPlace_Paint);
             // 
-            // Carburantchart
+            // guna2GroupBox4
             // 
-            chartArea4.Name = "ChartArea1";
-            this.Carburantchart.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.Carburantchart.Legends.Add(legend4);
-            this.Carburantchart.Location = new System.Drawing.Point(16, 51);
-            this.Carburantchart.Name = "Carburantchart";
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Annee";
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.Name = "Report";
-            this.Carburantchart.Series.Add(series7);
-            this.Carburantchart.Series.Add(series8);
-            this.Carburantchart.Size = new System.Drawing.Size(439, 225);
-            this.Carburantchart.TabIndex = 0;
-            this.Carburantchart.Text = "chart1";
+            this.guna2GroupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2GroupBox4.Controls.Add(this.TransportChart);
+            this.guna2GroupBox4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2GroupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2GroupBox4.Location = new System.Drawing.Point(585, 324);
+            this.guna2GroupBox4.Name = "guna2GroupBox4";
+            this.guna2GroupBox4.ShadowDecoration.Parent = this.guna2GroupBox4;
+            this.guna2GroupBox4.Size = new System.Drawing.Size(530, 300);
+            this.guna2GroupBox4.TabIndex = 2;
+            this.guna2GroupBox4.Text = "Statistic Transport";
             // 
-            // guna2GroupBox1
+            // TransportChart
             // 
-            this.guna2GroupBox1.Controls.Add(this.Carburantchart);
-            this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2GroupBox1.Location = new System.Drawing.Point(6, 12);
-            this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
-            this.guna2GroupBox1.Size = new System.Drawing.Size(530, 300);
-            this.guna2GroupBox1.TabIndex = 1;
-            this.guna2GroupBox1.Text = "Statistic Carburant";
-            // 
-            // guna2GroupBox2
-            // 
-            this.guna2GroupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.guna2GroupBox2.Controls.Add(this.carteFreeChart);
-            this.guna2GroupBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2GroupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2GroupBox2.Location = new System.Drawing.Point(6, 324);
-            this.guna2GroupBox2.Name = "guna2GroupBox2";
-            this.guna2GroupBox2.ShadowDecoration.Parent = this.guna2GroupBox2;
-            this.guna2GroupBox2.Size = new System.Drawing.Size(530, 300);
-            this.guna2GroupBox2.TabIndex = 2;
-            this.guna2GroupBox2.Text = "Statistic CarteFree";
-            // 
-            // carteFreeChart
-            // 
-            chartArea3.Name = "ChartArea1";
-            this.carteFreeChart.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.carteFreeChart.Legends.Add(legend3);
-            this.carteFreeChart.Location = new System.Drawing.Point(16, 51);
-            this.carteFreeChart.Name = "carteFreeChart";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Annee";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Report";
-            this.carteFreeChart.Series.Add(series5);
-            this.carteFreeChart.Series.Add(series6);
-            this.carteFreeChart.Size = new System.Drawing.Size(439, 225);
-            this.carteFreeChart.TabIndex = 0;
-            this.carteFreeChart.Text = "chart1";
+            chartArea1.Name = "ChartArea1";
+            this.TransportChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.TransportChart.Legends.Add(legend1);
+            this.TransportChart.Location = new System.Drawing.Point(16, 51);
+            this.TransportChart.Name = "TransportChart";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Annee";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Report";
+            this.TransportChart.Series.Add(series1);
+            this.TransportChart.Series.Add(series2);
+            this.TransportChart.Size = new System.Drawing.Size(439, 225);
+            this.TransportChart.TabIndex = 0;
+            this.TransportChart.Text = "chart1";
             // 
             // guna2GroupBox3
             // 
@@ -937,38 +907,89 @@ namespace ParcAuto
             this.ReparationChart.TabIndex = 0;
             this.ReparationChart.Text = "chart1";
             // 
-            // guna2GroupBox4
+            // guna2GroupBox2
             // 
-            this.guna2GroupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2GroupBox4.Controls.Add(this.TransportChart);
-            this.guna2GroupBox4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2GroupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2GroupBox4.Location = new System.Drawing.Point(585, 324);
-            this.guna2GroupBox4.Name = "guna2GroupBox4";
-            this.guna2GroupBox4.ShadowDecoration.Parent = this.guna2GroupBox4;
-            this.guna2GroupBox4.Size = new System.Drawing.Size(530, 300);
-            this.guna2GroupBox4.TabIndex = 2;
-            this.guna2GroupBox4.Text = "Statistic Transport";
+            this.guna2GroupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.guna2GroupBox2.Controls.Add(this.carteFreeChart);
+            this.guna2GroupBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2GroupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2GroupBox2.Location = new System.Drawing.Point(6, 324);
+            this.guna2GroupBox2.Name = "guna2GroupBox2";
+            this.guna2GroupBox2.ShadowDecoration.Parent = this.guna2GroupBox2;
+            this.guna2GroupBox2.Size = new System.Drawing.Size(530, 300);
+            this.guna2GroupBox2.TabIndex = 2;
+            this.guna2GroupBox2.Text = "Statistic CarteFree";
             // 
-            // TransportChart
+            // carteFreeChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.TransportChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.TransportChart.Legends.Add(legend1);
-            this.TransportChart.Location = new System.Drawing.Point(16, 51);
-            this.TransportChart.Name = "TransportChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Annee";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Report";
-            this.TransportChart.Series.Add(series1);
-            this.TransportChart.Series.Add(series2);
-            this.TransportChart.Size = new System.Drawing.Size(439, 225);
-            this.TransportChart.TabIndex = 0;
-            this.TransportChart.Text = "chart1";
+            chartArea3.Name = "ChartArea1";
+            this.carteFreeChart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.carteFreeChart.Legends.Add(legend3);
+            this.carteFreeChart.Location = new System.Drawing.Point(16, 51);
+            this.carteFreeChart.Name = "carteFreeChart";
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Annee";
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Report";
+            this.carteFreeChart.Series.Add(series5);
+            this.carteFreeChart.Series.Add(series6);
+            this.carteFreeChart.Size = new System.Drawing.Size(439, 225);
+            this.carteFreeChart.TabIndex = 0;
+            this.carteFreeChart.Text = "chart1";
+            // 
+            // guna2GroupBox1
+            // 
+            this.guna2GroupBox1.Controls.Add(this.Carburantchart);
+            this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2GroupBox1.Location = new System.Drawing.Point(6, 12);
+            this.guna2GroupBox1.Name = "guna2GroupBox1";
+            this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
+            this.guna2GroupBox1.Size = new System.Drawing.Size(530, 300);
+            this.guna2GroupBox1.TabIndex = 1;
+            this.guna2GroupBox1.Text = "Statistic Carburant";
+            // 
+            // Carburantchart
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.Carburantchart.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.Carburantchart.Legends.Add(legend4);
+            this.Carburantchart.Location = new System.Drawing.Point(16, 51);
+            this.Carburantchart.Name = "Carburantchart";
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Annee";
+            series8.ChartArea = "ChartArea1";
+            series8.Legend = "Legend1";
+            series8.Name = "Report";
+            this.Carburantchart.Series.Add(series7);
+            this.Carburantchart.Series.Add(series8);
+            this.Carburantchart.Size = new System.Drawing.Size(439, 225);
+            this.Carburantchart.TabIndex = 0;
+            this.Carburantchart.Text = "chart1";
+            // 
+            // btnMissions
+            // 
+            this.btnMissions.AutoSize = true;
+            this.btnMissions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnMissions.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMissions.FlatAppearance.BorderSize = 0;
+            this.btnMissions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMissions.ForeColor = System.Drawing.Color.White;
+            this.btnMissions.Image = ((System.Drawing.Image)(resources.GetObject("btnMissions.Image")));
+            this.btnMissions.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMissions.Location = new System.Drawing.Point(0, 389);
+            this.btnMissions.Name = "btnMissions";
+            this.btnMissions.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnMissions.Size = new System.Drawing.Size(183, 45);
+            this.btnMissions.TabIndex = 99;
+            this.btnMissions.Text = "Missions";
+            this.btnMissions.UseVisualStyleBackColor = false;
+            this.btnMissions.Click += new System.EventHandler(this.btnMissions_Click);
             // 
             // Form1
             // 
@@ -1018,14 +1039,14 @@ namespace ParcAuto
             this.panelLogo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.FormsPlace.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Carburantchart)).EndInit();
-            this.guna2GroupBox1.ResumeLayout(false);
-            this.guna2GroupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.carteFreeChart)).EndInit();
-            this.guna2GroupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ReparationChart)).EndInit();
             this.guna2GroupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TransportChart)).EndInit();
+            this.guna2GroupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ReparationChart)).EndInit();
+            this.guna2GroupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.carteFreeChart)).EndInit();
+            this.guna2GroupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Carburantchart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1083,6 +1104,7 @@ namespace ParcAuto
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox2;
         private System.Windows.Forms.DataVisualization.Charting.Chart carteFreeChart;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
+        private System.Windows.Forms.Button btnMissions;
     }
 }
 

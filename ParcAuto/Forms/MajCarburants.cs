@@ -53,7 +53,7 @@ namespace ParcAuto.Forms
             GLB.dr = GLB.Cmd.ExecuteReader();
             if (!GLB.dr.Read())
             {
-                txtMarque.Text = " ";
+                txtMarque.Text = "";
             }
             else
             {
@@ -69,7 +69,7 @@ namespace ParcAuto.Forms
 
             if (!GLB.Entites.Values.Contains(txtEntite.Text) )
             {
-                MessageBox.Show($"Ecrire Correctement l'abreviation ou le nom de la Direction {GLB.Entites.Count()}");
+                MessageBox.Show("Ecrire Correctement l'abreviation ou le nom de la Direction");
                 txtEntite.Text = "";
             }
         }

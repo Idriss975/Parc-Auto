@@ -215,6 +215,12 @@
     <Compile Include="Forms\MajEtatRecap.Designer.cs">
       <DependentUpon>MajEtatRecap.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MajMissions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MajMissions.Designer.cs">
+      <DependentUpon>MajMissions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MajReparation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +238,12 @@
     </Compile>
     <Compile Include="Forms\MajVehicules.Designer.cs">
       <DependentUpon>MajVehicules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Misssions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Misssions.Designer.cs">
+      <DependentUpon>Misssions.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Reparation.cs">
       <SubType>Form</SubType>
@@ -319,6 +331,9 @@
     <EmbeddedResource Include="Forms\MajEtatRecap.resx">
       <DependentUpon>MajEtatRecap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MajMissions.resx">
+      <DependentUpon>MajMissions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MajReparation.resx">
       <DependentUpon>MajReparation.cs</DependentUpon>
     </EmbeddedResource>
@@ -327,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MajVehicules.resx">
       <DependentUpon>MajVehicules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Misssions.resx">
+      <DependentUpon>Misssions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reparation.resx">
       <DependentUpon>Reparation.cs</DependentUpon>

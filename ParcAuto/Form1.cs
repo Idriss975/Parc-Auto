@@ -456,5 +456,10 @@ namespace ParcAuto
         {
 
         }
+
+        private void btnMissions_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.Misssions(), sender);
+        }
     }
 }
