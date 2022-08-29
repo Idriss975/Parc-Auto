@@ -211,7 +211,7 @@ namespace ParcAuto.Forms
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            GLB.Drawonprintdoc(e, dgvTransport, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6),0);
+            Impression.Drawonprintdoc(e, dgvTransport, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6),0);
         }
         private void btnImprimer_Click(object sender, EventArgs e)
         {
@@ -357,7 +357,7 @@ namespace ParcAuto.Forms
 
         private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            GLB.number_of_lines = dgvTransport.Rows.Count;
+            Impression.number_of_lines = dgvTransport.Rows.Count;
         }
 
         private void btnSuprimmerTout_Click(object sender, EventArgs e)
