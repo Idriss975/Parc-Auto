@@ -245,7 +245,7 @@ namespace ParcAuto.Forms
 
             for (int i = 0; i < dgvDirectionsCentrales.Rows.Count; i++)
             {
-                //TODO: Dela with Rows
+                //TODO: Deal with Rows
             }
         }
         private void Print_EtatRecapTable_Paysage(PrintPageEventArgs e)
