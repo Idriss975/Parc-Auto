@@ -227,6 +227,12 @@
     <Compile Include="Forms\MajReparation.Designer.cs">
       <DependentUpon>MajReparation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MajSuivi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MajSuivi.Designer.cs">
+      <DependentUpon>MajSuivi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MajTransport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,6 +262,12 @@
     </Compile>
     <Compile Include="Forms\ReparationPRD.Designer.cs">
       <DependentUpon>ReparationPRD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SuiviDesEnvois.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SuiviDesEnvois.Designer.cs">
+      <DependentUpon>SuiviDesEnvois.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Transport.cs">
       <SubType>Form</SubType>
@@ -337,6 +349,9 @@
     <EmbeddedResource Include="Forms\MajReparation.resx">
       <DependentUpon>MajReparation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MajSuivi.resx">
+      <DependentUpon>MajSuivi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MajTransport.resx">
       <DependentUpon>MajTransport.cs</DependentUpon>
     </EmbeddedResource>
@@ -351,6 +366,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ReparationPRD.resx">
       <DependentUpon>ReparationPRD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SuiviDesEnvois.resx">
+      <DependentUpon>SuiviDesEnvois.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transport.resx">
       <DependentUpon>Transport.cs</DependentUpon>

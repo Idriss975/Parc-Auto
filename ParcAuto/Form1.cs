@@ -144,13 +144,16 @@ namespace ParcAuto
         }
         private void ChartCarburant()
         {
-            GLB.Cmd.CommandText = $"select TotalReport_Achat,Totalconsommation,Annee from EtatRecapCarburantSNTL where Annee= {GLB.SelectedDate}";
+            GLB.Cmd.CommandText = $"select TotalReport_Achat ,Totalconsommation,Annee ,isnull((select Totalconsommation from EtatRecapCarburantSNTL where Annee = {int.Parse(GLB.SelectedDate) - 1}),0),Totalconsommation - isnull((select Totalconsommation from EtatRecapCarburantSNTL where Annee = {int.Parse(GLB.SelectedDate) - 1}),0)  from EtatRecapCarburantSNTL where Annee= {GLB.SelectedDate}";
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             while (GLB.dr.Read())
             {
                 Carburantchart.Series["Total Report et Achat"].Points.AddXY($"{GLB.dr[2]}",GLB.dr[0].ToString());
                 Carburantchart.Series["Total Consommation"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[1].ToString());
+                lblCarburant.Text = $"- Consommation d'annee {GLB.SelectedDate} est {GLB.dr[1]}.\n" +
+                    $"- Consommation d'annee {int.Parse(GLB.SelectedDate) - 1} est {GLB.dr[3]}.\n" +
+                    $"- L'ecart entre ces deux annees est {GLB.dr[4]}.";
             }
             GLB.dr.Close();
             GLB.Con.Close();
@@ -159,39 +162,49 @@ namespace ParcAuto
         }
         private void ChartCarteFree()
         {
-            GLB.Cmd.CommandText = $"select TotalReport_Achat,Totalconsommation , Annee from EtatRecapCartefree where Annee= {GLB.SelectedDate}";
+            GLB.Cmd.CommandText = $"select TotalReport_Achat ,Totalconsommation,Annee ,isnull((select Totalconsommation from EtatRecapCartefree where Annee = {int.Parse(GLB.SelectedDate) - 1}),0),Totalconsommation - isnull((select Totalconsommation from EtatRecapCartefree where Annee = {int.Parse(GLB.SelectedDate) - 1}),0)  from EtatRecapCartefree where Annee= {GLB.SelectedDate}";
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             while (GLB.dr.Read())
             {
                 carteFreeChart.Series["Total Report et Achat"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[0].ToString());
                 carteFreeChart.Series["Total Consommation"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[1].ToString());
+                lblCarteFree.Text = $"- Consommation d'annee {GLB.SelectedDate} est {GLB.dr[1]}.\n" +
+                    $"- Consommation d'annee {int.Parse(GLB.SelectedDate) - 1} est {GLB.dr[3]}.\n" +
+                    $"- L'ecart entre ces deux annees est {GLB.dr[4]}.";
             }
             GLB.dr.Close();
             GLB.Con.Close();
         }
         private void ChartReparation()
         {
-            GLB.Cmd.CommandText = $"select TotalReport_Achat,Totalconsommation  , Annee from EtatRecapReparation where Annee= {GLB.SelectedDate}";
+            GLB.Cmd.CommandText = $"select TotalReport_Achat ,Totalconsommation,Annee ,isnull((select Totalconsommation from EtatRecapReparation where Annee = {int.Parse(GLB.SelectedDate) -1}),0),Totalconsommation - isnull((select Totalconsommation from EtatRecapReparation where Annee = {int.Parse(GLB.SelectedDate) - 1}),0)  from EtatRecapReparation where Annee= {GLB.SelectedDate}";
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             while (GLB.dr.Read())
             {
                 ReparationChart.Series["Total Report et Achat"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[0].ToString());
                 ReparationChart.Series["Total Consommation"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[1].ToString());
+                lblReparation.Text = $"- Consommation d'annee {GLB.SelectedDate} est {GLB.dr[1]}.\n" +
+                    $"- Consommation d'annee {int.Parse(GLB.SelectedDate) - 1} est {GLB.dr[3]}.\n" +
+                    $"- L'ecart entre ces deux annees est {GLB.dr[4]}.";
             }
             GLB.dr.Close();
             GLB.Con.Close();
         }
         private void ChartTransport()
         {
-            GLB.Cmd.CommandText = $"select TotalReport_Achat,Totalconsommation, Annee from EtatRecapTransport where Annee= {GLB.SelectedDate}";
+            GLB.Cmd.CommandText = $"select TotalReport_Achat ,Totalconsommation,Annee ,isnull((select Totalconsommation from EtatRecapTransport where Annee = {int.Parse(GLB.SelectedDate) -1}),0),Totalconsommation - isnull((select Totalconsommation from EtatRecapTransport where Annee = {int.Parse(GLB.SelectedDate) - 1}),0) " +
+                $"from EtatRecapTransport where Annee = {GLB.SelectedDate}";
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             while (GLB.dr.Read())
             {
                 TransportChart.Series["Total Report et Achat"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[0].ToString());
                 TransportChart.Series["Total Consommation"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[1].ToString());
+                lbltransport.Text = $"- Consommation d'annee {GLB.SelectedDate} est {GLB.dr[1]}.\n" +
+                    $"- Consommation d'annee {int.Parse(GLB.SelectedDate) - 1} est {GLB.dr[3]}.\n" +
+                    $"- L'ecart entre ces deux annees est {GLB.dr[4]}.";
             }
             GLB.dr.Close();
             GLB.Con.Close();
@@ -304,6 +317,21 @@ namespace ParcAuto
                     previousBtn.BackColor = Color.FromArgb(115, 139, 215);
                 }
             }
+            foreach (Control previousBtn in section3.Controls)
+            {
+                if (previousBtn.GetType() == typeof(Button))
+                {
+                    previousBtn.BackColor = Color.FromArgb(115, 139, 215);
+                }
+            }
+            foreach (Control previousBtn in panelsousSuivi.Controls)
+            {
+                if (previousBtn.GetType() == typeof(Button))
+                {
+                    previousBtn.BackColor = Color.FromArgb(115, 139, 215);
+                }
+            }
+
         }
         private void ActivateButton(object btnSender)
         {
@@ -460,6 +488,16 @@ namespace ParcAuto
         private void btnMissions_Click(object sender, EventArgs e)
         {
             openChildForm(new Forms.Misssions(), sender);
+        }
+        private void btnLstCourriers_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.SuiviDesEnvois(), sender);
+        }
+
+        private void btnSuivi_Click_1(object sender, EventArgs e)
+        {
+            showSubMenu(panelsousSuivi);
+            Arrow_Up_Down(panelsousSuivi, arrowsuiviUp, arrowsuiviDown);
         }
     }
 }
