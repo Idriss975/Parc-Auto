@@ -103,8 +103,6 @@ namespace ParcAuto.Forms
         {
             try
             {
-
-                
                 MajMissions maj = new MajMissions();
                 Commandes.Command = Choix.ajouter;
                 maj.ShowDialog();

@@ -324,6 +324,14 @@ namespace ParcAuto
                     previousBtn.BackColor = Color.FromArgb(115, 139, 215);
                 }
             }
+            foreach (Control previousBtn in panelsousSuivi.Controls)
+            {
+                if (previousBtn.GetType() == typeof(Button))
+                {
+                    previousBtn.BackColor = Color.FromArgb(115, 139, 215);
+                }
+            }
+
         }
         private void ActivateButton(object btnSender)
         {
@@ -480,6 +488,16 @@ namespace ParcAuto
         private void btnMissions_Click(object sender, EventArgs e)
         {
             openChildForm(new Forms.Misssions(), sender);
+        }
+        private void btnLstCourriers_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.SuiviDesEnvois(), sender);
+        }
+
+        private void btnSuivi_Click_1(object sender, EventArgs e)
+        {
+            showSubMenu(panelsousSuivi);
+            Arrow_Up_Down(panelsousSuivi, arrowsuiviUp, arrowsuiviDown);
         }
     }
 }

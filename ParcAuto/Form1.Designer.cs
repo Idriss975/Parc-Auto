@@ -30,7 +30,6 @@ namespace ParcAuto
         private void InitializeComponent()
         {
             System.Windows.Forms.Panel section2;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -47,11 +46,13 @@ namespace ParcAuto
             System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.section3 = new System.Windows.Forms.Panel();
             this.btnMissions = new System.Windows.Forms.Button();
             this.btnEtatJournalier = new System.Windows.Forms.Button();
+            this.btnConducteurs = new System.Windows.Forms.Button();
             this.ParcAutodown = new System.Windows.Forms.PictureBox();
             this.ParcAutoup = new System.Windows.Forms.PictureBox();
-            this.btnConducteurs = new System.Windows.Forms.Button();
             this.panelSousVehicules = new System.Windows.Forms.Panel();
             this.panelPRD = new System.Windows.Forms.Panel();
             this.btnParcPRDMrouge = new System.Windows.Forms.Button();
@@ -92,20 +93,27 @@ namespace ParcAuto
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FormsPlace = new System.Windows.Forms.Panel();
             this.guna2GroupBox4 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.lbltransport = new System.Windows.Forms.Label();
             this.TransportChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.guna2GroupBox3 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.lblReparation = new System.Windows.Forms.Label();
             this.ReparationChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.lblCarteFree = new System.Windows.Forms.Label();
             this.carteFreeChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.Carburantchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lblCarburant = new System.Windows.Forms.Label();
-            this.lblReparation = new System.Windows.Forms.Label();
-            this.lblCarteFree = new System.Windows.Forms.Label();
-            this.lbltransport = new System.Windows.Forms.Label();
-            this.section3 = new System.Windows.Forms.Panel();
+            this.Carburantchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.arrowsuiviDown = new System.Windows.Forms.PictureBox();
+            this.arrowsuiviUp = new System.Windows.Forms.PictureBox();
+            this.Suivis = new System.Windows.Forms.Panel();
+            this.btnSuivi = new System.Windows.Forms.Button();
+            this.panelsousSuivi = new System.Windows.Forms.Panel();
+            this.btnNbCourriers = new System.Windows.Forms.Button();
+            this.btnLstCourriers = new System.Windows.Forms.Button();
             section2 = new System.Windows.Forms.Panel();
             section2.SuspendLayout();
+            this.section3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ParcAutodown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ParcAutoup)).BeginInit();
             this.panelSousVehicules.SuspendLayout();
@@ -137,12 +145,16 @@ namespace ParcAuto
             ((System.ComponentModel.ISupportInitialize)(this.carteFreeChart)).BeginInit();
             this.guna2GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Carburantchart)).BeginInit();
-            this.section3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.arrowsuiviDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.arrowsuiviUp)).BeginInit();
+            this.Suivis.SuspendLayout();
+            this.panelsousSuivi.SuspendLayout();
             this.SuspendLayout();
             // 
             // section2
             // 
             section2.AutoSize = true;
+            section2.Controls.Add(this.Suivis);
             section2.Controls.Add(this.section3);
             section2.Controls.Add(this.ParcAutodown);
             section2.Controls.Add(this.ParcAutoup);
@@ -151,8 +163,19 @@ namespace ParcAuto
             section2.Dock = System.Windows.Forms.DockStyle.Top;
             section2.Location = new System.Drawing.Point(0, 516);
             section2.Name = "section2";
-            section2.Size = new System.Drawing.Size(183, 434);
+            section2.Size = new System.Drawing.Size(183, 572);
             section2.TabIndex = 4;
+            // 
+            // section3
+            // 
+            this.section3.Controls.Add(this.btnMissions);
+            this.section3.Controls.Add(this.btnEtatJournalier);
+            this.section3.Controls.Add(this.btnConducteurs);
+            this.section3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.section3.Location = new System.Drawing.Point(0, 299);
+            this.section3.Name = "section3";
+            this.section3.Size = new System.Drawing.Size(183, 138);
+            this.section3.TabIndex = 100;
             // 
             // btnMissions
             // 
@@ -192,6 +215,25 @@ namespace ParcAuto
             this.btnEtatJournalier.UseVisualStyleBackColor = false;
             this.btnEtatJournalier.Click += new System.EventHandler(this.btnEtatJournalier_Click);
             // 
+            // btnConducteurs
+            // 
+            this.btnConducteurs.AutoSize = true;
+            this.btnConducteurs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnConducteurs.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConducteurs.FlatAppearance.BorderSize = 0;
+            this.btnConducteurs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConducteurs.ForeColor = System.Drawing.Color.White;
+            this.btnConducteurs.Image = ((System.Drawing.Image)(resources.GetObject("btnConducteurs.Image")));
+            this.btnConducteurs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConducteurs.Location = new System.Drawing.Point(0, 0);
+            this.btnConducteurs.Name = "btnConducteurs";
+            this.btnConducteurs.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnConducteurs.Size = new System.Drawing.Size(183, 45);
+            this.btnConducteurs.TabIndex = 3;
+            this.btnConducteurs.Text = "Conducteurs ";
+            this.btnConducteurs.UseVisualStyleBackColor = false;
+            this.btnConducteurs.Click += new System.EventHandler(this.btnConducteurs_Click);
+            // 
             // ParcAutodown
             // 
             this.ParcAutodown.Image = ((System.Drawing.Image)(resources.GetObject("ParcAutodown.Image")));
@@ -212,25 +254,6 @@ namespace ParcAuto
             this.ParcAutoup.TabIndex = 7;
             this.ParcAutoup.TabStop = false;
             this.ParcAutoup.Visible = false;
-            // 
-            // btnConducteurs
-            // 
-            this.btnConducteurs.AutoSize = true;
-            this.btnConducteurs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
-            this.btnConducteurs.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnConducteurs.FlatAppearance.BorderSize = 0;
-            this.btnConducteurs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConducteurs.ForeColor = System.Drawing.Color.White;
-            this.btnConducteurs.Image = ((System.Drawing.Image)(resources.GetObject("btnConducteurs.Image")));
-            this.btnConducteurs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConducteurs.Location = new System.Drawing.Point(0, 0);
-            this.btnConducteurs.Name = "btnConducteurs";
-            this.btnConducteurs.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnConducteurs.Size = new System.Drawing.Size(183, 45);
-            this.btnConducteurs.TabIndex = 3;
-            this.btnConducteurs.Text = "Conducteurs ";
-            this.btnConducteurs.UseVisualStyleBackColor = false;
-            this.btnConducteurs.Click += new System.EventHandler(this.btnConducteurs_Click);
             // 
             // panelSousVehicules
             // 
@@ -799,7 +822,7 @@ namespace ParcAuto
             this.Quitter.ForeColor = System.Drawing.Color.White;
             this.Quitter.Image = ((System.Drawing.Image)(resources.GetObject("Quitter.Image")));
             this.Quitter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Quitter.Location = new System.Drawing.Point(0, 950);
+            this.Quitter.Location = new System.Drawing.Point(0, 1088);
             this.Quitter.Name = "Quitter";
             this.Quitter.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.Quitter.Size = new System.Drawing.Size(183, 45);
@@ -878,6 +901,18 @@ namespace ParcAuto
             this.guna2GroupBox4.TabIndex = 2;
             this.guna2GroupBox4.Text = "Graphe du consommation de transport";
             // 
+            // lbltransport
+            // 
+            this.lbltransport.AutoSize = true;
+            this.lbltransport.BackColor = System.Drawing.Color.Transparent;
+            this.lbltransport.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltransport.ForeColor = System.Drawing.Color.Black;
+            this.lbltransport.Location = new System.Drawing.Point(286, 101);
+            this.lbltransport.Name = "lbltransport";
+            this.lbltransport.Size = new System.Drawing.Size(39, 16);
+            this.lbltransport.TabIndex = 2;
+            this.lbltransport.Text = "label1";
+            // 
             // TransportChart
             // 
             chartArea1.Name = "ChartArea1";
@@ -912,6 +947,18 @@ namespace ParcAuto
             this.guna2GroupBox3.TabIndex = 2;
             this.guna2GroupBox3.Text = "Graphe du consommation de reparation";
             // 
+            // lblReparation
+            // 
+            this.lblReparation.AutoSize = true;
+            this.lblReparation.BackColor = System.Drawing.Color.Transparent;
+            this.lblReparation.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReparation.ForeColor = System.Drawing.Color.Black;
+            this.lblReparation.Location = new System.Drawing.Point(286, 99);
+            this.lblReparation.Name = "lblReparation";
+            this.lblReparation.Size = new System.Drawing.Size(39, 16);
+            this.lblReparation.TabIndex = 1;
+            this.lblReparation.Text = "label1";
+            // 
             // ReparationChart
             // 
             chartArea2.Name = "ChartArea1";
@@ -944,6 +991,18 @@ namespace ParcAuto
             this.guna2GroupBox2.Size = new System.Drawing.Size(530, 300);
             this.guna2GroupBox2.TabIndex = 2;
             this.guna2GroupBox2.Text = "Graphe du consommation de carteFree";
+            // 
+            // lblCarteFree
+            // 
+            this.lblCarteFree.AutoSize = true;
+            this.lblCarteFree.BackColor = System.Drawing.Color.Transparent;
+            this.lblCarteFree.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCarteFree.ForeColor = System.Drawing.Color.Black;
+            this.lblCarteFree.Location = new System.Drawing.Point(282, 101);
+            this.lblCarteFree.Name = "lblCarteFree";
+            this.lblCarteFree.Size = new System.Drawing.Size(39, 16);
+            this.lblCarteFree.TabIndex = 2;
+            this.lblCarteFree.Text = "label1";
             // 
             // carteFreeChart
             // 
@@ -978,6 +1037,17 @@ namespace ParcAuto
             this.guna2GroupBox1.TabIndex = 1;
             this.guna2GroupBox1.Text = "Graphe du consommation de carburant";
             // 
+            // lblCarburant
+            // 
+            this.lblCarburant.AutoSize = true;
+            this.lblCarburant.BackColor = System.Drawing.Color.Transparent;
+            this.lblCarburant.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCarburant.ForeColor = System.Drawing.Color.Black;
+            this.lblCarburant.Location = new System.Drawing.Point(245, 99);
+            this.lblCarburant.Name = "lblCarburant";
+            this.lblCarburant.Size = new System.Drawing.Size(0, 17);
+            this.lblCarburant.TabIndex = 1;
+            // 
             // Carburantchart
             // 
             chartArea4.Name = "ChartArea1";
@@ -998,63 +1068,106 @@ namespace ParcAuto
             this.Carburantchart.TabIndex = 0;
             this.Carburantchart.Text = "chart1";
             // 
-            // lblCarburant
+            // arrowsuiviDown
             // 
-            this.lblCarburant.AutoSize = true;
-            this.lblCarburant.BackColor = System.Drawing.Color.Transparent;
-            this.lblCarburant.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCarburant.ForeColor = System.Drawing.Color.Black;
-            this.lblCarburant.Location = new System.Drawing.Point(245, 99);
-            this.lblCarburant.Name = "lblCarburant";
-            this.lblCarburant.Size = new System.Drawing.Size(0, 17);
-            this.lblCarburant.TabIndex = 1;
+            this.arrowsuiviDown.Image = ((System.Drawing.Image)(resources.GetObject("arrowsuiviDown.Image")));
+            this.arrowsuiviDown.Location = new System.Drawing.Point(164, 17);
+            this.arrowsuiviDown.Name = "arrowsuiviDown";
+            this.arrowsuiviDown.Size = new System.Drawing.Size(16, 16);
+            this.arrowsuiviDown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.arrowsuiviDown.TabIndex = 8;
+            this.arrowsuiviDown.TabStop = false;
             // 
-            // lblReparation
+            // arrowsuiviUp
             // 
-            this.lblReparation.AutoSize = true;
-            this.lblReparation.BackColor = System.Drawing.Color.Transparent;
-            this.lblReparation.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReparation.ForeColor = System.Drawing.Color.Black;
-            this.lblReparation.Location = new System.Drawing.Point(286, 99);
-            this.lblReparation.Name = "lblReparation";
-            this.lblReparation.Size = new System.Drawing.Size(39, 16);
-            this.lblReparation.TabIndex = 1;
-            this.lblReparation.Text = "label1";
+            this.arrowsuiviUp.Image = ((System.Drawing.Image)(resources.GetObject("arrowsuiviUp.Image")));
+            this.arrowsuiviUp.Location = new System.Drawing.Point(163, 17);
+            this.arrowsuiviUp.Name = "arrowsuiviUp";
+            this.arrowsuiviUp.Size = new System.Drawing.Size(16, 16);
+            this.arrowsuiviUp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.arrowsuiviUp.TabIndex = 101;
+            this.arrowsuiviUp.TabStop = false;
+            this.arrowsuiviUp.Visible = false;
             // 
-            // lblCarteFree
+            // Suivis
             // 
-            this.lblCarteFree.AutoSize = true;
-            this.lblCarteFree.BackColor = System.Drawing.Color.Transparent;
-            this.lblCarteFree.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCarteFree.ForeColor = System.Drawing.Color.Black;
-            this.lblCarteFree.Location = new System.Drawing.Point(282, 101);
-            this.lblCarteFree.Name = "lblCarteFree";
-            this.lblCarteFree.Size = new System.Drawing.Size(39, 16);
-            this.lblCarteFree.TabIndex = 2;
-            this.lblCarteFree.Text = "label1";
+            this.Suivis.Controls.Add(this.panelsousSuivi);
+            this.Suivis.Controls.Add(this.arrowsuiviUp);
+            this.Suivis.Controls.Add(this.arrowsuiviDown);
+            this.Suivis.Controls.Add(this.btnSuivi);
+            this.Suivis.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Suivis.Location = new System.Drawing.Point(0, 437);
+            this.Suivis.Name = "Suivis";
+            this.Suivis.Size = new System.Drawing.Size(183, 135);
+            this.Suivis.TabIndex = 2;
             // 
-            // lbltransport
+            // btnSuivi
             // 
-            this.lbltransport.AutoSize = true;
-            this.lbltransport.BackColor = System.Drawing.Color.Transparent;
-            this.lbltransport.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltransport.ForeColor = System.Drawing.Color.Black;
-            this.lbltransport.Location = new System.Drawing.Point(286, 101);
-            this.lbltransport.Name = "lbltransport";
-            this.lbltransport.Size = new System.Drawing.Size(39, 16);
-            this.lbltransport.TabIndex = 2;
-            this.lbltransport.Text = "label1";
+            this.btnSuivi.AutoSize = true;
+            this.btnSuivi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnSuivi.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSuivi.FlatAppearance.BorderSize = 0;
+            this.btnSuivi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSuivi.ForeColor = System.Drawing.Color.White;
+            this.btnSuivi.Image = ((System.Drawing.Image)(resources.GetObject("btnSuivi.Image")));
+            this.btnSuivi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSuivi.Location = new System.Drawing.Point(0, 0);
+            this.btnSuivi.Name = "btnSuivi";
+            this.btnSuivi.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnSuivi.Size = new System.Drawing.Size(183, 45);
+            this.btnSuivi.TabIndex = 101;
+            this.btnSuivi.Text = "Les courriers";
+            this.btnSuivi.UseVisualStyleBackColor = false;
+            this.btnSuivi.Click += new System.EventHandler(this.btnSuivi_Click_1);
             // 
-            // section3
+            // panelsousSuivi
             // 
-            this.section3.Controls.Add(this.btnMissions);
-            this.section3.Controls.Add(this.btnEtatJournalier);
-            this.section3.Controls.Add(this.btnConducteurs);
-            this.section3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.section3.Location = new System.Drawing.Point(0, 299);
-            this.section3.Name = "section3";
-            this.section3.Size = new System.Drawing.Size(183, 135);
-            this.section3.TabIndex = 100;
+            this.panelsousSuivi.Controls.Add(this.btnNbCourriers);
+            this.panelsousSuivi.Controls.Add(this.btnLstCourriers);
+            this.panelsousSuivi.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelsousSuivi.Location = new System.Drawing.Point(0, 45);
+            this.panelsousSuivi.Name = "panelsousSuivi";
+            this.panelsousSuivi.Size = new System.Drawing.Size(183, 90);
+            this.panelsousSuivi.TabIndex = 102;
+            this.panelsousSuivi.Visible = false;
+            // 
+            // btnNbCourriers
+            // 
+            this.btnNbCourriers.AutoSize = true;
+            this.btnNbCourriers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnNbCourriers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNbCourriers.FlatAppearance.BorderSize = 0;
+            this.btnNbCourriers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNbCourriers.ForeColor = System.Drawing.Color.White;
+            this.btnNbCourriers.Image = ((System.Drawing.Image)(resources.GetObject("btnNbCourriers.Image")));
+            this.btnNbCourriers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNbCourriers.Location = new System.Drawing.Point(0, 45);
+            this.btnNbCourriers.Name = "btnNbCourriers";
+            this.btnNbCourriers.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnNbCourriers.Size = new System.Drawing.Size(183, 45);
+            this.btnNbCourriers.TabIndex = 102;
+            this.btnNbCourriers.Text = "Nombre de Courriers \r\npar Directions ";
+            this.btnNbCourriers.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnNbCourriers.UseVisualStyleBackColor = false;
+            // 
+            // btnLstCourriers
+            // 
+            this.btnLstCourriers.AutoSize = true;
+            this.btnLstCourriers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnLstCourriers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLstCourriers.FlatAppearance.BorderSize = 0;
+            this.btnLstCourriers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLstCourriers.ForeColor = System.Drawing.Color.White;
+            this.btnLstCourriers.Image = ((System.Drawing.Image)(resources.GetObject("btnLstCourriers.Image")));
+            this.btnLstCourriers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLstCourriers.Location = new System.Drawing.Point(0, 0);
+            this.btnLstCourriers.Name = "btnLstCourriers";
+            this.btnLstCourriers.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnLstCourriers.Size = new System.Drawing.Size(183, 45);
+            this.btnLstCourriers.TabIndex = 101;
+            this.btnLstCourriers.Text = "Courriers";
+            this.btnLstCourriers.UseVisualStyleBackColor = false;
+            this.btnLstCourriers.Click += new System.EventHandler(this.btnLstCourriers_Click);
             // 
             // Form1
             // 
@@ -1074,6 +1187,8 @@ namespace ParcAuto
             this.Load += new System.EventHandler(this.Form1_Load);
             section2.ResumeLayout(false);
             section2.PerformLayout();
+            this.section3.ResumeLayout(false);
+            this.section3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ParcAutodown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ParcAutoup)).EndInit();
             this.panelSousVehicules.ResumeLayout(false);
@@ -1116,8 +1231,12 @@ namespace ParcAuto
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Carburantchart)).EndInit();
-            this.section3.ResumeLayout(false);
-            this.section3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.arrowsuiviDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.arrowsuiviUp)).EndInit();
+            this.Suivis.ResumeLayout(false);
+            this.Suivis.PerformLayout();
+            this.panelsousSuivi.ResumeLayout(false);
+            this.panelsousSuivi.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1181,6 +1300,13 @@ namespace ParcAuto
         private System.Windows.Forms.Label lblReparation;
         private System.Windows.Forms.Label lblCarteFree;
         private System.Windows.Forms.Panel section3;
+        private System.Windows.Forms.PictureBox arrowsuiviDown;
+        private System.Windows.Forms.PictureBox arrowsuiviUp;
+        private System.Windows.Forms.Panel Suivis;
+        private System.Windows.Forms.Panel panelsousSuivi;
+        private System.Windows.Forms.Button btnNbCourriers;
+        private System.Windows.Forms.Button btnLstCourriers;
+        private System.Windows.Forms.Button btnSuivi;
     }
 }
 
