@@ -158,7 +158,7 @@ namespace ParcAuto.Forms
         {
             int[] Cell_surfaces = { 52, 23 };
 
-            int[] Starting_coords = { 10, 200 };
+            int[] Starting_coords = { 25, 200 };
 
             dynamic Design = Print_Rectangle(e, Starting_coords[0], Starting_coords[1], 200, 45, fontStyle: FontStyle.Bold, Text: Designation.Text);
 
@@ -167,7 +167,7 @@ namespace ParcAuto.Forms
             dynamic Achat = Print_Rectangle(e, Stock.x + Cell_surfaces[0], Report.y, Cell_surfaces[0], Cell_surfaces[1], Text: "Achat", fontStyle: FontStyle.Bold, fontSize: 7);
             dynamic Total_Stock = Print_Rectangle(e, Achat.x + Cell_surfaces[0], Achat.y, Cell_surfaces[0], Cell_surfaces[1], Text: "Total", fontStyle: FontStyle.Bold, fontSize: 7);
 
-            dynamic Consomation = Print_Rectangle(e, 366, Starting_coords[1], Cell_surfaces[0] * 4, 22, Text: "Consommation", fontStyle: FontStyle.Bold, fontSize: 9);
+            dynamic Consomation = Print_Rectangle(e, Stock.x + Stock.width, Starting_coords[1], Cell_surfaces[0] * 4, 22, Text: "Consommation", fontStyle: FontStyle.Bold, fontSize: 9);
             dynamic Per_trim =  Print_Rectangle(e, Consomation.x, Starting_coords[1] + 22, Cell_surfaces[0], Cell_surfaces[1], Text: "1ᵉʳ Trim", fontStyle: FontStyle.Bold, fontSize: 6);
             dynamic Der_trim =  Print_Rectangle(e, Per_trim.x + Cell_surfaces[0], Per_trim.y, Cell_surfaces[0], Cell_surfaces[1], Text: "2ᵉᵐᵉ Trim", fontStyle: FontStyle.Bold, fontSize: 6);
             dynamic Ter_trim =  Print_Rectangle(e, Der_trim.x + Cell_surfaces[0], Per_trim.y, Cell_surfaces[0], Cell_surfaces[1], Text: "3ᵉᵐᵉ Trim", fontStyle: FontStyle.Bold, fontSize: 6);
@@ -224,13 +224,15 @@ namespace ParcAuto.Forms
             Print_Rectangle(e, Qer_trim.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim4transport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
             Print_Rectangle(e, Total_Consomation.x, Vign_Transport.y, Total_Consomation.width, Cell_surfaces[1], Text: sumTrimestresTransport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
             Print_Rectangle(e, Dispo.x, Vign_Transport.y, Dispo.width, Cell_surfaces[1], Text: DisponibleTransport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+
+            
         }
         private void Print_EtatRecapTable_Paysage(PrintPageEventArgs e)
         {
             e.Graphics.DrawRectangle(new Pen(Brushes.Black), new Rectangle(10, 200, 200, 45));
         }
 
-        private object Print_Rectangle(PrintPageEventArgs e, int x, int y, int width, int heigth, float fontSize=9, FontStyle fontStyle = FontStyle.Regular, StringAlignment Alignement = StringAlignment.Center, string Text = "")
+        private dynamic Print_Rectangle(PrintPageEventArgs e, int x, int y, int width, int heigth, float fontSize=9, FontStyle fontStyle = FontStyle.Regular, StringAlignment Alignement = StringAlignment.Center, string Text = "")
         {
             e.Graphics.DrawRectangle(new Pen(Brushes.Black), new Rectangle(x, y, width, heigth));
             e.Graphics.DrawString(Text, new Font("Arial", fontSize, fontStyle), Brushes.Black, new Rectangle(x, y, width, heigth), new StringFormat() { LineAlignment = StringAlignment.Center, Alignment = Alignement });
@@ -241,6 +243,11 @@ namespace ParcAuto.Forms
                 heigth = heigth, 
                 Text = Text 
             };
+        }
+
+        private void Print_Table()
+        {
+
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)

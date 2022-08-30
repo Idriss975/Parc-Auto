@@ -113,7 +113,7 @@ namespace ParcAuto.Classes_Globale
             e.Graphics.DrawString("Intersection Route BO 50 et R.N. n°11 (Route Nouaceur) BP 40207 Sidi Maârouf Casablanca 20 270\n 20 270 و الطريق الوطنية رفم 11 (طريق النواصر) ص. ب 40207 سيدي معروف الدار البيضاء B.O 50 ملتمى طريق\nTél.: 05 22 78 72 60/61 - Fax : 05 22 32 15 09", new Font("Arial", 9), Brushes.Black, e.PageSettings.Bounds.Width / 2, e.PageSettings.Bounds.Height - 35, new StringFormat() { LineAlignment = StringAlignment.Center, Alignment = StringAlignment.Center });
         }
 
-        public static float Print_columngap(PrintPageEventArgs e, int StartingColumnPosition,Font FontHeader, DataGridView DGV, int skipindex)
+        public static float Print_columngap(PrintPageEventArgs e, int StartingColumnPosition,Font FontHeader, DataGridView DGV, int skipindex=-1)
         {
             float output = (e.PageSettings.Landscape ? e.PageSettings.PaperSize.Height : e.PageSettings.PaperSize.Width) - (StartingColumnPosition * 2);
             int Divide_col = 0;
