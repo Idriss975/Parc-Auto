@@ -29,7 +29,7 @@ namespace ParcAuto
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Panel section2btnCond_Vehicule;
+            System.Windows.Forms.Panel section2;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
@@ -103,8 +103,9 @@ namespace ParcAuto
             this.lblReparation = new System.Windows.Forms.Label();
             this.lblCarteFree = new System.Windows.Forms.Label();
             this.lbltransport = new System.Windows.Forms.Label();
-            section2btnCond_Vehicule = new System.Windows.Forms.Panel();
-            section2btnCond_Vehicule.SuspendLayout();
+            this.section3 = new System.Windows.Forms.Panel();
+            section2 = new System.Windows.Forms.Panel();
+            section2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ParcAutodown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ParcAutoup)).BeginInit();
             this.panelSousVehicules.SuspendLayout();
@@ -136,23 +137,22 @@ namespace ParcAuto
             ((System.ComponentModel.ISupportInitialize)(this.carteFreeChart)).BeginInit();
             this.guna2GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Carburantchart)).BeginInit();
+            this.section3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // section2btnCond_Vehicule
+            // section2
             // 
-            section2btnCond_Vehicule.AutoSize = true;
-            section2btnCond_Vehicule.Controls.Add(this.btnMissions);
-            section2btnCond_Vehicule.Controls.Add(this.btnEtatJournalier);
-            section2btnCond_Vehicule.Controls.Add(this.ParcAutodown);
-            section2btnCond_Vehicule.Controls.Add(this.ParcAutoup);
-            section2btnCond_Vehicule.Controls.Add(this.btnConducteurs);
-            section2btnCond_Vehicule.Controls.Add(this.panelSousVehicules);
-            section2btnCond_Vehicule.Controls.Add(this.btnParcAuto);
-            section2btnCond_Vehicule.Dock = System.Windows.Forms.DockStyle.Top;
-            section2btnCond_Vehicule.Location = new System.Drawing.Point(0, 516);
-            section2btnCond_Vehicule.Name = "section2btnCond_Vehicule";
-            section2btnCond_Vehicule.Size = new System.Drawing.Size(183, 434);
-            section2btnCond_Vehicule.TabIndex = 4;
+            section2.AutoSize = true;
+            section2.Controls.Add(this.section3);
+            section2.Controls.Add(this.ParcAutodown);
+            section2.Controls.Add(this.ParcAutoup);
+            section2.Controls.Add(this.panelSousVehicules);
+            section2.Controls.Add(this.btnParcAuto);
+            section2.Dock = System.Windows.Forms.DockStyle.Top;
+            section2.Location = new System.Drawing.Point(0, 516);
+            section2.Name = "section2";
+            section2.Size = new System.Drawing.Size(183, 434);
+            section2.TabIndex = 4;
             // 
             // btnMissions
             // 
@@ -164,7 +164,7 @@ namespace ParcAuto
             this.btnMissions.ForeColor = System.Drawing.Color.White;
             this.btnMissions.Image = ((System.Drawing.Image)(resources.GetObject("btnMissions.Image")));
             this.btnMissions.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMissions.Location = new System.Drawing.Point(0, 389);
+            this.btnMissions.Location = new System.Drawing.Point(0, 90);
             this.btnMissions.Name = "btnMissions";
             this.btnMissions.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMissions.Size = new System.Drawing.Size(183, 45);
@@ -183,7 +183,7 @@ namespace ParcAuto
             this.btnEtatJournalier.ForeColor = System.Drawing.Color.White;
             this.btnEtatJournalier.Image = ((System.Drawing.Image)(resources.GetObject("btnEtatJournalier.Image")));
             this.btnEtatJournalier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEtatJournalier.Location = new System.Drawing.Point(0, 344);
+            this.btnEtatJournalier.Location = new System.Drawing.Point(0, 45);
             this.btnEtatJournalier.Name = "btnEtatJournalier";
             this.btnEtatJournalier.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnEtatJournalier.Size = new System.Drawing.Size(183, 45);
@@ -223,7 +223,7 @@ namespace ParcAuto
             this.btnConducteurs.ForeColor = System.Drawing.Color.White;
             this.btnConducteurs.Image = ((System.Drawing.Image)(resources.GetObject("btnConducteurs.Image")));
             this.btnConducteurs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConducteurs.Location = new System.Drawing.Point(0, 299);
+            this.btnConducteurs.Location = new System.Drawing.Point(0, 0);
             this.btnConducteurs.Name = "btnConducteurs";
             this.btnConducteurs.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnConducteurs.Size = new System.Drawing.Size(183, 45);
@@ -444,7 +444,7 @@ namespace ParcAuto
             // 
             this.panelSideMenu.AutoScroll = true;
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
-            this.panelSideMenu.Controls.Add(section2btnCond_Vehicule);
+            this.panelSideMenu.Controls.Add(section2);
             this.panelSideMenu.Controls.Add(this.panelSousVignettes);
             this.panelSideMenu.Controls.Add(this.VignettesUp);
             this.panelSideMenu.Controls.Add(this.Vignettesdown);
@@ -1045,6 +1045,17 @@ namespace ParcAuto
             this.lbltransport.TabIndex = 2;
             this.lbltransport.Text = "label1";
             // 
+            // section3
+            // 
+            this.section3.Controls.Add(this.btnMissions);
+            this.section3.Controls.Add(this.btnEtatJournalier);
+            this.section3.Controls.Add(this.btnConducteurs);
+            this.section3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.section3.Location = new System.Drawing.Point(0, 299);
+            this.section3.Name = "section3";
+            this.section3.Size = new System.Drawing.Size(183, 135);
+            this.section3.TabIndex = 100;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1061,8 +1072,8 @@ namespace ParcAuto
             this.Text = "Parc Auto-mobile";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            section2btnCond_Vehicule.ResumeLayout(false);
-            section2btnCond_Vehicule.PerformLayout();
+            section2.ResumeLayout(false);
+            section2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ParcAutodown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ParcAutoup)).EndInit();
             this.panelSousVehicules.ResumeLayout(false);
@@ -1105,6 +1116,8 @@ namespace ParcAuto
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Carburantchart)).EndInit();
+            this.section3.ResumeLayout(false);
+            this.section3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1167,6 +1180,7 @@ namespace ParcAuto
         private System.Windows.Forms.Label lbltransport;
         private System.Windows.Forms.Label lblReparation;
         private System.Windows.Forms.Label lblCarteFree;
+        private System.Windows.Forms.Panel section3;
     }
 }
 

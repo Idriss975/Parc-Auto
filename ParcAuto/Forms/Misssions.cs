@@ -215,5 +215,59 @@ namespace ParcAuto.Forms
         {
             this.Close();
         }
+
+        private void btnExportExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvMissions.Rows.Count > 0)
+                {
+
+                    Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
+                    xcelApp.Application.Workbooks.Add(Type.Missing);
+
+                    for (int i = 0; i < dgvMissions.Columns.Count - 1; i++)
+                    {
+                        if (i < 9)
+                        {
+                            xcelApp.Cells[1, i + 1] = dgvMissions.Columns[i].HeaderText;
+                        }
+                        else
+                        {
+                            xcelApp.Cells[1, i + 1] = dgvMissions.Columns[i + 1].HeaderText;
+
+                        }
+                    }
+
+                    for (int i = 0; i < dgvMissions.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < dgvMissions.Columns.Count - 1; j++)
+                        {
+
+                            if (j < 9)
+                            {
+                                xcelApp.Cells[i + 2, j + 1] = dgvMissions.Rows[i].Cells[j].Value.ToString().Trim();
+                            }
+                            else
+                            {
+                                xcelApp.Cells[i + 2, j + 1] = dgvMissions.Rows[i].Cells[j + 1].Value.ToString().Trim();
+                            }
+
+
+                        }
+                    }
+                    xcelApp.Columns.AutoFit();
+                    xcelApp.Visible = true;
+                    xcelApp.Workbooks.Close();
+                    xcelApp.Quit();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

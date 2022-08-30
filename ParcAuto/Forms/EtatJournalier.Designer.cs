@@ -51,6 +51,9 @@ namespace ParcAuto.Forms
             // dgvEtatJournalier
             // 
             this.dgvEtatJournalier.AllowUserToAddRows = false;
+            this.dgvEtatJournalier.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEtatJournalier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEtatJournalier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEtatJournalier.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -69,15 +72,14 @@ namespace ParcAuto.Forms
             this.Column13,
             this.Column14,
             this.Column15});
-            this.dgvEtatJournalier.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvEtatJournalier.Location = new System.Drawing.Point(0, 0);
+            this.dgvEtatJournalier.Location = new System.Drawing.Point(0, 68);
             this.dgvEtatJournalier.Margin = new System.Windows.Forms.Padding(4);
             this.dgvEtatJournalier.Name = "dgvEtatJournalier";
             this.dgvEtatJournalier.ReadOnly = true;
             this.dgvEtatJournalier.RowHeadersVisible = false;
             this.dgvEtatJournalier.RowHeadersWidth = 62;
             this.dgvEtatJournalier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEtatJournalier.Size = new System.Drawing.Size(1111, 669);
+            this.dgvEtatJournalier.Size = new System.Drawing.Size(1111, 601);
             this.dgvEtatJournalier.TabIndex = 61;
             // 
             // Column1
