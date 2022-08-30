@@ -144,64 +144,54 @@ namespace ParcAuto
         }
         private void ChartCarburant()
         {
-            GLB.Cmd.CommandText = "select Totalconsommation , DispoAnneeProch , Annee from EtatRecapCarburantSNTL group by Totalconsommation , DispoAnneeProch , Annee";
+            GLB.Cmd.CommandText = $"select TotalReport_Achat,Totalconsommation,Annee from EtatRecapCarburantSNTL where Annee= {GLB.SelectedDate}";
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             while (GLB.dr.Read())
             {
-                Carburantchart.Series["Annee"].Points.AddXY($"{GLB.dr[2]}",GLB.dr[0].ToString());
-                Carburantchart.Series["Report"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[1].ToString());
+                Carburantchart.Series["Total Report et Achat"].Points.AddXY($"{GLB.dr[2]}",GLB.dr[0].ToString());
+                Carburantchart.Series["Total Consommation"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[1].ToString());
             }
             GLB.dr.Close();
             GLB.Con.Close();
-            Carburantchart.Series["Annee"].Points.AddXY($"Annee", 300000);
-            Carburantchart.Series["Report"].Points.AddXY($"Annee", 40000);
-
-            Carburantchart.Series["Annee"].Points.AddXY($"Annee", 300000);
-            Carburantchart.Series["Report"].Points.AddXY($"Annee", 40000);
-
-            Carburantchart.Series["Annee"].Points.AddXY($"Annee", 300000);
-            Carburantchart.Series["Report"].Points.AddXY($"Annee", 40000);
-            Carburantchart.Series["Annee"].Points.AddXY($"Annee", 300000);
-            Carburantchart.Series["Report"].Points.AddXY($"Annee", 40000);
 
 
         }
         private void ChartCarteFree()
         {
-            GLB.Cmd.CommandText = "select Totalconsommation , DispoAnneeProch , Annee from EtatRecapCartefree group by Totalconsommation , DispoAnneeProch , Annee";
+            GLB.Cmd.CommandText = $"select TotalReport_Achat,Totalconsommation , Annee from EtatRecapCartefree where Annee= {GLB.SelectedDate}";
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             while (GLB.dr.Read())
             {
-                carteFreeChart.Series["Annee"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[0].ToString());
-                carteFreeChart.Series["Report"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[1].ToString());
+                carteFreeChart.Series["Total Report et Achat"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[0].ToString());
+                carteFreeChart.Series["Total Consommation"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[1].ToString());
             }
             GLB.dr.Close();
             GLB.Con.Close();
         }
         private void ChartReparation()
         {
-            GLB.Cmd.CommandText = "select Totalconsommation , DispoAnneeProch , Annee from EtatRecapReparation group by Totalconsommation , DispoAnneeProch , Annee";
+            GLB.Cmd.CommandText = $"select TotalReport_Achat,Totalconsommation  , Annee from EtatRecapReparation where Annee= {GLB.SelectedDate}";
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             while (GLB.dr.Read())
             {
-                ReparationChart.Series["Annee"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[0].ToString());
-                ReparationChart.Series["Report"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[1].ToString());
+                ReparationChart.Series["Total Report et Achat"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[0].ToString());
+                ReparationChart.Series["Total Consommation"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[1].ToString());
             }
             GLB.dr.Close();
             GLB.Con.Close();
         }
         private void ChartTransport()
         {
-            GLB.Cmd.CommandText = "select Totalconsommation , DispoAnneeProch , Annee from EtatRecapTransport group by Totalconsommation , DispoAnneeProch , Annee";
+            GLB.Cmd.CommandText = $"select TotalReport_Achat,Totalconsommation, Annee from EtatRecapTransport where Annee= {GLB.SelectedDate}";
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             while (GLB.dr.Read())
             {
-                TransportChart.Series["Annee"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[0].ToString());
-                TransportChart.Series["Report"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[1].ToString());
+                TransportChart.Series["Total Report et Achat"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[0].ToString());
+                TransportChart.Series["Total Consommation"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[1].ToString());
             }
             GLB.dr.Close();
             GLB.Con.Close();
