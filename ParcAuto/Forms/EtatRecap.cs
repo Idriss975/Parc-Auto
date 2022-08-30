@@ -148,9 +148,9 @@ namespace ParcAuto.Forms
             Impression.Print_Header(e, imageList1.Images[0]);
             Impression.Print_footer(e);
 
-            if (e.PageSettings.Landscape)
-                Print_EtatRecapTable_Paysage(e);
-            else
+            //if (e.PageSettings.Landscape)
+            //    Print_EtatRecapTable_Paysage(e);
+            //else
                 Print_EtatRecapTable_Portrait(e);
             
         }
@@ -181,49 +181,49 @@ namespace ParcAuto.Forms
             dynamic Carburant = Print_Rectangle(e, Design.x, Design.y + Design.heigth, Design.width / 2, Cell_surfaces[1] * 2, Text: label45.Text, fontSize: 7, fontStyle:FontStyle.Bold);
             dynamic Carte_Free = Print_Rectangle(e, Carburant.x + Carburant.width, Carburant.y, Carburant.width, Cell_surfaces[1], Text: label43.Text, fontSize: 7, fontStyle: FontStyle.Bold);
             dynamic Vign_SNTL = Print_Rectangle(e, Carte_Free.x, Carte_Free.y + Carte_Free.heigth,Carte_Free.width,Carte_Free.heigth, Text: label44.Text, fontSize: 6.7F, fontStyle: FontStyle.Bold);
-
-            dynamic CF_Report = Print_Rectangle(e, Report.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: ReportCarteFree.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic CF_Achat = Print_Rectangle(e, Achat.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: AchatCarteFree.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic CF_Total = Print_Rectangle(e, Total_Stock.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: SumStockCarteFree.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic CF_Per_trim = Print_Rectangle(e, Per_trim.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim1CarteFree.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic CF_Der_trim = Print_Rectangle(e, Der_trim.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim2CarteFree.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic CF_Ter_trim = Print_Rectangle(e, Ter_trim.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim3CarteFree.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic CF_Qer_trim = Print_Rectangle(e, Qer_trim.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim4CarteFree.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic CF_Total_Consom = Print_Rectangle(e, Total_Consomation.x, Carte_Free.y,Total_Consomation.width,Cell_surfaces[1], Text: sumtrimestres.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic CF_Dispo = Print_Rectangle(e, Dispo.x, Carte_Free.y, Dispo.width, Cell_surfaces[1], Text: Disponible.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-
-            dynamic Vign_Report = Print_Rectangle(e, Report.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: ReportCarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Vign_Achat = Print_Rectangle(e, Achat.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: AchatCarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Vign_Total = Print_Rectangle(e, Total_Stock.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: SumStockCarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Vign_Per_trim = Print_Rectangle(e, Per_trim.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim1CarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Vign_Der_trim = Print_Rectangle(e, Der_trim.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim2CarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Vign_Ter_trim = Print_Rectangle(e, Ter_trim.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim3CarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Vign_Qer_trim = Print_Rectangle(e, Qer_trim.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim4CarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Vign_Total_Consom = Print_Rectangle(e, Total_Consomation.x, Vign_SNTL.y, Total_Consomation.width, Cell_surfaces[1], Text: sumtrimestresCarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Vign_Dispo = Print_Rectangle(e, Dispo.x, Vign_SNTL.y, Dispo.width, Cell_surfaces[1], Text: DisponibleCarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-
             dynamic Vign_Reparation = Print_Rectangle(e, Starting_coords[0], Vign_SNTL.y + Vign_SNTL.heigth, Design.width, Cell_surfaces[1], Text: label41.Text, fontSize: 7, fontStyle: FontStyle.Bold);
             dynamic Vign_Transport = Print_Rectangle(e, Starting_coords[0], Vign_Reparation.y + Vign_Reparation.heigth, Design.width, Cell_surfaces[1], Text: label40.Text, fontSize: 7, fontStyle: FontStyle.Bold);
 
-            dynamic Rep_Report = Print_Rectangle(e, Report.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: ReportReparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Rep_Achat = Print_Rectangle(e, Achat.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: AchatReparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Rep_Total = Print_Rectangle(e, Total_Stock.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: sumStockReparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Rep_Per_trim = Print_Rectangle(e, Per_trim.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim1Reparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Rep_Der_trim = Print_Rectangle(e, Der_trim.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim2Reparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Rep_Ter_trim = Print_Rectangle(e, Ter_trim.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim3Reparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Rep_Qer_trim = Print_Rectangle(e, Qer_trim.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim4Reparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Rep_Total_Consom = Print_Rectangle(e, Total_Consomation.x, Vign_Reparation.y, Total_Consomation.width, Cell_surfaces[1], Text: sumtrimestresReparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Rep_Dispo = Print_Rectangle(e, Dispo.x, Vign_Reparation.y, Dispo.width, Cell_surfaces[1], Text: DisponibleReparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Report.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: ReportCarteFree.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Achat.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: AchatCarteFree.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Total_Stock.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: SumStockCarteFree.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Per_trim.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim1CarteFree.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Der_trim.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim2CarteFree.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Ter_trim.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim3CarteFree.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Qer_trim.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim4CarteFree.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Total_Consomation.x, Carte_Free.y,Total_Consomation.width,Cell_surfaces[1], Text: sumtrimestres.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Dispo.x, Carte_Free.y, Dispo.width, Cell_surfaces[1], Text: Disponible.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
 
-            dynamic Tran_Report = Print_Rectangle(e, Report.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: ReportTransport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Tran_Achat = Print_Rectangle(e, Achat.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: AchatTransport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Tran_Total = Print_Rectangle(e, Total_Stock.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: SumStockTransport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Tran_Per_trim = Print_Rectangle(e, Per_trim.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim1transport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Tran_Der_trim = Print_Rectangle(e, Der_trim.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim2transport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Tran_Ter_trim = Print_Rectangle(e, Ter_trim.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim3transport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Tran_Qer_trim = Print_Rectangle(e, Qer_trim.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim4transport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Tran_Total_Consom = Print_Rectangle(e, Total_Consomation.x, Vign_Transport.y, Total_Consomation.width, Cell_surfaces[1], Text: sumTrimestresTransport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
-            dynamic Tran_Dispo = Print_Rectangle(e, Dispo.x, Vign_Transport.y, Dispo.width, Cell_surfaces[1], Text: DisponibleTransport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Report.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: ReportCarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Achat.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: AchatCarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Total_Stock.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: SumStockCarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Per_trim.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim1CarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Der_trim.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim2CarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Ter_trim.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim3CarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Qer_trim.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim4CarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Total_Consomation.x, Vign_SNTL.y, Total_Consomation.width, Cell_surfaces[1], Text: sumtrimestresCarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Dispo.x, Vign_SNTL.y, Dispo.width, Cell_surfaces[1], Text: DisponibleCarbSNTL.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+
+
+            Print_Rectangle(e, Report.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: ReportReparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Achat.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: AchatReparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Total_Stock.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: sumStockReparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Per_trim.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim1Reparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Der_trim.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim2Reparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Ter_trim.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim3Reparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Qer_trim.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim4Reparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Total_Consomation.x, Vign_Reparation.y, Total_Consomation.width, Cell_surfaces[1], Text: sumtrimestresReparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Dispo.x, Vign_Reparation.y, Dispo.width, Cell_surfaces[1], Text: DisponibleReparation.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+
+            Print_Rectangle(e, Report.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: ReportTransport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Achat.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: AchatTransport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Total_Stock.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: SumStockTransport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Per_trim.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim1transport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Der_trim.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim2transport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Ter_trim.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim3transport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Qer_trim.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim4transport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Total_Consomation.x, Vign_Transport.y, Total_Consomation.width, Cell_surfaces[1], Text: sumTrimestresTransport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
+            Print_Rectangle(e, Dispo.x, Vign_Transport.y, Dispo.width, Cell_surfaces[1], Text: DisponibleTransport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
         }
         private void Print_EtatRecapTable_Paysage(PrintPageEventArgs e)
         {
