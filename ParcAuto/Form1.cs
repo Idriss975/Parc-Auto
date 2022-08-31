@@ -153,7 +153,7 @@ namespace ParcAuto
                 Carburantchart.Series["Total Consommation"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[1].ToString());
                 lblCarburant.Text = $"- Consommation d'annee {GLB.SelectedDate} est {GLB.dr[1]}.\n" +
                     $"- Consommation d'annee {int.Parse(GLB.SelectedDate) - 1} est {GLB.dr[3]}.\n" +
-                    $"- L'ecart entre ces deux annees est {GLB.dr[4]}.";
+                    $"- L'ecart des deux annees est {GLB.dr[4]}, {((double.Parse(GLB.dr[1].ToString())/double.Parse(GLB.dr[2].ToString()))*100).ToString("F2")}%.";
             }
             GLB.dr.Close();
             GLB.Con.Close();
@@ -171,7 +171,7 @@ namespace ParcAuto
                 carteFreeChart.Series["Total Consommation"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[1].ToString());
                 lblCarteFree.Text = $"- Consommation d'annee {GLB.SelectedDate} est {GLB.dr[1]}.\n" +
                     $"- Consommation d'annee {int.Parse(GLB.SelectedDate) - 1} est {GLB.dr[3]}.\n" +
-                    $"- L'ecart entre ces deux annees est {GLB.dr[4]}.";
+                    $"- L'ecart des deux annees est {GLB.dr[4]}, {((double.Parse(GLB.dr[1].ToString()) / double.Parse(GLB.dr[2].ToString())) * 100).ToString("F2")}%.";
             }
             GLB.dr.Close();
             GLB.Con.Close();
@@ -187,7 +187,7 @@ namespace ParcAuto
                 ReparationChart.Series["Total Consommation"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[1].ToString());
                 lblReparation.Text = $"- Consommation d'annee {GLB.SelectedDate} est {GLB.dr[1]}.\n" +
                     $"- Consommation d'annee {int.Parse(GLB.SelectedDate) - 1} est {GLB.dr[3]}.\n" +
-                    $"- L'ecart entre ces deux annees est {GLB.dr[4]}.";
+                    $"- L'ecart des deux annees est {GLB.dr[4]}, {((double.Parse(GLB.dr[1].ToString()) / double.Parse(GLB.dr[2].ToString())) * 100).ToString("F2")}%.";
             }
             GLB.dr.Close();
             GLB.Con.Close();
@@ -204,7 +204,7 @@ namespace ParcAuto
                 TransportChart.Series["Total Consommation"].Points.AddXY($"{GLB.dr[2]}", GLB.dr[1].ToString());
                 lbltransport.Text = $"- Consommation d'annee {GLB.SelectedDate} est {GLB.dr[1]}.\n" +
                     $"- Consommation d'annee {int.Parse(GLB.SelectedDate) - 1} est {GLB.dr[3]}.\n" +
-                    $"- L'ecart entre ces deux annees est {GLB.dr[4]}.";
+                    $"- L'ecart des deux annees est {GLB.dr[4]}, {((double.Parse(GLB.dr[1].ToString()) / double.Parse(GLB.dr[2].ToString())) * 100).ToString("F2")}%.";
             }
             GLB.dr.Close();
             GLB.Con.Close();
