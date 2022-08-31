@@ -285,6 +285,11 @@ namespace ParcAuto.Forms
         {
             (new AjouterUneDirection()).ShowDialog();
         }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            EtatRecap_Load(sender, e);
+        }
     }
 
 

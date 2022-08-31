@@ -498,5 +498,10 @@ namespace ParcAuto
             showSubMenu(panelsousSuivi);
             Arrow_Up_Down(panelsousSuivi, arrowsuiviUp, arrowsuiviDown);
         }
+
+        private void btnNbCourriers_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.NombreDeCourriersParEntite(), sender);
+        }
     }
 }

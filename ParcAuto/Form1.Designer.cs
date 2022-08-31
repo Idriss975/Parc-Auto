@@ -31,22 +31,22 @@ namespace ParcAuto
         {
             System.Windows.Forms.Panel section2;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea29 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend29 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series57 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series58 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea30 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend30 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series59 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series60 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea31 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend31 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series61 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series62 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea32 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend32 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series63 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series64 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Suivis = new System.Windows.Forms.Panel();
             this.panelsousSuivi = new System.Windows.Forms.Panel();
             this.btnNbCourriers = new System.Windows.Forms.Button();
@@ -207,6 +207,7 @@ namespace ParcAuto
             this.btnNbCourriers.Text = "Nombre de Courriers \r\npar Directions ";
             this.btnNbCourriers.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.btnNbCourriers.UseVisualStyleBackColor = false;
+            this.btnNbCourriers.Click += new System.EventHandler(this.btnNbCourriers_Click);
             // 
             // btnLstCourriers
             // 
@@ -1016,20 +1017,20 @@ namespace ParcAuto
             // 
             // TransportChart
             // 
-            chartArea29.Name = "ChartArea1";
-            this.TransportChart.ChartAreas.Add(chartArea29);
-            legend29.Name = "Legend1";
-            this.TransportChart.Legends.Add(legend29);
+            chartArea1.Name = "ChartArea1";
+            this.TransportChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.TransportChart.Legends.Add(legend1);
             this.TransportChart.Location = new System.Drawing.Point(3, 51);
             this.TransportChart.Name = "TransportChart";
-            series57.ChartArea = "ChartArea1";
-            series57.Legend = "Legend1";
-            series57.Name = "Total Report et Achat";
-            series58.ChartArea = "ChartArea1";
-            series58.Legend = "Legend1";
-            series58.Name = "Total Consommation";
-            this.TransportChart.Series.Add(series57);
-            this.TransportChart.Series.Add(series58);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Total Report et Achat";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Total Consommation";
+            this.TransportChart.Series.Add(series1);
+            this.TransportChart.Series.Add(series2);
             this.TransportChart.Size = new System.Drawing.Size(439, 225);
             this.TransportChart.TabIndex = 0;
             this.TransportChart.Text = "chart1";
@@ -1062,20 +1063,20 @@ namespace ParcAuto
             // 
             // ReparationChart
             // 
-            chartArea30.Name = "ChartArea1";
-            this.ReparationChart.ChartAreas.Add(chartArea30);
-            legend30.Name = "Legend1";
-            this.ReparationChart.Legends.Add(legend30);
+            chartArea2.Name = "ChartArea1";
+            this.ReparationChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.ReparationChart.Legends.Add(legend2);
             this.ReparationChart.Location = new System.Drawing.Point(3, 51);
             this.ReparationChart.Name = "ReparationChart";
-            series59.ChartArea = "ChartArea1";
-            series59.Legend = "Legend1";
-            series59.Name = "Total Report et Achat";
-            series60.ChartArea = "ChartArea1";
-            series60.Legend = "Legend1";
-            series60.Name = "Total Consommation";
-            this.ReparationChart.Series.Add(series59);
-            this.ReparationChart.Series.Add(series60);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Total Report et Achat";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Total Consommation";
+            this.ReparationChart.Series.Add(series3);
+            this.ReparationChart.Series.Add(series4);
             this.ReparationChart.Size = new System.Drawing.Size(439, 225);
             this.ReparationChart.TabIndex = 0;
             this.ReparationChart.Text = "chart1";
@@ -1107,20 +1108,20 @@ namespace ParcAuto
             // 
             // carteFreeChart
             // 
-            chartArea31.Name = "ChartArea1";
-            this.carteFreeChart.ChartAreas.Add(chartArea31);
-            legend31.Name = "Legend1";
-            this.carteFreeChart.Legends.Add(legend31);
+            chartArea3.Name = "ChartArea1";
+            this.carteFreeChart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.carteFreeChart.Legends.Add(legend3);
             this.carteFreeChart.Location = new System.Drawing.Point(3, 51);
             this.carteFreeChart.Name = "carteFreeChart";
-            series61.ChartArea = "ChartArea1";
-            series61.Legend = "Legend1";
-            series61.Name = "Total Report et Achat";
-            series62.ChartArea = "ChartArea1";
-            series62.Legend = "Legend1";
-            series62.Name = "Total Consommation";
-            this.carteFreeChart.Series.Add(series61);
-            this.carteFreeChart.Series.Add(series62);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Total Report et Achat";
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Total Consommation";
+            this.carteFreeChart.Series.Add(series5);
+            this.carteFreeChart.Series.Add(series6);
             this.carteFreeChart.Size = new System.Drawing.Size(439, 225);
             this.carteFreeChart.TabIndex = 0;
             this.carteFreeChart.Text = "chart1";
@@ -1151,20 +1152,20 @@ namespace ParcAuto
             // 
             // Carburantchart
             // 
-            chartArea32.Name = "ChartArea1";
-            this.Carburantchart.ChartAreas.Add(chartArea32);
-            legend32.Name = "Legend1";
-            this.Carburantchart.Legends.Add(legend32);
+            chartArea4.Name = "ChartArea1";
+            this.Carburantchart.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.Carburantchart.Legends.Add(legend4);
             this.Carburantchart.Location = new System.Drawing.Point(3, 48);
             this.Carburantchart.Name = "Carburantchart";
-            series63.ChartArea = "ChartArea1";
-            series63.Legend = "Legend1";
-            series63.Name = "Total Report et Achat";
-            series64.ChartArea = "ChartArea1";
-            series64.Legend = "Legend1";
-            series64.Name = "Total Consommation";
-            this.Carburantchart.Series.Add(series63);
-            this.Carburantchart.Series.Add(series64);
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Total Report et Achat";
+            series8.ChartArea = "ChartArea1";
+            series8.Legend = "Legend1";
+            series8.Name = "Total Consommation";
+            this.Carburantchart.Series.Add(series7);
+            this.Carburantchart.Series.Add(series8);
             this.Carburantchart.Size = new System.Drawing.Size(404, 249);
             this.Carburantchart.TabIndex = 0;
             this.Carburantchart.Text = "chart1";
