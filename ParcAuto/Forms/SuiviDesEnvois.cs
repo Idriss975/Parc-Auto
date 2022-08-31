@@ -31,6 +31,8 @@ namespace ParcAuto.Forms
                    "ON permit.grantee_principal_id = pri.principal_id " +
                    "WHERE object_name(permit.major_id) = 'SuiviDesEnvois' " +
                    $"and pri.name = SUSER_NAME()";
+            if (GLB.Con.State == ConnectionState.Open)
+                GLB.Con.Close();
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             while (GLB.dr.Read())
@@ -72,6 +74,8 @@ namespace ParcAuto.Forms
             {
 
                 GLB.Cmd.CommandText = $"select * from SuiviDesEnvois where Year(DateDepot) = '{GLB.SelectedDate}'";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
@@ -151,12 +155,51 @@ namespace ParcAuto.Forms
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
+                GLB.Con.Open();
+                for (int i = 0; i < dgvCourrier.SelectedRows.Count; i++)
+                {
+                    GLB.Cmd.CommandText = $"delete from SuiviDesEnvois where id = {dgvCourrier.SelectedRows[i].Cells[11].Value} ";
+                    GLB.Cmd.ExecuteNonQuery();
+                }
+                RemplirLaGrille();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Il faut selectionner sur la table pour Suprrimer la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                GLB.Con.Close();
+            }
         }
 
         private void btnSuprimmerTout_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
+                GLB.Con.Open();
+                for (int i = 0; i < dgvCourrier.Rows.Count; i++)
+                {
+                    GLB.Cmd.CommandText = $"delete from SuiviDesEnvois where id =  {dgvCourrier.Rows[i].Cells[11].Value}";
+                    GLB.Cmd.ExecuteNonQuery();
+                }
+                RemplirLaGrille();
+            }
+            catch (Exception ex)
+            {
 
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                GLB.Con.Close();
+            }
         }
 
         private void cmbChoix_SelectedIndexChanged(object sender, EventArgs e)
@@ -190,6 +233,60 @@ namespace ParcAuto.Forms
         private void btnFiltrer_Click(object sender, EventArgs e)
         {
             GLB.Filter(cmbChoix, dgvCourrier, txtValueToFiltre, new string[] { "Date de depot", "Date d'enlevement" }, Date1, Date2);
+        }
+
+        private void btnExportExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvCourrier.Rows.Count > 0)
+                {
+
+                    Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
+                    xcelApp.Application.Workbooks.Add(Type.Missing);
+
+                    for (int i = 0; i < dgvCourrier.Columns.Count - 1; i++)
+                    {
+                        if (i < 11)
+                        {
+                            xcelApp.Cells[1, i + 1] = dgvCourrier.Columns[i].HeaderText;
+                        }
+                        else
+                        {
+                            xcelApp.Cells[1, i + 1] = dgvCourrier.Columns[i + 1].HeaderText;
+
+                        }
+                    }
+
+                    for (int i = 0; i < dgvCourrier.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < dgvCourrier.Columns.Count - 1; j++)
+                        {
+
+                            if (j < 11)
+                            {
+                                xcelApp.Cells[i + 2, j + 1] = dgvCourrier.Rows[i].Cells[j].Value.ToString().Trim();
+                            }
+                            else
+                            {
+                                xcelApp.Cells[i + 2, j + 1] = dgvCourrier.Rows[i].Cells[j + 1].Value.ToString().Trim();
+                            }
+
+
+                        }
+                    }
+                    xcelApp.Columns.AutoFit();
+                    xcelApp.Visible = true;
+                    xcelApp.Workbooks.Close();
+                    xcelApp.Quit();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

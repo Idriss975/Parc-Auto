@@ -38,6 +38,8 @@ namespace ParcAuto.Forms
         private void txtMat_TextChanged(object sender, EventArgs e)
         {
             GLB.Cmd.CommandText = $"select Marque from Vehicules where Matricule = '{txtMat.Text}'";
+            if (GLB.Con.State == ConnectionState.Open)
+                GLB.Con.Close();
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             if (!GLB.dr.Read())
@@ -88,7 +90,8 @@ namespace ParcAuto.Forms
             if (!GLB.Entites.Values.Contains(txtEntite.Text))
             {
                 MessageBox.Show("Ecrire Correctement l'abreviation ou le nom de la Direction");
-                txtEntite.Text = "";
+                txtEntite.Text = "";    
+
             }
         }
 
@@ -159,6 +162,8 @@ namespace ParcAuto.Forms
                         break;
 
                 }
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.Cmd.ExecuteNonQuery();
             }

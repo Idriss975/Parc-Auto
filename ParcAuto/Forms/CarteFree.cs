@@ -219,54 +219,54 @@ namespace ParcAuto.Forms
 
         private void btnExportExcel_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (dgvCarteFree.Rows.Count > 0)
+                try
                 {
-
-                    Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
-                    xcelApp.Application.Workbooks.Add(Type.Missing);
-
-                    for (int i = 0; i < dgvCarteFree.Columns.Count - 1; i++)
+                    if (dgvCarteFree.Rows.Count > 0)
                     {
-                        if (i < 0)
-                        {
-                            xcelApp.Cells[1, i + 1] = dgvCarteFree.Columns[i].HeaderText;
-                        }
-                        else
-                        {
-                            xcelApp.Cells[1, i + 1] = dgvCarteFree.Columns[i + 1].HeaderText;
 
-                        }
-                    }
+                        Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
+                        xcelApp.Application.Workbooks.Add(Type.Missing);
 
-                    for (int i = 0; i < dgvCarteFree.Rows.Count; i++)
-                    {
-                        for (int j = 0; j < dgvCarteFree.Columns.Count - 1; j++)
+                        for (int i = 0; i < dgvCarteFree.Columns.Count - 1; i++)
                         {
-                            if (j < 0)
+                            if (i < 0)
                             {
-                                xcelApp.Cells[i + 2, j + 1] = dgvCarteFree.Rows[i].Cells[j].Value.ToString();
+                                xcelApp.Cells[1, i + 1] = dgvCarteFree.Columns[i].HeaderText;
                             }
                             else
                             {
-                                xcelApp.Cells[i + 2, j + 1] = dgvCarteFree.Rows[i].Cells[j + 1].Value.ToString();
+                                xcelApp.Cells[1, i + 1] = dgvCarteFree.Columns[i + 1].HeaderText;
+
                             }
-
-
                         }
+
+                        for (int i = 0; i < dgvCarteFree.Rows.Count; i++)
+                        {
+                            for (int j = 0; j < dgvCarteFree.Columns.Count - 1; j++)
+                            {
+                                if (j < 0)
+                                {
+                                    xcelApp.Cells[i + 2, j + 1] = dgvCarteFree.Rows[i].Cells[j].Value.ToString();
+                                }
+                                else
+                                {
+                                    xcelApp.Cells[i + 2, j + 1] = dgvCarteFree.Rows[i].Cells[j + 1].Value.ToString();
+                                }
+
+
+                            }
+                        }
+                        xcelApp.Columns.AutoFit();
+                        xcelApp.Visible = true;
+                        xcelApp.Workbooks.Close();
                     }
-                    xcelApp.Columns.AutoFit();
-                    xcelApp.Visible = true;
-                    xcelApp.Workbooks.Close();
+
+
                 }
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
         }
         _Application importExceldatagridViewApp;
         _Worksheet importExceldatagridViewworksheet;

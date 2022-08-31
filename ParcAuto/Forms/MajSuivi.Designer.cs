@@ -43,20 +43,20 @@ namespace ParcAuto.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.btnAppliquer = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dateEnlevement = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.txtReference = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtDestination = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtDestinataire = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtDemandeur = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtCodeAbarre = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtorderBOC = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtPrix = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtNatureEnvoi = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.dateDepot = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtNombre = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtNatureEnvoi = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtPrix = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtorderBOC = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtCodeAbarre = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtDemandeur = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtDestinataire = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtDestination = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtReference = new Guna.UI2.WinForms.Guna2TextBox();
-            this.dateEnlevement = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -271,222 +271,45 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Size = new System.Drawing.Size(673, 275);
             this.tableLayoutPanel1.TabIndex = 44;
             // 
-            // dateDepot
+            // dateEnlevement
             // 
-            this.dateDepot.BorderRadius = 4;
-            this.dateDepot.CheckedState.Parent = this.dateDepot;
-            this.dateDepot.FillColor = System.Drawing.Color.White;
-            this.dateDepot.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dateDepot.HoverState.Parent = this.dateDepot;
-            this.dateDepot.Location = new System.Drawing.Point(136, 48);
-            this.dateDepot.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dateDepot.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dateDepot.Name = "dateDepot";
-            this.dateDepot.ShadowDecoration.Parent = this.dateDepot;
-            this.dateDepot.Size = new System.Drawing.Size(195, 36);
-            this.dateDepot.TabIndex = 51;
-            this.dateDepot.Value = new System.DateTime(2022, 8, 29, 12, 55, 2, 963);
+            this.dateEnlevement.BorderRadius = 4;
+            this.dateEnlevement.CheckedState.Parent = this.dateEnlevement;
+            this.dateEnlevement.FillColor = System.Drawing.Color.White;
+            this.dateEnlevement.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateEnlevement.HoverState.Parent = this.dateEnlevement;
+            this.dateEnlevement.Location = new System.Drawing.Point(467, 183);
+            this.dateEnlevement.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dateEnlevement.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dateEnlevement.Name = "dateEnlevement";
+            this.dateEnlevement.ShadowDecoration.Parent = this.dateEnlevement;
+            this.dateEnlevement.Size = new System.Drawing.Size(195, 36);
+            this.dateEnlevement.TabIndex = 67;
+            this.dateEnlevement.Value = new System.DateTime(2022, 8, 29, 12, 55, 2, 963);
             // 
-            // txtNombre
+            // txtReference
             // 
-            this.txtNombre.BorderRadius = 4;
-            this.txtNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNombre.DefaultText = "";
-            this.txtNombre.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtNombre.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtNombre.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNombre.DisabledState.Parent = this.txtNombre;
-            this.txtNombre.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNombre.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNombre.FocusedState.Parent = this.txtNombre;
-            this.txtNombre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNombre.HoverState.Parent = this.txtNombre;
-            this.txtNombre.Location = new System.Drawing.Point(468, 139);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.PasswordChar = '\0';
-            this.txtNombre.PlaceholderText = "";
-            this.txtNombre.SelectedText = "";
-            this.txtNombre.ShadowDecoration.Parent = this.txtNombre;
-            this.txtNombre.Size = new System.Drawing.Size(200, 36);
-            this.txtNombre.TabIndex = 52;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(3, 194);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(108, 16);
-            this.label9.TabIndex = 53;
-            this.label9.Text = "Nature d\'envoi :";
-            // 
-            // txtNatureEnvoi
-            // 
-            this.txtNatureEnvoi.BorderRadius = 4;
-            this.txtNatureEnvoi.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNatureEnvoi.DefaultText = "";
-            this.txtNatureEnvoi.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtNatureEnvoi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtNatureEnvoi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNatureEnvoi.DisabledState.Parent = this.txtNatureEnvoi;
-            this.txtNatureEnvoi.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNatureEnvoi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNatureEnvoi.FocusedState.Parent = this.txtNatureEnvoi;
-            this.txtNatureEnvoi.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNatureEnvoi.HoverState.Parent = this.txtNatureEnvoi;
-            this.txtNatureEnvoi.Location = new System.Drawing.Point(138, 185);
-            this.txtNatureEnvoi.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.txtNatureEnvoi.Name = "txtNatureEnvoi";
-            this.txtNatureEnvoi.PasswordChar = '\0';
-            this.txtNatureEnvoi.PlaceholderText = "";
-            this.txtNatureEnvoi.SelectedText = "";
-            this.txtNatureEnvoi.ShadowDecoration.Parent = this.txtNatureEnvoi;
-            this.txtNatureEnvoi.Size = new System.Drawing.Size(191, 35);
-            this.txtNatureEnvoi.TabIndex = 54;
-            // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(349, 186);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(100, 32);
-            this.label10.TabIndex = 55;
-            this.label10.Text = "Date d\'enlevement :";
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(3, 242);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(40, 16);
-            this.label11.TabIndex = 57;
-            this.label11.Text = "Prix :";
-            // 
-            // txtPrix
-            // 
-            this.txtPrix.BorderRadius = 4;
-            this.txtPrix.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPrix.DefaultText = "";
-            this.txtPrix.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtPrix.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtPrix.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPrix.DisabledState.Parent = this.txtPrix;
-            this.txtPrix.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPrix.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPrix.FocusedState.Parent = this.txtPrix;
-            this.txtPrix.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPrix.HoverState.Parent = this.txtPrix;
-            this.txtPrix.Location = new System.Drawing.Point(140, 231);
-            this.txtPrix.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.txtPrix.Name = "txtPrix";
-            this.txtPrix.PasswordChar = '\0';
-            this.txtPrix.PlaceholderText = "";
-            this.txtPrix.SelectedText = "";
-            this.txtPrix.ShadowDecoration.Parent = this.txtPrix;
-            this.txtPrix.Size = new System.Drawing.Size(187, 38);
-            this.txtPrix.TabIndex = 58;
-            // 
-            // txtorderBOC
-            // 
-            this.txtorderBOC.BorderRadius = 4;
-            this.txtorderBOC.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtorderBOC.DefaultText = "";
-            this.txtorderBOC.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtorderBOC.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtorderBOC.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtorderBOC.DisabledState.Parent = this.txtorderBOC;
-            this.txtorderBOC.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtorderBOC.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtorderBOC.FocusedState.Parent = this.txtorderBOC;
-            this.txtorderBOC.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtorderBOC.HoverState.Parent = this.txtorderBOC;
-            this.txtorderBOC.Location = new System.Drawing.Point(138, 5);
-            this.txtorderBOC.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.txtorderBOC.Name = "txtorderBOC";
-            this.txtorderBOC.PasswordChar = '\0';
-            this.txtorderBOC.PlaceholderText = "";
-            this.txtorderBOC.SelectedText = "";
-            this.txtorderBOC.ShadowDecoration.Parent = this.txtorderBOC;
-            this.txtorderBOC.Size = new System.Drawing.Size(191, 35);
-            this.txtorderBOC.TabIndex = 61;
-            // 
-            // txtCodeAbarre
-            // 
-            this.txtCodeAbarre.BorderRadius = 4;
-            this.txtCodeAbarre.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCodeAbarre.DefaultText = "";
-            this.txtCodeAbarre.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtCodeAbarre.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtCodeAbarre.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCodeAbarre.DisabledState.Parent = this.txtCodeAbarre;
-            this.txtCodeAbarre.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCodeAbarre.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCodeAbarre.FocusedState.Parent = this.txtCodeAbarre;
-            this.txtCodeAbarre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCodeAbarre.HoverState.Parent = this.txtCodeAbarre;
-            this.txtCodeAbarre.Location = new System.Drawing.Point(469, 5);
-            this.txtCodeAbarre.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.txtCodeAbarre.Name = "txtCodeAbarre";
-            this.txtCodeAbarre.PasswordChar = '\0';
-            this.txtCodeAbarre.PlaceholderText = "";
-            this.txtCodeAbarre.SelectedText = "";
-            this.txtCodeAbarre.ShadowDecoration.Parent = this.txtCodeAbarre;
-            this.txtCodeAbarre.Size = new System.Drawing.Size(199, 35);
-            this.txtCodeAbarre.TabIndex = 62;
-            // 
-            // txtDemandeur
-            // 
-            this.txtDemandeur.BorderRadius = 4;
-            this.txtDemandeur.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtDemandeur.DefaultText = "";
-            this.txtDemandeur.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtDemandeur.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtDemandeur.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDemandeur.DisabledState.Parent = this.txtDemandeur;
-            this.txtDemandeur.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDemandeur.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDemandeur.FocusedState.Parent = this.txtDemandeur;
-            this.txtDemandeur.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDemandeur.HoverState.Parent = this.txtDemandeur;
-            this.txtDemandeur.Location = new System.Drawing.Point(469, 50);
-            this.txtDemandeur.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.txtDemandeur.Name = "txtDemandeur";
-            this.txtDemandeur.PasswordChar = '\0';
-            this.txtDemandeur.PlaceholderText = "";
-            this.txtDemandeur.SelectedText = "";
-            this.txtDemandeur.ShadowDecoration.Parent = this.txtDemandeur;
-            this.txtDemandeur.Size = new System.Drawing.Size(199, 35);
-            this.txtDemandeur.TabIndex = 63;
-            // 
-            // txtDestinataire
-            // 
-            this.txtDestinataire.BorderRadius = 4;
-            this.txtDestinataire.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtDestinataire.DefaultText = "";
-            this.txtDestinataire.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtDestinataire.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtDestinataire.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDestinataire.DisabledState.Parent = this.txtDestinataire;
-            this.txtDestinataire.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDestinataire.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDestinataire.FocusedState.Parent = this.txtDestinataire;
-            this.txtDestinataire.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDestinataire.HoverState.Parent = this.txtDestinataire;
-            this.txtDestinataire.Location = new System.Drawing.Point(469, 95);
-            this.txtDestinataire.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.txtDestinataire.Name = "txtDestinataire";
-            this.txtDestinataire.PasswordChar = '\0';
-            this.txtDestinataire.PlaceholderText = "";
-            this.txtDestinataire.SelectedText = "";
-            this.txtDestinataire.ShadowDecoration.Parent = this.txtDestinataire;
-            this.txtDestinataire.Size = new System.Drawing.Size(199, 35);
-            this.txtDestinataire.TabIndex = 64;
+            this.txtReference.BorderRadius = 4;
+            this.txtReference.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtReference.DefaultText = "";
+            this.txtReference.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtReference.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtReference.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtReference.DisabledState.Parent = this.txtReference;
+            this.txtReference.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtReference.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtReference.FocusedState.Parent = this.txtReference;
+            this.txtReference.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtReference.HoverState.Parent = this.txtReference;
+            this.txtReference.Location = new System.Drawing.Point(138, 95);
+            this.txtReference.Margin = new System.Windows.Forms.Padding(5);
+            this.txtReference.Name = "txtReference";
+            this.txtReference.PasswordChar = '\0';
+            this.txtReference.PlaceholderText = "";
+            this.txtReference.SelectedText = "";
+            this.txtReference.ShadowDecoration.Parent = this.txtReference;
+            this.txtReference.Size = new System.Drawing.Size(191, 35);
+            this.txtReference.TabIndex = 66;
             // 
             // txtDestination
             // 
@@ -851,7 +674,7 @@ namespace ParcAuto.Forms
             this.txtDestination.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDestination.HoverState.Parent = this.txtDestination;
             this.txtDestination.Location = new System.Drawing.Point(138, 140);
-            this.txtDestination.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtDestination.Margin = new System.Windows.Forms.Padding(5);
             this.txtDestination.Name = "txtDestination";
             this.txtDestination.PasswordChar = '\0';
             this.txtDestination.PlaceholderText = "";
@@ -860,45 +683,223 @@ namespace ParcAuto.Forms
             this.txtDestination.Size = new System.Drawing.Size(191, 35);
             this.txtDestination.TabIndex = 65;
             // 
-            // txtReference
+            // txtDestinataire
             // 
-            this.txtReference.BorderRadius = 4;
-            this.txtReference.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtReference.DefaultText = "";
-            this.txtReference.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtReference.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtReference.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtReference.DisabledState.Parent = this.txtReference;
-            this.txtReference.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtReference.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtReference.FocusedState.Parent = this.txtReference;
-            this.txtReference.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtReference.HoverState.Parent = this.txtReference;
-            this.txtReference.Location = new System.Drawing.Point(138, 95);
-            this.txtReference.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.txtReference.Name = "txtReference";
-            this.txtReference.PasswordChar = '\0';
-            this.txtReference.PlaceholderText = "";
-            this.txtReference.SelectedText = "";
-            this.txtReference.ShadowDecoration.Parent = this.txtReference;
-            this.txtReference.Size = new System.Drawing.Size(191, 35);
-            this.txtReference.TabIndex = 66;
+            this.txtDestinataire.BorderRadius = 4;
+            this.txtDestinataire.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtDestinataire.DefaultText = "";
+            this.txtDestinataire.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtDestinataire.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtDestinataire.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDestinataire.DisabledState.Parent = this.txtDestinataire;
+            this.txtDestinataire.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDestinataire.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDestinataire.FocusedState.Parent = this.txtDestinataire;
+            this.txtDestinataire.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDestinataire.HoverState.Parent = this.txtDestinataire;
+            this.txtDestinataire.Location = new System.Drawing.Point(469, 95);
+            this.txtDestinataire.Margin = new System.Windows.Forms.Padding(5);
+            this.txtDestinataire.Name = "txtDestinataire";
+            this.txtDestinataire.PasswordChar = '\0';
+            this.txtDestinataire.PlaceholderText = "";
+            this.txtDestinataire.SelectedText = "";
+            this.txtDestinataire.ShadowDecoration.Parent = this.txtDestinataire;
+            this.txtDestinataire.Size = new System.Drawing.Size(199, 35);
+            this.txtDestinataire.TabIndex = 64;
             // 
-            // dateEnlevement
+            // txtDemandeur
             // 
-            this.dateEnlevement.BorderRadius = 4;
-            this.dateEnlevement.CheckedState.Parent = this.dateEnlevement;
-            this.dateEnlevement.FillColor = System.Drawing.Color.White;
-            this.dateEnlevement.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dateEnlevement.HoverState.Parent = this.dateEnlevement;
-            this.dateEnlevement.Location = new System.Drawing.Point(467, 183);
-            this.dateEnlevement.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dateEnlevement.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dateEnlevement.Name = "dateEnlevement";
-            this.dateEnlevement.ShadowDecoration.Parent = this.dateEnlevement;
-            this.dateEnlevement.Size = new System.Drawing.Size(195, 36);
-            this.dateEnlevement.TabIndex = 67;
-            this.dateEnlevement.Value = new System.DateTime(2022, 8, 29, 12, 55, 2, 963);
+            this.txtDemandeur.BorderRadius = 4;
+            this.txtDemandeur.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtDemandeur.DefaultText = "";
+            this.txtDemandeur.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtDemandeur.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtDemandeur.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDemandeur.DisabledState.Parent = this.txtDemandeur;
+            this.txtDemandeur.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDemandeur.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDemandeur.FocusedState.Parent = this.txtDemandeur;
+            this.txtDemandeur.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDemandeur.HoverState.Parent = this.txtDemandeur;
+            this.txtDemandeur.Location = new System.Drawing.Point(469, 50);
+            this.txtDemandeur.Margin = new System.Windows.Forms.Padding(5);
+            this.txtDemandeur.Name = "txtDemandeur";
+            this.txtDemandeur.PasswordChar = '\0';
+            this.txtDemandeur.PlaceholderText = "";
+            this.txtDemandeur.SelectedText = "";
+            this.txtDemandeur.ShadowDecoration.Parent = this.txtDemandeur;
+            this.txtDemandeur.Size = new System.Drawing.Size(199, 35);
+            this.txtDemandeur.TabIndex = 63;
+            this.txtDemandeur.Leave += new System.EventHandler(this.txtDemandeur_Leave);
+            // 
+            // txtCodeAbarre
+            // 
+            this.txtCodeAbarre.BorderRadius = 4;
+            this.txtCodeAbarre.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCodeAbarre.DefaultText = "";
+            this.txtCodeAbarre.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCodeAbarre.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCodeAbarre.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCodeAbarre.DisabledState.Parent = this.txtCodeAbarre;
+            this.txtCodeAbarre.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCodeAbarre.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCodeAbarre.FocusedState.Parent = this.txtCodeAbarre;
+            this.txtCodeAbarre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCodeAbarre.HoverState.Parent = this.txtCodeAbarre;
+            this.txtCodeAbarre.Location = new System.Drawing.Point(469, 5);
+            this.txtCodeAbarre.Margin = new System.Windows.Forms.Padding(5);
+            this.txtCodeAbarre.Name = "txtCodeAbarre";
+            this.txtCodeAbarre.PasswordChar = '\0';
+            this.txtCodeAbarre.PlaceholderText = "";
+            this.txtCodeAbarre.SelectedText = "";
+            this.txtCodeAbarre.ShadowDecoration.Parent = this.txtCodeAbarre;
+            this.txtCodeAbarre.Size = new System.Drawing.Size(199, 35);
+            this.txtCodeAbarre.TabIndex = 62;
+            // 
+            // txtorderBOC
+            // 
+            this.txtorderBOC.BorderRadius = 4;
+            this.txtorderBOC.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtorderBOC.DefaultText = "";
+            this.txtorderBOC.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtorderBOC.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtorderBOC.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtorderBOC.DisabledState.Parent = this.txtorderBOC;
+            this.txtorderBOC.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtorderBOC.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtorderBOC.FocusedState.Parent = this.txtorderBOC;
+            this.txtorderBOC.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtorderBOC.HoverState.Parent = this.txtorderBOC;
+            this.txtorderBOC.Location = new System.Drawing.Point(138, 5);
+            this.txtorderBOC.Margin = new System.Windows.Forms.Padding(5);
+            this.txtorderBOC.Name = "txtorderBOC";
+            this.txtorderBOC.PasswordChar = '\0';
+            this.txtorderBOC.PlaceholderText = "";
+            this.txtorderBOC.SelectedText = "";
+            this.txtorderBOC.ShadowDecoration.Parent = this.txtorderBOC;
+            this.txtorderBOC.Size = new System.Drawing.Size(191, 35);
+            this.txtorderBOC.TabIndex = 61;
+            // 
+            // txtPrix
+            // 
+            this.txtPrix.BorderRadius = 4;
+            this.txtPrix.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPrix.DefaultText = "";
+            this.txtPrix.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtPrix.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtPrix.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPrix.DisabledState.Parent = this.txtPrix;
+            this.txtPrix.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPrix.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPrix.FocusedState.Parent = this.txtPrix;
+            this.txtPrix.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPrix.HoverState.Parent = this.txtPrix;
+            this.txtPrix.Location = new System.Drawing.Point(140, 231);
+            this.txtPrix.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtPrix.Name = "txtPrix";
+            this.txtPrix.PasswordChar = '\0';
+            this.txtPrix.PlaceholderText = "";
+            this.txtPrix.SelectedText = "";
+            this.txtPrix.ShadowDecoration.Parent = this.txtPrix;
+            this.txtPrix.Size = new System.Drawing.Size(187, 38);
+            this.txtPrix.TabIndex = 58;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(3, 242);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(40, 16);
+            this.label11.TabIndex = 57;
+            this.label11.Text = "Prix :";
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(349, 186);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(100, 32);
+            this.label10.TabIndex = 55;
+            this.label10.Text = "Date d\'enlevement :";
+            // 
+            // txtNatureEnvoi
+            // 
+            this.txtNatureEnvoi.BorderRadius = 4;
+            this.txtNatureEnvoi.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNatureEnvoi.DefaultText = "";
+            this.txtNatureEnvoi.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNatureEnvoi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNatureEnvoi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNatureEnvoi.DisabledState.Parent = this.txtNatureEnvoi;
+            this.txtNatureEnvoi.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNatureEnvoi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNatureEnvoi.FocusedState.Parent = this.txtNatureEnvoi;
+            this.txtNatureEnvoi.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNatureEnvoi.HoverState.Parent = this.txtNatureEnvoi;
+            this.txtNatureEnvoi.Location = new System.Drawing.Point(138, 185);
+            this.txtNatureEnvoi.Margin = new System.Windows.Forms.Padding(5);
+            this.txtNatureEnvoi.Name = "txtNatureEnvoi";
+            this.txtNatureEnvoi.PasswordChar = '\0';
+            this.txtNatureEnvoi.PlaceholderText = "";
+            this.txtNatureEnvoi.SelectedText = "";
+            this.txtNatureEnvoi.ShadowDecoration.Parent = this.txtNatureEnvoi;
+            this.txtNatureEnvoi.Size = new System.Drawing.Size(191, 35);
+            this.txtNatureEnvoi.TabIndex = 54;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(3, 194);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(108, 16);
+            this.label9.TabIndex = 53;
+            this.label9.Text = "Nature d\'envoi :";
+            // 
+            // dateDepot
+            // 
+            this.dateDepot.BorderRadius = 4;
+            this.dateDepot.CheckedState.Parent = this.dateDepot;
+            this.dateDepot.FillColor = System.Drawing.Color.White;
+            this.dateDepot.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateDepot.HoverState.Parent = this.dateDepot;
+            this.dateDepot.Location = new System.Drawing.Point(136, 48);
+            this.dateDepot.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dateDepot.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dateDepot.Name = "dateDepot";
+            this.dateDepot.ShadowDecoration.Parent = this.dateDepot;
+            this.dateDepot.Size = new System.Drawing.Size(195, 36);
+            this.dateDepot.TabIndex = 51;
+            this.dateDepot.Value = new System.DateTime(2022, 8, 29, 12, 55, 2, 963);
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.BorderRadius = 4;
+            this.txtNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNombre.DefaultText = "";
+            this.txtNombre.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNombre.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNombre.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNombre.DisabledState.Parent = this.txtNombre;
+            this.txtNombre.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNombre.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNombre.FocusedState.Parent = this.txtNombre;
+            this.txtNombre.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNombre.HoverState.Parent = this.txtNombre;
+            this.txtNombre.Location = new System.Drawing.Point(468, 139);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.PasswordChar = '\0';
+            this.txtNombre.PlaceholderText = "";
+            this.txtNombre.SelectedText = "";
+            this.txtNombre.ShadowDecoration.Parent = this.txtNombre;
+            this.txtNombre.Size = new System.Drawing.Size(200, 36);
+            this.txtNombre.TabIndex = 52;
             // 
             // MajSuivi
             // 
@@ -912,8 +913,9 @@ namespace ParcAuto.Forms
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MajSuivi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MajSuivi";
             this.Load += new System.EventHandler(this.MajSuivi_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

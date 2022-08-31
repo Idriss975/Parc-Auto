@@ -21,6 +21,7 @@ namespace ParcAuto.Forms
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+
         }
 
         private void MajEtatRecap_Load(object sender, EventArgs e)
@@ -88,6 +89,8 @@ namespace ParcAuto.Forms
                     GLB.Cmd.Parameters.AddWithValue("@anneetrans", txtAnnee.Text);
                     GLB.Cmd.Parameters.AddWithValue("@reporttrans", txtReportTrans.Text);
                     GLB.Cmd.Parameters.AddWithValue("@achattrans", txtAchatCarte.Text);
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
                     GLB.Con.Open();
                     GLB.Cmd.ExecuteNonQuery();
                     GLB.Con.Close();

@@ -159,26 +159,40 @@ namespace ParcAuto.Forms
                     GLB.Cmd.CommandText = $"delete from Missions where id = {dgvMissions.SelectedRows[i].Cells[9].Value} ";
                     GLB.Cmd.ExecuteNonQuery();
                 }
-                GLB.Con.Close();
+
                 RemplirLaGrille();
             }
             catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("Il faut selectionner sur la table pour Suprrimer la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally
+            {
+                GLB.Con.Close();
+            }
         }
 
         private void btnSuprimmerTout_Click(object sender, EventArgs e)
         {
-            GLB.Con.Open();
-            for (int i = 0; i < dgvMissions.Rows.Count; i++)
+            try
             {
-                GLB.Cmd.CommandText = $"delete from Missions where id =  {dgvMissions.Rows[i].Cells[9].Value}";
-                GLB.Cmd.ExecuteNonQuery();
+                GLB.Con.Open();
+                for (int i = 0; i < dgvMissions.Rows.Count; i++)
+                {
+                    GLB.Cmd.CommandText = $"delete from Missions where id =  {dgvMissions.Rows[i].Cells[9].Value}";
+                    GLB.Cmd.ExecuteNonQuery();
+                }
+                RemplirLaGrille();
             }
-            GLB.Con.Close();
-            RemplirLaGrille();
-           
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                GLB.Con.Close();
+            }
         }
 
         private void cmbChoix_SelectedIndexChanged(object sender, EventArgs e)

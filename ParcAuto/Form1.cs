@@ -470,9 +470,8 @@ namespace ParcAuto
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Voulez vous vraiment Quitter ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-                e.Cancel = true;
 
+            Application.Exit();
         }
 
         private void btnEtatJournalier_Click(object sender, EventArgs e)
@@ -498,6 +497,11 @@ namespace ParcAuto
         {
             showSubMenu(panelsousSuivi);
             Arrow_Up_Down(panelsousSuivi, arrowsuiviUp, arrowsuiviDown);
+        }
+
+        private void btnNbCourriers_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.NombreDeCourriersParEntite(), sender);
         }
     }
 }
