@@ -145,7 +145,7 @@ namespace ParcAuto.Forms
 
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
-            Impression.Print_Header(e, imageList1.Images[0]);
+            Impression.Print_Header(e, imageList1.Images[0], Titre: "Etat récapitulatif");
             Impression.Print_footer(e);
 
             //if (e.PageSettings.Landscape)
@@ -173,8 +173,8 @@ namespace ParcAuto.Forms
             Coords Qer_trim =  Print_Rectangle(e, Ter_trim.x + Cell_surfaces[0], Per_trim.y, Cell_surfaces[0], Cell_surfaces[1], Text: "4ᵉᵐᵉ Trim", fontStyle: FontStyle.Bold, fontSize: 6);
 
             Coords Total_Consomation = Print_Rectangle(e, Qer_trim.x + Qer_trim.width, Stock.y, Cell_surfaces[0] * 2, Design.heigth, Text: label29.Text, fontStyle: FontStyle.Bold);
-
             Coords Dispo = Print_Rectangle(e, Total_Consomation.x + Total_Consomation.width, Total_Consomation.y, Total_Consomation.width, Total_Consomation.heigth, Text: label48.Text, fontStyle: FontStyle.Bold);
+
 
             Coords Carburant = Print_Rectangle(e, Design.x, Design.y + Design.heigth, Design.width / 2, Cell_surfaces[1] * 2, Text: label45.Text, fontSize: 7, fontStyle:FontStyle.Bold);
             Coords Carte_Free = Print_Rectangle(e, Carburant.x + Carburant.width, Carburant.y, Carburant.width, Cell_surfaces[1], Text: label43.Text, fontSize: 7, fontStyle: FontStyle.Bold);
@@ -223,30 +223,9 @@ namespace ParcAuto.Forms
             Print_Rectangle(e, Total_Consomation.x, Vign_Transport.y, Total_Consomation.width, Cell_surfaces[1], Text: sumTrimestresTransport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
             Print_Rectangle(e, Dispo.x, Vign_Transport.y, Dispo.width, Cell_surfaces[1], Text: DisponibleTransport.Text, fontSize: 6.7F, Alignement: StringAlignment.Far);
 
-
-            int[] Start_Table_DirCentral_Coords = new int[2] { Vign_Transport.x, Vign_Transport.y + Vign_Transport.heigth + Convert.ToInt32(e.Graphics.MeasureString(Column1.HeaderText, new Font("Arial", 7, FontStyle.Bold)).Height) + 50 };
-            List<Coords> Columns_pos = new List<Coords>() { 
-                Print_column(
-                    e, 
-                    Start_Table_DirCentral_Coords[0],
-                    Start_Table_DirCentral_Coords[1],
-                    Convert.ToInt32(e.Graphics.MeasureString("Cabinet /Direction  Générale", new Font("Arial", 6, FontStyle.Bold)).Width),
-                    Convert.ToInt32(e.Graphics.MeasureString(Column1.HeaderText,new Font("Arial", 6, FontStyle.Bold)).Height),
-                    new Font("Arial", 7, FontStyle.Bold),
-                    Column1.HeaderText
-                    ) };
-
-            
-
-            for (int i = 1; i < dgvDirectionsCentrales.Columns.Count - 1; i++)
-                Columns_pos.Add(Print_column(e, Columns_pos[i-1].x + Columns_pos[i - 1].width, Columns_pos[i - 1].y, 50, Columns_pos[i-1].heigth, new Font("Arial", 6, FontStyle.Bold), dgvDirectionsCentrales.Columns[i].HeaderText));
-
-            Coords LastFirstCellRow;
-
-            for (int i = 0; i < dgvDirectionsCentrales.Rows.Count; i++)
-            {
-                //TODO: Deal with Rows
-            }
+            //e.Graphics.DrawString("* Directions", new Font("Arial", 11, FontStyle.Bold), Brushes.Black, new Point(Vign_Transport.x, Vign_Transport.y + Vign_Transport.heigth + 20));
+            Print_Table(e, Vign_Transport.x, Vign_Transport.y + Vign_Transport.heigth + Convert.ToInt32(e.Graphics.MeasureString(Column1.HeaderText, new Font("Arial", 7, FontStyle.Bold)).Height) + 50);
+           
         }
         private void Print_EtatRecapTable_Paysage(PrintPageEventArgs e)
         {
@@ -266,9 +245,9 @@ namespace ParcAuto.Forms
             };
         }
 
-        private Coords Print_column(PrintPageEventArgs e, int x, int y, int width, int heigth,  Font Font, string Text)
+        private Coords Print_column(PrintPageEventArgs e, int x, int y, int width, int heigth,  Font Font, string Text, StringAlignment Alignement = StringAlignment.Near)
         {
-            e.Graphics.DrawString(Text, Font, Brushes.Black, new Rectangle(x, y - Convert.ToInt32(e.Graphics.MeasureString(Text, Font, width).Height), width, Convert.ToInt32(e.Graphics.MeasureString(Text, Font, width).Height)));
+            e.Graphics.DrawString(Text, Font, Brushes.Black, new Rectangle(x, y - Convert.ToInt32(e.Graphics.MeasureString(Text, Font, width).Height), width, Convert.ToInt32(e.Graphics.MeasureString(Text, Font, width).Height)), new StringFormat() { Alignment = Alignement });
             e.Graphics.DrawLine(Pens.Black, new Point(x, y), new Point(x + width, y));
 
             return new Coords {
@@ -279,7 +258,73 @@ namespace ParcAuto.Forms
                 Text = Text
             };
         }
-    
+
+        private void Print_Table(PrintPageEventArgs e,int x, int y)
+        {
+            List<Coords> Columns_pos = new List<Coords>() {
+                Print_column(
+                    e,
+                    x,
+                    y,
+                    Convert.ToInt32(e.Graphics.MeasureString("Cabinet /Direction  Générale", new Font("Arial", 6, FontStyle.Bold)).Width),
+                    Convert.ToInt32(e.Graphics.MeasureString(Column1.HeaderText,new Font("Arial", 6, FontStyle.Bold)).Height),
+                    new Font("Arial", 7, FontStyle.Bold),
+                    Column1.HeaderText
+                    )
+            };
+            for (int i = 1; i < dgvDirectionsCentrales.Columns.Count - 1; i++)
+                Columns_pos.Add(Print_column(e, Columns_pos[i - 1].x + Columns_pos[i - 1].width, Columns_pos[i - 1].y, 50, Columns_pos[i - 1].heigth, new Font("Arial", 6, FontStyle.Bold), dgvDirectionsCentrales.Columns[i].HeaderText));
+
+
+            Coords CellRow = new Coords { y = Columns_pos[0].y + Columns_pos[0].heigth + 10 };
+            for (int i = 0; i < dgvDirectionsCentrales.Rows.Count; i++)
+            {
+                for (int j = 0; j < dgvDirectionsCentrales.Rows[i].Cells.Count - 1; j++)
+                {
+                    CellRow = Print_column(e, Columns_pos[j].x, CellRow.y, Columns_pos[j].width, Columns_pos[j].heigth * 2, new Font("Arial", 5), dgvDirectionsCentrales.Rows[i].Cells[j].Value.ToString(), j == 0 ? StringAlignment.Near : StringAlignment.Far);
+                }
+                CellRow.y += CellRow.heigth;
+            }
+
+            e.Graphics.DrawString("Total Directions Centreaux :", new Font("Arial", 6, FontStyle.Bold), Brushes.Black, new Rectangle(new Point(Columns_pos[0].x, CellRow.y), new Size(Columns_pos[0].width, Columns_pos[0].heigth)));
+            float[] SumofDirectionsC = new float[8] { 0, 0, 0, 0, 0, 0, 0, 0 };
+
+            for (int i = 0; i < SumofDirectionsC.Length; i++)
+            {
+                foreach (DataGridViewRow item in dgvDirectionsCentrales.Rows)
+                {
+                    if (!item.Cells[0].Value.ToString().StartsWith("DR "))
+                        SumofDirectionsC[i] += float.Parse(item.Cells[i + 1].Value.ToString());
+                }
+            }
+
+            for (int i = 0; i < SumofDirectionsC.Length; i++)
+                e.Graphics.DrawString(SumofDirectionsC[i].ToString(), new Font("Arial", 7), Brushes.Black, new Rectangle(Columns_pos[i + 1].x, CellRow.y, Columns_pos[i + 1].width, Columns_pos[i + 1].heigth), new StringFormat { Alignment = StringAlignment.Far });
+
+            e.Graphics.DrawString("Total Directions Regionaux:", new Font("Arial", 6, FontStyle.Bold), Brushes.Black, new Rectangle(new Point(Columns_pos[0].x, CellRow.y + Columns_pos[0].heigth), new Size(Columns_pos[0].width, Columns_pos[0].heigth)));
+            float[] SumofDirectionsR = new float[8] { 0, 0, 0, 0, 0, 0, 0, 0 };
+
+            for (int i = 0; i < SumofDirectionsC.Length; i++)
+            {
+                foreach (DataGridViewRow item in dgvDirectionsCentrales.Rows)
+                {
+                    if (item.Cells[0].Value.ToString().StartsWith("DR "))
+                        SumofDirectionsR[i] += float.Parse(item.Cells[i + 1].Value.ToString());
+                }
+            }
+
+            for (int i = 0; i < SumofDirectionsC.Length; i++)
+                e.Graphics.DrawString(SumofDirectionsR[i].ToString(), new Font("Arial", 7), Brushes.Black, new Rectangle(Columns_pos[i + 1].x, CellRow.y + Columns_pos[0].heigth, Columns_pos[i + 1].width, Columns_pos[i + 1].heigth), new StringFormat { Alignment = StringAlignment.Far });
+
+            e.Graphics.DrawLine(Pens.Black, new Point(Columns_pos[0].x, CellRow.y + Columns_pos[0].heigth + 20), new Point(Columns_pos[Columns_pos.Count - 1].x + Columns_pos[Columns_pos.Count - 1].width, CellRow.y + Columns_pos[0].heigth + 20));
+            e.Graphics.DrawString("Total de tout les Directions :", new Font("Arial", 6, FontStyle.Bold), Brushes.Black, new Rectangle(new Point(Columns_pos[0].x, CellRow.y + Columns_pos[0].heigth * 2 + 10), new Size(Columns_pos[0].width, Columns_pos[0].heigth)));
+
+            for (int i = 0; i < SumofDirectionsC.Length; i++)
+                e.Graphics.DrawString((SumofDirectionsC[i] + SumofDirectionsR[i]).ToString(), new Font("Arial", 7), Brushes.Black, new Rectangle(Columns_pos[i + 1].x, CellRow.y + Columns_pos[0].heigth * 2 + 10, Columns_pos[i + 1].width, Columns_pos[i + 1].heigth), new StringFormat { Alignment = StringAlignment.Far });
+
+            e.Graphics.DrawString($"Total: {Enumerable.Sum(SumofDirectionsC) + Enumerable.Sum(SumofDirectionsR)}", new Font("Arial", 8, FontStyle.Bold), Brushes.Black, new Point(Columns_pos[Columns_pos.Count - 1].x + Columns_pos[Columns_pos.Count - 1].width, CellRow.y + Columns_pos[0].heigth * 2 + 30), new StringFormat { Alignment = StringAlignment.Far });
+        }
+
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
