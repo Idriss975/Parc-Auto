@@ -97,7 +97,15 @@ namespace ParcAuto.Classes_Globale
         //}
 
         
-
+        /// <summary>
+        ///     Filters datagridview
+        /// </summary>
+        /// <param name="cmbChoix">Combobox</param>
+        /// <param name="DGV">datagridview</param>
+        /// <param name="txtValueToFiltre">Textbox to use as a filter</param>
+        /// <param name="ColumnDates">Specifies the dgv columns that has date as values</param>
+        /// <param name="Date1"></param>
+        /// <param name="Date2"></param>
         public static void Filter(Guna.UI2.WinForms.Guna2ComboBox cmbChoix, DataGridView DGV, Guna.UI2.WinForms.Guna2TextBox txtValueToFiltre,string[] ColumnDates, Guna.UI2.WinForms.Guna2DateTimePicker Date1, Guna.UI2.WinForms.Guna2DateTimePicker Date2)
         {
             int index=-1;
@@ -122,6 +130,12 @@ namespace ParcAuto.Classes_Globale
             txtValueToFiltre.Text = "";
         }
 
+        /// <summary>
+        ///     Filters datagridview
+        /// </summary>
+        /// <param name="cmbChoix">Combobox</param>
+        /// <param name="DGV">datagridview</param>
+        /// <param name="txtValueToFiltre">Textbox to use as a filter</param>
         public static void Filter(Guna.UI2.WinForms.Guna2ComboBox cmbChoix, DataGridView DGV, Guna.UI2.WinForms.Guna2TextBox txtValueToFiltre)
         {
             int index = -1;
