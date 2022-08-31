@@ -56,6 +56,7 @@ namespace ParcAuto.Forms
                     break;
                 case Choix.modifier:
                     lbl.Text = "La Mdification d'un Courrier";
+                    txtDemandeur.Enabled = false;
                     RemplirLesChamps();
                     break;
             }

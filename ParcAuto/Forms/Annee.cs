@@ -57,7 +57,7 @@ namespace ParcAuto.Forms
             else
             {
                 (new Form1()).ShowDialog();
-                this.Hide();
+                this.Close();
             }
             GetYears();
         }

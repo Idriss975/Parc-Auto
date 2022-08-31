@@ -30,23 +30,30 @@ namespace ParcAuto
         private void InitializeComponent()
         {
             System.Windows.Forms.Panel section2;
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea29 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend29 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series57 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series58 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea30 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend30 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series59 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series60 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea31 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend31 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series61 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series62 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea32 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend32 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series63 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series64 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.Suivis = new System.Windows.Forms.Panel();
+            this.panelsousSuivi = new System.Windows.Forms.Panel();
+            this.btnNbCourriers = new System.Windows.Forms.Button();
+            this.btnLstCourriers = new System.Windows.Forms.Button();
+            this.arrowsuiviUp = new System.Windows.Forms.PictureBox();
+            this.arrowsuiviDown = new System.Windows.Forms.PictureBox();
+            this.btnSuivi = new System.Windows.Forms.Button();
             this.section3 = new System.Windows.Forms.Panel();
             this.btnMissions = new System.Windows.Forms.Button();
             this.btnEtatJournalier = new System.Windows.Forms.Button();
@@ -104,15 +111,12 @@ namespace ParcAuto
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.lblCarburant = new System.Windows.Forms.Label();
             this.Carburantchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.arrowsuiviDown = new System.Windows.Forms.PictureBox();
-            this.arrowsuiviUp = new System.Windows.Forms.PictureBox();
-            this.Suivis = new System.Windows.Forms.Panel();
-            this.btnSuivi = new System.Windows.Forms.Button();
-            this.panelsousSuivi = new System.Windows.Forms.Panel();
-            this.btnNbCourriers = new System.Windows.Forms.Button();
-            this.btnLstCourriers = new System.Windows.Forms.Button();
             section2 = new System.Windows.Forms.Panel();
             section2.SuspendLayout();
+            this.Suivis.SuspendLayout();
+            this.panelsousSuivi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.arrowsuiviUp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.arrowsuiviDown)).BeginInit();
             this.section3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ParcAutodown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ParcAutoup)).BeginInit();
@@ -145,10 +149,6 @@ namespace ParcAuto
             ((System.ComponentModel.ISupportInitialize)(this.carteFreeChart)).BeginInit();
             this.guna2GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Carburantchart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.arrowsuiviDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.arrowsuiviUp)).BeginInit();
-            this.Suivis.SuspendLayout();
-            this.panelsousSuivi.SuspendLayout();
             this.SuspendLayout();
             // 
             // section2
@@ -165,6 +165,107 @@ namespace ParcAuto
             section2.Name = "section2";
             section2.Size = new System.Drawing.Size(183, 572);
             section2.TabIndex = 4;
+            // 
+            // Suivis
+            // 
+            this.Suivis.Controls.Add(this.panelsousSuivi);
+            this.Suivis.Controls.Add(this.arrowsuiviUp);
+            this.Suivis.Controls.Add(this.arrowsuiviDown);
+            this.Suivis.Controls.Add(this.btnSuivi);
+            this.Suivis.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Suivis.Location = new System.Drawing.Point(0, 437);
+            this.Suivis.Name = "Suivis";
+            this.Suivis.Size = new System.Drawing.Size(183, 135);
+            this.Suivis.TabIndex = 2;
+            // 
+            // panelsousSuivi
+            // 
+            this.panelsousSuivi.Controls.Add(this.btnNbCourriers);
+            this.panelsousSuivi.Controls.Add(this.btnLstCourriers);
+            this.panelsousSuivi.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelsousSuivi.Location = new System.Drawing.Point(0, 45);
+            this.panelsousSuivi.Name = "panelsousSuivi";
+            this.panelsousSuivi.Size = new System.Drawing.Size(183, 90);
+            this.panelsousSuivi.TabIndex = 102;
+            this.panelsousSuivi.Visible = false;
+            // 
+            // btnNbCourriers
+            // 
+            this.btnNbCourriers.AutoSize = true;
+            this.btnNbCourriers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnNbCourriers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNbCourriers.FlatAppearance.BorderSize = 0;
+            this.btnNbCourriers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNbCourriers.ForeColor = System.Drawing.Color.White;
+            this.btnNbCourriers.Image = ((System.Drawing.Image)(resources.GetObject("btnNbCourriers.Image")));
+            this.btnNbCourriers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNbCourriers.Location = new System.Drawing.Point(0, 45);
+            this.btnNbCourriers.Name = "btnNbCourriers";
+            this.btnNbCourriers.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnNbCourriers.Size = new System.Drawing.Size(183, 45);
+            this.btnNbCourriers.TabIndex = 102;
+            this.btnNbCourriers.Text = "Nombre de Courriers \r\npar Directions ";
+            this.btnNbCourriers.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnNbCourriers.UseVisualStyleBackColor = false;
+            // 
+            // btnLstCourriers
+            // 
+            this.btnLstCourriers.AutoSize = true;
+            this.btnLstCourriers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnLstCourriers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLstCourriers.FlatAppearance.BorderSize = 0;
+            this.btnLstCourriers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLstCourriers.ForeColor = System.Drawing.Color.White;
+            this.btnLstCourriers.Image = ((System.Drawing.Image)(resources.GetObject("btnLstCourriers.Image")));
+            this.btnLstCourriers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLstCourriers.Location = new System.Drawing.Point(0, 0);
+            this.btnLstCourriers.Name = "btnLstCourriers";
+            this.btnLstCourriers.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnLstCourriers.Size = new System.Drawing.Size(183, 45);
+            this.btnLstCourriers.TabIndex = 101;
+            this.btnLstCourriers.Text = "Courriers";
+            this.btnLstCourriers.UseVisualStyleBackColor = false;
+            this.btnLstCourriers.Click += new System.EventHandler(this.btnLstCourriers_Click);
+            // 
+            // arrowsuiviUp
+            // 
+            this.arrowsuiviUp.Image = ((System.Drawing.Image)(resources.GetObject("arrowsuiviUp.Image")));
+            this.arrowsuiviUp.Location = new System.Drawing.Point(163, 17);
+            this.arrowsuiviUp.Name = "arrowsuiviUp";
+            this.arrowsuiviUp.Size = new System.Drawing.Size(16, 16);
+            this.arrowsuiviUp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.arrowsuiviUp.TabIndex = 101;
+            this.arrowsuiviUp.TabStop = false;
+            this.arrowsuiviUp.Visible = false;
+            // 
+            // arrowsuiviDown
+            // 
+            this.arrowsuiviDown.Image = ((System.Drawing.Image)(resources.GetObject("arrowsuiviDown.Image")));
+            this.arrowsuiviDown.Location = new System.Drawing.Point(164, 17);
+            this.arrowsuiviDown.Name = "arrowsuiviDown";
+            this.arrowsuiviDown.Size = new System.Drawing.Size(16, 16);
+            this.arrowsuiviDown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.arrowsuiviDown.TabIndex = 8;
+            this.arrowsuiviDown.TabStop = false;
+            // 
+            // btnSuivi
+            // 
+            this.btnSuivi.AutoSize = true;
+            this.btnSuivi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnSuivi.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSuivi.FlatAppearance.BorderSize = 0;
+            this.btnSuivi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSuivi.ForeColor = System.Drawing.Color.White;
+            this.btnSuivi.Image = ((System.Drawing.Image)(resources.GetObject("btnSuivi.Image")));
+            this.btnSuivi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSuivi.Location = new System.Drawing.Point(0, 0);
+            this.btnSuivi.Name = "btnSuivi";
+            this.btnSuivi.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnSuivi.Size = new System.Drawing.Size(183, 45);
+            this.btnSuivi.TabIndex = 101;
+            this.btnSuivi.Text = "Les courriers";
+            this.btnSuivi.UseVisualStyleBackColor = false;
+            this.btnSuivi.Click += new System.EventHandler(this.btnSuivi_Click_1);
             // 
             // section3
             // 
@@ -915,20 +1016,20 @@ namespace ParcAuto
             // 
             // TransportChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.TransportChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.TransportChart.Legends.Add(legend1);
+            chartArea29.Name = "ChartArea1";
+            this.TransportChart.ChartAreas.Add(chartArea29);
+            legend29.Name = "Legend1";
+            this.TransportChart.Legends.Add(legend29);
             this.TransportChart.Location = new System.Drawing.Point(3, 51);
             this.TransportChart.Name = "TransportChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Total Report et Achat";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Total Consommation";
-            this.TransportChart.Series.Add(series1);
-            this.TransportChart.Series.Add(series2);
+            series57.ChartArea = "ChartArea1";
+            series57.Legend = "Legend1";
+            series57.Name = "Total Report et Achat";
+            series58.ChartArea = "ChartArea1";
+            series58.Legend = "Legend1";
+            series58.Name = "Total Consommation";
+            this.TransportChart.Series.Add(series57);
+            this.TransportChart.Series.Add(series58);
             this.TransportChart.Size = new System.Drawing.Size(439, 225);
             this.TransportChart.TabIndex = 0;
             this.TransportChart.Text = "chart1";
@@ -961,20 +1062,20 @@ namespace ParcAuto
             // 
             // ReparationChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.ReparationChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.ReparationChart.Legends.Add(legend2);
+            chartArea30.Name = "ChartArea1";
+            this.ReparationChart.ChartAreas.Add(chartArea30);
+            legend30.Name = "Legend1";
+            this.ReparationChart.Legends.Add(legend30);
             this.ReparationChart.Location = new System.Drawing.Point(3, 51);
             this.ReparationChart.Name = "ReparationChart";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Total Report et Achat";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Total Consommation";
-            this.ReparationChart.Series.Add(series3);
-            this.ReparationChart.Series.Add(series4);
+            series59.ChartArea = "ChartArea1";
+            series59.Legend = "Legend1";
+            series59.Name = "Total Report et Achat";
+            series60.ChartArea = "ChartArea1";
+            series60.Legend = "Legend1";
+            series60.Name = "Total Consommation";
+            this.ReparationChart.Series.Add(series59);
+            this.ReparationChart.Series.Add(series60);
             this.ReparationChart.Size = new System.Drawing.Size(439, 225);
             this.ReparationChart.TabIndex = 0;
             this.ReparationChart.Text = "chart1";
@@ -1006,20 +1107,20 @@ namespace ParcAuto
             // 
             // carteFreeChart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.carteFreeChart.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.carteFreeChart.Legends.Add(legend3);
+            chartArea31.Name = "ChartArea1";
+            this.carteFreeChart.ChartAreas.Add(chartArea31);
+            legend31.Name = "Legend1";
+            this.carteFreeChart.Legends.Add(legend31);
             this.carteFreeChart.Location = new System.Drawing.Point(3, 51);
             this.carteFreeChart.Name = "carteFreeChart";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Total Report et Achat";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Total Consommation";
-            this.carteFreeChart.Series.Add(series5);
-            this.carteFreeChart.Series.Add(series6);
+            series61.ChartArea = "ChartArea1";
+            series61.Legend = "Legend1";
+            series61.Name = "Total Report et Achat";
+            series62.ChartArea = "ChartArea1";
+            series62.Legend = "Legend1";
+            series62.Name = "Total Consommation";
+            this.carteFreeChart.Series.Add(series61);
+            this.carteFreeChart.Series.Add(series62);
             this.carteFreeChart.Size = new System.Drawing.Size(439, 225);
             this.carteFreeChart.TabIndex = 0;
             this.carteFreeChart.Text = "chart1";
@@ -1050,124 +1151,23 @@ namespace ParcAuto
             // 
             // Carburantchart
             // 
-            chartArea4.Name = "ChartArea1";
-            this.Carburantchart.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.Carburantchart.Legends.Add(legend4);
+            chartArea32.Name = "ChartArea1";
+            this.Carburantchart.ChartAreas.Add(chartArea32);
+            legend32.Name = "Legend1";
+            this.Carburantchart.Legends.Add(legend32);
             this.Carburantchart.Location = new System.Drawing.Point(3, 48);
             this.Carburantchart.Name = "Carburantchart";
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Total Report et Achat";
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.Name = "Total Consommation";
-            this.Carburantchart.Series.Add(series7);
-            this.Carburantchart.Series.Add(series8);
+            series63.ChartArea = "ChartArea1";
+            series63.Legend = "Legend1";
+            series63.Name = "Total Report et Achat";
+            series64.ChartArea = "ChartArea1";
+            series64.Legend = "Legend1";
+            series64.Name = "Total Consommation";
+            this.Carburantchart.Series.Add(series63);
+            this.Carburantchart.Series.Add(series64);
             this.Carburantchart.Size = new System.Drawing.Size(404, 249);
             this.Carburantchart.TabIndex = 0;
             this.Carburantchart.Text = "chart1";
-            // 
-            // arrowsuiviDown
-            // 
-            this.arrowsuiviDown.Image = ((System.Drawing.Image)(resources.GetObject("arrowsuiviDown.Image")));
-            this.arrowsuiviDown.Location = new System.Drawing.Point(164, 17);
-            this.arrowsuiviDown.Name = "arrowsuiviDown";
-            this.arrowsuiviDown.Size = new System.Drawing.Size(16, 16);
-            this.arrowsuiviDown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.arrowsuiviDown.TabIndex = 8;
-            this.arrowsuiviDown.TabStop = false;
-            // 
-            // arrowsuiviUp
-            // 
-            this.arrowsuiviUp.Image = ((System.Drawing.Image)(resources.GetObject("arrowsuiviUp.Image")));
-            this.arrowsuiviUp.Location = new System.Drawing.Point(163, 17);
-            this.arrowsuiviUp.Name = "arrowsuiviUp";
-            this.arrowsuiviUp.Size = new System.Drawing.Size(16, 16);
-            this.arrowsuiviUp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.arrowsuiviUp.TabIndex = 101;
-            this.arrowsuiviUp.TabStop = false;
-            this.arrowsuiviUp.Visible = false;
-            // 
-            // Suivis
-            // 
-            this.Suivis.Controls.Add(this.panelsousSuivi);
-            this.Suivis.Controls.Add(this.arrowsuiviUp);
-            this.Suivis.Controls.Add(this.arrowsuiviDown);
-            this.Suivis.Controls.Add(this.btnSuivi);
-            this.Suivis.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Suivis.Location = new System.Drawing.Point(0, 437);
-            this.Suivis.Name = "Suivis";
-            this.Suivis.Size = new System.Drawing.Size(183, 135);
-            this.Suivis.TabIndex = 2;
-            // 
-            // btnSuivi
-            // 
-            this.btnSuivi.AutoSize = true;
-            this.btnSuivi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
-            this.btnSuivi.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSuivi.FlatAppearance.BorderSize = 0;
-            this.btnSuivi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSuivi.ForeColor = System.Drawing.Color.White;
-            this.btnSuivi.Image = ((System.Drawing.Image)(resources.GetObject("btnSuivi.Image")));
-            this.btnSuivi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSuivi.Location = new System.Drawing.Point(0, 0);
-            this.btnSuivi.Name = "btnSuivi";
-            this.btnSuivi.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnSuivi.Size = new System.Drawing.Size(183, 45);
-            this.btnSuivi.TabIndex = 101;
-            this.btnSuivi.Text = "Les courriers";
-            this.btnSuivi.UseVisualStyleBackColor = false;
-            this.btnSuivi.Click += new System.EventHandler(this.btnSuivi_Click_1);
-            // 
-            // panelsousSuivi
-            // 
-            this.panelsousSuivi.Controls.Add(this.btnNbCourriers);
-            this.panelsousSuivi.Controls.Add(this.btnLstCourriers);
-            this.panelsousSuivi.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelsousSuivi.Location = new System.Drawing.Point(0, 45);
-            this.panelsousSuivi.Name = "panelsousSuivi";
-            this.panelsousSuivi.Size = new System.Drawing.Size(183, 90);
-            this.panelsousSuivi.TabIndex = 102;
-            this.panelsousSuivi.Visible = false;
-            // 
-            // btnNbCourriers
-            // 
-            this.btnNbCourriers.AutoSize = true;
-            this.btnNbCourriers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
-            this.btnNbCourriers.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnNbCourriers.FlatAppearance.BorderSize = 0;
-            this.btnNbCourriers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNbCourriers.ForeColor = System.Drawing.Color.White;
-            this.btnNbCourriers.Image = ((System.Drawing.Image)(resources.GetObject("btnNbCourriers.Image")));
-            this.btnNbCourriers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNbCourriers.Location = new System.Drawing.Point(0, 45);
-            this.btnNbCourriers.Name = "btnNbCourriers";
-            this.btnNbCourriers.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnNbCourriers.Size = new System.Drawing.Size(183, 45);
-            this.btnNbCourriers.TabIndex = 102;
-            this.btnNbCourriers.Text = "Nombre de Courriers \r\npar Directions ";
-            this.btnNbCourriers.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnNbCourriers.UseVisualStyleBackColor = false;
-            // 
-            // btnLstCourriers
-            // 
-            this.btnLstCourriers.AutoSize = true;
-            this.btnLstCourriers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
-            this.btnLstCourriers.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnLstCourriers.FlatAppearance.BorderSize = 0;
-            this.btnLstCourriers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLstCourriers.ForeColor = System.Drawing.Color.White;
-            this.btnLstCourriers.Image = ((System.Drawing.Image)(resources.GetObject("btnLstCourriers.Image")));
-            this.btnLstCourriers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLstCourriers.Location = new System.Drawing.Point(0, 0);
-            this.btnLstCourriers.Name = "btnLstCourriers";
-            this.btnLstCourriers.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnLstCourriers.Size = new System.Drawing.Size(183, 45);
-            this.btnLstCourriers.TabIndex = 101;
-            this.btnLstCourriers.Text = "Courriers";
-            this.btnLstCourriers.UseVisualStyleBackColor = false;
-            this.btnLstCourriers.Click += new System.EventHandler(this.btnLstCourriers_Click);
             // 
             // Form1
             // 
@@ -1187,6 +1187,12 @@ namespace ParcAuto
             this.Load += new System.EventHandler(this.Form1_Load);
             section2.ResumeLayout(false);
             section2.PerformLayout();
+            this.Suivis.ResumeLayout(false);
+            this.Suivis.PerformLayout();
+            this.panelsousSuivi.ResumeLayout(false);
+            this.panelsousSuivi.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.arrowsuiviUp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.arrowsuiviDown)).EndInit();
             this.section3.ResumeLayout(false);
             this.section3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ParcAutodown)).EndInit();
@@ -1231,12 +1237,6 @@ namespace ParcAuto
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Carburantchart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.arrowsuiviDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.arrowsuiviUp)).EndInit();
-            this.Suivis.ResumeLayout(false);
-            this.Suivis.PerformLayout();
-            this.panelsousSuivi.ResumeLayout(false);
-            this.panelsousSuivi.PerformLayout();
             this.ResumeLayout(false);
 
         }
