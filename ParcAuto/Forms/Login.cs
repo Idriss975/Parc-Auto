@@ -68,8 +68,8 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.Con.Close();
                 this.Hide();
-                (new Annee()).ShowDialog();
-                this.Close();
+                (new Annee()).Show();
+                //this.Close();
                 GLB.CurrentUser = txtuser.Text.Trim();
                 DeleteOldHistory();
             }

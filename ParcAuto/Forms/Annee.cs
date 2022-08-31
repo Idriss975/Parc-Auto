@@ -23,19 +23,22 @@ namespace ParcAuto.Forms
         }
         private void GetYears()
         {
-
-            if (GLB.ds.Tables["Annee"] != null)
-                GLB.ds.Tables["Annee"].Clear();
-            GLB.da = new SqlDataAdapter("select Annee from EtatRecapCarburantSNTL", GLB.Con);
-            GLB.da.Fill(GLB.ds, "Annee");
+            GLB.Cmd.CommandText = "select Annee from EtatRecapCarburantSNTL";
+            if (GLB.Con.State == ConnectionState.Open)
+                GLB.Con.Close();
+            GLB.Con.Open();
+            GLB.dr = GLB.Cmd.ExecuteReader();
             if (cmbAnnee.Items.Count != 0)
                 cmbAnnee.Items.Clear();
             cmbAnnee.Items.Add("-- Nouvelle annee --");
             cmbAnnee.SelectedIndex = 0;
-            foreach (DataRow item in GLB.ds.Tables["Annee"].Rows)
+            while (GLB.dr.Read())
             {
-                cmbAnnee.Items.Add(item[0].ToString());
+                cmbAnnee.Items.Add(GLB.dr[0].ToString());
             }
+            GLB.dr.Close();
+            GLB.Con.Close();
+            
         }
         private void Annee_Load(object sender, EventArgs e)
         {
@@ -50,12 +53,11 @@ namespace ParcAuto.Forms
             if (GLB.SelectedDate == "-- Nouvelle annee --")
             {
                 (new MajEtatRecap()).ShowDialog();
-                //this.Close();
             }
             else
             {
                 (new Form1()).ShowDialog();
-                this.Close();
+                this.Hide();
             }
             GetYears();
         }

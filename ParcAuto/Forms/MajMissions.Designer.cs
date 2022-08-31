@@ -534,7 +534,7 @@ namespace ParcAuto.Forms
             this.txtdestination.PlaceholderText = "";
             this.txtdestination.SelectedText = "";
             this.txtdestination.ShadowDecoration.Parent = this.txtdestination;
-            this.txtdestination.Size = new System.Drawing.Size(191, 35);
+            this.txtdestination.Size = new System.Drawing.Size(191, 34);
             this.txtdestination.TabIndex = 34;
             // 
             // label6
@@ -613,7 +613,7 @@ namespace ParcAuto.Forms
             this.txtMat.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMat.HoverState.Parent = this.txtMat;
             this.txtMat.Location = new System.Drawing.Point(138, 54);
-            this.txtMat.Margin = new System.Windows.Forms.Padding(5);
+            this.txtMat.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtMat.Name = "txtMat";
             this.txtMat.PasswordChar = '\0';
             this.txtMat.PlaceholderText = "";
@@ -652,7 +652,7 @@ namespace ParcAuto.Forms
             this.txtBeneficiaire.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBeneficiaire.HoverState.Parent = this.txtBeneficiaire;
             this.txtBeneficiaire.Location = new System.Drawing.Point(469, 7);
-            this.txtBeneficiaire.Margin = new System.Windows.Forms.Padding(5);
+            this.txtBeneficiaire.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtBeneficiaire.Name = "txtBeneficiaire";
             this.txtBeneficiaire.PasswordChar = '\0';
             this.txtBeneficiaire.PlaceholderText = "";
@@ -688,7 +688,7 @@ namespace ParcAuto.Forms
             this.txtEntite.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEntite.HoverState.Parent = this.txtEntite;
             this.txtEntite.Location = new System.Drawing.Point(137, 6);
-            this.txtEntite.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEntite.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtEntite.Name = "txtEntite";
             this.txtEntite.PasswordChar = '\0';
             this.txtEntite.PlaceholderText = "";
