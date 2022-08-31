@@ -99,8 +99,9 @@ namespace ParcAuto.Forms
             GLB.Con.Close();
         }
 
-        private void DirectionsCentrales()
+        private void Directions()
         {
+            dgvDirectionsCentrales.Rows.Clear();
             GLB.Cmd.Parameters.Clear();
             //GLB.Cmd.CommandText = "select * from Directions where Annee = @Annee and Direction not like 'DR%'";
             GLB.Cmd.CommandText = "select * from Directions where Annee = @Annee";
@@ -123,7 +124,7 @@ namespace ParcAuto.Forms
             ConsommationcarburantSNTL();
             ConsommationReparation();
             ConsommationTransport();
-            DirectionsCentrales();
+            Directions();
         }
 
         private void btnModifier_Click(object sender, EventArgs e)

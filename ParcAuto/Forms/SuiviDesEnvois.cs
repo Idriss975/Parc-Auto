@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -312,9 +313,14 @@ namespace ParcAuto.Forms
         Workbook excelWorkbook;
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
-            
+            if (GLB.Con.State == ConnectionState.Open)
+                GLB.Con.Close();
+            GLB.Con.Open();
+            SqlTransaction trans = GLB.Con.BeginTransaction();
+            GLB.Cmd.Transaction = trans;
             try
             {
+                
                 DateTime dateDepot, dateEnlevement;
                 string nOrderOBC, CodeAbarre, Demandeur, Reference, Destinataire, Destination, Nombre, NatureDenvoi, Prix;
                 importExceldatagridViewApp = new Microsoft.Office.Interop.Excel.Application();
@@ -323,10 +329,7 @@ namespace ParcAuto.Forms
                 importOpenDialoge.Filter = "Import Excel File|*.xlsx;*xls;*xlm";
                 if (importOpenDialoge.ShowDialog() == DialogResult.OK)
                     {
-                    if (GLB.Con.State == ConnectionState.Open)
-                        GLB.Con.Close();
-                    GLB.Con.Open();
-
+                    
                     Workbooks excelWorkbooks = importExceldatagridViewApp.Workbooks;
                     excelWorkbook = excelWorkbooks.Open(importOpenDialoge.FileName);
                     importExceldatagridViewworksheet = excelWorkbook.ActiveSheet;
@@ -359,18 +362,21 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.Add("@DateEnlevement", SqlDbType.Date).Value = dateEnlevement.ToString("yyyy-MM-dd") == "0001-01-01" ? (object)DBNull.Value : dateEnlevement.ToString("yyyy-MM-dd"); ;
                         GLB.Cmd.Parameters.Add("@prix", SqlDbType.Real).Value = Prix ?? (object)DBNull.Value;
                         GLB.Cmd.ExecuteNonQuery();
+                        
                         Total();
                         
 
                     }
 
                 }
+                trans.Commit();
                 GLB.Con.Close();
                 RemplirLaGrille();
 
             }
             catch (Exception ex)
             {
+                trans.Rollback();
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
