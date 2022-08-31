@@ -211,7 +211,7 @@ namespace ParcAuto.Forms
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            Impression.Drawonprintdoc(e, dgvTransport, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6),0);
+            Impression.Drawonprintdoc(e, dgvTransport, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6),0,Titre:"Vignettes transport", Total:$"Total: {lblSommePrix.Text}");
         }
         private void btnImprimer_Click(object sender, EventArgs e)
         {

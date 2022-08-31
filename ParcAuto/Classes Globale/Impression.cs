@@ -94,8 +94,14 @@ namespace ParcAuto.Classes_Globale
             if (!e.HasMorePages)
                 e.Graphics.DrawString(Total, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, e.PageSettings.Bounds.Width - e.Graphics.MeasureString(Total, new Font("Arial", 12, FontStyle.Bold)).Width - 50, StartingRowPosition + 30);
         }
-
-        public static void Print_Header(PrintPageEventArgs e, Image Logo, int StartingRowPosition=200, string Titre="")
+        /// <summary>
+        ///     Draws the Header of the document (Logo, Date Title)
+        /// </summary>
+        /// <param name="e">Print event</param>
+        /// <param name="Logo">Image Logo.</param>
+        /// <param name="StartingTitlePosition">Position the Title above a point of 40</param>
+        /// <param name="Titre">Draws Title string</param>
+        public static void Print_Header(PrintPageEventArgs e, Image Logo, int StartingTitlePosition=200, string Titre="")
         {
             e.Graphics.DrawImage(Logo, 50, 17);
             e.Graphics.DrawLine(new Pen(Color.Black, 2), 150, 40, 150, 85);
@@ -104,15 +110,29 @@ namespace ParcAuto.Classes_Globale
 
             e.Graphics.DrawString($"Casablanca, le {DateTime.Now:dd/MM/yyyy}", new Font("Arial", 9), Brushes.Black, (e.PageSettings.Landscape ? e.PageSettings.PaperSize.Height : e.PageSettings.PaperSize.Width) - 180, 105);
 
-            e.Graphics.DrawString(Titre, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, e.PageSettings.Bounds.Width / 2, StartingRowPosition - 40, new StringFormat() { LineAlignment = StringAlignment.Center, Alignment = StringAlignment.Center });
+            e.Graphics.DrawString(Titre, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, e.PageSettings.Bounds.Width / 2, StartingTitlePosition - 40, new StringFormat() { LineAlignment = StringAlignment.Center, Alignment = StringAlignment.Center });
         }
 
+        /// <summary>
+        ///     Draws footer of the document
+        /// </summary>
+        /// <param name="e">Print event.</param>
         public static void Print_footer(PrintPageEventArgs e)
         {
             //Footer
             e.Graphics.DrawString("Intersection Route BO 50 et R.N. n°11 (Route Nouaceur) BP 40207 Sidi Maârouf Casablanca 20 270\n 20 270 و الطريق الوطنية رفم 11 (طريق النواصر) ص. ب 40207 سيدي معروف الدار البيضاء B.O 50 ملتمى طريق\nTél.: 05 22 78 72 60/61 - Fax : 05 22 32 15 09", new Font("Arial", 9), Brushes.Black, e.PageSettings.Bounds.Width / 2, e.PageSettings.Bounds.Height - 35, new StringFormat() { LineAlignment = StringAlignment.Center, Alignment = StringAlignment.Center });
         }
 
+        /// <summary>
+        ///     Calculates the Gap needed between columns
+        /// </summary>
+        /// <param name="e">Print event</param>
+        /// <param name="StartingColumnPosition">Starting point for calculation</param>
+        /// <param name="FontHeader">Font of the Header</param>
+        /// <param name="DGV">Datagridview</param>
+        /// <param name="PageLength">Length of the table or page</param>
+        /// <param name="skipindex">index to be skipped by default -1</param>
+        /// <returns></returns>
         public static float Print_columngap(PrintPageEventArgs e, int StartingColumnPosition,Font FontHeader, DataGridView DGV, int PageLength, int skipindex=-1)
         {
             float output = PageLength - (StartingColumnPosition * 2);

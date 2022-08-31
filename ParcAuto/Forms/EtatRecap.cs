@@ -232,6 +232,19 @@ namespace ParcAuto.Forms
             e.Graphics.DrawRectangle(new Pen(Brushes.Black), new Rectangle(10, 200, 200, 45));
         }
 
+        /// <summary>
+        ///     Draws a Rectangle with text inside of it
+        /// </summary>
+        /// <param name="e">print event</param>
+        /// <param name="x">xcoordinate</param>
+        /// <param name="y">y coordinate</param>
+        /// <param name="width">width of the rectangle</param>
+        /// <param name="heigth">heigth of the rectangle</param>
+        /// <param name="fontSize">Size of the text</param>
+        /// <param name="fontStyle">Style of the text (bold, regular, ...)</param>
+        /// <param name="Alignement">Alignment of the text</param>
+        /// <param name="Text">the text itself</param>
+        /// <returns></returns>
         private Coords Print_Rectangle(PrintPageEventArgs e, int x, int y, int width, int heigth, float fontSize= 6.7F, FontStyle fontStyle = FontStyle.Regular, StringAlignment Alignement = StringAlignment.Far, string Text = "")
         {
             e.Graphics.DrawRectangle(new Pen(Brushes.Black), new Rectangle(x, y, width, heigth));
@@ -245,6 +258,18 @@ namespace ParcAuto.Forms
             };
         }
 
+        /// <summary>
+        /// Prints Text with line under it.
+        /// </summary>
+        /// <param name="e">Print event</param>
+        /// <param name="x">x coordinate</param>
+        /// <param name="y">y coordinate</param>
+        /// <param name="width">width of the text</param>
+        /// <param name="heigth">expected heigth of the text</param>
+        /// <param name="Font">Font of the Text</param>
+        /// <param name="Text">the Text</param>
+        /// <param name="Alignement">Alignement of the text</param>
+        /// <returns></returns>
         private Coords Print_column(PrintPageEventArgs e, int x, int y, int width, int heigth,  Font Font, string Text, StringAlignment Alignement = StringAlignment.Near)
         {
             e.Graphics.DrawString(Text, Font, Brushes.Black, new Rectangle(x, y - Convert.ToInt32(e.Graphics.MeasureString(Text, Font, width).Height), width, Convert.ToInt32(e.Graphics.MeasureString(Text, Font, width).Height)), new StringFormat() { Alignment = Alignement });
@@ -258,7 +283,12 @@ namespace ParcAuto.Forms
                 Text = Text
             };
         }
-
+        /// <summary>
+        /// Draws a table in document
+        /// </summary>
+        /// <param name="e">Print event</param>
+        /// <param name="x">X coordinate</param>
+        /// <param name="y">y coordinate</param>
         private void Print_Table(PrintPageEventArgs e,int x, int y)
         {
             List<Coords> Columns_pos = new List<Coords>() {

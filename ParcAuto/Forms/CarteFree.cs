@@ -376,7 +376,7 @@ namespace ParcAuto.Forms
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            Impression.Drawonprintdoc(e, dgvCarteFree, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6),0,5);
+            Impression.Drawonprintdoc(e, dgvCarteFree, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6), 0, 5, Titre: "Carte Free", Total: $"Total Fixe: {lblSommeFixe.Text}\tTotal Autre: {lblSommeAutre.Text}\nTotal: {lblTotal.Text}");
         }
 
         private void dgvCarteFree_DoubleClick(object sender, EventArgs e)
