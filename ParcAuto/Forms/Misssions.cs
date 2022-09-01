@@ -1,10 +1,13 @@
-﻿using ParcAuto.Classes_Globale;
+﻿using Microsoft.Office.Interop.Excel;
+using ParcAuto.Classes_Globale;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -268,7 +271,7 @@ namespace ParcAuto.Forms
 
                         }
                     }
-                    xcelApp.Columns.AutoFit();
+                    xcelApp.Columns.AutoFit();  
                     xcelApp.Visible = true;
                     xcelApp.Workbooks.Close();
                     xcelApp.Quit();
@@ -298,6 +301,82 @@ namespace ParcAuto.Forms
             {
                 printPreviewDialog1.Document.PrinterSettings = printDialog1.PrinterSettings;
                 printPreviewDialog1.ShowDialog();
+            }
+        }
+        _Application importExceldatagridViewApp;
+        _Worksheet importExceldatagridViewworksheet;
+        Range importdatagridviewRange;
+        Workbook excelWorkbook;
+        private void btnImportExcel_Click(object sender, EventArgs e)
+        {
+            if (GLB.Con.State == ConnectionState.Open)
+                GLB.Con.Close();
+            GLB.Con.Open();
+            SqlTransaction trans = GLB.Con.BeginTransaction();
+            GLB.Cmd.Transaction = trans;
+            try
+            {
+
+                DateTime dateMission ;
+                string Entite, beneficiaire, matricule, marque,  Destination, objet, km, observation;
+                importExceldatagridViewApp = new Microsoft.Office.Interop.Excel.Application();
+                OpenFileDialog importOpenDialoge = new OpenFileDialog();
+                importOpenDialoge.Title = "Import Excel File";
+                importOpenDialoge.Filter = "Import Excel File|*.xlsx;*xls;*xlm";
+                if (importOpenDialoge.ShowDialog() == DialogResult.OK)
+                {
+
+                    Workbooks excelWorkbooks = importExceldatagridViewApp.Workbooks;
+                    excelWorkbook = excelWorkbooks.Open(importOpenDialoge.FileName);
+                    importExceldatagridViewworksheet = excelWorkbook.ActiveSheet;
+                    importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
+                    for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
+                    {
+                        Entite = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value));
+                        beneficiaire = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value));
+                        matricule = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value));
+                        marque = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value));
+                        dateMission = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value ?? "0001-01-01"));
+                        Destination = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value));
+                        objet  = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value));
+                        km = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value));
+                        observation = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 9].value));
+
+                        GLB.Cmd.Parameters.Clear();
+                        GLB.Cmd.CommandText = "insert into Missions values(@entite,@Beneficiaire,@matricule,@marque,@date,@destination,@objet,@kilometrage,@observation)";
+                        GLB.Cmd.Parameters.Add("@entite", SqlDbType.VarChar, 200).Value = Entite ?? "";
+                        GLB.Cmd.Parameters.Add("@Beneficiaire", SqlDbType.VarChar, 50).Value = beneficiaire ?? "";
+                        GLB.Cmd.Parameters.Add("@matricule", SqlDbType.VarChar, 50).Value = matricule ?? "";
+                        GLB.Cmd.Parameters.Add("@marque", SqlDbType.VarChar, 50).Value = marque ?? "";
+                        GLB.Cmd.Parameters.Add("@date", SqlDbType.Date).Value = dateMission.ToString("yyyy-MM-dd") == "0001-01-01" ? (object)DBNull.Value : dateMission.ToString("yyyy-MM-dd");
+                        GLB.Cmd.Parameters.Add("@destination", SqlDbType.VarChar, 50).Value = Destination ?? "";
+                        GLB.Cmd.Parameters.Add("@objet", SqlDbType.VarChar, 50).Value = objet ?? "";
+                        GLB.Cmd.Parameters.Add("@kilometrage", SqlDbType.Real).Value = km ?? (object)DBNull.Value;
+                        GLB.Cmd.Parameters.Add("@observation", SqlDbType.VarChar, 150).Value = observation ?? "";
+                        GLB.Cmd.ExecuteNonQuery();
+                    }
+
+                }
+                trans.Commit();
+                GLB.Con.Close();
+                RemplirLaGrille();
+                
+
+            }
+            catch (Exception ex)
+            {
+                trans.Rollback();
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            finally
+            {
+                GLB.Con.Close();
+                excelWorkbook.Close();
+                Marshal.ReleaseComObject(excelWorkbook);
+                Marshal.ReleaseComObject(importExceldatagridViewworksheet);
+                Marshal.ReleaseComObject(importdatagridviewRange);
+                importExceldatagridViewApp.Quit();
             }
         }
     }

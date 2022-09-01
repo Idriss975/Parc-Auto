@@ -122,9 +122,13 @@ namespace ParcAuto.Forms
                 GLB.Con.Close();
             }
         }
-       
+
         private void Carburants_Load(object sender, EventArgs e)
         {
+            
+            //dgvCarburant.Columns[0].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            //dgvCarburant.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            //dgvCarburant.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             panelDate.Visible = false;
             TextPanel.Visible = false;
             cmbChoix.SelectedIndex = 0;

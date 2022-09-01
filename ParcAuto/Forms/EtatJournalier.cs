@@ -46,5 +46,46 @@ namespace ParcAuto.Forms
             GLB.StyleDataGridView(dgvEtatJournalier);
             LoadDataGridView();
         }
+
+        private void btnQuitter_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnExportExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvEtatJournalier.Rows.Count > 0)
+                {
+
+                    Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
+                    xcelApp.Application.Workbooks.Add(Type.Missing);
+
+                    for (int i = 1; i < dgvEtatJournalier.Columns.Count + 1; i++)
+                    {
+                        xcelApp.Cells[1, i] = dgvEtatJournalier.Columns[i - 1].HeaderText;
+                    }
+
+                    for (int i = 0; i < dgvEtatJournalier.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < dgvEtatJournalier.Columns.Count; j++)
+                        {
+                            xcelApp.Cells[i + 2, j + 1] = dgvEtatJournalier.Rows[i].Cells[j].Value.ToString();
+                        }
+                    }
+                    xcelApp.Columns.AutoFit();
+                    xcelApp.Visible = true;
+                    xcelApp.Workbooks.Close();
+
+                }
+
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Quelque chose s'est mal passé", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

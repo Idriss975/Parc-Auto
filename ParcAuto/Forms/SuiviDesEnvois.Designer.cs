@@ -35,22 +35,6 @@ namespace ParcAuto.Forms
             this.PanelTautaux = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.lblSommeDExceptionnel = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblSommeDfix = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblSommeDHebdo = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.lblSommeDMissions = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
@@ -88,13 +72,6 @@ namespace ParcAuto.Forms
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbChoix = new Guna.UI2.WinForms.Guna2ComboBox();
             this.PanelTautaux.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourrier)).BeginInit();
@@ -110,15 +87,13 @@ namespace ParcAuto.Forms
             // 
             this.PanelTautaux.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PanelTautaux.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(203)))), ((int)(((byte)(173)))));
+            this.PanelTautaux.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.PanelTautaux.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PanelTautaux.Controls.Add(this.label11);
             this.PanelTautaux.Controls.Add(this.lblTotal);
-            this.PanelTautaux.Controls.Add(this.panel2);
-            this.PanelTautaux.Controls.Add(this.panel1);
-            this.PanelTautaux.Location = new System.Drawing.Point(13, 534);
+            this.PanelTautaux.Location = new System.Drawing.Point(884, 583);
             this.PanelTautaux.Name = "PanelTautaux";
-            this.PanelTautaux.Size = new System.Drawing.Size(1087, 86);
+            this.PanelTautaux.Size = new System.Drawing.Size(216, 37);
             this.PanelTautaux.TabIndex = 88;
             // 
             // label11
@@ -127,11 +102,11 @@ namespace ParcAuto.Forms
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label11.Location = new System.Drawing.Point(574, 53);
+            this.label11.Location = new System.Drawing.Point(6, 7);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(61, 21);
+            this.label11.Size = new System.Drawing.Size(99, 21);
             this.label11.TabIndex = 2;
-            this.label11.Text = "Total : ";
+            this.label11.Text = "Total Prix  : ";
             // 
             // lblTotal
             // 
@@ -139,197 +114,11 @@ namespace ParcAuto.Forms
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblTotal.Location = new System.Drawing.Point(641, 50);
+            this.lblTotal.Location = new System.Drawing.Point(111, 5);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(72, 27);
+            this.lblTotal.Size = new System.Drawing.Size(24, 27);
             this.lblTotal.TabIndex = 2;
-            this.lblTotal.Text = "10000";
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.tableLayoutPanel1);
-            this.panel2.Location = new System.Drawing.Point(202, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(885, 41);
-            this.panel2.TabIndex = 1;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Controls.Add(this.panel6, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel5, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel3, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel4, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(883, 39);
-            this.tableLayoutPanel1.TabIndex = 60;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.lblSommeDExceptionnel);
-            this.panel6.Controls.Add(this.label12);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(663, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(217, 33);
-            this.panel6.TabIndex = 61;
-            // 
-            // lblSommeDExceptionnel
-            // 
-            this.lblSommeDExceptionnel.AutoSize = true;
-            this.lblSommeDExceptionnel.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSommeDExceptionnel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblSommeDExceptionnel.Location = new System.Drawing.Point(134, 6);
-            this.lblSommeDExceptionnel.Name = "lblSommeDExceptionnel";
-            this.lblSommeDExceptionnel.Size = new System.Drawing.Size(55, 21);
-            this.lblSommeDExceptionnel.TabIndex = 7;
-            this.lblSommeDExceptionnel.Text = "10000";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label12.Location = new System.Drawing.Point(3, 5);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(138, 21);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "D.Exceptionnel : ";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel5.Controls.Add(this.label7);
-            this.panel5.Controls.Add(this.lblSommeDfix);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(3, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(214, 33);
-            this.panel5.TabIndex = 60;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(8, 7);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 21);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "D.Fixe  : ";
-            // 
-            // lblSommeDfix
-            // 
-            this.lblSommeDfix.AutoSize = true;
-            this.lblSommeDfix.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSommeDfix.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblSommeDfix.Location = new System.Drawing.Point(77, 8);
-            this.lblSommeDfix.Name = "lblSommeDfix";
-            this.lblSommeDfix.Size = new System.Drawing.Size(55, 21);
-            this.lblSommeDfix.TabIndex = 2;
-            this.lblSommeDfix.Text = "10000";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel3.Controls.Add(this.lblSommeDHebdo);
-            this.panel3.Controls.Add(this.label9);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(443, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(214, 33);
-            this.panel3.TabIndex = 0;
-            // 
-            // lblSommeDHebdo
-            // 
-            this.lblSommeDHebdo.AutoSize = true;
-            this.lblSommeDHebdo.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSommeDHebdo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblSommeDHebdo.Location = new System.Drawing.Point(88, 7);
-            this.lblSommeDHebdo.Name = "lblSommeDHebdo";
-            this.lblSommeDHebdo.Size = new System.Drawing.Size(55, 21);
-            this.lblSommeDHebdo.TabIndex = 61;
-            this.lblSommeDHebdo.Text = "10000";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label9.Location = new System.Drawing.Point(5, 6);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 21);
-            this.label9.TabIndex = 60;
-            this.label9.Text = "D.Hebdo : ";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel4.Controls.Add(this.lblSommeDMissions);
-            this.panel4.Controls.Add(this.label8);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(223, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(214, 33);
-            this.panel4.TabIndex = 59;
-            // 
-            // lblSommeDMissions
-            // 
-            this.lblSommeDMissions.AutoSize = true;
-            this.lblSommeDMissions.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSommeDMissions.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblSommeDMissions.Location = new System.Drawing.Point(100, 8);
-            this.lblSommeDMissions.Name = "lblSommeDMissions";
-            this.lblSommeDMissions.Size = new System.Drawing.Size(55, 21);
-            this.lblSommeDMissions.TabIndex = 3;
-            this.lblSommeDMissions.Text = "10000";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label8.Location = new System.Drawing.Point(3, 7);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(104, 21);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "D.Missions : ";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(202, 84);
-            this.panel1.TabIndex = 0;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(8, 26);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(187, 23);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Consommation Total";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTotal.Text = "0";
             // 
             // printDialog1
             // 
@@ -411,6 +200,7 @@ namespace ParcAuto.Forms
             this.btnImportExcel.Size = new System.Drawing.Size(40, 40);
             this.btnImportExcel.TabIndex = 85;
             this.btnImportExcel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnImportExcel.Click += new System.EventHandler(this.btnImportExcel_Click);
             // 
             // btnExportExcel
             // 
@@ -714,7 +504,7 @@ namespace ParcAuto.Forms
             this.dgvCourrier.RowHeadersVisible = false;
             this.dgvCourrier.RowHeadersWidth = 62;
             this.dgvCourrier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCourrier.Size = new System.Drawing.Size(1109, 423);
+            this.dgvCourrier.Size = new System.Drawing.Size(1109, 477);
             this.dgvCourrier.TabIndex = 74;
             // 
             // Column1
@@ -839,18 +629,6 @@ namespace ParcAuto.Forms
             this.Load += new System.EventHandler(this.SuiviDesEnvois_Load);
             this.PanelTautaux.ResumeLayout(false);
             this.PanelTautaux.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panelDate.ResumeLayout(false);
             this.panelDate.PerformLayout();
             this.TextPanel.ResumeLayout(false);
@@ -867,22 +645,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Panel PanelTautaux;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label lblSommeDExceptionnel;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblSommeDfix;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lblSommeDHebdo;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label lblSommeDMissions;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;

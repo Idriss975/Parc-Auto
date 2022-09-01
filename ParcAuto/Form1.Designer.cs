@@ -31,22 +31,22 @@ namespace ParcAuto
         {
             System.Windows.Forms.Panel section2;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea17 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend17 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series33 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series34 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea18 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend18 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series35 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series36 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea20 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend20 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series39 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series40 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea19 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend19 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series37 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series38 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Suivis = new System.Windows.Forms.Panel();
             this.panelsousSuivi = new System.Windows.Forms.Panel();
             this.btnNbCourriers = new System.Windows.Forms.Button();
@@ -180,6 +180,7 @@ namespace ParcAuto
             // 
             // panelsousSuivi
             // 
+            this.panelsousSuivi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelsousSuivi.Controls.Add(this.btnNbCourriers);
             this.panelsousSuivi.Controls.Add(this.btnLstCourriers);
             this.panelsousSuivi.Dock = System.Windows.Forms.DockStyle.Top;
@@ -192,27 +193,28 @@ namespace ParcAuto
             // btnNbCourriers
             // 
             this.btnNbCourriers.AutoSize = true;
-            this.btnNbCourriers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnNbCourriers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.btnNbCourriers.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnNbCourriers.FlatAppearance.BorderSize = 0;
             this.btnNbCourriers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNbCourriers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNbCourriers.ForeColor = System.Drawing.Color.White;
             this.btnNbCourriers.Image = ((System.Drawing.Image)(resources.GetObject("btnNbCourriers.Image")));
             this.btnNbCourriers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNbCourriers.Location = new System.Drawing.Point(0, 45);
             this.btnNbCourriers.Name = "btnNbCourriers";
             this.btnNbCourriers.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnNbCourriers.Size = new System.Drawing.Size(183, 45);
+            this.btnNbCourriers.Size = new System.Drawing.Size(181, 45);
             this.btnNbCourriers.TabIndex = 102;
             this.btnNbCourriers.Text = "Nombre de Courriers \r\npar Directions ";
-            this.btnNbCourriers.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnNbCourriers.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNbCourriers.UseVisualStyleBackColor = false;
             this.btnNbCourriers.Click += new System.EventHandler(this.btnNbCourriers_Click);
             // 
             // btnLstCourriers
             // 
             this.btnLstCourriers.AutoSize = true;
-            this.btnLstCourriers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnLstCourriers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
             this.btnLstCourriers.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLstCourriers.FlatAppearance.BorderSize = 0;
             this.btnLstCourriers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -222,7 +224,7 @@ namespace ParcAuto
             this.btnLstCourriers.Location = new System.Drawing.Point(0, 0);
             this.btnLstCourriers.Name = "btnLstCourriers";
             this.btnLstCourriers.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnLstCourriers.Size = new System.Drawing.Size(183, 45);
+            this.btnLstCourriers.Size = new System.Drawing.Size(181, 45);
             this.btnLstCourriers.TabIndex = 101;
             this.btnLstCourriers.Text = "Courriers";
             this.btnLstCourriers.UseVisualStyleBackColor = false;
@@ -1017,20 +1019,20 @@ namespace ParcAuto
             // 
             // TransportChart
             // 
-            chartArea17.Name = "ChartArea1";
-            this.TransportChart.ChartAreas.Add(chartArea17);
-            legend17.Name = "Legend1";
-            this.TransportChart.Legends.Add(legend17);
+            chartArea1.Name = "ChartArea1";
+            this.TransportChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.TransportChart.Legends.Add(legend1);
             this.TransportChart.Location = new System.Drawing.Point(3, 51);
             this.TransportChart.Name = "TransportChart";
-            series33.ChartArea = "ChartArea1";
-            series33.Legend = "Legend1";
-            series33.Name = "Total Report et Achat";
-            series34.ChartArea = "ChartArea1";
-            series34.Legend = "Legend1";
-            series34.Name = "Total Consommation";
-            this.TransportChart.Series.Add(series33);
-            this.TransportChart.Series.Add(series34);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Total Report et Achat";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Total Consommation";
+            this.TransportChart.Series.Add(series1);
+            this.TransportChart.Series.Add(series2);
             this.TransportChart.Size = new System.Drawing.Size(439, 225);
             this.TransportChart.TabIndex = 0;
             this.TransportChart.Text = "chart1";
@@ -1063,20 +1065,20 @@ namespace ParcAuto
             // 
             // ReparationChart
             // 
-            chartArea18.Name = "ChartArea1";
-            this.ReparationChart.ChartAreas.Add(chartArea18);
-            legend18.Name = "Legend1";
-            this.ReparationChart.Legends.Add(legend18);
+            chartArea2.Name = "ChartArea1";
+            this.ReparationChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.ReparationChart.Legends.Add(legend2);
             this.ReparationChart.Location = new System.Drawing.Point(3, 51);
             this.ReparationChart.Name = "ReparationChart";
-            series35.ChartArea = "ChartArea1";
-            series35.Legend = "Legend1";
-            series35.Name = "Total Report et Achat";
-            series36.ChartArea = "ChartArea1";
-            series36.Legend = "Legend1";
-            series36.Name = "Total Consommation";
-            this.ReparationChart.Series.Add(series35);
-            this.ReparationChart.Series.Add(series36);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Total Report et Achat";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Total Consommation";
+            this.ReparationChart.Series.Add(series3);
+            this.ReparationChart.Series.Add(series4);
             this.ReparationChart.Size = new System.Drawing.Size(439, 225);
             this.ReparationChart.TabIndex = 0;
             this.ReparationChart.Text = "chart1";
@@ -1108,20 +1110,20 @@ namespace ParcAuto
             // 
             // carteFreeChart
             // 
-            chartArea20.Name = "ChartArea1";
-            this.carteFreeChart.ChartAreas.Add(chartArea20);
-            legend20.Name = "Legend1";
-            this.carteFreeChart.Legends.Add(legend20);
+            chartArea3.Name = "ChartArea1";
+            this.carteFreeChart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.carteFreeChart.Legends.Add(legend3);
             this.carteFreeChart.Location = new System.Drawing.Point(3, 51);
             this.carteFreeChart.Name = "carteFreeChart";
-            series39.ChartArea = "ChartArea1";
-            series39.Legend = "Legend1";
-            series39.Name = "Total Report et Achat";
-            series40.ChartArea = "ChartArea1";
-            series40.Legend = "Legend1";
-            series40.Name = "Total Consommation";
-            this.carteFreeChart.Series.Add(series39);
-            this.carteFreeChart.Series.Add(series40);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Total Report et Achat";
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Total Consommation";
+            this.carteFreeChart.Series.Add(series5);
+            this.carteFreeChart.Series.Add(series6);
             this.carteFreeChart.Size = new System.Drawing.Size(439, 225);
             this.carteFreeChart.TabIndex = 0;
             this.carteFreeChart.Text = "chart1";
@@ -1153,20 +1155,20 @@ namespace ParcAuto
             // 
             // Carburantchart
             // 
-            chartArea19.Name = "ChartArea1";
-            this.Carburantchart.ChartAreas.Add(chartArea19);
-            legend19.Name = "Legend1";
-            this.Carburantchart.Legends.Add(legend19);
+            chartArea4.Name = "ChartArea1";
+            this.Carburantchart.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.Carburantchart.Legends.Add(legend4);
             this.Carburantchart.Location = new System.Drawing.Point(3, 48);
             this.Carburantchart.Name = "Carburantchart";
-            series37.ChartArea = "ChartArea1";
-            series37.Legend = "Legend1";
-            series37.Name = "Total Report et Achat";
-            series38.ChartArea = "ChartArea1";
-            series38.Legend = "Legend1";
-            series38.Name = "Total Consommation";
-            this.Carburantchart.Series.Add(series37);
-            this.Carburantchart.Series.Add(series38);
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Total Report et Achat";
+            series8.ChartArea = "ChartArea1";
+            series8.Legend = "Legend1";
+            series8.Name = "Total Consommation";
+            this.Carburantchart.Series.Add(series7);
+            this.Carburantchart.Series.Add(series8);
             this.Carburantchart.Size = new System.Drawing.Size(404, 249);
             this.Carburantchart.TabIndex = 0;
             this.Carburantchart.Text = "chart1";

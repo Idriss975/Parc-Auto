@@ -1,10 +1,13 @@
-﻿using ParcAuto.Classes_Globale;
+﻿using Microsoft.Office.Interop.Excel;
+using ParcAuto.Classes_Globale;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -93,14 +96,25 @@ namespace ParcAuto.Forms
                 GLB.Con.Close();
             }
         }
+        private void Total()
+        {
+            float somme = 0;
+            foreach (DataGridViewRow item in dgvCourrier.Rows)
+            {
+                somme += ((string)item.Cells[10].Value) == "" ? 0 : float.Parse(item.Cells[10].Value.ToString());
+            }
+            lblTotal.Text = somme.ToString();
+        }
         private void SuiviDesEnvois_Load(object sender, EventArgs e)
         {
+            
             Permissions();
             RemplirLaGrille();
             panelDate.Visible = false;
             TextPanel.Visible = false;
             cmbChoix.SelectedIndex = 0;
             GLB.StyleDataGridView(dgvCourrier);
+            Total();
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
@@ -116,6 +130,7 @@ namespace ParcAuto.Forms
                     dgvCourrier.Rows[dgvCourrier.Rows.Count - 1].Selected = true;
                     dgvCourrier.FirstDisplayedScrollingRowIndex = dgvCourrier.Rows.Count - 1;
                 }
+                Total();
             }
             catch (Exception ex)
             {
@@ -146,6 +161,7 @@ namespace ParcAuto.Forms
                 RemplirLaGrille();
                 dgvCourrier.Rows[pos].Selected = true;
                 dgvCourrier.FirstDisplayedScrollingRowIndex = Lastscrollindex;
+                Total();
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -166,6 +182,7 @@ namespace ParcAuto.Forms
                     GLB.Cmd.ExecuteNonQuery();
                 }
                 RemplirLaGrille();
+                Total();
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -190,6 +207,7 @@ namespace ParcAuto.Forms
                     GLB.Cmd.ExecuteNonQuery();
                 }
                 RemplirLaGrille();
+                Total();
             }
             catch (Exception ex)
             {
@@ -233,6 +251,7 @@ namespace ParcAuto.Forms
         private void btnFiltrer_Click(object sender, EventArgs e)
         {
             GLB.Filter(cmbChoix, dgvCourrier, txtValueToFiltre, new string[] { "Date de depot", "Date d'enlevement" }, Date1, Date2);
+            Total();
         }
 
         private void btnExportExcel_Click(object sender, EventArgs e)
@@ -286,6 +305,89 @@ namespace ParcAuto.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        _Application importExceldatagridViewApp;
+        _Worksheet importExceldatagridViewworksheet;
+        Range importdatagridviewRange;
+        Workbook excelWorkbook;
+        private void btnImportExcel_Click(object sender, EventArgs e)
+        {
+            if (GLB.Con.State == ConnectionState.Open)
+                GLB.Con.Close();
+            GLB.Con.Open();
+            SqlTransaction trans = GLB.Con.BeginTransaction();
+            GLB.Cmd.Transaction = trans;
+            try
+            {
+                
+                DateTime dateDepot, dateEnlevement;
+                string nOrderOBC, CodeAbarre, Demandeur, Reference, Destinataire, Destination, Nombre, NatureDenvoi, Prix;
+                importExceldatagridViewApp = new Microsoft.Office.Interop.Excel.Application();
+                OpenFileDialog importOpenDialoge = new OpenFileDialog();
+                importOpenDialoge.Title = "Import Excel File";
+                importOpenDialoge.Filter = "Import Excel File|*.xlsx;*xls;*xlm";
+                if (importOpenDialoge.ShowDialog() == DialogResult.OK)
+                    {
+                    
+                    Workbooks excelWorkbooks = importExceldatagridViewApp.Workbooks;
+                    excelWorkbook = excelWorkbooks.Open(importOpenDialoge.FileName);
+                    importExceldatagridViewworksheet = excelWorkbook.ActiveSheet;
+                    importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
+                    for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
+                    {
+                        nOrderOBC = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value));
+                        CodeAbarre = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value));
+                        dateDepot = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value ?? "0001-01-01"));
+                        Demandeur = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value));
+                        Reference = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value));
+                        Destinataire = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value));
+                        Destination = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value));
+                        Nombre = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value));
+                        NatureDenvoi = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 9].value));
+                        dateEnlevement = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 10].value ?? "0001-01-01"));
+                        Prix = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 11].value));
+
+                        GLB.Cmd.Parameters.Clear();
+                        GLB.Cmd.CommandText = "insert into SuiviDesEnvois values(@OBC,@CodeAbarre,@DateDepot,@Demandeur,@Reference,@Destinataire,@Destination,@Nombre,@NatureDenvoi,@DateEnlevement,@prix) ";
+                        GLB.Cmd.Parameters.Add("@OBC", SqlDbType.NVarChar, 50).Value =  nOrderOBC ?? "";
+                        GLB.Cmd.Parameters.Add("@CodeAbarre", SqlDbType.NVarChar, 50).Value = CodeAbarre ?? "";
+                        GLB.Cmd.Parameters.Add("@DateDepot", SqlDbType.Date).Value = dateDepot.ToString("yyyy-MM-dd") == "0001-01-01" ? (object)DBNull.Value : dateDepot.ToString("yyyy-MM-dd");
+                        GLB.Cmd.Parameters.Add("@Demandeur", SqlDbType.VarChar, 500).Value = Demandeur ?? "";
+                        GLB.Cmd.Parameters.Add("@Reference", SqlDbType.NVarChar, 200).Value = Reference ?? "";
+                        GLB.Cmd.Parameters.Add("@Destinataire", SqlDbType.NVarChar, 200).Value = Destinataire ?? "" ;
+                        GLB.Cmd.Parameters.Add("@Destination", SqlDbType.NVarChar, 100).Value = Destination ?? "";
+                        GLB.Cmd.Parameters.Add("@Nombre", SqlDbType.Int).Value = Nombre ?? (object)DBNull.Value;
+                        GLB.Cmd.Parameters.Add("@NatureDenvoi", SqlDbType.NVarChar, 50).Value = NatureDenvoi ?? "";
+                        GLB.Cmd.Parameters.Add("@DateEnlevement", SqlDbType.Date).Value = dateEnlevement.ToString("yyyy-MM-dd") == "0001-01-01" ? (object)DBNull.Value : dateEnlevement.ToString("yyyy-MM-dd"); ;
+                        GLB.Cmd.Parameters.Add("@prix", SqlDbType.Real).Value = Prix ?? (object)DBNull.Value;
+                        GLB.Cmd.ExecuteNonQuery();
+                        
+                        Total();
+                        
+
+                    }
+
+                }
+                trans.Commit();
+                GLB.Con.Close();
+                RemplirLaGrille();
+
+            }
+            catch (Exception ex)
+            {
+                trans.Rollback();
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            finally
+            {
+                GLB.Con.Close();
+                excelWorkbook.Close();
+                Marshal.ReleaseComObject(excelWorkbook);
+                Marshal.ReleaseComObject(importExceldatagridViewworksheet);
+                Marshal.ReleaseComObject(importdatagridviewRange);
+                importExceldatagridViewApp.Quit();
             }
         }
     }

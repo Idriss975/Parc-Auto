@@ -177,6 +177,7 @@ namespace ParcAuto.Forms
         private void btnFiltrer_Click(object sender, EventArgs e)
         {
             GLB.Filter(cmbChoix, dgvTransport, txtValueToFiltre, new string[] { "Date" }, Date1, Date2);
+            Total();
         }
 
         private void btnQuitter_Click(object sender, EventArgs e)
