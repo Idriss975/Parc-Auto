@@ -444,8 +444,6 @@ namespace ParcAuto.Forms
             this.dgvCarburant.RowHeadersVisible = false;
             this.dgvCarburant.RowHeadersWidth = 62;
             this.dgvCarburant.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dgvCarburant.RowTemplate.Height = 40;
-            this.dgvCarburant.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvCarburant.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCarburant.Size = new System.Drawing.Size(1109, 423);
             this.dgvCarburant.TabIndex = 22;
