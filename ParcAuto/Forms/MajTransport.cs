@@ -129,7 +129,7 @@ namespace ParcAuto.Forms
             txtentite.Clear();
             txtNBon_Email.Clear();
             txtPrix.Clear();
-            txtUtilisation.Clear();
+            txtUtilisation.SelectedIndex = 0;
             DateMission.Value = DateTime.Now;
             txtDestination.Text = destination;
             txttagJawaz.Clear();

@@ -21,6 +21,8 @@ namespace ParcAuto.Forms
             InitializeComponent();
         }
 
+        static bool Fiche_impress;
+
         private void Total()
         {
             float somme = 0;
@@ -213,10 +215,47 @@ namespace ParcAuto.Forms
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            Impression.Drawonprintdoc(e, dgvTransport, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6),0,Titre:"Vignettes transport", Total:$"Total: {lblSommePrix.Text}");
+            if (!Fiche_impress)
+                Impression.Drawonprintdoc(e, dgvTransport, imageList1.Images["OFPPT_logo.png"], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6),0,Titre:"Vignettes transport", Total:$"Total: {lblSommePrix.Text}");
+            else
+            {
+                string Recherches = "";
+                foreach (DataGridViewRow item in dgvTransport.Rows)
+                {
+                    Recherches += " " + item.Cells["Column5"].Value.ToString() + " = " + item.Cells["Column8"].Value.ToString() + " dh\n";
+                }
+                Impression.Print_Header(e, imageList1.Images["OFPPT_logo.png"],Titre:"Fiche d'information");
+                Impression.Print_footer(e);
+
+                e.Graphics.DrawString("Objet:", new System.Drawing.Font("Arial", 9, FontStyle.Bold | FontStyle.Underline), Brushes.Black, 30, 200);
+                e.Graphics.DrawString("Suivi de consommation (Tag Jawaz).", new System.Drawing.Font("Arial", 9), Brushes.Black, 30 + 5 + Convert.ToInt32(e.Graphics.MeasureString("Objet:", new System.Drawing.Font("Arial", 9, FontStyle.Bold | FontStyle.Underline)).Width) , 200);
+                e.Graphics.DrawString($"Demande:\t/{DateTime.Now.Year}", new System.Drawing.Font("Arial", 9), Brushes.Black, 30, 240);
+
+
+                int Width_table = (e.PageSettings.PaperSize.Width / 2) - 30;
+                int Heigth_table = 30;
+
+                Coords Entite = Coords.Print_Rectangle(e, 30, 260, Width_table, Heigth_table, 9, Alignement: StringAlignment.Near , LineAlignment: StringAlignment.Near, Text:" Entité");
+                Coords Entite_Val = Coords.Print_Rectangle(e, Entite.x + Entite.width, Entite.y, Width_table, Entite.heigth, 9, Alignement: StringAlignment.Near, LineAlignment: StringAlignment.Near, Text:" "+dgvTransport.Rows[0].Cells["Column2"].Value.ToString());
+                Coords Beneficiaire = Coords.Print_Rectangle(e, Entite.x, Entite.y + Entite.heigth, Width_table, Heigth_table, 9, Alignement: StringAlignment.Near, LineAlignment: StringAlignment.Near, Text: " Bénéficiaire");
+                Coords Beneficiaire_Val = Coords.Print_Rectangle(e, Entite_Val.x, Beneficiaire.y, Width_table, Heigth_table, 9, Alignement: StringAlignment.Near, LineAlignment: StringAlignment.Near, Text: " "+dgvTransport.Rows[0].Cells["Column3"].Value.ToString());
+                Coords NTag = Coords.Print_Rectangle(e, Entite.x, Beneficiaire.y + Beneficiaire.heigth, Width_table, Heigth_table, 9, Alignement: StringAlignment.Near, LineAlignment: StringAlignment.Near, Text: " N° Tag Jawaz");
+                Coords NTag_Val = Coords.Print_Rectangle(e, Beneficiaire_Val.x, Beneficiaire_Val.y + Beneficiaire_Val.heigth, Width_table, Heigth_table, 9, Alignement: StringAlignment.Near, LineAlignment: StringAlignment.Near, Text: " "+dgvTransport.Rows[0].Cells["Column9"].Value.ToString());
+                //recharges
+                Coords Recharge_Val = Coords.Print_Rectangle(e, NTag_Val.x, NTag_Val.y + NTag_Val.heigth, Width_table, Convert.ToInt32(e.Graphics.MeasureString(Recherches, new System.Drawing.Font("Arial",9), Width_table).Height), 9, Alignement: StringAlignment.Near, LineAlignment: StringAlignment.Near, Text: " "+ Recherches);
+                Coords Recharge = Coords.Print_Rectangle(e, NTag.x, Recharge_Val.y, Recharge_Val.width, Recharge_Val.heigth, 9, Alignement: StringAlignment.Near, LineAlignment: StringAlignment.Near, Text: " Recharges effectuées");
+                
+                Coords Total = Coords.Print_Rectangle(e, Recharge.x, Recharge.y + Recharge.heigth, Width_table, Heigth_table, 9, Alignement: StringAlignment.Near, LineAlignment: StringAlignment.Near, Text: " Total");
+                Coords.Print_Rectangle(e, Recharge_Val.x, Recharge_Val.y + Recharge_Val.heigth, Width_table, Heigth_table, 9, Alignement: StringAlignment.Near, LineAlignment: StringAlignment.Near, Text: " "+ lblSommePrix.Text);
+
+                e.Graphics.DrawRectangle(Pens.Black, new System.Drawing.Rectangle(Entite.x, Total.y + Total.heigth + 100, Width_table * 2, (794 - Total.y - Total.heigth)/2));
+
+                e.Graphics.DrawString("Instrctions de la DAL:", new System.Drawing.Font("Arial", 9, FontStyle.Bold), Brushes.Black, Entite.x, Total.y + Total.heigth + 80);
+            }
         }
         private void btnImprimer_Click(object sender, EventArgs e)
         {
+            Fiche_impress = false;
             if (printDialog1.ShowDialog(this) == DialogResult.OK)
             {
                 printPreviewDialog1.Document.PrinterSettings = printDialog1.PrinterSettings;
@@ -358,9 +397,14 @@ namespace ParcAuto.Forms
            
         }
 
-        private void dgvTransport_DoubleClick(object sender, EventArgs e)
+        private void btnFicheInformation_Click(object sender, EventArgs e)
         {
-            
+            Fiche_impress = true;
+            if (printDialog1.ShowDialog(this) == DialogResult.OK)
+            {
+                printPreviewDialog1.Document.PrinterSettings = printDialog1.PrinterSettings;
+                printPreviewDialog1.ShowDialog();
+            }
         }
     }
 }

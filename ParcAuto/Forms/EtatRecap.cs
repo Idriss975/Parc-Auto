@@ -160,69 +160,69 @@ namespace ParcAuto.Forms
             int[] Cell_surfaces = { 52, 23 };
             int[] Starting_coords = { 25, 200 };
 
-            Coords Design = Print_Rectangle(e, Starting_coords[0], Starting_coords[1], 200, 45, fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, Text: Designation.Text, fontSize: 9);
+            Coords Design = Coords.Print_Rectangle(e, Starting_coords[0], Starting_coords[1], 200, 45, fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, Text: Designation.Text, fontSize: 9);
 
-            Coords Stock = Print_Rectangle(e, Design.x + 200, Design.y, 156, 22, Text: $"Stock en {GLB.SelectedDate}", fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, fontSize: 9);
-            Coords Report = Print_Rectangle(e, Stock.x, Stock.y + 22, Cell_surfaces[0], Cell_surfaces[1], Text: "Report", fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, fontSize: 7);
-            Coords Achat = Print_Rectangle(e, Stock.x + Cell_surfaces[0], Report.y, Cell_surfaces[0], Cell_surfaces[1], Text: "Achat", fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, fontSize: 7);
-            Coords Total_Stock = Print_Rectangle(e, Achat.x + Cell_surfaces[0], Achat.y, Cell_surfaces[0], Cell_surfaces[1], Text: "Total", fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, fontSize: 7);
+            Coords Stock = Coords.Print_Rectangle(e, Design.x + 200, Design.y, 156, 22, Text: $"Stock en {GLB.SelectedDate}", fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, fontSize: 9);
+            Coords Report = Coords.Print_Rectangle(e, Stock.x, Stock.y + 22, Cell_surfaces[0], Cell_surfaces[1], Text: "Report", fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, fontSize: 7);
+            Coords Achat = Coords.Print_Rectangle(e, Stock.x + Cell_surfaces[0], Report.y, Cell_surfaces[0], Cell_surfaces[1], Text: "Achat", fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, fontSize: 7);
+            Coords Total_Stock = Coords.Print_Rectangle(e, Achat.x + Cell_surfaces[0], Achat.y, Cell_surfaces[0], Cell_surfaces[1], Text: "Total", fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, fontSize: 7);
 
-            Coords Consomation = Print_Rectangle(e, Stock.x + Stock.width, Starting_coords[1], Cell_surfaces[0] * 4, 22, Text: "Consommation", fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, fontSize: 9);
-            Coords Per_trim =  Print_Rectangle(e, Consomation.x, Starting_coords[1] + 22, Cell_surfaces[0], Cell_surfaces[1], Text: "1ᵉʳ Trim", fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, fontSize: 6);
-            Coords Der_trim =  Print_Rectangle(e, Per_trim.x + Cell_surfaces[0], Per_trim.y, Cell_surfaces[0], Cell_surfaces[1], Text: "2ᵉᵐᵉ Trim", fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, fontSize: 6);
-            Coords Ter_trim =  Print_Rectangle(e, Der_trim.x + Cell_surfaces[0], Per_trim.y, Cell_surfaces[0], Cell_surfaces[1], Text: "3ᵉᵐᵉ Trim", fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, fontSize: 6);
-            Coords Qer_trim =  Print_Rectangle(e, Ter_trim.x + Cell_surfaces[0], Per_trim.y, Cell_surfaces[0], Cell_surfaces[1], Text: "4ᵉᵐᵉ Trim", fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, fontSize: 6);
+            Coords Consomation = Coords.Print_Rectangle(e, Stock.x + Stock.width, Starting_coords[1], Cell_surfaces[0] * 4, 22, Text: "Consommation", fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, fontSize: 9);
+            Coords Per_trim =  Coords.Print_Rectangle(e, Consomation.x, Starting_coords[1] + 22, Cell_surfaces[0], Cell_surfaces[1], Text: "1ᵉʳ Trim", fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, fontSize: 6);
+            Coords Der_trim =  Coords.Print_Rectangle(e, Per_trim.x + Cell_surfaces[0], Per_trim.y, Cell_surfaces[0], Cell_surfaces[1], Text: "2ᵉᵐᵉ Trim", fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, fontSize: 6);
+            Coords Ter_trim =  Coords.Print_Rectangle(e, Der_trim.x + Cell_surfaces[0], Per_trim.y, Cell_surfaces[0], Cell_surfaces[1], Text: "3ᵉᵐᵉ Trim", fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, fontSize: 6);
+            Coords Qer_trim =  Coords.Print_Rectangle(e, Ter_trim.x + Cell_surfaces[0], Per_trim.y, Cell_surfaces[0], Cell_surfaces[1], Text: "4ᵉᵐᵉ Trim", fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, fontSize: 6);
 
-            Coords Total_Consomation = Print_Rectangle(e, Qer_trim.x + Qer_trim.width, Stock.y, Cell_surfaces[0] * 2, Design.heigth, Text: label29.Text, fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, fontSize: 9);
-            Coords Dispo = Print_Rectangle(e, Total_Consomation.x + Total_Consomation.width, Total_Consomation.y, Total_Consomation.width, Total_Consomation.heigth, Text: label48.Text, fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, fontSize: 9);
-
-
-            Coords Carburant = Print_Rectangle(e, Design.x, Design.y + Design.heigth, Design.width / 2, Cell_surfaces[1] * 2, Text: label45.Text, fontSize: 7, fontStyle:FontStyle.Bold, Alignement: StringAlignment.Center);
-            Coords Carte_Free = Print_Rectangle(e, Carburant.x + Carburant.width, Carburant.y, Carburant.width, Cell_surfaces[1], Text: label43.Text, fontSize: 7, fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center);
-            Coords Vign_SNTL = Print_Rectangle(e, Carte_Free.x, Carte_Free.y + Carte_Free.heigth,Carte_Free.width,Carte_Free.heigth, Text: label44.Text, fontSize: 6.7F, fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center);
-            Coords Vign_Reparation = Print_Rectangle(e, Starting_coords[0], Vign_SNTL.y + Vign_SNTL.heigth, Design.width, Cell_surfaces[1], Text: label41.Text, fontSize: 7, fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center);
-            Coords Vign_Transport = Print_Rectangle(e, Starting_coords[0], Vign_Reparation.y + Vign_Reparation.heigth, Design.width, Cell_surfaces[1], Text: label40.Text, fontSize: 7, fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center);
+            Coords Total_Consomation = Coords.Print_Rectangle(e, Qer_trim.x + Qer_trim.width, Stock.y, Cell_surfaces[0] * 2, Design.heigth, Text: label29.Text, fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, fontSize: 9);
+            Coords Dispo = Coords.Print_Rectangle(e, Total_Consomation.x + Total_Consomation.width, Total_Consomation.y, Total_Consomation.width, Total_Consomation.heigth, Text: label48.Text, fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center, fontSize: 9);
 
 
-            Print_Rectangle(e, Report.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: ReportCarteFree.Text);
-            Print_Rectangle(e, Achat.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: AchatCarteFree.Text);
-            Print_Rectangle(e, Total_Stock.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: SumStockCarteFree.Text);
-            Print_Rectangle(e, Per_trim.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim1CarteFree.Text);
-            Print_Rectangle(e, Der_trim.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim2CarteFree.Text);
-            Print_Rectangle(e, Ter_trim.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim3CarteFree.Text);
-            Print_Rectangle(e, Qer_trim.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim4CarteFree.Text);
-            Print_Rectangle(e, Total_Consomation.x, Carte_Free.y,Total_Consomation.width,Cell_surfaces[1], Text: sumtrimestres.Text);
-            Print_Rectangle(e, Dispo.x, Carte_Free.y, Dispo.width, Cell_surfaces[1], Text: Disponible.Text);
+            Coords Carburant = Coords.Print_Rectangle(e, Design.x, Design.y + Design.heigth, Design.width / 2, Cell_surfaces[1] * 2, Text: label45.Text, fontSize: 7, fontStyle:FontStyle.Bold, Alignement: StringAlignment.Center);
+            Coords Carte_Free = Coords.Print_Rectangle(e, Carburant.x + Carburant.width, Carburant.y, Carburant.width, Cell_surfaces[1], Text: label43.Text, fontSize: 7, fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center);
+            Coords Vign_SNTL = Coords.Print_Rectangle(e, Carte_Free.x, Carte_Free.y + Carte_Free.heigth,Carte_Free.width,Carte_Free.heigth, Text: label44.Text, fontSize: 6.7F, fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center);
+            Coords Vign_Reparation = Coords.Print_Rectangle(e, Starting_coords[0], Vign_SNTL.y + Vign_SNTL.heigth, Design.width, Cell_surfaces[1], Text: label41.Text, fontSize: 7, fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center);
+            Coords Vign_Transport = Coords.Print_Rectangle(e, Starting_coords[0], Vign_Reparation.y + Vign_Reparation.heigth, Design.width, Cell_surfaces[1], Text: label40.Text, fontSize: 7, fontStyle: FontStyle.Bold, Alignement: StringAlignment.Center);
 
-            Print_Rectangle(e, Report.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: ReportCarbSNTL.Text);
-            Print_Rectangle(e, Achat.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: AchatCarbSNTL.Text);
-            Print_Rectangle(e, Total_Stock.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: SumStockCarbSNTL.Text);
-            Print_Rectangle(e, Per_trim.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim1CarbSNTL.Text);
-            Print_Rectangle(e, Der_trim.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim2CarbSNTL.Text);
-            Print_Rectangle(e, Ter_trim.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim3CarbSNTL.Text);
-            Print_Rectangle(e, Qer_trim.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim4CarbSNTL.Text);
-            Print_Rectangle(e, Total_Consomation.x, Vign_SNTL.y, Total_Consomation.width, Cell_surfaces[1], Text: sumtrimestresCarbSNTL.Text);
-            Print_Rectangle(e, Dispo.x, Vign_SNTL.y, Dispo.width, Cell_surfaces[1], Text: DisponibleCarbSNTL.Text);
 
-            Print_Rectangle(e, Report.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: ReportReparation.Text);
-            Print_Rectangle(e, Achat.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: AchatReparation.Text);
-            Print_Rectangle(e, Total_Stock.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: sumStockReparation.Text);
-            Print_Rectangle(e, Per_trim.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim1Reparation.Text);
-            Print_Rectangle(e, Der_trim.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim2Reparation.Text);
-            Print_Rectangle(e, Ter_trim.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim3Reparation.Text);
-            Print_Rectangle(e, Qer_trim.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim4Reparation.Text);
-            Print_Rectangle(e, Total_Consomation.x, Vign_Reparation.y, Total_Consomation.width, Cell_surfaces[1], Text: sumtrimestresReparation.Text);
-            Print_Rectangle(e, Dispo.x, Vign_Reparation.y, Dispo.width, Cell_surfaces[1], Text: DisponibleReparation.Text);
+            Coords.Print_Rectangle(e, Report.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: ReportCarteFree.Text);
+            Coords.Print_Rectangle(e, Achat.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: AchatCarteFree.Text);
+            Coords.Print_Rectangle(e, Total_Stock.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: SumStockCarteFree.Text);
+            Coords.Print_Rectangle(e, Per_trim.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim1CarteFree.Text);
+            Coords.Print_Rectangle(e, Der_trim.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim2CarteFree.Text);
+            Coords.Print_Rectangle(e, Ter_trim.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim3CarteFree.Text);
+            Coords.Print_Rectangle(e, Qer_trim.x, Carte_Free.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim4CarteFree.Text);
+            Coords.Print_Rectangle(e, Total_Consomation.x, Carte_Free.y,Total_Consomation.width,Cell_surfaces[1], Text: sumtrimestres.Text);
+            Coords.Print_Rectangle(e, Dispo.x, Carte_Free.y, Dispo.width, Cell_surfaces[1], Text: Disponible.Text);
 
-            Print_Rectangle(e, Report.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: ReportTransport.Text);
-            Print_Rectangle(e, Achat.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: AchatTransport.Text);
-            Print_Rectangle(e, Total_Stock.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: SumStockTransport.Text);
-            Print_Rectangle(e, Per_trim.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim1transport.Text);
-            Print_Rectangle(e, Der_trim.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim2transport.Text);
-            Print_Rectangle(e, Ter_trim.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim3transport.Text);
-            Print_Rectangle(e, Qer_trim.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim4transport.Text);
-            Print_Rectangle(e, Total_Consomation.x, Vign_Transport.y, Total_Consomation.width, Cell_surfaces[1], Text: sumTrimestresTransport.Text);
-            Print_Rectangle(e, Dispo.x, Vign_Transport.y, Dispo.width, Cell_surfaces[1], Text: DisponibleTransport.Text);
+            Coords.Print_Rectangle(e, Report.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: ReportCarbSNTL.Text);
+            Coords.Print_Rectangle(e, Achat.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: AchatCarbSNTL.Text);
+            Coords.Print_Rectangle(e, Total_Stock.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: SumStockCarbSNTL.Text);
+            Coords.Print_Rectangle(e, Per_trim.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim1CarbSNTL.Text);
+            Coords.Print_Rectangle(e, Der_trim.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim2CarbSNTL.Text);
+            Coords.Print_Rectangle(e, Ter_trim.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim3CarbSNTL.Text);
+            Coords.Print_Rectangle(e, Qer_trim.x, Vign_SNTL.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim4CarbSNTL.Text);
+            Coords.Print_Rectangle(e, Total_Consomation.x, Vign_SNTL.y, Total_Consomation.width, Cell_surfaces[1], Text: sumtrimestresCarbSNTL.Text);
+            Coords.Print_Rectangle(e, Dispo.x, Vign_SNTL.y, Dispo.width, Cell_surfaces[1], Text: DisponibleCarbSNTL.Text);
+
+            Coords.Print_Rectangle(e, Report.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: ReportReparation.Text);
+            Coords.Print_Rectangle(e, Achat.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: AchatReparation.Text);
+            Coords.Print_Rectangle(e, Total_Stock.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: sumStockReparation.Text);
+            Coords.Print_Rectangle(e, Per_trim.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim1Reparation.Text);
+            Coords.Print_Rectangle(e, Der_trim.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim2Reparation.Text);
+            Coords.Print_Rectangle(e, Ter_trim.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim3Reparation.Text);
+            Coords.Print_Rectangle(e, Qer_trim.x, Vign_Reparation.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim4Reparation.Text);
+            Coords.Print_Rectangle(e, Total_Consomation.x, Vign_Reparation.y, Total_Consomation.width, Cell_surfaces[1], Text: sumtrimestresReparation.Text);
+            Coords.Print_Rectangle(e, Dispo.x, Vign_Reparation.y, Dispo.width, Cell_surfaces[1], Text: DisponibleReparation.Text);
+
+            Coords.Print_Rectangle(e, Report.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: ReportTransport.Text);
+            Coords.Print_Rectangle(e, Achat.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: AchatTransport.Text);
+            Coords.Print_Rectangle(e, Total_Stock.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: SumStockTransport.Text);
+            Coords.Print_Rectangle(e, Per_trim.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim1transport.Text);
+            Coords.Print_Rectangle(e, Der_trim.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim2transport.Text);
+            Coords.Print_Rectangle(e, Ter_trim.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim3transport.Text);
+            Coords.Print_Rectangle(e, Qer_trim.x, Vign_Transport.y, Cell_surfaces[0], Cell_surfaces[1], Text: trim4transport.Text);
+            Coords.Print_Rectangle(e, Total_Consomation.x, Vign_Transport.y, Total_Consomation.width, Cell_surfaces[1], Text: sumTrimestresTransport.Text);
+            Coords.Print_Rectangle(e, Dispo.x, Vign_Transport.y, Dispo.width, Cell_surfaces[1], Text: DisponibleTransport.Text);
 
             //e.Graphics.DrawString("* Directions", new Font("Arial", 11, FontStyle.Bold), Brushes.Black, new Point(Vign_Transport.x, Vign_Transport.y + Vign_Transport.heigth + 20));
             Print_Table(e, Vign_Transport.x, Vign_Transport.y + Vign_Transport.heigth + Convert.ToInt32(e.Graphics.MeasureString(Column1.HeaderText, new Font("Arial", 7, FontStyle.Bold)).Height) + 50);
@@ -233,31 +233,7 @@ namespace ParcAuto.Forms
             e.Graphics.DrawRectangle(new Pen(Brushes.Black), new Rectangle(10, 200, 200, 45));
         }
 
-        /// <summary>
-        ///     Draws a Rectangle with text inside of it
-        /// </summary>
-        /// <param name="e">print event</param>
-        /// <param name="x">xcoordinate</param>
-        /// <param name="y">y coordinate</param>
-        /// <param name="width">width of the rectangle</param>
-        /// <param name="heigth">heigth of the rectangle</param>
-        /// <param name="fontSize">Size of the text</param>
-        /// <param name="fontStyle">Style of the text (bold, regular, ...)</param>
-        /// <param name="Alignement">Alignment of the text</param>
-        /// <param name="Text">the text itself</param>
-        /// <returns></returns>
-        private Coords Print_Rectangle(PrintPageEventArgs e, int x, int y, int width, int heigth, float fontSize= 6.7F, FontStyle fontStyle = FontStyle.Regular, StringAlignment LineAlignment = StringAlignment.Center, StringAlignment Alignement = StringAlignment.Far, string Text = "")
-        {
-            e.Graphics.DrawRectangle(new Pen(Brushes.Black), new Rectangle(x, y, width, heigth));
-            e.Graphics.DrawString(Text, new Font("Arial", fontSize, fontStyle), Brushes.Black, new Rectangle(x, y, width, heigth), new StringFormat() { LineAlignment = StringAlignment.Center, Alignment = Alignement });
-            return new Coords { 
-                x = x, 
-                y = y, 
-                width = width, 
-                heigth = heigth, 
-                Text = Text 
-            };
-        }
+
 
         /// <summary>
         /// Prints Text with line under it.
@@ -370,12 +346,5 @@ namespace ParcAuto.Forms
 
 
 
-    class Coords
-    {
-        public int x;
-        public int y;
-        public int width;
-        public int heigth;
-        public string Text;
-    }
+
 }

@@ -43,14 +43,14 @@ namespace ParcAuto.Forms
             this.txtDestination = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtNBon_Email = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtUtilisation = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txttagJawaz = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnClear = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnAppliquer = new Guna.UI2.WinForms.Guna2Button();
             this.lbl = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txttagJawaz = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtUtilisation = new Guna.UI2.WinForms.Guna2ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,10 +73,10 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Controls.Add(this.txtDestination, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtNBon_Email, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtUtilisation, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label7, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.txttagJawaz, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.txtUtilisation, 3, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 59);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -527,7 +527,7 @@ namespace ParcAuto.Forms
             this.txtentite.PlaceholderText = "";
             this.txtentite.SelectedText = "";
             this.txtentite.ShadowDecoration.Parent = this.txtentite;
-            this.txtentite.Size = new System.Drawing.Size(215, 35);
+            this.txtentite.Size = new System.Drawing.Size(215, 34);
             this.txtentite.TabIndex = 0;
             this.txtentite.Leave += new System.EventHandler(this.txtentite_Leave);
             // 
@@ -555,7 +555,7 @@ namespace ParcAuto.Forms
             this.txtBenificiaire.PlaceholderText = "";
             this.txtBenificiaire.SelectedText = "";
             this.txtBenificiaire.ShadowDecoration.Parent = this.txtBenificiaire;
-            this.txtBenificiaire.Size = new System.Drawing.Size(217, 35);
+            this.txtBenificiaire.Size = new System.Drawing.Size(217, 34);
             this.txtBenificiaire.TabIndex = 1;
             // 
             // label5
@@ -956,7 +956,7 @@ namespace ParcAuto.Forms
             this.txtDestination.PlaceholderText = "";
             this.txtDestination.SelectedText = "";
             this.txtDestination.ShadowDecoration.Parent = this.txtDestination;
-            this.txtDestination.Size = new System.Drawing.Size(211, 35);
+            this.txtDestination.Size = new System.Drawing.Size(211, 34);
             this.txtDestination.TabIndex = 28;
             // 
             // txtNBon_Email
@@ -981,7 +981,7 @@ namespace ParcAuto.Forms
             this.txtNBon_Email.PlaceholderText = "";
             this.txtNBon_Email.SelectedText = "";
             this.txtNBon_Email.ShadowDecoration.Parent = this.txtNBon_Email;
-            this.txtNBon_Email.Size = new System.Drawing.Size(220, 35);
+            this.txtNBon_Email.Size = new System.Drawing.Size(220, 34);
             this.txtNBon_Email.TabIndex = 29;
             // 
             // label1
@@ -991,40 +991,9 @@ namespace ParcAuto.Forms
             this.label1.Location = new System.Drawing.Point(390, 114);
             this.label1.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 17);
+            this.label1.Size = new System.Drawing.Size(123, 17);
             this.label1.TabIndex = 30;
-            this.label1.Text = "Type d\'utilisation :";
-            // 
-            // txtUtilisation
-            // 
-            this.txtUtilisation.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtUtilisation.AutoCompleteCustomSource.AddRange(new string[] {
-            "Achat jawaz",
-            "Recharge jawaz",
-            "Train"});
-            this.txtUtilisation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txtUtilisation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtUtilisation.BorderRadius = 4;
-            this.txtUtilisation.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtUtilisation.DefaultText = "";
-            this.txtUtilisation.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtUtilisation.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtUtilisation.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtUtilisation.DisabledState.Parent = this.txtUtilisation;
-            this.txtUtilisation.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtUtilisation.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUtilisation.FocusedState.Parent = this.txtUtilisation;
-            this.txtUtilisation.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUtilisation.HoverState.Parent = this.txtUtilisation;
-            this.txtUtilisation.Location = new System.Drawing.Point(519, 105);
-            this.txtUtilisation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtUtilisation.Name = "txtUtilisation";
-            this.txtUtilisation.PasswordChar = '\0';
-            this.txtUtilisation.PlaceholderText = "";
-            this.txtUtilisation.SelectedText = "";
-            this.txtUtilisation.ShadowDecoration.Parent = this.txtUtilisation;
-            this.txtUtilisation.Size = new System.Drawing.Size(220, 35);
-            this.txtUtilisation.TabIndex = 31;
+            this.label1.Text = "Type d\'opération :";
             // 
             // label6
             // 
@@ -1035,6 +1004,48 @@ namespace ParcAuto.Forms
             this.label6.Size = new System.Drawing.Size(39, 17);
             this.label6.TabIndex = 32;
             this.label6.Text = "Prix :";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(389, 163);
+            this.label7.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(84, 17);
+            this.label7.TabIndex = 49;
+            this.label7.Text = "Tag Jawaz :";
+            // 
+            // txttagJawaz
+            // 
+            this.txttagJawaz.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txttagJawaz.AutoCompleteCustomSource.AddRange(new string[] {
+            "Achat jawaz",
+            "Recharge jawaz",
+            "Train"});
+            this.txttagJawaz.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txttagJawaz.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txttagJawaz.BorderRadius = 4;
+            this.txttagJawaz.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txttagJawaz.DefaultText = "";
+            this.txttagJawaz.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txttagJawaz.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txttagJawaz.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txttagJawaz.DisabledState.Parent = this.txttagJawaz;
+            this.txttagJawaz.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txttagJawaz.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txttagJawaz.FocusedState.Parent = this.txttagJawaz;
+            this.txttagJawaz.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txttagJawaz.HoverState.Parent = this.txttagJawaz;
+            this.txttagJawaz.Location = new System.Drawing.Point(519, 154);
+            this.txttagJawaz.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txttagJawaz.Name = "txttagJawaz";
+            this.txttagJawaz.PasswordChar = '\0';
+            this.txttagJawaz.PlaceholderText = "";
+            this.txttagJawaz.SelectedText = "";
+            this.txttagJawaz.ShadowDecoration.Parent = this.txttagJawaz;
+            this.txttagJawaz.Size = new System.Drawing.Size(220, 34);
+            this.txttagJawaz.TabIndex = 50;
             // 
             // btnClear
             // 
@@ -1117,47 +1128,28 @@ namespace ParcAuto.Forms
             this.lbl.TabIndex = 46;
             this.lbl.Text = "null";
             // 
-            // label7
+            // txtUtilisation
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(389, 163);
-            this.label7.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 17);
-            this.label7.TabIndex = 49;
-            this.label7.Text = "Tag Jawaz :";
-            // 
-            // txttagJawaz
-            // 
-            this.txttagJawaz.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txttagJawaz.AutoCompleteCustomSource.AddRange(new string[] {
+            this.txtUtilisation.BackColor = System.Drawing.Color.Transparent;
+            this.txtUtilisation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtUtilisation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtUtilisation.FocusedColor = System.Drawing.Color.Empty;
+            this.txtUtilisation.FocusedState.Parent = this.txtUtilisation;
+            this.txtUtilisation.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtUtilisation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.txtUtilisation.FormattingEnabled = true;
+            this.txtUtilisation.HoverState.Parent = this.txtUtilisation;
+            this.txtUtilisation.ItemHeight = 30;
+            this.txtUtilisation.Items.AddRange(new object[] {
             "Achat jawaz",
             "Recharge jawaz",
             "Train"});
-            this.txttagJawaz.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txttagJawaz.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txttagJawaz.BorderRadius = 4;
-            this.txttagJawaz.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txttagJawaz.DefaultText = "";
-            this.txttagJawaz.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txttagJawaz.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txttagJawaz.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txttagJawaz.DisabledState.Parent = this.txttagJawaz;
-            this.txttagJawaz.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txttagJawaz.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txttagJawaz.FocusedState.Parent = this.txttagJawaz;
-            this.txttagJawaz.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txttagJawaz.HoverState.Parent = this.txttagJawaz;
-            this.txttagJawaz.Location = new System.Drawing.Point(519, 154);
-            this.txttagJawaz.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.txttagJawaz.Name = "txttagJawaz";
-            this.txttagJawaz.PasswordChar = '\0';
-            this.txttagJawaz.PlaceholderText = "";
-            this.txttagJawaz.SelectedText = "";
-            this.txttagJawaz.ShadowDecoration.Parent = this.txttagJawaz;
-            this.txttagJawaz.Size = new System.Drawing.Size(220, 35);
-            this.txttagJawaz.TabIndex = 50;
+            this.txtUtilisation.ItemsAppearance.Parent = this.txtUtilisation;
+            this.txtUtilisation.Location = new System.Drawing.Point(517, 101);
+            this.txtUtilisation.Name = "txtUtilisation";
+            this.txtUtilisation.ShadowDecoration.Parent = this.txtUtilisation;
+            this.txtUtilisation.Size = new System.Drawing.Size(222, 36);
+            this.txtUtilisation.TabIndex = 51;
             // 
             // MajTransport
             // 
@@ -1202,10 +1194,10 @@ namespace ParcAuto.Forms
         private Guna.UI2.WinForms.Guna2Button btnAppliquer;
         private System.Windows.Forms.Label lbl;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2TextBox txtUtilisation;
         private Guna.UI2.WinForms.Guna2TextBox txtPrix;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2TextBox txttagJawaz;
+        private Guna.UI2.WinForms.Guna2ComboBox txtUtilisation;
     }
 }

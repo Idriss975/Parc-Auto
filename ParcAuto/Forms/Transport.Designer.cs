@@ -65,6 +65,7 @@ namespace ParcAuto.Forms
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnFicheInformation = new Guna.UI2.WinForms.Guna2Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,7 +75,6 @@ namespace ParcAuto.Forms
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnFicheInformation = new Guna.UI2.WinForms.Guna2Button();
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransport)).BeginInit();
@@ -261,7 +261,7 @@ namespace ParcAuto.Forms
             "N°Bon SNTL ou Email",
             "Date",
             "Destination",
-            "Type d\'utilisation",
+            "Type d\'opération",
             "Montant",
             "Tag Jawaz"});
             this.cmbChoix.ItemsAppearance.Parent = this.cmbChoix;
@@ -396,7 +396,6 @@ namespace ParcAuto.Forms
             this.dgvTransport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTransport.Size = new System.Drawing.Size(1109, 470);
             this.dgvTransport.TabIndex = 44;
-            this.dgvTransport.DoubleClick += new System.EventHandler(this.dgvTransport_DoubleClick);
             // 
             // btnImprimer
             // 
@@ -610,6 +609,29 @@ namespace ParcAuto.Forms
             this.label5.TabIndex = 0;
             this.label5.Text = "Consommation Total";
             // 
+            // btnFicheInformation
+            // 
+            this.btnFicheInformation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnFicheInformation.BorderRadius = 4;
+            this.btnFicheInformation.CheckedState.Parent = this.btnFicheInformation;
+            this.btnFicheInformation.CustomImages.Parent = this.btnFicheInformation;
+            this.btnFicheInformation.FillColor = System.Drawing.Color.Black;
+            this.btnFicheInformation.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnFicheInformation.ForeColor = System.Drawing.Color.White;
+            this.btnFicheInformation.HoverState.Parent = this.btnFicheInformation;
+            this.btnFicheInformation.Image = ((System.Drawing.Image)(resources.GetObject("btnFicheInformation.Image")));
+            this.btnFicheInformation.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnFicheInformation.Location = new System.Drawing.Point(122, 629);
+            this.btnFicheInformation.Margin = new System.Windows.Forms.Padding(5);
+            this.btnFicheInformation.Name = "btnFicheInformation";
+            this.btnFicheInformation.ShadowDecoration.Parent = this.btnFicheInformation;
+            this.btnFicheInformation.Size = new System.Drawing.Size(183, 30);
+            this.btnFicheInformation.TabIndex = 74;
+            this.btnFicheInformation.Text = "Fiche d\'information";
+            this.btnFicheInformation.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnFicheInformation.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnFicheInformation.Click += new System.EventHandler(this.btnFicheInformation_Click);
+            // 
             // Column1
             // 
             this.Column1.HeaderText = "id";
@@ -655,7 +677,7 @@ namespace ParcAuto.Forms
             // 
             // Column7
             // 
-            this.Column7.HeaderText = "Type d\'utilisation";
+            this.Column7.HeaderText = "Type d\'opération";
             this.Column7.MinimumWidth = 8;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
@@ -672,28 +694,6 @@ namespace ParcAuto.Forms
             this.Column9.HeaderText = "Tag Jawaz";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
-            // 
-            // btnFicheInformation
-            // 
-            this.btnFicheInformation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnFicheInformation.BorderRadius = 4;
-            this.btnFicheInformation.CheckedState.Parent = this.btnFicheInformation;
-            this.btnFicheInformation.CustomImages.Parent = this.btnFicheInformation;
-            this.btnFicheInformation.FillColor = System.Drawing.Color.Black;
-            this.btnFicheInformation.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnFicheInformation.ForeColor = System.Drawing.Color.White;
-            this.btnFicheInformation.HoverState.Parent = this.btnFicheInformation;
-            this.btnFicheInformation.Image = ((System.Drawing.Image)(resources.GetObject("btnFicheInformation.Image")));
-            this.btnFicheInformation.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnFicheInformation.Location = new System.Drawing.Point(122, 629);
-            this.btnFicheInformation.Margin = new System.Windows.Forms.Padding(5);
-            this.btnFicheInformation.Name = "btnFicheInformation";
-            this.btnFicheInformation.ShadowDecoration.Parent = this.btnFicheInformation;
-            this.btnFicheInformation.Size = new System.Drawing.Size(183, 30);
-            this.btnFicheInformation.TabIndex = 74;
-            this.btnFicheInformation.Text = "Fiche d\'information";
-            this.btnFicheInformation.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnFicheInformation.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             // 
             // Transport
             // 
@@ -775,6 +775,7 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
+        private Guna.UI2.WinForms.Guna2Button btnFicheInformation;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -784,6 +785,5 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private Guna.UI2.WinForms.Guna2Button btnFicheInformation;
     }
 }

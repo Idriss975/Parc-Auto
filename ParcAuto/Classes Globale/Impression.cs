@@ -156,5 +156,43 @@ namespace ParcAuto.Classes_Globale
                 output = 0;
             return output;
         }
+
+        /// <summary>
+        ///     Draws a Rectangle with text inside of it
+        /// </summary>
+        /// <param name="e">print event</param>
+        /// <param name="x">xcoordinate</param>
+        /// <param name="y">y coordinate</param>
+        /// <param name="width">width of the rectangle</param>
+        /// <param name="heigth">heigth of the rectangle</param>
+        /// <param name="fontSize">Size of the text</param>
+        /// <param name="fontStyle">Style of the text (bold, regular, ...)</param>
+        /// <param name="Alignement">Alignment of the text</param>
+        /// <param name="Text">the text itself</param>
+        /// <returns></returns>
+        
+    }
+
+    public class Coords
+    {
+        public int x;
+        public int y;
+        public int width;
+        public int heigth;
+        public string Text;
+
+        public static Coords Print_Rectangle(PrintPageEventArgs e, int x, int y, int width, int heigth, float fontSize = 6.7F, FontStyle fontStyle = FontStyle.Regular, StringAlignment LineAlignment = StringAlignment.Center, StringAlignment Alignement = StringAlignment.Far, string Text = "")
+        {
+            e.Graphics.DrawRectangle(new Pen(Brushes.Black), new Rectangle(x, y, width, heigth));
+            e.Graphics.DrawString(Text, new Font("Arial", fontSize, fontStyle), Brushes.Black, new Rectangle(x, y, width, heigth), new StringFormat() { LineAlignment = LineAlignment, Alignment = Alignement });
+            return new Coords
+            {
+                x = x,
+                y = y,
+                width = width,
+                heigth = heigth,
+                Text = Text
+            };
+        }
     }
 }
