@@ -73,6 +73,8 @@ namespace ParcAuto.Forms
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnFicheInformation = new Guna.UI2.WinForms.Guna2Button();
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransport)).BeginInit();
@@ -260,7 +262,8 @@ namespace ParcAuto.Forms
             "Date",
             "Destination",
             "Type d\'utilisation",
-            "Montant"});
+            "Montant",
+            "Tag Jawaz"});
             this.cmbChoix.ItemsAppearance.Parent = this.cmbChoix;
             this.cmbChoix.Location = new System.Drawing.Point(96, 18);
             this.cmbChoix.Name = "cmbChoix";
@@ -382,7 +385,8 @@ namespace ParcAuto.Forms
             this.Column5,
             this.Column6,
             this.Column7,
-            this.Column8});
+            this.Column8,
+            this.Column9});
             this.dgvTransport.Location = new System.Drawing.Point(0, 98);
             this.dgvTransport.Margin = new System.Windows.Forms.Padding(5);
             this.dgvTransport.Name = "dgvTransport";
@@ -400,7 +404,7 @@ namespace ParcAuto.Forms
             this.btnImprimer.BorderRadius = 4;
             this.btnImprimer.CheckedState.Parent = this.btnImprimer;
             this.btnImprimer.CustomImages.Parent = this.btnImprimer;
-            this.btnImprimer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnImprimer.FillColor = System.Drawing.Color.Black;
             this.btnImprimer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnImprimer.ForeColor = System.Drawing.Color.White;
             this.btnImprimer.HoverState.Parent = this.btnImprimer;
@@ -499,7 +503,7 @@ namespace ParcAuto.Forms
             this.btnSuprimmerTout.HoverState.Parent = this.btnSuprimmerTout;
             this.btnSuprimmerTout.Image = ((System.Drawing.Image)(resources.GetObject("btnSuprimmerTout.Image")));
             this.btnSuprimmerTout.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnSuprimmerTout.Location = new System.Drawing.Point(122, 629);
+            this.btnSuprimmerTout.Location = new System.Drawing.Point(315, 628);
             this.btnSuprimmerTout.Margin = new System.Windows.Forms.Padding(5);
             this.btnSuprimmerTout.Name = "btnSuprimmerTout";
             this.btnSuprimmerTout.ShadowDecoration.Parent = this.btnSuprimmerTout;
@@ -663,11 +667,40 @@ namespace ParcAuto.Forms
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Tag Jawaz";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // btnFicheInformation
+            // 
+            this.btnFicheInformation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnFicheInformation.BorderRadius = 4;
+            this.btnFicheInformation.CheckedState.Parent = this.btnFicheInformation;
+            this.btnFicheInformation.CustomImages.Parent = this.btnFicheInformation;
+            this.btnFicheInformation.FillColor = System.Drawing.Color.Black;
+            this.btnFicheInformation.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnFicheInformation.ForeColor = System.Drawing.Color.White;
+            this.btnFicheInformation.HoverState.Parent = this.btnFicheInformation;
+            this.btnFicheInformation.Image = ((System.Drawing.Image)(resources.GetObject("btnFicheInformation.Image")));
+            this.btnFicheInformation.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnFicheInformation.Location = new System.Drawing.Point(122, 629);
+            this.btnFicheInformation.Margin = new System.Windows.Forms.Padding(5);
+            this.btnFicheInformation.Name = "btnFicheInformation";
+            this.btnFicheInformation.ShadowDecoration.Parent = this.btnFicheInformation;
+            this.btnFicheInformation.Size = new System.Drawing.Size(183, 30);
+            this.btnFicheInformation.TabIndex = 74;
+            this.btnFicheInformation.Text = "Fiche d\'information";
+            this.btnFicheInformation.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnFicheInformation.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            // 
             // Transport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 669);
+            this.Controls.Add(this.btnFicheInformation);
             this.Controls.Add(this.PanelTautaux);
             this.Controls.Add(this.btnSuprimmerTout);
             this.Controls.Add(this.btnImportExcel);
@@ -750,5 +783,7 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private Guna.UI2.WinForms.Guna2Button btnFicheInformation;
     }
 }
