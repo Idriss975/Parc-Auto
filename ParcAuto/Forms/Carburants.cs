@@ -337,6 +337,7 @@ namespace ParcAuto.Forms
         _Worksheet importExceldatagridViewworksheet;
         Range importdatagridviewRange;
         Workbook excelWorkbook;
+        int currentIndex;
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
            
@@ -344,6 +345,7 @@ namespace ParcAuto.Forms
             DateTime date;
             if (GLB.Con.State == ConnectionState.Open)
                 GLB.Con.Close();
+            GLB.Con.Open();
             GLB.Cmd.Transaction = GLB.Con.BeginTransaction();
             try
             {
@@ -354,7 +356,7 @@ namespace ParcAuto.Forms
                 importOpenDialoge.Filter = "Import Excel File|*.xlsx;*xls;*xlm";
                 if (importOpenDialoge.ShowDialog() == DialogResult.OK)
                 {
-                    GLB.Con.Open();
+                    
 
                     Workbooks excelWorkbooks = importExceldatagridViewApp.Workbooks;
                     excelWorkbook = excelWorkbooks.Open(importOpenDialoge.FileName);
@@ -363,7 +365,7 @@ namespace ParcAuto.Forms
 
                     for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
                     {
-
+                        currentIndex = excelWorksheetIndex;
                         entite = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value)).Trim();
                         benificiaire = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
                         vehicule = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
@@ -404,9 +406,13 @@ namespace ParcAuto.Forms
                     //MessageBox.Show(lignesExcel);
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (ex.Number == 2627)
+                    MessageBox.Show($"La ligne {currentIndex} dans l'excel déja saisie est sauvegarder dans la base de données, vous pouvez supprimer ou modifier la ligne {currentIndex} sur excel et refaire l'imporation.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 GLB.Cmd.Transaction.Rollback();
 
             }

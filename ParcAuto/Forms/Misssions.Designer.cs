@@ -33,6 +33,8 @@ namespace ParcAuto.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Misssions));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnImprimer = new Guna.UI2.WinForms.Guna2Button();
             this.btnImportExcel = new Guna.UI2.WinForms.Guna2Button();
             this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
@@ -69,9 +71,14 @@ namespace ParcAuto.Forms
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dgvNbMissions = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMissions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNbMissions)).BeginInit();
             this.SuspendLayout();
             // 
             // btnImprimer
@@ -517,7 +524,7 @@ namespace ParcAuto.Forms
             this.dgvMissions.RowHeadersVisible = false;
             this.dgvMissions.RowHeadersWidth = 62;
             this.dgvMissions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMissions.Size = new System.Drawing.Size(1109, 540);
+            this.dgvMissions.Size = new System.Drawing.Size(1109, 272);
             this.dgvMissions.TabIndex = 61;
             // 
             // Column1
@@ -590,11 +597,74 @@ namespace ParcAuto.Forms
             this.id.ReadOnly = true;
             this.id.Visible = false;
             // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(9, 360);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(233, 19);
+            this.label5.TabIndex = 75;
+            this.label5.Text = "Nombre de Missions par Entite :";
+            // 
+            // dgvNbMissions
+            // 
+            this.dgvNbMissions.AllowUserToAddRows = false;
+            this.dgvNbMissions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvNbMissions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvNbMissions.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNbMissions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvNbMissions.ColumnHeadersHeight = 50;
+            this.dgvNbMissions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.Column7});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNbMissions.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvNbMissions.Location = new System.Drawing.Point(12, 384);
+            this.dgvNbMissions.Margin = new System.Windows.Forms.Padding(5);
+            this.dgvNbMissions.Name = "dgvNbMissions";
+            this.dgvNbMissions.ReadOnly = true;
+            this.dgvNbMissions.RowHeadersVisible = false;
+            this.dgvNbMissions.RowHeadersWidth = 62;
+            this.dgvNbMissions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvNbMissions.Size = new System.Drawing.Size(565, 234);
+            this.dgvNbMissions.TabIndex = 76;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Entité";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Nombre de Missions";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
             // Misssions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 669);
+            this.Controls.Add(this.dgvNbMissions);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btnImprimer);
             this.Controls.Add(this.btnImportExcel);
             this.Controls.Add(this.btnExportExcel);
@@ -620,6 +690,7 @@ namespace ParcAuto.Forms
             this.TextPanel.ResumeLayout(false);
             this.TextPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMissions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNbMissions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -662,5 +733,9 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView dgvNbMissions;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }
