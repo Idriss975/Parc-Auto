@@ -32,9 +32,9 @@ namespace ParcAuto.Forms
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
         }
-        string entite, benificiaire, N_BON_email, type_utilisation, prix, destination;
+        string entite, benificiaire, N_BON_email, type_utilisation, prix, destination,tagJawaz;
         DateTime DateMiss;
-        public MajTransport(string entite , string benificiaire ,string N_BON_email ,DateTime DateMission,string destination,string type_utilisation ,string prix)
+        public MajTransport(string entite , string benificiaire ,string N_BON_email ,DateTime DateMission,string destination,string type_utilisation ,string prix,string tagJawaz)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
@@ -46,6 +46,7 @@ namespace ParcAuto.Forms
             this.prix = prix;
             this.DateMiss = DateMission;
             this.destination = destination;
+            this.tagJawaz = tagJawaz;
         }
 
         private void btnAppliquer_Click(object sender, EventArgs e)
@@ -57,7 +58,7 @@ namespace ParcAuto.Forms
                 {
                     case Choix.ajouter:
                         GLB.Cmd.Parameters.Clear();
-                        GLB.Cmd.CommandText = "insert into Transport values(@txtentite, @txtBenificiaire, @txtNBon_Email,@DateMission, @txtDestination, @txtUtilisation, @txtPrix)";
+                        GLB.Cmd.CommandText = "insert into Transport values(@txtentite, @txtBenificiaire, @txtNBon_Email,@DateMission, @txtDestination, @txtUtilisation, @txtPrix,@txtjawaz)";
                         GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtNBon_Email", txtNBon_Email.Text);
@@ -65,10 +66,11 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@txtDestination", txtDestination.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtUtilisation", txtUtilisation.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtPrix", Double.Parse(txtPrix.Text));
+                        GLB.Cmd.Parameters.AddWithValue("@txtjawaz", txttagJawaz.Text ?? (object)DBNull.Value);
                         break;
                     case Choix.modifier:
                         GLB.Cmd.Parameters.Clear();
-                        GLB.Cmd.CommandText = "update Transport set Entite = @txtentite , Beneficiaire = @txtBenificiaire, NBonSNTL= @txtNBon_Email,Date = @DateMission, Destination= @txtDestination, Type_utilsation = @txtUtilisation, Prix = @txtPrix where id = @id_Transport";
+                        GLB.Cmd.CommandText = "update Transport set Entite = @txtentite , Beneficiaire = @txtBenificiaire, NBonSNTL= @txtNBon_Email,Date = @DateMission, Destination= @txtDestination, Type_utilsation = @txtUtilisation, Prix = @txtPrix ,tagJawaz = @txtjawaz where id = @id_Transport";
                         GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtNBon_Email", txtNBon_Email.Text);
@@ -76,6 +78,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@txtDestination", txtDestination.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtUtilisation", txtUtilisation.Text);
                         GLB.Cmd.Parameters.AddWithValue("@txtPrix", Double.Parse(txtPrix.Text));
+                        GLB.Cmd.Parameters.AddWithValue("@txtjawaz", txttagJawaz.Text ?? (object)DBNull.Value);
                         GLB.Cmd.Parameters.AddWithValue("@id_Transport", GLB.id_Transport);
                         break;
                     case Choix.supprimer:
@@ -129,6 +132,7 @@ namespace ParcAuto.Forms
             txtUtilisation.Clear();
             DateMission.Value = DateTime.Now;
             txtDestination.Text = destination;
+            txttagJawaz.Clear();
 
         }
         public void RemplirChamps()
@@ -140,6 +144,7 @@ namespace ParcAuto.Forms
             txtPrix.Text = prix;
             DateMission.Value = DateMiss;
             txtDestination.Text = destination;
+            txttagJawaz.Text = tagJawaz;
             
         }
 

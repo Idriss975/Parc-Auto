@@ -37,7 +37,7 @@ namespace ParcAuto.Forms
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             while (GLB.dr.Read())
-                dgvTransport.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3],GLB.dr.IsDBNull(4) ? "" : ((DateTime)GLB.dr[4]).ToString("d/M/yyyy"), GLB.dr[5], GLB.dr[6], GLB.dr[7].ToString());
+                dgvTransport.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3],GLB.dr.IsDBNull(4) ? "" : ((DateTime)GLB.dr[4]).ToString("d/M/yyyy"), GLB.dr[5], GLB.dr[6], GLB.dr[7].ToString(), GLB.dr[8].ToString());
             GLB.dr.Close();
             GLB.Con.Close();
         }
@@ -154,7 +154,8 @@ namespace ParcAuto.Forms
                     DateTime.ParseExact(dgvTransport.Rows[pos].Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
                     dgvTransport.Rows[pos].Cells[5].Value.ToString(),
                     dgvTransport.Rows[pos].Cells[6].Value.ToString(),
-                    dgvTransport.Rows[pos].Cells[7].Value.ToString())).ShowDialog();
+                    dgvTransport.Rows[pos].Cells[7].Value.ToString(),
+                    dgvTransport.Rows[pos].Cells[8].Value.ToString())).ShowDialog();
                 RemplirdgvTransport();
                 dgvTransport.Rows[pos].Selected = true;
                 dgvTransport.FirstDisplayedScrollingRowIndex = Lastindexscroll;
@@ -302,7 +303,7 @@ namespace ParcAuto.Forms
                         DateTime date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value ?? "0001-01-01"));
 
                         GLB.Cmd.Parameters.Clear();
-                        GLB.Cmd.CommandText = "insert into Transport values(@txtentite, @txtBenificiaire, @txtNBon_Email,@DateMission, @txtDestination, @txtUtilisation, @txtPrix)";
+                        GLB.Cmd.CommandText = "insert into Transport values(@txtentite, @txtBenificiaire, @txtNBon_Email,@DateMission, @txtDestination, @txtUtilisation, @txtPrix,@tagJawaz)";
                         GLB.Cmd.Parameters.AddWithValue("@txtentite", (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value)).Trim() ?? "");
                         GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value ?? "");
                         GLB.Cmd.Parameters.AddWithValue("@txtNBon_Email", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value ?? "");
@@ -310,6 +311,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@txtDestination", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value ?? "");
                         GLB.Cmd.Parameters.AddWithValue("@txtUtilisation", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value ?? "");
                         GLB.Cmd.Parameters.AddWithValue("@txtPrix", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value ?? DBNull.Value);
+                        GLB.Cmd.Parameters.AddWithValue("@tagJawaz", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value ?? "");
                         GLB.Cmd.ExecuteNonQuery();
                         Total();
                     }
