@@ -122,9 +122,10 @@ namespace ParcAuto.Forms
                 GLB.Con.Close();
             }
         }
-       
+
         private void Carburants_Load(object sender, EventArgs e)
         {
+            
             panelDate.Visible = false;
             TextPanel.Visible = false;
             cmbChoix.SelectedIndex = 0;

@@ -29,6 +29,7 @@ namespace ParcAuto.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EtatJournalier));
             this.dgvEtatJournalier = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +46,8 @@ namespace ParcAuto.Forms
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
+            this.btnQuitter = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtatJournalier)).BeginInit();
             this.SuspendLayout();
             // 
@@ -172,11 +175,55 @@ namespace ParcAuto.Forms
             this.Column15.Name = "Column15";
             this.Column15.ReadOnly = true;
             // 
+            // btnExportExcel
+            // 
+            this.btnExportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExportExcel.BorderRadius = 4;
+            this.btnExportExcel.CheckedState.Parent = this.btnExportExcel;
+            this.btnExportExcel.CustomImages.Parent = this.btnExportExcel;
+            this.btnExportExcel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnExportExcel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnExportExcel.ForeColor = System.Drawing.Color.White;
+            this.btnExportExcel.HoverState.Parent = this.btnExportExcel;
+            this.btnExportExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExcel.Image")));
+            this.btnExportExcel.Location = new System.Drawing.Point(1007, 14);
+            this.btnExportExcel.Margin = new System.Windows.Forms.Padding(5);
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.ShadowDecoration.Parent = this.btnExportExcel;
+            this.btnExportExcel.Size = new System.Drawing.Size(40, 40);
+            this.btnExportExcel.TabIndex = 73;
+            this.btnExportExcel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
+            // 
+            // btnQuitter
+            // 
+            this.btnQuitter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQuitter.BorderRadius = 4;
+            this.btnQuitter.CheckedState.Parent = this.btnQuitter;
+            this.btnQuitter.CustomImages.Parent = this.btnQuitter;
+            this.btnQuitter.FillColor = System.Drawing.Color.Crimson;
+            this.btnQuitter.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnQuitter.ForeColor = System.Drawing.Color.White;
+            this.btnQuitter.HoverState.Parent = this.btnQuitter;
+            this.btnQuitter.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitter.Image")));
+            this.btnQuitter.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnQuitter.Location = new System.Drawing.Point(1057, 14);
+            this.btnQuitter.Margin = new System.Windows.Forms.Padding(5);
+            this.btnQuitter.Name = "btnQuitter";
+            this.btnQuitter.ShadowDecoration.Parent = this.btnQuitter;
+            this.btnQuitter.Size = new System.Drawing.Size(40, 40);
+            this.btnQuitter.TabIndex = 72;
+            this.btnQuitter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
+            // 
             // EtatJournalier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 669);
+            this.Controls.Add(this.btnExportExcel);
+            this.Controls.Add(this.btnQuitter);
             this.Controls.Add(this.dgvEtatJournalier);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -206,5 +253,7 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private Guna.UI2.WinForms.Guna2Button btnExportExcel;
+        private Guna.UI2.WinForms.Guna2Button btnQuitter;
     }
 }
