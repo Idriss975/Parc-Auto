@@ -119,8 +119,14 @@ namespace ParcAuto.Classes_Globale
         /// <param name="e">Print event.</param>
         public static void Print_footer(PrintPageEventArgs e)
         {
+            var Paper_Size = e.PageSettings.Landscape? new { Width = e.PageSettings.PaperSize.Height, Heigth = e.PageSettings.PaperSize.Width } : new { Width = e.PageSettings.PaperSize.Width, Heigth = e.PageSettings.PaperSize.Height };
             //Footer
-            e.Graphics.DrawString("Intersection Route BO 50 et R.N. n°11 (Route Nouaceur) BP 40207 Sidi Maârouf Casablanca 20 270\n 20 270 و الطريق الوطنية رفم 11 (طريق النواصر) ص. ب 40207 سيدي معروف الدار البيضاء B.O 50 ملتمى طريق\nTél.: 05 22 78 72 60/61 - Fax : 05 22 32 15 09", new Font("Arial", 9), Brushes.Black, e.PageSettings.Bounds.Width / 2, e.PageSettings.Bounds.Height - 35, new StringFormat() { LineAlignment = StringAlignment.Center, Alignment = StringAlignment.Center });
+            /*e.Graphics.DrawString("Intersection Route BO 50 et R.N. n°11 (Route Nouaceur) BP 40207 Sidi Maârouf Casablanca 20 270\n 20 270 و الطريق الوطنية رفم 11 (طريق النواصر) ص. ب 40207 سيدي معروف الدار البيضاء B.O 50 ملتمى طريق\nTél.: 05 22 78 72 60/61 - Fax : 05 22 32 15 09",
+                new Font("Arial", 9), 
+                Brushes.Black, e.PageSettings.Bounds.Width / 2, e.PageSettings.Bounds.Height - 35,
+                new StringFormat() { LineAlignment = StringAlignment.Center, Alignment = StringAlignment.Center });*/
+            e.Graphics.DrawString("DAL/DAG\nService Logistique", new Font("Arial", 7, FontStyle.Bold), Brushes.Black, new Point(30, Paper_Size.Heigth - 35));
+            e.Graphics.DrawString("Intersect B.O n°50 et Route Nationale n°1 (Route Nouacer) Sidi\nMaarouf /Casablanca\nFix: 0522634444 Fax: 0522787037", new Font("Arial", 7), Brushes.Black, new Point(Paper_Size.Width - Convert.ToInt32(e.Graphics.MeasureString("Intersect B.O n°50 et Route Nationale n°1 (Route Nouacer) Sidi\nMaarouf /Casablanca\nFix: 0522634444 Fax: 0522787037", new Font("Arial", 7)).Width) - 15, Paper_Size.Heigth - 35));
         }
 
         /// <summary>
