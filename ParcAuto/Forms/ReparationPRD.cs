@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -245,6 +246,7 @@ namespace ParcAuto.Forms
         _Worksheet importExceldatagridViewworksheet;
         Range importdatagridviewRange;
         Workbook excelWorkbook;
+        int currentIndex;
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
             
@@ -270,6 +272,7 @@ namespace ParcAuto.Forms
                     importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
                     for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
                     {
+                        currentIndex = excelWorksheetIndex;
                         entite = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
                         Benificiaire = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
                         Vehicules = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
@@ -278,7 +281,7 @@ namespace ParcAuto.Forms
                         objet = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
                         entretien = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
                         reparation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value);
-
+                        GLB.Cmd.Parameters.Clear();
                         GLB.Cmd.CommandText = "Insert into ReparationPRDSNTL values (@txtentite, @txtBenificiaire, @cmbVehicule,@txtMat, @Date, @txtObjet, @MontantEntretient, @MontantReparation)";
                         GLB.Cmd.Parameters.AddWithValue("@txtentite", entite ?? "");
                         GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", Benificiaire ?? "");
@@ -296,9 +299,13 @@ namespace ParcAuto.Forms
                 datagridviewLoad();
                 Total();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (ex.Number == 2627)
+                    MessageBox.Show($"La ligne {currentIndex} dans l'excel déja saisie est sauvegarder dans la base de données, vous pouvez supprimer ou modifier la ligne {currentIndex} sur excel et refaire l'imporation.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 GLB.Cmd.Transaction.Rollback();
             }
             finally

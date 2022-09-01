@@ -311,13 +311,13 @@ namespace ParcAuto.Forms
         _Worksheet importExceldatagridViewworksheet;
         Range importdatagridviewRange;
         Workbook excelWorkbook;
+        int currentIndex;
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
             if (GLB.Con.State == ConnectionState.Open)
                 GLB.Con.Close();
             GLB.Con.Open();
-            SqlTransaction trans = GLB.Con.BeginTransaction();
-            GLB.Cmd.Transaction = trans;
+            GLB.Cmd.Transaction = GLB.Con.BeginTransaction();
             try
             {
                 
@@ -336,6 +336,7 @@ namespace ParcAuto.Forms
                     importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
                     for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
                     {
+                        currentIndex = excelWorksheetIndex;
                         nOrderOBC = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value));
                         CodeAbarre = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value));
                         dateDepot = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value ?? "0001-01-01"));
@@ -369,15 +370,19 @@ namespace ParcAuto.Forms
                     }
 
                 }
-                trans.Commit();
+                GLB.Cmd.Transaction.Commit();
                 GLB.Con.Close();
                 RemplirLaGrille();
 
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                trans.Rollback();
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (ex.Number == 2627)
+                    MessageBox.Show($"La ligne {currentIndex} dans l'excel déja saisie est sauvegarder dans la base de données, vous pouvez supprimer ou modifier la ligne {currentIndex} sur excel et refaire l'imporation.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                GLB.Cmd.Transaction.Rollback();
 
             }
             finally

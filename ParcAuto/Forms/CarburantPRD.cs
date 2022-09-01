@@ -333,6 +333,7 @@ namespace ParcAuto.Forms
         _Worksheet importExceldatagridViewworksheet;
         Range importdatagridviewRange;
         Workbook excelWorkbook;
+        int currentIndex;
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
             string entite, benificiaire, vehicule, lieu, KM, Pourcentage, omn, Dfixe, DMission, Dhebdo, Dexeptionnelle, observation, marque;
@@ -344,7 +345,7 @@ namespace ParcAuto.Forms
             GLB.Cmd.Transaction = GLB.Con.BeginTransaction();
             try
             {
-
+                
                 importExceldatagridViewApp = new Microsoft.Office.Interop.Excel.Application();
                 OpenFileDialog importOpenDialoge = new OpenFileDialog();
                 importOpenDialoge.Title = "Import Excel File";
@@ -360,7 +361,7 @@ namespace ParcAuto.Forms
 
                     for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
                     {
-
+                        currentIndex = excelWorksheetIndex;
                         entite = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
                         benificiaire = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
                         vehicule = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
@@ -398,12 +399,15 @@ namespace ParcAuto.Forms
                     }
                     GLB.Cmd.Transaction.Commit();
                     GLB.Con.Close();
-                    //MessageBox.Show(lignesExcel);
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (ex.Number == 2627)
+                    MessageBox.Show($"La ligne {currentIndex} dans l'excel déja saisie est sauvegarder dans la base de données, vous pouvez supprimer ou modifier la ligne {currentIndex} sur excel et refaire l'imporation.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 GLB.Cmd.Transaction.Rollback();
             }
             finally
