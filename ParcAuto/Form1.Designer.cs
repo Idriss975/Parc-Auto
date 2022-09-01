@@ -99,18 +99,18 @@ namespace ParcAuto
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FormsPlace = new System.Windows.Forms.Panel();
-            this.guna2GroupBox4 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.lbltransport = new System.Windows.Forms.Label();
             this.TransportChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.guna2GroupBox3 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.lblReparation = new System.Windows.Forms.Label();
             this.ReparationChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.lblCarteFree = new System.Windows.Forms.Label();
             this.carteFreeChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.lblCarburant = new System.Windows.Forms.Label();
             this.Carburantchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.guna2GroupBox4 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.guna2GroupBox3 = new Guna.UI2.WinForms.Guna2GroupBox();
             section2 = new System.Windows.Forms.Panel();
             section2.SuspendLayout();
             this.Suivis.SuspendLayout();
@@ -141,14 +141,14 @@ namespace ParcAuto
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.FormsPlace.SuspendLayout();
-            this.guna2GroupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TransportChart)).BeginInit();
-            this.guna2GroupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ReparationChart)).BeginInit();
-            this.guna2GroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.carteFreeChart)).BeginInit();
-            this.guna2GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Carburantchart)).BeginInit();
+            this.guna2GroupBox4.SuspendLayout();
+            this.guna2GroupBox2.SuspendLayout();
+            this.guna2GroupBox1.SuspendLayout();
+            this.guna2GroupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // section2
@@ -991,20 +991,6 @@ namespace ParcAuto
             this.FormsPlace.TabIndex = 1;
             this.FormsPlace.Paint += new System.Windows.Forms.PaintEventHandler(this.FormsPlace_Paint);
             // 
-            // guna2GroupBox4
-            // 
-            this.guna2GroupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2GroupBox4.Controls.Add(this.lbltransport);
-            this.guna2GroupBox4.Controls.Add(this.TransportChart);
-            this.guna2GroupBox4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2GroupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2GroupBox4.Location = new System.Drawing.Point(585, 324);
-            this.guna2GroupBox4.Name = "guna2GroupBox4";
-            this.guna2GroupBox4.ShadowDecoration.Parent = this.guna2GroupBox4;
-            this.guna2GroupBox4.Size = new System.Drawing.Size(530, 300);
-            this.guna2GroupBox4.TabIndex = 2;
-            this.guna2GroupBox4.Text = "Graphe du consommation de transport";
-            // 
             // lbltransport
             // 
             this.lbltransport.AutoSize = true;
@@ -1036,20 +1022,6 @@ namespace ParcAuto
             this.TransportChart.Size = new System.Drawing.Size(439, 225);
             this.TransportChart.TabIndex = 0;
             this.TransportChart.Text = "chart1";
-            // 
-            // guna2GroupBox3
-            // 
-            this.guna2GroupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2GroupBox3.Controls.Add(this.lblReparation);
-            this.guna2GroupBox3.Controls.Add(this.ReparationChart);
-            this.guna2GroupBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2GroupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2GroupBox3.Location = new System.Drawing.Point(585, 12);
-            this.guna2GroupBox3.Name = "guna2GroupBox3";
-            this.guna2GroupBox3.ShadowDecoration.Parent = this.guna2GroupBox3;
-            this.guna2GroupBox3.Size = new System.Drawing.Size(530, 300);
-            this.guna2GroupBox3.TabIndex = 2;
-            this.guna2GroupBox3.Text = "Graphe du consommation de reparation";
             // 
             // lblReparation
             // 
@@ -1083,19 +1055,6 @@ namespace ParcAuto
             this.ReparationChart.TabIndex = 0;
             this.ReparationChart.Text = "chart1";
             // 
-            // guna2GroupBox2
-            // 
-            this.guna2GroupBox2.Controls.Add(this.lblCarteFree);
-            this.guna2GroupBox2.Controls.Add(this.carteFreeChart);
-            this.guna2GroupBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2GroupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2GroupBox2.Location = new System.Drawing.Point(6, 324);
-            this.guna2GroupBox2.Name = "guna2GroupBox2";
-            this.guna2GroupBox2.ShadowDecoration.Parent = this.guna2GroupBox2;
-            this.guna2GroupBox2.Size = new System.Drawing.Size(530, 300);
-            this.guna2GroupBox2.TabIndex = 2;
-            this.guna2GroupBox2.Text = "Graphe du consommation de carteFree";
-            // 
             // lblCarteFree
             // 
             this.lblCarteFree.AutoSize = true;
@@ -1128,19 +1087,6 @@ namespace ParcAuto
             this.carteFreeChart.TabIndex = 0;
             this.carteFreeChart.Text = "chart1";
             // 
-            // guna2GroupBox1
-            // 
-            this.guna2GroupBox1.Controls.Add(this.lblCarburant);
-            this.guna2GroupBox1.Controls.Add(this.Carburantchart);
-            this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2GroupBox1.Location = new System.Drawing.Point(6, 12);
-            this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
-            this.guna2GroupBox1.Size = new System.Drawing.Size(530, 300);
-            this.guna2GroupBox1.TabIndex = 1;
-            this.guna2GroupBox1.Text = "Graphe du consommation de carburant";
-            // 
             // lblCarburant
             // 
             this.lblCarburant.AutoSize = true;
@@ -1172,6 +1118,60 @@ namespace ParcAuto
             this.Carburantchart.Size = new System.Drawing.Size(404, 249);
             this.Carburantchart.TabIndex = 0;
             this.Carburantchart.Text = "chart1";
+            // 
+            // guna2GroupBox4
+            // 
+            this.guna2GroupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2GroupBox4.Controls.Add(this.lbltransport);
+            this.guna2GroupBox4.Controls.Add(this.TransportChart);
+            this.guna2GroupBox4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2GroupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2GroupBox4.Location = new System.Drawing.Point(585, 324);
+            this.guna2GroupBox4.Name = "guna2GroupBox4";
+            this.guna2GroupBox4.ShadowDecoration.Parent = this.guna2GroupBox4;
+            this.guna2GroupBox4.Size = new System.Drawing.Size(530, 300);
+            this.guna2GroupBox4.TabIndex = 2;
+            this.guna2GroupBox4.Text = "Graphe du consommation de transport";
+            // 
+            // guna2GroupBox2
+            // 
+            this.guna2GroupBox2.Controls.Add(this.lblCarteFree);
+            this.guna2GroupBox2.Controls.Add(this.carteFreeChart);
+            this.guna2GroupBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2GroupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2GroupBox2.Location = new System.Drawing.Point(6, 324);
+            this.guna2GroupBox2.Name = "guna2GroupBox2";
+            this.guna2GroupBox2.ShadowDecoration.Parent = this.guna2GroupBox2;
+            this.guna2GroupBox2.Size = new System.Drawing.Size(530, 300);
+            this.guna2GroupBox2.TabIndex = 2;
+            this.guna2GroupBox2.Text = "Graphe du consommation de carteFree";
+            // 
+            // guna2GroupBox1
+            // 
+            this.guna2GroupBox1.Controls.Add(this.lblCarburant);
+            this.guna2GroupBox1.Controls.Add(this.Carburantchart);
+            this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2GroupBox1.Location = new System.Drawing.Point(6, 12);
+            this.guna2GroupBox1.Name = "guna2GroupBox1";
+            this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
+            this.guna2GroupBox1.Size = new System.Drawing.Size(530, 300);
+            this.guna2GroupBox1.TabIndex = 1;
+            this.guna2GroupBox1.Text = "Graphe du consommation de carburant";
+            // 
+            // guna2GroupBox3
+            // 
+            this.guna2GroupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2GroupBox3.Controls.Add(this.lblReparation);
+            this.guna2GroupBox3.Controls.Add(this.ReparationChart);
+            this.guna2GroupBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2GroupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2GroupBox3.Location = new System.Drawing.Point(585, 12);
+            this.guna2GroupBox3.Name = "guna2GroupBox3";
+            this.guna2GroupBox3.ShadowDecoration.Parent = this.guna2GroupBox3;
+            this.guna2GroupBox3.Size = new System.Drawing.Size(530, 300);
+            this.guna2GroupBox3.TabIndex = 2;
+            this.guna2GroupBox3.Text = "Graphe du consommation de reparation";
             // 
             // Form1
             // 
@@ -1229,18 +1229,18 @@ namespace ParcAuto
             this.panelLogo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.FormsPlace.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.TransportChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ReparationChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carteFreeChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Carburantchart)).EndInit();
             this.guna2GroupBox4.ResumeLayout(false);
             this.guna2GroupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TransportChart)).EndInit();
-            this.guna2GroupBox3.ResumeLayout(false);
-            this.guna2GroupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ReparationChart)).EndInit();
             this.guna2GroupBox2.ResumeLayout(false);
             this.guna2GroupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.carteFreeChart)).EndInit();
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Carburantchart)).EndInit();
+            this.guna2GroupBox3.ResumeLayout(false);
+            this.guna2GroupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1291,13 +1291,9 @@ namespace ParcAuto
         private System.Windows.Forms.Button Quitter;
         private System.Windows.Forms.Button btnEtatJournalier;
         private System.Windows.Forms.DataVisualization.Charting.Chart Carburantchart;
-        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox4;
         private System.Windows.Forms.DataVisualization.Charting.Chart TransportChart;
-        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox3;
         private System.Windows.Forms.DataVisualization.Charting.Chart ReparationChart;
-        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox2;
         private System.Windows.Forms.DataVisualization.Charting.Chart carteFreeChart;
-        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
         private System.Windows.Forms.Button btnMissions;
         private System.Windows.Forms.Label lblCarburant;
         private System.Windows.Forms.Label lbltransport;
@@ -1311,6 +1307,10 @@ namespace ParcAuto
         private System.Windows.Forms.Button btnNbCourriers;
         private System.Windows.Forms.Button btnLstCourriers;
         private System.Windows.Forms.Button btnSuivi;
+        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox4;
+        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox3;
+        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox2;
+        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
     }
 }
 
