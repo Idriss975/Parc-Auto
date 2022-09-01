@@ -279,7 +279,10 @@ namespace ParcAuto.Forms
         Workbook excelWorkbook;
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
-            //string lignesExcel = "Les Lignes Suivants Sont duplique sur le fichier excel : ";
+            if (GLB.Con.State == ConnectionState.Open)
+                GLB.Con.Close();
+            GLB.Con.Open();
+            GLB.Cmd.Transaction = GLB.Con.BeginTransaction();
             try
             {
                 importExceldatagridViewApp = new Microsoft.Office.Interop.Excel.Application();
@@ -288,10 +291,6 @@ namespace ParcAuto.Forms
                 importOpenDialoge.Filter = "Import Excel File|*.xlsx;*xls;*xlm";
                 if (importOpenDialoge.ShowDialog() == DialogResult.OK)
                 {
-                    if (GLB.Con.State == ConnectionState.Open)
-                        GLB.Con.Close();
-                    GLB.Con.Open();
-
                     Workbooks excelWorkbooks = importExceldatagridViewApp.Workbooks;
                     excelWorkbook = excelWorkbooks.Open(importOpenDialoge.FileName);
                     importExceldatagridViewworksheet = excelWorkbook.ActiveSheet;
@@ -300,16 +299,6 @@ namespace ParcAuto.Forms
                     {
                   
                         DateTime date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value ?? "0001-01-01"));
-
-                        //GLB.Cmd.CommandText = $"select count(*) from Transport where Entite = @txtentite and Beneficiaire =  @txtBenificiaire and NBonSNTL = @txtNBon_Email " +
-                        //    $"and Date = @DateMission and Destination = @txtDestination and Type_utilsation = @txtUtilisation and prix = @txtPrix";
-                        //GLB.Cmd.Parameters.AddWithValue("@txtentite", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
-                        //GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
-                        //GLB.Cmd.Parameters.AddWithValue("@txtNBon_Email", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
-                        //GLB.Cmd.Parameters.AddWithValue("@DateMission", date.ToString("yyyy-MM-dd"));
-                        //GLB.Cmd.Parameters.AddWithValue("@txtDestination", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value);
-                        //GLB.Cmd.Parameters.AddWithValue("@txtUtilisation", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
-                        //GLB.Cmd.Parameters.AddWithValue("@txtPrix", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
 
                         GLB.Cmd.Parameters.Clear();
                         GLB.Cmd.CommandText = "insert into Transport values(@txtentite, @txtBenificiaire, @txtNBon_Email,@DateMission, @txtDestination, @txtUtilisation, @txtPrix)";
@@ -322,17 +311,8 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@txtPrix", importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value ?? DBNull.Value);
                         GLB.Cmd.ExecuteNonQuery();
                         Total();
-                        //if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
-                        //{
-                            
-                        //}
-                        //else
-                        //{
-                        //    lignesExcel += $" {excelWorksheetIndex} ";
-                        //    continue;
-                        //}
-
                     }
+                    GLB.Cmd.Transaction.Commit();
                     GLB.Con.Close();
                     //MessageBox.Show(lignesExcel);
                 }
@@ -342,7 +322,7 @@ namespace ParcAuto.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                GLB.Cmd.Transaction.Rollback();
             }
             finally
             {

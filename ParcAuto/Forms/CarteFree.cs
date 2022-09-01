@@ -277,7 +277,10 @@ namespace ParcAuto.Forms
             
             string Fixe, Autre, objet, entite;
             DateTime date;
-            //string lignesExcel = "Les Lignes Suivants Sont duplique sur le fichier excel : ";
+            if (GLB.Con.State == ConnectionState.Open)
+                GLB.Con.Close();
+            GLB.Con.Open();
+            GLB.Cmd.Transaction = GLB.Con.BeginTransaction();
             try
             {
                 importExceldatagridViewApp = new Microsoft.Office.Interop.Excel.Application();
@@ -286,9 +289,7 @@ namespace ParcAuto.Forms
                 importOpenDialoge.Filter = "Import Excel File|*.xlsx;*xls;*xlm";
                 if (importOpenDialoge.ShowDialog() == DialogResult.OK)
                 {
-                    if (GLB.Con.State == ConnectionState.Open)
-                        GLB.Con.Close();
-                    GLB.Con.Open();
+
 
                     Workbooks excelWorkbooks = importExceldatagridViewApp.Workbooks;
                     excelWorkbook = excelWorkbooks.Open(importOpenDialoge.FileName);
@@ -325,16 +326,12 @@ namespace ParcAuto.Forms
                         }
                         else
                         {
-                            //lignesExcel += $" {excelWorksheetIndex} ";
                             continue;
                         }
 
                     }
-                  
-                    
-                    //MessageBox.Show(lignesExcel);
-
                 }
+                GLB.Cmd.Transaction.Commit();
                 GLB.Con.Close();
                 RemplirLaGrille();
 
@@ -342,7 +339,7 @@ namespace ParcAuto.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                GLB.Cmd.Transaction.Rollback();
             }
             finally
             {

@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace ParcAuto.Forms
 {
@@ -337,6 +338,10 @@ namespace ParcAuto.Forms
             string entite, benificiaire, vehicule, lieu, KM, Pourcentage, omn, Dfixe, DMission, Dhebdo, Dexeptionnelle, observation, marque;
             //string lignesExcel = "Les Lignes Suivants Sont duplique sur le fichier excel : ";
             DateTime date;
+            if (GLB.Con.State == ConnectionState.Open)
+                GLB.Con.Close();
+            GLB.Con.Open();
+            GLB.Cmd.Transaction = GLB.Con.BeginTransaction();
             try
             {
 
@@ -346,9 +351,7 @@ namespace ParcAuto.Forms
                 importOpenDialoge.Filter = "Import Excel File|*.xlsx;*xls;*xlm";
                 if (importOpenDialoge.ShowDialog() == DialogResult.OK)
                 {
-                    if (GLB.Con.State == ConnectionState.Open)
-                        GLB.Con.Close();
-                    GLB.Con.Open();
+                    
 
                     Workbooks excelWorkbooks = importExceldatagridViewApp.Workbooks;
                     excelWorkbook = excelWorkbooks.Open(importOpenDialoge.FileName);
@@ -372,38 +375,6 @@ namespace ParcAuto.Forms
                         Dhebdo = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 12].value);
                         Dexeptionnelle = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 13].value);
                         observation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 14].value);
-                        //GLB.Cmd.Parameters.Clear();
-                        //GLB.Cmd.CommandText = $"SELECT count(*) FROM CarburantSNTLPRD where Entite = @txtEntite and beneficiaire =@txtBenificiaire and vehicule = @cmbVehicule and Marque =@txtMarque" +
-                        //    $" and date = @DateOper and lieu = @cmbVilles and KM = @txtKM and Pourcentage = @txtpourcentage and ObjetOMN = @OMN";
-                        //$" and (DFixe = @DoFixe or DMissions = @DoMissions or DHebdo = @DoHebdo or DExceptionnel = @DoExp) ";
-
-                        //GLB.Cmd.Parameters.AddWithValue("@txtEntite", entite ?? "");
-                        //GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", benificiaire ?? "");
-                        //GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", vehicule ?? "");
-                        //GLB.Cmd.Parameters.AddWithValue("@txtMarque", marque ?? "");
-                        //GLB.Cmd.Parameters.AddWithValue("@DateOper", date.ToString("yyyy-MM-dd"));
-                        //GLB.Cmd.Parameters.AddWithValue("@cmbVilles", lieu ?? "");
-                        //GLB.Cmd.Parameters.AddWithValue("@txtKM", KM is null ? (object)DBNull.Value : Double.Parse(KM));
-                        //GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", Pourcentage is null ? (object)DBNull.Value : Double.Parse(Pourcentage));
-                        //GLB.Cmd.Parameters.AddWithValue("@DoFixe", Dfixe is null ? (object)DBNull.Value : Double.Parse(Dfixe));
-                        //GLB.Cmd.Parameters.AddWithValue("@OMN", omn ?? "");
-                        //GLB.Cmd.Parameters.AddWithValue("@DoMissions", DMission is null ? (object)DBNull.Value : Double.Parse(DMission));
-                        //GLB.Cmd.Parameters.AddWithValue("@DoHebdo", Dhebdo is null ? (object)DBNull.Value : Double.Parse(Dhebdo));
-                        //GLB.Cmd.Parameters.AddWithValue("@DoExp", Dexeptionnelle is null ? (object)DBNull.Value : Double.Parse(Dexeptionnelle));
-                        //GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation ?? "");
-
-                        //MessageBox.Show($"{entite} - {benificiaire} - {vehicule} - {marque} - {date.ToString("yyyy-MM-dd")} - {lieu} - {KM} - {Pourcentage} - {omn} - {Dfixe} - {DMission} - {Dhebdo} - {Dexeptionnelle} - {observation}");
-
-                        //if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
-                        //{
-
-
-                        //}
-                        //else
-                        //{
-                        //    lignesExcel += $" {excelWorksheetIndex} ";
-                        //    continue;
-                        //}
                         GLB.Cmd.Parameters.Clear();
                         GLB.Cmd.CommandText = "insert into CarburantSNTLPRD values(@txtEntite,@txtBenificiaire,@cmbVehicule," +
                   $"@txtMarque,@DateOper,@cmbVilles,@txtKM,@txtpourcentage,@OMN,@DoFixe,@DoMissions," +
@@ -425,6 +396,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.ExecuteNonQuery();
                         Total();
                     }
+                    GLB.Cmd.Transaction.Commit();
                     GLB.Con.Close();
                     //MessageBox.Show(lignesExcel);
                 }
@@ -432,8 +404,7 @@ namespace ParcAuto.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-
+                GLB.Cmd.Transaction.Rollback();
             }
             finally
             {

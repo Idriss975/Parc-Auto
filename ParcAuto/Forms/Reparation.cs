@@ -279,6 +279,10 @@ namespace ParcAuto.Forms
             string entite, Benificiaire, Vehicules, objet, entretien, reparation, Matricule;
             //string lignesExcel = "Les Lignes Suivants Sont duplique sur le fichier excel : ";
             DateTime date;
+            if (GLB.Con.State == ConnectionState.Open)
+                GLB.Con.Close();
+            GLB.Con.Open();
+            GLB.Cmd.Transaction = GLB.Con.BeginTransaction();
             try
             {
                 importExceldatagridViewApp = new Microsoft.Office.Interop.Excel.Application();
@@ -287,10 +291,6 @@ namespace ParcAuto.Forms
                 importOpenDialoge.Filter = "Import Excel File|*.xlsx;*xls;*xlm";
                 if (importOpenDialoge.ShowDialog() == DialogResult.OK)
                 {
-                    if (GLB.Con.State == ConnectionState.Open)
-                        GLB.Con.Close();
-                    GLB.Con.Open();
-
                     Workbooks excelWorkbooks = importExceldatagridViewApp.Workbooks;
                     excelWorkbook = excelWorkbooks.Open(importOpenDialoge.FileName);
                     importExceldatagridViewworksheet = excelWorkbook.ActiveSheet;
@@ -306,17 +306,6 @@ namespace ParcAuto.Forms
                         entretien = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
                         reparation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value);
 
-                        //GLB.Cmd.Parameters.Clear();
-                        //GLB.Cmd.CommandText = $"SELECT count(*) from Reparation where Entite = @txtentite  and beneficiaire = @txtBenificiaire and vehicule =@cmbVehicule " +
-                        //    $"and MatriculeV = @txtMat and Date =@Date and Objet = @txtObjet and (Entretien = @MontantEntretient or Reparation = @MontantReparation)" ;
-                        //GLB.Cmd.Parameters.AddWithValue("@txtentite", entite ?? "");
-                        //GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", Benificiaire ?? "");
-                        //GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", Vehicules ?? "");
-                        //GLB.Cmd.Parameters.AddWithValue("@txtMat", Matricule ?? "");
-                        //GLB.Cmd.Parameters.AddWithValue("@Date", date.ToString("yyyy-MM-dd"));
-                        //GLB.Cmd.Parameters.AddWithValue("@txtObjet", objet ?? "");
-                        //GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", entretien  ?? (object)DBNull.Value);
-                        //GLB.Cmd.Parameters.AddWithValue("@MontantReparation", reparation  ?? (object)DBNull.Value);
 
                         GLB.Cmd.Parameters.Clear();
                         GLB.Cmd.CommandText = "Insert into Reparation values (@txtentite, @txtBenificiaire, @cmbVehicule,@txtMat, @Date, @txtObjet, @MontantEntretient, @MontantReparation)";
@@ -329,19 +318,10 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", entretien ?? (object)DBNull.Value);
                         GLB.Cmd.Parameters.AddWithValue("@MontantReparation", reparation ?? (object)DBNull.Value);
                         GLB.Cmd.ExecuteNonQuery();
-                        //if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
-                        //{
-                            
-                        //}
-                        //else
-                        //{
-                        //    lignesExcel += $" {excelWorksheetIndex} ";
-                        //    continue;
-                        //}
-
                     }           
                     
                 }
+                GLB.Cmd.Transaction.Commit();
                 GLB.Con.Close();
                 datagridviewLoad();
                 Total();
@@ -349,7 +329,7 @@ namespace ParcAuto.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                GLB.Cmd.Transaction.Rollback();
             }
             finally
             {
