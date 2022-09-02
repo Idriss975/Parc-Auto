@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -94,56 +95,70 @@ namespace ParcAuto.Forms
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
 
-            //Definir la requette SQL
-            if (!(txtnom.Text == "" || txtprenom.Text == "" || txtnumpermis.Text == "" || txtadr.Text == "" || txttel.Text == "" || txtemail.Text == "" || txtDirections.Text == "" || DateNaissance.Value == DateTime.Now))
+            try
             {
-                switch (Commandes.Command)
+                //Definir la requette SQL
+                if (!(txtnom.Text == "" || txtprenom.Text == "" || txtnumpermis.Text == "" || txtadr.Text == "" || txttel.Text == "" || txtemail.Text == "" || txtDirections.Text == "" || DateNaissance.Value == DateTime.Now))
                 {
-                    case Choix.ajouter:
-                        GLB.Cmd.Parameters.Clear();
-                        GLB.Cmd.CommandText = "Insert into Conducteurs values (@txtmatricule, @txtnom, @txtprenom, @DateNais, @DateEmb, @txtnumpermis, @txtadr, @txttel, @txtemail, @txtDirections)";
-                        GLB.Cmd.Parameters.AddWithValue("@txtmatricule", txtmatricule.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtnom", txtnom.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtprenom", txtprenom.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@DateNais", DateNaissance.Value.ToString("yyyy-MM-dd"));
-                        GLB.Cmd.Parameters.AddWithValue("@DateEmb", DateEmb.Value.ToString("yyyy-MM-dd"));
-                        GLB.Cmd.Parameters.AddWithValue("@txtnumpermis", txtnumpermis.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtadr", txtadr.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txttel", txttel.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtemail", txtemail.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtDirections", txtDirections.Text);
-                        break;
-                    case Choix.modifier:
-                        GLB.Cmd.Parameters.Clear();
-                        GLB.Cmd.CommandText = "update Conducteurs set nom= @txtnom, prenom= @txtprenom, DateNais= @DateNais, DateEmbauche= @DateEmb, NumPermis= @txtnumpermis, Adresse= @txtadr, Direction= @txtDirections, Tel= @txttel, Email= @txtemail where Matricule = @Matricule";
-                        GLB.Cmd.Parameters.AddWithValue("@txtnom", txtnom.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtprenom", txtprenom.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@DateNais", DateNaissance.Value.ToString("yyyy-MM-dd"));
-                        GLB.Cmd.Parameters.AddWithValue("@DateEmb", DateEmb.Value.ToString("yyyy-MM-dd"));
-                        GLB.Cmd.Parameters.AddWithValue("@txtnumpermis", txtnumpermis.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtadr",txtadr.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtDirections", txtDirections.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txttel", txttel.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtemail", txtemail.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@Matricule", GLB.Matricule);
-                        RemplirLesChamps();
-                        break;
-                    case Choix.supprimer:
-                        //On peut pas ouvrir MajConducteur avec l'option de suppression.
-                        throw new Exception("MajConducteur a été appellé mais avec le Choix supprimer");
+                    switch (Commandes.Command)
+                    {
+                        case Choix.ajouter:
+                            GLB.Cmd.Parameters.Clear();
+                            GLB.Cmd.CommandText = "Insert into Conducteurs values (@txtmatricule, @txtnom, @txtprenom, @DateNais, @DateEmb, @txtnumpermis, @txtadr, @txttel, @txtemail, @txtDirections)";
+                            GLB.Cmd.Parameters.AddWithValue("@txtmatricule", txtmatricule.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtnom", txtnom.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtprenom", txtprenom.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@DateNais", DateNaissance.Value.ToString("yyyy-MM-dd"));
+                            GLB.Cmd.Parameters.AddWithValue("@DateEmb", DateEmb.Value.ToString("yyyy-MM-dd"));
+                            GLB.Cmd.Parameters.AddWithValue("@txtnumpermis", txtnumpermis.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtadr", txtadr.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txttel", txttel.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtemail", txtemail.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtDirections", txtDirections.Text);
+                            break;
+                        case Choix.modifier:
+                            GLB.Cmd.Parameters.Clear();
+                            GLB.Cmd.CommandText = "update Conducteurs set nom= @txtnom, prenom= @txtprenom, DateNais= @DateNais, DateEmbauche= @DateEmb, NumPermis= @txtnumpermis, Adresse= @txtadr, Direction= @txtDirections, Tel= @txttel, Email= @txtemail where Matricule = @Matricule";
+                            GLB.Cmd.Parameters.AddWithValue("@txtnom", txtnom.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtprenom", txtprenom.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@DateNais", DateNaissance.Value.ToString("yyyy-MM-dd"));
+                            GLB.Cmd.Parameters.AddWithValue("@DateEmb", DateEmb.Value.ToString("yyyy-MM-dd"));
+                            GLB.Cmd.Parameters.AddWithValue("@txtnumpermis", txtnumpermis.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtadr", txtadr.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtDirections", txtDirections.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txttel", txttel.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtemail", txtemail.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@Matricule", GLB.Matricule);
+                            RemplirLesChamps();
+                            break;
+                        case Choix.supprimer:
+                            //On peut pas ouvrir MajConducteur avec l'option de suppression.
+                            throw new Exception("MajConducteur a été appellé mais avec le Choix supprimer");
+
+                    }
+
+                    //Executer le requette
+                    GLB.Con.Open();
+                    GLB.Cmd.ExecuteNonQuery();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Tous les Champs sont Obligatoire", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
-
-                //Executer le requette
-                GLB.Con.Open();
-                GLB.Cmd.ExecuteNonQuery();
-                GLB.Con.Close();
-                this.Close();
             }
-            else
+            catch (SqlException ex)
             {
-                MessageBox.Show("Tous les Champs sont Obligatoire", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                if (ex.Number == 2627)
+                    MessageBox.Show($"Ce matricule existe déja, vous ne pouvez pas affecter un matricule a deux personnes", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                GLB.Con.Close();
             }
         }
 
