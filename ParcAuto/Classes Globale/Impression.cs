@@ -156,6 +156,15 @@ namespace ParcAuto.Classes_Globale
                 output = 0;
             return output;
         }
+    }
+
+    public class Coords
+    {
+        public int x;
+        public int y;
+        public int width;
+        public int heigth;
+        public string Text;
 
         /// <summary>
         ///     Draws a Rectangle with text inside of it
@@ -170,17 +179,6 @@ namespace ParcAuto.Classes_Globale
         /// <param name="Alignement">Alignment of the text</param>
         /// <param name="Text">the text itself</param>
         /// <returns></returns>
-        
-    }
-
-    public class Coords
-    {
-        public int x;
-        public int y;
-        public int width;
-        public int heigth;
-        public string Text;
-
         public static Coords Print_Rectangle(PrintPageEventArgs e, int x, int y, int width, int heigth, float fontSize = 6.7F, FontStyle fontStyle = FontStyle.Regular, StringAlignment LineAlignment = StringAlignment.Center, StringAlignment Alignement = StringAlignment.Far, string Text = "")
         {
             e.Graphics.DrawRectangle(new Pen(Brushes.Black), new Rectangle(x, y, width, heigth));
