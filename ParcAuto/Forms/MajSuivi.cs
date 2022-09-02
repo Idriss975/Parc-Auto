@@ -35,10 +35,10 @@ namespace ParcAuto.Forms
         DateTime DateDepot, DateDenlevement;
         private void txtDemandeur_Leave(object sender, EventArgs e)
         {
-            if (GLB.Entites.Keys.Contains(txtDemandeur.Text.ToUpper()))
-                txtDemandeur.Text = GLB.Entites[txtDemandeur.Text.ToUpper()];
+            //if (GLB.Entites.Keys.Contains(txtDemandeur.Text.ToUpper()))
+            //    txtDemandeur.Text = GLB.Entites[txtDemandeur.Text.ToUpper()];
 
-            if (!GLB.Entites.Values.Contains(txtDemandeur.Text))
+            if (!GLB.Entites.Keys.Contains(txtDemandeur.Text.ToUpper()))
             {
                 MessageBox.Show("Ecrire Correctement l'abreviation ou le nom de la Direction");
                 txtDemandeur.Text = "";
