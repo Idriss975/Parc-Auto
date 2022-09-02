@@ -125,8 +125,8 @@ namespace ParcAuto.Classes_Globale
                 new Font("Arial", 9), 
                 Brushes.Black, e.PageSettings.Bounds.Width / 2, e.PageSettings.Bounds.Height - 35,
                 new StringFormat() { LineAlignment = StringAlignment.Center, Alignment = StringAlignment.Center });*/
-            e.Graphics.DrawString("DAL/DAG\nService Logistique", new Font("Arial", 7, FontStyle.Bold), Brushes.Black, new Point(30, Paper_Size.Heigth - 35));
-            e.Graphics.DrawString("Intersect B.O n°50 et Route Nationale n°1 (Route Nouacer) Sidi\nMaarouf /Casablanca\nFix: 0522634444 Fax: 0522787037", new Font("Arial", 7), Brushes.Black, new Point(Paper_Size.Width - Convert.ToInt32(e.Graphics.MeasureString("Intersect B.O n°50 et Route Nationale n°1 (Route Nouacer) Sidi\nMaarouf /Casablanca\nFix: 0522634444 Fax: 0522787037", new Font("Arial", 7)).Width) - 15, Paper_Size.Heigth - 35));
+            e.Graphics.DrawString("DAL/DAG\nService Logistique", new Font("Arial", 9, FontStyle.Bold), Brushes.Black, new Point(30, Paper_Size.Heigth - 70));
+            e.Graphics.DrawString("Intersect B.O n°50 et Route Nationale n°1 (Route Nouacer) Sidi\nMaarouf /Casablanca\nFix: 0522634444 Fax: 0522787037", new Font("Arial", 9), Brushes.Black, new Point(Paper_Size.Width - Convert.ToInt32(e.Graphics.MeasureString("Intersect B.O n°50 et Route Nationale n°1 (Route Nouacer) Sidi\nMaarouf /Casablanca\nFix: 0522634444 Fax: 0522787037", new Font("Arial", 9)).Width) - 15, Paper_Size.Heigth - 70));
         }
 
         /// <summary>
