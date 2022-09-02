@@ -236,21 +236,21 @@ namespace ParcAuto.Forms
                 int Heigth_table = 30;
 
                 Coords Entite = Coords.Print_Rectangle(e, 30, 260, Width_table, Heigth_table, 9, Alignement: StringAlignment.Near , LineAlignment: StringAlignment.Near, Text:" Entité");
-                Coords Entite_Val = Coords.Print_Rectangle(e, Entite.x + Entite.width, Entite.y, Width_table, Entite.heigth, 9, Alignement: StringAlignment.Near, LineAlignment: StringAlignment.Near, Text:" "+dgvTransport.Rows[0].Cells["Column2"].Value.ToString());
+                Coords Entite_Val = Coords.Print_Rectangle(e, Entite.x + Entite.width, Entite.y, Width_table, Entite.heigth, 9, Alignement: StringAlignment.Near, LineAlignment: StringAlignment.Near, Text:" "+( dgvTransport.Rows.Count > 0 ? dgvTransport.Rows[0].Cells["Column2"].Value.ToString() : ""));
                 Coords Beneficiaire = Coords.Print_Rectangle(e, Entite.x, Entite.y + Entite.heigth, Width_table, Heigth_table, 9, Alignement: StringAlignment.Near, LineAlignment: StringAlignment.Near, Text: " Bénéficiaire");
-                Coords Beneficiaire_Val = Coords.Print_Rectangle(e, Entite_Val.x, Beneficiaire.y, Width_table, Heigth_table, 9, Alignement: StringAlignment.Near, LineAlignment: StringAlignment.Near, Text: " "+dgvTransport.Rows[0].Cells["Column3"].Value.ToString());
+                Coords Beneficiaire_Val = Coords.Print_Rectangle(e, Entite_Val.x, Beneficiaire.y, Width_table, Heigth_table, 9, Alignement: StringAlignment.Near, LineAlignment: StringAlignment.Near, Text: " "+ (dgvTransport.Rows.Count > 0 ? dgvTransport.Rows[0].Cells["Column3"].Value.ToString() : ""));
                 Coords NTag = Coords.Print_Rectangle(e, Entite.x, Beneficiaire.y + Beneficiaire.heigth, Width_table, Heigth_table, 9, Alignement: StringAlignment.Near, LineAlignment: StringAlignment.Near, Text: " N° Tag Jawaz");
-                Coords NTag_Val = Coords.Print_Rectangle(e, Beneficiaire_Val.x, Beneficiaire_Val.y + Beneficiaire_Val.heigth, Width_table, Heigth_table, 9, Alignement: StringAlignment.Near, LineAlignment: StringAlignment.Near, Text: " "+dgvTransport.Rows[0].Cells["Column9"].Value.ToString());
+                Coords NTag_Val = Coords.Print_Rectangle(e, Beneficiaire_Val.x, Beneficiaire_Val.y + Beneficiaire_Val.heigth, Width_table, Heigth_table, 9, Alignement: StringAlignment.Near, LineAlignment: StringAlignment.Near, Text: " " + (dgvTransport.Rows.Count > 0 ? dgvTransport.Rows[0].Cells["Column9"].Value.ToString() : ""));
                 //recharges
-                Coords Recharge_Val = Coords.Print_Rectangle(e, NTag_Val.x, NTag_Val.y + NTag_Val.heigth, Width_table, Convert.ToInt32(e.Graphics.MeasureString(Recherches, new System.Drawing.Font("Arial",9), Width_table).Height), 9, Alignement: StringAlignment.Near, LineAlignment: StringAlignment.Near, Text: " "+ Recherches);
+                Coords Recharge_Val = Coords.Print_Rectangle(e, NTag_Val.x, NTag_Val.y + NTag_Val.heigth, Width_table, (Convert.ToInt32(e.Graphics.MeasureString(Recherches, new System.Drawing.Font("Arial",9), Width_table).Height) == 0 ? Heigth_table : Convert.ToInt32(e.Graphics.MeasureString(Recherches, new System.Drawing.Font("Arial", 9), Width_table).Height)), 9, Alignement: StringAlignment.Near, LineAlignment: StringAlignment.Near, Text: " "+ Recherches);
                 Coords Recharge = Coords.Print_Rectangle(e, NTag.x, Recharge_Val.y, Recharge_Val.width, Recharge_Val.heigth, 9, Alignement: StringAlignment.Near, LineAlignment: StringAlignment.Near, Text: " Recharges effectuées");
                 
                 Coords Total = Coords.Print_Rectangle(e, Recharge.x, Recharge.y + Recharge.heigth, Width_table, Heigth_table, 9, Alignement: StringAlignment.Near, LineAlignment: StringAlignment.Near, Text: " Total");
-                Coords.Print_Rectangle(e, Recharge_Val.x, Recharge_Val.y + Recharge_Val.heigth, Width_table, Heigth_table, 9, Alignement: StringAlignment.Near, LineAlignment: StringAlignment.Near, Text: " "+ lblSommePrix.Text);
+                Coords.Print_Rectangle(e, Recharge_Val.x, Recharge.y + Recharge.heigth, Width_table, Heigth_table, 9, Alignement: StringAlignment.Near, LineAlignment: StringAlignment.Near, Text: " "+ lblSommePrix.Text);
 
                 e.Graphics.DrawRectangle(Pens.Black, new System.Drawing.Rectangle(Entite.x, Total.y + Total.heigth + 100, Width_table * 2, (794 - Total.y - Total.heigth)/2));
 
-                e.Graphics.DrawString("Instrctions de la DAL:", new System.Drawing.Font("Arial", 9, FontStyle.Bold), Brushes.Black, Entite.x, Total.y + Total.heigth + 80);
+                e.Graphics.DrawString("Instructions de la DAL:", new System.Drawing.Font("Arial", 9, FontStyle.Bold), Brushes.Black, Entite.x, Total.y + Total.heigth + 80);
             }
         }
         private void btnImprimer_Click(object sender, EventArgs e)
@@ -399,9 +399,15 @@ namespace ParcAuto.Forms
 
         private void btnFicheInformation_Click(object sender, EventArgs e)
         {
+           
             Fiche_impress = true;
             if (printDialog1.ShowDialog(this) == DialogResult.OK)
             {
+                Guna.UI2.WinForms.Guna2ComboBox Test = new Guna.UI2.WinForms.Guna2ComboBox();
+                Test.Items.AddRange(new object[] { "Type d'opération" });
+                Test.SelectedIndex = 0;
+                GLB.Filter(Test, dgvTransport, new Guna.UI2.WinForms.Guna2TextBox() { Text="Achat jawaz" });
+                Total();
                 printPreviewDialog1.Document.PrinterSettings = printDialog1.PrinterSettings;
                 printPreviewDialog1.ShowDialog();
             }
