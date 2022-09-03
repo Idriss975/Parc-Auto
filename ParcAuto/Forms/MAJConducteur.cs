@@ -98,7 +98,7 @@ namespace ParcAuto.Forms
             try
             {
                 //Definir la requette SQL
-                if (!(txtnom.Text == "" || txtprenom.Text == "" || txtnumpermis.Text == "" || txtadr.Text == "" || txttel.Text == "" || txtemail.Text == "" || txtDirections.Text == "" || DateNaissance.Value == DateTime.Now))
+                if (!(txtnom.Text == "" || txtprenom.Text == "" || txtnumpermis.Text == "" || txtadr.Text == "" || txttel.Text == "" || txtemail.Text == "" || txtDirections.Text == "" || txtmatricule.Text == ""))
                 {
                     switch (Commandes.Command)
                     {
@@ -166,7 +166,8 @@ namespace ParcAuto.Forms
 
         private void MAJConducteur_Load_1(object sender, EventArgs e)
         {
-            
+            DateNaissance.Value = DateTime.Now;
+            DateEmb.Value = DateTime.Now;
             switch (Commandes.Command)
             {
                 case Choix.ajouter:

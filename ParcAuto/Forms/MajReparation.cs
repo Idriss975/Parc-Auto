@@ -64,6 +64,12 @@ namespace ParcAuto.Forms
             {
                 if (!(txtBenificiaire.Text == "" || txtentite.Text == "" || txtMontant.Text == "" || cmbVehicule.Text == "" || txtMatricule.Text == ""||txtObjet.Text == ""))
                 {
+
+                    if (!double.TryParse(txtMontant.Text, out double montant))
+                    {
+                        MessageBox.Show($"la valeur {txtMontant.Text} saisie dans le champs montant est invalid, vous devez entrez une valeur numeric");
+                        return;
+                    }
                     if (rbEntretien.Checked)
                     {
                         MontantEntretient = txtMontant.Text;
@@ -124,7 +130,6 @@ namespace ParcAuto.Forms
                     //Executer le requette
                     GLB.Con.Open();
                     GLB.Cmd.ExecuteNonQuery();
-                    GLB.Con.Close();
                     this.Close();
                 }
                 else
@@ -133,12 +138,18 @@ namespace ParcAuto.Forms
 
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-
-                MessageBox.Show(ex.Message);
+                if (ex.Number == 2627)
+                    MessageBox.Show($"Toutes ces informations sans déja saisie", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           
+            finally
+            {
+                GLB.Con.Close();
+            }
+
         }
 
         public MajReparation(string entite , string benificiaire ,string vehicule ,string MatriculeV, DateTime date , string objet ,string entretien ,string reparation )
@@ -207,6 +218,7 @@ namespace ParcAuto.Forms
         }
         private void MajReparation_Load(object sender, EventArgs e)
         {
+            Date.Value = DateTime.Now;
             RemplirComboBoxVehicules();
             switch (Commandes.Command)
             {

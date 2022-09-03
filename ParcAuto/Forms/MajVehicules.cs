@@ -111,70 +111,69 @@ namespace ParcAuto.Forms
         }
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
-            if (!(txtMarque.Text == "" || txtAffectation.Text == "" ||  txtCarburant.Text == ""))
-            {
-                switch (Commandes.Command)
-                {
-                    case Choix.ajouter:
-                        GLB.Cmd.Parameters.Clear();
-                        GLB.Cmd.CommandText = $"insert into {(Source.GetType().Name == "Vehicules" || Source.GetType().Name == "Vehicules_Location" || Source.GetType().Name == "Vehicules_MRouge" ? "Vehicules" : "VehiculesPRD")} values (@txtMarque, @txtMatricule, @dateMiseEnCirculation, {(Source.GetType().Name == "Vehicules" || Source.GetType().Name == "Vehicules_Location" || Source.GetType().Name == "Vehicules_MRouge" ? "@cmbType," : "")} @txtCarburant, @txtAffectation, @TempMatricule,@txtDnomination,@txtObservation)";
-                        GLB.Cmd.Parameters.AddWithValue("@txtMarque", txtMarque.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtMatricule", txtMatricule.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@dateMiseEnCirculation", dateMiseEnCirculation.Value.ToString("yyyy-MM-dd"));
-                        GLB.Cmd.Parameters.AddWithValue("@txtCarburant", txtCarburant.Text);
-                        if (Source.GetType().Name != "VehiculesPRD") GLB.Cmd.Parameters.AddWithValue("@cmbType", cmbType.SelectedItem);
-                        GLB.Cmd.Parameters.AddWithValue("@txtAffectation", txtAffectation.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@TempMatricule", Source.GetType().Name == "VehiculesPRD" ? cmbConducteur.SelectedItem.ToString() : (((CmbMatNom)cmbConducteur.SelectedItem).Matricule ?? (object) DBNull.Value ));
-                        GLB.Cmd.Parameters.AddWithValue("@txtDnomination", txtDnomination.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtObservation", txtObservation.Text);
-                        break;
-                    case Choix.modifier:
-                        GLB.Cmd.Parameters.Clear();
 
-                        GLB.Cmd.CommandText = $"update {(Source.GetType().Name == "Vehicules" || Source.GetType().Name == "Vehicules_Location" || Source.GetType().Name == "Vehicules_MRouge" ? "Vehicules" : "VehiculesPRD")} set  Marque=@txtMarque, {(Source.GetType().Name == "Vehicules" || Source.GetType().Name == "Vehicules_Location" || Source.GetType().Name == "Vehicules_MRouge" ? "Type=@cmbType," : "")} MiseEnCirculation=@dateMiseEnCirculation, Carburant=@txtCarburant, Observation=@txtObservation,decision_nomination = @txtDnomination, Conducteur=@TempMatricule , affectation = @txtAffectation where Matricule=@Matricule";
-                        GLB.Cmd.Parameters.AddWithValue("@txtMarque", txtMarque.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtAffectation", txtAffectation.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@dateMiseEnCirculation", dateMiseEnCirculation.Value.ToString("yyyy-MM-dd"));
-                        GLB.Cmd.Parameters.AddWithValue("@txtCarburant", txtCarburant.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtObservation", txtObservation.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtDnomination", txtDnomination.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@TempMatricule", (Source.GetType().Name == "VehiculesPRD" ? cmbConducteur.SelectedItem.ToString() : ((CmbMatNom)cmbConducteur.SelectedItem).Matricule ?? (object) DBNull.Value));
-                        GLB.Cmd.Parameters.AddWithValue("@Matricule", GLB.Matricule_Voiture);
-                        if (Source.GetType().Name != "VehiculesPRD") GLB.Cmd.Parameters.AddWithValue("@cmbType", cmbType.SelectedItem);
-                        break;
-                    case Choix.supprimer:
-                        throw new Exception("Impossible de supprimer dans l'interface MajVehicules.");
-                }
-                
-                try
+            try
+            {
+                if (!(txtMarque.Text == "" || txtAffectation.Text == "" || txtCarburant.Text == "" || txtMatricule.Text == ""))
                 {
+                    switch (Commandes.Command)
+                    {
+                        case Choix.ajouter:
+                            GLB.Cmd.Parameters.Clear();
+                            GLB.Cmd.CommandText = $"insert into {(Source.GetType().Name == "Vehicules" || Source.GetType().Name == "Vehicules_Location" || Source.GetType().Name == "Vehicules_MRouge" ? "Vehicules" : "VehiculesPRD")} values (@txtMarque, @txtMatricule, @dateMiseEnCirculation, {(Source.GetType().Name == "Vehicules" || Source.GetType().Name == "Vehicules_Location" || Source.GetType().Name == "Vehicules_MRouge" ? "@cmbType," : "")} @txtCarburant, @txtAffectation, @TempMatricule,@txtDnomination,@txtObservation)";
+                            GLB.Cmd.Parameters.AddWithValue("@txtMarque", txtMarque.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtMatricule", txtMatricule.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@dateMiseEnCirculation", dateMiseEnCirculation.Value.ToString("yyyy-MM-dd"));
+                            GLB.Cmd.Parameters.AddWithValue("@txtCarburant", txtCarburant.Text);
+                            if (Source.GetType().Name != "VehiculesPRD") GLB.Cmd.Parameters.AddWithValue("@cmbType", cmbType.SelectedItem);
+                            GLB.Cmd.Parameters.AddWithValue("@txtAffectation", txtAffectation.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@TempMatricule", Source.GetType().Name == "VehiculesPRD" ? cmbConducteur.SelectedItem.ToString() : (((CmbMatNom)cmbConducteur.SelectedItem).Matricule ?? (object)DBNull.Value));
+                            GLB.Cmd.Parameters.AddWithValue("@txtDnomination", txtDnomination.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtObservation", txtObservation.Text);
+                            break;
+                        case Choix.modifier:
+                            GLB.Cmd.Parameters.Clear();
+
+                            GLB.Cmd.CommandText = $"update {(Source.GetType().Name == "Vehicules" || Source.GetType().Name == "Vehicules_Location" || Source.GetType().Name == "Vehicules_MRouge" ? "Vehicules" : "VehiculesPRD")} set  Marque=@txtMarque, {(Source.GetType().Name == "Vehicules" || Source.GetType().Name == "Vehicules_Location" || Source.GetType().Name == "Vehicules_MRouge" ? "Type=@cmbType," : "")} MiseEnCirculation=@dateMiseEnCirculation, Carburant=@txtCarburant, Observation=@txtObservation,decision_nomination = @txtDnomination, Conducteur=@TempMatricule , affectation = @txtAffectation where Matricule=@Matricule";
+                            GLB.Cmd.Parameters.AddWithValue("@txtMarque", txtMarque.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtAffectation", txtAffectation.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@dateMiseEnCirculation", dateMiseEnCirculation.Value.ToString("yyyy-MM-dd"));
+                            GLB.Cmd.Parameters.AddWithValue("@txtCarburant", txtCarburant.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtObservation", txtObservation.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtDnomination", txtDnomination.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@TempMatricule", (Source.GetType().Name == "VehiculesPRD" ? cmbConducteur.SelectedItem.ToString() : ((CmbMatNom)cmbConducteur.SelectedItem).Matricule ?? (object)DBNull.Value));
+                            GLB.Cmd.Parameters.AddWithValue("@Matricule", GLB.Matricule_Voiture);
+                            if (Source.GetType().Name != "VehiculesPRD") GLB.Cmd.Parameters.AddWithValue("@cmbType", cmbType.SelectedItem);
+                            break;
+                        case Choix.supprimer:
+                            throw new Exception("Impossible de supprimer dans l'interface MajVehicules.");
+                    }
+
                     GLB.Con.Open();
                     GLB.Cmd.ExecuteNonQuery();
-                }
-                catch (SQLiteException ex) //TODO: Check if ErrorCode 1 is duplicate error in sql (change from sqlserveur to sqlite) (idriss)
-                {
-                    if (ex.ErrorCode == 1)
-                    {
-                        MessageBox.Show("Le matricule de la Voiture ne peux pas etre dupliqué", "Message d'erreur", MessageBoxButtons.OK,MessageBoxIcon.Error) ;
-                    }
-                    
-                    else
-                    {
-                        MessageBox.Show($"Erreur Technique, à rapporter aux techniciens:\n {ex.Message} ", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                finally
-                {
-                    GLB.Con.Close();
                     this.Close();
-                }
-               
 
+
+                }
+                else
+                {
+                    MessageBox.Show("Tous les Champs sont Obligatoire", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                
             }
-            else
+            catch (SqlException ex) //TODO: Check if ErrorCode 1 is duplicate error in sql (change from sqlserveur to sqlite) (idriss)
             {
-                MessageBox.Show("Tous les Champs sont Obligatoire", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                if (ex.Number == 2627)
+                    MessageBox.Show($"Le Matricule {txtMatricule.Text} déja saisie", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally
+            {
+                GLB.Con.Close();
+            }
+          
           
            
 
@@ -197,9 +196,10 @@ namespace ParcAuto.Forms
             else
                 cmbType.SelectedIndex = 0;
 
-
+            txtCarburant.Text = "Gasoile";
             cmbConducteur.Items.Add(new CmbMatNom(null,"Sans Conducteur"));
             cmbConducteur.SelectedIndex = 0;
+            cmbType.SelectedIndex = 0;
             RemplirComboBoxConducteur();
             switch (Commandes.Command)
             {

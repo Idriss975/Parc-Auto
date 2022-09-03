@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -49,6 +50,8 @@ namespace ParcAuto.Forms
 
         private void MajSuivi_Load(object sender, EventArgs e)
         {
+            dateDepot.Value = DateTime.Now;
+            dateEnlevement.Value = DateTime.Now;
             switch (Commandes.Command)
             {
                 case Choix.ajouter:
@@ -119,56 +122,81 @@ namespace ParcAuto.Forms
 
             try
             {
-                switch (Commandes.Command)
+                if(txtorderBOC.Text != "" || txtCodeAbarre.Text != "" || txtDemandeur.Text != "" || txtReference.Text != "" || txtDestinataire.Text != "" || txtNombre.Text != ""
+                    || txtNatureEnvoi.Text != "" || txtPrix.Text != "")
                 {
-                    case Choix.ajouter:
-                        GLB.Cmd.Parameters.Clear();
-                        GLB.Cmd.CommandText = "insert into SuiviDesEnvois values(@OBC,@CodeAbarre,@DateDepot,@Demandeur,@Reference,@Destinataire,@Destination,@Nombre,@NatureDenvoi,@DateEnlevement,@prix) ";
-                        GLB.Cmd.Parameters.Add("@OBC", SqlDbType.NVarChar, 50).Value = txtorderBOC.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@CodeAbarre", SqlDbType.NVarChar, 50).Value = txtCodeAbarre.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@DateDepot", SqlDbType.Date).Value = dateDepot.Value.ToString("yyyy-MM-dd");
-                        GLB.Cmd.Parameters.Add("@Demandeur", SqlDbType.VarChar, 500).Value = txtDemandeur.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@Reference", SqlDbType.NVarChar, 200).Value = txtReference.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@Destinataire", SqlDbType.NVarChar, 200).Value = txtDestinataire.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@Destination", SqlDbType.NVarChar, 100).Value = txtDestination.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@Nombre", SqlDbType.Int).Value = txtNombre.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@NatureDenvoi", SqlDbType.NVarChar, 50).Value = txtNatureEnvoi.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@DateEnlevement", SqlDbType.Date).Value = dateEnlevement.Value.ToString("yyyy-MM-dd"); ;
-                        GLB.Cmd.Parameters.Add("@prix", SqlDbType.Real).Value = txtPrix.Text.Trim();
-                        break;
-                    case Choix.modifier:
-                        GLB.Cmd.Parameters.Clear();
-                        GLB.Cmd.CommandText = $"update SuiviDesEnvois set NOrderBOC = @OBC,CodeABarre= @CodeAbarre , DateDepot = @DateDepot,Demandeur =@Demandeur" +
-                            $",Reference = @Reference , Destinataire = @Destinataire ,Destination = @Destination,Nombre = @Nombre , NatureDenvoi = @NatureDenvoi" +
-                            $",DatedEnlevement = @DateEnlevement , prix = @prix where id = @id ";
-                        GLB.Cmd.Parameters.Add("@OBC", SqlDbType.NVarChar, 50).Value = txtorderBOC.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@CodeAbarre", SqlDbType.NVarChar, 50).Value = txtCodeAbarre.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@DateDepot", SqlDbType.Date).Value = dateDepot.Value.ToString("yyyy-MM-dd");
-                        GLB.Cmd.Parameters.Add("@Demandeur", SqlDbType.VarChar, 500).Value = txtDemandeur.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@Reference", SqlDbType.NVarChar, 200).Value = txtReference.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@Destinataire", SqlDbType.NVarChar, 200).Value = txtDestinataire.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@Destination", SqlDbType.NVarChar, 100).Value = txtDestination.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@Nombre", SqlDbType.Int).Value = txtNombre.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@NatureDenvoi", SqlDbType.NVarChar, 50).Value = txtNatureEnvoi.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@DateEnlevement", SqlDbType.Date).Value = dateEnlevement.Value.ToString("yyyy-MM-dd"); ;
-                        GLB.Cmd.Parameters.Add("@prix", SqlDbType.Real).Value = txtPrix.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@id", SqlDbType.Int).Value = GLB.id_Courrier;
-                        break;
+                    if (!int.TryParse(txtNombre.Text, out int nb))
+                    {
+                        MessageBox.Show($"la valeur {txtNombre.Text} saisie dans le champs Nombre invalid, vous devez entrez une valeur numeric");
+                        return;
+                    }
+                    if (!double.TryParse(txtPrix.Text, out double prix))
+                    {
+                        MessageBox.Show($"la valeur {txtPrix.Text} saisie dans le champs Prix invalid, vous devez entrez une valeur numeric");
+                        return;
+                    }
+                    switch (Commandes.Command)
+                    {
+                        case Choix.ajouter:
+                            GLB.Cmd.Parameters.Clear();
+                            GLB.Cmd.CommandText = "insert into SuiviDesEnvois values(@OBC,@CodeAbarre,@DateDepot,@Demandeur,@Reference,@Destinataire,@Destination,@Nombre,@NatureDenvoi,@DateEnlevement,@prix) ";
+                            GLB.Cmd.Parameters.Add("@OBC", SqlDbType.NVarChar, 50).Value = txtorderBOC.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@CodeAbarre", SqlDbType.NVarChar, 50).Value = txtCodeAbarre.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@DateDepot", SqlDbType.Date).Value = dateDepot.Value.ToString("yyyy-MM-dd");
+                            GLB.Cmd.Parameters.Add("@Demandeur", SqlDbType.VarChar, 500).Value = txtDemandeur.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@Reference", SqlDbType.NVarChar, 200).Value = txtReference.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@Destinataire", SqlDbType.NVarChar, 200).Value = txtDestinataire.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@Destination", SqlDbType.NVarChar, 100).Value = txtDestination.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@Nombre", SqlDbType.Int).Value = txtNombre.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@NatureDenvoi", SqlDbType.NVarChar, 50).Value = txtNatureEnvoi.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@DateEnlevement", SqlDbType.Date).Value = dateEnlevement.Value.ToString("yyyy-MM-dd"); ;
+                            GLB.Cmd.Parameters.Add("@prix", SqlDbType.Real).Value = txtPrix.Text.Trim();
+                            break;
+                        case Choix.modifier:
+                            GLB.Cmd.Parameters.Clear();
+                            GLB.Cmd.CommandText = $"update SuiviDesEnvois set NOrderBOC = @OBC,CodeABarre= @CodeAbarre , DateDepot = @DateDepot,Demandeur =@Demandeur" +
+                                $",Reference = @Reference , Destinataire = @Destinataire ,Destination = @Destination,Nombre = @Nombre , NatureDenvoi = @NatureDenvoi" +
+                                $",DatedEnlevement = @DateEnlevement , prix = @prix where id = @id ";
+                            GLB.Cmd.Parameters.Add("@OBC", SqlDbType.NVarChar, 50).Value = txtorderBOC.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@CodeAbarre", SqlDbType.NVarChar, 50).Value = txtCodeAbarre.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@DateDepot", SqlDbType.Date).Value = dateDepot.Value.ToString("yyyy-MM-dd");
+                            GLB.Cmd.Parameters.Add("@Demandeur", SqlDbType.VarChar, 500).Value = txtDemandeur.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@Reference", SqlDbType.NVarChar, 200).Value = txtReference.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@Destinataire", SqlDbType.NVarChar, 200).Value = txtDestinataire.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@Destination", SqlDbType.NVarChar, 100).Value = txtDestination.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@Nombre", SqlDbType.Int).Value = txtNombre.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@NatureDenvoi", SqlDbType.NVarChar, 50).Value = txtNatureEnvoi.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@DateEnlevement", SqlDbType.Date).Value = dateEnlevement.Value.ToString("yyyy-MM-dd"); ;
+                            GLB.Cmd.Parameters.Add("@prix", SqlDbType.Real).Value = txtPrix.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@id", SqlDbType.Int).Value = GLB.id_Courrier;
+                            break;
+
+                    }
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
+                    GLB.Con.Open();
+                    GLB.Cmd.ExecuteNonQuery();
+                    this.Close();
 
                 }
-                if (GLB.Con.State == ConnectionState.Open)
-                    GLB.Con.Close();
-                GLB.Con.Open();
-                GLB.Cmd.ExecuteNonQuery();
+                else
+                {
+                    MessageBox.Show("Tous les Champs sont Obligatoire", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+              
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message);
+
+                if (ex.Number == 2627)
+                    MessageBox.Show($"Toutes ces informations sans déja saisie", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
                 GLB.Con.Close();
-                this.Close();
             }
         }
     }

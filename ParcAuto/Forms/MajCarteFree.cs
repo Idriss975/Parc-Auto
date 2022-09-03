@@ -83,7 +83,7 @@ namespace ParcAuto.Forms
         }
         private void MajCarteFree_Load(object sender, EventArgs e)
         {
-            
+            date.Value = DateTime.Now;
             switch (Commandes.Command)
             {
                 case Choix.ajouter:
@@ -107,7 +107,7 @@ namespace ParcAuto.Forms
             {
                 if (txtentite.Text != "" || txtMontant.Text != "")
                 {
-                    if (!double.TryParse(txtMontant.Text, out double km))
+                    if (!double.TryParse(txtMontant.Text, out double montant))
                     {
                         MessageBox.Show($"la valeur {txtMontant.Text} sasie dans le champs montant est invalid, vous devez entrez une valeur numeric");
                         return;

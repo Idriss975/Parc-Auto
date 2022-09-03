@@ -131,50 +131,68 @@ namespace ParcAuto.Forms
         {
             try
             {
-                switch (Commandes.Command)
+                if (txtEntite.Text != "" || txtBeneficiaire.Text != "" || txtMat.Text != "" || txtMarque.Text != "" || txtdestination.Text != "" || txtObjet.Text != "" || txtKilometrage.Text != "")
                 {
-                    case Choix.ajouter:
-                        GLB.Cmd.Parameters.Clear();
-                        GLB.Cmd.CommandText = "insert into Missions values(@entite,@Beneficiaire,@matricule,@marque,@date,@destination,@objet,@kilometrage,@observation)";
-                        GLB.Cmd.Parameters.Add("@entite", SqlDbType.VarChar, 200).Value = txtEntite.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@Beneficiaire", SqlDbType.VarChar, 50).Value = txtBeneficiaire.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@matricule", SqlDbType.VarChar, 50).Value = txtMat.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@marque", SqlDbType.VarChar, 50).Value = txtMarque.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@date", SqlDbType.Date).Value = dateMission.Value.ToString("yyyy-MM-dd");
-                        GLB.Cmd.Parameters.Add("@destination", SqlDbType.VarChar, 50).Value = txtdestination.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@objet", SqlDbType.VarChar, 50).Value = txtObjet.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@kilometrage", SqlDbType.Real).Value = txtKilometrage.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@observation", SqlDbType.VarChar, 150).Value = txtObservation.Text.Trim();
-                        break;
-                    case Choix.modifier:
-                        GLB.Cmd.Parameters.Clear();
-                        GLB.Cmd.CommandText = $"update Missions set Entite =@entite , Beneficiaire =@Beneficiaire,matricule = @matricule ,marque = @marque , " +
-                            $"DateMission = @date,Destination=@destination  ,objet = @objet,kilometrage = @kilometrage , observation = @observation where id = {GLB.id_Mission}";
-                        GLB.Cmd.Parameters.Add("@entite", SqlDbType.VarChar, 200).Value = txtEntite.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@Beneficiaire", SqlDbType.VarChar, 50).Value = txtBeneficiaire.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@matricule", SqlDbType.VarChar, 50).Value = txtMat.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@marque", SqlDbType.VarChar, 50).Value = txtMarque.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@date", SqlDbType.Date).Value = dateMission.Value.ToString("yyyy-MM-dd");
-                        GLB.Cmd.Parameters.Add("@destination", SqlDbType.VarChar, 50).Value = txtdestination.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@objet", SqlDbType.VarChar, 50).Value = txtObjet.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@kilometrage", SqlDbType.Real).Value = txtKilometrage.Text.Trim();
-                        GLB.Cmd.Parameters.Add("@observation", SqlDbType.VarChar, 150).Value = txtObservation.Text.Trim();
-                        break;
+                    if (!double.TryParse(txtKilometrage.Text, out double km))
+                    {
+                        MessageBox.Show($"la valeur {txtKilometrage.Text} saisie dans le champs Kilométrage est invalid, vous devez entrez une valeur numeric");
+                        return;
+                    }
+                    switch (Commandes.Command)
+                    {
+                        case Choix.ajouter:
+                            GLB.Cmd.Parameters.Clear();
+                            GLB.Cmd.CommandText = "insert into Missions values(@entite,@Beneficiaire,@matricule,@marque,@date,@destination,@objet,@kilometrage,@observation)";
+                            GLB.Cmd.Parameters.Add("@entite", SqlDbType.VarChar, 200).Value = txtEntite.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@Beneficiaire", SqlDbType.VarChar, 50).Value = txtBeneficiaire.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@matricule", SqlDbType.VarChar, 50).Value = txtMat.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@marque", SqlDbType.VarChar, 50).Value = txtMarque.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@date", SqlDbType.Date).Value = dateMission.Value.ToString("yyyy-MM-dd");
+                            GLB.Cmd.Parameters.Add("@destination", SqlDbType.VarChar, 50).Value = txtdestination.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@objet", SqlDbType.VarChar, 50).Value = txtObjet.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@kilometrage", SqlDbType.Real).Value = txtKilometrage.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@observation", SqlDbType.VarChar, 150).Value = txtObservation.Text.Trim();
+                            break;
+                        case Choix.modifier:
+                            GLB.Cmd.Parameters.Clear();
+                            GLB.Cmd.CommandText = $"update Missions set Entite =@entite , Beneficiaire =@Beneficiaire,matricule = @matricule ,marque = @marque , " +
+                                $"DateMission = @date,Destination=@destination  ,objet = @objet,kilometrage = @kilometrage , observation = @observation where id = {GLB.id_Mission}";
+                            GLB.Cmd.Parameters.Add("@entite", SqlDbType.VarChar, 200).Value = txtEntite.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@Beneficiaire", SqlDbType.VarChar, 50).Value = txtBeneficiaire.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@matricule", SqlDbType.VarChar, 50).Value = txtMat.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@marque", SqlDbType.VarChar, 50).Value = txtMarque.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@date", SqlDbType.Date).Value = dateMission.Value.ToString("yyyy-MM-dd");
+                            GLB.Cmd.Parameters.Add("@destination", SqlDbType.VarChar, 50).Value = txtdestination.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@objet", SqlDbType.VarChar, 50).Value = txtObjet.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@kilometrage", SqlDbType.Real).Value = txtKilometrage.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@observation", SqlDbType.VarChar, 150).Value = txtObservation.Text.Trim();
+                            break;
+
+                    }
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
+                    GLB.Con.Open();
+                    GLB.Cmd.ExecuteNonQuery();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Tous les Champs sont Obligatoire", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
-                if (GLB.Con.State == ConnectionState.Open)
-                    GLB.Con.Close();
-                GLB.Con.Open();
-                GLB.Cmd.ExecuteNonQuery();
+
+              
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                if (ex.Number == 2627)
+                    MessageBox.Show($"Toutes ces informations sans déja saisie", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
                 GLB.Con.Close();
-                this.Close();
             }
         }
 
@@ -191,6 +209,7 @@ namespace ParcAuto.Forms
 
         private void MajMissions_Load(object sender, EventArgs e)
         {
+            dateMission.Value = DateTime.Now;
             RemplirBenificiaire();
             RemplirTexteboxVehicules();
             switch (Commandes.Command)

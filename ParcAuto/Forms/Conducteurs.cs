@@ -248,9 +248,13 @@ namespace ParcAuto.Forms
         _Worksheet importExceldatagridViewworksheet;
         Range importdatagridviewRange;
         Workbook excelWorkbook;
+        int currentIndex;
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
-            
+            if (GLB.Con.State == ConnectionState.Open)
+                GLB.Con.Close();
+            GLB.Con.Open();
+            GLB.Cmd.Transaction = GLB.Con.BeginTransaction();
             try
             {
                 importExceldatagridViewApp = new Microsoft.Office.Interop.Excel.Application();
@@ -259,9 +263,7 @@ namespace ParcAuto.Forms
                 importOpenDialoge.Filter = "Import Excel File|*.xlsx;*xls;*xlm";
                 if (importOpenDialoge.ShowDialog() == DialogResult.OK)
                 {
-                    if (GLB.Con.State == ConnectionState.Open)
-                        GLB.Con.Close();
-                    GLB.Con.Open();
+                   
 
                     Workbooks excelWorkbooks = importExceldatagridViewApp.Workbooks;
                     excelWorkbook = excelWorkbooks.Open(importOpenDialoge.FileName);
@@ -269,28 +271,27 @@ namespace ParcAuto.Forms
                     importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
                     for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
                     {
-                        GLB.Cmd.CommandText = $"select count(*) from Conducteurs where Matricule = {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value}";
-                        if(int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
-                        {
-                            GLB.Cmd.CommandText = $"insert into Conducteurs values ({importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value},'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}'," +
+                        GLB.Cmd.CommandText = $"insert into Conducteurs values ({importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value},'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value}'," +
                             $"'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value}'," +
                             $"'{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 9].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 10].value}','{importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value}')";
-                            GLB.Cmd.ExecuteNonQuery();
-                        }
-                        else
-                        {
-                            MessageBox.Show($"Le Conducteur avec le Matricule {importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value} existe déja","Message");
-                            continue;
-                        }
+                        GLB.Cmd.ExecuteNonQuery();
+                     
                     }
-                    GLB.Con.Close();
+                    
                 }
+                GLB.Cmd.Transaction.Commit();
+                GLB.Con.Close();
                 RemplirLaGrille();
 
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (ex.Number == 2627)
+                    MessageBox.Show($"La ligne {currentIndex} dans l'excel déja saisie est sauvegarder dans la base de données, vous pouvez supprimer ou modifier la ligne {currentIndex} sur excel et refaire l'imporation.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                GLB.Cmd.Transaction.Rollback();
             }
             finally
             {

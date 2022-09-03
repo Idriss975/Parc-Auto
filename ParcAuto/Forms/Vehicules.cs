@@ -11,6 +11,7 @@ using ParcAuto.Classes_Globale;
 using System.Text.RegularExpressions; // import Regex()
 using Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
+using System.Data.SqlClient;
 
 namespace ParcAuto.Forms
 {
@@ -282,11 +283,11 @@ namespace ParcAuto.Forms
         _Worksheet importExceldatagridViewworksheet;
         Range importdatagridviewRange;
         Workbook excelWorkbook;
+        int currentIndex;
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
             
             string marque, matricule,  type, carburant, affectation, conducteur,Dnomination,observation;
-            string lignesExcel = "Les Lignes Suivants Sont duplique sur le fichier excel : ";
             DateTime Misencirculation;
             if (GLB.Con.State == ConnectionState.Open)
                 GLB.Con.Close();
@@ -307,6 +308,7 @@ namespace ParcAuto.Forms
                     importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
                     for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
                     {
+                        currentIndex = excelWorksheetIndex;
                         marque = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
                         matricule = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
                         Misencirculation = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value));
@@ -316,44 +318,36 @@ namespace ParcAuto.Forms
                         conducteur = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
                         Dnomination = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value);
                         observation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 9].value);
+                      
+
+
                         GLB.Cmd.Parameters.Clear();
-                        GLB.Cmd.CommandText = $"SELECT count(*) from Vehicules where Matricule = @txtMatricule";
-                        GLB.Cmd.Parameters.AddWithValue("@txtMatricule", matricule);
-
-
-                        if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
-                        {
-                            GLB.Cmd.Parameters.Clear();
-                            GLB.Cmd.CommandText = "insert into Vehicules values (@txtMarque, @txtMatricule, @dateMiseEnCirculation, @cmbType, @txtCarburant, @txtAffectation, @TempMatricule,@txtDnomination,@txtObservation)";
-                            GLB.Cmd.Parameters.AddWithValue("@txtMarque", marque ?? "");
-                            GLB.Cmd.Parameters.AddWithValue("@txtMatricule", matricule ?? "");
-                            GLB.Cmd.Parameters.AddWithValue("@dateMiseEnCirculation", Misencirculation.ToString("yyyy-MM-dd"));
-                            GLB.Cmd.Parameters.AddWithValue("@txtCarburant", carburant ?? "");
-                            GLB.Cmd.Parameters.AddWithValue("@cmbType", type ?? "");
-                            GLB.Cmd.Parameters.AddWithValue("@txtAffectation", affectation ?? "");
-                            GLB.Cmd.Parameters.AddWithValue("@TempMatricule", conducteur ?? (object)DBNull.Value);
-                            GLB.Cmd.Parameters.AddWithValue("@txtDnomination", Dnomination ?? "");
-                            GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation ?? "");
-                            //MessageBox.Show($"{marque} , {matricule} , {Misencirculation.ToString("yyyy-MM-dd")} , {carburant} , {type} , {affectation} , {conducteur} , {Dnomination} , {observation}");
-                            GLB.Cmd.ExecuteNonQuery();
-                        }
-                        else
-                        {
-                            lignesExcel += $" {excelWorksheetIndex} ";
-                            continue;
-                        }
+                        GLB.Cmd.CommandText = "insert into Vehicules values (@txtMarque, @txtMatricule, @dateMiseEnCirculation, @cmbType, @txtCarburant, @txtAffectation, @TempMatricule,@txtDnomination,@txtObservation)";
+                        GLB.Cmd.Parameters.AddWithValue("@txtMarque", marque ?? "");
+                        GLB.Cmd.Parameters.AddWithValue("@txtMatricule", matricule ?? "");
+                        GLB.Cmd.Parameters.AddWithValue("@dateMiseEnCirculation", Misencirculation.ToString("yyyy-MM-dd"));
+                        GLB.Cmd.Parameters.AddWithValue("@txtCarburant", carburant ?? "");
+                        GLB.Cmd.Parameters.AddWithValue("@cmbType", type ?? "");
+                        GLB.Cmd.Parameters.AddWithValue("@txtAffectation", affectation ?? "");
+                        GLB.Cmd.Parameters.AddWithValue("@TempMatricule", conducteur ?? (object)DBNull.Value);
+                        GLB.Cmd.Parameters.AddWithValue("@txtDnomination", Dnomination ?? "");
+                        GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation ?? "");
+                        //MessageBox.Show($"{marque} , {matricule} , {Misencirculation.ToString("yyyy-MM-dd")} , {carburant} , {type} , {affectation} , {conducteur} , {Dnomination} , {observation}");
+                        GLB.Cmd.ExecuteNonQuery();
 
                     }
                     GLB.Cmd.Transaction.Commit();
                     GLB.Con.Close();
-                    MessageBox.Show(lignesExcel);
 
                 }
                 RemplirLaGrille();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (ex.Number == 2627)
+                    MessageBox.Show($"La ligne {currentIndex} dans l'excel déja saisie est sauvegarder dans la base de données, vous pouvez supprimer ou modifier la ligne {currentIndex} sur excel et refaire l'imporation.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 GLB.Cmd.Transaction.Rollback();
             }
             finally

@@ -51,49 +51,67 @@ namespace ParcAuto.Forms
 
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
-            if (txtBenificiaire.Text != "" || txtDestination.Text != "" || txtentite.Text != "" || txtNBon_Email.Text != "" || txtPrix.Text != ""||txtUtilisation.Text != "")
+            try
             {
-                
-                switch (Commandes.Command)
+                if (txtBenificiaire.Text != "" || txtDestination.Text != "" || txtentite.Text != "" || txtNBon_Email.Text != "" || txtPrix.Text != "" || txtUtilisation.Text != "")
                 {
-                    case Choix.ajouter:
-                        GLB.Cmd.Parameters.Clear();
-                        GLB.Cmd.CommandText = "insert into Transport values(@txtentite, @txtBenificiaire, @txtNBon_Email,@DateMission, @txtDestination, @txtUtilisation, @txtPrix,@txtjawaz)";
-                        GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtNBon_Email", txtNBon_Email.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@DateMission", DateMission.Value.ToString("yyyy-MM-dd"));
-                        GLB.Cmd.Parameters.AddWithValue("@txtDestination", txtDestination.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtUtilisation", txtUtilisation.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtPrix", Double.Parse(txtPrix.Text));
-                        GLB.Cmd.Parameters.AddWithValue("@txtjawaz", txttagJawaz.Text ?? (object)DBNull.Value);
-                        break;
-                    case Choix.modifier:
-                        GLB.Cmd.Parameters.Clear();
-                        GLB.Cmd.CommandText = "update Transport set Entite = @txtentite , Beneficiaire = @txtBenificiaire, NBonSNTL= @txtNBon_Email,Date = @DateMission, Destination= @txtDestination, Type_utilsation = @txtUtilisation, Prix = @txtPrix ,tagJawaz = @txtjawaz where id = @id_Transport";
-                        GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtNBon_Email", txtNBon_Email.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@DateMission", DateMission.Value.ToString("yyyy-MM-dd"));
-                        GLB.Cmd.Parameters.AddWithValue("@txtDestination", txtDestination.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtUtilisation", txtUtilisation.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@txtPrix", Double.Parse(txtPrix.Text));
-                        GLB.Cmd.Parameters.AddWithValue("@txtjawaz", txttagJawaz.Text ?? (object)DBNull.Value);
-                        GLB.Cmd.Parameters.AddWithValue("@id_Transport", GLB.id_Transport);
-                        break;
-                    case Choix.supprimer:
-                        throw new Exception("Impossible de supprimer avec MajCaarburants.");
+                    if (!double.TryParse(txtPrix.Text, out double prix))
+                    {
+                        MessageBox.Show($"la valeur {txtPrix.Text} saisie dans le champs prix est invalid, vous devez entrez une valeur numeric");
+                        return;
+                    }
+                    switch (Commandes.Command)
+                    {
+                        case Choix.ajouter:
+                            GLB.Cmd.Parameters.Clear();
+                            GLB.Cmd.CommandText = "insert into Transport values(@txtentite, @txtBenificiaire, @txtNBon_Email,@DateMission, @txtDestination, @txtUtilisation, @txtPrix,@txtjawaz)";
+                            GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtNBon_Email", txtNBon_Email.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@DateMission", DateMission.Value.ToString("yyyy-MM-dd"));
+                            GLB.Cmd.Parameters.AddWithValue("@txtDestination", txtDestination.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtUtilisation", txtUtilisation.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtPrix", Double.Parse(txtPrix.Text));
+                            GLB.Cmd.Parameters.AddWithValue("@txtjawaz", txttagJawaz.Text ?? (object)DBNull.Value);
+                            break;
+                        case Choix.modifier:
+                            GLB.Cmd.Parameters.Clear();
+                            GLB.Cmd.CommandText = "update Transport set Entite = @txtentite , Beneficiaire = @txtBenificiaire, NBonSNTL= @txtNBon_Email,Date = @DateMission, Destination= @txtDestination, Type_utilsation = @txtUtilisation, Prix = @txtPrix ,tagJawaz = @txtjawaz where id = @id_Transport";
+                            GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtNBon_Email", txtNBon_Email.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@DateMission", DateMission.Value.ToString("yyyy-MM-dd"));
+                            GLB.Cmd.Parameters.AddWithValue("@txtDestination", txtDestination.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtUtilisation", txtUtilisation.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtPrix", Double.Parse(txtPrix.Text));
+                            GLB.Cmd.Parameters.AddWithValue("@txtjawaz", txttagJawaz.Text ?? (object)DBNull.Value);
+                            GLB.Cmd.Parameters.AddWithValue("@id_Transport", GLB.id_Transport);
+                            break;
+                        case Choix.supprimer:
+                            throw new Exception("Impossible de supprimer avec MajCaarburants.");
+                    }
+                    GLB.Con.Open();
+                    GLB.Cmd.ExecuteNonQuery();
+                    this.Close();
                 }
-                GLB.Con.Open();
-                GLB.Cmd.ExecuteNonQuery();
-                GLB.Con.Close();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Tous les Champs sont Obligatoire", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                {
+                    MessageBox.Show("Tous les Champs sont Obligatoire", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                }
             }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 2627)
+                    MessageBox.Show($"Toutes ces informations sans déja saisie", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                GLB.Con.Close();
+            }
+
         }
 
         private void txtentite_Leave(object sender, EventArgs e)
@@ -155,7 +173,9 @@ namespace ParcAuto.Forms
 
         private void MajTransport_Load(object sender, EventArgs e)
         {
+            DateMission.Value = DateTime.Now;
             RemplirtxtBenificiaire();
+            txtUtilisation.SelectedIndex = 0;
             switch (Commandes.Command)
             {
                 case Choix.ajouter:

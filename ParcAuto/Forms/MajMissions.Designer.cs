@@ -534,7 +534,7 @@ namespace ParcAuto.Forms
             this.txtdestination.PlaceholderText = "";
             this.txtdestination.SelectedText = "";
             this.txtdestination.ShadowDecoration.Parent = this.txtdestination;
-            this.txtdestination.Size = new System.Drawing.Size(191, 34);
+            this.txtdestination.Size = new System.Drawing.Size(191, 35);
             this.txtdestination.TabIndex = 34;
             // 
             // label6
@@ -574,14 +574,14 @@ namespace ParcAuto.Forms
             this.txtMarque.FocusedState.Parent = this.txtMarque;
             this.txtMarque.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMarque.HoverState.Parent = this.txtMarque;
-            this.txtMarque.Location = new System.Drawing.Point(471, 55);
+            this.txtMarque.Location = new System.Drawing.Point(472, 55);
             this.txtMarque.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtMarque.Name = "txtMarque";
             this.txtMarque.PasswordChar = '\0';
             this.txtMarque.PlaceholderText = "";
             this.txtMarque.SelectedText = "";
             this.txtMarque.ShadowDecoration.Parent = this.txtMarque;
-            this.txtMarque.Size = new System.Drawing.Size(195, 37);
+            this.txtMarque.Size = new System.Drawing.Size(193, 36);
             this.txtMarque.TabIndex = 30;
             // 
             // label4
@@ -612,14 +612,14 @@ namespace ParcAuto.Forms
             this.txtMat.FocusedState.Parent = this.txtMat;
             this.txtMat.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMat.HoverState.Parent = this.txtMat;
-            this.txtMat.Location = new System.Drawing.Point(138, 54);
-            this.txtMat.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtMat.Location = new System.Drawing.Point(138, 55);
+            this.txtMat.Margin = new System.Windows.Forms.Padding(5);
             this.txtMat.Name = "txtMat";
             this.txtMat.PasswordChar = '\0';
             this.txtMat.PlaceholderText = "";
             this.txtMat.SelectedText = "";
             this.txtMat.ShadowDecoration.Parent = this.txtMat;
-            this.txtMat.Size = new System.Drawing.Size(191, 39);
+            this.txtMat.Size = new System.Drawing.Size(191, 36);
             this.txtMat.TabIndex = 28;
             this.txtMat.TextChanged += new System.EventHandler(this.txtMat_TextChanged);
             // 
@@ -651,14 +651,14 @@ namespace ParcAuto.Forms
             this.txtBeneficiaire.FocusedState.Parent = this.txtBeneficiaire;
             this.txtBeneficiaire.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBeneficiaire.HoverState.Parent = this.txtBeneficiaire;
-            this.txtBeneficiaire.Location = new System.Drawing.Point(469, 7);
-            this.txtBeneficiaire.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtBeneficiaire.Location = new System.Drawing.Point(472, 6);
+            this.txtBeneficiaire.Margin = new System.Windows.Forms.Padding(5);
             this.txtBeneficiaire.Name = "txtBeneficiaire";
             this.txtBeneficiaire.PasswordChar = '\0';
             this.txtBeneficiaire.PlaceholderText = "";
             this.txtBeneficiaire.SelectedText = "";
             this.txtBeneficiaire.ShadowDecoration.Parent = this.txtBeneficiaire;
-            this.txtBeneficiaire.Size = new System.Drawing.Size(199, 34);
+            this.txtBeneficiaire.Size = new System.Drawing.Size(193, 36);
             this.txtBeneficiaire.TabIndex = 26;
             // 
             // label1
@@ -688,7 +688,7 @@ namespace ParcAuto.Forms
             this.txtEntite.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEntite.HoverState.Parent = this.txtEntite;
             this.txtEntite.Location = new System.Drawing.Point(137, 6);
-            this.txtEntite.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEntite.Margin = new System.Windows.Forms.Padding(4);
             this.txtEntite.Name = "txtEntite";
             this.txtEntite.PasswordChar = '\0';
             this.txtEntite.PlaceholderText = "";
@@ -700,17 +700,18 @@ namespace ParcAuto.Forms
             // 
             // dateMission
             // 
+            this.dateMission.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dateMission.BorderRadius = 4;
             this.dateMission.CheckedState.Parent = this.dateMission;
             this.dateMission.FillColor = System.Drawing.Color.White;
             this.dateMission.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.dateMission.HoverState.Parent = this.dateMission;
-            this.dateMission.Location = new System.Drawing.Point(136, 101);
+            this.dateMission.Location = new System.Drawing.Point(137, 104);
             this.dateMission.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dateMission.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dateMission.Name = "dateMission";
             this.dateMission.ShadowDecoration.Parent = this.dateMission;
-            this.dateMission.Size = new System.Drawing.Size(195, 36);
+            this.dateMission.Size = new System.Drawing.Size(193, 36);
             this.dateMission.TabIndex = 32;
             this.dateMission.Value = new System.DateTime(2022, 8, 29, 12, 55, 2, 963);
             // 
