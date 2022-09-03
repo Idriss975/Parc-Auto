@@ -258,17 +258,17 @@ namespace ParcAuto.Forms
                 {
                     if (!double.TryParse(txtKM.Text,out double km) )
                     {
-                        MessageBox.Show($"Vous avez entre {txtKM.Text} invalid");
+                        MessageBox.Show($"la valeur {txtKM.Text} invalid, vous devez entrez une valeur numeric");
                         return;
                     }
                    if(!double.TryParse(txtDotation.Text, out double dotation) )
                     {
-                        MessageBox.Show($"Vous avez entre {txtDotation.Text} invalid");
+                        MessageBox.Show($"la valeur {txtDotation.Text} invalid, vous devez entrez une valeur numeric");
                         return;
                     }
                    if(!double.TryParse(txtpourcentage.Text, out double pourcentage))
                     {
-                        MessageBox.Show($"Vous avez entre {txtpourcentage.Text} invalid");
+                        MessageBox.Show($"la valeur {txtpourcentage.Text} invalid, vous devez entrez une valeur numeric");
                         return;
                     }
                     if (DMissions.Checked)
