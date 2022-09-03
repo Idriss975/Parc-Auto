@@ -47,19 +47,24 @@ namespace ParcAuto.Forms
         }
         private void NombreDeCourriers_ParEntite()
         {
+            int i = 0;
             GLB.Cmd.CommandText = $"select Entite , total from NombreDeCourriersParEntite where annee = {GLB.SelectedDate}";
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             while (GLB.dr.Read())
             {
-                chart1.Series["Entite"].Points.AddXY($"{GLB.dr[0]}", GLB.dr[1].ToString());
-                
+                chart1.Series["Entite"].Points.AddXY(" ", GLB.dr[1].ToString());
+                chart1.Series["Entite"].Points[i].Label = GLB.dr[0].ToString() +" "+ GLB.dr[1].ToString();
+                i++;
+
+
             }
             GLB.dr.Close();
             GLB.Con.Close();
         }
         private void NombreDenvois_ParMois()
         {
+            int i = 0;
             GLB.Con.Open();
             GLB.Cmd.CommandText = $"select SUM(isnull(janvier,0))  , SUM(isnull(fevrier,0)),SUM(isnull(mars,0)),SUM(isnull(avril,0)),SUM(isnull(mai,0)),SUM(isnull(juin,0))," +
                 $" SUM(isnull(juillet, 0)),SUM(isnull(aout, 0)),SUM(isnull(septembre, 0)),SUM(isnull(octobre, 0)) ,SUM(isnull(novembre, 0)) ,SUM(isnull(decembre, 0)) from NombreDeCourriersParEntite" +
@@ -68,17 +73,41 @@ namespace ParcAuto.Forms
             while (GLB.dr.Read())
             {
                 chart2.Series["Mois"].Points.AddXY($"Janvier", GLB.dr[0].ToString());
+                chart2.Series["Mois"].Points[i].Label = GLB.dr[0].ToString();
+
                 chart2.Series["Mois"].Points.AddXY($"Fevrier", GLB.dr[1].ToString());
+                chart2.Series["Mois"].Points[i+1].Label = GLB.dr[1].ToString();
+
                 chart2.Series["Mois"].Points.AddXY($"Mars", GLB.dr[2].ToString());
+                chart2.Series["Mois"].Points[i+2].Label = GLB.dr[2].ToString();
+
                 chart2.Series["Mois"].Points.AddXY($"Avril", GLB.dr[3].ToString());
+                chart2.Series["Mois"].Points[i+3].Label = GLB.dr[3].ToString();
+
                 chart2.Series["Mois"].Points.AddXY($"Mai", GLB.dr[4].ToString());
+                chart2.Series["Mois"].Points[i + 4].Label = GLB.dr[4].ToString();
+
                 chart2.Series["Mois"].Points.AddXY($"Juin", GLB.dr[5].ToString());
+                chart2.Series["Mois"].Points[i + 5].Label = GLB.dr[5].ToString();
+
                 chart2.Series["Mois"].Points.AddXY($"Juillet", GLB.dr[6].ToString());
+                chart2.Series["Mois"].Points[i + 6].Label = GLB.dr[6].ToString();
+
                 chart2.Series["Mois"].Points.AddXY($"Aout", GLB.dr[7].ToString());
+                chart2.Series["Mois"].Points[i + 7].Label = GLB.dr[7].ToString();
+
                 chart2.Series["Mois"].Points.AddXY($"Septembre", GLB.dr[8].ToString());
+                chart2.Series["Mois"].Points[i + 8].Label = GLB.dr[8].ToString();
+
                 chart2.Series["Mois"].Points.AddXY($"Octobre", GLB.dr[9].ToString());
+                chart2.Series["Mois"].Points[i + 9].Label = GLB.dr[9].ToString();
+
                 chart2.Series["Mois"].Points.AddXY($"Novembre", GLB.dr[10].ToString());
+                chart2.Series["Mois"].Points[i + 10].Label = GLB.dr[10].ToString();
+
                 chart2.Series["Mois"].Points.AddXY($"Décembre", GLB.dr[11].ToString());
+                chart2.Series["Mois"].Points[i + 11].Label = GLB.dr[11].ToString();
+
                 //chart2.Series["Mois"].Points.AddXY($"1", GLB.dr[0].ToString());
                 //chart2.Series["Mois"].Points.AddXY($"2", GLB.dr[1].ToString());
                 //chart2.Series["Mois"].Points.AddXY($"3", GLB.dr[2].ToString());
@@ -91,7 +120,7 @@ namespace ParcAuto.Forms
                 //chart2.Series["Mois"].Points.AddXY($"10", GLB.dr[9].ToString());
                 //chart2.Series["Mois"].Points.AddXY($"11", GLB.dr[10].ToString());
                 //chart2.Series["Mois"].Points.AddXY($"12", GLB.dr[11].ToString());
-
+                //i++;
             }
             GLB.dr.Close();
             GLB.Cmd.CommandText = $"select SUM(isnull(janvier,0))  , SUM(isnull(fevrier,0)),SUM(isnull(mars,0)),SUM(isnull(avril,0)),SUM(isnull(mai,0)),SUM(isnull(juin,0))," +
@@ -101,17 +130,41 @@ namespace ParcAuto.Forms
             while (GLB.dr.Read())
             {
                 chart2.Series["Mois d'annee précédent "].Points.AddXY($"Janvier", GLB.dr[0].ToString());
+                chart2.Series["Mois d'annee précédent "].Points[i].Label = GLB.dr[0].ToString();
+
                 chart2.Series["Mois d'annee précédent "].Points.AddXY($"Fevrier", GLB.dr[1].ToString());
+                chart2.Series["Mois d'annee précédent "].Points[i+1].Label = GLB.dr[1].ToString();
+
                 chart2.Series["Mois d'annee précédent "].Points.AddXY($"Mars", GLB.dr[2].ToString());
+                chart2.Series["Mois d'annee précédent "].Points[i+2].Label = GLB.dr[2].ToString();
+
                 chart2.Series["Mois d'annee précédent "].Points.AddXY($"Avril", GLB.dr[3].ToString());
+                chart2.Series["Mois d'annee précédent "].Points[i+3].Label = GLB.dr[3].ToString();
+
                 chart2.Series["Mois d'annee précédent "].Points.AddXY($"Mai", GLB.dr[4].ToString());
+                chart2.Series["Mois d'annee précédent "].Points[i+4].Label = GLB.dr[4].ToString();
+
                 chart2.Series["Mois d'annee précédent "].Points.AddXY($"Juin", GLB.dr[5].ToString());
+                chart2.Series["Mois d'annee précédent "].Points[i+5].Label = GLB.dr[5].ToString();
+
                 chart2.Series["Mois d'annee précédent "].Points.AddXY($"Juillet", GLB.dr[6].ToString());
+                chart2.Series["Mois d'annee précédent "].Points[i+6].Label = GLB.dr[6].ToString();
+
                 chart2.Series["Mois d'annee précédent "].Points.AddXY($"Aout", GLB.dr[7].ToString());
+                chart2.Series["Mois d'annee précédent "].Points[i+7].Label = GLB.dr[7].ToString();
+
                 chart2.Series["Mois d'annee précédent "].Points.AddXY($"Septembre", GLB.dr[8].ToString());
+                chart2.Series["Mois d'annee précédent "].Points[i+8].Label = GLB.dr[8].ToString();
+
                 chart2.Series["Mois d'annee précédent "].Points.AddXY($"Octobre", GLB.dr[9].ToString());
+                chart2.Series["Mois d'annee précédent "].Points[i+9].Label = GLB.dr[9].ToString();
+
                 chart2.Series["Mois d'annee précédent "].Points.AddXY($"Novembre", GLB.dr[10].ToString());
+                chart2.Series["Mois d'annee précédent "].Points[i+10].Label = GLB.dr[10].ToString();
+
                 chart2.Series["Mois d'annee précédent "].Points.AddXY($"Décembre", GLB.dr[11].ToString());
+                chart2.Series["Mois d'annee précédent "].Points[i+11].Label = GLB.dr[11].ToString();
+
 
             }
             GLB.dr.Close();

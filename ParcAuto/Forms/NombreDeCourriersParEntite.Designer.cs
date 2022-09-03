@@ -30,15 +30,15 @@ namespace ParcAuto.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NombreDeCourriersParEntite));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.dgvNombreCourier = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,14 +91,14 @@ namespace ParcAuto.Forms
             this.Column13,
             this.Column14,
             this.Column15});
-            this.dgvNombreCourier.Location = new System.Drawing.Point(2, 66);
+            this.dgvNombreCourier.Location = new System.Drawing.Point(0, 98);
             this.dgvNombreCourier.Margin = new System.Windows.Forms.Padding(5);
             this.dgvNombreCourier.Name = "dgvNombreCourier";
             this.dgvNombreCourier.ReadOnly = true;
             this.dgvNombreCourier.RowHeadersVisible = false;
             this.dgvNombreCourier.RowHeadersWidth = 62;
             this.dgvNombreCourier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvNombreCourier.Size = new System.Drawing.Size(1109, 321);
+            this.dgvNombreCourier.Size = new System.Drawing.Size(1109, 292);
             this.dgvNombreCourier.TabIndex = 59;
             // 
             // Column1
@@ -244,7 +244,7 @@ namespace ParcAuto.Forms
             this.btnImprimer.HoverState.Parent = this.btnImprimer;
             this.btnImprimer.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimer.Image")));
             this.btnImprimer.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnImprimer.Location = new System.Drawing.Point(14, 14);
+            this.btnImprimer.Location = new System.Drawing.Point(14, 24);
             this.btnImprimer.Margin = new System.Windows.Forms.Padding(5);
             this.btnImprimer.Name = "btnImprimer";
             this.btnImprimer.ShadowDecoration.Parent = this.btnImprimer;
@@ -256,53 +256,53 @@ namespace ParcAuto.Forms
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(3, 3);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.chart1.Name = "chart1";
-            series1.BorderColor = System.Drawing.Color.Transparent;
-            series1.ChartArea = "ChartArea1";
-            series1.Color = System.Drawing.Color.GreenYellow;
-            series1.Legend = "Legend1";
-            series1.Name = "Entite";
-            this.chart1.Series.Add(series1);
+            series4.BorderColor = System.Drawing.Color.Transparent;
+            series4.ChartArea = "ChartArea1";
+            series4.Color = System.Drawing.Color.GreenYellow;
+            series4.Legend = "Legend1";
+            series4.Name = "Entite";
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(542, 268);
             this.chart1.TabIndex = 73;
             this.chart1.Text = "chart1";
-            title1.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title1.Name = "Title1";
-            title1.Text = "NOMBRE D\'ENVOIS PAR ENTITE";
-            this.chart1.Titles.Add(title1);
+            title3.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title3.Name = "Title1";
+            title3.Text = "NOMBRE D\'ENVOIS PAR ENTITE";
+            this.chart1.Titles.Add(title3);
             // 
             // chart2
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea2);
+            chartArea4.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea4);
             this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.chart2.Legends.Add(legend2);
+            legend4.Name = "Legend1";
+            this.chart2.Legends.Add(legend4);
             this.chart2.Location = new System.Drawing.Point(565, 3);
             this.chart2.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.chart2.Name = "chart2";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Mois";
-            series2.YValuesPerPoint = 4;
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Mois d\'annee précédent ";
-            this.chart2.Series.Add(series2);
-            this.chart2.Series.Add(series3);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Mois";
+            series5.YValuesPerPoint = 4;
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Mois d\'annee précédent ";
+            this.chart2.Series.Add(series5);
+            this.chart2.Series.Add(series6);
             this.chart2.Size = new System.Drawing.Size(543, 268);
             this.chart2.TabIndex = 74;
-            title2.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title2.Name = "Title1";
-            title2.Text = "NOMBRE D\'ENVOIS PAR MOIS";
-            this.chart2.Titles.Add(title2);
+            title4.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title4.Name = "Title1";
+            title4.Text = "NOMBRE D\'ENVOIS PAR MOIS";
+            this.chart2.Titles.Add(title4);
             // 
             // tableLayoutPanel1
             // 
