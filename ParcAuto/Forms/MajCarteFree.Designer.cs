@@ -39,12 +39,12 @@ namespace ParcAuto.Forms
             this.btnAppliquer = new Guna.UI2.WinForms.Guna2Button();
             this.lbl = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
             this.Entite = new System.Windows.Forms.Label();
             this.txtentite = new Guna.UI2.WinForms.Guna2TextBox();
+            this.date = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.txtObjet = new System.Windows.Forms.RichTextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.date = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,14 +98,14 @@ namespace ParcAuto.Forms
             this.txtMontant.FocusedState.Parent = this.txtMontant;
             this.txtMontant.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMontant.HoverState.Parent = this.txtMontant;
-            this.txtMontant.Location = new System.Drawing.Point(110, 217);
+            this.txtMontant.Location = new System.Drawing.Point(110, 215);
             this.txtMontant.Margin = new System.Windows.Forms.Padding(16, 11, 16, 11);
             this.txtMontant.Name = "txtMontant";
             this.txtMontant.PasswordChar = '\0';
             this.txtMontant.PlaceholderText = "";
             this.txtMontant.SelectedText = "";
             this.txtMontant.ShadowDecoration.Parent = this.txtMontant;
-            this.txtMontant.Size = new System.Drawing.Size(257, 28);
+            this.txtMontant.Size = new System.Drawing.Size(261, 36);
             this.txtMontant.TabIndex = 32;
             // 
             // btnClear
@@ -206,6 +206,18 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Size = new System.Drawing.Size(361, 106);
             this.tableLayoutPanel1.TabIndex = 33;
             // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(4, 71);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 16);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Date :";
+            // 
             // Entite
             // 
             this.Entite.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -220,7 +232,7 @@ namespace ParcAuto.Forms
             // 
             // txtentite
             // 
-            this.txtentite.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtentite.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtentite.BorderRadius = 4;
             this.txtentite.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtentite.DefaultText = "";
@@ -233,16 +245,33 @@ namespace ParcAuto.Forms
             this.txtentite.FocusedState.Parent = this.txtentite;
             this.txtentite.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtentite.HoverState.Parent = this.txtentite;
-            this.txtentite.Location = new System.Drawing.Point(91, 12);
+            this.txtentite.Location = new System.Drawing.Point(92, 8);
             this.txtentite.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtentite.Name = "txtentite";
             this.txtentite.PasswordChar = '\0';
             this.txtentite.PlaceholderText = "";
             this.txtentite.SelectedText = "";
             this.txtentite.ShadowDecoration.Parent = this.txtentite;
-            this.txtentite.Size = new System.Drawing.Size(257, 28);
+            this.txtentite.Size = new System.Drawing.Size(261, 36);
             this.txtentite.TabIndex = 0;
             this.txtentite.Leave += new System.EventHandler(this.txtentite_Leave);
+            // 
+            // date
+            // 
+            this.date.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.date.BorderRadius = 4;
+            this.date.CheckedState.Parent = this.date;
+            this.date.FillColor = System.Drawing.Color.White;
+            this.date.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.date.HoverState.Parent = this.date;
+            this.date.Location = new System.Drawing.Point(92, 61);
+            this.date.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.date.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.date.Name = "date";
+            this.date.ShadowDecoration.Parent = this.date;
+            this.date.Size = new System.Drawing.Size(261, 36);
+            this.date.TabIndex = 2;
+            this.date.Value = new System.DateTime(2022, 8, 8, 13, 55, 56, 562);
             // 
             // label2
             // 
@@ -263,35 +292,6 @@ namespace ParcAuto.Forms
             this.txtObjet.Size = new System.Drawing.Size(370, 82);
             this.txtObjet.TabIndex = 40;
             this.txtObjet.Text = "";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(4, 71);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 16);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Date :";
-            // 
-            // date
-            // 
-            this.date.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.date.BorderRadius = 4;
-            this.date.CheckedState.Parent = this.date;
-            this.date.FillColor = System.Drawing.Color.White;
-            this.date.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.date.HoverState.Parent = this.date;
-            this.date.Location = new System.Drawing.Point(92, 61);
-            this.date.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.date.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.date.Name = "date";
-            this.date.ShadowDecoration.Parent = this.date;
-            this.date.Size = new System.Drawing.Size(261, 36);
-            this.date.TabIndex = 2;
-            this.date.Value = new System.DateTime(2022, 8, 8, 13, 55, 56, 562);
             // 
             // MajCarteFree
             // 

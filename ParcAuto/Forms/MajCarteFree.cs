@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Data.SqlClient;
 
 namespace ParcAuto.Forms
 {
@@ -102,71 +103,90 @@ namespace ParcAuto.Forms
 
         private void btnAppliquer_Click(object sender, EventArgs e)
         {
-            if(txtentite.Text != "")
+            try
             {
-                if (rbAutre.Checked)
+                if (txtentite.Text != "" || txtMontant.Text != "")
                 {
-                    MontantAutre = txtMontant.Text;
-                    MontantFixe = null;
+                    if (!double.TryParse(txtMontant.Text, out double km))
+                    {
+                        MessageBox.Show($"la valeur {txtMontant.Text} sasie dans le champs montant est invalid, vous devez entrez une valeur numeric");
+                        return;
+                    }
+                    if (rbAutre.Checked)
+                    {
+                        MontantAutre = txtMontant.Text;
+                        MontantFixe = null;
+                    }
+                    else if (rbFixe.Checked)
+                    {
+                        MontantFixe = txtMontant.Text;
+                        MontantAutre = null;
+                    }
+                    switch (Commandes.Command)
+                    {
+                        case Choix.ajouter:
+                            GLB.Cmd.Parameters.Clear();
+                            GLB.Cmd.CommandText = "Insert into CarteFree values (@txtentite,@Fixe,@Autre,@objet,@date)";
+                            GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@date", date.Value.ToString("yyyy-MM-dd"));
+                            if (MontantAutre == null)
+                                GLB.Cmd.Parameters.AddWithValue("@Autre", DBNull.Value);
+                            else
+                                GLB.Cmd.Parameters.AddWithValue("@Autre", Double.Parse(MontantAutre));
+                            if (MontantFixe == null)
+                                GLB.Cmd.Parameters.AddWithValue("@Fixe", DBNull.Value);
+                            else
+                                GLB.Cmd.Parameters.AddWithValue("@Fixe", Double.Parse(MontantFixe));
+
+                            GLB.Cmd.Parameters.AddWithValue("@objet", txtObjet.Text);
+                            break;
+                        case Choix.modifier:
+                            GLB.Cmd.Parameters.Clear();
+                            GLB.Cmd.CommandText = "update CarteFree set Entite = @txtentite,Fixe = @Fixe,Autre = @Autre ,dateCarte = @date,objet =@Objet where id = @ID";
+                            GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@date", date.Value.ToString("yyyy-MM-dd"));
+                            if (MontantAutre == null)
+                                GLB.Cmd.Parameters.AddWithValue("@Autre", DBNull.Value);
+                            else
+                                GLB.Cmd.Parameters.AddWithValue("@Autre", Double.Parse(MontantAutre));
+                            if (MontantFixe == null)
+                                GLB.Cmd.Parameters.AddWithValue("@Fixe", DBNull.Value);
+                            else
+                                GLB.Cmd.Parameters.AddWithValue("@Fixe", Double.Parse(MontantFixe));
+                            GLB.Cmd.Parameters.AddWithValue("@objet", txtObjet.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@ID", GLB.id_CarteFree);
+
+                            break;
+                        case Choix.supprimer:
+                            //On peut pas ouvrir MajConducteur avec l'option de suppression.
+                            throw new Exception("MajReparation a été appellé mais avec le Choix supprimer");
+
+                    }
+
+                    //Executer le requette
+                    GLB.Con.Open();
+                    GLB.Cmd.ExecuteNonQuery();
+                    this.Close();
                 }
-                else if (rbFixe.Checked)
+                else
                 {
-                    MontantFixe = txtMontant.Text;
-                    MontantAutre = null;
-                }
-                switch (Commandes.Command)
-                {
-                    case Choix.ajouter:
-                        GLB.Cmd.Parameters.Clear();
-                        GLB.Cmd.CommandText = "Insert into CarteFree values (@txtentite,@Fixe,@Autre,@objet,@date)";
-                        GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@date", date.Value.ToString("yyyy-MM-dd"));
-                        if (MontantAutre == null)
-                            GLB.Cmd.Parameters.AddWithValue("@Autre", DBNull.Value);
-                        else
-                            GLB.Cmd.Parameters.AddWithValue("@Autre", Double.Parse(MontantAutre));
-                        if (MontantFixe == null)
-                            GLB.Cmd.Parameters.AddWithValue("@Fixe", DBNull.Value);
-                        else
-                            GLB.Cmd.Parameters.AddWithValue("@Fixe", Double.Parse(MontantFixe));
-
-                        GLB.Cmd.Parameters.AddWithValue("@objet", txtObjet.Text);
-                        break;
-                    case Choix.modifier:
-                        GLB.Cmd.Parameters.Clear();
-                        GLB.Cmd.CommandText = "update CarteFree set Entite = @txtentite,Fixe = @Fixe,Autre = @Autre ,dateCarte = @date,objet =@Objet where id = @ID";
-                        GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@date", date.Value.ToString("yyyy-MM-dd"));
-                        if (MontantAutre == null)
-                            GLB.Cmd.Parameters.AddWithValue("@Autre", DBNull.Value);
-                        else
-                            GLB.Cmd.Parameters.AddWithValue("@Autre", Double.Parse(MontantAutre));
-                        if (MontantFixe == null)
-                            GLB.Cmd.Parameters.AddWithValue("@Fixe", DBNull.Value);
-                        else
-                            GLB.Cmd.Parameters.AddWithValue("@Fixe", Double.Parse(MontantFixe));
-                        GLB.Cmd.Parameters.AddWithValue("@objet", txtObjet.Text);
-                        GLB.Cmd.Parameters.AddWithValue("@ID", GLB.id_CarteFree);
-
-                        break;
-                    case Choix.supprimer:
-                        //On peut pas ouvrir MajConducteur avec l'option de suppression.
-                        throw new Exception("MajReparation a été appellé mais avec le Choix supprimer");
+                    MessageBox.Show("Tous les Champs sont Obligatoire", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
-
-                //Executer le requette
-                GLB.Con.Open();
-                GLB.Cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 2627)
+                    MessageBox.Show($"Toutes ces informations sans déja saisie", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
                 GLB.Con.Close();
-                this.Close();
             }
-            else
-            {
-                MessageBox.Show("Tous les Champs sont Obligatoire", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            }
-           
+
         }
 
     }
