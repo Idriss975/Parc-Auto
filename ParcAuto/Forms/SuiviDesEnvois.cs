@@ -22,7 +22,9 @@ namespace ParcAuto.Forms
         }
         private void Permissions()
         {
-            GLB.Cmd.CommandText = "SELECT  pri.name As Username " +
+            try
+            {
+                GLB.Cmd.CommandText = "SELECT  pri.name As Username " +
                    ",       pri.type_desc AS[User Type] " +
                    ", permit.permission_name AS[Permission] " +
                    ", permit.state_desc AS[Permission State] " +
@@ -34,48 +36,57 @@ namespace ParcAuto.Forms
                    "ON permit.grantee_principal_id = pri.principal_id " +
                    "WHERE object_name(permit.major_id) = 'SuiviDesEnvois' " +
                    $"and pri.name = SUSER_NAME()";
-            if (GLB.Con.State == ConnectionState.Open)
-                GLB.Con.Close();
-            GLB.Con.Open();
-            GLB.dr = GLB.Cmd.ExecuteReader();
-            while (GLB.dr.Read())
-            {
-                if (GLB.dr[2].ToString() == "INSERT")
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
+                GLB.Con.Open();
+                GLB.dr = GLB.Cmd.ExecuteReader();
+                while (GLB.dr.Read())
                 {
-                    if (GLB.dr[3].ToString() == "DENY")
+                    if (GLB.dr[2].ToString() == "INSERT")
                     {
-                        btnAjouter.FillColor = Color.FromArgb(127, 165, 127);
-                        btnAjouter.Click -= btnAjouter_Click;
+                        if (GLB.dr[3].ToString() == "DENY")
+                        {
+                            btnAjouter.FillColor = Color.FromArgb(127, 165, 127);
+                            btnAjouter.Click -= btnAjouter_Click;
+                        }
                     }
-                }
-                else if (GLB.dr[2].ToString() == "DELETE")
-                {
-                    if (GLB.dr[3].ToString() == "DENY")
+                    else if (GLB.dr[2].ToString() == "DELETE")
                     {
-                        btnSupprimer.FillColor = Color.FromArgb(204, 144, 133);
-                        btnSupprimer.Click -= btnSupprimer_Click;
-                        btnSuprimmerTout.FillColor = Color.FromArgb(204, 144, 133);
-                        btnSuprimmerTout.Click -= btnSuprimmerTout_Click;
+                        if (GLB.dr[3].ToString() == "DENY")
+                        {
+                            btnSupprimer.FillColor = Color.FromArgb(204, 144, 133);
+                            btnSupprimer.Click -= btnSupprimer_Click;
+                            btnSuprimmerTout.FillColor = Color.FromArgb(204, 144, 133);
+                            btnSuprimmerTout.Click -= btnSuprimmerTout_Click;
+                        }
                     }
-                }
-                else if (GLB.dr[2].ToString() == "UPDATE")
-                {
-                    if (GLB.dr[3].ToString() == "DENY")
+                    else if (GLB.dr[2].ToString() == "UPDATE")
                     {
-                        btnModifier.FillColor = Color.FromArgb(85, 95, 128);
-                        btnModifier.Click -= btnModifier_Click;
+                        if (GLB.dr[3].ToString() == "DENY")
+                        {
+                            btnModifier.FillColor = Color.FromArgb(85, 95, 128);
+                            btnModifier.Click -= btnModifier_Click;
+                        }
                     }
                 }
             }
-            GLB.dr.Close();
-            GLB.Con.Close();
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                GLB.dr.Close();
+                GLB.Con.Close();
+            }
+            
         }
         private void RemplirLaGrille()
         {
             dgvCourrier.Rows.Clear();
             try
             {
-
                 GLB.Cmd.CommandText = $"select * from SuiviDesEnvois where Year(DateDepot) = '{GLB.SelectedDate}'";
                 if (GLB.Con.State == ConnectionState.Open)
                     GLB.Con.Close();

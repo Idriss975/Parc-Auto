@@ -67,7 +67,7 @@ namespace ParcAuto.Forms
 
                     if (!double.TryParse(txtMontant.Text, out double montant))
                     {
-                        MessageBox.Show($"la valeur {txtMontant.Text} saisie dans le champs montant est invalid, vous devez entrez une valeur numeric");
+                        MessageBox.Show($"la valeur {txtMontant.Text} saisie dans le champs montant est invalid, vous devez entrez une valeur numeric", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     if (rbEntretien.Checked)

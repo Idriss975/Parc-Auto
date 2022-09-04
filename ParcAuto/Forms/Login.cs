@@ -26,12 +26,24 @@ namespace ParcAuto.Forms
 
         private void DeleteOldHistory()
         {
-            if (GLB.Con.State == ConnectionState.Open)
+            try
+            {
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
+                GLB.Con.Open();
+                GLB.Cmd.CommandText = "delete from EtatJournalier where Date < Cast(getdate() as date)";
+                GLB.Cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
                 GLB.Con.Close();
-            GLB.Con.Open();
-            GLB.Cmd.CommandText = "delete from EtatJournalier where Date < Cast(getdate() as date)";
-            GLB.Cmd.ExecuteNonQuery();
-            GLB.Con.Close();
+            }
+
         }
         private void Login_Load(object sender, EventArgs e)
         {

@@ -57,7 +57,7 @@ namespace ParcAuto.Forms
                 {
                     if (!double.TryParse(txtPrix.Text, out double prix))
                     {
-                        MessageBox.Show($"la valeur {txtPrix.Text} saisie dans le champs prix est invalid, vous devez entrez une valeur numeric");
+                        MessageBox.Show($"la valeur {txtPrix.Text} saisie dans le champs prix est invalid, vous devez entrez une valeur numeric", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     switch (Commandes.Command)

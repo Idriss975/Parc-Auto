@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -42,17 +43,19 @@ namespace ParcAuto.Forms
                 GLB.Cmd.Parameters.Add("@abrev", SqlDbType.VarChar, 20).Value = txtAbrev.Text.Trim().ToUpper();
                 GLB.Con.Open();
                 GLB.Cmd.ExecuteNonQuery();
-               
-            }
-            catch (Exception ex)
-            {
+                this.Close();
 
-                MessageBox.Show(ex.Message);
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 2627)
+                    MessageBox.Show($"L'entite {txtNomDir.Text} est existe déja", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
                 GLB.Con.Close();
-                this.Close();
             }
         }
         private void btnClose_Click(object sender, EventArgs e)

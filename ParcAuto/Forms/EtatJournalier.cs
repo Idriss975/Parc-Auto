@@ -29,7 +29,6 @@ namespace ParcAuto.Forms
                 while (GLB.dr.Read())
                     dgvEtatJournalier.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr.IsDBNull(4) ? "" : ((DateTime)GLB.dr[4]).ToString("d/M/yyyy"), GLB.dr[5], GLB.dr[6], GLB.dr[7].ToString(), GLB.dr[8].ToString(), GLB.dr[9].ToString(), GLB.dr[10].ToString(), GLB.dr[11].ToString(), GLB.dr[12].ToString(), GLB.dr[13].ToString(), GLB.dr[14].ToString());
 
-                GLB.dr.Close();
             }
             catch (Exception ex)
             {
@@ -38,6 +37,7 @@ namespace ParcAuto.Forms
             }
             finally
             {
+                GLB.dr.Close();
                 GLB.Con.Close();
             }
         }
@@ -82,9 +82,9 @@ namespace ParcAuto.Forms
 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Quelque chose s'est mal passé", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

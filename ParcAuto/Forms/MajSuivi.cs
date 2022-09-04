@@ -127,12 +127,12 @@ namespace ParcAuto.Forms
                 {
                     if (!int.TryParse(txtNombre.Text, out int nb))
                     {
-                        MessageBox.Show($"la valeur {txtNombre.Text} saisie dans le champs Nombre invalid, vous devez entrez une valeur numeric");
+                        MessageBox.Show($"la valeur {txtNombre.Text} saisie dans le champs Nombre invalid, vous devez entrez une valeur numeric", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     if (!double.TryParse(txtPrix.Text, out double prix))
                     {
-                        MessageBox.Show($"la valeur {txtPrix.Text} saisie dans le champs Prix invalid, vous devez entrez une valeur numeric");
+                        MessageBox.Show($"la valeur {txtPrix.Text} saisie dans le champs Prix invalid, vous devez entrez une valeur numeric", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     switch (Commandes.Command)

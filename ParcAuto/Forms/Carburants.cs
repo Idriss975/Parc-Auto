@@ -52,51 +52,63 @@ namespace ParcAuto.Forms
         }
         private void Permissions()
         {
-            GLB.Cmd.CommandText = "SELECT  pri.name As Username " +
-                   ",       pri.type_desc AS[User Type] " +
-                   ", permit.permission_name AS[Permission] " +
-                   ", permit.state_desc AS[Permission State] " +
-                   ", permit.class_desc Class " +
-                   ", object_name(permit.major_id) AS[Object Name] " +
-                   "FROM sys.database_principals pri " +
-                   "LEFT JOIN " +
-                   "sys.database_permissions permit " +
-                   "ON permit.grantee_principal_id = pri.principal_id " +
-                   "WHERE object_name(permit.major_id) = 'CarburantVignettes' " +
-                   $"and pri.name = SUSER_NAME()";
-            GLB.Con.Open();
-            GLB.dr = GLB.Cmd.ExecuteReader();
-            while (GLB.dr.Read())
+            try
             {
-                if (GLB.dr[2].ToString() == "INSERT")
+                GLB.Cmd.CommandText = "SELECT  pri.name As Username " +
+                 ",       pri.type_desc AS[User Type] " +
+                 ", permit.permission_name AS[Permission] " +
+                 ", permit.state_desc AS[Permission State] " +
+                 ", permit.class_desc Class " +
+                 ", object_name(permit.major_id) AS[Object Name] " +
+                 "FROM sys.database_principals pri " +
+                 "LEFT JOIN " +
+                 "sys.database_permissions permit " +
+                 "ON permit.grantee_principal_id = pri.principal_id " +
+                 "WHERE object_name(permit.major_id) = 'CarburantVignettes' " +
+                 $"and pri.name = SUSER_NAME()";
+                GLB.Con.Open();
+                GLB.dr = GLB.Cmd.ExecuteReader();
+                while (GLB.dr.Read())
                 {
-                    if (GLB.dr[3].ToString() == "DENY")
+                    if (GLB.dr[2].ToString() == "INSERT")
                     {
-                        btnAjouter.FillColor = Color.FromArgb(127, 165, 127);
-                        btnAjouter.Click -= btnAjouter_Click;
+                        if (GLB.dr[3].ToString() == "DENY")
+                        {
+                            btnAjouter.FillColor = Color.FromArgb(127, 165, 127);
+                            btnAjouter.Click -= btnAjouter_Click;
+                        }
                     }
-                }
-                else if (GLB.dr[2].ToString() == "DELETE")
-                {
-                    if (GLB.dr[3].ToString() == "DENY")
+                    else if (GLB.dr[2].ToString() == "DELETE")
                     {
-                        btnSupprimer.FillColor = Color.FromArgb(204, 144, 133);
-                        btnSupprimer.Click -= btnSupprimer_Click;
-                        btnSuprimmerTout.FillColor = Color.FromArgb(204, 144, 133);
-                        btnSuprimmerTout.Click -= btnSuprimmerTout_Click; 
+                        if (GLB.dr[3].ToString() == "DENY")
+                        {
+                            btnSupprimer.FillColor = Color.FromArgb(204, 144, 133);
+                            btnSupprimer.Click -= btnSupprimer_Click;
+                            btnSuprimmerTout.FillColor = Color.FromArgb(204, 144, 133);
+                            btnSuprimmerTout.Click -= btnSuprimmerTout_Click;
+                        }
                     }
-                }
-                else if (GLB.dr[2].ToString() == "UPDATE")
-                {
-                    if (GLB.dr[3].ToString() == "DENY")
+                    else if (GLB.dr[2].ToString() == "UPDATE")
                     {
-                        btnModifier.FillColor = Color.FromArgb(85, 95, 128);
-                        btnModifier.Click -= btnModifier_Click;
+                        if (GLB.dr[3].ToString() == "DENY")
+                        {
+                            btnModifier.FillColor = Color.FromArgb(85, 95, 128);
+                            btnModifier.Click -= btnModifier_Click;
+                        }
                     }
                 }
             }
-            GLB.dr.Close();
-            GLB.Con.Close();
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                GLB.dr.Close();
+                GLB.Con.Close();
+            }
+          
         }
         private void RemplirLaGrille()
         {
@@ -125,10 +137,6 @@ namespace ParcAuto.Forms
 
         private void Carburants_Load(object sender, EventArgs e)
         {
-            
-            //dgvCarburant.Columns[0].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            //dgvCarburant.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-            //dgvCarburant.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             panelDate.Visible = false;
             TextPanel.Visible = false;
             cmbChoix.SelectedIndex = 0;
@@ -211,10 +219,8 @@ namespace ParcAuto.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-            }
-           
-            
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } 
             Total();
         }
 
@@ -250,6 +256,10 @@ namespace ParcAuto.Forms
             {
                 MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
@@ -262,7 +272,6 @@ namespace ParcAuto.Forms
                     GLB.Cmd.CommandText = $"delete from CarburantVignettes where id = {dgvCarburant.SelectedRows[i].Cells[13].Value} ";
                     GLB.Cmd.ExecuteNonQuery();
                 }
-                GLB.Con.Close();
                 RemplirLaGrille();
                 Total();
             }
@@ -270,7 +279,14 @@ namespace ParcAuto.Forms
             {
                 MessageBox.Show("Il faut selectionner sur la table pour Suprrimer la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //TODO: catch NullReferenceException (idriss)
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                GLB.Con.Close();
+            }
 
         }
 
@@ -403,7 +419,6 @@ namespace ParcAuto.Forms
                     }
                     GLB.Cmd.Transaction.Commit();
                     GLB.Con.Close();
-                    //MessageBox.Show(lignesExcel);
                 }
             }
             catch (SqlException ex)
@@ -462,16 +477,27 @@ namespace ParcAuto.Forms
 
         private void btnSuprimmerTout_Click(object sender, EventArgs e)
         {
-            GLB.Con.Open();
-            for (int i = 0; i < dgvCarburant.Rows.Count; i++)
+            try
             {
-                GLB.Cmd.CommandText = $"delete from CarburantVignettes where id = {dgvCarburant.Rows[i].Cells[13].Value}";
-                GLB.Cmd.ExecuteNonQuery();
+                GLB.Con.Open();
+                for (int i = 0; i < dgvCarburant.Rows.Count; i++)
+                {
+                    GLB.Cmd.CommandText = $"delete from CarburantVignettes where id = {dgvCarburant.Rows[i].Cells[13].Value}";
+                    GLB.Cmd.ExecuteNonQuery();
+                }
+                RemplirLaGrille();
+                Total();
             }
-            GLB.Con.Close();
-            RemplirLaGrille();
-            Total();
-           
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                GLB.Con.Close();
+            }
+
+
 
 
 

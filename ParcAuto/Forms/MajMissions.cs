@@ -135,7 +135,7 @@ namespace ParcAuto.Forms
                 {
                     if (!double.TryParse(txtKilometrage.Text, out double km))
                     {
-                        MessageBox.Show($"la valeur {txtKilometrage.Text} saisie dans le champs Kilométrage est invalid, vous devez entrez une valeur numeric");
+                        MessageBox.Show($"la valeur {txtKilometrage.Text} saisie dans le champs Kilométrage est invalid, vous devez entrez une valeur numeric", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     switch (Commandes.Command)
