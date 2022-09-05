@@ -1081,6 +1081,7 @@ namespace ParcAuto
             // ReparationChart
             // 
             chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
             chartArea1.Name = "ChartArea1";
             this.ReparationChart.ChartAreas.Add(chartArea1);
             this.ReparationChart.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1108,6 +1109,7 @@ namespace ParcAuto
             // carteFreeChart
             // 
             chartArea2.AxisX.MajorGrid.Enabled = false;
+            chartArea2.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
             chartArea2.Name = "ChartArea1";
             this.carteFreeChart.ChartAreas.Add(chartArea2);
             this.carteFreeChart.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1135,6 +1137,7 @@ namespace ParcAuto
             // TransportChart
             // 
             chartArea3.AxisX.MajorGrid.Enabled = false;
+            chartArea3.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
             chartArea3.Name = "ChartArea1";
             this.TransportChart.ChartAreas.Add(chartArea3);
             this.TransportChart.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1162,6 +1165,7 @@ namespace ParcAuto
             // Carburantchart
             // 
             chartArea4.AxisX.MajorGrid.Enabled = false;
+            chartArea4.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
             chartArea4.Name = "ChartArea1";
             this.Carburantchart.ChartAreas.Add(chartArea4);
             this.Carburantchart.Dock = System.Windows.Forms.DockStyle.Fill;
