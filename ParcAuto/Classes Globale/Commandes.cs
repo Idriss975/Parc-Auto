@@ -22,10 +22,16 @@ namespace ParcAuto.Classes_Globale
         Reparation,
         ReparationSNTL
     }
+    public enum Probleme
+    {
+        Fixe,
+        Non_Fixe
+    }
     public class Commandes
     {
         public static Choix Command = Choix.ajouter;
         public static TypeCarb MAJ = TypeCarb.Carburant;
         public static TypeRep MAJRep = TypeRep.Reparation;
+        public static Probleme probleme = Probleme.Fixe;
     }
 }

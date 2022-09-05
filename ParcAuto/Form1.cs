@@ -341,6 +341,13 @@ namespace ParcAuto
                     previousBtn.BackColor = Color.FromArgb(115, 139, 215);
                 }
             }
+            foreach (Control previousBtn in panelsousMaintenance.Controls)
+            {
+                if (previousBtn.GetType() == typeof(Button))
+                {
+                    previousBtn.BackColor = Color.FromArgb(115, 139, 215);
+                }
+            }
 
         }
         private void ActivateButton(object btnSender)
@@ -512,6 +519,25 @@ namespace ParcAuto
         private void btnNbCourriers_Click(object sender, EventArgs e)
         {
             openChildForm(new Forms.NombreDeCourriersParEntite(), sender);
+        }
+
+        private void btnMaintenance_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelsousMaintenance);
+            Arrow_Up_Down(panelsousMaintenance, arrowMaintenanceUp, ArrowMaintenancedown);
+        }
+
+        private void btnFixe_Click(object sender, EventArgs e)
+        {
+            Commandes.probleme = Probleme.Fixe;
+            openChildForm(new Forms.ProblemeFixe(), sender);
+
+        }
+
+        private void btnNonFixe_Click(object sender, EventArgs e)
+        {
+            Commandes.probleme = Probleme.Non_Fixe;
+            openChildForm(new Forms.ProblemeFixe(), sender);
         }
     }
 }

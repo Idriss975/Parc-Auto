@@ -212,6 +212,12 @@
     <Compile Include="Forms\MajEtatRecap.Designer.cs">
       <DependentUpon>MajEtatRecap.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MajMaintenance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MajMaintenance.Designer.cs">
+      <DependentUpon>MajMaintenance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MajMissions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,6 +259,12 @@
     </Compile>
     <Compile Include="Forms\NombreDeCourriersParEntite.Designer.cs">
       <DependentUpon>NombreDeCourriersParEntite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProblemeFixe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProblemeFixe.Designer.cs">
+      <DependentUpon>ProblemeFixe.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Reparation.cs">
       <SubType>Form</SubType>
@@ -346,6 +358,9 @@
     <EmbeddedResource Include="Forms\MajEtatRecap.resx">
       <DependentUpon>MajEtatRecap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MajMaintenance.resx">
+      <DependentUpon>MajMaintenance.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MajMissions.resx">
       <DependentUpon>MajMissions.cs</DependentUpon>
     </EmbeddedResource>
@@ -366,6 +381,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NombreDeCourriersParEntite.resx">
       <DependentUpon>NombreDeCourriersParEntite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProblemeFixe.resx">
+      <DependentUpon>ProblemeFixe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reparation.resx">
       <DependentUpon>Reparation.cs</DependentUpon>
