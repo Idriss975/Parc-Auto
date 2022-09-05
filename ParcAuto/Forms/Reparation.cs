@@ -425,5 +425,24 @@ namespace ParcAuto.Forms
         {
             
         }
+
+        private void btnImprimer_Click(object sender, EventArgs e)
+        {
+            if (printDialog1.ShowDialog(this) == DialogResult.OK)
+            {
+                printPreviewDialog1.Document.PrinterSettings = printDialog1.PrinterSettings;
+                printPreviewDialog1.ShowDialog();
+            }
+        }
+
+        private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            Impression.number_of_lines = dgvReparation.Rows.Count;
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Impression.Drawonprintdoc(e, dgvReparation, imageList1.Images["OFPPT_logo.png"], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6), Column1.Index, Titre: "Reparation");
+        }
     }
 }
