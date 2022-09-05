@@ -26,6 +26,8 @@ namespace ParcAuto.Forms
             {
                 dgvReparation.Rows.Clear();
                 GLB.Cmd.CommandText = $"Select * from ReparationPRDSNTL where year(Date) = '{GLB.SelectedDate}'";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
@@ -76,6 +78,8 @@ namespace ParcAuto.Forms
                   "ON permit.grantee_principal_id = pri.principal_id " +
                   "WHERE object_name(permit.major_id) = 'ReparationPRDSNTL' " +
                   $"and pri.name = SUSER_NAME()";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
@@ -194,6 +198,8 @@ namespace ParcAuto.Forms
                     outp += $" or id = {dgvReparation.SelectedRows[i].Cells[0].Value}";
 
                 GLB.Cmd.CommandText = outp;
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.Cmd.ExecuteNonQuery();
                 GLB.Con.Close();
@@ -359,6 +365,8 @@ namespace ParcAuto.Forms
                 if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     GLB.Cmd.CommandText = query1;
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
                     GLB.Con.Open();
                     GLB.Cmd.ExecuteNonQuery();
                     datagridviewLoad();

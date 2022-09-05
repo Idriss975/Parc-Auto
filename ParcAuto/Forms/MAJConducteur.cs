@@ -138,6 +138,8 @@ namespace ParcAuto.Forms
                     }
 
                     //Executer le requette
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
                     GLB.Con.Open();
                     GLB.Cmd.ExecuteNonQuery();
                     this.Close();

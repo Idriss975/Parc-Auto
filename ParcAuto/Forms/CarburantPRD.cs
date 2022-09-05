@@ -60,6 +60,8 @@ namespace ParcAuto.Forms
                  "ON permit.grantee_principal_id = pri.principal_id " +
                  "WHERE object_name(permit.major_id) = 'CarburantSNTLPRD' " +
                  $"and pri.name = SUSER_NAME()";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
@@ -109,6 +111,8 @@ namespace ParcAuto.Forms
             try
             {
                 GLB.Cmd.CommandText = $"select * from CarburantSNTLPRD where YEAR(date) = '{GLB.SelectedDate}'";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())

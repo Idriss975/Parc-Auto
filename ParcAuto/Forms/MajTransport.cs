@@ -90,6 +90,8 @@ namespace ParcAuto.Forms
                         case Choix.supprimer:
                             throw new Exception("Impossible de supprimer avec MajCaarburants.");
                     }
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
                     GLB.Con.Open();
                     GLB.Cmd.ExecuteNonQuery();
                     this.Close();

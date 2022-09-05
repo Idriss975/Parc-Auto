@@ -49,6 +49,8 @@ namespace ParcAuto.Forms
         private void cmbVehicule_TextChanged(object sender, EventArgs e)
         {
             GLB.Cmd.CommandText = $"select Marque from Vehicules where Matricule = '{cmbVehicule.Text}'";
+            if (GLB.Con.State == ConnectionState.Open)
+                GLB.Con.Close();
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             if (!GLB.dr.Read())
@@ -370,6 +372,8 @@ namespace ParcAuto.Forms
                         case Choix.supprimer:
                             throw new Exception("Impossible de supprimer avec MajCaarburants.");
                     }
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
                     GLB.Con.Open();
                     GLB.Cmd.ExecuteNonQuery();
                     this.Close();

@@ -41,6 +41,8 @@ namespace ParcAuto.Forms
                 GLB.Cmd.Parameters.Clear();
                 GLB.Cmd.Parameters.Add("@entite", SqlDbType.VarChar, 500).Value = txtNomDir.Text.Trim();
                 GLB.Cmd.Parameters.Add("@abrev", SqlDbType.VarChar, 20).Value = txtAbrev.Text.Trim().ToUpper();
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.Cmd.ExecuteNonQuery();
                 this.Close();
