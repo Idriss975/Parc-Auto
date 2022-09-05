@@ -31,26 +31,26 @@ namespace ParcAuto
         {
             System.Windows.Forms.Panel section2;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series17 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series18 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title9 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title10 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series22 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title11 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series23 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series24 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title12 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.Suivis = new System.Windows.Forms.Panel();
             this.panelsousSuivi = new System.Windows.Forms.Panel();
             this.btnNbCourriers = new System.Windows.Forms.Button();
@@ -103,16 +103,16 @@ namespace ParcAuto
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FormsPlace = new System.Windows.Forms.Panel();
-            this.lbltransport = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblCarburant = new System.Windows.Forms.Label();
             this.lblReparation = new System.Windows.Forms.Label();
+            this.lbltransport = new System.Windows.Forms.Label();
             this.lblCarteFree = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblCarburant = new System.Windows.Forms.Label();
-            this.Carburantchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.TransportChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.carteFreeChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.ReparationChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.carteFreeChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.TransportChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.Carburantchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             section2 = new System.Windows.Forms.Panel();
             section2.SuspendLayout();
             this.Suivis.SuspendLayout();
@@ -143,12 +143,12 @@ namespace ParcAuto
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.FormsPlace.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Carburantchart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TransportChart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carteFreeChart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ReparationChart)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ReparationChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carteFreeChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TransportChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Carburantchart)).BeginInit();
             this.SuspendLayout();
             // 
             // section2
@@ -989,17 +989,38 @@ namespace ParcAuto
             this.FormsPlace.TabIndex = 1;
             this.FormsPlace.Paint += new System.Windows.Forms.PaintEventHandler(this.FormsPlace_Paint);
             // 
-            // lbltransport
+            // tableLayoutPanel2
             // 
-            this.lbltransport.AutoSize = true;
-            this.lbltransport.BackColor = System.Drawing.Color.Transparent;
-            this.lbltransport.Font = new System.Drawing.Font("Microsoft Tai Le", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltransport.ForeColor = System.Drawing.Color.Black;
-            this.lbltransport.Location = new System.Drawing.Point(278, 0);
-            this.lbltransport.Name = "lbltransport";
-            this.lbltransport.Size = new System.Drawing.Size(38, 14);
-            this.lbltransport.TabIndex = 2;
-            this.lbltransport.Text = "label1";
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.Controls.Add(this.lblCarburant, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lblReparation, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lbltransport, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lblCarteFree, 2, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(12, 617);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1103, 22);
+            this.tableLayoutPanel2.TabIndex = 4;
+            // 
+            // lblCarburant
+            // 
+            this.lblCarburant.AutoSize = true;
+            this.lblCarburant.BackColor = System.Drawing.Color.Transparent;
+            this.lblCarburant.Font = new System.Drawing.Font("Microsoft New Tai Lue", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCarburant.ForeColor = System.Drawing.Color.Black;
+            this.lblCarburant.Location = new System.Drawing.Point(3, 0);
+            this.lblCarburant.Name = "lblCarburant";
+            this.lblCarburant.Size = new System.Drawing.Size(72, 15);
+            this.lblCarburant.TabIndex = 1;
+            this.lblCarburant.Text = "lblCarburant";
             // 
             // lblReparation
             // 
@@ -1012,6 +1033,18 @@ namespace ParcAuto
             this.lblReparation.Size = new System.Drawing.Size(38, 14);
             this.lblReparation.TabIndex = 1;
             this.lblReparation.Text = "label1";
+            // 
+            // lbltransport
+            // 
+            this.lbltransport.AutoSize = true;
+            this.lbltransport.BackColor = System.Drawing.Color.Transparent;
+            this.lbltransport.Font = new System.Drawing.Font("Microsoft Tai Le", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltransport.ForeColor = System.Drawing.Color.Black;
+            this.lbltransport.Location = new System.Drawing.Point(278, 0);
+            this.lbltransport.Name = "lbltransport";
+            this.lbltransport.Size = new System.Drawing.Size(38, 14);
+            this.lbltransport.TabIndex = 2;
+            this.lbltransport.Text = "label1";
             // 
             // lblCarteFree
             // 
@@ -1045,142 +1078,113 @@ namespace ParcAuto
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1123, 594);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
-            // lblCarburant
-            // 
-            this.lblCarburant.AutoSize = true;
-            this.lblCarburant.BackColor = System.Drawing.Color.Transparent;
-            this.lblCarburant.Font = new System.Drawing.Font("Microsoft New Tai Lue", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCarburant.ForeColor = System.Drawing.Color.Black;
-            this.lblCarburant.Location = new System.Drawing.Point(3, 0);
-            this.lblCarburant.Name = "lblCarburant";
-            this.lblCarburant.Size = new System.Drawing.Size(72, 15);
-            this.lblCarburant.TabIndex = 1;
-            this.lblCarburant.Text = "lblCarburant";
-            // 
-            // Carburantchart
-            // 
-            chartArea9.Name = "ChartArea1";
-            this.Carburantchart.ChartAreas.Add(chartArea9);
-            this.Carburantchart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend9.Name = "Legend1";
-            this.Carburantchart.Legends.Add(legend9);
-            this.Carburantchart.Location = new System.Drawing.Point(10, 10);
-            this.Carburantchart.Margin = new System.Windows.Forms.Padding(10);
-            this.Carburantchart.Name = "Carburantchart";
-            series17.ChartArea = "ChartArea1";
-            series17.Legend = "Legend1";
-            series17.Name = "Total Report et Achat";
-            series18.ChartArea = "ChartArea1";
-            series18.Legend = "Legend1";
-            series18.Name = "Total Consommation";
-            this.Carburantchart.Series.Add(series17);
-            this.Carburantchart.Series.Add(series18);
-            this.Carburantchart.Size = new System.Drawing.Size(541, 277);
-            this.Carburantchart.TabIndex = 3;
-            this.Carburantchart.Text = "chart1";
-            title9.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title9.Name = "Title1";
-            title9.Text = "Consommation Carburant";
-            this.Carburantchart.Titles.Add(title9);
-            // 
-            // TransportChart
-            // 
-            chartArea10.Name = "ChartArea1";
-            this.TransportChart.ChartAreas.Add(chartArea10);
-            this.TransportChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend10.Name = "Legend1";
-            this.TransportChart.Legends.Add(legend10);
-            this.TransportChart.Location = new System.Drawing.Point(571, 10);
-            this.TransportChart.Margin = new System.Windows.Forms.Padding(10);
-            this.TransportChart.Name = "TransportChart";
-            series19.ChartArea = "ChartArea1";
-            series19.Legend = "Legend1";
-            series19.Name = "Total Report et Achat";
-            series20.ChartArea = "ChartArea1";
-            series20.Legend = "Legend1";
-            series20.Name = "Total Consommation";
-            this.TransportChart.Series.Add(series19);
-            this.TransportChart.Series.Add(series20);
-            this.TransportChart.Size = new System.Drawing.Size(542, 277);
-            this.TransportChart.TabIndex = 4;
-            this.TransportChart.Text = "chart1";
-            title10.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title10.Name = "Title1";
-            title10.Text = "Consommation Transport";
-            this.TransportChart.Titles.Add(title10);
-            // 
-            // carteFreeChart
-            // 
-            chartArea11.Name = "ChartArea1";
-            this.carteFreeChart.ChartAreas.Add(chartArea11);
-            this.carteFreeChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend11.Name = "Legend1";
-            this.carteFreeChart.Legends.Add(legend11);
-            this.carteFreeChart.Location = new System.Drawing.Point(10, 307);
-            this.carteFreeChart.Margin = new System.Windows.Forms.Padding(10);
-            this.carteFreeChart.Name = "carteFreeChart";
-            series21.ChartArea = "ChartArea1";
-            series21.Legend = "Legend1";
-            series21.Name = "Total Report et Achat";
-            series22.ChartArea = "ChartArea1";
-            series22.Legend = "Legend1";
-            series22.Name = "Total Consommation";
-            this.carteFreeChart.Series.Add(series21);
-            this.carteFreeChart.Series.Add(series22);
-            this.carteFreeChart.Size = new System.Drawing.Size(541, 277);
-            this.carteFreeChart.TabIndex = 5;
-            this.carteFreeChart.Text = "chart1";
-            title11.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title11.Name = "Title1";
-            title11.Text = "Consommation Carte Free";
-            this.carteFreeChart.Titles.Add(title11);
-            // 
             // ReparationChart
             // 
-            chartArea12.Name = "ChartArea1";
-            this.ReparationChart.ChartAreas.Add(chartArea12);
+            chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.Name = "ChartArea1";
+            this.ReparationChart.ChartAreas.Add(chartArea1);
             this.ReparationChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend12.Name = "Legend1";
-            this.ReparationChart.Legends.Add(legend12);
+            legend1.Name = "Legend1";
+            this.ReparationChart.Legends.Add(legend1);
             this.ReparationChart.Location = new System.Drawing.Point(571, 307);
             this.ReparationChart.Margin = new System.Windows.Forms.Padding(10);
             this.ReparationChart.Name = "ReparationChart";
-            series23.ChartArea = "ChartArea1";
-            series23.Legend = "Legend1";
-            series23.Name = "Total Report et Achat";
-            series24.ChartArea = "ChartArea1";
-            series24.Legend = "Legend1";
-            series24.Name = "Total Consommation";
-            this.ReparationChart.Series.Add(series23);
-            this.ReparationChart.Series.Add(series24);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Total Report et Achat";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Total Consommation";
+            this.ReparationChart.Series.Add(series1);
+            this.ReparationChart.Series.Add(series2);
             this.ReparationChart.Size = new System.Drawing.Size(542, 277);
             this.ReparationChart.TabIndex = 6;
             this.ReparationChart.Text = "chart1";
-            title12.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title12.Name = "Title1";
-            title12.Text = "Consommation Reparation";
-            this.ReparationChart.Titles.Add(title12);
+            title1.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title1.Name = "Title1";
+            title1.Text = "Consommation Reparation";
+            this.ReparationChart.Titles.Add(title1);
             // 
-            // tableLayoutPanel2
+            // carteFreeChart
             // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 4;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Controls.Add(this.lblCarburant, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lblReparation, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lbltransport, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lblCarteFree, 2, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(12, 617);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1103, 22);
-            this.tableLayoutPanel2.TabIndex = 4;
+            chartArea2.AxisX.MajorGrid.Enabled = false;
+            chartArea2.Name = "ChartArea1";
+            this.carteFreeChart.ChartAreas.Add(chartArea2);
+            this.carteFreeChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend2.Name = "Legend1";
+            this.carteFreeChart.Legends.Add(legend2);
+            this.carteFreeChart.Location = new System.Drawing.Point(10, 307);
+            this.carteFreeChart.Margin = new System.Windows.Forms.Padding(10);
+            this.carteFreeChart.Name = "carteFreeChart";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Total Report et Achat";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Total Consommation";
+            this.carteFreeChart.Series.Add(series3);
+            this.carteFreeChart.Series.Add(series4);
+            this.carteFreeChart.Size = new System.Drawing.Size(541, 277);
+            this.carteFreeChart.TabIndex = 5;
+            this.carteFreeChart.Text = "chart1";
+            title2.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title2.Name = "Title1";
+            title2.Text = "Consommation Carte Free";
+            this.carteFreeChart.Titles.Add(title2);
+            // 
+            // TransportChart
+            // 
+            chartArea3.AxisX.MajorGrid.Enabled = false;
+            chartArea3.Name = "ChartArea1";
+            this.TransportChart.ChartAreas.Add(chartArea3);
+            this.TransportChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend3.Name = "Legend1";
+            this.TransportChart.Legends.Add(legend3);
+            this.TransportChart.Location = new System.Drawing.Point(571, 10);
+            this.TransportChart.Margin = new System.Windows.Forms.Padding(10);
+            this.TransportChart.Name = "TransportChart";
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Total Report et Achat";
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Total Consommation";
+            this.TransportChart.Series.Add(series5);
+            this.TransportChart.Series.Add(series6);
+            this.TransportChart.Size = new System.Drawing.Size(542, 277);
+            this.TransportChart.TabIndex = 4;
+            this.TransportChart.Text = "chart1";
+            title3.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title3.Name = "Title1";
+            title3.Text = "Consommation Transport";
+            this.TransportChart.Titles.Add(title3);
+            // 
+            // Carburantchart
+            // 
+            chartArea4.AxisX.MajorGrid.Enabled = false;
+            chartArea4.Name = "ChartArea1";
+            this.Carburantchart.ChartAreas.Add(chartArea4);
+            this.Carburantchart.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend4.Name = "Legend1";
+            this.Carburantchart.Legends.Add(legend4);
+            this.Carburantchart.Location = new System.Drawing.Point(10, 10);
+            this.Carburantchart.Margin = new System.Windows.Forms.Padding(10);
+            this.Carburantchart.Name = "Carburantchart";
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Total Report et Achat";
+            series8.ChartArea = "ChartArea1";
+            series8.Legend = "Legend1";
+            series8.Name = "Total Consommation";
+            this.Carburantchart.Series.Add(series7);
+            this.Carburantchart.Series.Add(series8);
+            this.Carburantchart.Size = new System.Drawing.Size(541, 277);
+            this.Carburantchart.TabIndex = 3;
+            this.Carburantchart.Text = "chart1";
+            title4.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title4.Name = "Title1";
+            title4.Text = "Consommation Carburant";
+            this.Carburantchart.Titles.Add(title4);
             // 
             // Form1
             // 
@@ -1238,13 +1242,13 @@ namespace ParcAuto
             this.panelLogo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.FormsPlace.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Carburantchart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TransportChart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carteFreeChart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ReparationChart)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ReparationChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carteFreeChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TransportChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Carburantchart)).EndInit();
             this.ResumeLayout(false);
 
         }

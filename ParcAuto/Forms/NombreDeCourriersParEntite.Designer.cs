@@ -263,6 +263,7 @@ namespace ParcAuto.Forms
             // chart1
             // 
             chartArea1.AxisX.Interval = 1D;
+            chartArea1.AxisX.MajorGrid.Enabled = false;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -288,6 +289,7 @@ namespace ParcAuto.Forms
             // chart2
             // 
             chartArea2.AxisX.Interval = 1D;
+            chartArea2.AxisX.MajorGrid.Enabled = false;
             chartArea2.Name = "ChartArea1";
             this.chart2.ChartAreas.Add(chartArea2);
             this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
