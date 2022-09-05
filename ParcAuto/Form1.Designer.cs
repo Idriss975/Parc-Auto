@@ -1142,6 +1142,18 @@ namespace ParcAuto
             this.lblCarburant.TabIndex = 1;
             this.lblCarburant.Text = "lblCarburant";
             // 
+            // lblCarburant
+            // 
+            this.lblCarburant.AutoSize = true;
+            this.lblCarburant.BackColor = System.Drawing.Color.Transparent;
+            this.lblCarburant.Font = new System.Drawing.Font("Microsoft New Tai Lue", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCarburant.ForeColor = System.Drawing.Color.Black;
+            this.lblCarburant.Location = new System.Drawing.Point(3, 0);
+            this.lblCarburant.Name = "lblCarburant";
+            this.lblCarburant.Size = new System.Drawing.Size(72, 15);
+            this.lblCarburant.TabIndex = 1;
+            this.lblCarburant.Text = "lblCarburant";
+            // 
             // lblReparation
             // 
             this.lblReparation.AutoSize = true;
