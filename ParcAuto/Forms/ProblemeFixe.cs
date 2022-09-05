@@ -116,6 +116,23 @@ namespace ParcAuto.Forms
                 GLB.Con.Close();
             }
         }
+        private void ChartFixe_NonFixe()
+        {
+            GLB.Cmd.CommandText = $"select count(*) from Maintenance where EtatActuelle = 'Fixé' union select count(*) from Maintenance where EtatActuelle = 'Non Fixé' ";
+            GLB.Con.Open();
+            GLB.dr = GLB.Cmd.ExecuteReader();
+            if (GLB.dr.Read())
+                chart1.Series["Fixé"].Points.AddXY("Fixé", GLB.dr[0]);
+            //chart1.Series["Fixé"].Points.Add(Convert.ToDouble(GLB.dr[0]));
+            if (GLB.dr.Read())
+                chart1.Series["Non Fixé"].Points.AddXY("Non Fixé", 1);
+            //chart1.Series["Non Fixé"].Points.Add(Convert.ToDouble(GLB.dr[0]));
+            //chart1.Series["Fixé"].Points.AddXY("", GLB.dr[1]);
+            GLB.dr.Close();
+            GLB.Con.Close();
+
+
+        }
         private void ProblemeFixe_Load(object sender, EventArgs e)
         {
             panelDate.Visible = false;
@@ -123,6 +140,7 @@ namespace ParcAuto.Forms
             Permissions();
             RemplirLaGrille();
             GLB.StyleDataGridView(dgvMaitenance);
+            ChartFixe_NonFixe();
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
