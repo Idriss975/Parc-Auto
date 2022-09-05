@@ -54,11 +54,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                {
-                    chart1.Series["Entite"].Points.AddXY(" ", GLB.dr[1].ToString());
-                    chart1.Series["Entite"].Points[i].Label = GLB.dr[0].ToString() + " " + GLB.dr[1].ToString();
-                    i++;
-                }
+                    chart1.Series["Entite"].Points.AddXY(GLB.dr["Entite"].ToString(), GLB.dr[1]);
             }
             catch (Exception ex)
             {
