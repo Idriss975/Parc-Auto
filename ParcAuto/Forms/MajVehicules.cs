@@ -148,7 +148,8 @@ namespace ParcAuto.Forms
                         case Choix.supprimer:
                             throw new Exception("Impossible de supprimer dans l'interface MajVehicules.");
                     }
-
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
                     GLB.Con.Open();
                     GLB.Cmd.ExecuteNonQuery();
                     this.Close();

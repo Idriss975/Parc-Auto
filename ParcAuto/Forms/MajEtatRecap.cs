@@ -141,6 +141,8 @@ namespace ParcAuto.Forms
 
                         GLB.Cmd.Parameters.AddWithValue("@reporttrans", txtReportTrans.Text);
                         GLB.Cmd.Parameters.AddWithValue("@achattrans", txtAchatCarte.Text);
+                        if (GLB.Con.State == ConnectionState.Open)
+                            GLB.Con.Close();
                         GLB.Con.Open();
                         GLB.Cmd.ExecuteNonQuery();
                         GLB.Con.Close();

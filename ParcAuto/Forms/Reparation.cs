@@ -27,6 +27,8 @@ namespace ParcAuto.Forms
             {
                 dgvReparation.Rows.Clear();
                 GLB.Cmd.CommandText = $"Select * from Reparation where year(Date) = '{GLB.SelectedDate}'";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
@@ -53,6 +55,8 @@ namespace ParcAuto.Forms
             {
                 dgvReparation.Rows.Clear();
                 GLB.Cmd.CommandText = $"Select * from Reparation where year(Date) = '{GLB.SelectedDate}'";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
@@ -218,6 +222,8 @@ namespace ParcAuto.Forms
         {
             try
             {
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 for (int i = 0; i < dgvReparation.SelectedRows.Count; i++)
                 {
@@ -392,6 +398,8 @@ namespace ParcAuto.Forms
         {
             try
             {
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 for (int i = 0; i < dgvReparation.Rows.Count; i++)
                 {

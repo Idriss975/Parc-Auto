@@ -26,6 +26,8 @@ namespace ParcAuto.Forms
             try
             {
                 GLB.Cmd.CommandText = "select * from VehiculesPRD";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
@@ -80,6 +82,8 @@ namespace ParcAuto.Forms
                   "ON permit.grantee_principal_id = pri.principal_id " +
                   "WHERE object_name(permit.major_id) = 'VehiculesPRD' " +
                   $"and pri.name = SUSER_NAME()";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
@@ -152,8 +156,6 @@ namespace ParcAuto.Forms
 
                 for (int i = 1; i < dgvVehicules.SelectedRows.Count; i++)
                     outp += $" or Matricule = '{dgvVehicules.SelectedRows[i].Cells[1].Value}'";
-
-                MessageBox.Show(outp);
 
                 GLB.Cmd.CommandText = outp;
                 GLB.Con.Open();

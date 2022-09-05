@@ -36,6 +36,8 @@ namespace ParcAuto.Forms
                   "ON permit.grantee_principal_id = pri.principal_id " +
                   "WHERE object_name(permit.major_id) = 'Missions' " +
                   $"and pri.name = SUSER_NAME()";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
@@ -88,6 +90,8 @@ namespace ParcAuto.Forms
             {
 
                 GLB.Cmd.CommandText = $"select * from Missions";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
@@ -112,6 +116,8 @@ namespace ParcAuto.Forms
             {
 
                 GLB.Cmd.CommandText = $"select Entite , count(*) from Missions group by Entite";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
@@ -197,6 +203,8 @@ namespace ParcAuto.Forms
         {
             try
             {
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 for (int i = 0; i < dgvMissions.SelectedRows.Count; i++)
                 {
@@ -220,6 +228,8 @@ namespace ParcAuto.Forms
         {
             try
             {
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 for (int i = 0; i < dgvMissions.Rows.Count; i++)
                 {

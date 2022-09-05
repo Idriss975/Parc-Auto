@@ -24,6 +24,8 @@ namespace ParcAuto.Forms
             {
 
                 GLB.Cmd.CommandText = $"select * from EtatJournalier";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())

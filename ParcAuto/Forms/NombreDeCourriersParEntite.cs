@@ -23,6 +23,8 @@ namespace ParcAuto.Forms
             try
             {
                 GLB.Cmd.CommandText = $"select * from NombreDeCourriersParEntite where annee = {GLB.SelectedDate}";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
@@ -51,6 +53,8 @@ namespace ParcAuto.Forms
             {
                 int i = 0;
                 GLB.Cmd.CommandText = $"select Entite , total from NombreDeCourriersParEntite where annee = {GLB.SelectedDate}";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
@@ -77,6 +81,8 @@ namespace ParcAuto.Forms
             try
             {
                 int i = 0;
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.Cmd.CommandText = $"select SUM(isnull(janvier,0))  , SUM(isnull(fevrier,0)),SUM(isnull(mars,0)),SUM(isnull(avril,0)),SUM(isnull(mai,0)),SUM(isnull(juin,0))," +
                     $" SUM(isnull(juillet, 0)),SUM(isnull(aout, 0)),SUM(isnull(septembre, 0)),SUM(isnull(octobre, 0)) ,SUM(isnull(novembre, 0)) ,SUM(isnull(decembre, 0)) from NombreDeCourriersParEntite" +

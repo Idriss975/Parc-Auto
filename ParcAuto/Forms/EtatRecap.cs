@@ -23,6 +23,8 @@ namespace ParcAuto.Forms
             try
             {
                 GLB.Cmd.CommandText = $"select * from EtatRecapCarburantSNTL where Annee = {GLB.SelectedDate}";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 if (GLB.dr.Read())
@@ -56,6 +58,8 @@ namespace ParcAuto.Forms
             try
             {
                 GLB.Cmd.CommandText = $"select * from EtatRecapCartefree where Annee = {GLB.SelectedDate}";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 if (GLB.dr.Read())
@@ -89,6 +93,8 @@ namespace ParcAuto.Forms
             try
             {
                 GLB.Cmd.CommandText = $"select * from EtatRecapReparation where Annee = {GLB.SelectedDate}";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 if (GLB.dr.Read())
@@ -121,6 +127,8 @@ namespace ParcAuto.Forms
             try
             {
                 GLB.Cmd.CommandText = $"select * from EtatRecapTransport where Annee = {GLB.SelectedDate}";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 if (GLB.dr.Read())
@@ -158,6 +166,8 @@ namespace ParcAuto.Forms
                 GLB.Cmd.Parameters.Clear();
                 GLB.Cmd.CommandText = "select * from Directions where Annee = @Annee";
                 GLB.Cmd.Parameters.Add("@Annee", SqlDbType.Int).Value = int.Parse(GLB.SelectedDate);
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
