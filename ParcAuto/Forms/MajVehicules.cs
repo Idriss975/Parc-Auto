@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using ParcAuto.Classes_Globale;
-using System.Data.SQLite;
 using GuiLabs.Undo;
 using System.Data.SqlClient;
 
