@@ -281,6 +281,7 @@ namespace ParcAuto.Forms
             // 
             // chart2
             // 
+            chartArea2.AxisX.Interval = 1D;
             chartArea2.Name = "ChartArea1";
             this.chart2.ChartAreas.Add(chartArea2);
             this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
