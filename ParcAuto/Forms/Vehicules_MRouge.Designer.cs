@@ -49,12 +49,6 @@ namespace ParcAuto.Forms
             this.btnSupprimer = new Guna.UI2.WinForms.Guna2Button();
             this.btnModifier = new Guna.UI2.WinForms.Guna2Button();
             this.dgvVehicules = new System.Windows.Forms.DataGridView();
-            this.btnQuitter = new Guna.UI2.WinForms.Guna2Button();
-            this.btnSuprimmerTout = new Guna.UI2.WinForms.Guna2Button();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +59,12 @@ namespace ParcAuto.Forms
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnQuitter = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSuprimmerTout = new Guna.UI2.WinForms.Guna2Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.TextPanel.SuspendLayout();
             this.panelDate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicules)).BeginInit();
@@ -409,77 +409,6 @@ namespace ParcAuto.Forms
             this.dgvVehicules.TabIndex = 29;
             this.dgvVehicules.DoubleClick += new System.EventHandler(this.dgvVehicules_DoubleClick);
             // 
-            // btnQuitter
-            // 
-            this.btnQuitter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnQuitter.BorderRadius = 4;
-            this.btnQuitter.CheckedState.Parent = this.btnQuitter;
-            this.btnQuitter.CustomImages.Parent = this.btnQuitter;
-            this.btnQuitter.FillColor = System.Drawing.Color.Crimson;
-            this.btnQuitter.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnQuitter.ForeColor = System.Drawing.Color.White;
-            this.btnQuitter.HoverState.Parent = this.btnQuitter;
-            this.btnQuitter.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitter.Image")));
-            this.btnQuitter.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnQuitter.Location = new System.Drawing.Point(1064, 12);
-            this.btnQuitter.Margin = new System.Windows.Forms.Padding(4);
-            this.btnQuitter.Name = "btnQuitter";
-            this.btnQuitter.ShadowDecoration.Parent = this.btnQuitter;
-            this.btnQuitter.Size = new System.Drawing.Size(40, 40);
-            this.btnQuitter.TabIndex = 28;
-            this.btnQuitter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
-            // 
-            // btnSuprimmerTout
-            // 
-            this.btnSuprimmerTout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSuprimmerTout.BorderRadius = 4;
-            this.btnSuprimmerTout.CheckedState.Parent = this.btnSuprimmerTout;
-            this.btnSuprimmerTout.CustomImages.Parent = this.btnSuprimmerTout;
-            this.btnSuprimmerTout.FillColor = System.Drawing.Color.Tomato;
-            this.btnSuprimmerTout.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnSuprimmerTout.ForeColor = System.Drawing.Color.White;
-            this.btnSuprimmerTout.HoverState.Parent = this.btnSuprimmerTout;
-            this.btnSuprimmerTout.Image = ((System.Drawing.Image)(resources.GetObject("btnSuprimmerTout.Image")));
-            this.btnSuprimmerTout.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnSuprimmerTout.Location = new System.Drawing.Point(123, 625);
-            this.btnSuprimmerTout.Margin = new System.Windows.Forms.Padding(5);
-            this.btnSuprimmerTout.Name = "btnSuprimmerTout";
-            this.btnSuprimmerTout.ShadowDecoration.Parent = this.btnSuprimmerTout;
-            this.btnSuprimmerTout.Size = new System.Drawing.Size(140, 30);
-            this.btnSuprimmerTout.TabIndex = 57;
-            this.btnSuprimmerTout.Text = "Supprimer Tout";
-            this.btnSuprimmerTout.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnSuprimmerTout.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
-            this.btnSuprimmerTout.Click += new System.EventHandler(this.btnSuprimmerTout_Click);
-            // 
-            // printDocument1
-            // 
-            this.printDocument1.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument1_BeginPrint);
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
-            // printDialog1
-            // 
-            this.printDialog1.Document = this.printDocument1;
-            this.printDialog1.UseEXDialog = true;
-            // 
-            // printPreviewDialog1
-            // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.Document = this.printDocument1;
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.Visible = false;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "OFPPT_logo.png");
-            // 
             // Column2
             // 
             this.Column2.HeaderText = "Marque";
@@ -549,6 +478,77 @@ namespace ParcAuto.Forms
             this.Column7.MinimumWidth = 8;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
+            // 
+            // btnQuitter
+            // 
+            this.btnQuitter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQuitter.BorderRadius = 4;
+            this.btnQuitter.CheckedState.Parent = this.btnQuitter;
+            this.btnQuitter.CustomImages.Parent = this.btnQuitter;
+            this.btnQuitter.FillColor = System.Drawing.Color.Crimson;
+            this.btnQuitter.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnQuitter.ForeColor = System.Drawing.Color.White;
+            this.btnQuitter.HoverState.Parent = this.btnQuitter;
+            this.btnQuitter.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitter.Image")));
+            this.btnQuitter.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnQuitter.Location = new System.Drawing.Point(1064, 12);
+            this.btnQuitter.Margin = new System.Windows.Forms.Padding(4);
+            this.btnQuitter.Name = "btnQuitter";
+            this.btnQuitter.ShadowDecoration.Parent = this.btnQuitter;
+            this.btnQuitter.Size = new System.Drawing.Size(40, 40);
+            this.btnQuitter.TabIndex = 28;
+            this.btnQuitter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
+            // 
+            // btnSuprimmerTout
+            // 
+            this.btnSuprimmerTout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSuprimmerTout.BorderRadius = 4;
+            this.btnSuprimmerTout.CheckedState.Parent = this.btnSuprimmerTout;
+            this.btnSuprimmerTout.CustomImages.Parent = this.btnSuprimmerTout;
+            this.btnSuprimmerTout.FillColor = System.Drawing.Color.Tomato;
+            this.btnSuprimmerTout.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSuprimmerTout.ForeColor = System.Drawing.Color.White;
+            this.btnSuprimmerTout.HoverState.Parent = this.btnSuprimmerTout;
+            this.btnSuprimmerTout.Image = ((System.Drawing.Image)(resources.GetObject("btnSuprimmerTout.Image")));
+            this.btnSuprimmerTout.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnSuprimmerTout.Location = new System.Drawing.Point(123, 625);
+            this.btnSuprimmerTout.Margin = new System.Windows.Forms.Padding(5);
+            this.btnSuprimmerTout.Name = "btnSuprimmerTout";
+            this.btnSuprimmerTout.ShadowDecoration.Parent = this.btnSuprimmerTout;
+            this.btnSuprimmerTout.Size = new System.Drawing.Size(140, 30);
+            this.btnSuprimmerTout.TabIndex = 57;
+            this.btnSuprimmerTout.Text = "Supprimer Tout";
+            this.btnSuprimmerTout.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnSuprimmerTout.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnSuprimmerTout.Click += new System.EventHandler(this.btnSuprimmerTout_Click);
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument1_BeginPrint);
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.Document = this.printDocument1;
+            this.printDialog1.UseEXDialog = true;
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "OFPPT_logo.png");
             // 
             // Vehicules_MRouge
             // 

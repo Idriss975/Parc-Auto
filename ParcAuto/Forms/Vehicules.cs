@@ -355,11 +355,11 @@ namespace ParcAuto.Forms
                         matricule = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
                         Misencirculation = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value));
                         type = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
-                        carburant = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value);
-                        affectation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
-                        conducteur = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
-                        Dnomination = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value);
-                        observation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 9].value);
+                        carburant = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
+                        affectation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
+                        conducteur = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value);
+                        Dnomination = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 9].value);
+                        observation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 10].value);
                       
 
 
@@ -371,7 +371,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@txtCarburant", carburant ?? "");
                         GLB.Cmd.Parameters.AddWithValue("@cmbType", type ?? "");
                         GLB.Cmd.Parameters.AddWithValue("@txtAffectation", affectation ?? "");
-                        GLB.Cmd.Parameters.AddWithValue("@TempMatricule", conducteur ?? (object)DBNull.Value);
+                        GLB.Cmd.Parameters.AddWithValue("@TempMatricule", conducteur.ToLower() == "sans conducteur" || conducteur is null ? (object)DBNull.Value : conducteur); 
                         GLB.Cmd.Parameters.AddWithValue("@txtDnomination", Dnomination ?? "");
                         GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation ?? "");
                         GLB.Cmd.ExecuteNonQuery();
