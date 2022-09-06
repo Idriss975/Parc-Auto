@@ -258,7 +258,7 @@ namespace ParcAuto.Forms
         {
             
 
-            Impression.Drawonprintdoc(e, dgvTransport, imageList1.Images["OFPPT_logo.png"], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6),0,Titre:"Vignettes transport", Total: Fiche_impress ? "Fiche d'impression" : $"Total: {lblSommePrix.Text}");
+            Impression.Drawonprintdoc(e, dgvTransport, imageList1.Images["OFPPT_logo.png"], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6),0,Titre: Fiche_impress ? "Fiche d'impression" : "Vignettes transport", Total: $"Total: {lblSommePrix.Text}");
             if (Fiche_impress)
             {
                 e.Graphics.DrawRectangle(Pens.Black, new System.Drawing.Rectangle(30, e.PageSettings.PaperSize.Height - 220, e.PageSettings.PaperSize.Width - 60, 120));
