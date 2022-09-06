@@ -44,13 +44,13 @@ namespace ParcAuto.Forms
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtMatricule = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cmbVehicule = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtObjet = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMontant = new Guna.UI2.WinForms.Guna2TextBox();
             this.rbEntretien = new System.Windows.Forms.RadioButton();
             this.rbRepartion = new System.Windows.Forms.RadioButton();
-            this.cmbVehicule = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,9 +105,9 @@ namespace ParcAuto.Forms
             this.label3.Location = new System.Drawing.Point(4, 71);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 17);
+            this.label3.Size = new System.Drawing.Size(73, 17);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Vehicule :";
+            this.label3.Text = "Matricule :";
             // 
             // label4
             // 
@@ -116,9 +116,9 @@ namespace ParcAuto.Forms
             this.label4.Location = new System.Drawing.Point(394, 71);
             this.label4.Margin = new System.Windows.Forms.Padding(25, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 17);
+            this.label4.Size = new System.Drawing.Size(70, 17);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Matricule  :";
+            this.label4.Text = "Vehicule :";
             // 
             // txtentite
             // 
@@ -234,7 +234,7 @@ namespace ParcAuto.Forms
             this.Date.Name = "Date";
             this.Date.ShadowDecoration.Parent = this.Date;
             this.Date.Size = new System.Drawing.Size(215, 41);
-            this.Date.TabIndex = 3;
+            this.Date.TabIndex = 5;
             this.Date.Value = new System.DateTime(2022, 7, 6, 13, 23, 5, 144);
             // 
             // lbl
@@ -266,8 +266,8 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.76923F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.45701F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.76923F));
-            this.tableLayoutPanel1.Controls.Add(this.cmbVehicule, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtMatricule, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtMatricule, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cmbVehicule, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.label6, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.Entite, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 2, 0);
@@ -291,9 +291,6 @@ namespace ParcAuto.Forms
             // 
             // txtMatricule
             // 
-            this.txtMatricule.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtMatricule.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtMatricule.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtMatricule.BorderRadius = 4;
             this.txtMatricule.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMatricule.DefaultText = "";
@@ -306,15 +303,43 @@ namespace ParcAuto.Forms
             this.txtMatricule.FocusedState.Parent = this.txtMatricule;
             this.txtMatricule.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMatricule.HoverState.Parent = this.txtMatricule;
-            this.txtMatricule.Location = new System.Drawing.Point(523, 60);
+            this.txtMatricule.Location = new System.Drawing.Point(149, 60);
             this.txtMatricule.Margin = new System.Windows.Forms.Padding(9, 7, 9, 7);
             this.txtMatricule.Name = "txtMatricule";
             this.txtMatricule.PasswordChar = '\0';
             this.txtMatricule.PlaceholderText = "";
             this.txtMatricule.SelectedText = "";
             this.txtMatricule.ShadowDecoration.Parent = this.txtMatricule;
-            this.txtMatricule.Size = new System.Drawing.Size(213, 39);
-            this.txtMatricule.TabIndex = 30;
+            this.txtMatricule.Size = new System.Drawing.Size(211, 39);
+            this.txtMatricule.TabIndex = 2;
+            this.txtMatricule.TextChanged += new System.EventHandler(this.txtMatricule_TextChanged);
+            // 
+            // cmbVehicule
+            // 
+            this.cmbVehicule.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbVehicule.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbVehicule.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbVehicule.BorderRadius = 4;
+            this.cmbVehicule.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.cmbVehicule.DefaultText = "";
+            this.cmbVehicule.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.cmbVehicule.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.cmbVehicule.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.cmbVehicule.DisabledState.Parent = this.cmbVehicule;
+            this.cmbVehicule.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.cmbVehicule.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbVehicule.FocusedState.Parent = this.cmbVehicule;
+            this.cmbVehicule.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbVehicule.HoverState.Parent = this.cmbVehicule;
+            this.cmbVehicule.Location = new System.Drawing.Point(523, 60);
+            this.cmbVehicule.Margin = new System.Windows.Forms.Padding(9, 7, 9, 7);
+            this.cmbVehicule.Name = "cmbVehicule";
+            this.cmbVehicule.PasswordChar = '\0';
+            this.cmbVehicule.PlaceholderText = "";
+            this.cmbVehicule.SelectedText = "";
+            this.cmbVehicule.ShadowDecoration.Parent = this.cmbVehicule;
+            this.cmbVehicule.Size = new System.Drawing.Size(213, 39);
+            this.cmbVehicule.TabIndex = 3;
             // 
             // label6
             // 
@@ -385,7 +410,7 @@ namespace ParcAuto.Forms
             this.txtMontant.SelectedText = "";
             this.txtMontant.ShadowDecoration.Parent = this.txtMontant;
             this.txtMontant.Size = new System.Drawing.Size(215, 41);
-            this.txtMontant.TabIndex = 7;
+            this.txtMontant.TabIndex = 6;
             // 
             // rbEntretien
             // 
@@ -408,30 +433,6 @@ namespace ParcAuto.Forms
             this.rbRepartion.TabStop = true;
             this.rbRepartion.Text = "Reparation";
             this.rbRepartion.UseVisualStyleBackColor = true;
-            // 
-            // cmbVehicule
-            // 
-            this.cmbVehicule.BorderRadius = 4;
-            this.cmbVehicule.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.cmbVehicule.DefaultText = "";
-            this.cmbVehicule.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.cmbVehicule.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.cmbVehicule.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.cmbVehicule.DisabledState.Parent = this.cmbVehicule;
-            this.cmbVehicule.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.cmbVehicule.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbVehicule.FocusedState.Parent = this.cmbVehicule;
-            this.cmbVehicule.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbVehicule.HoverState.Parent = this.cmbVehicule;
-            this.cmbVehicule.Location = new System.Drawing.Point(149, 60);
-            this.cmbVehicule.Margin = new System.Windows.Forms.Padding(9, 7, 9, 7);
-            this.cmbVehicule.Name = "cmbVehicule";
-            this.cmbVehicule.PasswordChar = '\0';
-            this.cmbVehicule.PlaceholderText = "";
-            this.cmbVehicule.SelectedText = "";
-            this.cmbVehicule.ShadowDecoration.Parent = this.cmbVehicule;
-            this.cmbVehicule.Size = new System.Drawing.Size(211, 39);
-            this.cmbVehicule.TabIndex = 30;
             // 
             // MajReparation
             // 
@@ -482,8 +483,8 @@ namespace ParcAuto.Forms
         private Guna.UI2.WinForms.Guna2TextBox txtMontant;
         private System.Windows.Forms.RadioButton rbEntretien;
         private System.Windows.Forms.RadioButton rbRepartion;
-        private Guna.UI2.WinForms.Guna2TextBox txtMatricule;
-        private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2TextBox cmbVehicule;
+        private System.Windows.Forms.Label label6;
+        private Guna.UI2.WinForms.Guna2TextBox txtMatricule;
     }
 }

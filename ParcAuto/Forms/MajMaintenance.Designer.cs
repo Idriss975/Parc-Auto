@@ -47,12 +47,12 @@ namespace ParcAuto.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNumero = new Guna.UI2.WinForms.Guna2TextBox();
-            this.cmbType_intervention = new Guna.UI2.WinForms.Guna2ComboBox();
             this.DateReclamation = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnAppliquer = new Guna.UI2.WinForms.Guna2Button();
             this.lbl = new System.Windows.Forms.Label();
             this.btnClear = new Guna.UI2.WinForms.Guna2Button();
+            this.cmbType_intervention = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,8 +79,8 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Controls.Add(this.label2, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtNumero, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cmbType_intervention, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.DateReclamation, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.cmbType_intervention, 3, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 51);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -322,9 +322,9 @@ namespace ParcAuto.Forms
             this.label2.Location = new System.Drawing.Point(371, 15);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 16);
+            this.label2.Size = new System.Drawing.Size(73, 16);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Article :";
+            this.label2.Text = "Problème :";
             // 
             // label1
             // 
@@ -360,31 +360,6 @@ namespace ParcAuto.Forms
             this.txtNumero.ShadowDecoration.Parent = this.txtNumero;
             this.txtNumero.Size = new System.Drawing.Size(202, 32);
             this.txtNumero.TabIndex = 1;
-            // 
-            // cmbType_intervention
-            // 
-            this.cmbType_intervention.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbType_intervention.BackColor = System.Drawing.Color.Transparent;
-            this.cmbType_intervention.BorderRadius = 4;
-            this.cmbType_intervention.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbType_intervention.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbType_intervention.FocusedColor = System.Drawing.Color.Empty;
-            this.cmbType_intervention.FocusedState.Parent = this.cmbType_intervention;
-            this.cmbType_intervention.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbType_intervention.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cmbType_intervention.FormattingEnabled = true;
-            this.cmbType_intervention.HoverState.Parent = this.cmbType_intervention;
-            this.cmbType_intervention.ItemHeight = 30;
-            this.cmbType_intervention.Items.AddRange(new object[] {
-            "Reparation",
-            "Fixation",
-            "Changement"});
-            this.cmbType_intervention.ItemsAppearance.Parent = this.cmbType_intervention;
-            this.cmbType_intervention.Location = new System.Drawing.Point(520, 51);
-            this.cmbType_intervention.Name = "cmbType_intervention";
-            this.cmbType_intervention.ShadowDecoration.Parent = this.cmbType_intervention;
-            this.cmbType_intervention.Size = new System.Drawing.Size(202, 36);
-            this.cmbType_intervention.TabIndex = 4;
             // 
             // DateReclamation
             // 
@@ -483,6 +458,31 @@ namespace ParcAuto.Forms
             this.btnClear.TabIndex = 23;
             this.btnClear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // cmbType_intervention
+            // 
+            this.cmbType_intervention.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbType_intervention.BorderRadius = 4;
+            this.cmbType_intervention.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.cmbType_intervention.DefaultText = "";
+            this.cmbType_intervention.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.cmbType_intervention.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.cmbType_intervention.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.cmbType_intervention.DisabledState.Parent = this.cmbType_intervention;
+            this.cmbType_intervention.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.cmbType_intervention.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbType_intervention.FocusedState.Parent = this.cmbType_intervention;
+            this.cmbType_intervention.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbType_intervention.HoverState.Parent = this.cmbType_intervention;
+            this.cmbType_intervention.Location = new System.Drawing.Point(519, 52);
+            this.cmbType_intervention.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.cmbType_intervention.Name = "cmbType_intervention";
+            this.cmbType_intervention.PasswordChar = '\0';
+            this.cmbType_intervention.PlaceholderText = "";
+            this.cmbType_intervention.SelectedText = "";
+            this.cmbType_intervention.ShadowDecoration.Parent = this.cmbType_intervention;
+            this.cmbType_intervention.Size = new System.Drawing.Size(203, 34);
+            this.cmbType_intervention.TabIndex = 17;
+            // 
             // MajMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -524,7 +524,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox txtNumero;
-        private Guna.UI2.WinForms.Guna2ComboBox cmbType_intervention;
         private Guna.UI2.WinForms.Guna2DateTimePicker DateReclamation;
         private Guna.UI2.WinForms.Guna2TextBox DateReparation;
         private Guna.UI2.WinForms.Guna2TextBox txtEmplacement;
@@ -532,5 +531,6 @@ namespace ParcAuto.Forms
         private Guna.UI2.WinForms.Guna2Button btnAppliquer;
         private System.Windows.Forms.Label lbl;
         private Guna.UI2.WinForms.Guna2Button btnClear;
+        private Guna.UI2.WinForms.Guna2TextBox cmbType_intervention;
     }
 }

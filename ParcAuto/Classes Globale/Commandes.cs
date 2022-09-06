@@ -25,7 +25,8 @@ namespace ParcAuto.Classes_Globale
     public enum Probleme
     {
         Fixe,
-        Non_Fixe
+        Non_Fixe,
+        Global
     }
     public class Commandes
     {

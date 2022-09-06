@@ -147,7 +147,7 @@ namespace ParcAuto.Forms
         {
             DateReclamation.Value = DateTime.Now;
             cmbEtatActuelle.SelectedIndex = 0;
-            cmbType_intervention.SelectedIndex = 0;
+            cmbType_intervention.Text = "Reparation";
             switch (Commandes.Command)
             {
                 case Choix.ajouter:

@@ -93,6 +93,9 @@ namespace ParcAuto.Forms
                 case Probleme.Non_Fixe:
                     GLB.Cmd.CommandText = $"select * from Maintenance where Year(DateReclamation) = '{GLB.SelectedDate}' and EtatActuelle = 'Non Fixé'";
                     break;
+                case Probleme.Global:
+                    GLB.Cmd.CommandText = $"select * from Maintenance where Year(DateReclamation) = '{GLB.SelectedDate}'";
+                    break;
             }
             
             try
@@ -118,28 +121,33 @@ namespace ParcAuto.Forms
         }
         private void ChartFixe_NonFixe()
         {
-            int somme = 0;
+            float somme = 0;
+            float ligne1 = 0;
+            float ligne2 = 0;
             GLB.Cmd.CommandText = $"select count(*) from Maintenance where EtatActuelle = 'Fixé' and Year(DateReclamation) = {GLB.SelectedDate} union all select count(*) from Maintenance where EtatActuelle = 'Non Fixé' and Year(DateReclamation) = {GLB.SelectedDate}";
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             if (GLB.dr.Read())
             {
-                chart1.Series["Les problème Fixé et Non Fixé"].Points.AddXY($"Fixé {(GLB.dr[0])}", GLB.dr[0]);
-                somme += int.Parse(GLB.dr[0].ToString());
+                somme += float.Parse(GLB.dr[0].ToString());
+                ligne1 = float.Parse(GLB.dr[0].ToString());
             }
             if (GLB.dr.Read())
             {
-                chart1.Series["Les problème Fixé et Non Fixé"].Points.AddXY($"Non Fixé {(GLB.dr[0])}", GLB.dr[0]);
-                somme += int.Parse(GLB.dr[0].ToString());
+                somme += float.Parse(GLB.dr[0].ToString());
+                ligne2 = float.Parse(GLB.dr[0].ToString());
             }
             GLB.dr.Close();
+            lbl.Text = $"Le total est = {somme}\nFixé : {Math.Round((ligne1 / somme) * 100,2)}%\nNon Fixé : {Math.Round((ligne2 / somme) * 100,2)}%";
+            chart1.Series["Les problème Fixé et Non Fixé"].Points.AddXY($"Non Fixé", ligne2);
+            chart1.Series["Les problème Fixé et Non Fixé"].Points.AddXY($"Fixé", ligne1);
             GLB.Con.Close();
-            lbl.Text = $"Le total est = {somme}";
 
 
         }
         private void ProblemeFixe_Load(object sender, EventArgs e)
         {
+            cmbChoix.SelectedIndex = 0;
             panelDate.Visible = false;
             TextPanel.Visible = true;
             Permissions();

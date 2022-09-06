@@ -539,5 +539,11 @@ namespace ParcAuto
             Commandes.probleme = Probleme.Non_Fixe;
             openChildForm(new Forms.ProblemeFixe(), sender);
         }
+
+        private void btnGLB_Click(object sender, EventArgs e)
+        {
+            Commandes.probleme = Probleme.Global;
+            openChildForm(new Forms.ProblemeFixe(), sender);
+        }
     }
 }
