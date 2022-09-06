@@ -36,7 +36,6 @@ namespace ParcAuto.Forms
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btnImprimer = new Guna.UI2.WinForms.Guna2Button();
             this.btnImportExcel = new Guna.UI2.WinForms.Guna2Button();
             this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
@@ -584,26 +583,21 @@ namespace ParcAuto.Forms
             // 
             // chart1
             // 
+            chartArea1.AxisX.MajorGrid.Enabled = false;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(29, 102);
+            this.chart1.Location = new System.Drawing.Point(1, 102);
             this.chart1.Name = "chart1";
-            series1.BorderColor = System.Drawing.Color.Blue;
+            series1.BorderColor = System.Drawing.Color.White;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Color = System.Drawing.Color.Green;
+            series1.Color = System.Drawing.Color.Blue;
             series1.Legend = "Legend1";
-            series1.Name = "Fixé";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Color = System.Drawing.Color.Blue;
-            series2.Legend = "Legend1";
-            series2.Name = "Non Fixé";
+            series1.Name = "Les problème Fixé et Non Fixé";
             this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(409, 248);
+            this.chart1.Size = new System.Drawing.Size(561, 248);
             this.chart1.TabIndex = 75;
             this.chart1.Text = "chart1";
             // 

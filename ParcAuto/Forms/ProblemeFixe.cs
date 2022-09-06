@@ -118,16 +118,17 @@ namespace ParcAuto.Forms
         }
         private void ChartFixe_NonFixe()
         {
-            GLB.Cmd.CommandText = $"select count(*) from Maintenance where EtatActuelle = 'Fixé' union select count(*) from Maintenance where EtatActuelle = 'Non Fixé' ";
+            GLB.Cmd.CommandText = $"select count(*) from Maintenance where EtatActuelle = 'Fixé' and Year(DateReclamation) = {GLB.SelectedDate} union all select count(*) from Maintenance where EtatActuelle = 'Non Fixé' and Year(DateReclamation) = {GLB.SelectedDate}";
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             if (GLB.dr.Read())
-                chart1.Series["Fixé"].Points.AddXY("Fixé", GLB.dr[0]);
-            //chart1.Series["Fixé"].Points.Add(Convert.ToDouble(GLB.dr[0]));
+            {
+                chart1.Series["Les problème Fixé et Non Fixé"].Points.AddXY($"Fixé {(GLB.dr[0])}", GLB.dr[0]);
+            }
             if (GLB.dr.Read())
-                chart1.Series["Non Fixé"].Points.AddXY("Non Fixé", 1);
-            //chart1.Series["Non Fixé"].Points.Add(Convert.ToDouble(GLB.dr[0]));
-            //chart1.Series["Fixé"].Points.AddXY("", GLB.dr[1]);
+            {
+                chart1.Series["Les problème Fixé et Non Fixé"].Points.AddXY($"Non Fixé {(GLB.dr[0])}", GLB.dr[0]);
+            }
             GLB.dr.Close();
             GLB.Con.Close();
 
