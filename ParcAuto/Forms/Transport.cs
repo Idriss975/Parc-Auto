@@ -256,9 +256,15 @@ namespace ParcAuto.Forms
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            if (!Fiche_impress)
-                Impression.Drawonprintdoc(e, dgvTransport, imageList1.Images["OFPPT_logo.png"], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6),0,Titre:"Vignettes transport", Total:$"Total: {lblSommePrix.Text}");
-            else
+            
+
+            Impression.Drawonprintdoc(e, dgvTransport, imageList1.Images["OFPPT_logo.png"], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6),0,Titre:"Vignettes transport", Total:$"Total: {lblSommePrix.Text}");
+            if (Fiche_impress)
+            {
+                e.Graphics.DrawRectangle(Pens.Black, new System.Drawing.Rectangle(30, e.PageSettings.PaperSize.Height - 220, e.PageSettings.PaperSize.Width - 60, 120));
+                e.Graphics.DrawString("Instructions de la DAL:", new System.Drawing.Font("Arial", 9, FontStyle.Bold), Brushes.Black, 30, e.PageSettings.PaperSize.Height - 235);
+            }
+            /*else
             {
                 string Recherches = "";
                 foreach (DataGridViewRow item in dgvTransport.Rows)
@@ -292,7 +298,7 @@ namespace ParcAuto.Forms
                 e.Graphics.DrawRectangle(Pens.Black, new System.Drawing.Rectangle(Entite.x, Total.y + Total.heigth + 100, Width_table * 2, (794 - Total.y - Total.heigth)/2));
 
                 e.Graphics.DrawString("Instructions de la DAL:", new System.Drawing.Font("Arial", 9, FontStyle.Bold), Brushes.Black, Entite.x, Total.y + Total.heigth + 80);
-            }
+            }*/
         }
         private void btnImprimer_Click(object sender, EventArgs e)
         {
