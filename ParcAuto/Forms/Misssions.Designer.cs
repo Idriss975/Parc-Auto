@@ -517,14 +517,14 @@ namespace ParcAuto.Forms
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvMissions.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvMissions.Location = new System.Drawing.Point(1, 78);
+            this.dgvMissions.Location = new System.Drawing.Point(0, 98);
             this.dgvMissions.Margin = new System.Windows.Forms.Padding(5);
             this.dgvMissions.Name = "dgvMissions";
             this.dgvMissions.ReadOnly = true;
             this.dgvMissions.RowHeadersVisible = false;
             this.dgvMissions.RowHeadersWidth = 62;
             this.dgvMissions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMissions.Size = new System.Drawing.Size(1109, 272);
+            this.dgvMissions.Size = new System.Drawing.Size(1109, 332);
             this.dgvMissions.TabIndex = 61;
             // 
             // Column1
@@ -602,7 +602,7 @@ namespace ParcAuto.Forms
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(9, 360);
+            this.label5.Location = new System.Drawing.Point(8, 435);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(233, 19);
             this.label5.TabIndex = 75;
@@ -635,14 +635,14 @@ namespace ParcAuto.Forms
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvNbMissions.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvNbMissions.Location = new System.Drawing.Point(12, 384);
+            this.dgvNbMissions.Location = new System.Drawing.Point(0, 460);
             this.dgvNbMissions.Margin = new System.Windows.Forms.Padding(5);
             this.dgvNbMissions.Name = "dgvNbMissions";
             this.dgvNbMissions.ReadOnly = true;
             this.dgvNbMissions.RowHeadersVisible = false;
             this.dgvNbMissions.RowHeadersWidth = 62;
             this.dgvNbMissions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvNbMissions.Size = new System.Drawing.Size(565, 234);
+            this.dgvNbMissions.Size = new System.Drawing.Size(565, 159);
             this.dgvNbMissions.TabIndex = 76;
             // 
             // dataGridViewTextBoxColumn1

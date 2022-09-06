@@ -48,6 +48,7 @@ namespace ParcAuto.Forms
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
             this.btnQuitter = new Guna.UI2.WinForms.Guna2Button();
+            this.btnImprimer = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtatJournalier)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,14 +76,14 @@ namespace ParcAuto.Forms
             this.Column13,
             this.Column14,
             this.Column15});
-            this.dgvEtatJournalier.Location = new System.Drawing.Point(0, 68);
+            this.dgvEtatJournalier.Location = new System.Drawing.Point(0, 98);
             this.dgvEtatJournalier.Margin = new System.Windows.Forms.Padding(4);
             this.dgvEtatJournalier.Name = "dgvEtatJournalier";
             this.dgvEtatJournalier.ReadOnly = true;
             this.dgvEtatJournalier.RowHeadersVisible = false;
             this.dgvEtatJournalier.RowHeadersWidth = 62;
             this.dgvEtatJournalier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEtatJournalier.Size = new System.Drawing.Size(1111, 601);
+            this.dgvEtatJournalier.Size = new System.Drawing.Size(1111, 558);
             this.dgvEtatJournalier.TabIndex = 61;
             // 
             // Column1
@@ -217,11 +218,33 @@ namespace ParcAuto.Forms
             this.btnQuitter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
+            // btnImprimer
+            // 
+            this.btnImprimer.BorderRadius = 4;
+            this.btnImprimer.CheckedState.Parent = this.btnImprimer;
+            this.btnImprimer.CustomImages.Parent = this.btnImprimer;
+            this.btnImprimer.FillColor = System.Drawing.Color.Black;
+            this.btnImprimer.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnImprimer.ForeColor = System.Drawing.Color.White;
+            this.btnImprimer.HoverState.Parent = this.btnImprimer;
+            this.btnImprimer.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimer.Image")));
+            this.btnImprimer.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnImprimer.Location = new System.Drawing.Point(14, 18);
+            this.btnImprimer.Margin = new System.Windows.Forms.Padding(5);
+            this.btnImprimer.Name = "btnImprimer";
+            this.btnImprimer.ShadowDecoration.Parent = this.btnImprimer;
+            this.btnImprimer.Size = new System.Drawing.Size(100, 30);
+            this.btnImprimer.TabIndex = 74;
+            this.btnImprimer.Text = "imprimer";
+            this.btnImprimer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnImprimer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            // 
             // EtatJournalier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 669);
+            this.Controls.Add(this.btnImprimer);
             this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.btnQuitter);
             this.Controls.Add(this.dgvEtatJournalier);
@@ -255,5 +278,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private Guna.UI2.WinForms.Guna2Button btnExportExcel;
         private Guna.UI2.WinForms.Guna2Button btnQuitter;
+        private Guna.UI2.WinForms.Guna2Button btnImprimer;
     }
 }

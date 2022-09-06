@@ -125,23 +125,6 @@ namespace ParcAuto.Forms
                 txtentite.Text = "";
             }
         }
-
-        private void RemplirtxtBenificiaire()
-        {
-            if (GLB.ds.Tables["Conducteurs1"] != null)
-                GLB.ds.Tables["Conducteurs1"].Clear();
-            GLB.da = new SqlDataAdapter("select Nom, Prenom from Conducteurs", GLB.Con);
-            GLB.da.Fill(GLB.ds, "Conducteurs1");
-            AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
-            foreach (DataRow item in GLB.ds.Tables["Conducteurs1"].Rows)
-            {
-                ac.Add(item[0] + " " + item[1]);
-            }
-            txtBenificiaire.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            txtBenificiaire.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            txtBenificiaire.AutoCompleteCustomSource = ac;
-
-        }
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtBenificiaire.Clear();
@@ -171,11 +154,26 @@ namespace ParcAuto.Forms
         {
             this.Close();
         }
+        AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
+        private void RemplirComboBoxBeneficiaire()
+        {
+            if (GLB.ds.Tables["beneficiaires"] != null)
+                GLB.ds.Tables["beneficiaires"].Clear();
+            GLB.da = new SqlDataAdapter($"select DISTINCT beneficiaire from Transport union all select Nom+' ' + Prenom from Conducteurs", GLB.Con);
+            GLB.da.Fill(GLB.ds, "beneficiaires");
 
+            foreach (DataRow item in GLB.ds.Tables["beneficiaires"].Rows)
+            {
+                ac.Add(item[0].ToString());
+            }
+            txtBenificiaire.AutoCompleteCustomSource = ac;
+            txtBenificiaire.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtBenificiaire.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        }
         private void MajTransport_Load(object sender, EventArgs e)
         {
             DateMission.Value = DateTime.Now;
-            RemplirtxtBenificiaire();
+            RemplirComboBoxBeneficiaire();
             txtUtilisation.SelectedIndex = 0;
             switch (Commandes.Command)
             {
