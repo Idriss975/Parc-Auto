@@ -181,6 +181,7 @@ namespace ParcAuto.Forms
 
         private void MajVehicules_Load(object sender, EventArgs e)
         {
+            string abc = Source.GetType().Name;
             if (Source.GetType().Name == "VehiculesPRD")
                 cmbType.Enabled = false;
             else if (Source.GetType().Name == "Vehicules_Location")
@@ -199,7 +200,6 @@ namespace ParcAuto.Forms
             txtCarburant.Text = "Gasoile";
             cmbConducteur.Items.Add(new CmbMatNom(null,"Sans Conducteur"));
             cmbConducteur.SelectedIndex = 0;
-            cmbType.SelectedIndex = 0;
             RemplirComboBoxConducteur();
             switch (Commandes.Command)
             {
