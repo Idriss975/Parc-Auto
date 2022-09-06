@@ -89,5 +89,15 @@ namespace ParcAuto.Forms
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            Impression.number_of_lines = dgvEtatJournalier.Rows.Count;
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Impression.Drawonprintdoc(e,dgvEtatJournalier, imageList1.Images["OFPPT_logo.png"], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6), Titre:"Etat Journalier");
+        }
     }
 }

@@ -199,7 +199,6 @@ namespace ParcAuto.Forms
             txtCarburant.Text = "Gasoile";
             cmbConducteur.Items.Add(new CmbMatNom(null,"Sans Conducteur"));
             cmbConducteur.SelectedIndex = 0;
-            cmbType.SelectedIndex = 0;
             RemplirComboBoxConducteur();
             switch (Commandes.Command)
             {
