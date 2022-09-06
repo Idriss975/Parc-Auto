@@ -88,10 +88,10 @@ namespace ParcAuto.Forms
             switch (Commandes.probleme)
             {
                 case Probleme.Fixe:
-                    GLB.Cmd.CommandText = $"select * from Maintenance where Year(DateReclamation) = '{GLB.SelectedDate}' and EtatActuelle = 'Fixé'";
+                    GLB.Cmd.CommandText = $"select * from Maintenance where Year(DateReclamation) = '{GLB.SelectedDate}' and EtatActuelle = 'Traité'";
                     break;
                 case Probleme.Non_Fixe:
-                    GLB.Cmd.CommandText = $"select * from Maintenance where Year(DateReclamation) = '{GLB.SelectedDate}' and EtatActuelle = 'Non Fixé'";
+                    GLB.Cmd.CommandText = $"select * from Maintenance where Year(DateReclamation) = '{GLB.SelectedDate}' and EtatActuelle = 'Non Traité'";
                     break;
                 case Probleme.Global:
                     GLB.Cmd.CommandText = $"select * from Maintenance where Year(DateReclamation) = '{GLB.SelectedDate}'";
@@ -124,7 +124,7 @@ namespace ParcAuto.Forms
             float somme = 0;
             float ligne1 = 0;
             float ligne2 = 0;
-            GLB.Cmd.CommandText = $"select count(*) from Maintenance where EtatActuelle = 'Fixé' and Year(DateReclamation) = {GLB.SelectedDate} union all select count(*) from Maintenance where EtatActuelle = 'Non Fixé' and Year(DateReclamation) = {GLB.SelectedDate}";
+            GLB.Cmd.CommandText = $"select count(*) from Maintenance where EtatActuelle = 'Traité' and Year(DateReclamation) = {GLB.SelectedDate} union all select count(*) from Maintenance where EtatActuelle = 'Non Traité' and Year(DateReclamation) = {GLB.SelectedDate}";
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             if (GLB.dr.Read())
@@ -139,8 +139,8 @@ namespace ParcAuto.Forms
             }
             GLB.dr.Close();
             lbl.Text = $"Le total est = {somme}\nFixé : {Math.Round((ligne1 / somme) * 100,2)}%\nNon Fixé : {Math.Round((ligne2 / somme) * 100,2)}%";
-            chart1.Series["Les problème Fixé et Non Fixé"].Points.AddXY($"Non Fixé", ligne2);
-            chart1.Series["Les problème Fixé et Non Fixé"].Points.AddXY($"Fixé", ligne1);
+            chart1.Series["Les problème Traité et Non Traité"].Points.AddXY($"Non Traité", ligne2);
+            chart1.Series["Les problème Traité et Non Traité"].Points.AddXY($"Traité", ligne1);
             GLB.Con.Close();
 
 

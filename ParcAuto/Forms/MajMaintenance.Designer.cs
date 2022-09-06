@@ -157,8 +157,8 @@ namespace ParcAuto.Forms
             this.cmbEtatActuelle.HoverState.Parent = this.cmbEtatActuelle;
             this.cmbEtatActuelle.ItemHeight = 30;
             this.cmbEtatActuelle.Items.AddRange(new object[] {
-            "Non Fixé",
-            "Fixé"});
+            "Traité",
+            "Non Traité"});
             this.cmbEtatActuelle.ItemsAppearance.Parent = this.cmbEtatActuelle;
             this.cmbEtatActuelle.Location = new System.Drawing.Point(154, 190);
             this.cmbEtatActuelle.Name = "cmbEtatActuelle";
