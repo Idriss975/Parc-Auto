@@ -461,7 +461,7 @@ namespace ParcAuto.Forms
                 Guna.UI2.WinForms.Guna2ComboBox Test = new Guna.UI2.WinForms.Guna2ComboBox();
                 Test.Items.AddRange(new object[] { "Type d'opération" });
                 Test.SelectedIndex = 0;
-                GLB.Filter(Test, dgvTransport, new Guna.UI2.WinForms.Guna2TextBox() { Text="Achat jawaz" });
+                GLB.Filter(Test, dgvTransport, new Guna.UI2.WinForms.Guna2TextBox() { Text="Jawaz" });
                 Total();
                 printPreviewDialog1.Document.PrinterSettings = printDialog1.PrinterSettings;
                 printPreviewDialog1.ShowDialog();

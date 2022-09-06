@@ -482,7 +482,7 @@ namespace ParcAuto.Forms
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            Impression.Drawonprintdoc(e, dgvCarburant, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6), dgvCarburant.Columns["id"].Index, Titre:"Vignettes carburant PRD", Total: $"Dotation Fixe : {lblSommeDfix}\tDotation Missions : {lblSommeDMissions}\tDotation Hebdomadaire : {lblSommeDHebdo}\tDotation Exceptionnel : {lblSommeDExceptionnel}\n\nTotal : {lblTotal}");
+            Impression.Drawonprintdoc(e, dgvCarburant, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6), Column10.Index, Titre:"Vignettes carburant PRD", Total: $"Dotation Fixe : {lblSommeDfix}\tDotation Missions : {lblSommeDMissions}\tDotation Hebdomadaire : {lblSommeDHebdo}\tDotation Exceptionnel : {lblSommeDExceptionnel}\n\nTotal : {lblTotal}");
         }
     }
 }
