@@ -429,5 +429,15 @@ namespace ParcAuto.Forms
                 RemplirLaGrille();
             }
         }
+
+        private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            Impression.number_of_lines = dgvMaitenance.Rows.Count;
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Impression.Drawonprintdoc(e, dgvMaitenance, imageList1.Images["OFPPT_logo.png"], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6), Column10.Index, Titre: "Maintenance");
+        }
     }
 }

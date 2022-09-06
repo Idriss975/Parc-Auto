@@ -406,5 +406,15 @@ namespace ParcAuto.Forms
                 importExceldatagridViewApp.Quit();
             }
         }
+
+        private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            Impression.number_of_lines = dgvCourrier.Rows.Count;
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Impression.Drawonprintdoc(e,dgvCourrier, imageList1.Images["OFPPT_logo.png"], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6), Column12.Index, Titre: "Suivis AMANA");
+        }
     }
 }
