@@ -118,19 +118,23 @@ namespace ParcAuto.Forms
         }
         private void ChartFixe_NonFixe()
         {
+            int somme = 0;
             GLB.Cmd.CommandText = $"select count(*) from Maintenance where EtatActuelle = 'Fixé' and Year(DateReclamation) = {GLB.SelectedDate} union all select count(*) from Maintenance where EtatActuelle = 'Non Fixé' and Year(DateReclamation) = {GLB.SelectedDate}";
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
             if (GLB.dr.Read())
             {
                 chart1.Series["Les problème Fixé et Non Fixé"].Points.AddXY($"Fixé {(GLB.dr[0])}", GLB.dr[0]);
+                somme += int.Parse(GLB.dr[0].ToString());
             }
             if (GLB.dr.Read())
             {
                 chart1.Series["Les problème Fixé et Non Fixé"].Points.AddXY($"Non Fixé {(GLB.dr[0])}", GLB.dr[0]);
+                somme += int.Parse(GLB.dr[0].ToString());
             }
             GLB.dr.Close();
             GLB.Con.Close();
+            lbl.Text = $"Le total est = {somme}";
 
 
         }
