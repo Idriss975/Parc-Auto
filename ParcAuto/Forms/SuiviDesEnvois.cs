@@ -365,7 +365,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.Add("@OBC", SqlDbType.NVarChar, 50).Value =  nOrderOBC ?? "";
                         GLB.Cmd.Parameters.Add("@CodeAbarre", SqlDbType.NVarChar, 50).Value = CodeAbarre ?? "";
                         GLB.Cmd.Parameters.Add("@DateDepot", SqlDbType.Date).Value = dateDepot.ToString("yyyy-MM-dd") == "0001-01-01" ? (object)DBNull.Value : dateDepot.ToString("yyyy-MM-dd");
-                        GLB.Cmd.Parameters.Add("@Demandeur", SqlDbType.VarChar, 500).Value = Demandeur ?? "";
+                        GLB.Cmd.Parameters.Add("@Demandeur", SqlDbType.VarChar, 500).Value = Demandeur is null ? "" : Demandeur.ToUpper();
                         GLB.Cmd.Parameters.Add("@Reference", SqlDbType.NVarChar, 200).Value = Reference ?? "";
                         GLB.Cmd.Parameters.Add("@Destinataire", SqlDbType.NVarChar, 200).Value = Destinataire ?? "" ;
                         GLB.Cmd.Parameters.Add("@Destination", SqlDbType.NVarChar, 100).Value = Destination ?? "";
