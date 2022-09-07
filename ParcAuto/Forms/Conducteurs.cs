@@ -108,6 +108,8 @@ namespace ParcAuto.Forms
             try
             {
                 GLB.Cmd.CommandText = $"select * from Conducteurs";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
@@ -175,17 +177,18 @@ namespace ParcAuto.Forms
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            string outp = "";
+            
             try
             {
-                
-                outp = $"delete from Conducteurs where Matricule = {dgvconducteur.SelectedRows[0].Cells[0].Value} ";
-
-                for (int i = 1; i < dgvconducteur.SelectedRows.Count; i++)
-                    outp += $" or Matricule = {dgvconducteur.SelectedRows[i].Cells[0].Value}";
-                GLB.Cmd.CommandText = outp;
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
-                GLB.Cmd.ExecuteNonQuery();
+                for (int i = 0; i < dgvconducteur.SelectedRows.Count; i++)
+                {
+                    GLB.Cmd.CommandText = $"delete from Conducteurs where Matricule = {dgvconducteur.SelectedRows[i].Cells[0].Value} ";
+                    GLB.Cmd.ExecuteNonQuery();
+                }
+
                 RemplirLaGrille();
             }
             catch (ArgumentOutOfRangeException)
@@ -331,16 +334,15 @@ namespace ParcAuto.Forms
         {
             try
             {
-                string query1 = $"delete from Conducteurs where Matricule = '{dgvconducteur.Rows[0].Cells[0].Value}'";
-                for (int i = 1; i < dgvconducteur.Rows.Count; i++)
-                    query1 += $" or Matricule = '{dgvconducteur.Rows[i].Cells[0].Value}' ";
-                if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
+                GLB.Con.Open();
+                for (int i = 0; i < dgvconducteur.Rows.Count; i++)
                 {
-                    GLB.Cmd.CommandText = query1;
-                    GLB.Con.Open();
+                    GLB.Cmd.CommandText = $"delete from Conducteurs where Matricule = {dgvconducteur.Rows[i].Cells[0].Value}";
                     GLB.Cmd.ExecuteNonQuery();
-                    RemplirLaGrille();
                 }
+                RemplirLaGrille();
             }
             catch (Exception ex)
             {

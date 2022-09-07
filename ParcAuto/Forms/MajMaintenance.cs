@@ -60,7 +60,7 @@ namespace ParcAuto.Forms
                             GLB.Cmd.CommandText = "insert into Maintenance values(@Num,@Article,@Entite,@type,@etage,@emplacement,@dateReclamation,@dateReparation,@etatActuelle)";
                             GLB.Cmd.Parameters.AddWithValue("@Num", txtNumero.Text);
                             GLB.Cmd.Parameters.AddWithValue("@Article", txtArticle.Text);
-                            GLB.Cmd.Parameters.AddWithValue("@Entite", txtEntite.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@Entite", txtEntite.Text.ToUpper());
                             GLB.Cmd.Parameters.AddWithValue("@type", cmbType_intervention.Text);
                             GLB.Cmd.Parameters.AddWithValue("@etage", txtEtage.Text);
                             GLB.Cmd.Parameters.AddWithValue("@emplacement", txtEmplacement.Text);
@@ -74,7 +74,7 @@ namespace ParcAuto.Forms
                                $"Emplacement = @emplacement , DateReclamation = @dateReclamation , DateReparation = @dateReparation , EtatActuelle = @etatActuelle where id = {GLB.id_Maintenance}";
                             GLB.Cmd.Parameters.AddWithValue("@Num", txtNumero.Text);
                             GLB.Cmd.Parameters.AddWithValue("@Article", txtArticle.Text);
-                            GLB.Cmd.Parameters.AddWithValue("@Entite", txtEntite.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@Entite", txtEntite.Text.ToUpper());
                             GLB.Cmd.Parameters.AddWithValue("@type", cmbType_intervention.Text);
                             GLB.Cmd.Parameters.AddWithValue("@etage", txtEtage.Text);
                             GLB.Cmd.Parameters.AddWithValue("@emplacement", txtEmplacement.Text);

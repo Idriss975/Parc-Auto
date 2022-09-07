@@ -143,7 +143,7 @@ namespace ParcAuto.Forms
                             GLB.Cmd.Parameters.Add("@OBC", SqlDbType.NVarChar, 50).Value = txtorderBOC.Text.Trim();
                             GLB.Cmd.Parameters.Add("@CodeAbarre", SqlDbType.NVarChar, 50).Value = txtCodeAbarre.Text.Trim();
                             GLB.Cmd.Parameters.Add("@DateDepot", SqlDbType.Date).Value = dateDepot.Value.ToString("yyyy-MM-dd");
-                            GLB.Cmd.Parameters.Add("@Demandeur", SqlDbType.VarChar, 500).Value = txtDemandeur.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@Demandeur", SqlDbType.VarChar, 500).Value = txtDemandeur.Text.ToUpper().Trim();
                             GLB.Cmd.Parameters.Add("@Reference", SqlDbType.NVarChar, 200).Value = txtReference.Text.Trim();
                             GLB.Cmd.Parameters.Add("@Destinataire", SqlDbType.NVarChar, 200).Value = txtDestinataire.Text.Trim();
                             GLB.Cmd.Parameters.Add("@Destination", SqlDbType.NVarChar, 100).Value = txtDestination.Text.Trim();
@@ -160,7 +160,7 @@ namespace ParcAuto.Forms
                             GLB.Cmd.Parameters.Add("@OBC", SqlDbType.NVarChar, 50).Value = txtorderBOC.Text.Trim();
                             GLB.Cmd.Parameters.Add("@CodeAbarre", SqlDbType.NVarChar, 50).Value = txtCodeAbarre.Text.Trim();
                             GLB.Cmd.Parameters.Add("@DateDepot", SqlDbType.Date).Value = dateDepot.Value.ToString("yyyy-MM-dd");
-                            GLB.Cmd.Parameters.Add("@Demandeur", SqlDbType.VarChar, 500).Value = txtDemandeur.Text.Trim();
+                            GLB.Cmd.Parameters.Add("@Demandeur", SqlDbType.VarChar, 500).Value = txtDemandeur.Text.ToUpper().Trim();
                             GLB.Cmd.Parameters.Add("@Reference", SqlDbType.NVarChar, 200).Value = txtReference.Text.Trim();
                             GLB.Cmd.Parameters.Add("@Destinataire", SqlDbType.NVarChar, 200).Value = txtDestinataire.Text.Trim();
                             GLB.Cmd.Parameters.Add("@Destination", SqlDbType.NVarChar, 100).Value = txtDestination.Text.Trim();
