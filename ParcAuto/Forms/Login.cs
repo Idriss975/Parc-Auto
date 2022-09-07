@@ -75,6 +75,7 @@ namespace ParcAuto.Forms
             GLB.Con = new SqlConnection($"Data Source=DAL1251\\SQLEXPRESS,1433;Network Library=DBMSSOCN;Initial Catalog=Parc_Automobile;Persist Security Info=True;User ID={txtuser.Text.Trim()};Password={txtpass.Text.Trim()}");
             //GLB.Con = new SqlConnection($"Data Source=DESKTOP-0HDF3CT\\SQLEXPRESS,1434;Network Library=DBMSSOCN;Initial Catalog=Parc_Automobile;Persist Security Info=True;User ID={txtuser.Text.Trim()};Password={txtpass.Text.Trim()}");
             GLB.Cmd = GLB.Con.CreateCommand();
+            GLB.Cmd.CommandTimeout = 8;
             try
             {
                 GLB.Con.Open();
@@ -88,9 +89,11 @@ namespace ParcAuto.Forms
             catch (SqlException ex)
             {
                 if (ex.Number == 18456)
-                    MessageBox.Show("Nom d'utilisateur ou/et mot de passe incorrecte(s).","Login Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Nom d'utilisateur ou/et mot de passe incorrecte(s).", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else if (ex.Number == 17142)
                     MessageBox.Show("Connection inaccessible vers la base de donnée à distance.", "Server inacessible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (ex.Number == 11001)
+                    MessageBox.Show("Echec de connection vers la Base de données.\nVérifiez que vous etes connecter aux même réseau que celle de la base de données.", "Echec de connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                     MessageBox.Show(ex.Message, "SQLERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
