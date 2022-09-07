@@ -222,6 +222,7 @@ namespace ParcAuto
         
         private void Form1_Load(object sender, EventArgs e)
         {
+            Quitter.Text = "Changer l'annee \n" + GLB.SelectedDate;
             this.WindowState = FormWindowState.Maximized;
             customizeDesign();
             Permissions();
@@ -346,9 +347,6 @@ namespace ParcAuto
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            (new Annee()).Show();
-            this.Hide();
-
         }
 
 
@@ -459,7 +457,8 @@ namespace ParcAuto
         
         private void Quitter_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            (new Annee()).Show();
+            this.Hide(); ;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
