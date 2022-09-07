@@ -58,6 +58,7 @@ namespace ParcAuto.Forms
             this.btnModifier = new Guna.UI2.WinForms.Guna2Button();
             this.btnSupprimer = new Guna.UI2.WinForms.Guna2Button();
             this.dgvCourrier = new System.Windows.Forms.DataGridView();
+            this.cmbChoix = new Guna.UI2.WinForms.Guna2ComboBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,7 +71,6 @@ namespace ParcAuto.Forms
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmbChoix = new Guna.UI2.WinForms.Guna2ComboBox();
             this.PanelTautaux.SuspendLayout();
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
@@ -513,6 +513,39 @@ namespace ParcAuto.Forms
             this.dgvCourrier.Size = new System.Drawing.Size(1109, 477);
             this.dgvCourrier.TabIndex = 74;
             // 
+            // cmbChoix
+            // 
+            this.cmbChoix.BackColor = System.Drawing.Color.Transparent;
+            this.cmbChoix.BorderRadius = 4;
+            this.cmbChoix.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbChoix.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbChoix.FocusedColor = System.Drawing.Color.Empty;
+            this.cmbChoix.FocusedState.Parent = this.cmbChoix;
+            this.cmbChoix.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbChoix.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbChoix.FormattingEnabled = true;
+            this.cmbChoix.HoverState.Parent = this.cmbChoix;
+            this.cmbChoix.ItemHeight = 30;
+            this.cmbChoix.Items.AddRange(new object[] {
+            "N° order BOC",
+            "Code a barre",
+            "Date de depot",
+            "Demendeur",
+            "Reference",
+            "Destinataire",
+            "Destination",
+            "Nombre",
+            "Nature d\'envoi",
+            "Date d\'enlevement",
+            "Montant"});
+            this.cmbChoix.ItemsAppearance.Parent = this.cmbChoix;
+            this.cmbChoix.Location = new System.Drawing.Point(97, 17);
+            this.cmbChoix.Name = "cmbChoix";
+            this.cmbChoix.ShadowDecoration.Parent = this.cmbChoix;
+            this.cmbChoix.Size = new System.Drawing.Size(176, 36);
+            this.cmbChoix.TabIndex = 79;
+            this.cmbChoix.SelectedIndexChanged += new System.EventHandler(this.cmbChoix_SelectedIndexChanged);
+            // 
             // Column1
             // 
             this.Column1.HeaderText = "N° order BOC";
@@ -565,7 +598,7 @@ namespace ParcAuto.Forms
             // 
             // Column11
             // 
-            this.Column11.HeaderText = "Prix";
+            this.Column11.HeaderText = "Montant";
             this.Column11.Name = "Column11";
             // 
             // Column12
@@ -573,39 +606,6 @@ namespace ParcAuto.Forms
             this.Column12.HeaderText = "id";
             this.Column12.Name = "Column12";
             this.Column12.Visible = false;
-            // 
-            // cmbChoix
-            // 
-            this.cmbChoix.BackColor = System.Drawing.Color.Transparent;
-            this.cmbChoix.BorderRadius = 4;
-            this.cmbChoix.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbChoix.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbChoix.FocusedColor = System.Drawing.Color.Empty;
-            this.cmbChoix.FocusedState.Parent = this.cmbChoix;
-            this.cmbChoix.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbChoix.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cmbChoix.FormattingEnabled = true;
-            this.cmbChoix.HoverState.Parent = this.cmbChoix;
-            this.cmbChoix.ItemHeight = 30;
-            this.cmbChoix.Items.AddRange(new object[] {
-            "N° order BOC",
-            "Code a barre",
-            "Date de depot",
-            "Demendeur",
-            "Reference",
-            "Destinataire",
-            "Destination",
-            "Nombre",
-            "Nature d\'envoi",
-            "Date d\'enlevement",
-            "Prix"});
-            this.cmbChoix.ItemsAppearance.Parent = this.cmbChoix;
-            this.cmbChoix.Location = new System.Drawing.Point(97, 17);
-            this.cmbChoix.Name = "cmbChoix";
-            this.cmbChoix.ShadowDecoration.Parent = this.cmbChoix;
-            this.cmbChoix.Size = new System.Drawing.Size(176, 36);
-            this.cmbChoix.TabIndex = 79;
-            this.cmbChoix.SelectedIndexChanged += new System.EventHandler(this.cmbChoix_SelectedIndexChanged);
             // 
             // SuiviDesEnvois
             // 
@@ -674,6 +674,7 @@ namespace ParcAuto.Forms
         private Guna.UI2.WinForms.Guna2Button btnModifier;
         private Guna.UI2.WinForms.Guna2Button btnSupprimer;
         private System.Windows.Forms.DataGridView dgvCourrier;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbChoix;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -686,6 +687,5 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private Guna.UI2.WinForms.Guna2ComboBox cmbChoix;
     }
 }
