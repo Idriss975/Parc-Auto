@@ -89,7 +89,7 @@ namespace ParcAuto.Forms
             try
             {
 
-                GLB.Cmd.CommandText = $"select * from Missions";
+                GLB.Cmd.CommandText = $"select * from Missions where year(DateMission) = {GLB.SelectedDate}";
                 if (GLB.Con.State == ConnectionState.Open)
                     GLB.Con.Close();
                 GLB.Con.Open();

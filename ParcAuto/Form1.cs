@@ -369,8 +369,8 @@ namespace ParcAuto
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            //this.Close();
-            //(new Annee()).Show();
+            (new Annee()).Show();
+            this.Hide();
 
         }
 
