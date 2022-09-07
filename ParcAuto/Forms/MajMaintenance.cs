@@ -145,7 +145,7 @@ namespace ParcAuto.Forms
         }
         private void MajMaintenance_Load(object sender, EventArgs e)
         {
-            DateReclamation.Value = DateTime.Now;
+            DateReclamation.Value = new DateTime(Convert.ToInt32(GLB.SelectedDate), DateTime.Now.Month, DateTime.Now.Day);
             cmbEtatActuelle.SelectedIndex = 0;
             cmbType_intervention.Text = "Reparation";
             switch (Commandes.Command)

@@ -172,7 +172,7 @@ namespace ParcAuto.Forms
         }
         private void MajTransport_Load(object sender, EventArgs e)
         {
-            DateMission.Value = DateTime.Now;
+            DateMission.Value = new DateTime(Convert.ToInt32(GLB.SelectedDate), DateTime.Now.Month, DateTime.Now.Day);
             RemplirComboBoxBeneficiaire();
             txtUtilisation.SelectedIndex = 0;
             switch (Commandes.Command)

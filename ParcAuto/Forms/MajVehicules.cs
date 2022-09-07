@@ -181,6 +181,7 @@ namespace ParcAuto.Forms
 
         private void MajVehicules_Load(object sender, EventArgs e)
         {
+            dateMiseEnCirculation.Value = new DateTime(Convert.ToInt32(GLB.SelectedDate), DateTime.Now.Month, DateTime.Now.Day);
             if (Source.GetType().Name == "VehiculesPRD")
                 cmbType.Enabled = false;
             else if (Source.GetType().Name == "Vehicules_Location")
