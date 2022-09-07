@@ -63,6 +63,8 @@ namespace ParcAuto.Forms
             this.btnModifier = new Guna.UI2.WinForms.Guna2Button();
             this.btnSupprimer = new Guna.UI2.WinForms.Guna2Button();
             this.dgvMaitenance = new System.Windows.Forms.DataGridView();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.lbl = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,8 +75,6 @@ namespace ParcAuto.Forms
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.lbl = new System.Windows.Forms.Label();
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaitenance)).BeginInit();
@@ -368,7 +368,7 @@ namespace ParcAuto.Forms
             this.cmbChoix.ItemHeight = 30;
             this.cmbChoix.Items.AddRange(new object[] {
             "N°",
-            "Article",
+            "Probleme",
             "Entité Concernée",
             "Type d\'intervention",
             "Etage",
@@ -528,6 +528,42 @@ namespace ParcAuto.Forms
             this.dgvMaitenance.Size = new System.Drawing.Size(1109, 258);
             this.dgvMaitenance.TabIndex = 61;
             // 
+            // chart1
+            // 
+            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(15, 370);
+            this.chart1.Name = "chart1";
+            series1.BorderColor = System.Drawing.Color.White;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Color = System.Drawing.Color.Blue;
+            series1.Legend = "Legend1";
+            series1.Name = "Les problème Traité et Non Traité";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(561, 248);
+            this.chart1.TabIndex = 75;
+            this.chart1.Text = "chart1";
+            title1.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title1.Name = "Title1";
+            title1.Text = "Graphe d\'avancements de fixation des problémes ";
+            this.chart1.Titles.Add(title1);
+            // 
+            // lbl
+            // 
+            this.lbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbl.AutoSize = true;
+            this.lbl.BackColor = System.Drawing.Color.White;
+            this.lbl.Location = new System.Drawing.Point(458, 440);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(45, 16);
+            this.lbl.TabIndex = 76;
+            this.lbl.Text = "label5";
+            // 
             // Column1
             // 
             this.Column1.HeaderText = "N°";
@@ -536,7 +572,7 @@ namespace ParcAuto.Forms
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Article";
+            this.Column2.HeaderText = "Probleme";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
@@ -588,42 +624,6 @@ namespace ParcAuto.Forms
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
             this.Column10.Visible = false;
-            // 
-            // chart1
-            // 
-            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            chartArea1.AxisX.MajorGrid.Enabled = false;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(15, 370);
-            this.chart1.Name = "chart1";
-            series1.BorderColor = System.Drawing.Color.White;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Color = System.Drawing.Color.Blue;
-            series1.Legend = "Legend1";
-            series1.Name = "Les problème Traité et Non Traité";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(561, 248);
-            this.chart1.TabIndex = 75;
-            this.chart1.Text = "chart1";
-            title1.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title1.Name = "Title1";
-            title1.Text = "Graphe d\'avancements de fixation des problémes ";
-            this.chart1.Titles.Add(title1);
-            // 
-            // lbl
-            // 
-            this.lbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbl.AutoSize = true;
-            this.lbl.BackColor = System.Drawing.Color.White;
-            this.lbl.Location = new System.Drawing.Point(458, 440);
-            this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(45, 16);
-            this.lbl.TabIndex = 76;
-            this.lbl.Text = "label5";
             // 
             // ProblemeFixe
             // 
@@ -690,6 +690,8 @@ namespace ParcAuto.Forms
         private Guna.UI2.WinForms.Guna2Button btnModifier;
         private Guna.UI2.WinForms.Guna2Button btnSupprimer;
         private System.Windows.Forms.DataGridView dgvMaitenance;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Label lbl;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -700,7 +702,5 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.Label lbl;
     }
 }
