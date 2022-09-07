@@ -107,6 +107,7 @@ namespace ParcAuto
             this.VignettesUp = new System.Windows.Forms.PictureBox();
             this.Vignettesdown = new System.Windows.Forms.PictureBox();
             this.btnVignettes = new System.Windows.Forms.Button();
+            this.Quitter = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FormsPlace = new System.Windows.Forms.Panel();
@@ -120,7 +121,6 @@ namespace ParcAuto
             this.carteFreeChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.TransportChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Carburantchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.Quitter = new System.Windows.Forms.Button();
             section2 = new System.Windows.Forms.Panel();
             section2.SuspendLayout();
             this.section3.SuspendLayout();
@@ -172,9 +172,9 @@ namespace ParcAuto
             section2.Controls.Add(this.panelSousVehicules);
             section2.Controls.Add(this.btnParcAuto);
             section2.Dock = System.Windows.Forms.DockStyle.Top;
-            section2.Location = new System.Drawing.Point(0, 516);
+            section2.Location = new System.Drawing.Point(0, 561);
             section2.Name = "section2";
-            section2.Size = new System.Drawing.Size(183, 753);
+            section2.Size = new System.Drawing.Size(183, 708);
             section2.TabIndex = 4;
             // 
             // section3
@@ -183,12 +183,11 @@ namespace ParcAuto
             this.section3.Controls.Add(this.panelMaintenance);
             this.section3.Controls.Add(this.Suivis);
             this.section3.Controls.Add(this.btnMissions);
-            this.section3.Controls.Add(this.btnEtatJournalier);
             this.section3.Controls.Add(this.btnConducteurs);
             this.section3.Dock = System.Windows.Forms.DockStyle.Top;
             this.section3.Location = new System.Drawing.Point(0, 299);
             this.section3.Name = "section3";
-            this.section3.Size = new System.Drawing.Size(183, 454);
+            this.section3.Size = new System.Drawing.Size(183, 409);
             this.section3.TabIndex = 100;
             // 
             // panelMaintenance
@@ -199,7 +198,7 @@ namespace ParcAuto
             this.panelMaintenance.Controls.Add(this.ArrowMaintenancedown);
             this.panelMaintenance.Controls.Add(this.btnMaintenance);
             this.panelMaintenance.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMaintenance.Location = new System.Drawing.Point(0, 272);
+            this.panelMaintenance.Location = new System.Drawing.Point(0, 227);
             this.panelMaintenance.Name = "panelMaintenance";
             this.panelMaintenance.Size = new System.Drawing.Size(183, 182);
             this.panelMaintenance.TabIndex = 100;
@@ -325,7 +324,7 @@ namespace ParcAuto
             this.Suivis.Controls.Add(this.arrowsuiviDown);
             this.Suivis.Controls.Add(this.btnSuivi);
             this.Suivis.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Suivis.Location = new System.Drawing.Point(0, 135);
+            this.Suivis.Location = new System.Drawing.Point(0, 90);
             this.Suivis.Name = "Suivis";
             this.Suivis.Size = new System.Drawing.Size(183, 137);
             this.Suivis.TabIndex = 2;
@@ -433,7 +432,7 @@ namespace ParcAuto
             this.btnMissions.ForeColor = System.Drawing.Color.White;
             this.btnMissions.Image = ((System.Drawing.Image)(resources.GetObject("btnMissions.Image")));
             this.btnMissions.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMissions.Location = new System.Drawing.Point(0, 90);
+            this.btnMissions.Location = new System.Drawing.Point(0, 45);
             this.btnMissions.Name = "btnMissions";
             this.btnMissions.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMissions.Size = new System.Drawing.Size(183, 45);
@@ -452,10 +451,10 @@ namespace ParcAuto
             this.btnEtatJournalier.ForeColor = System.Drawing.Color.White;
             this.btnEtatJournalier.Image = ((System.Drawing.Image)(resources.GetObject("btnEtatJournalier.Image")));
             this.btnEtatJournalier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEtatJournalier.Location = new System.Drawing.Point(0, 45);
+            this.btnEtatJournalier.Location = new System.Drawing.Point(0, 324);
             this.btnEtatJournalier.Name = "btnEtatJournalier";
-            this.btnEtatJournalier.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnEtatJournalier.Size = new System.Drawing.Size(183, 45);
+            this.btnEtatJournalier.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnEtatJournalier.Size = new System.Drawing.Size(181, 45);
             this.btnEtatJournalier.TabIndex = 98;
             this.btnEtatJournalier.Text = "Etat Journalier";
             this.btnEtatJournalier.UseVisualStyleBackColor = false;
@@ -731,6 +730,7 @@ namespace ParcAuto
             this.panelSousVignettes.AutoSize = true;
             this.panelSousVignettes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
             this.panelSousVignettes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelSousVignettes.Controls.Add(this.btnEtatJournalier);
             this.panelSousVignettes.Controls.Add(this.btnTransport);
             this.panelSousVignettes.Controls.Add(this.btnEtatRecap);
             this.panelSousVignettes.Controls.Add(this.panelRep);
@@ -739,7 +739,7 @@ namespace ParcAuto
             this.panelSousVignettes.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSousVignettes.Location = new System.Drawing.Point(0, 145);
             this.panelSousVignettes.Name = "panelSousVignettes";
-            this.panelSousVignettes.Size = new System.Drawing.Size(183, 371);
+            this.panelSousVignettes.Size = new System.Drawing.Size(183, 416);
             this.panelSousVignettes.TabIndex = 1;
             // 
             // btnTransport
@@ -772,7 +772,7 @@ namespace ParcAuto
             this.btnEtatRecap.ForeColor = System.Drawing.Color.White;
             this.btnEtatRecap.Image = ((System.Drawing.Image)(resources.GetObject("btnEtatRecap.Image")));
             this.btnEtatRecap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEtatRecap.Location = new System.Drawing.Point(0, 324);
+            this.btnEtatRecap.Location = new System.Drawing.Point(0, 369);
             this.btnEtatRecap.Name = "btnEtatRecap";
             this.btnEtatRecap.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnEtatRecap.Size = new System.Drawing.Size(181, 45);
@@ -1078,6 +1078,25 @@ namespace ParcAuto
             this.btnVignettes.UseVisualStyleBackColor = false;
             this.btnVignettes.Click += new System.EventHandler(this.btnVignettes_Click);
             // 
+            // Quitter
+            // 
+            this.Quitter.AutoSize = true;
+            this.Quitter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.Quitter.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Quitter.FlatAppearance.BorderSize = 0;
+            this.Quitter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Quitter.ForeColor = System.Drawing.Color.White;
+            this.Quitter.Image = ((System.Drawing.Image)(resources.GetObject("Quitter.Image")));
+            this.Quitter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Quitter.Location = new System.Drawing.Point(0, 1269);
+            this.Quitter.Name = "Quitter";
+            this.Quitter.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.Quitter.Size = new System.Drawing.Size(183, 45);
+            this.Quitter.TabIndex = 98;
+            this.Quitter.Text = "Quitter l\'annee\r\n 2022";
+            this.Quitter.UseVisualStyleBackColor = false;
+            this.Quitter.Click += new System.EventHandler(this.Quitter_Click);
+            // 
             // panelLogo
             // 
             this.panelLogo.Controls.Add(this.pictureBox1);
@@ -1314,25 +1333,6 @@ namespace ParcAuto
             title4.Name = "Title1";
             title4.Text = "Consommation Carburant";
             this.Carburantchart.Titles.Add(title4);
-            // 
-            // Quitter
-            // 
-            this.Quitter.AutoSize = true;
-            this.Quitter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
-            this.Quitter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Quitter.FlatAppearance.BorderSize = 0;
-            this.Quitter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Quitter.ForeColor = System.Drawing.Color.White;
-            this.Quitter.Image = ((System.Drawing.Image)(resources.GetObject("Quitter.Image")));
-            this.Quitter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Quitter.Location = new System.Drawing.Point(0, 1269);
-            this.Quitter.Name = "Quitter";
-            this.Quitter.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.Quitter.Size = new System.Drawing.Size(183, 45);
-            this.Quitter.TabIndex = 98;
-            this.Quitter.Text = "Quitter l\'annee\r\n 2022";
-            this.Quitter.UseVisualStyleBackColor = false;
-            this.Quitter.Click += new System.EventHandler(this.Quitter_Click);
             // 
             // Form1
             // 
