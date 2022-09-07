@@ -263,6 +263,8 @@ namespace ParcAuto.Forms
             // chart1
             // 
             chartArea1.AxisX.Interval = 1D;
+            chartArea1.AxisX.IsLabelAutoFit = false;
+            chartArea1.AxisX.LabelStyle.Angle = -90;
             chartArea1.AxisX.MajorGrid.Enabled = false;
             chartArea1.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
             chartArea1.Name = "ChartArea1";
@@ -290,6 +292,8 @@ namespace ParcAuto.Forms
             // chart2
             // 
             chartArea2.AxisX.Interval = 1D;
+            chartArea2.AxisX.IsLabelAutoFit = false;
+            chartArea2.AxisX.LabelStyle.Angle = -90;
             chartArea2.AxisX.MajorGrid.Enabled = false;
             chartArea2.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
             chartArea2.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
