@@ -248,6 +248,12 @@
     <Compile Include="Forms\MajVehicules.Designer.cs">
       <DependentUpon>MajVehicules.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MajVisiteurs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MajVisiteurs.Designer.cs">
+      <DependentUpon>MajVisiteurs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Misssions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -314,6 +320,12 @@
     <Compile Include="Forms\Vehicules_MRouge.Designer.cs">
       <DependentUpon>Vehicules_MRouge.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Visiteurs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Visiteurs.Designer.cs">
+      <DependentUpon>Visiteurs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -376,6 +388,9 @@
     <EmbeddedResource Include="Forms\MajVehicules.resx">
       <DependentUpon>MajVehicules.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MajVisiteurs.resx">
+      <DependentUpon>MajVisiteurs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Misssions.resx">
       <DependentUpon>Misssions.cs</DependentUpon>
     </EmbeddedResource>
@@ -408,6 +423,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Vehicules_MRouge.resx">
       <DependentUpon>Vehicules_MRouge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Visiteurs.resx">
+      <DependentUpon>Visiteurs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
