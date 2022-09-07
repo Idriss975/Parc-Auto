@@ -74,5 +74,11 @@ namespace ParcAuto.Forms
             }
             GetYears();
         }
+
+        private void cmbAnnee_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                btnConfirmer_Click(this, EventArgs.Empty);
+        }
     }
 }

@@ -266,6 +266,7 @@ namespace ParcAuto.Forms
             chartArea1.AxisX.IsLabelAutoFit = false;
             chartArea1.AxisX.LabelStyle.Angle = -90;
             chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.AxisX.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Rotated90;
             chartArea1.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
