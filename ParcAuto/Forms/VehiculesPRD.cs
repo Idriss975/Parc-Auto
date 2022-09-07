@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
+using System.Data.SqlClient;
 
 namespace ParcAuto.Forms
 {
@@ -282,7 +283,6 @@ namespace ParcAuto.Forms
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
             string marque, matricule, type, carburant, affectation, conducteur, Dnomination, observation, age;
-            string lignesExcel = "Les Lignes Suivants Sont duplique sur le fichier excel : ";
             DateTime Misencirculation;
             if (GLB.Con.State == ConnectionState.Open)
                 GLB.Con.Close();
@@ -334,21 +334,22 @@ namespace ParcAuto.Forms
                         }
                         else
                         {
-                            lignesExcel += $" {excelWorksheetIndex} ";
                             continue;
                         }
 
                     }
                     GLB.Cmd.Transaction.Commit();
                     GLB.Con.Close();
-                    MessageBox.Show(lignesExcel);
 
                 }
                 RemplirLaGrille();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (ex.Number == 2627)
+                    MessageBox.Show($"Toutes ces informations sans déja saisie", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 GLB.Cmd.Transaction.Rollback();
             }
             finally
