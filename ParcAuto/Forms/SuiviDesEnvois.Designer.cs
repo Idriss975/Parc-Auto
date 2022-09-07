@@ -185,6 +185,7 @@ namespace ParcAuto.Forms
             this.btnImprimer.Text = "imprimer";
             this.btnImprimer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnImprimer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnImprimer.Click += new System.EventHandler(this.btnImprimer_Click);
             // 
             // btnImportExcel
             // 
