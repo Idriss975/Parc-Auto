@@ -83,7 +83,6 @@ namespace ParcAuto.Forms
         }
         private void MajCarteFree_Load(object sender, EventArgs e)
         {
-            date.Value = DateTime.Now;
             switch (Commandes.Command)
             {
                 case Choix.ajouter:
@@ -97,8 +96,8 @@ namespace ParcAuto.Forms
                 case Choix.supprimer:
                     throw new Exception("Impossible de Supprimmer dans MajCarteFree");
             }
+            date.Value = new DateTime(Convert.ToInt32(GLB.SelectedDate), DateTime.Now.Month, DateTime.Now.Day);
 
-            
         }
 
         private void btnAppliquer_Click(object sender, EventArgs e)

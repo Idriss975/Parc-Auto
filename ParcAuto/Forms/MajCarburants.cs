@@ -206,7 +206,6 @@ namespace ParcAuto.Forms
         }
         private void MajCarburants_Load(object sender, EventArgs e)
         {
-            DateOper.Value = DateTime.Now;
             RemplirBenificiaire();
             RemplirComboBoxVehicules();
             txtpourcentage.Text = (7.5).ToString();
@@ -239,6 +238,7 @@ namespace ParcAuto.Forms
                     throw new Exception("Impossible de Supprimmer dans MajConducteur");
             }
             OmnYear.Text = "/"+DateTime.Now.Year.ToString().Substring(2);
+            DateOper.Value = new DateTime(Convert.ToInt32(GLB.SelectedDate), DateTime.Now.Month, DateTime.Now.Day);
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)

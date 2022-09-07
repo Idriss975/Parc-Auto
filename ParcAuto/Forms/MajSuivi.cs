@@ -50,8 +50,8 @@ namespace ParcAuto.Forms
 
         private void MajSuivi_Load(object sender, EventArgs e)
         {
-            dateDepot.Value = DateTime.Now;
-            dateEnlevement.Value = DateTime.Now;
+            dateDepot.Value = new DateTime(Convert.ToInt32(GLB.SelectedDate), DateTime.Now.Month, DateTime.Now.Day);
+            dateEnlevement.Value = new DateTime(Convert.ToInt32(GLB.SelectedDate), DateTime.Now.Month, DateTime.Now.Day);
             switch (Commandes.Command)
             {
                 case Choix.ajouter:

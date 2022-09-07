@@ -241,7 +241,7 @@ namespace ParcAuto.Forms
         }
         private void MajReparation_Load(object sender, EventArgs e)
         {
-            Date.Value = DateTime.Now;
+            Date.Value = new DateTime(Convert.ToInt32(GLB.SelectedDate), DateTime.Now.Month, DateTime.Now.Day);
             RemplirComboBoxVehicules();
             switch (Commandes.Command)
             {

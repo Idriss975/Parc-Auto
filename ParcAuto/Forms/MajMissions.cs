@@ -209,7 +209,7 @@ namespace ParcAuto.Forms
 
         private void MajMissions_Load(object sender, EventArgs e)
         {
-            dateMission.Value = DateTime.Now;
+            dateMission.Value = new DateTime(Convert.ToInt32(GLB.SelectedDate), DateTime.Now.Month, DateTime.Now.Day);
             RemplirBenificiaire();
             RemplirTexteboxVehicules();
             switch (Commandes.Command)
