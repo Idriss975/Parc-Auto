@@ -79,6 +79,7 @@ namespace ParcAuto.Forms
             {
                 GLB.Con.Open();
                 GLB.Con.Close();
+                RemplirLeDictionnaire();
                 this.Hide();
                 (new Annee()).ShowDialog();
                 //this.Close();
@@ -100,6 +101,30 @@ namespace ParcAuto.Forms
         {
             if (e.KeyChar == (char)Keys.Enter)
                 btnLogIn_Click(this, EventArgs.Empty);
+        }
+
+        private void RemplirLeDictionnaire()
+        {
+            try
+            {
+                GLB.Cmd.CommandText = $"select * from Entites";
+                GLB.Con.Open();
+                GLB.dr = GLB.Cmd.ExecuteReader();
+                while (GLB.dr.Read())
+                {
+                    GLB.Entites.Add(GLB.dr[1].ToString().ToUpper(), GLB.dr[0].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                GLB.dr.Close();
+                GLB.Con.Close();
+            }
         }
     }
 }

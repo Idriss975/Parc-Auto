@@ -318,10 +318,11 @@ namespace ParcAuto.Forms
         /// <param name="Text">the Text</param>
         /// <param name="Alignement">Alignement of the text</param>
         /// <returns></returns>
-        private Coords Print_column(PrintPageEventArgs e, int x, int y, int width, int heigth,  Font Font, string Text, StringAlignment Alignement = StringAlignment.Near)
+        private Coords Print_column(PrintPageEventArgs e, int x, int y, int width, int heigth,  Font Font, string Text, StringAlignment Alignement = StringAlignment.Near, bool Drawline = true)
         {
             e.Graphics.DrawString(Text, Font, Brushes.Black, new Rectangle(x, y - Convert.ToInt32(e.Graphics.MeasureString(Text, Font, width).Height), width, Convert.ToInt32(e.Graphics.MeasureString(Text, Font, width).Height)), new StringFormat() { Alignment = Alignement });
-            e.Graphics.DrawLine(Pens.Black, new Point(x, y), new Point(x + width, y));
+            if (Drawline)
+                e.Graphics.DrawLine(Pens.Black, new Point(x, y), new Point(x + width, y));
 
             return new Coords {
                 x = x,
