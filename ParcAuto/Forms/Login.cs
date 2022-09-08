@@ -115,12 +115,11 @@ namespace ParcAuto.Forms
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
                 {
-                    GLB.Entites.Add(GLB.dr[1].ToString().ToUpper(), GLB.dr[0].ToString());
+                    GLB.Entites.Add(GLB.dr["Abreviation"].ToString().ToUpper(), GLB.dr["Entite"].ToString());
                 }
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
             finally
