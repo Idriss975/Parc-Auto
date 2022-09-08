@@ -44,11 +44,11 @@ namespace ParcAuto.Forms
             this.btnAppliquer = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtDirection = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtHeure = new Guna.UI2.WinForms.Guna2TextBox();
             this.date = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.txtObservation = new System.Windows.Forms.RichTextBox();
-            this.txtDirection = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -211,6 +211,7 @@ namespace ParcAuto.Forms
             this.guna2Button1.Text = "Annuler";
             this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.guna2Button1.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // txtAutorisation
             // 
@@ -259,6 +260,7 @@ namespace ParcAuto.Forms
             this.btnAppliquer.Text = "Appliquer";
             this.btnAppliquer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnAppliquer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnAppliquer.Click += new System.EventHandler(this.btnAppliquer_Click);
             // 
             // label1
             // 
@@ -301,9 +303,36 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Size = new System.Drawing.Size(745, 145);
             this.tableLayoutPanel1.TabIndex = 48;
             // 
+            // txtDirection
+            // 
+            this.txtDirection.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtDirection.BorderRadius = 4;
+            this.txtDirection.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtDirection.DefaultText = "";
+            this.txtDirection.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtDirection.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtDirection.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDirection.DisabledState.Parent = this.txtDirection;
+            this.txtDirection.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDirection.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDirection.FocusedState.Parent = this.txtDirection;
+            this.txtDirection.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDirection.HoverState.Parent = this.txtDirection;
+            this.txtDirection.Location = new System.Drawing.Point(511, 101);
+            this.txtDirection.Margin = new System.Windows.Forms.Padding(5);
+            this.txtDirection.Name = "txtDirection";
+            this.txtDirection.PasswordChar = '\0';
+            this.txtDirection.PlaceholderText = "";
+            this.txtDirection.SelectedText = "";
+            this.txtDirection.ShadowDecoration.Parent = this.txtDirection;
+            this.txtDirection.Size = new System.Drawing.Size(229, 39);
+            this.txtDirection.TabIndex = 54;
+            this.txtDirection.Leave += new System.EventHandler(this.txtDirection_Leave);
+            // 
             // txtHeure
             // 
             this.txtHeure.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtHeure.BorderRadius = 4;
             this.txtHeure.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtHeure.DefaultText = "";
             this.txtHeure.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -316,7 +345,7 @@ namespace ParcAuto.Forms
             this.txtHeure.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtHeure.HoverState.Parent = this.txtHeure;
             this.txtHeure.Location = new System.Drawing.Point(516, 54);
-            this.txtHeure.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtHeure.Margin = new System.Windows.Forms.Padding(4);
             this.txtHeure.Name = "txtHeure";
             this.txtHeure.PasswordChar = '\0';
             this.txtHeure.PlaceholderText = "";
@@ -328,6 +357,7 @@ namespace ParcAuto.Forms
             // date
             // 
             this.date.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.date.BorderRadius = 4;
             this.date.CheckedState.Parent = this.date;
             this.date.FillColor = System.Drawing.Color.White;
             this.date.Format = System.Windows.Forms.DateTimePickerFormat.Long;
@@ -360,30 +390,6 @@ namespace ParcAuto.Forms
             this.txtObservation.TabIndex = 54;
             this.txtObservation.Text = "";
             // 
-            // txtDirection
-            // 
-            this.txtDirection.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtDirection.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtDirection.DefaultText = "";
-            this.txtDirection.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtDirection.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtDirection.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDirection.DisabledState.Parent = this.txtDirection;
-            this.txtDirection.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDirection.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDirection.FocusedState.Parent = this.txtDirection;
-            this.txtDirection.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDirection.HoverState.Parent = this.txtDirection;
-            this.txtDirection.Location = new System.Drawing.Point(511, 101);
-            this.txtDirection.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.txtDirection.Name = "txtDirection";
-            this.txtDirection.PasswordChar = '\0';
-            this.txtDirection.PlaceholderText = "";
-            this.txtDirection.SelectedText = "";
-            this.txtDirection.ShadowDecoration.Parent = this.txtDirection;
-            this.txtDirection.Size = new System.Drawing.Size(229, 39);
-            this.txtDirection.TabIndex = 54;
-            // 
             // MajVisiteurs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -398,9 +404,11 @@ namespace ParcAuto.Forms
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MajVisiteurs";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MajVisiteurs";
+            this.Load += new System.EventHandler(this.MajVisiteurs_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

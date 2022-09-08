@@ -521,5 +521,11 @@ namespace ParcAuto
             Commandes.probleme = Probleme.Global;
             openChildForm(new Forms.ProblemeFixe(), sender);
         }
+
+        private void btnVisiteurs_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.Visiteurs(), sender);
+
+        }
     }
 }

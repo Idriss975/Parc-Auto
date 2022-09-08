@@ -31,6 +31,7 @@ namespace ParcAuto.Classes_Globale
         public static int id_Mission;
         public static int id_Courrier;
         public static int id_Maintenance;
+        public static int id_Visiteur;
         public static string DotationCarburant ;
         public static string SelectedDate;
         public static Dictionary<string, string> Entites = new Dictionary<string, string>();
