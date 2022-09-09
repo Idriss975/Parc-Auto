@@ -215,7 +215,7 @@ namespace ParcAuto.Forms
             switch (Commandes.Command)
             {
                 case Choix.ajouter:
-                    lbl.Text = "L'ajout d'un Mission";
+                    lbl.Text = "L'ajout d'une Mission";
                     break;
                 case Choix.modifier:
                     lbl.Text = "La Mdification d'une Mission";

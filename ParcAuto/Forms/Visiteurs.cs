@@ -1,10 +1,13 @@
-﻿using ParcAuto.Classes_Globale;
+﻿using Microsoft.Office.Interop.Excel;
+using ParcAuto.Classes_Globale;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -105,43 +108,218 @@ namespace ParcAuto.Forms
                 GLB.Con.Close();
             }
         }
+        private void NombreDeVisiteurs_ParEntite()
+        {
+            try
+            {
+                int i = 0;
+                GLB.Cmd.CommandText = $"select Direction , COUNT(*) from SuiviVisiteurs where Year(Date) = '{GLB.SelectedDate}' group by Direction";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
+                GLB.Con.Open();
+                GLB.dr = GLB.Cmd.ExecuteReader();
+                while (GLB.dr.Read())
+                {
+                    chart1.Series["Direction"].Points.AddXY(GLB.dr[0].ToString(), GLB.dr[1]);
+                    chart1.Series["Direction"].Points[i].Label = GLB.dr[1].ToString();
+                    i++;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                GLB.dr.Close();
+                GLB.Con.Close();
+            }
+
+        }
+        private void NombreDeVisiteurs_ParMois()
+        {
+            try
+            {
+                int i = 0;
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
+                GLB.Con.Open();
+                GLB.Cmd.CommandText = $"select (select COUNT(*) from SuiviVisiteurs  where month(Date) = 1 and year(Date) = 2022)," +
+                    $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 2 and year(Date) = {GLB.SelectedDate})," +
+                    $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 3 and year(Date) = {GLB.SelectedDate})," +
+                    $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 4 and year(Date) = {GLB.SelectedDate})," +
+                    $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 5 and year(Date) = {GLB.SelectedDate})," +
+                    $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 6 and year(Date) = {GLB.SelectedDate})," +
+                    $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 7 and year(Date) = {GLB.SelectedDate})," +
+                    $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 8 and year(Date) = {GLB.SelectedDate})," +
+                    $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 9 and year(Date) = {GLB.SelectedDate})," +
+                    $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 10 and year(Date) = {GLB.SelectedDate})," +
+                    $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 11 and year(Date) = {GLB.SelectedDate})," +
+                    $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 12 and year(Date) = {GLB.SelectedDate})";
+                GLB.dr = GLB.Cmd.ExecuteReader();
+                while (GLB.dr.Read())
+                {
+                    chart2.Series["Mois"].Points.AddXY("Janvier", GLB.dr[0].ToString());
+                    chart2.Series["Mois"].Points[i].Label = GLB.dr[0].ToString();
+
+                    chart2.Series["Mois"].Points.AddXY("Fevrier", GLB.dr[1].ToString());
+                    chart2.Series["Mois"].Points[i + 1].Label = GLB.dr[1].ToString();
+
+                    chart2.Series["Mois"].Points.AddXY("Mars", GLB.dr[2].ToString());
+                    chart2.Series["Mois"].Points[i + 2].Label = GLB.dr[2].ToString();
+
+                    chart2.Series["Mois"].Points.AddXY("Avril", GLB.dr[3].ToString());
+                    chart2.Series["Mois"].Points[i + 3].Label = GLB.dr[3].ToString();
+
+                    chart2.Series["Mois"].Points.AddXY("Mai", GLB.dr[4].ToString());
+                    chart2.Series["Mois"].Points[i + 4].Label = GLB.dr[4].ToString();
+
+                    chart2.Series["Mois"].Points.AddXY("Juin", GLB.dr[5].ToString());
+                    chart2.Series["Mois"].Points[i + 5].Label = GLB.dr[5].ToString();
+
+                    chart2.Series["Mois"].Points.AddXY("Juillet", GLB.dr[6].ToString());
+                    chart2.Series["Mois"].Points[i + 6].Label = GLB.dr[6].ToString();
+
+                    chart2.Series["Mois"].Points.AddXY("Aout", GLB.dr[7].ToString());
+                    chart2.Series["Mois"].Points[i + 7].Label = GLB.dr[7].ToString();
+
+                    chart2.Series["Mois"].Points.AddXY("Septembre", GLB.dr[8].ToString());
+                    chart2.Series["Mois"].Points[i + 8].Label = GLB.dr[8].ToString();
+
+                    chart2.Series["Mois"].Points.AddXY("Octobre", GLB.dr[9].ToString());
+                    chart2.Series["Mois"].Points[i + 9].Label = GLB.dr[9].ToString();
+
+                    chart2.Series["Mois"].Points.AddXY("Novembre", GLB.dr[10].ToString());
+                    chart2.Series["Mois"].Points[i + 10].Label = GLB.dr[10].ToString();
+
+                    chart2.Series["Mois"].Points.AddXY("Décembre", GLB.dr[11].ToString());
+                    chart2.Series["Mois"].Points[i + 11].Label = GLB.dr[11].ToString();
+                }
+                GLB.dr.Close();
+                //GLB.Cmd.CommandText = $"select SUM(isnull(janvier,0))  , SUM(isnull(fevrier,0)),SUM(isnull(mars,0)),SUM(isnull(avril,0)),SUM(isnull(mai,0)),SUM(isnull(juin,0))," +
+                //  $" SUM(isnull(juillet, 0)),SUM(isnull(aout, 0)),SUM(isnull(septembre, 0)),SUM(isnull(octobre, 0)) ,SUM(isnull(novembre, 0)) ,SUM(isnull(decembre, 0)) from NombreDeCourriersParEntite" +
+                //  $" where annee = {int.Parse(GLB.SelectedDate) - 1}";
+                //GLB.dr = GLB.Cmd.ExecuteReader();
+                //while (GLB.dr.Read())
+                //{
+                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Janvier", GLB.dr[0].ToString());
+                //    chart2.Series["Mois d'annee précédent "].Points[i].Label = GLB.dr[0].ToString();
+
+                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Fevrier", GLB.dr[1].ToString());
+                //    chart2.Series["Mois d'annee précédent "].Points[i + 1].Label = GLB.dr[1].ToString();
+
+                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Mars", GLB.dr[2].ToString());
+                //    chart2.Series["Mois d'annee précédent "].Points[i + 2].Label = GLB.dr[2].ToString();
+
+                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Avril", GLB.dr[3].ToString());
+                //    chart2.Series["Mois d'annee précédent "].Points[i + 3].Label = GLB.dr[3].ToString();
+
+                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Mai", GLB.dr[4].ToString());
+                //    chart2.Series["Mois d'annee précédent "].Points[i + 4].Label = GLB.dr[4].ToString();
+
+                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Juin", GLB.dr[5].ToString());
+                //    chart2.Series["Mois d'annee précédent "].Points[i + 5].Label = GLB.dr[5].ToString();
+
+                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Juillet", GLB.dr[6].ToString());
+                //    chart2.Series["Mois d'annee précédent "].Points[i + 6].Label = GLB.dr[6].ToString();
+
+                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Aout", GLB.dr[7].ToString());
+                //    chart2.Series["Mois d'annee précédent "].Points[i + 7].Label = GLB.dr[7].ToString();
+
+                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Septembre", GLB.dr[8].ToString());
+                //    chart2.Series["Mois d'annee précédent "].Points[i + 8].Label = GLB.dr[8].ToString();
+
+                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Octobre", GLB.dr[9].ToString());
+                //    chart2.Series["Mois d'annee précédent "].Points[i + 9].Label = GLB.dr[9].ToString();
+
+                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Novembre", GLB.dr[10].ToString());
+                //    chart2.Series["Mois d'annee précédent "].Points[i + 10].Label = GLB.dr[10].ToString();
+
+                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Décembre", GLB.dr[11].ToString());
+                //    chart2.Series["Mois d'annee précédent "].Points[i + 11].Label = GLB.dr[11].ToString();
+
+
+                //}
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                GLB.dr.Close();
+                GLB.Con.Close();
+            }
+
+        }
         private void Visiteurs_Load(object sender, EventArgs e)
         {
             panelDate.Visible = false;
             TextPanel.Visible = true;
             cmbChoix.SelectedIndex = 0;
             GLB.StyleDataGridView(dgvVisiteurs);
-            RemplirLaGrille();
             Permissions();
+            RemplirLaGrille();
+            NombreDeVisiteurs_ParEntite();
+            NombreDeVisiteurs_ParMois();
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    if (dgvVisiteurs.Rows.Count == 0)
-            //        return;
-                
-            //    MajCarburants maj = new MajCarburants(GLB.DotationCarburant);
-            //    Commandes.Command = Choix.ajouter;
+            try
+            {
+              
 
-            //    maj.ShowDialog();
-            //    RemplirLaGrille();
-            //    if (dgvVisiteurs.Rows.Count > 0)
-            //    {
-            //        dgvVisiteurs.Rows[dgvVisiteurs.Rows.Count - 1].Selected = true;
-            //        dgvVisiteurs.FirstDisplayedScrollingRowIndex = dgvVisiteurs.Rows.Count - 1;
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+                MajVisiteurs maj = new MajVisiteurs();
+                Commandes.Command = Choix.ajouter;
+
+                maj.ShowDialog();
+                RemplirLaGrille();
+                if (dgvVisiteurs.Rows.Count > 0)
+                {
+                    dgvVisiteurs.Rows[dgvVisiteurs.Rows.Count - 1].Selected = true;
+                    dgvVisiteurs.FirstDisplayedScrollingRowIndex = dgvVisiteurs.Rows.Count - 1;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (dgvVisiteurs.Rows.Count == 0)
+                    return;
+                int Lastscrollindex = dgvVisiteurs.FirstDisplayedScrollingRowIndex;
+                int pos = dgvVisiteurs.CurrentRow.Index;
+                GLB.id_Visiteur  = Convert.ToInt32(dgvVisiteurs.Rows[pos].Cells["Column8"].Value);
+                Commandes.Command = Choix.modifier;
+                (new MajVisiteurs(dgvVisiteurs.Rows[pos].Cells["Column1"].Value.ToString(),
+                    dgvVisiteurs.Rows[pos].Cells["Column2"].Value.ToString(),
+                    dgvVisiteurs.Rows[pos].Cells["Column3"].Value.ToString(),
+                    dgvVisiteurs.Rows[pos].Cells["Column4"].Value.ToString(),
+                    DateTime.ParseExact(dgvVisiteurs.Rows[pos].Cells["Column5"].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                    dgvVisiteurs.Rows[pos].Cells["Column6"].Value.ToString(),
+                    dgvVisiteurs.Rows[pos].Cells["Column7"].Value.ToString())).ShowDialog();
+                RemplirLaGrille();
+                dgvVisiteurs.Rows[pos].Selected = true;
+                dgvVisiteurs.FirstDisplayedScrollingRowIndex = Lastscrollindex;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
@@ -276,6 +454,104 @@ namespace ParcAuto.Forms
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        _Application importExceldatagridViewApp;
+        _Worksheet importExceldatagridViewworksheet;
+        Range importdatagridviewRange;
+        Workbook excelWorkbook;
+        int currentIndex;
+        private void btnImportExcel_Click(object sender, EventArgs e)
+        {
+
+            string nom , cin,autorisation,heure,direction,observation;
+            DateTime date;
+            if (GLB.Con.State == ConnectionState.Open)
+                GLB.Con.Close();
+            GLB.Con.Open();
+            GLB.Cmd.Transaction = GLB.Con.BeginTransaction();
+            try
+            {
+
+                importExceldatagridViewApp = new Microsoft.Office.Interop.Excel.Application();
+                OpenFileDialog importOpenDialoge = new OpenFileDialog();
+                importOpenDialoge.Title = "Import Excel File";
+                importOpenDialoge.Filter = "Import Excel File|*.xlsx;*xls;*xlm";
+                if (importOpenDialoge.ShowDialog() == DialogResult.OK)
+                {
+
+
+                    Workbooks excelWorkbooks = importExceldatagridViewApp.Workbooks;
+                    excelWorkbook = excelWorkbooks.Open(importOpenDialoge.FileName);
+                    importExceldatagridViewworksheet = excelWorkbook.ActiveSheet;
+                    importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
+
+                    for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
+                    {
+                        currentIndex = excelWorksheetIndex;
+                        nom = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value)).Trim();
+                        cin = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
+                        autorisation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
+                        heure = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
+                        date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value ?? "0001-01-01"));
+                        direction = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
+                        observation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
+                        GLB.Cmd.Parameters.Clear();
+
+                        GLB.Cmd.CommandText = "insert into SuiviVisiteurs values(@visiteur,@cin,@autorisation,@heure,@date,@direction,@observation)";
+                        GLB.Cmd.Parameters.AddWithValue("@visiteur", nom ?? "");
+                        GLB.Cmd.Parameters.AddWithValue("@cin", cin ?? "");
+                        GLB.Cmd.Parameters.AddWithValue("@autorisation", autorisation ?? "");
+                        GLB.Cmd.Parameters.AddWithValue("@heure", heure ?? "");
+                        GLB.Cmd.Parameters.AddWithValue("@date", date.ToString("yyyy-MM-dd") == "0001-01-01" ? (object)DBNull.Value : date.ToString("yyyy-MM-dd"));
+                        GLB.Cmd.Parameters.AddWithValue("@direction", direction ?? "");
+                        GLB.Cmd.Parameters.AddWithValue("@observation", observation ?? "");
+                        GLB.Cmd.ExecuteNonQuery();
+                        
+                    }
+                    GLB.Cmd.Transaction.Commit();
+                    GLB.Con.Close();
+                }
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 2627)
+                    MessageBox.Show($"La ligne {currentIndex} dans l'excel déja saisie est sauvegarder dans la base de données, vous pouvez supprimer ou modifier la ligne {currentIndex} sur excel et refaire l'imporation.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                GLB.Cmd.Transaction.Rollback();
+
+            }
+            finally
+            {
+
+                GLB.Con.Close();
+                excelWorkbook.Close();
+                Marshal.ReleaseComObject(excelWorkbook);
+                Marshal.ReleaseComObject(importExceldatagridViewworksheet);
+                Marshal.ReleaseComObject(importdatagridviewRange);
+                importExceldatagridViewApp.Quit();
+                RemplirLaGrille();
+            }
+        }
+
+        private void btnImprimer_Click(object sender, EventArgs e)
+        {
+            if (printDialog1.ShowDialog(this) == DialogResult.OK)
+            {
+                printPreviewDialog1.Document.PrinterSettings = printDialog1.PrinterSettings;
+                printPreviewDialog1.ShowDialog();
+            }
+        }
+
+        private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            Impression.number_of_lines = dgvVisiteurs.Rows.Count;
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Impression.Drawonprintdoc(e, dgvVisiteurs, imageList1.Images["OFPPT_logo.png"], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6), Column8.Index, Titre:"Les visiteurs");
         }
     }
 }

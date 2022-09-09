@@ -30,7 +30,6 @@ namespace ParcAuto
         private void InitializeComponent()
         {
             System.Windows.Forms.Panel section2;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -41,16 +40,17 @@ namespace ParcAuto
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.section3 = new System.Windows.Forms.Panel();
             this.panelMaintenance = new System.Windows.Forms.Panel();
             this.panelsousMaintenance = new System.Windows.Forms.Panel();
@@ -68,7 +68,6 @@ namespace ParcAuto
             this.arrowsuiviDown = new System.Windows.Forms.PictureBox();
             this.btnSuivi = new System.Windows.Forms.Button();
             this.btnMissions = new System.Windows.Forms.Button();
-            this.btnEtatJournalier = new System.Windows.Forms.Button();
             this.btnConducteurs = new System.Windows.Forms.Button();
             this.ParcAutodown = new System.Windows.Forms.PictureBox();
             this.ParcAutoup = new System.Windows.Forms.PictureBox();
@@ -84,6 +83,7 @@ namespace ParcAuto
             this.btnVehicules = new System.Windows.Forms.Button();
             this.btnParcOFPPT = new System.Windows.Forms.Button();
             this.btnParcAuto = new System.Windows.Forms.Button();
+            this.btnEtatJournalier = new System.Windows.Forms.Button();
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.panelSousVignettes = new System.Windows.Forms.Panel();
             this.btnTransport = new System.Windows.Forms.Button();
@@ -119,8 +119,9 @@ namespace ParcAuto
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.ReparationChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.carteFreeChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.TransportChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Carburantchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.TransportChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnVisiteurs = new System.Windows.Forms.Button();
             section2 = new System.Windows.Forms.Panel();
             section2.SuspendLayout();
             this.section3.SuspendLayout();
@@ -159,8 +160,8 @@ namespace ParcAuto
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ReparationChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carteFreeChart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TransportChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Carburantchart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TransportChart)).BeginInit();
             this.SuspendLayout();
             // 
             // section2
@@ -174,12 +175,13 @@ namespace ParcAuto
             section2.Dock = System.Windows.Forms.DockStyle.Top;
             section2.Location = new System.Drawing.Point(0, 561);
             section2.Name = "section2";
-            section2.Size = new System.Drawing.Size(183, 708);
+            section2.Size = new System.Drawing.Size(183, 753);
             section2.TabIndex = 4;
             // 
             // section3
             // 
             this.section3.AutoSize = true;
+            this.section3.Controls.Add(this.btnVisiteurs);
             this.section3.Controls.Add(this.panelMaintenance);
             this.section3.Controls.Add(this.Suivis);
             this.section3.Controls.Add(this.btnMissions);
@@ -187,7 +189,7 @@ namespace ParcAuto
             this.section3.Dock = System.Windows.Forms.DockStyle.Top;
             this.section3.Location = new System.Drawing.Point(0, 299);
             this.section3.Name = "section3";
-            this.section3.Size = new System.Drawing.Size(183, 409);
+            this.section3.Size = new System.Drawing.Size(183, 454);
             this.section3.TabIndex = 100;
             // 
             // panelMaintenance
@@ -441,25 +443,6 @@ namespace ParcAuto
             this.btnMissions.UseVisualStyleBackColor = false;
             this.btnMissions.Click += new System.EventHandler(this.btnMissions_Click);
             // 
-            // btnEtatJournalier
-            // 
-            this.btnEtatJournalier.AutoSize = true;
-            this.btnEtatJournalier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
-            this.btnEtatJournalier.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEtatJournalier.FlatAppearance.BorderSize = 0;
-            this.btnEtatJournalier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEtatJournalier.ForeColor = System.Drawing.Color.White;
-            this.btnEtatJournalier.Image = ((System.Drawing.Image)(resources.GetObject("btnEtatJournalier.Image")));
-            this.btnEtatJournalier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEtatJournalier.Location = new System.Drawing.Point(0, 324);
-            this.btnEtatJournalier.Name = "btnEtatJournalier";
-            this.btnEtatJournalier.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnEtatJournalier.Size = new System.Drawing.Size(181, 45);
-            this.btnEtatJournalier.TabIndex = 98;
-            this.btnEtatJournalier.Text = "Etat Journalier";
-            this.btnEtatJournalier.UseVisualStyleBackColor = false;
-            this.btnEtatJournalier.Click += new System.EventHandler(this.btnEtatJournalier_Click);
-            // 
             // btnConducteurs
             // 
             this.btnConducteurs.AutoSize = true;
@@ -707,6 +690,25 @@ namespace ParcAuto
             this.btnParcAuto.Text = "Parc Auto";
             this.btnParcAuto.UseVisualStyleBackColor = false;
             this.btnParcAuto.Click += new System.EventHandler(this.btnParcAuto_Click);
+            // 
+            // btnEtatJournalier
+            // 
+            this.btnEtatJournalier.AutoSize = true;
+            this.btnEtatJournalier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnEtatJournalier.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEtatJournalier.FlatAppearance.BorderSize = 0;
+            this.btnEtatJournalier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEtatJournalier.ForeColor = System.Drawing.Color.White;
+            this.btnEtatJournalier.Image = ((System.Drawing.Image)(resources.GetObject("btnEtatJournalier.Image")));
+            this.btnEtatJournalier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEtatJournalier.Location = new System.Drawing.Point(0, 324);
+            this.btnEtatJournalier.Name = "btnEtatJournalier";
+            this.btnEtatJournalier.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnEtatJournalier.Size = new System.Drawing.Size(181, 45);
+            this.btnEtatJournalier.TabIndex = 98;
+            this.btnEtatJournalier.Text = "Etat Journalier";
+            this.btnEtatJournalier.UseVisualStyleBackColor = false;
+            this.btnEtatJournalier.Click += new System.EventHandler(this.btnEtatJournalier_Click);
             // 
             // panelSideMenu
             // 
@@ -1088,7 +1090,7 @@ namespace ParcAuto
             this.Quitter.ForeColor = System.Drawing.Color.White;
             this.Quitter.Image = ((System.Drawing.Image)(resources.GetObject("Quitter.Image")));
             this.Quitter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Quitter.Location = new System.Drawing.Point(0, 1269);
+            this.Quitter.Location = new System.Drawing.Point(0, 1314);
             this.Quitter.Name = "Quitter";
             this.Quitter.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.Quitter.Size = new System.Drawing.Size(183, 45);
@@ -1278,6 +1280,34 @@ namespace ParcAuto
             title2.Text = "Consommation Carte Free";
             this.carteFreeChart.Titles.Add(title2);
             // 
+            // Carburantchart
+            // 
+            chartArea4.AxisX.MajorGrid.Enabled = false;
+            chartArea4.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea4.Name = "ChartArea1";
+            this.Carburantchart.ChartAreas.Add(chartArea4);
+            this.Carburantchart.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend4.Name = "Legend1";
+            this.Carburantchart.Legends.Add(legend4);
+            this.Carburantchart.Location = new System.Drawing.Point(10, 10);
+            this.Carburantchart.Margin = new System.Windows.Forms.Padding(10);
+            this.Carburantchart.Name = "Carburantchart";
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Total Report et Achat";
+            series8.ChartArea = "ChartArea1";
+            series8.Legend = "Legend1";
+            series8.Name = "Total Consommation";
+            this.Carburantchart.Series.Add(series7);
+            this.Carburantchart.Series.Add(series8);
+            this.Carburantchart.Size = new System.Drawing.Size(541, 277);
+            this.Carburantchart.TabIndex = 3;
+            this.Carburantchart.Text = "chart1";
+            title4.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title4.Name = "Title1";
+            title4.Text = "Consommation Carburant";
+            this.Carburantchart.Titles.Add(title4);
+            // 
             // TransportChart
             // 
             chartArea3.AxisX.MajorGrid.Enabled = false;
@@ -1306,33 +1336,24 @@ namespace ParcAuto
             title3.Text = "Consommation Transport";
             this.TransportChart.Titles.Add(title3);
             // 
-            // Carburantchart
+            // btnVisiteurs
             // 
-            chartArea4.AxisX.MajorGrid.Enabled = false;
-            chartArea4.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea4.Name = "ChartArea1";
-            this.Carburantchart.ChartAreas.Add(chartArea4);
-            this.Carburantchart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend4.Name = "Legend1";
-            this.Carburantchart.Legends.Add(legend4);
-            this.Carburantchart.Location = new System.Drawing.Point(10, 10);
-            this.Carburantchart.Margin = new System.Windows.Forms.Padding(10);
-            this.Carburantchart.Name = "Carburantchart";
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Total Report et Achat";
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.Name = "Total Consommation";
-            this.Carburantchart.Series.Add(series7);
-            this.Carburantchart.Series.Add(series8);
-            this.Carburantchart.Size = new System.Drawing.Size(541, 277);
-            this.Carburantchart.TabIndex = 3;
-            this.Carburantchart.Text = "chart1";
-            title4.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title4.Name = "Title1";
-            title4.Text = "Consommation Carburant";
-            this.Carburantchart.Titles.Add(title4);
+            this.btnVisiteurs.AutoSize = true;
+            this.btnVisiteurs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnVisiteurs.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVisiteurs.FlatAppearance.BorderSize = 0;
+            this.btnVisiteurs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVisiteurs.ForeColor = System.Drawing.Color.White;
+            this.btnVisiteurs.Image = ((System.Drawing.Image)(resources.GetObject("btnVisiteurs.Image")));
+            this.btnVisiteurs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVisiteurs.Location = new System.Drawing.Point(0, 409);
+            this.btnVisiteurs.Name = "btnVisiteurs";
+            this.btnVisiteurs.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnVisiteurs.Size = new System.Drawing.Size(183, 45);
+            this.btnVisiteurs.TabIndex = 102;
+            this.btnVisiteurs.Text = "Visiteurs";
+            this.btnVisiteurs.UseVisualStyleBackColor = false;
+            this.btnVisiteurs.Click += new System.EventHandler(this.btnVisiteurs_Click);
             // 
             // Form1
             // 
@@ -1401,8 +1422,8 @@ namespace ParcAuto
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ReparationChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carteFreeChart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TransportChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Carburantchart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TransportChart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1468,7 +1489,6 @@ namespace ParcAuto
         private System.Windows.Forms.Label lblCarburant;
         private System.Windows.Forms.DataVisualization.Charting.Chart ReparationChart;
         private System.Windows.Forms.DataVisualization.Charting.Chart carteFreeChart;
-        private System.Windows.Forms.DataVisualization.Charting.Chart TransportChart;
         private System.Windows.Forms.DataVisualization.Charting.Chart Carburantchart;
         private System.Windows.Forms.Panel panelMaintenance;
         private System.Windows.Forms.Panel panelsousMaintenance;
@@ -1479,6 +1499,8 @@ namespace ParcAuto
         private System.Windows.Forms.Button btnMaintenance;
         private System.Windows.Forms.Button btnGLB;
         private System.Windows.Forms.Button Quitter;
+        private System.Windows.Forms.Button btnVisiteurs;
+        private System.Windows.Forms.DataVisualization.Charting.Chart TransportChart;
     }
 }
 
