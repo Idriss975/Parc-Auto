@@ -124,8 +124,20 @@ namespace ParcAuto.Forms
                     chart1.Series["Direction"].Points[i].Label = GLB.dr[1].ToString();
                     i++;
                 }
-
-
+                GLB.dr.Close();
+                //int j = 0;
+                //GLB.Cmd.CommandText = $"select Direction , COUNT(*) from SuiviVisiteurs where Year(Date) = '{int.Parse(GLB.SelectedDate) - 1}' group by Direction";
+                //if (GLB.Con.State == ConnectionState.Open)
+                //    GLB.Con.Close();
+                //GLB.Con.Open();
+                //GLB.dr = GLB.Cmd.ExecuteReader();
+                //while (GLB.dr.Read())
+                //{
+                //    chart1.Series["Direction d'annee précédent"].Points.AddXY(GLB.dr[0].ToString(), GLB.dr[1]);
+                //    chart1.Series["Direction d'annee précédent"].Points[j].Label = GLB.dr[1].ToString();
+                //    j++;
+                //}
+                //GLB.dr.Close();
             }
             catch (Exception ex)
             {
@@ -147,7 +159,7 @@ namespace ParcAuto.Forms
                 if (GLB.Con.State == ConnectionState.Open)
                     GLB.Con.Close();
                 GLB.Con.Open();
-                GLB.Cmd.CommandText = $"select (select COUNT(*) from SuiviVisiteurs  where month(Date) = 1 and year(Date) = 2022)," +
+                GLB.Cmd.CommandText = $"select (select COUNT(*) from SuiviVisiteurs  where month(Date) = 1 and year(Date) = {GLB.SelectedDate})," +
                     $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 2 and year(Date) = {GLB.SelectedDate})," +
                     $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 3 and year(Date) = {GLB.SelectedDate})," +
                     $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 4 and year(Date) = {GLB.SelectedDate})," +
@@ -199,50 +211,59 @@ namespace ParcAuto.Forms
                     chart2.Series["Mois"].Points[i + 11].Label = GLB.dr[11].ToString();
                 }
                 GLB.dr.Close();
-                //GLB.Cmd.CommandText = $"select SUM(isnull(janvier,0))  , SUM(isnull(fevrier,0)),SUM(isnull(mars,0)),SUM(isnull(avril,0)),SUM(isnull(mai,0)),SUM(isnull(juin,0))," +
-                //  $" SUM(isnull(juillet, 0)),SUM(isnull(aout, 0)),SUM(isnull(septembre, 0)),SUM(isnull(octobre, 0)) ,SUM(isnull(novembre, 0)) ,SUM(isnull(decembre, 0)) from NombreDeCourriersParEntite" +
-                //  $" where annee = {int.Parse(GLB.SelectedDate) - 1}";
-                //GLB.dr = GLB.Cmd.ExecuteReader();
-                //while (GLB.dr.Read())
-                //{
-                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Janvier", GLB.dr[0].ToString());
-                //    chart2.Series["Mois d'annee précédent "].Points[i].Label = GLB.dr[0].ToString();
+                GLB.Cmd.CommandText = $"select (select COUNT(*) from SuiviVisiteurs  where month(Date) = 1 and year(Date) = {int.Parse(GLB.SelectedDate) - 1})," +
+                     $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 2 and year(Date) = {int.Parse(GLB.SelectedDate) - 1})," +
+                     $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 3 and year(Date) = {int.Parse(GLB.SelectedDate) - 1})," +
+                     $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 4 and year(Date) = {int.Parse(GLB.SelectedDate) - 1})," +
+                     $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 5 and year(Date) = {int.Parse(GLB.SelectedDate) - 1})," +
+                     $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 6 and year(Date) = {int.Parse(GLB.SelectedDate) - 1})," +
+                     $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 7 and year(Date) = {int.Parse(GLB.SelectedDate) - 1})," +
+                     $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 8 and year(Date) = {int.Parse(GLB.SelectedDate) - 1})," +
+                     $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 9 and year(Date) = {int.Parse(GLB.SelectedDate) - 1})," +
+                     $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 10 and year(Date) = {int.Parse(GLB.SelectedDate) - 1})," +
+                     $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 11 and year(Date) = {int.Parse(GLB.SelectedDate) - 1})," +
+                     $"(select COUNT(*) from SuiviVisiteurs  where month(Date) = 12 and year(Date) = {int.Parse(GLB.SelectedDate) - 1})";
+                GLB.dr = GLB.Cmd.ExecuteReader();
+                while (GLB.dr.Read())
+                {
+                    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Janvier", GLB.dr[0].ToString());
+                    chart2.Series["Mois d'annee précédent "].Points[i].Label = GLB.dr[0].ToString();
 
-                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Fevrier", GLB.dr[1].ToString());
-                //    chart2.Series["Mois d'annee précédent "].Points[i + 1].Label = GLB.dr[1].ToString();
+                    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Fevrier", GLB.dr[1].ToString());
+                    chart2.Series["Mois d'annee précédent "].Points[i + 1].Label = GLB.dr[1].ToString();
 
-                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Mars", GLB.dr[2].ToString());
-                //    chart2.Series["Mois d'annee précédent "].Points[i + 2].Label = GLB.dr[2].ToString();
+                    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Mars", GLB.dr[2].ToString());
+                    chart2.Series["Mois d'annee précédent "].Points[i + 2].Label = GLB.dr[2].ToString();
 
-                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Avril", GLB.dr[3].ToString());
-                //    chart2.Series["Mois d'annee précédent "].Points[i + 3].Label = GLB.dr[3].ToString();
+                    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Avril", GLB.dr[3].ToString());
+                    chart2.Series["Mois d'annee précédent "].Points[i + 3].Label = GLB.dr[3].ToString();
 
-                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Mai", GLB.dr[4].ToString());
-                //    chart2.Series["Mois d'annee précédent "].Points[i + 4].Label = GLB.dr[4].ToString();
+                    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Mai", GLB.dr[4].ToString());
+                    chart2.Series["Mois d'annee précédent "].Points[i + 4].Label = GLB.dr[4].ToString();
 
-                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Juin", GLB.dr[5].ToString());
-                //    chart2.Series["Mois d'annee précédent "].Points[i + 5].Label = GLB.dr[5].ToString();
+                    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Juin", GLB.dr[5].ToString());
+                    chart2.Series["Mois d'annee précédent "].Points[i + 5].Label = GLB.dr[5].ToString();
 
-                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Juillet", GLB.dr[6].ToString());
-                //    chart2.Series["Mois d'annee précédent "].Points[i + 6].Label = GLB.dr[6].ToString();
+                    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Juillet", GLB.dr[6].ToString());
+                    chart2.Series["Mois d'annee précédent "].Points[i + 6].Label = GLB.dr[6].ToString();
 
-                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Aout", GLB.dr[7].ToString());
-                //    chart2.Series["Mois d'annee précédent "].Points[i + 7].Label = GLB.dr[7].ToString();
+                    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Aout", GLB.dr[7].ToString());
+                    chart2.Series["Mois d'annee précédent "].Points[i + 7].Label = GLB.dr[7].ToString();
 
-                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Septembre", GLB.dr[8].ToString());
-                //    chart2.Series["Mois d'annee précédent "].Points[i + 8].Label = GLB.dr[8].ToString();
+                    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Septembre", GLB.dr[8].ToString());
+                    chart2.Series["Mois d'annee précédent "].Points[i + 8].Label = GLB.dr[8].ToString();
 
-                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Octobre", GLB.dr[9].ToString());
-                //    chart2.Series["Mois d'annee précédent "].Points[i + 9].Label = GLB.dr[9].ToString();
+                    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Octobre", GLB.dr[9].ToString());
+                    chart2.Series["Mois d'annee précédent "].Points[i + 9].Label = GLB.dr[9].ToString();
 
-                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Novembre", GLB.dr[10].ToString());
-                //    chart2.Series["Mois d'annee précédent "].Points[i + 10].Label = GLB.dr[10].ToString();
+                    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Novembre", GLB.dr[10].ToString());
+                    chart2.Series["Mois d'annee précédent "].Points[i + 10].Label = GLB.dr[10].ToString();
 
-                //    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Décembre", GLB.dr[11].ToString());
-                //    chart2.Series["Mois d'annee précédent "].Points[i + 11].Label = GLB.dr[11].ToString();
+                    chart2.Series["Mois d'annee précédent "].Points.AddXY($"Décembre", GLB.dr[11].ToString());
+                    chart2.Series["Mois d'annee précédent "].Points[i + 11].Label = GLB.dr[11].ToString();
 
 
-                //}
+                }
             }
             catch (Exception ex)
             {
