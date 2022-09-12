@@ -31,19 +31,18 @@ namespace ParcAuto.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionDesUtilisateurs));
             this.dgvUsers = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ModifierVignettes = new System.Windows.Forms.CheckBox();
+            this.SuprimmerVignettes = new System.Windows.Forms.CheckBox();
+            this.InsererVignettes = new System.Windows.Forms.CheckBox();
+            this.ConsulterVignettes = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUtilisateur = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMotdePasse = new Guna.UI2.WinForms.Guna2TextBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.ConsulterVignettes = new System.Windows.Forms.CheckBox();
-            this.InsererVignettes = new System.Windows.Forms.CheckBox();
-            this.SuprimmerVignettes = new System.Windows.Forms.CheckBox();
-            this.ModifierVignettes = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnAjouter = new Guna.UI2.WinForms.Guna2Button();
             this.btnModifier = new Guna.UI2.WinForms.Guna2Button();
@@ -61,12 +60,16 @@ namespace ParcAuto.Forms
             this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2});
+            this.Column1});
             this.dgvUsers.Location = new System.Drawing.Point(564, 98);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.Size = new System.Drawing.Size(535, 318);
             this.dgvUsers.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Utilisateur";
+            this.Column1.Name = "Column1";
             // 
             // groupBox1
             // 
@@ -82,6 +85,55 @@ namespace ParcAuto.Forms
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "La mise à jour d\'un utilisateur : ";
+            // 
+            // ModifierVignettes
+            // 
+            this.ModifierVignettes.AutoSize = true;
+            this.ModifierVignettes.Location = new System.Drawing.Point(437, 144);
+            this.ModifierVignettes.Name = "ModifierVignettes";
+            this.ModifierVignettes.Size = new System.Drawing.Size(77, 21);
+            this.ModifierVignettes.TabIndex = 5;
+            this.ModifierVignettes.Text = "Modifier";
+            this.ModifierVignettes.UseVisualStyleBackColor = true;
+            // 
+            // SuprimmerVignettes
+            // 
+            this.SuprimmerVignettes.AutoSize = true;
+            this.SuprimmerVignettes.Location = new System.Drawing.Point(330, 146);
+            this.SuprimmerVignettes.Name = "SuprimmerVignettes";
+            this.SuprimmerVignettes.Size = new System.Drawing.Size(95, 21);
+            this.SuprimmerVignettes.TabIndex = 4;
+            this.SuprimmerVignettes.Text = "Suprimmer";
+            this.SuprimmerVignettes.UseVisualStyleBackColor = true;
+            // 
+            // InsererVignettes
+            // 
+            this.InsererVignettes.AutoSize = true;
+            this.InsererVignettes.Location = new System.Drawing.Point(223, 146);
+            this.InsererVignettes.Name = "InsererVignettes";
+            this.InsererVignettes.Size = new System.Drawing.Size(71, 21);
+            this.InsererVignettes.TabIndex = 3;
+            this.InsererVignettes.Text = "insérer";
+            this.InsererVignettes.UseVisualStyleBackColor = true;
+            // 
+            // ConsulterVignettes
+            // 
+            this.ConsulterVignettes.AutoSize = true;
+            this.ConsulterVignettes.Location = new System.Drawing.Point(116, 146);
+            this.ConsulterVignettes.Name = "ConsulterVignettes";
+            this.ConsulterVignettes.Size = new System.Drawing.Size(87, 21);
+            this.ConsulterVignettes.TabIndex = 2;
+            this.ConsulterVignettes.Text = "Consulter";
+            this.ConsulterVignettes.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(23, 147);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 17);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Vignettes :";
             // 
             // tableLayoutPanel1
             // 
@@ -126,7 +178,7 @@ namespace ParcAuto.Forms
             this.txtUtilisateur.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUtilisateur.HoverState.Parent = this.txtUtilisateur;
             this.txtUtilisateur.Location = new System.Drawing.Point(140, 7);
-            this.txtUtilisateur.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUtilisateur.Margin = new System.Windows.Forms.Padding(4);
             this.txtUtilisateur.Name = "txtUtilisateur";
             this.txtUtilisateur.PasswordChar = '\0';
             this.txtUtilisateur.PlaceholderText = "";
@@ -161,7 +213,7 @@ namespace ParcAuto.Forms
             this.txtMotdePasse.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMotdePasse.HoverState.Parent = this.txtMotdePasse;
             this.txtMotdePasse.Location = new System.Drawing.Point(140, 57);
-            this.txtMotdePasse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMotdePasse.Margin = new System.Windows.Forms.Padding(4);
             this.txtMotdePasse.Name = "txtMotdePasse";
             this.txtMotdePasse.PasswordChar = '\0';
             this.txtMotdePasse.PlaceholderText = "";
@@ -169,65 +221,6 @@ namespace ParcAuto.Forms
             this.txtMotdePasse.ShadowDecoration.Parent = this.txtMotdePasse;
             this.txtMotdePasse.Size = new System.Drawing.Size(374, 36);
             this.txtMotdePasse.TabIndex = 3;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Utilisateur";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Mot de passe";
-            this.Column2.Name = "Column2";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 147);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 17);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Vignettes :";
-            // 
-            // ConsulterVignettes
-            // 
-            this.ConsulterVignettes.AutoSize = true;
-            this.ConsulterVignettes.Location = new System.Drawing.Point(116, 146);
-            this.ConsulterVignettes.Name = "ConsulterVignettes";
-            this.ConsulterVignettes.Size = new System.Drawing.Size(87, 21);
-            this.ConsulterVignettes.TabIndex = 2;
-            this.ConsulterVignettes.Text = "Consulter";
-            this.ConsulterVignettes.UseVisualStyleBackColor = true;
-            // 
-            // InsererVignettes
-            // 
-            this.InsererVignettes.AutoSize = true;
-            this.InsererVignettes.Location = new System.Drawing.Point(223, 146);
-            this.InsererVignettes.Name = "InsererVignettes";
-            this.InsererVignettes.Size = new System.Drawing.Size(71, 21);
-            this.InsererVignettes.TabIndex = 3;
-            this.InsererVignettes.Text = "insérer";
-            this.InsererVignettes.UseVisualStyleBackColor = true;
-            // 
-            // SuprimmerVignettes
-            // 
-            this.SuprimmerVignettes.AutoSize = true;
-            this.SuprimmerVignettes.Location = new System.Drawing.Point(330, 146);
-            this.SuprimmerVignettes.Name = "SuprimmerVignettes";
-            this.SuprimmerVignettes.Size = new System.Drawing.Size(95, 21);
-            this.SuprimmerVignettes.TabIndex = 4;
-            this.SuprimmerVignettes.Text = "Suprimmer";
-            this.SuprimmerVignettes.UseVisualStyleBackColor = true;
-            // 
-            // ModifierVignettes
-            // 
-            this.ModifierVignettes.AutoSize = true;
-            this.ModifierVignettes.Location = new System.Drawing.Point(437, 144);
-            this.ModifierVignettes.Name = "ModifierVignettes";
-            this.ModifierVignettes.Size = new System.Drawing.Size(77, 21);
-            this.ModifierVignettes.TabIndex = 5;
-            this.ModifierVignettes.Text = "Modifier";
-            this.ModifierVignettes.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -314,9 +307,10 @@ namespace ParcAuto.Forms
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvUsers);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GestionDesUtilisateurs";
             this.Text = "GestionDesUtilisateurs";
+            this.Load += new System.EventHandler(this.GestionDesUtilisateurs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -336,8 +330,6 @@ namespace ParcAuto.Forms
         private Guna.UI2.WinForms.Guna2TextBox txtUtilisateur;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox txtMotdePasse;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.CheckBox ModifierVignettes;
         private System.Windows.Forms.CheckBox SuprimmerVignettes;
         private System.Windows.Forms.CheckBox InsererVignettes;
@@ -347,5 +339,6 @@ namespace ParcAuto.Forms
         private Guna.UI2.WinForms.Guna2Button btnAjouter;
         private Guna.UI2.WinForms.Guna2Button btnModifier;
         private Guna.UI2.WinForms.Guna2Button btnSupprimer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
