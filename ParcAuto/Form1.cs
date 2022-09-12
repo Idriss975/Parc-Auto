@@ -531,5 +531,10 @@ namespace ParcAuto
             openChildForm(new Forms.Visiteurs(), sender);
 
         }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.GestionDesUtilisateurs(), sender);
+        }
     }
 }
