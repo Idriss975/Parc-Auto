@@ -251,6 +251,7 @@ namespace ParcAuto.Forms
                 case Choix.modifier:
                     lbl.Text = "La modification d'une Reparation";
                     txtentite.Enabled = false;
+                    Date.Enabled = false;
                     RemplirChamps();
                     break;
                 case Choix.supprimer:

@@ -91,6 +91,7 @@ namespace ParcAuto.Forms
                 case Choix.modifier:
                     lbl.Text = "La modification d'une vignette Catre Free";
                     txtentite.Enabled = false;
+                    date.Enabled = false;
                     RemplirChamps();
                     break;
                 case Choix.supprimer:

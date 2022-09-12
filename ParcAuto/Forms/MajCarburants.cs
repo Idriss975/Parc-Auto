@@ -232,6 +232,7 @@ namespace ParcAuto.Forms
                 case Choix.modifier:
                     lbl.Text = "La modification d'une Vignette carburant";
                     txtEntite.Enabled = false;
+                    DateOper.Enabled = false;
                     RemplirChamps();
                     break;
                 case Choix.supprimer:
