@@ -141,7 +141,7 @@ namespace ParcAuto.Forms
             this.txtentite.PlaceholderText = "";
             this.txtentite.SelectedText = "";
             this.txtentite.ShadowDecoration.Parent = this.txtentite;
-            this.txtentite.Size = new System.Drawing.Size(215, 41);
+            this.txtentite.Size = new System.Drawing.Size(213, 39);
             this.txtentite.TabIndex = 0;
             this.txtentite.Leave += new System.EventHandler(this.txtentite_Leave);
             // 
@@ -210,14 +210,14 @@ namespace ParcAuto.Forms
             this.txtBenificiaire.FocusedState.Parent = this.txtBenificiaire;
             this.txtBenificiaire.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBenificiaire.HoverState.Parent = this.txtBenificiaire;
-            this.txtBenificiaire.Location = new System.Drawing.Point(522, 6);
+            this.txtBenificiaire.Location = new System.Drawing.Point(523, 7);
             this.txtBenificiaire.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtBenificiaire.Name = "txtBenificiaire";
             this.txtBenificiaire.PasswordChar = '\0';
             this.txtBenificiaire.PlaceholderText = "";
             this.txtBenificiaire.SelectedText = "";
             this.txtBenificiaire.ShadowDecoration.Parent = this.txtBenificiaire;
-            this.txtBenificiaire.Size = new System.Drawing.Size(215, 41);
+            this.txtBenificiaire.Size = new System.Drawing.Size(213, 39);
             this.txtBenificiaire.TabIndex = 1;
             // 
             // Date
@@ -228,12 +228,12 @@ namespace ParcAuto.Forms
             this.Date.FillColor = System.Drawing.Color.White;
             this.Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.Date.HoverState.Parent = this.Date;
-            this.Date.Location = new System.Drawing.Point(522, 112);
+            this.Date.Location = new System.Drawing.Point(523, 113);
             this.Date.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.Date.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.Date.Name = "Date";
             this.Date.ShadowDecoration.Parent = this.Date;
-            this.Date.Size = new System.Drawing.Size(215, 41);
+            this.Date.Size = new System.Drawing.Size(213, 39);
             this.Date.TabIndex = 5;
             this.Date.Value = new System.DateTime(2022, 7, 6, 13, 23, 5, 144);
             // 
@@ -409,7 +409,7 @@ namespace ParcAuto.Forms
             this.txtMontant.PlaceholderText = "";
             this.txtMontant.SelectedText = "";
             this.txtMontant.ShadowDecoration.Parent = this.txtMontant;
-            this.txtMontant.Size = new System.Drawing.Size(215, 41);
+            this.txtMontant.Size = new System.Drawing.Size(213, 39);
             this.txtMontant.TabIndex = 6;
             // 
             // rbEntretien

@@ -228,14 +228,14 @@ namespace ParcAuto.Forms
             this.txtAutorisation.FocusedState.Parent = this.txtAutorisation;
             this.txtAutorisation.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAutorisation.HoverState.Parent = this.txtAutorisation;
-            this.txtAutorisation.Location = new System.Drawing.Point(138, 51);
+            this.txtAutorisation.Location = new System.Drawing.Point(138, 52);
             this.txtAutorisation.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtAutorisation.Name = "txtAutorisation";
             this.txtAutorisation.PasswordChar = '\0';
             this.txtAutorisation.PlaceholderText = "";
             this.txtAutorisation.SelectedText = "";
             this.txtAutorisation.ShadowDecoration.Parent = this.txtAutorisation;
-            this.txtAutorisation.Size = new System.Drawing.Size(230, 42);
+            this.txtAutorisation.Size = new System.Drawing.Size(229, 39);
             this.txtAutorisation.TabIndex = 29;
             // 
             // btnAppliquer
@@ -344,14 +344,14 @@ namespace ParcAuto.Forms
             this.txtHeure.FocusedState.Parent = this.txtHeure;
             this.txtHeure.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtHeure.HoverState.Parent = this.txtHeure;
-            this.txtHeure.Location = new System.Drawing.Point(516, 54);
+            this.txtHeure.Location = new System.Drawing.Point(511, 52);
             this.txtHeure.Margin = new System.Windows.Forms.Padding(4);
             this.txtHeure.Name = "txtHeure";
             this.txtHeure.PasswordChar = '\0';
             this.txtHeure.PlaceholderText = "";
             this.txtHeure.SelectedText = "";
             this.txtHeure.ShadowDecoration.Parent = this.txtHeure;
-            this.txtHeure.Size = new System.Drawing.Size(219, 36);
+            this.txtHeure.Size = new System.Drawing.Size(229, 39);
             this.txtHeure.TabIndex = 52;
             // 
             // date

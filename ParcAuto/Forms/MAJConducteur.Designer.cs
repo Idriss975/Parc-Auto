@@ -404,7 +404,7 @@ namespace ParcAuto.Forms
             this.DateNaissance.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.DateNaissance.Name = "DateNaissance";
             this.DateNaissance.ShadowDecoration.Parent = this.DateNaissance;
-            this.DateNaissance.Size = new System.Drawing.Size(221, 33);
+            this.DateNaissance.Size = new System.Drawing.Size(221, 34);
             this.DateNaissance.TabIndex = 24;
             this.DateNaissance.Value = new System.DateTime(2022, 7, 6, 13, 23, 5, 144);
             // 

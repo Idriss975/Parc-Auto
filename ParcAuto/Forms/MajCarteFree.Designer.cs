@@ -98,7 +98,7 @@ namespace ParcAuto.Forms
             this.txtMontant.FocusedState.Parent = this.txtMontant;
             this.txtMontant.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMontant.HoverState.Parent = this.txtMontant;
-            this.txtMontant.Location = new System.Drawing.Point(110, 215);
+            this.txtMontant.Location = new System.Drawing.Point(116, 214);
             this.txtMontant.Margin = new System.Windows.Forms.Padding(16, 11, 16, 11);
             this.txtMontant.Name = "txtMontant";
             this.txtMontant.PasswordChar = '\0';

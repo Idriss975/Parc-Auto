@@ -154,12 +154,12 @@ namespace ParcAuto.Forms
             this.DateOper.FillColor = System.Drawing.Color.White;
             this.DateOper.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DateOper.HoverState.Parent = this.DateOper;
-            this.DateOper.Location = new System.Drawing.Point(513, 55);
+            this.DateOper.Location = new System.Drawing.Point(515, 56);
             this.DateOper.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.DateOper.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.DateOper.Name = "DateOper";
             this.DateOper.ShadowDecoration.Parent = this.DateOper;
-            this.DateOper.Size = new System.Drawing.Size(224, 37);
+            this.DateOper.Size = new System.Drawing.Size(220, 35);
             this.DateOper.TabIndex = 3;
             this.DateOper.Value = new System.DateTime(2022, 7, 6, 13, 23, 5, 144);
             // 
@@ -198,6 +198,7 @@ namespace ParcAuto.Forms
             // 
             // txtEntite
             // 
+            this.txtEntite.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEntite.BorderRadius = 4;
             this.txtEntite.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtEntite.DefaultText = "";
@@ -210,7 +211,7 @@ namespace ParcAuto.Forms
             this.txtEntite.FocusedState.Parent = this.txtEntite;
             this.txtEntite.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEntite.HoverState.Parent = this.txtEntite;
-            this.txtEntite.Location = new System.Drawing.Point(141, 6);
+            this.txtEntite.Location = new System.Drawing.Point(143, 7);
             this.txtEntite.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtEntite.Multiline = true;
             this.txtEntite.Name = "txtEntite";
@@ -218,7 +219,7 @@ namespace ParcAuto.Forms
             this.txtEntite.PlaceholderText = "";
             this.txtEntite.SelectedText = "";
             this.txtEntite.ShadowDecoration.Parent = this.txtEntite;
-            this.txtEntite.Size = new System.Drawing.Size(224, 37);
+            this.txtEntite.Size = new System.Drawing.Size(220, 35);
             this.txtEntite.TabIndex = 0;
             this.txtEntite.Leave += new System.EventHandler(this.txtEntite_Leave);
             // 
@@ -268,6 +269,7 @@ namespace ParcAuto.Forms
             // 
             // txtOMN
             // 
+            this.txtOMN.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtOMN.BorderRadius = 4;
             this.txtOMN.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtOMN.DefaultText = "";
@@ -280,14 +282,14 @@ namespace ParcAuto.Forms
             this.txtOMN.FocusedState.Parent = this.txtOMN;
             this.txtOMN.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtOMN.HoverState.Parent = this.txtOMN;
-            this.txtOMN.Location = new System.Drawing.Point(513, 153);
+            this.txtOMN.Location = new System.Drawing.Point(515, 154);
             this.txtOMN.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtOMN.Name = "txtOMN";
             this.txtOMN.PasswordChar = '\0';
             this.txtOMN.PlaceholderText = "";
             this.txtOMN.SelectedText = "";
             this.txtOMN.ShadowDecoration.Parent = this.txtOMN;
-            this.txtOMN.Size = new System.Drawing.Size(224, 37);
+            this.txtOMN.Size = new System.Drawing.Size(220, 35);
             this.txtOMN.TabIndex = 7;
             // 
             // txtDotation
@@ -304,14 +306,14 @@ namespace ParcAuto.Forms
             this.txtDotation.FocusedState.Parent = this.txtDotation;
             this.txtDotation.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDotation.HoverState.Parent = this.txtDotation;
-            this.txtDotation.Location = new System.Drawing.Point(531, 353);
+            this.txtDotation.Location = new System.Drawing.Point(531, 355);
             this.txtDotation.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtDotation.Name = "txtDotation";
             this.txtDotation.PasswordChar = '\0';
             this.txtDotation.PlaceholderText = "";
             this.txtDotation.SelectedText = "";
             this.txtDotation.ShadowDecoration.Parent = this.txtDotation;
-            this.txtDotation.Size = new System.Drawing.Size(224, 37);
+            this.txtDotation.Size = new System.Drawing.Size(220, 35);
             this.txtDotation.TabIndex = 9;
             // 
             // tableLayoutPanel1
@@ -738,14 +740,14 @@ namespace ParcAuto.Forms
             this.txtBenificiaire.FocusedState.Parent = this.txtBenificiaire;
             this.txtBenificiaire.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBenificiaire.HoverState.Parent = this.txtBenificiaire;
-            this.txtBenificiaire.Location = new System.Drawing.Point(513, 6);
+            this.txtBenificiaire.Location = new System.Drawing.Point(515, 7);
             this.txtBenificiaire.Margin = new System.Windows.Forms.Padding(4);
             this.txtBenificiaire.Name = "txtBenificiaire";
             this.txtBenificiaire.PasswordChar = '\0';
             this.txtBenificiaire.PlaceholderText = "";
             this.txtBenificiaire.SelectedText = "";
             this.txtBenificiaire.ShadowDecoration.Parent = this.txtBenificiaire;
-            this.txtBenificiaire.Size = new System.Drawing.Size(224, 37);
+            this.txtBenificiaire.Size = new System.Drawing.Size(220, 35);
             this.txtBenificiaire.TabIndex = 1;
             this.txtBenificiaire.TextChanged += new System.EventHandler(this.txtBenificiaire_TextChanged);
             // 
@@ -1188,14 +1190,14 @@ namespace ParcAuto.Forms
             this.cmbVehicule.FocusedState.Parent = this.cmbVehicule;
             this.cmbVehicule.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbVehicule.HoverState.Parent = this.cmbVehicule;
-            this.cmbVehicule.Location = new System.Drawing.Point(141, 55);
+            this.cmbVehicule.Location = new System.Drawing.Point(143, 56);
             this.cmbVehicule.Margin = new System.Windows.Forms.Padding(4);
             this.cmbVehicule.Name = "cmbVehicule";
             this.cmbVehicule.PasswordChar = '\0';
             this.cmbVehicule.PlaceholderText = "";
             this.cmbVehicule.SelectedText = "";
             this.cmbVehicule.ShadowDecoration.Parent = this.cmbVehicule;
-            this.cmbVehicule.Size = new System.Drawing.Size(224, 37);
+            this.cmbVehicule.Size = new System.Drawing.Size(220, 35);
             this.cmbVehicule.TabIndex = 2;
             this.cmbVehicule.TextChanged += new System.EventHandler(this.cmbVehicule_TextChanged);
             // 
@@ -1303,7 +1305,7 @@ namespace ParcAuto.Forms
             this.txtMarque.PlaceholderText = "";
             this.txtMarque.SelectedText = "";
             this.txtMarque.ShadowDecoration.Parent = this.txtMarque;
-            this.txtMarque.Size = new System.Drawing.Size(224, 37);
+            this.txtMarque.Size = new System.Drawing.Size(220, 35);
             this.txtMarque.TabIndex = 8;
             // 
             // MajCarburants
