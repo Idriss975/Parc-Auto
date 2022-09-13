@@ -63,6 +63,7 @@ namespace ParcAuto.Forms
             this.Column1});
             this.dgvUsers.Location = new System.Drawing.Point(564, 98);
             this.dgvUsers.Name = "dgvUsers";
+            this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsers.Size = new System.Drawing.Size(535, 318);
             this.dgvUsers.TabIndex = 0;
             // 
