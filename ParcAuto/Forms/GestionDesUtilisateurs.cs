@@ -87,6 +87,21 @@ order by
         {
             LoadTable();
         }
+
+        private void dgvUsers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtUtilisateur.Text = dgvUsers.SelectedRows[0].Cells[0].Value.ToString();
+
+            if (((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions.ContainsKey("CarburantVignettes"))
+            {
+                ConsulterVignettes.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["CarburantVignettes"].Contains(SQLPerm.SELECT);
+                InsererVignettes.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["CarburantVignettes"].Contains(SQLPerm.INSERT);
+                SuprimmerVignettes.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["CarburantVignettes"].Contains(SQLPerm.DELETE);
+                ModifierVignettes.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["CarburantVignettes"].Contains(SQLPerm.UPDATE);
+            }
+            else
+                ConsulterVignettes.Checked = InsererVignettes.Checked = SuprimmerVignettes.Checked = ModifierVignettes.Checked = false;
+        }
     }
     enum SQLPerm
     {
@@ -100,7 +115,7 @@ order by
     {
         //TODO: Attributes and Constructeur.
         public readonly string name;
-        public Dictionary<String, List<SQLPerm>> Permissions = new Dictionary<String, List<SQLPerm>>() { { "Vignette", new List<SQLPerm>() } };
+        public Dictionary<String, List<SQLPerm>> Permissions = new Dictionary<String, List<SQLPerm>>() { { "Vignettes", new List<SQLPerm>() } };
         public SQLLogin_User(string name)
         {
             this.name = name;
