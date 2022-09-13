@@ -209,13 +209,13 @@ namespace ParcAuto.Forms
 
         private void MajMissions_Load(object sender, EventArgs e)
         {
-            dateMission.Value = new DateTime(Convert.ToInt32(GLB.SelectedDate), DateTime.Now.Month, DateTime.Now.Day);
             RemplirBenificiaire();
             RemplirTexteboxVehicules();
             switch (Commandes.Command)
             {
                 case Choix.ajouter:
                     lbl.Text = "L'ajout d'une Mission";
+                    dateMission.Value = new DateTime(Convert.ToInt32(GLB.SelectedDate), DateTime.Now.Month, DateTime.Now.Day);
                     break;
                 case Choix.modifier:
                     lbl.Text = "La Mdification d'une Mission";

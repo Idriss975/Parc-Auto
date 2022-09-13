@@ -228,6 +228,7 @@ namespace ParcAuto.Forms
             {
                 case Choix.ajouter:
                     lbl.Text = "L'ajout d'une Vignnette carburant";
+                    DateOper.Value = new DateTime(Convert.ToInt32(GLB.SelectedDate), DateTime.Now.Month, DateTime.Now.Day);
                     break;
                 case Choix.modifier:
                     lbl.Text = "La modification d'une Vignette carburant";
@@ -239,7 +240,6 @@ namespace ParcAuto.Forms
                     throw new Exception("Impossible de Supprimmer dans MajConducteur");
             }
             OmnYear.Text = "/"+DateTime.Now.Year.ToString().Substring(2);
-            DateOper.Value = new DateTime(Convert.ToInt32(GLB.SelectedDate), DateTime.Now.Month, DateTime.Now.Day);
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)

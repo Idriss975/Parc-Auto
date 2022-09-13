@@ -241,12 +241,12 @@ namespace ParcAuto.Forms
         }
         private void MajReparation_Load(object sender, EventArgs e)
         {
-            Date.Value = new DateTime(Convert.ToInt32(GLB.SelectedDate), DateTime.Now.Month, DateTime.Now.Day);
             RemplirComboBoxVehicules();
             switch (Commandes.Command)
             {
                 case Choix.ajouter:
                     lbl.Text = "L'ajout d'une Reparation";
+                    Date.Value = new DateTime(Convert.ToInt32(GLB.SelectedDate), DateTime.Now.Month, DateTime.Now.Day);
                     break;
                 case Choix.modifier:
                     lbl.Text = "La modification d'une Reparation";

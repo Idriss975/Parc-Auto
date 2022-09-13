@@ -168,12 +168,13 @@ namespace ParcAuto.Forms
 
         private void MAJConducteur_Load_1(object sender, EventArgs e)
         {
-            DateNaissance.Value = new DateTime(Convert.ToInt32(GLB.SelectedDate), DateTime.Now.Month, DateTime.Now.Day);
-            DateEmb.Value = new DateTime(Convert.ToInt32(GLB.SelectedDate), DateTime.Now.Month, DateTime.Now.Day);
+            
             switch (Commandes.Command)
             {
                 case Choix.ajouter:
                     lbl.Text = "L'ajout d'un Conducteur";
+                    DateNaissance.Value = new DateTime(Convert.ToInt32(GLB.SelectedDate), DateTime.Now.Month, DateTime.Now.Day);
+                    DateEmb.Value = new DateTime(Convert.ToInt32(GLB.SelectedDate), DateTime.Now.Month, DateTime.Now.Day);
                     break;
                 case Choix.modifier:
                     lbl.Text = "La modification d'un Conducteur";

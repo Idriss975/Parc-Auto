@@ -87,6 +87,7 @@ namespace ParcAuto.Forms
             {
                 case Choix.ajouter:
                     lbl.Text = "L'ajout d'une vignette Catre Free";
+                    date.Value = new DateTime(Convert.ToInt32(GLB.SelectedDate), DateTime.Now.Month, DateTime.Now.Day);
                     break;
                 case Choix.modifier:
                     lbl.Text = "La modification d'une vignette Catre Free";
@@ -97,7 +98,7 @@ namespace ParcAuto.Forms
                 case Choix.supprimer:
                     throw new Exception("Impossible de Supprimmer dans MajCarteFree");
             }
-            date.Value = new DateTime(Convert.ToInt32(GLB.SelectedDate), DateTime.Now.Month, DateTime.Now.Day);
+            
 
         }
 
