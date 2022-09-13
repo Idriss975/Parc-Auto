@@ -28,7 +28,7 @@ namespace ParcAuto.Forms
             GLB.dr.Close();
             GLB.Con.Close();
 
-            GLB.Cmd.CommandText = @"SELECT  pri.name As Username
+            GLB.Cmd.CommandText = @"SELECT  pri.name
 ,       pri.type_desc
 ,       permit.permission_name
 ,       object_name(permit.major_id) AS [Table Name]
@@ -42,22 +42,25 @@ order by
     pri.name, state_desc";
             GLB.Con.Open();
             GLB.dr = GLB.Cmd.ExecuteReader();
-            int User_index = -12;
+            int User_index = -1;
             while (GLB.dr.Read())
             {
                 foreach (DataGridViewRow item in dgvUsers.Rows)
-                
                     if (((SQLLogin_User)item.Cells[0].Value).name == GLB.dr["name"].ToString())
                     {
                         User_index = item.Index;
                         break;
                     }
 
-                 //if (((SQLLogin_User) dgvUsers.Rows[User_index].Cells[0].Value).Permissions.Keys.Contains(GLB.dr["Table Name"])) //I am mentally unstable
-
-
-                
+                if (((SQLLogin_User)dgvUsers.Rows[User_index].Cells[0].Value).Permissions.Keys.Contains(GLB.dr["Table Name"].ToString()))
+                    ((SQLLogin_User)dgvUsers.Rows[User_index].Cells[0].Value).Permissions[GLB.dr["Table Name"].ToString()].Add((SQLPerm)Enum.Parse(typeof(SQLPerm), GLB.dr["permission_name"].ToString()));
+                else
+                    ((SQLLogin_User)dgvUsers.Rows[User_index].Cells[0].Value).Permissions.Add(GLB.dr["Table Name"].ToString(), new List<SQLPerm>() { (SQLPerm)Enum.Parse(typeof(SQLPerm), GLB.dr["permission_name"].ToString()) });
             }
+
+
+            GLB.dr.Close();
+            GLB.Con.Close();
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
@@ -87,16 +90,17 @@ order by
     }
     enum SQLPerm
     {
-        Select,
-        Insert,
-        Update,
-        Delete
+        SELECT,
+        INSERT,
+        ALTER,
+        UPDATE,
+        DELETE
     }
     class SQLLogin_User
     {
         //TODO: Attributes and Constructeur.
         public readonly string name;
-        public Dictionary<String, List<SQLPerm>> Permissions = new Dictionary<String, List<SQLPerm>>() { { "Vignette", new List<SQLPerm>() } }; // List all Permissions
+        public Dictionary<String, List<SQLPerm>> Permissions = new Dictionary<String, List<SQLPerm>>() { { "Vignette", new List<SQLPerm>() } };
         public SQLLogin_User(string name)
         {
             this.name = name;
