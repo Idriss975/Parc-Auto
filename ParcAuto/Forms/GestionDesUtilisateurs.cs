@@ -115,7 +115,7 @@ order by
     {
         //TODO: Attributes and Constructeur.
         public readonly string name;
-        public Dictionary<String, List<SQLPerm>> Permissions = new Dictionary<String, List<SQLPerm>>() { { "Vignettes", new List<SQLPerm>() } };
+        public Dictionary<String, List<SQLPerm>> Permissions = new Dictionary<String, List<SQLPerm>>();
         public SQLLogin_User(string name)
         {
             this.name = name;
