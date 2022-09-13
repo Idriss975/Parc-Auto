@@ -509,7 +509,7 @@ namespace ParcAuto.Forms
                     for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
                     {
                         currentIndex = excelWorksheetIndex;
-                        nom = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value)).Trim();
+                        nom = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
                         cin = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
                         autorisation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
                         heure = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
@@ -519,12 +519,12 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.Clear();
 
                         GLB.Cmd.CommandText = "insert into SuiviVisiteurs values(@visiteur,@cin,@autorisation,@heure,@date,@direction,@observation)";
-                        GLB.Cmd.Parameters.AddWithValue("@visiteur", nom ?? "");
+                        GLB.Cmd.Parameters.AddWithValue("@visiteur", nom is null ? "" : nom.Trim());
                         GLB.Cmd.Parameters.AddWithValue("@cin", cin ?? "");
                         GLB.Cmd.Parameters.AddWithValue("@autorisation", autorisation ?? "");
-                        GLB.Cmd.Parameters.AddWithValue("@heure", heure ?? "");
+                        GLB.Cmd.Parameters.AddWithValue("@heure", heure is null ? "" : heure.Trim());
                         GLB.Cmd.Parameters.AddWithValue("@date", date.ToString("yyyy-MM-dd") == "0001-01-01" ? (object)DBNull.Value : date.ToString("yyyy-MM-dd"));
-                        GLB.Cmd.Parameters.AddWithValue("@direction", direction ?? "");
+                        GLB.Cmd.Parameters.AddWithValue("@direction", direction is null ? "" : direction.Trim());
                         GLB.Cmd.Parameters.AddWithValue("@observation", observation ?? "");
                         GLB.Cmd.ExecuteNonQuery();
                         
