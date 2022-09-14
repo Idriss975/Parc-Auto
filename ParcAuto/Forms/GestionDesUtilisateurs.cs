@@ -66,7 +66,6 @@ order by
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             //TODO: FIX SQL INJECTION
-            //TODO: SQL Role/perms
             if (GLB.Con.State == ConnectionState.Open)
                 GLB.Con.Close();
             GLB.Con.Open();
