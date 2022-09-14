@@ -375,13 +375,18 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.Con.Open();
-                for (int i = 0; i < dgvVisiteurs.Rows.Count; i++)
+                string query1 = $"delete from SuiviVisiteurs where id = {dgvVisiteurs.Rows[0].Cells[7].Value}";
+                for (int i = 1; i < dgvVisiteurs.Rows.Count; i++)
+                    query1 += $" or id = {dgvVisiteurs.Rows[i].Cells[7].Value} ";
+                if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    GLB.Cmd.CommandText = $"delete from SuiviVisiteurs where id = {dgvVisiteurs.Rows[i].Cells[7].Value}";
+                    GLB.Cmd.CommandText = query1;
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
+                    GLB.Con.Open();
                     GLB.Cmd.ExecuteNonQuery();
+                    RemplirLaGrille();
                 }
-                RemplirLaGrille();
             }
             catch (Exception ex)
             {
@@ -480,7 +485,7 @@ namespace ParcAuto.Forms
         _Worksheet importExceldatagridViewworksheet;
         Range importdatagridviewRange;
         Workbook excelWorkbook;
-        int currentIndex;
+        //int currentIndex;
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
 
@@ -489,7 +494,7 @@ namespace ParcAuto.Forms
             if (GLB.Con.State == ConnectionState.Open)
                 GLB.Con.Close();
             GLB.Con.Open();
-            GLB.Cmd.Transaction = GLB.Con.BeginTransaction();
+            //GLB.Cmd.Transaction = GLB.Con.BeginTransaction();
             try
             {
 
@@ -508,7 +513,7 @@ namespace ParcAuto.Forms
 
                     for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
                     {
-                        currentIndex = excelWorksheetIndex;
+                        //currentIndex = excelWorksheetIndex;
                         nom = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
                         cin = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
                         autorisation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
@@ -518,7 +523,11 @@ namespace ParcAuto.Forms
                         observation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
                         GLB.Cmd.Parameters.Clear();
 
-                        GLB.Cmd.CommandText = "insert into SuiviVisiteurs values(@visiteur,@cin,@autorisation,@heure,@date,@direction,@observation)";
+                        GLB.Cmd.CommandText = "if((select count(*) from SuiviVisiteurs where Nom_Visiteur = @visiteur and CIN = @cin and Autorisepar = @autorisation and heure = @heure  and  Date = @date and Direction = @direction  and Observation = @observation) = 0) " +
+                            " begin " +
+                            "   insert into SuiviVisiteurs values(@visiteur,@cin,@autorisation,@heure,@date,@direction,@observation) " +
+                            " end ";
+                       
                         GLB.Cmd.Parameters.AddWithValue("@visiteur", nom is null ? "" : nom.Trim());
                         GLB.Cmd.Parameters.AddWithValue("@cin", cin ?? "");
                         GLB.Cmd.Parameters.AddWithValue("@autorisation", autorisation ?? "");
@@ -529,18 +538,14 @@ namespace ParcAuto.Forms
                         GLB.Cmd.ExecuteNonQuery();
                         
                     }
-                    GLB.Cmd.Transaction.Commit();
+                    
                     GLB.Con.Close();
                 }
             }
             catch (SqlException ex)
             {
-                if (ex.Number == 2627)
-                    MessageBox.Show($"La ligne {currentIndex} dans l'excel déja saisie est sauvegarder dans la base de données, vous pouvez supprimer ou modifier la ligne {currentIndex} sur excel et refaire l'imporation.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else
-                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                GLB.Cmd.Transaction.Rollback();
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);                
 
             }
             finally

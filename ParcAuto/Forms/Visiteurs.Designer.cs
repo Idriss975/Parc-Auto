@@ -39,7 +39,6 @@ namespace ParcAuto.Forms
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -555,8 +554,8 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.80558F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.19442F));
             this.tableLayoutPanel1.Controls.Add(this.chart2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.chart1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 398);
@@ -580,7 +579,7 @@ namespace ParcAuto.Forms
             this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Name = "Legend1";
             this.chart2.Legends.Add(legend1);
-            this.chart2.Location = new System.Drawing.Point(565, 3);
+            this.chart2.Location = new System.Drawing.Point(629, 3);
             this.chart2.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.chart2.Name = "chart2";
             series1.ChartArea = "ChartArea1";
@@ -592,7 +591,7 @@ namespace ParcAuto.Forms
             series2.Name = "Mois d\'annee précédent ";
             this.chart2.Series.Add(series1);
             this.chart2.Series.Add(series2);
-            this.chart2.Size = new System.Drawing.Size(543, 214);
+            this.chart2.Size = new System.Drawing.Size(479, 214);
             this.chart2.TabIndex = 74;
             title1.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             title1.Name = "Title1";
@@ -621,12 +620,8 @@ namespace ParcAuto.Forms
             series3.Color = System.Drawing.Color.GreenYellow;
             series3.Legend = "Legend1";
             series3.Name = "Direction";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Direction d\'annee précédent";
             this.chart1.Series.Add(series3);
-            this.chart1.Series.Add(series4);
-            this.chart1.Size = new System.Drawing.Size(542, 214);
+            this.chart1.Size = new System.Drawing.Size(606, 214);
             this.chart1.TabIndex = 73;
             this.chart1.Text = "chart1";
             title2.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
