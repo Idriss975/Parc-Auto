@@ -52,7 +52,7 @@ order by
                         break;
                     }
 
-                if (((SQLLogin_User)dgvUsers.Rows[User_index].Cells[0].Value).Permissions.Keys.Contains(GLB.dr["Table Name"].ToString())) //TODO: Vingette applies to all vignettes
+                if (((SQLLogin_User)dgvUsers.Rows[User_index].Cells[0].Value).Permissions.Keys.Contains(GLB.dr["Table Name"].ToString())) //TODO: Vingette applies to all vignettes.
                     ((SQLLogin_User)dgvUsers.Rows[User_index].Cells[0].Value).Permissions[GLB.dr["Table Name"].ToString()].Add((SQLPerm)Enum.Parse(typeof(SQLPerm), GLB.dr["permission_name"].ToString()));
                 else
                     ((SQLLogin_User)dgvUsers.Rows[User_index].Cells[0].Value).Permissions.Add(GLB.dr["Table Name"].ToString(), new List<SQLPerm>() { (SQLPerm)Enum.Parse(typeof(SQLPerm), GLB.dr["permission_name"].ToString()) });
