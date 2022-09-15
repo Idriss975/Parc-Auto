@@ -124,8 +124,6 @@ order by
             else
                 ConsulterVignettes.Checked = InsererVignettes.Checked = SuprimmerVignettes.Checked = ModifierVignettes.Checked = false;
         }
-
-
     }
     enum SQLPerm
     {
