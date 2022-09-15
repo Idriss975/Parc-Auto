@@ -228,16 +228,20 @@ namespace ParcAuto.Forms
         {
             try
             {
-                if (GLB.Con.State == ConnectionState.Open)
-                    GLB.Con.Close();
-                GLB.Con.Open();
-                for (int i = 0; i < dgvMissions.Rows.Count; i++)
+                string query1 = $"delete from Missions where id = {dgvMissions.Rows[0].Cells["id"].Value}";
+                for (int i = 1; i < dgvMissions.Rows.Count; i++)
+                    query1 += $" or id = {dgvMissions.Rows[i].Cells["id"].Value}";
+                if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    GLB.Cmd.CommandText = $"delete from Missions where id =  {dgvMissions.Rows[i].Cells[9].Value}";
+                    GLB.Cmd.CommandText = query1;
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
+                    GLB.Con.Open();
                     GLB.Cmd.ExecuteNonQuery();
+                    RemplirLaGrille();
+                    RemplirLaGrille2();
                 }
-                RemplirLaGrille();
-                RemplirLaGrille2();
+                
             }
             catch (Exception ex)
             {

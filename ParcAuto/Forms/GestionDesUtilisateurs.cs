@@ -87,7 +87,7 @@ order by
             catch (System.Data.SqlClient.SqlException Er)
             {
                 if (Er.Number == 15247)
-                    MessageBox.Show("Vous n'avez pas le permission de manipuler les utilisateurs", "Erreur permission", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Vous n'avez pas la permission de manipuler les utilisateurs", "Erreur permission", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
             finally

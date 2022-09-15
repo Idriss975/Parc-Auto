@@ -240,13 +240,18 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.Con.Open();
-                for (int i = 0; i < dgvMaitenance.Rows.Count; i++)
+                string query1 = $"delete from Maintenance where id = {dgvMaitenance.Rows[0].Cells[9].Value}";
+                for (int i = 1; i < dgvMaitenance.Rows.Count; i++)
+                    query1 += $" or id = {dgvMaitenance.Rows[i].Cells[9].Value} ";
+                if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    GLB.Cmd.CommandText = $"delete from Maintenance where id = {dgvMaitenance.Rows[i].Cells[9].Value}";
+                    GLB.Cmd.CommandText = query1;
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
+                    GLB.Con.Open();
                     GLB.Cmd.ExecuteNonQuery();
+                    RemplirLaGrille();
                 }
-                RemplirLaGrille();
             }
             catch (Exception ex)
             {
