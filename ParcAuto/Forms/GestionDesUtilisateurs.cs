@@ -85,7 +85,7 @@ order by
                 GLB.Cmd.CommandText = "";
                 string[] tableaux = new string[] { "CarburantVignettes", "CarteFree", "CarburantSNTLPRD", "Reparation", "ReparationPRDSNTL", "Transport", "EtatJournalier", "EtatRecapCarburantSNTL", "EtatRecapCartefree", "EtatRecapReparation", "EtatRecapTransport", "Directions" };
 
-                if(ConsulterVignettes.Checked)
+                if(LireVignettes.Checked)
                     foreach (string item in tableaux)
                         GLB.Cmd.CommandText += $"GRANT select on {item} to {txtUtilisateur.Text.Trim()};\n";
                 else
@@ -148,13 +148,13 @@ order by
 
             if (((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions.ContainsKey("CarburantVignettes"))
             {
-                ConsulterVignettes.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["CarburantVignettes"].Contains(SQLPerm.SELECT);
+                LireVignettes.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["CarburantVignettes"].Contains(SQLPerm.SELECT);
                 InsererVignettes.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["CarburantVignettes"].Contains(SQLPerm.INSERT);
                 SuprimmerVignettes.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["CarburantVignettes"].Contains(SQLPerm.DELETE);
                 ModifierVignettes.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["CarburantVignettes"].Contains(SQLPerm.UPDATE);
             }
             else
-                ConsulterVignettes.Checked = InsererVignettes.Checked = SuprimmerVignettes.Checked = ModifierVignettes.Checked = false;
+                LireVignettes.Checked = InsererVignettes.Checked = SuprimmerVignettes.Checked = ModifierVignettes.Checked = false;
         }
     }
     enum SQLPerm
