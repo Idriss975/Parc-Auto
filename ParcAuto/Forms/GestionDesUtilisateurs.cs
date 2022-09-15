@@ -65,19 +65,42 @@ order by
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            //TODO: FIX SQL INJECTION
-            if (GLB.Con.State == ConnectionState.Open)
-                GLB.Con.Close();
-            GLB.Con.Open();
-            GLB.Cmd.CommandText = $"Create login {txtUtilisateur.Text.Trim()} with password = '{txtMotdePasse.Text.Trim()}' ";
-            //GLB.Cmd.Parameters.Clear();
-            //GLB.Cmd.Parameters.AddWithValue("@login", );
-            //GLB.Cmd.Parameters.AddWithValue("@pass", );
-            GLB.Cmd.ExecuteNonQuery();
+            try
+            {
+                //TODO: FIX SQL INJECTION
+                //Todo: Add permissions
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
+                GLB.Con.Open();
+                GLB.Cmd.CommandText = $"Create login {txtUtilisateur.Text.Trim()} with password = '{txtMotdePasse.Text.Trim()}' ";
+                //GLB.Cmd.Parameters.Clear();
+                //GLB.Cmd.Parameters.AddWithValue("@login", );
+                //GLB.Cmd.Parameters.AddWithValue("@pass", );
+                GLB.Cmd.ExecuteNonQuery();
 
-            GLB.Cmd.CommandText = $"Create user {txtUtilisateur.Text.Trim()} for login {txtUtilisateur.Text.Trim()}";
-            //GLB.Cmd.Parameters.AddWithValue("@nom", );
-            //LB.Cmd.Parameters.AddWithValue("@log", );
+                GLB.Cmd.CommandText = $"Create user {txtUtilisateur.Text.Trim()} for login {txtUtilisateur.Text.Trim()}";
+                //GLB.Cmd.Parameters.AddWithValue("@nom", );
+                //LB.Cmd.Parameters.AddWithValue("@log", );
+                GLB.Cmd.ExecuteNonQuery();
+            }
+
+            catch (System.Data.SqlClient.SqlException Er)
+            {
+                if (Er.Number == 15247)
+                    MessageBox.Show("Vous n'avez pas le permission de manipuler les utilisateurs", "Erreur permission", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            finally
+            {
+                GLB.Con.Close();
+            }
+        }
+
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            GLB.Cmd.CommandText = $"Drop Login {((SQLLogin_User) dgvUsers.SelectedRows[0].Cells[0].Value).name};\n";
+            GLB.Cmd.CommandText += $"Drop User {((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).name};";
+            GLB.Con.Open();
             GLB.Cmd.ExecuteNonQuery();
             GLB.Con.Close();
         }
@@ -101,6 +124,8 @@ order by
             else
                 ConsulterVignettes.Checked = InsererVignettes.Checked = SuprimmerVignettes.Checked = ModifierVignettes.Checked = false;
         }
+
+
     }
     enum SQLPerm
     {
