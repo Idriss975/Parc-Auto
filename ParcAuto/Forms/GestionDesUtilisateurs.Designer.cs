@@ -33,11 +33,42 @@ namespace ParcAuto.Forms
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.ModifierVisiteurs = new System.Windows.Forms.CheckBox();
+            this.ModifierMaintenance = new System.Windows.Forms.CheckBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.SupVisiteurs = new System.Windows.Forms.CheckBox();
+            this.ModifierConducteurs = new System.Windows.Forms.CheckBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.SupMaintenance = new System.Windows.Forms.CheckBox();
+            this.ModifierParc = new System.Windows.Forms.CheckBox();
+            this.LireAmana = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.SuprimmerConduct = new System.Windows.Forms.CheckBox();
             this.ModifierVignettes = new System.Windows.Forms.CheckBox();
-            this.SuprimmerVignettes = new System.Windows.Forms.CheckBox();
-            this.InsererVignettes = new System.Windows.Forms.CheckBox();
-            this.LireVignettes = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.InsererParc = new System.Windows.Forms.CheckBox();
+            this.SuprimmerParc = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.SuprimmerVignettes = new System.Windows.Forms.CheckBox();
+            this.LireVignettes = new System.Windows.Forms.CheckBox();
+            this.InsererVignettes = new System.Windows.Forms.CheckBox();
+            this.LireParc = new System.Windows.Forms.CheckBox();
+            this.LireConducteurs = new System.Windows.Forms.CheckBox();
+            this.InsererConducteurs = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.InsererMissions = new System.Windows.Forms.CheckBox();
+            this.LireMissions = new System.Windows.Forms.CheckBox();
+            this.SuprimmerMissions = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.InsererAmana = new System.Windows.Forms.CheckBox();
+            this.SupAmana = new System.Windows.Forms.CheckBox();
+            this.ModifierMissions = new System.Windows.Forms.CheckBox();
+            this.ModifierAmana = new System.Windows.Forms.CheckBox();
+            this.LireMaintenance = new System.Windows.Forms.CheckBox();
+            this.InsererMaintenance = new System.Windows.Forms.CheckBox();
+            this.LireVisiteurs = new System.Windows.Forms.CheckBox();
+            this.InsererVisiteurs = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUtilisateur = new Guna.UI2.WinForms.Guna2TextBox();
@@ -47,42 +78,11 @@ namespace ParcAuto.Forms
             this.btnAjouter = new Guna.UI2.WinForms.Guna2Button();
             this.btnModifier = new Guna.UI2.WinForms.Guna2Button();
             this.btnSupprimer = new Guna.UI2.WinForms.Guna2Button();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.ModifierParc = new System.Windows.Forms.CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.SuprimmerParc = new System.Windows.Forms.CheckBox();
-            this.LireParc = new System.Windows.Forms.CheckBox();
-            this.InsererParc = new System.Windows.Forms.CheckBox();
-            this.ModifierConducteurs = new System.Windows.Forms.CheckBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.SuprimmerConduct = new System.Windows.Forms.CheckBox();
-            this.LireConducteurs = new System.Windows.Forms.CheckBox();
-            this.InsererConducteurs = new System.Windows.Forms.CheckBox();
-            this.ModifierAmana = new System.Windows.Forms.CheckBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.SuprimmerMissions = new System.Windows.Forms.CheckBox();
-            this.LireMissions = new System.Windows.Forms.CheckBox();
-            this.InsererMissions = new System.Windows.Forms.CheckBox();
-            this.ModifierMissions = new System.Windows.Forms.CheckBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.SupAmana = new System.Windows.Forms.CheckBox();
-            this.LireAmana = new System.Windows.Forms.CheckBox();
-            this.InsererAmana = new System.Windows.Forms.CheckBox();
-            this.ModifierMaintenance = new System.Windows.Forms.CheckBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.SupMaintenance = new System.Windows.Forms.CheckBox();
-            this.LireMaintenance = new System.Windows.Forms.CheckBox();
-            this.InsererMaintenance = new System.Windows.Forms.CheckBox();
-            this.ModifierVisiteurs = new System.Windows.Forms.CheckBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.SupVisiteurs = new System.Windows.Forms.CheckBox();
-            this.LireVisiteurs = new System.Windows.Forms.CheckBox();
-            this.InsererVisiteurs = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvUsers
@@ -118,6 +118,173 @@ namespace ParcAuto.Forms
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "La mise à jour d\'un utilisateur : ";
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 5;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.LireVignettes, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.InsererVignettes, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.SuprimmerVignettes, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.ModifierVignettes, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.LireParc, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.InsererParc, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.SuprimmerParc, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.ModifierParc, 4, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label5, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.LireConducteurs, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.InsererConducteurs, 2, 2);
+            this.tableLayoutPanel2.Controls.Add(this.SuprimmerConduct, 3, 2);
+            this.tableLayoutPanel2.Controls.Add(this.ModifierConducteurs, 4, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label6, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.LireMissions, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.InsererMissions, 2, 3);
+            this.tableLayoutPanel2.Controls.Add(this.SuprimmerMissions, 3, 3);
+            this.tableLayoutPanel2.Controls.Add(this.ModifierMissions, 4, 3);
+            this.tableLayoutPanel2.Controls.Add(this.label7, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.LireAmana, 1, 4);
+            this.tableLayoutPanel2.Controls.Add(this.InsererAmana, 2, 4);
+            this.tableLayoutPanel2.Controls.Add(this.SupAmana, 3, 4);
+            this.tableLayoutPanel2.Controls.Add(this.ModifierAmana, 4, 4);
+            this.tableLayoutPanel2.Controls.Add(this.label8, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(this.LireMaintenance, 1, 5);
+            this.tableLayoutPanel2.Controls.Add(this.InsererMaintenance, 2, 5);
+            this.tableLayoutPanel2.Controls.Add(this.SupMaintenance, 3, 5);
+            this.tableLayoutPanel2.Controls.Add(this.ModifierMaintenance, 4, 5);
+            this.tableLayoutPanel2.Controls.Add(this.label9, 0, 6);
+            this.tableLayoutPanel2.Controls.Add(this.LireVisiteurs, 1, 6);
+            this.tableLayoutPanel2.Controls.Add(this.InsererVisiteurs, 2, 6);
+            this.tableLayoutPanel2.Controls.Add(this.SupVisiteurs, 3, 6);
+            this.tableLayoutPanel2.Controls.Add(this.ModifierVisiteurs, 0, 6);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(20, 150);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 7;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(519, 171);
+            this.tableLayoutPanel2.TabIndex = 6;
+            // 
+            // ModifierVisiteurs
+            // 
+            this.ModifierVisiteurs.AutoSize = true;
+            this.ModifierVisiteurs.Location = new System.Drawing.Point(3, 147);
+            this.ModifierVisiteurs.Name = "ModifierVisiteurs";
+            this.ModifierVisiteurs.Size = new System.Drawing.Size(77, 21);
+            this.ModifierVisiteurs.TabIndex = 10;
+            this.ModifierVisiteurs.Text = "Modifier";
+            this.ModifierVisiteurs.UseVisualStyleBackColor = true;
+            // 
+            // ModifierMaintenance
+            // 
+            this.ModifierMaintenance.AutoSize = true;
+            this.ModifierMaintenance.Location = new System.Drawing.Point(415, 123);
+            this.ModifierMaintenance.Name = "ModifierMaintenance";
+            this.ModifierMaintenance.Size = new System.Drawing.Size(77, 18);
+            this.ModifierMaintenance.TabIndex = 10;
+            this.ModifierMaintenance.Text = "Modifier";
+            this.ModifierMaintenance.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(106, 144);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(70, 17);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Visiteurs :";
+            // 
+            // SupVisiteurs
+            // 
+            this.SupVisiteurs.AutoSize = true;
+            this.SupVisiteurs.Location = new System.Drawing.Point(415, 147);
+            this.SupVisiteurs.Name = "SupVisiteurs";
+            this.SupVisiteurs.Size = new System.Drawing.Size(95, 21);
+            this.SupVisiteurs.TabIndex = 9;
+            this.SupVisiteurs.Text = "Suprimmer";
+            this.SupVisiteurs.UseVisualStyleBackColor = true;
+            // 
+            // ModifierConducteurs
+            // 
+            this.ModifierConducteurs.AutoSize = true;
+            this.ModifierConducteurs.Location = new System.Drawing.Point(415, 51);
+            this.ModifierConducteurs.Name = "ModifierConducteurs";
+            this.ModifierConducteurs.Size = new System.Drawing.Size(77, 18);
+            this.ModifierConducteurs.TabIndex = 10;
+            this.ModifierConducteurs.Text = "Modifier";
+            this.ModifierConducteurs.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 120);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(97, 17);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Maintenance :";
+            // 
+            // SupMaintenance
+            // 
+            this.SupMaintenance.AutoSize = true;
+            this.SupMaintenance.Location = new System.Drawing.Point(312, 123);
+            this.SupMaintenance.Name = "SupMaintenance";
+            this.SupMaintenance.Size = new System.Drawing.Size(95, 18);
+            this.SupMaintenance.TabIndex = 9;
+            this.SupMaintenance.Text = "Suprimmer";
+            this.SupMaintenance.UseVisualStyleBackColor = true;
+            // 
+            // ModifierParc
+            // 
+            this.ModifierParc.AutoSize = true;
+            this.ModifierParc.Location = new System.Drawing.Point(415, 27);
+            this.ModifierParc.Name = "ModifierParc";
+            this.ModifierParc.Size = new System.Drawing.Size(77, 18);
+            this.ModifierParc.TabIndex = 10;
+            this.ModifierParc.Text = "Modifier";
+            this.ModifierParc.UseVisualStyleBackColor = true;
+            // 
+            // LireAmana
+            // 
+            this.LireAmana.AutoSize = true;
+            this.LireAmana.Location = new System.Drawing.Point(106, 99);
+            this.LireAmana.Name = "LireAmana";
+            this.LireAmana.Size = new System.Drawing.Size(51, 18);
+            this.LireAmana.TabIndex = 7;
+            this.LireAmana.Text = "Lire";
+            this.LireAmana.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 48);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(96, 17);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Conducteurs :";
+            // 
+            // SuprimmerConduct
+            // 
+            this.SuprimmerConduct.AutoSize = true;
+            this.SuprimmerConduct.Location = new System.Drawing.Point(312, 51);
+            this.SuprimmerConduct.Name = "SuprimmerConduct";
+            this.SuprimmerConduct.Size = new System.Drawing.Size(95, 18);
+            this.SuprimmerConduct.TabIndex = 9;
+            this.SuprimmerConduct.Text = "Suprimmer";
+            this.SuprimmerConduct.UseVisualStyleBackColor = true;
+            // 
             // ModifierVignettes
             // 
             this.ModifierVignettes.AutoSize = true;
@@ -127,6 +294,44 @@ namespace ParcAuto.Forms
             this.ModifierVignettes.TabIndex = 5;
             this.ModifierVignettes.Text = "Modifier";
             this.ModifierVignettes.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 24);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 17);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Parc :";
+            // 
+            // InsererParc
+            // 
+            this.InsererParc.AutoSize = true;
+            this.InsererParc.Location = new System.Drawing.Point(209, 27);
+            this.InsererParc.Name = "InsererParc";
+            this.InsererParc.Size = new System.Drawing.Size(71, 18);
+            this.InsererParc.TabIndex = 8;
+            this.InsererParc.Text = "Insérer";
+            this.InsererParc.UseVisualStyleBackColor = true;
+            // 
+            // SuprimmerParc
+            // 
+            this.SuprimmerParc.AutoSize = true;
+            this.SuprimmerParc.Location = new System.Drawing.Point(312, 27);
+            this.SuprimmerParc.Name = "SuprimmerParc";
+            this.SuprimmerParc.Size = new System.Drawing.Size(95, 18);
+            this.SuprimmerParc.TabIndex = 9;
+            this.SuprimmerParc.Text = "Suprimmer";
+            this.SuprimmerParc.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 17);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Vignettes :";
             // 
             // SuprimmerVignettes
             // 
@@ -138,16 +343,6 @@ namespace ParcAuto.Forms
             this.SuprimmerVignettes.Text = "Suprimmer";
             this.SuprimmerVignettes.UseVisualStyleBackColor = true;
             // 
-            // InsererVignettes
-            // 
-            this.InsererVignettes.AutoSize = true;
-            this.InsererVignettes.Location = new System.Drawing.Point(209, 3);
-            this.InsererVignettes.Name = "InsererVignettes";
-            this.InsererVignettes.Size = new System.Drawing.Size(71, 18);
-            this.InsererVignettes.TabIndex = 3;
-            this.InsererVignettes.Text = "Insérer";
-            this.InsererVignettes.UseVisualStyleBackColor = true;
-            // 
             // LireVignettes
             // 
             this.LireVignettes.AutoSize = true;
@@ -158,14 +353,173 @@ namespace ParcAuto.Forms
             this.LireVignettes.Text = "Lire";
             this.LireVignettes.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // InsererVignettes
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 17);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Vignettes :";
+            this.InsererVignettes.AutoSize = true;
+            this.InsererVignettes.Location = new System.Drawing.Point(209, 3);
+            this.InsererVignettes.Name = "InsererVignettes";
+            this.InsererVignettes.Size = new System.Drawing.Size(71, 18);
+            this.InsererVignettes.TabIndex = 3;
+            this.InsererVignettes.Text = "Insérer";
+            this.InsererVignettes.UseVisualStyleBackColor = true;
+            // 
+            // LireParc
+            // 
+            this.LireParc.AutoSize = true;
+            this.LireParc.Location = new System.Drawing.Point(106, 27);
+            this.LireParc.Name = "LireParc";
+            this.LireParc.Size = new System.Drawing.Size(51, 18);
+            this.LireParc.TabIndex = 7;
+            this.LireParc.Text = "Lire";
+            this.LireParc.UseVisualStyleBackColor = true;
+            // 
+            // LireConducteurs
+            // 
+            this.LireConducteurs.AutoSize = true;
+            this.LireConducteurs.Location = new System.Drawing.Point(106, 51);
+            this.LireConducteurs.Name = "LireConducteurs";
+            this.LireConducteurs.Size = new System.Drawing.Size(51, 18);
+            this.LireConducteurs.TabIndex = 7;
+            this.LireConducteurs.Text = "Lire";
+            this.LireConducteurs.UseVisualStyleBackColor = true;
+            // 
+            // InsererConducteurs
+            // 
+            this.InsererConducteurs.AutoSize = true;
+            this.InsererConducteurs.Location = new System.Drawing.Point(209, 51);
+            this.InsererConducteurs.Name = "InsererConducteurs";
+            this.InsererConducteurs.Size = new System.Drawing.Size(71, 18);
+            this.InsererConducteurs.TabIndex = 8;
+            this.InsererConducteurs.Text = "Insérer";
+            this.InsererConducteurs.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 72);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(70, 17);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Missions :";
+            // 
+            // InsererMissions
+            // 
+            this.InsererMissions.AutoSize = true;
+            this.InsererMissions.Location = new System.Drawing.Point(209, 75);
+            this.InsererMissions.Name = "InsererMissions";
+            this.InsererMissions.Size = new System.Drawing.Size(71, 18);
+            this.InsererMissions.TabIndex = 13;
+            this.InsererMissions.Text = "Insérer";
+            this.InsererMissions.UseVisualStyleBackColor = true;
+            // 
+            // LireMissions
+            // 
+            this.LireMissions.AutoSize = true;
+            this.LireMissions.Location = new System.Drawing.Point(106, 75);
+            this.LireMissions.Name = "LireMissions";
+            this.LireMissions.Size = new System.Drawing.Size(51, 18);
+            this.LireMissions.TabIndex = 12;
+            this.LireMissions.Text = "Lire";
+            this.LireMissions.UseVisualStyleBackColor = true;
+            // 
+            // SuprimmerMissions
+            // 
+            this.SuprimmerMissions.AutoSize = true;
+            this.SuprimmerMissions.Location = new System.Drawing.Point(312, 75);
+            this.SuprimmerMissions.Name = "SuprimmerMissions";
+            this.SuprimmerMissions.Size = new System.Drawing.Size(95, 18);
+            this.SuprimmerMissions.TabIndex = 14;
+            this.SuprimmerMissions.Text = "Suprimmer";
+            this.SuprimmerMissions.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 96);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(60, 17);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Amana :";
+            // 
+            // InsererAmana
+            // 
+            this.InsererAmana.AutoSize = true;
+            this.InsererAmana.Location = new System.Drawing.Point(209, 99);
+            this.InsererAmana.Name = "InsererAmana";
+            this.InsererAmana.Size = new System.Drawing.Size(71, 18);
+            this.InsererAmana.TabIndex = 8;
+            this.InsererAmana.Text = "Insérer";
+            this.InsererAmana.UseVisualStyleBackColor = true;
+            // 
+            // SupAmana
+            // 
+            this.SupAmana.AutoSize = true;
+            this.SupAmana.Location = new System.Drawing.Point(312, 99);
+            this.SupAmana.Name = "SupAmana";
+            this.SupAmana.Size = new System.Drawing.Size(95, 18);
+            this.SupAmana.TabIndex = 9;
+            this.SupAmana.Text = "Suprimmer";
+            this.SupAmana.UseVisualStyleBackColor = true;
+            // 
+            // ModifierMissions
+            // 
+            this.ModifierMissions.AutoSize = true;
+            this.ModifierMissions.Location = new System.Drawing.Point(415, 75);
+            this.ModifierMissions.Name = "ModifierMissions";
+            this.ModifierMissions.Size = new System.Drawing.Size(77, 18);
+            this.ModifierMissions.TabIndex = 10;
+            this.ModifierMissions.Text = "Modifier";
+            this.ModifierMissions.UseVisualStyleBackColor = true;
+            // 
+            // ModifierAmana
+            // 
+            this.ModifierAmana.AutoSize = true;
+            this.ModifierAmana.Location = new System.Drawing.Point(415, 99);
+            this.ModifierAmana.Name = "ModifierAmana";
+            this.ModifierAmana.Size = new System.Drawing.Size(77, 18);
+            this.ModifierAmana.TabIndex = 15;
+            this.ModifierAmana.Text = "Modifier";
+            this.ModifierAmana.UseVisualStyleBackColor = true;
+            // 
+            // LireMaintenance
+            // 
+            this.LireMaintenance.AutoSize = true;
+            this.LireMaintenance.Location = new System.Drawing.Point(106, 123);
+            this.LireMaintenance.Name = "LireMaintenance";
+            this.LireMaintenance.Size = new System.Drawing.Size(51, 18);
+            this.LireMaintenance.TabIndex = 7;
+            this.LireMaintenance.Text = "Lire";
+            this.LireMaintenance.UseVisualStyleBackColor = true;
+            // 
+            // InsererMaintenance
+            // 
+            this.InsererMaintenance.AutoSize = true;
+            this.InsererMaintenance.Location = new System.Drawing.Point(209, 123);
+            this.InsererMaintenance.Name = "InsererMaintenance";
+            this.InsererMaintenance.Size = new System.Drawing.Size(71, 18);
+            this.InsererMaintenance.TabIndex = 8;
+            this.InsererMaintenance.Text = "Insérer";
+            this.InsererMaintenance.UseVisualStyleBackColor = true;
+            // 
+            // LireVisiteurs
+            // 
+            this.LireVisiteurs.AutoSize = true;
+            this.LireVisiteurs.Location = new System.Drawing.Point(209, 147);
+            this.LireVisiteurs.Name = "LireVisiteurs";
+            this.LireVisiteurs.Size = new System.Drawing.Size(51, 21);
+            this.LireVisiteurs.TabIndex = 7;
+            this.LireVisiteurs.Text = "Lire";
+            this.LireVisiteurs.UseVisualStyleBackColor = true;
+            // 
+            // InsererVisiteurs
+            // 
+            this.InsererVisiteurs.AutoSize = true;
+            this.InsererVisiteurs.Location = new System.Drawing.Point(312, 147);
+            this.InsererVisiteurs.Name = "InsererVisiteurs";
+            this.InsererVisiteurs.Size = new System.Drawing.Size(71, 21);
+            this.InsererVisiteurs.TabIndex = 8;
+            this.InsererVisiteurs.Text = "Insérer";
+            this.InsererVisiteurs.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
@@ -178,9 +532,10 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Controls.Add(this.txtMotdePasse, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 44);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(519, 100);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -188,7 +543,7 @@ namespace ParcAuto.Forms
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 16);
+            this.label1.Location = new System.Drawing.Point(3, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 17);
             this.label1.TabIndex = 0;
@@ -209,21 +564,21 @@ namespace ParcAuto.Forms
             this.txtUtilisateur.FocusedState.Parent = this.txtUtilisateur;
             this.txtUtilisateur.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUtilisateur.HoverState.Parent = this.txtUtilisateur;
-            this.txtUtilisateur.Location = new System.Drawing.Point(140, 7);
+            this.txtUtilisateur.Location = new System.Drawing.Point(140, 4);
             this.txtUtilisateur.Margin = new System.Windows.Forms.Padding(4);
             this.txtUtilisateur.Name = "txtUtilisateur";
             this.txtUtilisateur.PasswordChar = '\0';
             this.txtUtilisateur.PlaceholderText = "";
             this.txtUtilisateur.SelectedText = "";
             this.txtUtilisateur.ShadowDecoration.Parent = this.txtUtilisateur;
-            this.txtUtilisateur.Size = new System.Drawing.Size(375, 36);
+            this.txtUtilisateur.Size = new System.Drawing.Size(375, 32);
             this.txtUtilisateur.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 66);
+            this.label2.Location = new System.Drawing.Point(3, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(102, 17);
             this.label2.TabIndex = 2;
@@ -244,14 +599,14 @@ namespace ParcAuto.Forms
             this.txtMotdePasse.FocusedState.Parent = this.txtMotdePasse;
             this.txtMotdePasse.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMotdePasse.HoverState.Parent = this.txtMotdePasse;
-            this.txtMotdePasse.Location = new System.Drawing.Point(140, 57);
+            this.txtMotdePasse.Location = new System.Drawing.Point(140, 44);
             this.txtMotdePasse.Margin = new System.Windows.Forms.Padding(4);
             this.txtMotdePasse.Name = "txtMotdePasse";
             this.txtMotdePasse.PasswordChar = '\0';
             this.txtMotdePasse.PlaceholderText = "";
             this.txtMotdePasse.SelectedText = "";
             this.txtMotdePasse.ShadowDecoration.Parent = this.txtMotdePasse;
-            this.txtMotdePasse.Size = new System.Drawing.Size(374, 36);
+            this.txtMotdePasse.Size = new System.Drawing.Size(374, 32);
             this.txtMotdePasse.TabIndex = 3;
             // 
             // groupBox2
@@ -331,360 +686,6 @@ namespace ParcAuto.Forms
             this.btnSupprimer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 5;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.Controls.Add(this.ModifierVisiteurs, 4, 6);
-            this.tableLayoutPanel2.Controls.Add(this.ModifierMaintenance, 4, 5);
-            this.tableLayoutPanel2.Controls.Add(this.label9, 0, 6);
-            this.tableLayoutPanel2.Controls.Add(this.SupVisiteurs, 3, 6);
-            this.tableLayoutPanel2.Controls.Add(this.ModifierConducteurs, 4, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label8, 0, 5);
-            this.tableLayoutPanel2.Controls.Add(this.SupMaintenance, 3, 5);
-            this.tableLayoutPanel2.Controls.Add(this.ModifierParc, 4, 1);
-            this.tableLayoutPanel2.Controls.Add(this.LireAmana, 1, 4);
-            this.tableLayoutPanel2.Controls.Add(this.label5, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.SuprimmerConduct, 3, 2);
-            this.tableLayoutPanel2.Controls.Add(this.ModifierVignettes, 4, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.InsererParc, 2, 1);
-            this.tableLayoutPanel2.Controls.Add(this.SuprimmerParc, 3, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.SuprimmerVignettes, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.LireVignettes, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.InsererVignettes, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.LireParc, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.LireConducteurs, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.InsererConducteurs, 2, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label6, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.InsererMissions, 2, 3);
-            this.tableLayoutPanel2.Controls.Add(this.LireMissions, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(this.SuprimmerMissions, 3, 3);
-            this.tableLayoutPanel2.Controls.Add(this.label7, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.InsererAmana, 2, 4);
-            this.tableLayoutPanel2.Controls.Add(this.SupAmana, 3, 4);
-            this.tableLayoutPanel2.Controls.Add(this.ModifierMissions, 4, 3);
-            this.tableLayoutPanel2.Controls.Add(this.ModifierAmana, 4, 4);
-            this.tableLayoutPanel2.Controls.Add(this.LireMaintenance, 1, 5);
-            this.tableLayoutPanel2.Controls.Add(this.InsererMaintenance, 2, 5);
-            this.tableLayoutPanel2.Controls.Add(this.LireVisiteurs, 1, 6);
-            this.tableLayoutPanel2.Controls.Add(this.InsererVisiteurs, 2, 6);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(20, 150);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 7;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(519, 171);
-            this.tableLayoutPanel2.TabIndex = 6;
-            // 
-            // ModifierParc
-            // 
-            this.ModifierParc.AutoSize = true;
-            this.ModifierParc.Location = new System.Drawing.Point(415, 27);
-            this.ModifierParc.Name = "ModifierParc";
-            this.ModifierParc.Size = new System.Drawing.Size(77, 18);
-            this.ModifierParc.TabIndex = 10;
-            this.ModifierParc.Text = "Modifier";
-            this.ModifierParc.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 24);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 17);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Parc :";
-            // 
-            // SuprimmerParc
-            // 
-            this.SuprimmerParc.AutoSize = true;
-            this.SuprimmerParc.Location = new System.Drawing.Point(312, 27);
-            this.SuprimmerParc.Name = "SuprimmerParc";
-            this.SuprimmerParc.Size = new System.Drawing.Size(95, 18);
-            this.SuprimmerParc.TabIndex = 9;
-            this.SuprimmerParc.Text = "Suprimmer";
-            this.SuprimmerParc.UseVisualStyleBackColor = true;
-            // 
-            // LireParc
-            // 
-            this.LireParc.AutoSize = true;
-            this.LireParc.Location = new System.Drawing.Point(106, 27);
-            this.LireParc.Name = "LireParc";
-            this.LireParc.Size = new System.Drawing.Size(51, 18);
-            this.LireParc.TabIndex = 7;
-            this.LireParc.Text = "Lire";
-            this.LireParc.UseVisualStyleBackColor = true;
-            // 
-            // InsererParc
-            // 
-            this.InsererParc.AutoSize = true;
-            this.InsererParc.Location = new System.Drawing.Point(209, 27);
-            this.InsererParc.Name = "InsererParc";
-            this.InsererParc.Size = new System.Drawing.Size(71, 18);
-            this.InsererParc.TabIndex = 8;
-            this.InsererParc.Text = "Insérer";
-            this.InsererParc.UseVisualStyleBackColor = true;
-            // 
-            // ModifierConducteurs
-            // 
-            this.ModifierConducteurs.AutoSize = true;
-            this.ModifierConducteurs.Location = new System.Drawing.Point(415, 51);
-            this.ModifierConducteurs.Name = "ModifierConducteurs";
-            this.ModifierConducteurs.Size = new System.Drawing.Size(77, 18);
-            this.ModifierConducteurs.TabIndex = 10;
-            this.ModifierConducteurs.Text = "Modifier";
-            this.ModifierConducteurs.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 48);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 17);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Conducteurs :";
-            // 
-            // SuprimmerConduct
-            // 
-            this.SuprimmerConduct.AutoSize = true;
-            this.SuprimmerConduct.Location = new System.Drawing.Point(312, 51);
-            this.SuprimmerConduct.Name = "SuprimmerConduct";
-            this.SuprimmerConduct.Size = new System.Drawing.Size(95, 18);
-            this.SuprimmerConduct.TabIndex = 9;
-            this.SuprimmerConduct.Text = "Suprimmer";
-            this.SuprimmerConduct.UseVisualStyleBackColor = true;
-            // 
-            // LireConducteurs
-            // 
-            this.LireConducteurs.AutoSize = true;
-            this.LireConducteurs.Location = new System.Drawing.Point(106, 51);
-            this.LireConducteurs.Name = "LireConducteurs";
-            this.LireConducteurs.Size = new System.Drawing.Size(51, 18);
-            this.LireConducteurs.TabIndex = 7;
-            this.LireConducteurs.Text = "Lire";
-            this.LireConducteurs.UseVisualStyleBackColor = true;
-            // 
-            // InsererConducteurs
-            // 
-            this.InsererConducteurs.AutoSize = true;
-            this.InsererConducteurs.Location = new System.Drawing.Point(209, 51);
-            this.InsererConducteurs.Name = "InsererConducteurs";
-            this.InsererConducteurs.Size = new System.Drawing.Size(71, 18);
-            this.InsererConducteurs.TabIndex = 8;
-            this.InsererConducteurs.Text = "Insérer";
-            this.InsererConducteurs.UseVisualStyleBackColor = true;
-            // 
-            // ModifierAmana
-            // 
-            this.ModifierAmana.AutoSize = true;
-            this.ModifierAmana.Location = new System.Drawing.Point(415, 99);
-            this.ModifierAmana.Name = "ModifierAmana";
-            this.ModifierAmana.Size = new System.Drawing.Size(77, 18);
-            this.ModifierAmana.TabIndex = 15;
-            this.ModifierAmana.Text = "Modifier";
-            this.ModifierAmana.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 72);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 17);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Missions :";
-            // 
-            // SuprimmerMissions
-            // 
-            this.SuprimmerMissions.AutoSize = true;
-            this.SuprimmerMissions.Location = new System.Drawing.Point(312, 75);
-            this.SuprimmerMissions.Name = "SuprimmerMissions";
-            this.SuprimmerMissions.Size = new System.Drawing.Size(95, 18);
-            this.SuprimmerMissions.TabIndex = 14;
-            this.SuprimmerMissions.Text = "Suprimmer";
-            this.SuprimmerMissions.UseVisualStyleBackColor = true;
-            // 
-            // LireMissions
-            // 
-            this.LireMissions.AutoSize = true;
-            this.LireMissions.Location = new System.Drawing.Point(106, 75);
-            this.LireMissions.Name = "LireMissions";
-            this.LireMissions.Size = new System.Drawing.Size(51, 18);
-            this.LireMissions.TabIndex = 12;
-            this.LireMissions.Text = "Lire";
-            this.LireMissions.UseVisualStyleBackColor = true;
-            // 
-            // InsererMissions
-            // 
-            this.InsererMissions.AutoSize = true;
-            this.InsererMissions.Location = new System.Drawing.Point(209, 75);
-            this.InsererMissions.Name = "InsererMissions";
-            this.InsererMissions.Size = new System.Drawing.Size(71, 18);
-            this.InsererMissions.TabIndex = 13;
-            this.InsererMissions.Text = "Insérer";
-            this.InsererMissions.UseVisualStyleBackColor = true;
-            // 
-            // ModifierMissions
-            // 
-            this.ModifierMissions.AutoSize = true;
-            this.ModifierMissions.Location = new System.Drawing.Point(415, 75);
-            this.ModifierMissions.Name = "ModifierMissions";
-            this.ModifierMissions.Size = new System.Drawing.Size(77, 18);
-            this.ModifierMissions.TabIndex = 10;
-            this.ModifierMissions.Text = "Modifier";
-            this.ModifierMissions.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 96);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 17);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Amana :";
-            // 
-            // SupAmana
-            // 
-            this.SupAmana.AutoSize = true;
-            this.SupAmana.Location = new System.Drawing.Point(312, 99);
-            this.SupAmana.Name = "SupAmana";
-            this.SupAmana.Size = new System.Drawing.Size(95, 18);
-            this.SupAmana.TabIndex = 9;
-            this.SupAmana.Text = "Suprimmer";
-            this.SupAmana.UseVisualStyleBackColor = true;
-            // 
-            // LireAmana
-            // 
-            this.LireAmana.AutoSize = true;
-            this.LireAmana.Location = new System.Drawing.Point(106, 99);
-            this.LireAmana.Name = "LireAmana";
-            this.LireAmana.Size = new System.Drawing.Size(51, 18);
-            this.LireAmana.TabIndex = 7;
-            this.LireAmana.Text = "Lire";
-            this.LireAmana.UseVisualStyleBackColor = true;
-            // 
-            // InsererAmana
-            // 
-            this.InsererAmana.AutoSize = true;
-            this.InsererAmana.Location = new System.Drawing.Point(209, 99);
-            this.InsererAmana.Name = "InsererAmana";
-            this.InsererAmana.Size = new System.Drawing.Size(71, 18);
-            this.InsererAmana.TabIndex = 8;
-            this.InsererAmana.Text = "Insérer";
-            this.InsererAmana.UseVisualStyleBackColor = true;
-            // 
-            // ModifierMaintenance
-            // 
-            this.ModifierMaintenance.AutoSize = true;
-            this.ModifierMaintenance.Location = new System.Drawing.Point(415, 123);
-            this.ModifierMaintenance.Name = "ModifierMaintenance";
-            this.ModifierMaintenance.Size = new System.Drawing.Size(77, 18);
-            this.ModifierMaintenance.TabIndex = 10;
-            this.ModifierMaintenance.Text = "Modifier";
-            this.ModifierMaintenance.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 120);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(97, 17);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Maintenance :";
-            // 
-            // SupMaintenance
-            // 
-            this.SupMaintenance.AutoSize = true;
-            this.SupMaintenance.Location = new System.Drawing.Point(312, 123);
-            this.SupMaintenance.Name = "SupMaintenance";
-            this.SupMaintenance.Size = new System.Drawing.Size(95, 18);
-            this.SupMaintenance.TabIndex = 9;
-            this.SupMaintenance.Text = "Suprimmer";
-            this.SupMaintenance.UseVisualStyleBackColor = true;
-            // 
-            // LireMaintenance
-            // 
-            this.LireMaintenance.AutoSize = true;
-            this.LireMaintenance.Location = new System.Drawing.Point(106, 123);
-            this.LireMaintenance.Name = "LireMaintenance";
-            this.LireMaintenance.Size = new System.Drawing.Size(51, 18);
-            this.LireMaintenance.TabIndex = 7;
-            this.LireMaintenance.Text = "Lire";
-            this.LireMaintenance.UseVisualStyleBackColor = true;
-            // 
-            // InsererMaintenance
-            // 
-            this.InsererMaintenance.AutoSize = true;
-            this.InsererMaintenance.Location = new System.Drawing.Point(209, 123);
-            this.InsererMaintenance.Name = "InsererMaintenance";
-            this.InsererMaintenance.Size = new System.Drawing.Size(71, 18);
-            this.InsererMaintenance.TabIndex = 8;
-            this.InsererMaintenance.Text = "Insérer";
-            this.InsererMaintenance.UseVisualStyleBackColor = true;
-            // 
-            // ModifierVisiteurs
-            // 
-            this.ModifierVisiteurs.AutoSize = true;
-            this.ModifierVisiteurs.Location = new System.Drawing.Point(415, 147);
-            this.ModifierVisiteurs.Name = "ModifierVisiteurs";
-            this.ModifierVisiteurs.Size = new System.Drawing.Size(77, 21);
-            this.ModifierVisiteurs.TabIndex = 10;
-            this.ModifierVisiteurs.Text = "Modifier";
-            this.ModifierVisiteurs.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 144);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(70, 17);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "Visiteurs :";
-            // 
-            // SupVisiteurs
-            // 
-            this.SupVisiteurs.AutoSize = true;
-            this.SupVisiteurs.Location = new System.Drawing.Point(312, 147);
-            this.SupVisiteurs.Name = "SupVisiteurs";
-            this.SupVisiteurs.Size = new System.Drawing.Size(95, 21);
-            this.SupVisiteurs.TabIndex = 9;
-            this.SupVisiteurs.Text = "Suprimmer";
-            this.SupVisiteurs.UseVisualStyleBackColor = true;
-            // 
-            // LireVisiteurs
-            // 
-            this.LireVisiteurs.AutoSize = true;
-            this.LireVisiteurs.Location = new System.Drawing.Point(106, 147);
-            this.LireVisiteurs.Name = "LireVisiteurs";
-            this.LireVisiteurs.Size = new System.Drawing.Size(51, 21);
-            this.LireVisiteurs.TabIndex = 7;
-            this.LireVisiteurs.Text = "Lire";
-            this.LireVisiteurs.UseVisualStyleBackColor = true;
-            // 
-            // InsererVisiteurs
-            // 
-            this.InsererVisiteurs.AutoSize = true;
-            this.InsererVisiteurs.Location = new System.Drawing.Point(209, 147);
-            this.InsererVisiteurs.Name = "InsererVisiteurs";
-            this.InsererVisiteurs.Size = new System.Drawing.Size(71, 21);
-            this.InsererVisiteurs.TabIndex = 8;
-            this.InsererVisiteurs.Text = "Insérer";
-            this.InsererVisiteurs.UseVisualStyleBackColor = true;
-            // 
             // GestionDesUtilisateurs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -700,11 +701,11 @@ namespace ParcAuto.Forms
             this.Load += new System.EventHandler(this.GestionDesUtilisateurs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }

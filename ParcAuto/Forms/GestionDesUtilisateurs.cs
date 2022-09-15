@@ -63,6 +63,20 @@ order by
             GLB.Con.Close();
         }
 
+        private string CmdText(int i, string[] table)
+        {
+            string outp = "";
+
+            if (((CheckBox)tableLayoutPanel2.Controls[i]).Checked)
+                foreach (string item in table)
+                    outp += $"GRANT {((i - 1) % 5 == 0 ? "select" : (i - 2) % 5 == 0 ? "insert" : (i - 3) % 5 == 0 ? "delete" : "update")} on {item} to {txtUtilisateur.Text.Trim()};\n";
+            else
+                foreach (string item in table)
+                    outp += $"DENY {((i - 1) % 5 == 0 ? "select" : (i - 2) % 5 == 0 ? "insert" : (i - 3) % 5 == 0 ? "delete" : "update")} on {item} to {txtUtilisateur.Text.Trim()};\n";
+
+            return outp;
+        }
+
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             try
@@ -81,38 +95,29 @@ order by
                 //GLB.Cmd.Parameters.AddWithValue("@nom", );
                 //LB.Cmd.Parameters.AddWithValue("@log", );
                 GLB.Cmd.ExecuteNonQuery();
+
                 //Todo: Add permissions
                 GLB.Cmd.CommandText = "";
-                string[] tableaux = new string[] { "CarburantVignettes", "CarteFree", "CarburantSNTLPRD", "Reparation", "ReparationPRDSNTL", "Transport", "EtatJournalier", "EtatRecapCarburantSNTL", "EtatRecapCartefree", "EtatRecapReparation", "EtatRecapTransport", "Directions" };
+                for (int i = 1; i < 5; i++)
+                    GLB.Cmd.CommandText += CmdText(i, new string[] { "CarburantVignettes", "CarteFree", "CarburantSNTLPRD", "Reparation", "ReparationPRDSNTL", "Transport", "EtatJournalier", "EtatRecapCarburantSNTL", "EtatRecapCartefree", "EtatRecapReparation", "EtatRecapTransport", "Directions" });
+                for (int i = 6; i < 10; i++)
+                    GLB.Cmd.CommandText += CmdText(i, new string[] { "Vehicules", "VehiculesPRD" });
+                for (int i = 11; i < 15; i++)
+                    GLB.Cmd.CommandText += CmdText(i, new string[] { "Conducteurs" });
+                for (int i = 16; i < 20; i++)
+                    GLB.Cmd.CommandText += CmdText(i, new string[] { "Missions" });
+                for (int i = 21; i < 25; i++)
+                    GLB.Cmd.CommandText += CmdText(i, new string[] { "NombreDeCourriersParEntite", "SuiviDesEnvois", "EnvoisSimple" });
+                for (int i = 26; i < 30; i++)
+                    GLB.Cmd.CommandText += CmdText(i, new string[] { "Maintenance" });
+                for (int i = 31; i < 35; i++)
+                    GLB.Cmd.CommandText += CmdText(i, new string[] { "SuiviVisiteurs" });
 
-                if(LireVignettes.Checked)
-                    foreach (string item in tableaux)
-                        GLB.Cmd.CommandText += $"GRANT select on {item} to {txtUtilisateur.Text.Trim()};\n";
-                else
-                    foreach (string item in tableaux)
-                        GLB.Cmd.CommandText += $"DENY select on {item} to {txtUtilisateur.Text.Trim()};\n";
 
-                if (InsererVignettes.Checked)
-                    foreach (string item in tableaux)
-                        GLB.Cmd.CommandText += $"GRANT Insert on {item} to {txtUtilisateur.Text.Trim()};\n";
-                else
-                    foreach (string item in tableaux)
-                        GLB.Cmd.CommandText += $"DENY Insert on {item} to {txtUtilisateur.Text.Trim()};\n";
 
-                if (SuprimmerVignettes.Checked)
-                    foreach (string item in tableaux)
-                        GLB.Cmd.CommandText += $"GRANT delete on {item} to {txtUtilisateur.Text.Trim()};\n";
-                else
-                    foreach (string item in tableaux)
-                        GLB.Cmd.CommandText += $"DENY delete on {item} to {txtUtilisateur.Text.Trim()};\n";
 
-                if (ModifierVignettes.Checked)
-                    foreach (string item in tableaux)
-                        GLB.Cmd.CommandText += $"GRANT update on {item} to {txtUtilisateur.Text.Trim()};\n";
-                else
-                    foreach (string item in tableaux)
-                        GLB.Cmd.CommandText += $"DENY update on {item} to {txtUtilisateur.Text.Trim()};\n";
                 GLB.Cmd.ExecuteNonQuery();
+                //MessageBox.Show(tableLayoutPanel2.Controls[0].Text + " " + tableLayoutPanel2.Controls[1].Text);
 
             }
 
@@ -156,6 +161,7 @@ order by
             else
                 LireVignettes.Checked = InsererVignettes.Checked = SuprimmerVignettes.Checked = ModifierVignettes.Checked = false;
         }
+
     }
     enum SQLPerm
     {
