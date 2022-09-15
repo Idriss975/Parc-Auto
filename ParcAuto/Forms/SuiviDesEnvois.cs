@@ -209,16 +209,19 @@ namespace ParcAuto.Forms
         {
             try
             {
-                if (GLB.Con.State == ConnectionState.Open)
-                    GLB.Con.Close();
-                GLB.Con.Open();
-                for (int i = 0; i < dgvCourrier.Rows.Count; i++)
+                string query1 = $"delete from SuiviDesEnvois where id = {dgvCourrier.Rows[0].Cells[11].Value}";
+                for (int i = 1; i < dgvCourrier.Rows.Count; i++)
+                    query1 += $" or id = {dgvCourrier.Rows[i].Cells[11].Value} ";
+                if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    GLB.Cmd.CommandText = $"delete from SuiviDesEnvois where id =  {dgvCourrier.Rows[i].Cells[11].Value}";
+                    GLB.Cmd.CommandText = query1;
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
+                    GLB.Con.Open();
                     GLB.Cmd.ExecuteNonQuery();
+                    RemplirLaGrille();
+                    Total();
                 }
-                RemplirLaGrille();
-                Total();
             }
             catch (Exception ex)
             {

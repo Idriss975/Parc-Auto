@@ -30,6 +30,7 @@ namespace ParcAuto
         private void InitializeComponent()
         {
             System.Windows.Forms.Panel section2;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -50,8 +51,8 @@ namespace ParcAuto
             System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.section3 = new System.Windows.Forms.Panel();
+            this.btnUsers = new System.Windows.Forms.Button();
             this.btnVisiteurs = new System.Windows.Forms.Button();
             this.panelMaintenance = new System.Windows.Forms.Panel();
             this.panelsousMaintenance = new System.Windows.Forms.Panel();
@@ -122,7 +123,6 @@ namespace ParcAuto
             this.carteFreeChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.TransportChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Carburantchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.btnUsers = new System.Windows.Forms.Button();
             section2 = new System.Windows.Forms.Panel();
             section2.SuspendLayout();
             this.section3.SuspendLayout();
@@ -193,6 +193,25 @@ namespace ParcAuto
             this.section3.Name = "section3";
             this.section3.Size = new System.Drawing.Size(183, 499);
             this.section3.TabIndex = 100;
+            // 
+            // btnUsers
+            // 
+            this.btnUsers.AutoSize = true;
+            this.btnUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnUsers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUsers.FlatAppearance.BorderSize = 0;
+            this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsers.ForeColor = System.Drawing.Color.White;
+            this.btnUsers.Image = ((System.Drawing.Image)(resources.GetObject("btnUsers.Image")));
+            this.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsers.Location = new System.Drawing.Point(0, 454);
+            this.btnUsers.Name = "btnUsers";
+            this.btnUsers.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnUsers.Size = new System.Drawing.Size(183, 45);
+            this.btnUsers.TabIndex = 103;
+            this.btnUsers.Text = "Gestion des \r\nutilisateurs ";
+            this.btnUsers.UseVisualStyleBackColor = false;
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
             // btnVisiteurs
             // 
@@ -1356,25 +1375,6 @@ namespace ParcAuto
             title4.Name = "Title1";
             title4.Text = "Consommation Carburant";
             this.Carburantchart.Titles.Add(title4);
-            // 
-            // btnUsers
-            // 
-            this.btnUsers.AutoSize = true;
-            this.btnUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
-            this.btnUsers.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnUsers.FlatAppearance.BorderSize = 0;
-            this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsers.ForeColor = System.Drawing.Color.White;
-            this.btnUsers.Image = ((System.Drawing.Image)(resources.GetObject("btnUsers.Image")));
-            this.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsers.Location = new System.Drawing.Point(0, 454);
-            this.btnUsers.Name = "btnUsers";
-            this.btnUsers.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnUsers.Size = new System.Drawing.Size(183, 45);
-            this.btnUsers.TabIndex = 103;
-            this.btnUsers.Text = "Gestion des \r\nutilisateurs ";
-            this.btnUsers.UseVisualStyleBackColor = false;
-            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
             // Form1
             // 
