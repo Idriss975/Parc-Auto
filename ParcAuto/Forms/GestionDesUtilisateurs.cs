@@ -68,7 +68,6 @@ order by
             try
             {
                 //TODO: FIX SQL INJECTION
-                //Todo: Add permissions
                 if (GLB.Con.State == ConnectionState.Open)
                     GLB.Con.Close();
                 GLB.Con.Open();
@@ -82,6 +81,39 @@ order by
                 //GLB.Cmd.Parameters.AddWithValue("@nom", );
                 //LB.Cmd.Parameters.AddWithValue("@log", );
                 GLB.Cmd.ExecuteNonQuery();
+                //Todo: Add permissions
+                GLB.Cmd.CommandText = "";
+                string[] tableaux = new string[] { "CarburantVignettes", "CarteFree", "CarburantSNTLPRD", "Reparation", "ReparationPRDSNTL", "Transport", "EtatJournalier", "EtatRecapCarburantSNTL", "EtatRecapCartefree", "EtatRecapReparation", "EtatRecapTransport", "Directions" };
+
+                if(ConsulterVignettes.Checked)
+                    foreach (string item in tableaux)
+                        GLB.Cmd.CommandText += $"GRANT select on {item} to {txtUtilisateur.Text.Trim()};\n";
+                else
+                    foreach (string item in tableaux)
+                        GLB.Cmd.CommandText += $"DENY select on {item} to {txtUtilisateur.Text.Trim()};\n";
+
+                if (InsererVignettes.Checked)
+                    foreach (string item in tableaux)
+                        GLB.Cmd.CommandText += $"GRANT Insert on {item} to {txtUtilisateur.Text.Trim()};\n";
+                else
+                    foreach (string item in tableaux)
+                        GLB.Cmd.CommandText += $"DENY Insert on {item} to {txtUtilisateur.Text.Trim()};\n";
+
+                if (SuprimmerVignettes.Checked)
+                    foreach (string item in tableaux)
+                        GLB.Cmd.CommandText += $"GRANT delete on {item} to {txtUtilisateur.Text.Trim()};\n";
+                else
+                    foreach (string item in tableaux)
+                        GLB.Cmd.CommandText += $"DENY delete on {item} to {txtUtilisateur.Text.Trim()};\n";
+
+                if (ModifierVignettes.Checked)
+                    foreach (string item in tableaux)
+                        GLB.Cmd.CommandText += $"GRANT update on {item} to {txtUtilisateur.Text.Trim()};\n";
+                else
+                    foreach (string item in tableaux)
+                        GLB.Cmd.CommandText += $"DENY update on {item} to {txtUtilisateur.Text.Trim()};\n";
+                GLB.Cmd.ExecuteNonQuery();
+
             }
 
             catch (System.Data.SqlClient.SqlException Er)
