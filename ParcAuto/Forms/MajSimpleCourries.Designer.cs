@@ -141,6 +141,7 @@ namespace ParcAuto.Forms
             this.txtDemandeur.ShadowDecoration.Parent = this.txtDemandeur;
             this.txtDemandeur.Size = new System.Drawing.Size(185, 35);
             this.txtDemandeur.TabIndex = 63;
+            this.txtDemandeur.Leave += new System.EventHandler(this.txtDemandeur_Leave);
             // 
             // txtorderBOC
             // 
@@ -340,6 +341,7 @@ namespace ParcAuto.Forms
             this.btnClear.Size = new System.Drawing.Size(40, 40);
             this.btnClear.TabIndex = 52;
             this.btnClear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnAppliquer
             // 
@@ -431,6 +433,7 @@ namespace ParcAuto.Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MajSimpleCourries";
             this.Text = "MajSimpleCourries";
+            this.Load += new System.EventHandler(this.MajSimpleCourries_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

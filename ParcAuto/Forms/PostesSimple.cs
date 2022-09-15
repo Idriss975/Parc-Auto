@@ -142,18 +142,20 @@ namespace ParcAuto.Forms
         {
             try
             {
+                if (dgvCourrierSimple.Rows.Count == 0)
+                    return;
                 int Lastscrollindex = dgvCourrierSimple.FirstDisplayedScrollingRowIndex;
                 int pos = dgvCourrierSimple.CurrentRow.Index;
-                GLB.id_Courrier_Simple = Convert.ToInt32(dgvCourrierSimple.Rows[pos].Cells[0].Value);
+                GLB.id_Courrier_Simple = Convert.ToInt32(dgvCourrierSimple.Rows[pos].Cells["Column9"].Value);
                 Commandes.Command = Choix.modifier;
-                (new MajSimpleCourries(dgvCourrierSimple.Rows[pos].Cells[0].Value.ToString(),
-                    DateTime.ParseExact(dgvCourrierSimple.Rows[pos].Cells[1].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
-                    dgvCourrierSimple.Rows[pos].Cells[2].Value.ToString(),
-                    dgvCourrierSimple.Rows[pos].Cells[3].Value.ToString(),
-                    dgvCourrierSimple.Rows[pos].Cells[4].Value.ToString(),
-                    dgvCourrierSimple.Rows[pos].Cells[5].Value.ToString(),
-                    DateTime.ParseExact(dgvCourrierSimple.Rows[pos].Cells[6].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
-                    dgvCourrierSimple.Rows[pos].Cells[7].Value.ToString())).ShowDialog();
+                (new MajSimpleCourries(dgvCourrierSimple.Rows[pos].Cells["Column1"].Value.ToString(),
+                    DateTime.ParseExact(dgvCourrierSimple.Rows[pos].Cells["Column2"].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                    dgvCourrierSimple.Rows[pos].Cells["Column3"].Value.ToString(),
+                    dgvCourrierSimple.Rows[pos].Cells["Column4"].Value.ToString(),
+                    dgvCourrierSimple.Rows[pos].Cells["Column5"].Value.ToString(),
+                    dgvCourrierSimple.Rows[pos].Cells["Column6"].Value.ToString(),
+                    DateTime.ParseExact(dgvCourrierSimple.Rows[pos].Cells["Column7"].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                    dgvCourrierSimple.Rows[pos].Cells["Column8"].Value.ToString())).ShowDialog();
 
                 RemplirLaGrille();
                 dgvCourrierSimple.Rows[pos].Selected = true;
@@ -175,7 +177,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 for (int i = 0; i < dgvCourrierSimple.SelectedRows.Count; i++)
                 {
-                    GLB.Cmd.CommandText = $"delete from EnvoisSimple where id = {dgvCourrierSimple.SelectedRows[i].Cells[0].Value} ";
+                    GLB.Cmd.CommandText = $"delete from EnvoisSimple where id = {dgvCourrierSimple.SelectedRows[i].Cells["Column9"].Value} ";
                     GLB.Cmd.ExecuteNonQuery();
                 }
                 RemplirLaGrille();
@@ -195,9 +197,9 @@ namespace ParcAuto.Forms
         {
             try
             {
-                string query1 = $"delete from EnvoisSimple where id = {dgvCourrierSimple.Rows[0].Cells[0].Value}";
+                string query1 = $"delete from EnvoisSimple where id = {dgvCourrierSimple.Rows[0].Cells["Column9"].Value}";
                 for (int i = 1; i < dgvCourrierSimple.Rows.Count; i++)
-                    query1 += $" or id = {dgvCourrierSimple.Rows[i].Cells[0].Value} ";
+                    query1 += $" or id = {dgvCourrierSimple.Rows[i].Cells["Column9"].Value} ";
                 if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     GLB.Cmd.CommandText = query1;
@@ -268,7 +270,6 @@ namespace ParcAuto.Forms
         _Worksheet importExceldatagridViewworksheet;
         Range importdatagridviewRange;
         Workbook excelWorkbook;
-        int currentIndex;
         private void btnExportExcel_Click(object sender, EventArgs e)
         {
             try
@@ -281,7 +282,7 @@ namespace ParcAuto.Forms
 
                     for (int i = 0; i < dgvCourrierSimple.Columns.Count - 1; i++)
                     {
-                        if (i < 11)
+                        if (i < 9)
                         {
                             xcelApp.Cells[1, i + 1] = dgvCourrierSimple.Columns[i].HeaderText;
                         }
@@ -297,7 +298,7 @@ namespace ParcAuto.Forms
                         for (int j = 0; j < dgvCourrierSimple.Columns.Count - 1; j++)
                         {
 
-                            if (j < 11)
+                            if (j < 9)
                             {
                                 xcelApp.Cells[i + 2, j + 1] = dgvCourrierSimple.Rows[i].Cells[j].Value.ToString().Trim();
                             }
@@ -328,7 +329,6 @@ namespace ParcAuto.Forms
             if (GLB.Con.State == ConnectionState.Open)
                 GLB.Con.Close();
             GLB.Con.Open();
-            GLB.Cmd.Transaction = GLB.Con.BeginTransaction();
             try
             {
 
@@ -347,7 +347,6 @@ namespace ParcAuto.Forms
                     importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
                     for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
                     {
-                        currentIndex = excelWorksheetIndex;
                         nOrderOBC = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value));
                         dateDepot = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value ?? "0001-01-01"));
                         Demandeur = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value));
@@ -379,19 +378,15 @@ namespace ParcAuto.Forms
                     }
 
                 }
-                GLB.Cmd.Transaction.Commit();
+               
                 GLB.Con.Close();
                 RemplirLaGrille();
 
             }
             catch (SqlException ex)
             {
-                if (ex.Number == 2627)
-                    MessageBox.Show($"La ligne {currentIndex} dans l'excel déja saisie est sauvegarder dans la base de données, vous pouvez supprimer ou modifier la ligne {currentIndex} sur excel et refaire l'imporation.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else
+             
                     MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                GLB.Cmd.Transaction.Rollback();
 
             }
             finally
@@ -403,6 +398,27 @@ namespace ParcAuto.Forms
                 Marshal.ReleaseComObject(importdatagridviewRange);
                 importExceldatagridViewApp.Quit();
             }
+        }
+
+        private void btnImprimer_Click(object sender, EventArgs e)
+        {
+            if (printDialog1.ShowDialog(this) == DialogResult.OK)
+            {
+                printPreviewDialog1.Document.PrinterSettings = printDialog1.PrinterSettings;
+                printPreviewDialog1.ShowDialog();
+            }
+        }
+
+        private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            Impression.number_of_lines = dgvCourrierSimple.Rows.Count;
+
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Impression.Drawonprintdoc(e, dgvCourrierSimple, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6), dgvCourrierSimple.Columns["Column9"].Index, Total: $"Total des Envois est : {lblTotal.Text}",Titre:"Suivi Poste");
+
         }
     }
 }
