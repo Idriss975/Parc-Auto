@@ -96,7 +96,6 @@ order by
                 //LB.Cmd.Parameters.AddWithValue("@log", );
                 GLB.Cmd.ExecuteNonQuery();
 
-                //Todo: Add permissions
                 GLB.Cmd.CommandText = "";
                 for (int i = 1; i < 5; i++)
                     GLB.Cmd.CommandText += CmdText(i, new string[] { "CarburantVignettes", "CarteFree", "CarburantSNTLPRD", "Reparation", "ReparationPRDSNTL", "Transport", "EtatJournalier", "EtatRecapCarburantSNTL", "EtatRecapCartefree", "EtatRecapReparation", "EtatRecapTransport", "Directions" });
