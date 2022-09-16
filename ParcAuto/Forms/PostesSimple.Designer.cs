@@ -1,7 +1,7 @@
 ﻿
 namespace ParcAuto.Forms
 {
-    partial class Visiteurs
+    partial class PostesSimple
     {
         /// <summary>
         /// Required designer variable.
@@ -30,22 +30,13 @@ namespace ParcAuto.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Visiteurs));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PostesSimple));
             this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnQuitter = new Guna.UI2.WinForms.Guna2Button();
             this.btnAjouter = new Guna.UI2.WinForms.Guna2Button();
             this.btnSupprimer = new Guna.UI2.WinForms.Guna2Button();
-            this.dgvVisiteurs = new System.Windows.Forms.DataGridView();
+            this.dgvCourrierSimple = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +45,7 @@ namespace ParcAuto.Forms
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TextPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.txtValueToFiltre = new Guna.UI2.WinForms.Guna2TextBox();
@@ -66,6 +58,9 @@ namespace ParcAuto.Forms
             this.label3 = new System.Windows.Forms.Label();
             this.Date1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.Date2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.PanelTautaux = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.btnFiltrer = new Guna.UI2.WinForms.Guna2Button();
             this.btnModifier = new Guna.UI2.WinForms.Guna2Button();
             this.cmbChoix = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -73,15 +68,10 @@ namespace ParcAuto.Forms
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVisiteurs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCourrierSimple)).BeginInit();
             this.TextPanel.SuspendLayout();
             this.panelDate.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.PanelTautaux.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnRefresh
@@ -179,15 +169,15 @@ namespace ParcAuto.Forms
             this.btnSupprimer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
-            // dgvVisiteurs
+            // dgvCourrierSimple
             // 
-            this.dgvVisiteurs.AllowUserToAddRows = false;
-            this.dgvVisiteurs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvCourrierSimple.AllowUserToAddRows = false;
+            this.dgvCourrierSimple.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvVisiteurs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvVisiteurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVisiteurs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCourrierSimple.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCourrierSimple.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCourrierSimple.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
@@ -195,56 +185,62 @@ namespace ParcAuto.Forms
             this.Column5,
             this.Column6,
             this.Column7,
-            this.Column8});
-            this.dgvVisiteurs.Location = new System.Drawing.Point(1, 96);
-            this.dgvVisiteurs.Margin = new System.Windows.Forms.Padding(5);
-            this.dgvVisiteurs.Name = "dgvVisiteurs";
-            this.dgvVisiteurs.RowHeadersVisible = false;
-            this.dgvVisiteurs.RowHeadersWidth = 62;
-            this.dgvVisiteurs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVisiteurs.Size = new System.Drawing.Size(1109, 283);
-            this.dgvVisiteurs.TabIndex = 90;
+            this.Column8,
+            this.Column9});
+            this.dgvCourrierSimple.Location = new System.Drawing.Point(1, 96);
+            this.dgvCourrierSimple.Margin = new System.Windows.Forms.Padding(5);
+            this.dgvCourrierSimple.Name = "dgvCourrierSimple";
+            this.dgvCourrierSimple.RowHeadersVisible = false;
+            this.dgvCourrierSimple.RowHeadersWidth = 62;
+            this.dgvCourrierSimple.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCourrierSimple.Size = new System.Drawing.Size(1109, 477);
+            this.dgvCourrierSimple.TabIndex = 90;
             // 
             // Column1
             // 
-            this.Column1.HeaderText = "Nom du Visiteur";
+            this.Column1.HeaderText = "N° BOC";
             this.Column1.Name = "Column1";
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "CIN";
+            this.Column2.HeaderText = "Date Dépot";
             this.Column2.Name = "Column2";
             // 
             // Column3
             // 
-            this.Column3.HeaderText = "Autorisée par";
+            this.Column3.HeaderText = "Demendeur";
             this.Column3.Name = "Column3";
             // 
             // Column4
             // 
-            this.Column4.HeaderText = "Heure d\'entrée";
+            this.Column4.HeaderText = "Réference";
             this.Column4.Name = "Column4";
             // 
             // Column5
             // 
-            this.Column5.HeaderText = "Date";
+            this.Column5.HeaderText = "Déstinataire";
             this.Column5.Name = "Column5";
             // 
             // Column6
             // 
-            this.Column6.HeaderText = "Direction";
+            this.Column6.HeaderText = "Nombre";
             this.Column6.Name = "Column6";
             // 
             // Column7
             // 
-            this.Column7.HeaderText = "Observation";
+            this.Column7.HeaderText = "Date d\'enlèvement";
             this.Column7.Name = "Column7";
             // 
             // Column8
             // 
-            this.Column8.HeaderText = "id";
+            this.Column8.HeaderText = "Observation";
             this.Column8.Name = "Column8";
-            this.Column8.Visible = false;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "id";
+            this.Column9.Name = "Column9";
+            this.Column9.Visible = false;
             // 
             // TextPanel
             // 
@@ -443,6 +439,43 @@ namespace ParcAuto.Forms
             this.Date2.TabIndex = 14;
             this.Date2.Value = new System.DateTime(2022, 7, 6, 14, 45, 58, 151);
             // 
+            // PanelTautaux
+            // 
+            this.PanelTautaux.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PanelTautaux.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.PanelTautaux.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanelTautaux.Controls.Add(this.label11);
+            this.PanelTautaux.Controls.Add(this.lblTotal);
+            this.PanelTautaux.Location = new System.Drawing.Point(884, 581);
+            this.PanelTautaux.Name = "PanelTautaux";
+            this.PanelTautaux.Size = new System.Drawing.Size(216, 37);
+            this.PanelTautaux.TabIndex = 104;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label11.Location = new System.Drawing.Point(6, 7);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(65, 21);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Total  : ";
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblTotal.Location = new System.Drawing.Point(111, 5);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(24, 27);
+            this.lblTotal.TabIndex = 2;
+            this.lblTotal.Text = "0";
+            // 
             // btnFiltrer
             // 
             this.btnFiltrer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -507,12 +540,13 @@ namespace ParcAuto.Forms
             this.cmbChoix.HoverState.Parent = this.cmbChoix;
             this.cmbChoix.ItemHeight = 30;
             this.cmbChoix.Items.AddRange(new object[] {
-            "Nom du Visiteur",
-            "CIN",
-            "Autorisée par",
-            "Heure d\'entrée",
-            "Date",
-            "Direction",
+            "N° BOC",
+            "Date Dépot",
+            "Demendeur",
+            "Réference",
+            "Déstinataire",
+            "Nombre",
+            "Date d\'enlèvement",
             "Observation"});
             this.cmbChoix.ItemsAppearance.Parent = this.cmbChoix;
             this.cmbChoix.Location = new System.Drawing.Point(97, 15);
@@ -549,120 +583,39 @@ namespace ParcAuto.Forms
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "OFPPT_logo.png");
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.80558F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.19442F));
-            this.tableLayoutPanel1.Controls.Add(this.chart2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.chart1, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 387);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1111, 231);
-            this.tableLayoutPanel1.TabIndex = 104;
-            // 
-            // chart2
-            // 
-            chartArea1.AxisX.Interval = 1D;
-            chartArea1.AxisX.IsLabelAutoFit = false;
-            chartArea1.AxisX.LabelStyle.Angle = -90;
-            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.AxisX.MajorGrid.Enabled = false;
-            chartArea1.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea1.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea1.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea1);
-            this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chart2.Legends.Add(legend1);
-            this.chart2.Location = new System.Drawing.Point(629, 3);
-            this.chart2.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.chart2.Name = "chart2";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Mois";
-            series1.YValuesPerPoint = 4;
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Mois d\'annee précédent ";
-            this.chart2.Series.Add(series1);
-            this.chart2.Series.Add(series2);
-            this.chart2.Size = new System.Drawing.Size(479, 225);
-            this.chart2.TabIndex = 74;
-            title1.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title1.Name = "Title1";
-            title1.Text = "NOMBRE  DE VISITEURS PAR MOIS";
-            this.chart2.Titles.Add(title1);
-            // 
-            // chart1
-            // 
-            chartArea2.AxisX.Interval = 1D;
-            chartArea2.AxisX.IsLabelAutoFit = false;
-            chartArea2.AxisX.LabelStyle.Angle = -90;
-            chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisX.MajorGrid.Enabled = false;
-            chartArea2.AxisX.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Rotated90;
-            chartArea2.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(3, 3);
-            this.chart1.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.chart1.Name = "chart1";
-            series3.BorderColor = System.Drawing.Color.Transparent;
-            series3.ChartArea = "ChartArea1";
-            series3.Color = System.Drawing.Color.GreenYellow;
-            series3.Legend = "Legend1";
-            series3.Name = "Direction";
-            this.chart1.Series.Add(series3);
-            this.chart1.Size = new System.Drawing.Size(606, 225);
-            this.chart1.TabIndex = 73;
-            this.chart1.Text = "chart1";
-            title2.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title2.Name = "Title1";
-            title2.Text = "NOMBRE DE VISITEURS PAR ENTITE";
-            this.chart1.Titles.Add(title2);
-            // 
-            // Visiteurs
+            // PostesSimple
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 669);
-            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnQuitter);
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.btnSupprimer);
-            this.Controls.Add(this.dgvVisiteurs);
+            this.Controls.Add(this.dgvCourrierSimple);
             this.Controls.Add(this.TextPanel);
             this.Controls.Add(this.btnSuprimmerTout);
             this.Controls.Add(this.btnImprimer);
             this.Controls.Add(this.btnImportExcel);
             this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.panelDate);
+            this.Controls.Add(this.PanelTautaux);
             this.Controls.Add(this.btnFiltrer);
             this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.cmbChoix);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Visiteurs";
-            this.Text = "Visiteurs";
-            this.Load += new System.EventHandler(this.Visiteurs_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVisiteurs)).EndInit();
+            this.Name = "PostesSimple";
+            this.Text = "PostesSimple";
+            this.Load += new System.EventHandler(this.PostesSimple_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCourrierSimple)).EndInit();
             this.TextPanel.ResumeLayout(false);
             this.TextPanel.PerformLayout();
             this.panelDate.ResumeLayout(false);
             this.panelDate.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.PanelTautaux.ResumeLayout(false);
+            this.PanelTautaux.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -675,15 +628,7 @@ namespace ParcAuto.Forms
         private Guna.UI2.WinForms.Guna2Button btnQuitter;
         private Guna.UI2.WinForms.Guna2Button btnAjouter;
         private Guna.UI2.WinForms.Guna2Button btnSupprimer;
-        private System.Windows.Forms.DataGridView dgvVisiteurs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridView dgvCourrierSimple;
         private System.Windows.Forms.FlowLayoutPanel TextPanel;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox txtValueToFiltre;
@@ -696,6 +641,9 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2DateTimePicker Date1;
         private Guna.UI2.WinForms.Guna2DateTimePicker Date2;
+        private System.Windows.Forms.Panel PanelTautaux;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblTotal;
         private Guna.UI2.WinForms.Guna2Button btnFiltrer;
         private Guna.UI2.WinForms.Guna2Button btnModifier;
         private Guna.UI2.WinForms.Guna2ComboBox cmbChoix;
@@ -703,8 +651,14 @@ namespace ParcAuto.Forms
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
     }
 }

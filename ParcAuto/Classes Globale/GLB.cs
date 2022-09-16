@@ -30,6 +30,7 @@ namespace ParcAuto.Classes_Globale
         public static int id_CarteFree;
         public static int id_Mission;
         public static int id_Courrier;
+        public static int id_Courrier_Simple;
         public static int id_Maintenance;
         public static int id_Visiteur;
         public static string DotationCarburant ;
