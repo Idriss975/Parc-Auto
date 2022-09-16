@@ -299,6 +299,7 @@ namespace ParcAuto.Forms
             this.btnSupprimer.TabIndex = 65;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // GestionDesUtilisateurs
             // 
