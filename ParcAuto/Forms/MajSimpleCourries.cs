@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,9 +18,20 @@ namespace ParcAuto.Forms
         public MajSimpleCourries()
         {
             InitializeComponent();
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
         }
         string BOC, Demandeur, Ref, Destinataire, nb, Observation;
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
+        private static extern IntPtr CreateRoundRectRgn
+       (
+           int nLeftRect,     // x-coordinate of upper-left corner
+           int nTopRect,      // y-coordinate of upper-left corner
+           int nRightRect,    // x-coordinate of lower-right corner
+           int nBottomRect,   // y-coordinate of lower-right corner
+           int nWidthEllipse, // height of ellipse
+           int nHeightEllipse // width of ellipse
+       );
         private void MajSimpleCourries_Load(object sender, EventArgs e)
         {
             switch (Commandes.Command)
@@ -63,6 +75,7 @@ namespace ParcAuto.Forms
         public MajSimpleCourries(string BOC , DateTime DateDepot , string Demandeur , string Reference , string Destinataire , string nb ,DateTime DateEnlevement ,string Observation)
         {
             InitializeComponent();
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
             this.BOC = BOC;
             this.DateDepot = DateDepot;
             this.Demandeur = Demandeur;

@@ -64,6 +64,7 @@ namespace ParcAuto
             this.btnMaintenance = new System.Windows.Forms.Button();
             this.Suivis = new System.Windows.Forms.Panel();
             this.panelsousSuivi = new System.Windows.Forms.Panel();
+            this.btnPosteSimple = new System.Windows.Forms.Button();
             this.btnNbCourriers = new System.Windows.Forms.Button();
             this.btnLstCourriers = new System.Windows.Forms.Button();
             this.arrowsuiviUp = new System.Windows.Forms.PictureBox();
@@ -123,7 +124,7 @@ namespace ParcAuto
             this.carteFreeChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.TransportChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Carburantchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.btnPosteSimple = new System.Windows.Forms.Button();
+            this.btnConducteursDispo = new System.Windows.Forms.Button();
             section2 = new System.Windows.Forms.Panel();
             section2.SuspendLayout();
             this.section3.SuspendLayout();
@@ -177,7 +178,7 @@ namespace ParcAuto
             section2.Dock = System.Windows.Forms.DockStyle.Top;
             section2.Location = new System.Drawing.Point(0, 561);
             section2.Name = "section2";
-            section2.Size = new System.Drawing.Size(183, 843);
+            section2.Size = new System.Drawing.Size(183, 888);
             section2.TabIndex = 4;
             // 
             // section3
@@ -188,11 +189,12 @@ namespace ParcAuto
             this.section3.Controls.Add(this.panelMaintenance);
             this.section3.Controls.Add(this.Suivis);
             this.section3.Controls.Add(this.btnMissions);
+            this.section3.Controls.Add(this.btnConducteursDispo);
             this.section3.Controls.Add(this.btnConducteurs);
             this.section3.Dock = System.Windows.Forms.DockStyle.Top;
             this.section3.Location = new System.Drawing.Point(0, 299);
             this.section3.Name = "section3";
-            this.section3.Size = new System.Drawing.Size(183, 544);
+            this.section3.Size = new System.Drawing.Size(183, 589);
             this.section3.TabIndex = 100;
             // 
             // btnUsers
@@ -205,7 +207,7 @@ namespace ParcAuto
             this.btnUsers.ForeColor = System.Drawing.Color.White;
             this.btnUsers.Image = ((System.Drawing.Image)(resources.GetObject("btnUsers.Image")));
             this.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsers.Location = new System.Drawing.Point(0, 499);
+            this.btnUsers.Location = new System.Drawing.Point(0, 544);
             this.btnUsers.Name = "btnUsers";
             this.btnUsers.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnUsers.Size = new System.Drawing.Size(183, 45);
@@ -224,7 +226,7 @@ namespace ParcAuto
             this.btnVisiteurs.ForeColor = System.Drawing.Color.White;
             this.btnVisiteurs.Image = ((System.Drawing.Image)(resources.GetObject("btnVisiteurs.Image")));
             this.btnVisiteurs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVisiteurs.Location = new System.Drawing.Point(0, 454);
+            this.btnVisiteurs.Location = new System.Drawing.Point(0, 499);
             this.btnVisiteurs.Name = "btnVisiteurs";
             this.btnVisiteurs.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnVisiteurs.Size = new System.Drawing.Size(183, 45);
@@ -241,7 +243,7 @@ namespace ParcAuto
             this.panelMaintenance.Controls.Add(this.ArrowMaintenancedown);
             this.panelMaintenance.Controls.Add(this.btnMaintenance);
             this.panelMaintenance.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMaintenance.Location = new System.Drawing.Point(0, 272);
+            this.panelMaintenance.Location = new System.Drawing.Point(0, 317);
             this.panelMaintenance.Name = "panelMaintenance";
             this.panelMaintenance.Size = new System.Drawing.Size(183, 182);
             this.panelMaintenance.TabIndex = 100;
@@ -367,7 +369,7 @@ namespace ParcAuto
             this.Suivis.Controls.Add(this.arrowsuiviDown);
             this.Suivis.Controls.Add(this.btnSuivi);
             this.Suivis.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Suivis.Location = new System.Drawing.Point(0, 90);
+            this.Suivis.Location = new System.Drawing.Point(0, 135);
             this.Suivis.Name = "Suivis";
             this.Suivis.Size = new System.Drawing.Size(183, 182);
             this.Suivis.TabIndex = 2;
@@ -385,6 +387,26 @@ namespace ParcAuto
             this.panelsousSuivi.Size = new System.Drawing.Size(183, 137);
             this.panelsousSuivi.TabIndex = 102;
             this.panelsousSuivi.Visible = false;
+            // 
+            // btnPosteSimple
+            // 
+            this.btnPosteSimple.AutoSize = true;
+            this.btnPosteSimple.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
+            this.btnPosteSimple.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPosteSimple.FlatAppearance.BorderSize = 0;
+            this.btnPosteSimple.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPosteSimple.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPosteSimple.ForeColor = System.Drawing.Color.White;
+            this.btnPosteSimple.Image = ((System.Drawing.Image)(resources.GetObject("btnPosteSimple.Image")));
+            this.btnPosteSimple.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPosteSimple.Location = new System.Drawing.Point(0, 90);
+            this.btnPosteSimple.Name = "btnPosteSimple";
+            this.btnPosteSimple.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnPosteSimple.Size = new System.Drawing.Size(181, 45);
+            this.btnPosteSimple.TabIndex = 103;
+            this.btnPosteSimple.Text = "Poste Simple";
+            this.btnPosteSimple.UseVisualStyleBackColor = false;
+            this.btnPosteSimple.Click += new System.EventHandler(this.btnPosteSimple_Click);
             // 
             // btnNbCourriers
             // 
@@ -476,7 +498,7 @@ namespace ParcAuto
             this.btnMissions.ForeColor = System.Drawing.Color.White;
             this.btnMissions.Image = ((System.Drawing.Image)(resources.GetObject("btnMissions.Image")));
             this.btnMissions.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMissions.Location = new System.Drawing.Point(0, 45);
+            this.btnMissions.Location = new System.Drawing.Point(0, 90);
             this.btnMissions.Name = "btnMissions";
             this.btnMissions.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMissions.Size = new System.Drawing.Size(183, 45);
@@ -1132,7 +1154,7 @@ namespace ParcAuto
             this.Quitter.ForeColor = System.Drawing.Color.White;
             this.Quitter.Image = ((System.Drawing.Image)(resources.GetObject("Quitter.Image")));
             this.Quitter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Quitter.Location = new System.Drawing.Point(0, 1404);
+            this.Quitter.Location = new System.Drawing.Point(0, 1449);
             this.Quitter.Name = "Quitter";
             this.Quitter.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.Quitter.Size = new System.Drawing.Size(183, 45);
@@ -1378,25 +1400,24 @@ namespace ParcAuto
             title8.Text = "Consommation Carburant";
             this.Carburantchart.Titles.Add(title8);
             // 
-            // btnPosteSimple
+            // btnConducteursDispo
             // 
-            this.btnPosteSimple.AutoSize = true;
-            this.btnPosteSimple.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(142)))), ((int)(((byte)(204)))));
-            this.btnPosteSimple.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPosteSimple.FlatAppearance.BorderSize = 0;
-            this.btnPosteSimple.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPosteSimple.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPosteSimple.ForeColor = System.Drawing.Color.White;
-            this.btnPosteSimple.Image = ((System.Drawing.Image)(resources.GetObject("btnPosteSimple.Image")));
-            this.btnPosteSimple.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPosteSimple.Location = new System.Drawing.Point(0, 90);
-            this.btnPosteSimple.Name = "btnPosteSimple";
-            this.btnPosteSimple.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnPosteSimple.Size = new System.Drawing.Size(181, 45);
-            this.btnPosteSimple.TabIndex = 103;
-            this.btnPosteSimple.Text = "Poste Simple";
-            this.btnPosteSimple.UseVisualStyleBackColor = false;
-            this.btnPosteSimple.Click += new System.EventHandler(this.btnPosteSimple_Click);
+            this.btnConducteursDispo.AutoSize = true;
+            this.btnConducteursDispo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnConducteursDispo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConducteursDispo.FlatAppearance.BorderSize = 0;
+            this.btnConducteursDispo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConducteursDispo.ForeColor = System.Drawing.Color.White;
+            this.btnConducteursDispo.Image = ((System.Drawing.Image)(resources.GetObject("btnConducteursDispo.Image")));
+            this.btnConducteursDispo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConducteursDispo.Location = new System.Drawing.Point(0, 45);
+            this.btnConducteursDispo.Name = "btnConducteursDispo";
+            this.btnConducteursDispo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnConducteursDispo.Size = new System.Drawing.Size(183, 45);
+            this.btnConducteursDispo.TabIndex = 104;
+            this.btnConducteursDispo.Text = "Disponibilités des Conducteurs";
+            this.btnConducteursDispo.UseVisualStyleBackColor = false;
+            this.btnConducteursDispo.Click += new System.EventHandler(this.btnConducteursDispo_Click);
             // 
             // Form1
             // 
@@ -1546,6 +1567,7 @@ namespace ParcAuto
         private System.Windows.Forms.DataVisualization.Charting.Chart TransportChart;
         private System.Windows.Forms.Button btnUsers;
         private System.Windows.Forms.Button btnPosteSimple;
+        private System.Windows.Forms.Button btnConducteursDispo;
     }
 }
 

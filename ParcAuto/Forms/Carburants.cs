@@ -450,11 +450,6 @@ namespace ParcAuto.Forms
 
         }
 
-        private void dgvCarburant_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnImprimer_Click(object sender, EventArgs e)
         {
 

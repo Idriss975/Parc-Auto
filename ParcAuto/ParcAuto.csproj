@@ -170,6 +170,12 @@
     <Compile Include="Forms\Conducteurs.Designer.cs">
       <DependentUpon>Conducteurs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Disponibilite_des_conducteurs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Disponibilite_des_conducteurs.Designer.cs">
+      <DependentUpon>Disponibilite_des_conducteurs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EtatJournalier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +217,12 @@
     </Compile>
     <Compile Include="Forms\MAJConducteur.Designer.cs">
       <DependentUpon>MAJConducteur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MajDisponibilité.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MajDisponibilité.Designer.cs">
+      <DependentUpon>MajDisponibilité.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MajEtatRecap.cs">
       <SubType>Form</SubType>
@@ -367,6 +379,9 @@
     <EmbeddedResource Include="Forms\Conducteurs.resx">
       <DependentUpon>Conducteurs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Disponibilite_des_conducteurs.resx">
+      <DependentUpon>Disponibilite_des_conducteurs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EtatJournalier.resx">
       <DependentUpon>EtatJournalier.cs</DependentUpon>
     </EmbeddedResource>
@@ -387,6 +402,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MAJConducteur.resx">
       <DependentUpon>MAJConducteur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MajDisponibilité.resx">
+      <DependentUpon>MajDisponibilité.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MajEtatRecap.resx">
       <DependentUpon>MajEtatRecap.cs</DependentUpon>

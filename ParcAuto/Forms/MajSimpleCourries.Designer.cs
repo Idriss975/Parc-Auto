@@ -432,6 +432,7 @@ namespace ParcAuto.Forms
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MajSimpleCourries";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MajSimpleCourries";
             this.Load += new System.EventHandler(this.MajSimpleCourries_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

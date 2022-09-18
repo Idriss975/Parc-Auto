@@ -447,7 +447,6 @@ namespace ParcAuto.Forms
             this.dgvCarburant.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCarburant.Size = new System.Drawing.Size(1109, 423);
             this.dgvCarburant.TabIndex = 22;
-            this.dgvCarburant.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarburant_CellContentClick);
             this.dgvCarburant.DoubleClick += new System.EventHandler(this.dgvCarburant_DoubleClick);
             // 
             // Column1
@@ -560,6 +559,7 @@ namespace ParcAuto.Forms
             this.id.Name = "id";
             this.id.ReadOnly = true;
             this.id.Visible = false;
+            this.id.Width = 44;
             // 
             // Column11
             // 

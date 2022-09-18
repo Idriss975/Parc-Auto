@@ -548,5 +548,10 @@ namespace ParcAuto
         {
             openChildForm(new Forms.PostesSimple(), sender);
         }
+
+        private void btnConducteursDispo_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.Disponibilite_des_conducteurs(), sender);
+        }
     }
 }
