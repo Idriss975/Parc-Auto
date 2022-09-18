@@ -143,21 +143,25 @@ namespace ParcAuto.Forms
 
             try
             {
-                int pos = dgvVehicules.CurrentRow.Index;
-                GLB.Matricule_Voiture = dgvVehicules.Rows[pos].Cells[1].Value.ToString();
-                Commandes.Command = Choix.modifier;
-                (new MajVehicules(
-                  dgvVehicules.Rows[pos].Cells[0].Value.ToString(),
-                  DateTime.ParseExact(dgvVehicules.Rows[pos].Cells[2].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
-                  dgvVehicules.Rows[pos].Cells[3].Value.ToString(),
-                  dgvVehicules.Rows[pos].Cells[5].Value.ToString(),
-                  dgvVehicules.Rows[pos].Cells[6].Value.ToString(),
-                  dgvVehicules.Rows[pos].Cells[7].Value.ToString(),
-                  dgvVehicules.Rows[pos].Cells[8].Value.ToString(),
-                  dgvVehicules.Rows[pos].Cells[9].Value.ToString(), this)).ShowDialog();
-                RemplirLaGrille();
-                dgvVehicules.Rows[pos].Selected = true;
-                dgvVehicules.FirstDisplayedScrollingRowIndex = pos;
+                if(dgvVehicules.Rows.Count != 0)
+                {
+                    int pos = dgvVehicules.CurrentRow.Index;
+                    GLB.Matricule_Voiture = dgvVehicules.Rows[pos].Cells[1].Value.ToString();
+                    Commandes.Command = Choix.modifier;
+                    (new MajVehicules(
+                      dgvVehicules.Rows[pos].Cells[0].Value.ToString(),
+                      DateTime.ParseExact(dgvVehicules.Rows[pos].Cells[2].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                      dgvVehicules.Rows[pos].Cells[3].Value.ToString(),
+                      dgvVehicules.Rows[pos].Cells[5].Value.ToString(),
+                      dgvVehicules.Rows[pos].Cells[6].Value.ToString(),
+                      dgvVehicules.Rows[pos].Cells[7].Value.ToString(),
+                      dgvVehicules.Rows[pos].Cells[8].Value.ToString(),
+                      dgvVehicules.Rows[pos].Cells[9].Value.ToString(), this)).ShowDialog();
+                    RemplirLaGrille();
+                    dgvVehicules.Rows[pos].Selected = true;
+                    dgvVehicules.FirstDisplayedScrollingRowIndex = pos;
+                }
+                
             }
             catch (ArgumentOutOfRangeException)
             {

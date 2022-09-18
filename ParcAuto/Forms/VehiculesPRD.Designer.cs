@@ -51,11 +51,6 @@ namespace ParcAuto.Forms
             this.btnModifier = new Guna.UI2.WinForms.Guna2Button();
             this.btnSupprimer = new Guna.UI2.WinForms.Guna2Button();
             this.dgvVehicules = new System.Windows.Forms.DataGridView();
-            this.btnQuitter = new Guna.UI2.WinForms.Guna2Button();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +60,11 @@ namespace ParcAuto.Forms
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnQuitter = new Guna.UI2.WinForms.Guna2Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicules)).BeginInit();
@@ -141,7 +141,7 @@ namespace ParcAuto.Forms
             this.btnImprimer.BorderRadius = 4;
             this.btnImprimer.CheckedState.Parent = this.btnImprimer;
             this.btnImprimer.CustomImages.Parent = this.btnImprimer;
-            this.btnImprimer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnImprimer.FillColor = System.Drawing.Color.Black;
             this.btnImprimer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnImprimer.ForeColor = System.Drawing.Color.White;
             this.btnImprimer.HoverState.Parent = this.btnImprimer;
@@ -450,54 +450,6 @@ namespace ParcAuto.Forms
             this.dgvVehicules.Size = new System.Drawing.Size(1109, 500);
             this.dgvVehicules.TabIndex = 60;
             // 
-            // btnQuitter
-            // 
-            this.btnQuitter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnQuitter.BorderRadius = 4;
-            this.btnQuitter.CheckedState.Parent = this.btnQuitter;
-            this.btnQuitter.CustomImages.Parent = this.btnQuitter;
-            this.btnQuitter.FillColor = System.Drawing.Color.Crimson;
-            this.btnQuitter.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnQuitter.ForeColor = System.Drawing.Color.White;
-            this.btnQuitter.HoverState.Parent = this.btnQuitter;
-            this.btnQuitter.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitter.Image")));
-            this.btnQuitter.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnQuitter.Location = new System.Drawing.Point(1064, 12);
-            this.btnQuitter.Margin = new System.Windows.Forms.Padding(4);
-            this.btnQuitter.Name = "btnQuitter";
-            this.btnQuitter.ShadowDecoration.Parent = this.btnQuitter;
-            this.btnQuitter.Size = new System.Drawing.Size(40, 40);
-            this.btnQuitter.TabIndex = 59;
-            this.btnQuitter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
-            // 
-            // printDocument1
-            // 
-            this.printDocument1.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument1_BeginPrint);
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
-            // printDialog1
-            // 
-            this.printDialog1.Document = this.printDocument1;
-            this.printDialog1.UseEXDialog = true;
-            // 
-            // printPreviewDialog1
-            // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.Document = this.printDocument1;
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.Visible = false;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "OFPPT_logo.png");
-            // 
             // Column2
             // 
             this.Column2.HeaderText = "Marque";
@@ -560,6 +512,54 @@ namespace ParcAuto.Forms
             this.Column7.MinimumWidth = 8;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
+            // 
+            // btnQuitter
+            // 
+            this.btnQuitter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQuitter.BorderRadius = 4;
+            this.btnQuitter.CheckedState.Parent = this.btnQuitter;
+            this.btnQuitter.CustomImages.Parent = this.btnQuitter;
+            this.btnQuitter.FillColor = System.Drawing.Color.Crimson;
+            this.btnQuitter.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnQuitter.ForeColor = System.Drawing.Color.White;
+            this.btnQuitter.HoverState.Parent = this.btnQuitter;
+            this.btnQuitter.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitter.Image")));
+            this.btnQuitter.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnQuitter.Location = new System.Drawing.Point(1064, 12);
+            this.btnQuitter.Margin = new System.Windows.Forms.Padding(4);
+            this.btnQuitter.Name = "btnQuitter";
+            this.btnQuitter.ShadowDecoration.Parent = this.btnQuitter;
+            this.btnQuitter.Size = new System.Drawing.Size(40, 40);
+            this.btnQuitter.TabIndex = 59;
+            this.btnQuitter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument1_BeginPrint);
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.Document = this.printDocument1;
+            this.printDialog1.UseEXDialog = true;
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "OFPPT_logo.png");
             // 
             // VehiculesPRD
             // 

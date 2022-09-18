@@ -167,19 +167,23 @@ namespace ParcAuto.Forms
         {
             try
             {
-                int Lastscrollindex = dgvCarteFree.FirstDisplayedScrollingRowIndex;
-                int pos = dgvCarteFree.CurrentRow.Index;
-                GLB.id_CarteFree = Convert.ToInt32(dgvCarteFree.Rows[pos].Cells[0].Value);
-                Commandes.Command = Choix.modifier;
-                (new MajCarteFree(dgvCarteFree.Rows[pos].Cells[1].Value.ToString(),
-                     DateTime.ParseExact(dgvCarteFree.Rows[pos].Cells[2].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
-                    dgvCarteFree.Rows[pos].Cells[3].Value.ToString(),
-                    dgvCarteFree.Rows[pos].Cells[4].Value.ToString(),
-                    dgvCarteFree.Rows[pos].Cells[5].Value.ToString())).ShowDialog();
-                RemplirLaGrille();
-                dgvCarteFree.Rows[pos].Selected = true;
-                dgvCarteFree.FirstDisplayedScrollingRowIndex = Lastscrollindex;
-                Total();
+               if(dgvCarteFree.Rows.Count != 0)
+                {
+                    int Lastscrollindex = dgvCarteFree.FirstDisplayedScrollingRowIndex;
+                    int pos = dgvCarteFree.CurrentRow.Index;
+                    GLB.id_CarteFree = Convert.ToInt32(dgvCarteFree.Rows[pos].Cells[0].Value);
+                    Commandes.Command = Choix.modifier;
+                    (new MajCarteFree(dgvCarteFree.Rows[pos].Cells[1].Value.ToString(),
+                         DateTime.ParseExact(dgvCarteFree.Rows[pos].Cells[2].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                        dgvCarteFree.Rows[pos].Cells[3].Value.ToString(),
+                        dgvCarteFree.Rows[pos].Cells[4].Value.ToString(),
+                        dgvCarteFree.Rows[pos].Cells[5].Value.ToString())).ShowDialog();
+                    RemplirLaGrille();
+                    dgvCarteFree.Rows[pos].Selected = true;
+                    dgvCarteFree.FirstDisplayedScrollingRowIndex = Lastscrollindex;
+                    Total();
+                }
+                
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -355,12 +359,12 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@objet", objet ?? "");
                         GLB.Cmd.Parameters.AddWithValue("@dateCarte", date.ToString("yyyy-MM-dd") == "0001-01-01" ? (object)DBNull.Value : date.ToString("yyyy-MM-dd"));
                         GLB.Cmd.ExecuteNonQuery();
-                        Total();
                     }
                 }
                 GLB.Cmd.Transaction.Commit();
                 GLB.Con.Close();
                 RemplirLaGrille();
+                Total();
 
             }
             catch (SqlException ex)

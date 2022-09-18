@@ -260,12 +260,6 @@
     <Compile Include="Forms\MajVehicules.Designer.cs">
       <DependentUpon>MajVehicules.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MajVisiteurs.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MajVisiteurs.Designer.cs">
-      <DependentUpon>MajVisiteurs.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Misssions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -411,9 +405,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MajVehicules.resx">
       <DependentUpon>MajVehicules.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MajVisiteurs.resx">
-      <DependentUpon>MajVisiteurs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Misssions.resx">
       <DependentUpon>Misssions.cs</DependentUpon>

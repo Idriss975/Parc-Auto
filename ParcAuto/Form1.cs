@@ -99,7 +99,7 @@ namespace ParcAuto
                 {
                     if (GLB.dr[3].ToString() == "DENY")
                     {
-                        btnVignettes.Visible = false;
+                        btnCarburant.Visible = false;
                     }
                 }
                 else if((GLB.dr[5].ToString() == "Reparation" || GLB.dr[5].ToString() == "ReparationPRDSNTL") && GLB.dr[2].ToString() == "SELECT")

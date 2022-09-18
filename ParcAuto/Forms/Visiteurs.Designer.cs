@@ -43,8 +43,6 @@ namespace ParcAuto.Forms
             this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnQuitter = new Guna.UI2.WinForms.Guna2Button();
-            this.btnAjouter = new Guna.UI2.WinForms.Guna2Button();
-            this.btnSupprimer = new Guna.UI2.WinForms.Guna2Button();
             this.dgvVisiteurs = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +55,6 @@ namespace ParcAuto.Forms
             this.TextPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.txtValueToFiltre = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnSuprimmerTout = new Guna.UI2.WinForms.Guna2Button();
             this.btnImprimer = new Guna.UI2.WinForms.Guna2Button();
             this.btnImportExcel = new Guna.UI2.WinForms.Guna2Button();
             this.btnExportExcel = new Guna.UI2.WinForms.Guna2Button();
@@ -67,7 +64,6 @@ namespace ParcAuto.Forms
             this.Date1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.Date2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.btnFiltrer = new Guna.UI2.WinForms.Guna2Button();
-            this.btnModifier = new Guna.UI2.WinForms.Guna2Button();
             this.cmbChoix = new Guna.UI2.WinForms.Guna2ComboBox();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
@@ -134,50 +130,6 @@ namespace ParcAuto.Forms
             this.btnQuitter.TabIndex = 89;
             this.btnQuitter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
-            // 
-            // btnAjouter
-            // 
-            this.btnAjouter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAjouter.BorderRadius = 4;
-            this.btnAjouter.CheckedState.Parent = this.btnAjouter;
-            this.btnAjouter.CustomImages.Parent = this.btnAjouter;
-            this.btnAjouter.FillColor = System.Drawing.Color.LimeGreen;
-            this.btnAjouter.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnAjouter.ForeColor = System.Drawing.Color.White;
-            this.btnAjouter.HoverState.Parent = this.btnAjouter;
-            this.btnAjouter.Image = ((System.Drawing.Image)(resources.GetObject("btnAjouter.Image")));
-            this.btnAjouter.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAjouter.Location = new System.Drawing.Point(734, 626);
-            this.btnAjouter.Margin = new System.Windows.Forms.Padding(5);
-            this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.ShadowDecoration.Parent = this.btnAjouter;
-            this.btnAjouter.Size = new System.Drawing.Size(100, 30);
-            this.btnAjouter.TabIndex = 93;
-            this.btnAjouter.Text = "Ajouter";
-            this.btnAjouter.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAjouter.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
-            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
-            // 
-            // btnSupprimer
-            // 
-            this.btnSupprimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSupprimer.BorderRadius = 4;
-            this.btnSupprimer.CheckedState.Parent = this.btnSupprimer;
-            this.btnSupprimer.CustomImages.Parent = this.btnSupprimer;
-            this.btnSupprimer.FillColor = System.Drawing.Color.Tomato;
-            this.btnSupprimer.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnSupprimer.ForeColor = System.Drawing.Color.White;
-            this.btnSupprimer.HoverState.Parent = this.btnSupprimer;
-            this.btnSupprimer.Image = ((System.Drawing.Image)(resources.GetObject("btnSupprimer.Image")));
-            this.btnSupprimer.Location = new System.Drawing.Point(1006, 626);
-            this.btnSupprimer.Margin = new System.Windows.Forms.Padding(5);
-            this.btnSupprimer.Name = "btnSupprimer";
-            this.btnSupprimer.ShadowDecoration.Parent = this.btnSupprimer;
-            this.btnSupprimer.Size = new System.Drawing.Size(100, 30);
-            this.btnSupprimer.TabIndex = 91;
-            this.btnSupprimer.Text = "Supprimer";
-            this.btnSupprimer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
-            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // dgvVisiteurs
             // 
@@ -290,29 +242,6 @@ namespace ParcAuto.Forms
             this.txtValueToFiltre.Size = new System.Drawing.Size(247, 30);
             this.txtValueToFiltre.TabIndex = 19;
             // 
-            // btnSuprimmerTout
-            // 
-            this.btnSuprimmerTout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSuprimmerTout.BorderRadius = 4;
-            this.btnSuprimmerTout.CheckedState.Parent = this.btnSuprimmerTout;
-            this.btnSuprimmerTout.CustomImages.Parent = this.btnSuprimmerTout;
-            this.btnSuprimmerTout.FillColor = System.Drawing.Color.Tomato;
-            this.btnSuprimmerTout.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnSuprimmerTout.ForeColor = System.Drawing.Color.White;
-            this.btnSuprimmerTout.HoverState.Parent = this.btnSuprimmerTout;
-            this.btnSuprimmerTout.Image = ((System.Drawing.Image)(resources.GetObject("btnSuprimmerTout.Image")));
-            this.btnSuprimmerTout.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnSuprimmerTout.Location = new System.Drawing.Point(150, 626);
-            this.btnSuprimmerTout.Margin = new System.Windows.Forms.Padding(5);
-            this.btnSuprimmerTout.Name = "btnSuprimmerTout";
-            this.btnSuprimmerTout.ShadowDecoration.Parent = this.btnSuprimmerTout;
-            this.btnSuprimmerTout.Size = new System.Drawing.Size(140, 30);
-            this.btnSuprimmerTout.TabIndex = 103;
-            this.btnSuprimmerTout.Text = "Supprimer Tout";
-            this.btnSuprimmerTout.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnSuprimmerTout.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
-            this.btnSuprimmerTout.Click += new System.EventHandler(this.btnSuprimmerTout_Click);
-            // 
             // btnImprimer
             // 
             this.btnImprimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -325,7 +254,7 @@ namespace ParcAuto.Forms
             this.btnImprimer.HoverState.Parent = this.btnImprimer;
             this.btnImprimer.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimer.Image")));
             this.btnImprimer.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnImprimer.Location = new System.Drawing.Point(16, 626);
+            this.btnImprimer.Location = new System.Drawing.Point(13, 60);
             this.btnImprimer.Margin = new System.Windows.Forms.Padding(5);
             this.btnImprimer.Name = "btnImprimer";
             this.btnImprimer.ShadowDecoration.Parent = this.btnImprimer;
@@ -470,29 +399,6 @@ namespace ParcAuto.Forms
             this.btnFiltrer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             this.btnFiltrer.Click += new System.EventHandler(this.btnFiltrer_Click);
             // 
-            // btnModifier
-            // 
-            this.btnModifier.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnModifier.BorderRadius = 4;
-            this.btnModifier.CheckedState.Parent = this.btnModifier;
-            this.btnModifier.CustomImages.Parent = this.btnModifier;
-            this.btnModifier.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
-            this.btnModifier.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnModifier.ForeColor = System.Drawing.Color.White;
-            this.btnModifier.HoverState.Parent = this.btnModifier;
-            this.btnModifier.Image = ((System.Drawing.Image)(resources.GetObject("btnModifier.Image")));
-            this.btnModifier.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnModifier.Location = new System.Drawing.Point(872, 626);
-            this.btnModifier.Margin = new System.Windows.Forms.Padding(5);
-            this.btnModifier.Name = "btnModifier";
-            this.btnModifier.ShadowDecoration.Parent = this.btnModifier;
-            this.btnModifier.Size = new System.Drawing.Size(100, 30);
-            this.btnModifier.TabIndex = 92;
-            this.btnModifier.Text = "Modifier";
-            this.btnModifier.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnModifier.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
-            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
-            // 
             // cmbChoix
             // 
             this.cmbChoix.BackColor = System.Drawing.Color.Transparent;
@@ -562,7 +468,7 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1111, 231);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1111, 282);
             this.tableLayoutPanel1.TabIndex = 104;
             // 
             // chart2
@@ -591,7 +497,7 @@ namespace ParcAuto.Forms
             series2.Name = "Mois d\'annee précédent ";
             this.chart2.Series.Add(series1);
             this.chart2.Series.Add(series2);
-            this.chart2.Size = new System.Drawing.Size(479, 225);
+            this.chart2.Size = new System.Drawing.Size(479, 276);
             this.chart2.TabIndex = 74;
             title1.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             title1.Name = "Title1";
@@ -621,7 +527,7 @@ namespace ParcAuto.Forms
             series3.Legend = "Legend1";
             series3.Name = "Direction";
             this.chart1.Series.Add(series3);
-            this.chart1.Size = new System.Drawing.Size(606, 225);
+            this.chart1.Size = new System.Drawing.Size(606, 276);
             this.chart1.TabIndex = 73;
             this.chart1.Text = "chart1";
             title2.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -638,17 +544,13 @@ namespace ParcAuto.Forms
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnQuitter);
-            this.Controls.Add(this.btnAjouter);
-            this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.dgvVisiteurs);
             this.Controls.Add(this.TextPanel);
-            this.Controls.Add(this.btnSuprimmerTout);
             this.Controls.Add(this.btnImprimer);
             this.Controls.Add(this.btnImportExcel);
             this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.panelDate);
             this.Controls.Add(this.btnFiltrer);
-            this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.cmbChoix);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -673,8 +575,6 @@ namespace ParcAuto.Forms
         private Guna.UI2.WinForms.Guna2Button btnRefresh;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button btnQuitter;
-        private Guna.UI2.WinForms.Guna2Button btnAjouter;
-        private Guna.UI2.WinForms.Guna2Button btnSupprimer;
         private System.Windows.Forms.DataGridView dgvVisiteurs;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -687,7 +587,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.FlowLayoutPanel TextPanel;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox txtValueToFiltre;
-        private Guna.UI2.WinForms.Guna2Button btnSuprimmerTout;
         private Guna.UI2.WinForms.Guna2Button btnImprimer;
         private Guna.UI2.WinForms.Guna2Button btnImportExcel;
         private Guna.UI2.WinForms.Guna2Button btnExportExcel;
@@ -697,7 +596,6 @@ namespace ParcAuto.Forms
         private Guna.UI2.WinForms.Guna2DateTimePicker Date1;
         private Guna.UI2.WinForms.Guna2DateTimePicker Date2;
         private Guna.UI2.WinForms.Guna2Button btnFiltrer;
-        private Guna.UI2.WinForms.Guna2Button btnModifier;
         private Guna.UI2.WinForms.Guna2ComboBox cmbChoix;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
