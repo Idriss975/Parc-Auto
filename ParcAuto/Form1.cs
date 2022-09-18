@@ -38,7 +38,6 @@ namespace ParcAuto
         {
             if (!subMenu.Visible)
             {
-                
                 subMenu.Visible = true;
             }
             else
@@ -142,6 +141,11 @@ namespace ParcAuto
             GLB.dr.Close();
             GLB.Con.Close();
         }
+
+        public static double[] EtatrecapConsomationCarburant = new double[2];
+        public static double[] EtatrecapConsomationCarteFree = new double[2];
+        public static double[] EtatrecapConsomationReparation = new double[2];
+        public static double[] EtatrecapConsomationTransport = new double[2];
         private void ChartCarburant()
         {
             
@@ -157,6 +161,8 @@ namespace ParcAuto
                 lblCarburant.Text = $"- Consommation d'annee {GLB.SelectedDate} est {GLB.dr[1]}.\n" +
                     $"- Consommation d'annee {int.Parse(GLB.SelectedDate) - 1} est {GLB.dr[3]}.\n" +
                     $"- L'ecart des deux annees est {GLB.dr[4]}, {(((Convert.ToDouble(GLB.dr[1].ToString()) - Convert.ToDouble(GLB.dr[3].ToString())) / Convert.ToDouble(GLB.dr[3].ToString())) * 100).ToString("F2")}%.";
+                EtatrecapConsomationCarburant[0] = double.Parse(GLB.dr[1].ToString());
+                EtatrecapConsomationCarburant[1] = double.Parse(GLB.dr[3].ToString());
             }
             GLB.dr.Close();
             GLB.Con.Close();
@@ -178,6 +184,8 @@ namespace ParcAuto
                 lblCarteFree.Text = $"- Consommation d'annee {GLB.SelectedDate} est {GLB.dr[1]}.\n" +
                     $"- Consommation d'annee {int.Parse(GLB.SelectedDate) - 1} est {GLB.dr[3]}.\n" +
                     $"- L'ecart des deux annees est {GLB.dr[4]}, {(((Convert.ToDouble(GLB.dr[1].ToString()) - Convert.ToDouble(GLB.dr[3].ToString())) / Convert.ToDouble(GLB.dr[3].ToString())) * 100).ToString("F2")}%.";
+                EtatrecapConsomationCarteFree[0] = double.Parse(GLB.dr[1].ToString());
+                EtatrecapConsomationCarteFree[1] = double.Parse(GLB.dr[3].ToString());
             }
             GLB.dr.Close();
             GLB.Con.Close();
@@ -200,6 +208,8 @@ namespace ParcAuto
                 lblReparation.Text = $"- Consommation d'annee {GLB.SelectedDate} est {GLB.dr[1]}.\n" +
                     $"- Consommation d'annee {int.Parse(GLB.SelectedDate) - 1} est {GLB.dr[3]}.\n" +
                     $"- L'ecart des deux annees est {GLB.dr[4]}, {(((Convert.ToDouble(GLB.dr[1].ToString()) - Convert.ToDouble(GLB.dr[3].ToString())) / Convert.ToDouble(GLB.dr[3].ToString())) * 100).ToString("F2")}%.";
+                EtatrecapConsomationReparation[0] = double.Parse(GLB.dr[1].ToString());
+                EtatrecapConsomationReparation[1] = double.Parse(GLB.dr[3].ToString());
             }
             GLB.dr.Close();
             GLB.Con.Close();
@@ -219,6 +229,8 @@ namespace ParcAuto
                 lbltransport.Text = $"- Consommation d'annee {GLB.SelectedDate} est {GLB.dr[1]}.\n" +
                     $"- Consommation d'annee {int.Parse(GLB.SelectedDate) - 1} est {GLB.dr[3]}.\n" +
                    $"- L'ecart des deux annees est {GLB.dr[4]}, {(((Convert.ToDouble(GLB.dr[1].ToString()) - Convert.ToDouble(GLB.dr[3].ToString())) / Convert.ToDouble(GLB.dr[3].ToString())) * 100).ToString("F2")}%.";
+                EtatrecapConsomationTransport[0] = double.Parse(GLB.dr[1].ToString());
+                EtatrecapConsomationTransport[1] = double.Parse(GLB.dr[3].ToString());
             }
             GLB.dr.Close();
             GLB.Con.Close();

@@ -34,41 +34,41 @@ namespace ParcAuto.Forms
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.ModifierVisiteurs = new System.Windows.Forms.CheckBox();
-            this.ModifierMaintenance = new System.Windows.Forms.CheckBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.SupVisiteurs = new System.Windows.Forms.CheckBox();
-            this.ModifierConducteurs = new System.Windows.Forms.CheckBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.SupMaintenance = new System.Windows.Forms.CheckBox();
-            this.ModifierParc = new System.Windows.Forms.CheckBox();
-            this.LireAmana = new System.Windows.Forms.CheckBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.SuprimmerConduct = new System.Windows.Forms.CheckBox();
-            this.ModifierVignettes = new System.Windows.Forms.CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.InsererParc = new System.Windows.Forms.CheckBox();
-            this.SuprimmerParc = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.SuprimmerVignettes = new System.Windows.Forms.CheckBox();
             this.LireVignettes = new System.Windows.Forms.CheckBox();
             this.InsererVignettes = new System.Windows.Forms.CheckBox();
+            this.SuprimmerVignettes = new System.Windows.Forms.CheckBox();
+            this.ModifierVignettes = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.LireParc = new System.Windows.Forms.CheckBox();
+            this.InsererParc = new System.Windows.Forms.CheckBox();
+            this.SuprimmerParc = new System.Windows.Forms.CheckBox();
+            this.ModifierParc = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.LireConducteurs = new System.Windows.Forms.CheckBox();
             this.InsererConducteurs = new System.Windows.Forms.CheckBox();
+            this.SuprimmerConduct = new System.Windows.Forms.CheckBox();
+            this.ModifierConducteurs = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.InsererMissions = new System.Windows.Forms.CheckBox();
             this.LireMissions = new System.Windows.Forms.CheckBox();
+            this.InsererMissions = new System.Windows.Forms.CheckBox();
             this.SuprimmerMissions = new System.Windows.Forms.CheckBox();
+            this.ModifierMissions = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.LireAmana = new System.Windows.Forms.CheckBox();
             this.InsererAmana = new System.Windows.Forms.CheckBox();
             this.SupAmana = new System.Windows.Forms.CheckBox();
-            this.ModifierMissions = new System.Windows.Forms.CheckBox();
             this.ModifierAmana = new System.Windows.Forms.CheckBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.LireMaintenance = new System.Windows.Forms.CheckBox();
             this.InsererMaintenance = new System.Windows.Forms.CheckBox();
+            this.SupMaintenance = new System.Windows.Forms.CheckBox();
+            this.ModifierMaintenance = new System.Windows.Forms.CheckBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.LireVisiteurs = new System.Windows.Forms.CheckBox();
             this.InsererVisiteurs = new System.Windows.Forms.CheckBox();
+            this.SupVisiteurs = new System.Windows.Forms.CheckBox();
+            this.ModifierVisiteurs = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUtilisateur = new Guna.UI2.WinForms.Guna2TextBox();
@@ -160,7 +160,7 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel2.Controls.Add(this.LireVisiteurs, 1, 6);
             this.tableLayoutPanel2.Controls.Add(this.InsererVisiteurs, 2, 6);
             this.tableLayoutPanel2.Controls.Add(this.SupVisiteurs, 3, 6);
-            this.tableLayoutPanel2.Controls.Add(this.ModifierVisiteurs, 0, 6);
+            this.tableLayoutPanel2.Controls.Add(this.ModifierVisiteurs, 4, 6);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(20, 150);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 7;
@@ -178,152 +178,6 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel2.Size = new System.Drawing.Size(519, 171);
             this.tableLayoutPanel2.TabIndex = 6;
             // 
-            // ModifierVisiteurs
-            // 
-            this.ModifierVisiteurs.AutoSize = true;
-            this.ModifierVisiteurs.Location = new System.Drawing.Point(3, 147);
-            this.ModifierVisiteurs.Name = "ModifierVisiteurs";
-            this.ModifierVisiteurs.Size = new System.Drawing.Size(77, 21);
-            this.ModifierVisiteurs.TabIndex = 10;
-            this.ModifierVisiteurs.Text = "Modifier";
-            this.ModifierVisiteurs.UseVisualStyleBackColor = true;
-            // 
-            // ModifierMaintenance
-            // 
-            this.ModifierMaintenance.AutoSize = true;
-            this.ModifierMaintenance.Location = new System.Drawing.Point(415, 123);
-            this.ModifierMaintenance.Name = "ModifierMaintenance";
-            this.ModifierMaintenance.Size = new System.Drawing.Size(77, 18);
-            this.ModifierMaintenance.TabIndex = 10;
-            this.ModifierMaintenance.Text = "Modifier";
-            this.ModifierMaintenance.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(106, 144);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(70, 17);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "Visiteurs :";
-            // 
-            // SupVisiteurs
-            // 
-            this.SupVisiteurs.AutoSize = true;
-            this.SupVisiteurs.Location = new System.Drawing.Point(415, 147);
-            this.SupVisiteurs.Name = "SupVisiteurs";
-            this.SupVisiteurs.Size = new System.Drawing.Size(95, 21);
-            this.SupVisiteurs.TabIndex = 9;
-            this.SupVisiteurs.Text = "Suprimmer";
-            this.SupVisiteurs.UseVisualStyleBackColor = true;
-            // 
-            // ModifierConducteurs
-            // 
-            this.ModifierConducteurs.AutoSize = true;
-            this.ModifierConducteurs.Location = new System.Drawing.Point(415, 51);
-            this.ModifierConducteurs.Name = "ModifierConducteurs";
-            this.ModifierConducteurs.Size = new System.Drawing.Size(77, 18);
-            this.ModifierConducteurs.TabIndex = 10;
-            this.ModifierConducteurs.Text = "Modifier";
-            this.ModifierConducteurs.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 120);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(97, 17);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Maintenance :";
-            // 
-            // SupMaintenance
-            // 
-            this.SupMaintenance.AutoSize = true;
-            this.SupMaintenance.Location = new System.Drawing.Point(312, 123);
-            this.SupMaintenance.Name = "SupMaintenance";
-            this.SupMaintenance.Size = new System.Drawing.Size(95, 18);
-            this.SupMaintenance.TabIndex = 9;
-            this.SupMaintenance.Text = "Suprimmer";
-            this.SupMaintenance.UseVisualStyleBackColor = true;
-            // 
-            // ModifierParc
-            // 
-            this.ModifierParc.AutoSize = true;
-            this.ModifierParc.Location = new System.Drawing.Point(415, 27);
-            this.ModifierParc.Name = "ModifierParc";
-            this.ModifierParc.Size = new System.Drawing.Size(77, 18);
-            this.ModifierParc.TabIndex = 10;
-            this.ModifierParc.Text = "Modifier";
-            this.ModifierParc.UseVisualStyleBackColor = true;
-            // 
-            // LireAmana
-            // 
-            this.LireAmana.AutoSize = true;
-            this.LireAmana.Location = new System.Drawing.Point(106, 99);
-            this.LireAmana.Name = "LireAmana";
-            this.LireAmana.Size = new System.Drawing.Size(51, 18);
-            this.LireAmana.TabIndex = 7;
-            this.LireAmana.Text = "Lire";
-            this.LireAmana.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 48);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 17);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Conducteurs :";
-            // 
-            // SuprimmerConduct
-            // 
-            this.SuprimmerConduct.AutoSize = true;
-            this.SuprimmerConduct.Location = new System.Drawing.Point(312, 51);
-            this.SuprimmerConduct.Name = "SuprimmerConduct";
-            this.SuprimmerConduct.Size = new System.Drawing.Size(95, 18);
-            this.SuprimmerConduct.TabIndex = 9;
-            this.SuprimmerConduct.Text = "Suprimmer";
-            this.SuprimmerConduct.UseVisualStyleBackColor = true;
-            // 
-            // ModifierVignettes
-            // 
-            this.ModifierVignettes.AutoSize = true;
-            this.ModifierVignettes.Location = new System.Drawing.Point(415, 3);
-            this.ModifierVignettes.Name = "ModifierVignettes";
-            this.ModifierVignettes.Size = new System.Drawing.Size(77, 18);
-            this.ModifierVignettes.TabIndex = 5;
-            this.ModifierVignettes.Text = "Modifier";
-            this.ModifierVignettes.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 24);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 17);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Parc :";
-            // 
-            // InsererParc
-            // 
-            this.InsererParc.AutoSize = true;
-            this.InsererParc.Location = new System.Drawing.Point(209, 27);
-            this.InsererParc.Name = "InsererParc";
-            this.InsererParc.Size = new System.Drawing.Size(71, 18);
-            this.InsererParc.TabIndex = 8;
-            this.InsererParc.Text = "Insérer";
-            this.InsererParc.UseVisualStyleBackColor = true;
-            // 
-            // SuprimmerParc
-            // 
-            this.SuprimmerParc.AutoSize = true;
-            this.SuprimmerParc.Location = new System.Drawing.Point(312, 27);
-            this.SuprimmerParc.Name = "SuprimmerParc";
-            this.SuprimmerParc.Size = new System.Drawing.Size(95, 18);
-            this.SuprimmerParc.TabIndex = 9;
-            this.SuprimmerParc.Text = "Suprimmer";
-            this.SuprimmerParc.UseVisualStyleBackColor = true;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -332,16 +186,6 @@ namespace ParcAuto.Forms
             this.label3.Size = new System.Drawing.Size(75, 17);
             this.label3.TabIndex = 1;
             this.label3.Text = "Vignettes :";
-            // 
-            // SuprimmerVignettes
-            // 
-            this.SuprimmerVignettes.AutoSize = true;
-            this.SuprimmerVignettes.Location = new System.Drawing.Point(312, 3);
-            this.SuprimmerVignettes.Name = "SuprimmerVignettes";
-            this.SuprimmerVignettes.Size = new System.Drawing.Size(95, 18);
-            this.SuprimmerVignettes.TabIndex = 4;
-            this.SuprimmerVignettes.Text = "Suprimmer";
-            this.SuprimmerVignettes.UseVisualStyleBackColor = true;
             // 
             // LireVignettes
             // 
@@ -363,6 +207,35 @@ namespace ParcAuto.Forms
             this.InsererVignettes.Text = "Insérer";
             this.InsererVignettes.UseVisualStyleBackColor = true;
             // 
+            // SuprimmerVignettes
+            // 
+            this.SuprimmerVignettes.AutoSize = true;
+            this.SuprimmerVignettes.Location = new System.Drawing.Point(312, 3);
+            this.SuprimmerVignettes.Name = "SuprimmerVignettes";
+            this.SuprimmerVignettes.Size = new System.Drawing.Size(95, 18);
+            this.SuprimmerVignettes.TabIndex = 4;
+            this.SuprimmerVignettes.Text = "Suprimmer";
+            this.SuprimmerVignettes.UseVisualStyleBackColor = true;
+            // 
+            // ModifierVignettes
+            // 
+            this.ModifierVignettes.AutoSize = true;
+            this.ModifierVignettes.Location = new System.Drawing.Point(415, 3);
+            this.ModifierVignettes.Name = "ModifierVignettes";
+            this.ModifierVignettes.Size = new System.Drawing.Size(77, 18);
+            this.ModifierVignettes.TabIndex = 5;
+            this.ModifierVignettes.Text = "Modifier";
+            this.ModifierVignettes.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 24);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 17);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Parc :";
+            // 
             // LireParc
             // 
             this.LireParc.AutoSize = true;
@@ -372,6 +245,45 @@ namespace ParcAuto.Forms
             this.LireParc.TabIndex = 7;
             this.LireParc.Text = "Lire";
             this.LireParc.UseVisualStyleBackColor = true;
+            // 
+            // InsererParc
+            // 
+            this.InsererParc.AutoSize = true;
+            this.InsererParc.Location = new System.Drawing.Point(209, 27);
+            this.InsererParc.Name = "InsererParc";
+            this.InsererParc.Size = new System.Drawing.Size(71, 18);
+            this.InsererParc.TabIndex = 8;
+            this.InsererParc.Text = "Insérer";
+            this.InsererParc.UseVisualStyleBackColor = true;
+            // 
+            // SuprimmerParc
+            // 
+            this.SuprimmerParc.AutoSize = true;
+            this.SuprimmerParc.Location = new System.Drawing.Point(312, 27);
+            this.SuprimmerParc.Name = "SuprimmerParc";
+            this.SuprimmerParc.Size = new System.Drawing.Size(95, 18);
+            this.SuprimmerParc.TabIndex = 9;
+            this.SuprimmerParc.Text = "Suprimmer";
+            this.SuprimmerParc.UseVisualStyleBackColor = true;
+            // 
+            // ModifierParc
+            // 
+            this.ModifierParc.AutoSize = true;
+            this.ModifierParc.Location = new System.Drawing.Point(415, 27);
+            this.ModifierParc.Name = "ModifierParc";
+            this.ModifierParc.Size = new System.Drawing.Size(77, 18);
+            this.ModifierParc.TabIndex = 10;
+            this.ModifierParc.Text = "Modifier";
+            this.ModifierParc.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 48);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(96, 17);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Conducteurs :";
             // 
             // LireConducteurs
             // 
@@ -393,6 +305,26 @@ namespace ParcAuto.Forms
             this.InsererConducteurs.Text = "Insérer";
             this.InsererConducteurs.UseVisualStyleBackColor = true;
             // 
+            // SuprimmerConduct
+            // 
+            this.SuprimmerConduct.AutoSize = true;
+            this.SuprimmerConduct.Location = new System.Drawing.Point(312, 51);
+            this.SuprimmerConduct.Name = "SuprimmerConduct";
+            this.SuprimmerConduct.Size = new System.Drawing.Size(95, 18);
+            this.SuprimmerConduct.TabIndex = 9;
+            this.SuprimmerConduct.Text = "Suprimmer";
+            this.SuprimmerConduct.UseVisualStyleBackColor = true;
+            // 
+            // ModifierConducteurs
+            // 
+            this.ModifierConducteurs.AutoSize = true;
+            this.ModifierConducteurs.Location = new System.Drawing.Point(415, 51);
+            this.ModifierConducteurs.Name = "ModifierConducteurs";
+            this.ModifierConducteurs.Size = new System.Drawing.Size(77, 18);
+            this.ModifierConducteurs.TabIndex = 10;
+            this.ModifierConducteurs.Text = "Modifier";
+            this.ModifierConducteurs.UseVisualStyleBackColor = true;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -401,16 +333,6 @@ namespace ParcAuto.Forms
             this.label6.Size = new System.Drawing.Size(70, 17);
             this.label6.TabIndex = 11;
             this.label6.Text = "Missions :";
-            // 
-            // InsererMissions
-            // 
-            this.InsererMissions.AutoSize = true;
-            this.InsererMissions.Location = new System.Drawing.Point(209, 75);
-            this.InsererMissions.Name = "InsererMissions";
-            this.InsererMissions.Size = new System.Drawing.Size(71, 18);
-            this.InsererMissions.TabIndex = 13;
-            this.InsererMissions.Text = "Insérer";
-            this.InsererMissions.UseVisualStyleBackColor = true;
             // 
             // LireMissions
             // 
@@ -422,6 +344,16 @@ namespace ParcAuto.Forms
             this.LireMissions.Text = "Lire";
             this.LireMissions.UseVisualStyleBackColor = true;
             // 
+            // InsererMissions
+            // 
+            this.InsererMissions.AutoSize = true;
+            this.InsererMissions.Location = new System.Drawing.Point(209, 75);
+            this.InsererMissions.Name = "InsererMissions";
+            this.InsererMissions.Size = new System.Drawing.Size(71, 18);
+            this.InsererMissions.TabIndex = 13;
+            this.InsererMissions.Text = "Insérer";
+            this.InsererMissions.UseVisualStyleBackColor = true;
+            // 
             // SuprimmerMissions
             // 
             this.SuprimmerMissions.AutoSize = true;
@@ -432,6 +364,16 @@ namespace ParcAuto.Forms
             this.SuprimmerMissions.Text = "Suprimmer";
             this.SuprimmerMissions.UseVisualStyleBackColor = true;
             // 
+            // ModifierMissions
+            // 
+            this.ModifierMissions.AutoSize = true;
+            this.ModifierMissions.Location = new System.Drawing.Point(415, 75);
+            this.ModifierMissions.Name = "ModifierMissions";
+            this.ModifierMissions.Size = new System.Drawing.Size(77, 18);
+            this.ModifierMissions.TabIndex = 10;
+            this.ModifierMissions.Text = "Modifier";
+            this.ModifierMissions.UseVisualStyleBackColor = true;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -440,6 +382,16 @@ namespace ParcAuto.Forms
             this.label7.Size = new System.Drawing.Size(60, 17);
             this.label7.TabIndex = 6;
             this.label7.Text = "Amana :";
+            // 
+            // LireAmana
+            // 
+            this.LireAmana.AutoSize = true;
+            this.LireAmana.Location = new System.Drawing.Point(106, 99);
+            this.LireAmana.Name = "LireAmana";
+            this.LireAmana.Size = new System.Drawing.Size(51, 18);
+            this.LireAmana.TabIndex = 7;
+            this.LireAmana.Text = "Lire";
+            this.LireAmana.UseVisualStyleBackColor = true;
             // 
             // InsererAmana
             // 
@@ -461,16 +413,6 @@ namespace ParcAuto.Forms
             this.SupAmana.Text = "Suprimmer";
             this.SupAmana.UseVisualStyleBackColor = true;
             // 
-            // ModifierMissions
-            // 
-            this.ModifierMissions.AutoSize = true;
-            this.ModifierMissions.Location = new System.Drawing.Point(415, 75);
-            this.ModifierMissions.Name = "ModifierMissions";
-            this.ModifierMissions.Size = new System.Drawing.Size(77, 18);
-            this.ModifierMissions.TabIndex = 10;
-            this.ModifierMissions.Text = "Modifier";
-            this.ModifierMissions.UseVisualStyleBackColor = true;
-            // 
             // ModifierAmana
             // 
             this.ModifierAmana.AutoSize = true;
@@ -480,6 +422,15 @@ namespace ParcAuto.Forms
             this.ModifierAmana.TabIndex = 15;
             this.ModifierAmana.Text = "Modifier";
             this.ModifierAmana.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 120);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(97, 17);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Maintenance :";
             // 
             // LireMaintenance
             // 
@@ -501,10 +452,39 @@ namespace ParcAuto.Forms
             this.InsererMaintenance.Text = "Insérer";
             this.InsererMaintenance.UseVisualStyleBackColor = true;
             // 
+            // SupMaintenance
+            // 
+            this.SupMaintenance.AutoSize = true;
+            this.SupMaintenance.Location = new System.Drawing.Point(312, 123);
+            this.SupMaintenance.Name = "SupMaintenance";
+            this.SupMaintenance.Size = new System.Drawing.Size(95, 18);
+            this.SupMaintenance.TabIndex = 9;
+            this.SupMaintenance.Text = "Suprimmer";
+            this.SupMaintenance.UseVisualStyleBackColor = true;
+            // 
+            // ModifierMaintenance
+            // 
+            this.ModifierMaintenance.AutoSize = true;
+            this.ModifierMaintenance.Location = new System.Drawing.Point(415, 123);
+            this.ModifierMaintenance.Name = "ModifierMaintenance";
+            this.ModifierMaintenance.Size = new System.Drawing.Size(77, 18);
+            this.ModifierMaintenance.TabIndex = 10;
+            this.ModifierMaintenance.Text = "Modifier";
+            this.ModifierMaintenance.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(3, 144);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(70, 17);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Visiteurs :";
+            // 
             // LireVisiteurs
             // 
             this.LireVisiteurs.AutoSize = true;
-            this.LireVisiteurs.Location = new System.Drawing.Point(209, 147);
+            this.LireVisiteurs.Location = new System.Drawing.Point(106, 147);
             this.LireVisiteurs.Name = "LireVisiteurs";
             this.LireVisiteurs.Size = new System.Drawing.Size(51, 21);
             this.LireVisiteurs.TabIndex = 7;
@@ -514,12 +494,32 @@ namespace ParcAuto.Forms
             // InsererVisiteurs
             // 
             this.InsererVisiteurs.AutoSize = true;
-            this.InsererVisiteurs.Location = new System.Drawing.Point(312, 147);
+            this.InsererVisiteurs.Location = new System.Drawing.Point(209, 147);
             this.InsererVisiteurs.Name = "InsererVisiteurs";
             this.InsererVisiteurs.Size = new System.Drawing.Size(71, 21);
             this.InsererVisiteurs.TabIndex = 8;
             this.InsererVisiteurs.Text = "Insérer";
             this.InsererVisiteurs.UseVisualStyleBackColor = true;
+            // 
+            // SupVisiteurs
+            // 
+            this.SupVisiteurs.AutoSize = true;
+            this.SupVisiteurs.Location = new System.Drawing.Point(312, 147);
+            this.SupVisiteurs.Name = "SupVisiteurs";
+            this.SupVisiteurs.Size = new System.Drawing.Size(95, 21);
+            this.SupVisiteurs.TabIndex = 9;
+            this.SupVisiteurs.Text = "Suprimmer";
+            this.SupVisiteurs.UseVisualStyleBackColor = true;
+            // 
+            // ModifierVisiteurs
+            // 
+            this.ModifierVisiteurs.AutoSize = true;
+            this.ModifierVisiteurs.Location = new System.Drawing.Point(415, 147);
+            this.ModifierVisiteurs.Name = "ModifierVisiteurs";
+            this.ModifierVisiteurs.Size = new System.Drawing.Size(77, 21);
+            this.ModifierVisiteurs.TabIndex = 10;
+            this.ModifierVisiteurs.Text = "Modifier";
+            this.ModifierVisiteurs.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 

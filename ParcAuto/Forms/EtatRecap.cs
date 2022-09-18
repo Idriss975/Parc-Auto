@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace ParcAuto.Forms
 {
@@ -206,10 +207,76 @@ namespace ParcAuto.Forms
 
         }
 
+        private Chart chartcarburant = new Chart();
+        private Chart chartcartefree = new Chart();
+        private Chart chartreparation = new Chart();
+        private Chart charttransport = new Chart();
+
         private void btnImprimer_Click(object sender, EventArgs e)
         {
             if (printDialog1.ShowDialog(this) == DialogResult.OK)
             {
+                chartcarburant.ChartAreas.Add(new ChartArea());
+                chartcarburant.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+                chartcarburant.ChartAreas[0].AxisX.Interval = 1;
+                chartcarburant.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
+                chartcarburant.Legends.Add(new Legend());
+
+
+                chartcarburant.Series.Add("Années");
+
+                chartcarburant.Series["Années"].Points.AddXY((int.Parse(GLB.SelectedDate) - 1).ToString(), Form1.EtatrecapConsomationCarburant[1]);
+                chartcarburant.Series["Années"].Points.AddXY(GLB.SelectedDate, Form1.EtatrecapConsomationCarburant[0]);
+
+
+                chartcarburant.Titles.Add("Consomation total des vignettes"); // TODO: Add other charts \
+
+                chartcartefree.ChartAreas.Add(new ChartArea());
+                chartcartefree.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+                chartcartefree.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
+                chartcartefree.ChartAreas[0].AxisX.Interval = 1;
+                chartcartefree.Legends.Add(new Legend());
+
+                chartcartefree.Series.Add("Année");
+
+
+                chartcartefree.Series["Année"].Points.AddXY((int.Parse(GLB.SelectedDate) - 1).ToString(), Form1.EtatrecapConsomationCarteFree[1]);
+                chartcartefree.Series["Année"].Points.AddXY(GLB.SelectedDate, Form1.EtatrecapConsomationCarteFree[0]);
+
+                chartcartefree.Titles.Add("Consomation total Carte free");
+
+                chartreparation.ChartAreas.Add(new ChartArea());
+                chartreparation.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+                chartreparation.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
+                chartreparation.ChartAreas[0].AxisX.Interval = 1;
+                chartreparation.Legends.Add(new Legend());
+
+                chartreparation.Series.Add("Année");
+
+
+                chartreparation.Series["Année"].Points.AddXY((int.Parse(GLB.SelectedDate) - 1).ToString(), Form1.EtatrecapConsomationReparation[1]);
+                chartreparation.Series["Année"].Points.AddXY(GLB.SelectedDate, Form1.EtatrecapConsomationReparation[0]);
+
+                chartreparation.Titles.Add("Consomation total reparation");
+
+                charttransport.ChartAreas.Add(new ChartArea());
+                charttransport.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+                charttransport.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
+                charttransport.ChartAreas[0].AxisX.Interval = 1;
+                charttransport.Legends.Add(new Legend());
+
+                charttransport.Series.Add("Année");
+
+
+                charttransport.Series["Année"].Points.AddXY((int.Parse(GLB.SelectedDate) - 1).ToString(), Form1.EtatrecapConsomationTransport[1]);
+                charttransport.Series["Année"].Points.AddXY(GLB.SelectedDate, Form1.EtatrecapConsomationTransport[0]);
+
+                charttransport.Titles.Add("Consomation total transport");
+
+
+
+
+
                 printPreviewDialog1.Document.PrinterSettings = printDialog1.PrinterSettings;
                 printPreviewDialog1.ShowDialog();
             }
@@ -295,10 +362,26 @@ namespace ParcAuto.Forms
             Coords.Print_Rectangle(e, Total_Consomation.x, Vign_Transport.y, Total_Consomation.width, Cell_surfaces[1], Text: sumTrimestresTransport.Text);
             Coords.Print_Rectangle(e, Dispo.x, Vign_Transport.y, Dispo.width, Cell_surfaces[1], Text: DisponibleTransport.Text);
 
-            //e.Graphics.DrawString("* Directions", new Font("Arial", 11, FontStyle.Bold), Brushes.Black, new Point(Vign_Transport.x, Vign_Transport.y + Vign_Transport.heigth + 20));
             Print_Table(e, Vign_Transport.x, Vign_Transport.y + Vign_Transport.heigth + Convert.ToInt32(e.Graphics.MeasureString(Column1.HeaderText, new Font("Arial", 7, FontStyle.Bold)).Height) + 50);
-           
+            
+            
+            Bitmap charted1 = new Bitmap(chartcarburant.Bounds.Width, chartcarburant.Bounds.Height);
+            chartcarburant.DrawToBitmap(charted1, chartcarburant.Bounds);
+            Bitmap charted2 = new Bitmap(chartcartefree.Bounds.Width, chartcartefree.Bounds.Height);
+            chartcartefree.DrawToBitmap(charted2, chartcartefree.Bounds);
+            Bitmap charted3 = new Bitmap(chartreparation.Bounds.Width, chartreparation.Bounds.Height);
+            chartreparation.DrawToBitmap(charted3, chartreparation.Bounds);
+            Bitmap charted4 = new Bitmap(charttransport.Bounds.Width, charttransport.Bounds.Height);
+            chartreparation.DrawToBitmap(charted4, charttransport.Bounds);
+
+
+            e.Graphics.DrawImage(charted1, new Rectangle(Total_Consomation.x, Vign_Transport.y + Vign_Transport.heigth + Convert.ToInt32(e.Graphics.MeasureString(Column1.HeaderText, new Font("Arial", 7, FontStyle.Bold)).Height) + 50, Total_Consomation.width + Dispo.width, chartcarburant.Bounds.Height - (chartcarburant.Bounds.Height * 50/100)));
+            e.Graphics.DrawImage(charted2, new Rectangle(Total_Consomation.x, Vign_Transport.y + Vign_Transport.heigth + Convert.ToInt32(e.Graphics.MeasureString(Column1.HeaderText, new Font("Arial", 7, FontStyle.Bold)).Height) + 200, Total_Consomation.width + Dispo.width, chartcarburant.Bounds.Height - (chartcarburant.Bounds.Height * 50 / 100)));
+            e.Graphics.DrawImage(charted3, new Rectangle(Total_Consomation.x, Vign_Transport.y + Vign_Transport.heigth + Convert.ToInt32(e.Graphics.MeasureString(Column1.HeaderText, new Font("Arial", 7, FontStyle.Bold)).Height) + 350, Total_Consomation.width + Dispo.width, chartcarburant.Bounds.Height - (chartcarburant.Bounds.Height * 50 / 100)));
+            e.Graphics.DrawImage(charted4, new Rectangle(Total_Consomation.x, Vign_Transport.y + Vign_Transport.heigth + Convert.ToInt32(e.Graphics.MeasureString(Column1.HeaderText, new Font("Arial", 7, FontStyle.Bold)).Height) + 500, Total_Consomation.width + Dispo.width, chartcarburant.Bounds.Height - (chartcarburant.Bounds.Height * 50 / 100)));
+
         }
+
         private void Print_EtatRecapTable_Paysage(PrintPageEventArgs e)
         {
             e.Graphics.DrawRectangle(new Pen(Brushes.Black), new Rectangle(10, 200, 200, 45));
