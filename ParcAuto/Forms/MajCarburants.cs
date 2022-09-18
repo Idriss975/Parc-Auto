@@ -70,7 +70,7 @@ namespace ParcAuto.Forms
 
             if (!GLB.Entites.Values.Contains(txtEntite.Text) )
             {
-                MessageBox.Show("Ecrire Correctement l'abreviation ou le nom de la Direction");
+                MessageBox.Show("Ecrire Correctement l'abreviation ou le nom de la Direction","Message",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 txtEntite.Text = "";
             }
         }
@@ -78,12 +78,7 @@ namespace ParcAuto.Forms
         private void txtBenificiaire_TextChanged(object sender, EventArgs e)
         {
 
-            //ac.Clear();
-            //for (int i = ac.Count -1 ; i >= 0; i--)
-            //{
-            //    if (!(new Regex(txtBenificiaire.Text.ToLower()).IsMatch(ac[i].ToLower())))
-            //        ac.RemoveAt(i);
-            //}
+
 
         }
 

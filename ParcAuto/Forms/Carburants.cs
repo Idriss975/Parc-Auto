@@ -231,29 +231,33 @@ namespace ParcAuto.Forms
         {
             try
             {
-                int Lastscrollindex = dgvCarburant.FirstDisplayedScrollingRowIndex;
-                int pos = dgvCarburant.CurrentRow.Index;
-                GLB.id_Carburant = Convert.ToInt32(dgvCarburant.Rows[pos].Cells[13].Value);
-                Commandes.Command = Choix.modifier;
-                Commandes.MAJ = TypeCarb.Carburant;
-                (new MajCarburants(dgvCarburant.Rows[pos].Cells[0].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[1].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[2].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[3].Value.ToString(),
-                    DateTime.ParseExact(dgvCarburant.Rows[pos].Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
-                    dgvCarburant.Rows[pos].Cells[5].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[6].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[7].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[8].Value.ToString().Substring(0, (dgvCarburant.Rows[pos].Cells[8].Value.ToString().Length != 0 ? dgvCarburant.Rows[pos].Cells[8].Value.ToString().Length - 3 : 0)),
-                    dgvCarburant.Rows[pos].Cells[9].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[10].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[11].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[12].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[14].Value.ToString())).ShowDialog();
-                RemplirLaGrille();
-                dgvCarburant.Rows[pos].Selected = true;
-                dgvCarburant.FirstDisplayedScrollingRowIndex = Lastscrollindex;
-                Total();
+                if(dgvCarburant.Rows.Count != 0)
+                {
+                    int Lastscrollindex = dgvCarburant.FirstDisplayedScrollingRowIndex;
+                    int pos = dgvCarburant.CurrentRow.Index;
+                    GLB.id_Carburant = Convert.ToInt32(dgvCarburant.Rows[pos].Cells[13].Value);
+                    Commandes.Command = Choix.modifier;
+                    Commandes.MAJ = TypeCarb.Carburant;
+                    (new MajCarburants(dgvCarburant.Rows[pos].Cells[0].Value.ToString(),
+                        dgvCarburant.Rows[pos].Cells[1].Value.ToString(),
+                        dgvCarburant.Rows[pos].Cells[2].Value.ToString(),
+                        dgvCarburant.Rows[pos].Cells[3].Value.ToString(),
+                        DateTime.ParseExact(dgvCarburant.Rows[pos].Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                        dgvCarburant.Rows[pos].Cells[5].Value.ToString(),
+                        dgvCarburant.Rows[pos].Cells[6].Value.ToString(),
+                        dgvCarburant.Rows[pos].Cells[7].Value.ToString(),
+                        dgvCarburant.Rows[pos].Cells[8].Value.ToString().Substring(0, (dgvCarburant.Rows[pos].Cells[8].Value.ToString().Length != 0 ? dgvCarburant.Rows[pos].Cells[8].Value.ToString().Length - 3 : 0)),
+                        dgvCarburant.Rows[pos].Cells[9].Value.ToString(),
+                        dgvCarburant.Rows[pos].Cells[10].Value.ToString(),
+                        dgvCarburant.Rows[pos].Cells[11].Value.ToString(),
+                        dgvCarburant.Rows[pos].Cells[12].Value.ToString(),
+                        dgvCarburant.Rows[pos].Cells[14].Value.ToString())).ShowDialog();
+                    RemplirLaGrille();
+                    dgvCarburant.Rows[pos].Selected = true;
+                    dgvCarburant.FirstDisplayedScrollingRowIndex = Lastscrollindex;
+                    Total();
+                }
+                
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -446,6 +450,7 @@ namespace ParcAuto.Forms
                 Marshal.ReleaseComObject(importdatagridviewRange);
                 importExceldatagridViewApp.Quit();
                 RemplirLaGrille();
+                Total();
             }
 
         }
@@ -467,7 +472,7 @@ namespace ParcAuto.Forms
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            Impression.Drawonprintdoc(e, dgvCarburant, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6), dgvCarburant.Columns["id"].Index,Total:$"Dotation Fixe : {sumDFixe}\tDotation Missions : {sumDMission}\tDotation Hebdomadaire : {sumDHebdo}\tDotation Exceptionnel : {sumDExp}\n\nTotal : {total}", Titre:"Vignettes carburants");
+            Impression.Drawonprintdoc(e, dgvCarburant, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6), dgvCarburant.Columns["id"].Index,Total:$"Dotation Fixe : {sumDFixe}\tDotation Missions : {sumDMission}\tDotation Hebdomadaire : {sumDHebdo}\tDotation Exceptionnel : {sumDExp}\nTotal : {total}", Titre:"Vignettes carburants");
         }
 
         private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)

@@ -617,7 +617,7 @@ namespace ParcAuto.Forms
             this.btnImprimer.BorderRadius = 4;
             this.btnImprimer.CheckedState.Parent = this.btnImprimer;
             this.btnImprimer.CustomImages.Parent = this.btnImprimer;
-            this.btnImprimer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnImprimer.FillColor = System.Drawing.Color.Black;
             this.btnImprimer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnImprimer.ForeColor = System.Drawing.Color.White;
             this.btnImprimer.HoverState.Parent = this.btnImprimer;

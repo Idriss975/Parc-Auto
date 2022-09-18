@@ -409,7 +409,6 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@DoExp", Dexeptionnelle is null ? (object)DBNull.Value : Double.Parse(Dexeptionnelle));
                         GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation ?? "");
                         GLB.Cmd.ExecuteNonQuery();
-                        Total();
                     }
                     GLB.Cmd.Transaction.Commit();
                     GLB.Con.Close();
@@ -434,6 +433,8 @@ namespace ParcAuto.Forms
                 Marshal.ReleaseComObject(importdatagridviewRange);
                 importExceldatagridViewApp.Quit();
                 RemplirLaGrille();
+                Total();
+
             }
         }
 

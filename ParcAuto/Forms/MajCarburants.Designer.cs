@@ -749,7 +749,6 @@ namespace ParcAuto.Forms
             this.txtBenificiaire.ShadowDecoration.Parent = this.txtBenificiaire;
             this.txtBenificiaire.Size = new System.Drawing.Size(220, 35);
             this.txtBenificiaire.TabIndex = 1;
-            this.txtBenificiaire.TextChanged += new System.EventHandler(this.txtBenificiaire_TextChanged);
             // 
             // label8
             // 
