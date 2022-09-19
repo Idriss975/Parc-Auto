@@ -187,17 +187,25 @@ namespace ParcAuto.Forms
         }
         private void RemplirBenificiaire()
         {
-
-            if (GLB.ds.Tables["beneficiaires"] != null)
-                GLB.ds.Tables["beneficiaires"].Clear();
-            GLB.da = new SqlDataAdapter($"select DISTINCT beneficiaire from CarburantVignettes union all select Nom+' ' + Prenom from Conducteurs", GLB.Con);
-            GLB.da.Fill(GLB.ds, "beneficiaires");
-          
-            foreach (DataRow item in GLB.ds.Tables["beneficiaires"].Rows)
+            try
             {
-                ac.Add(item[0].ToString());
+                if (GLB.ds.Tables["beneficiaires"] != null)
+                    GLB.ds.Tables["beneficiaires"].Clear();
+                GLB.da = new SqlDataAdapter($"select DISTINCT beneficiaire from CarburantVignettes union all select Nom+' ' + Prenom from Conducteurs", GLB.Con);
+                GLB.da.Fill(GLB.ds, "beneficiaires");
+
+                foreach (DataRow item in GLB.ds.Tables["beneficiaires"].Rows)
+                {
+                    ac.Add(item[0].ToString());
+                }
+                txtBenificiaire.AutoCompleteCustomSource = ac;
             }
-            txtBenificiaire.AutoCompleteCustomSource = ac;
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message,"Message",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+            
         }
         private void MajCarburants_Load(object sender, EventArgs e)
         {
