@@ -78,6 +78,7 @@ namespace ParcAuto
             openChildForm(new Forms.Transport(),sender);
             //hideSubMenu();
         }
+      
         private void Permissions()
         {
             GLB.Cmd.CommandText = "SELECT  pri.name As Username " +
@@ -102,6 +103,7 @@ namespace ParcAuto
                     {
                         btnVignettes.Visible = false;
                     }
+
                 }
                 else if ((GLB.dr[5].ToString() == "Vehicules" || GLB.dr[5].ToString() == "VehiculesPRD") && GLB.dr[2].ToString() == "SELECT")
                 {

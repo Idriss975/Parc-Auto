@@ -80,7 +80,7 @@ namespace ParcAuto.Forms
         {
             try
             {
-                if (!(txtBenificiaire.Text == "" || txtentite.Text == "" || txtMontant.Text == "" || txtMatricule.Text == "" || cmbVehicule.Text == ""||txtObjet.Text == ""))
+                if (!(txtBenificiaire.Text == "" || txtentite.Text == "" || txtMontant.Text == "" || txtMatricule.Text == "" || cmbVehicule.Text == ""))
                 {
 
                     if (!double.TryParse(txtMontant.Text, out double montant))

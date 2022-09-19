@@ -24,27 +24,7 @@ namespace ParcAuto.Forms
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn(int nLeft, int nTop, int nRight, int nBottom, int nWidthEllipse, int nHeightEllipse);
 
-        private void DeleteOldHistory()
-        {
-            try
-            {
-                if (GLB.Con.State == ConnectionState.Open)
-                    GLB.Con.Close();
-                GLB.Con.Open();
-                GLB.Cmd.CommandText = "delete from EtatJournalier where Date_de_Saisie < Cast(getdate() as date)";
-                GLB.Cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                GLB.Con.Close();
-            }
-
-        }
+      
         private void Login_Load(object sender, EventArgs e)
         {
 
@@ -84,7 +64,7 @@ namespace ParcAuto.Forms
                 this.Hide();
                 (new Annee()).ShowDialog();
                 //this.Close();
-                DeleteOldHistory();
+                
             }
             catch (SqlException ex)
             {

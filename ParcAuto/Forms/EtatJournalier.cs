@@ -43,12 +43,81 @@ namespace ParcAuto.Forms
                 GLB.Con.Close();
             }
         }
+        
         private void EtatJournalier_Load(object sender, EventArgs e)
         {
             GLB.StyleDataGridView(dgvEtatJournalier);
             LoadDataGridView();
-        }
+            Permissions();
 
+
+        }
+        private void DeleteOldHistory()
+        {
+            try
+            {
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
+                GLB.Con.Open();
+                GLB.Cmd.CommandText = "delete from EtatJournalier where Date_de_Saisie < Cast(getdate() as date)";
+                GLB.Cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                GLB.Con.Close();
+            }
+
+        }
+        private void Permissions()
+        {
+            try
+            {
+                GLB.Cmd.CommandText = "SELECT  pri.name As Username " +
+                 ",       pri.type_desc AS[User Type] " +
+                 ", permit.permission_name AS[Permission] " +
+                 ", permit.state_desc AS[Permission State] " +
+                 ", permit.class_desc Class " +
+                 ", object_name(permit.major_id) AS[Object Name] " +
+                 "FROM sys.database_principals pri " +
+                 "LEFT JOIN " +
+                 "sys.database_permissions permit " +
+                 "ON permit.grantee_principal_id = pri.principal_id " +
+                 "WHERE object_name(permit.major_id) = 'Vehicules' " +
+                 $"and pri.name = SUSER_NAME()";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
+                GLB.Con.Open();
+                GLB.dr = GLB.Cmd.ExecuteReader();
+                while (GLB.dr.Read())
+                {
+                    
+                    if (GLB.dr[2].ToString() == "DELETE")
+                    {
+                        if (GLB.dr[3].ToString() != "DENY")
+                        {
+                            DeleteOldHistory();
+                        }
+                    }
+                   
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                GLB.dr.Close();
+                GLB.Con.Close();
+            }
+
+        }
         private void btnQuitter_Click(object sender, EventArgs e)
         {
             this.Close();
