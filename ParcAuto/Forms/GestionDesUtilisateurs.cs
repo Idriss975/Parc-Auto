@@ -116,7 +116,7 @@ order by
 
 
                 GLB.Cmd.ExecuteNonQuery();
-                //MessageBox.Show(tableLayoutPanel2.Controls[0].Text + " " + tableLayoutPanel2.Controls[1].Text);
+                GLB.Con.Close();
 
             }
 
@@ -130,6 +130,31 @@ order by
             {
                 GLB.Con.Close();
             }
+        }
+
+        private void btnModifier_Click(object sender, EventArgs e)
+        {
+            ((SQLLogin_User)dgvUsers.SelectedCells[0].Value).Permissions.Clear();
+
+            GLB.Cmd.CommandText = "";
+            for (int i = 1; i < 5; i++)
+                GLB.Cmd.CommandText += CmdText(i, new string[] { "CarburantVignettes", "CarteFree", "CarburantSNTLPRD", "Reparation", "ReparationPRDSNTL", "Transport", "EtatJournalier", "EtatRecapCarburantSNTL", "EtatRecapCartefree", "EtatRecapReparation", "EtatRecapTransport", "Directions" });
+            for (int i = 6; i < 10; i++)
+                GLB.Cmd.CommandText += CmdText(i, new string[] { "Vehicules", "VehiculesPRD" });
+            for (int i = 11; i < 15; i++)
+                GLB.Cmd.CommandText += CmdText(i, new string[] { "Conducteurs" });
+            for (int i = 16; i < 20; i++)
+                GLB.Cmd.CommandText += CmdText(i, new string[] { "Missions" });
+            for (int i = 21; i < 25; i++)
+                GLB.Cmd.CommandText += CmdText(i, new string[] { "NombreDeCourriersParEntite", "SuiviDesEnvois", "EnvoisSimple" });
+            for (int i = 26; i < 30; i++)
+                GLB.Cmd.CommandText += CmdText(i, new string[] { "Maintenance" });
+            for (int i = 31; i < 35; i++)
+                GLB.Cmd.CommandText += CmdText(i, new string[] { "SuiviVisiteurs" });
+
+            GLB.Con.Open();
+            GLB.Cmd.ExecuteNonQuery();
+            GLB.Con.Close();
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
@@ -223,6 +248,7 @@ order by
             else
                 LireVisiteurs.Checked = InsererVisiteurs.Checked = SupVisiteurs.Checked = ModifierVisiteurs.Checked = false;
         }
+
 
     }
     enum SQLPerm
