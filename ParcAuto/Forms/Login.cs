@@ -31,7 +31,7 @@ namespace ParcAuto.Forms
                 if (GLB.Con.State == ConnectionState.Open)
                     GLB.Con.Close();
                 GLB.Con.Open();
-                GLB.Cmd.CommandText = "delete from EtatJournalier where Date < Cast(getdate() as date)";
+                GLB.Cmd.CommandText = "delete from EtatJournalier where Date_de_Saisie < Cast(getdate() as date)";
                 GLB.Cmd.ExecuteNonQuery();
             }
             catch (Exception ex)

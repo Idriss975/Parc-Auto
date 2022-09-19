@@ -211,7 +211,7 @@ namespace ParcAuto.Forms
         {
             RemplirBenificiaire();
             RemplirComboBoxVehicules();
-            txtpourcentage.Text = (7.5).ToString();
+            txtpourcentage.Text = (7).ToString();
             switch (DotationCarburant)
             {
                 case "Dfix":
@@ -259,23 +259,19 @@ namespace ParcAuto.Forms
      
             try
             {
-                if (txtEntite.Text != "" || txtMarque.Text != "" || txtKM.Text != "" || cmbVilles.Text != "" || txtDotation.Text != "" || txtBenificiaire.Text != "")
+                if (txtEntite.Text != "" ||  cmbVilles.Text != "" || txtDotation.Text != "" || txtBenificiaire.Text != "")
                 {
-                    if (!double.TryParse(txtKM.Text,out double km) )
-                    {
-                        MessageBox.Show($"la valeur {txtKM.Text} saisie dans le champs kilométrage est invalid, vous devez entrez une valeur numeric","Message",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                        return;
-                    }
+                 
                    if(!double.TryParse(txtDotation.Text, out double dotation) )
                     {
                         MessageBox.Show($"la valeur {txtDotation.Text} saisie dans le champs montant est invalid, vous devez entrez une valeur numeric", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
-                   if(!double.TryParse(txtpourcentage.Text, out double pourcentage))
-                    {
-                        MessageBox.Show($"la valeur {txtpourcentage.Text} saisie dans le champs Consommation % est invalid, vous devez entrez une valeur numeric", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
+                   //if(!double.TryParse(txtpourcentage.Text, out double pourcentage))
+                   // {
+                   //     MessageBox.Show($"la valeur {txtpourcentage.Text} saisie dans le champs Consommation % est invalid, vous devez entrez une valeur numeric", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                   //     return;
+                   // }
                     if (DMissions.Checked)
                     {
                         DoMissions = txtDotation.Text;
