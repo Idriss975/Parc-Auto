@@ -95,25 +95,12 @@ namespace ParcAuto
             GLB.dr = GLB.Cmd.ExecuteReader();
             while (GLB.dr.Read())
             {
-                if ((GLB.dr[5].ToString() == "CarburantSNTLPRD" || GLB.dr[5].ToString() == "CarburantVignettes" || GLB.dr[5].ToString() == "CarteFree") && GLB.dr[2].ToString() =="SELECT")
+                if ((new String[] { "CarburantVignettes", "CarteFree", "CarburantSNTLPRD", "Reparation", "ReparationPRDSNTL", "Transport", "EtatJournalier", "EtatRecapCarburantSNTL", "EtatRecapCartefree", "EtatRecapReparation", "EtatRecapTransport", "Directions" }.Contains(GLB.dr[5].ToString())) 
+                    && GLB.dr[2].ToString() =="SELECT")
                 {
                     if (GLB.dr[3].ToString() == "DENY")
                     {
-                        btnCarburant.Visible = false;
-                    }
-                }
-                else if((GLB.dr[5].ToString() == "Reparation" || GLB.dr[5].ToString() == "ReparationPRDSNTL") && GLB.dr[2].ToString() == "SELECT")
-                {
-                    if (GLB.dr[3].ToString() == "DENY")
-                    {
-                        btnReparation.Visible = false;
-                    }
-                }
-                else if (GLB.dr[5].ToString() == "Transport" && GLB.dr[2].ToString() == "SELECT")
-                {
-                    if (GLB.dr[3].ToString() == "DENY")
-                    {
-                        btnTransport.Visible = false;
+                        btnVignettes.Visible = false;
                     }
                 }
                 else if ((GLB.dr[5].ToString() == "Vehicules" || GLB.dr[5].ToString() == "VehiculesPRD") && GLB.dr[2].ToString() == "SELECT")
@@ -130,11 +117,32 @@ namespace ParcAuto
                         btnConducteurs.Visible = false;
                     }
                 }
-                else if (GLB.dr[5].ToString() == "EtatJournalier" && GLB.dr[2].ToString() == "SELECT")
+                else if (GLB.dr[5].ToString() == "Missions" && GLB.dr[2].ToString() == "SELECT")
                 {
                     if (GLB.dr[3].ToString() == "DENY")
                     {
-                        btnEtatJournalier.Visible = false;
+                        btnMissions.Visible = false;
+                    }
+                }
+                else if ((new String[] { "NombreDeCourriersParEntite", "SuiviDesEnvois", "EnvoisSimple" }.Contains(GLB.dr[5].ToString()) && GLB.dr[2].ToString() == "SELECT"))
+                {
+                    if (GLB.dr[3].ToString() == "DENY")
+                    {
+                        btnSuivi.Visible = false;
+                    }
+                }
+                else if (GLB.dr[5].ToString() == "Maintenance" && GLB.dr[2].ToString() == "SELECT")
+                {
+                    if (GLB.dr[3].ToString() == "DENY")
+                    {
+                        btnMaintenance.Visible = false;
+                    }
+                }
+                else if (GLB.dr[5].ToString() == "SuiviVisiteurs" && GLB.dr[2].ToString() == "SELECT")
+                {
+                    if (GLB.dr[3].ToString() == "DENY")
+                    {
+                        btnVisiteurs.Visible = false;
                     }
                 }
             }
