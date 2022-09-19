@@ -207,15 +207,24 @@ namespace ParcAuto.Forms
 
         }
 
-        private Chart chartcarburant = new Chart();
-        private Chart chartcartefree = new Chart();
-        private Chart chartreparation = new Chart();
-        private Chart charttransport = new Chart();
+        private Chart chartcarburant;
+        private Chart chartcartefree;
+        private Chart chartreparation;
+        private Chart charttransport;
 
         private void btnImprimer_Click(object sender, EventArgs e)
         {
             if (printDialog1.ShowDialog(this) == DialogResult.OK)
             {
+                chartcarburant = new Chart();
+                chartcartefree = new Chart();
+                chartreparation = new Chart();
+                charttransport = new Chart();
+                 
+                chartcarburant.Series.Clear();
+                chartcartefree.Series.Clear();
+                chartreparation.Series.Clear();
+                charttransport.Series.Clear();
                 chartcarburant.ChartAreas.Add(new ChartArea());
                 chartcarburant.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
                 chartcarburant.ChartAreas[0].AxisX.Interval = 1;
