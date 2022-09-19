@@ -227,7 +227,20 @@ namespace ParcAuto.Forms
                 GLB.Con.Close();
             }
         }
+        public void chart()
+        {
 
+            GLB.Cmd.CommandText = $"select Demandeur,count(*) from EnvoisSimple where year(DateDepot) ={GLB.SelectedDate}  group by Demandeur ";
+            GLB.Con.Open();
+            GLB.dr = GLB.Cmd.ExecuteReader();
+            while (GLB.dr.Read())
+            {
+                chart1.Series["Direction"].Points.AddXY(GLB.dr[0].ToString(), GLB.dr[1].ToString());
+            }
+
+            GLB.Con.Close();
+
+        }
         private void PostesSimple_Load(object sender, EventArgs e)
         {
             Permissions();
@@ -237,6 +250,7 @@ namespace ParcAuto.Forms
             cmbChoix.SelectedIndex = 0;
             GLB.StyleDataGridView(dgvCourrierSimple);
             Total();
+            chart();
         }
 
         private void cmbChoix_SelectedIndexChanged(object sender, EventArgs e)
