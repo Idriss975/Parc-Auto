@@ -144,13 +144,15 @@ order by
         private void GestionDesUtilisateurs_Load(object sender, EventArgs e)
         {
             LoadTable();
+
+            GLB.StyleDataGridView(dgvUsers);
         }
 
         private void dgvUsers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtUtilisateur.Text = dgvUsers.SelectedRows[0].Cells[0].Value.ToString();
 
-            if (((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions.ContainsKey("CarburantVignettes"))
+            if (((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions.ContainsKey("CarburantVignettes")) // Idriss: my head hurts i can't optimize this
             {
                 LireVignettes.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["CarburantVignettes"].Contains(SQLPerm.SELECT);
                 InsererVignettes.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["CarburantVignettes"].Contains(SQLPerm.INSERT);
@@ -159,6 +161,67 @@ order by
             }
             else
                 LireVignettes.Checked = InsererVignettes.Checked = SuprimmerVignettes.Checked = ModifierVignettes.Checked = false;
+
+            if (((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions.ContainsKey("Vehicules"))
+            {
+                LireParc.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["Vehicules"].Contains(SQLPerm.SELECT);
+                InsererParc.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["Vehicules"].Contains(SQLPerm.INSERT);
+                SuprimmerParc.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["Vehicules"].Contains(SQLPerm.DELETE);
+                ModifierParc.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["Vehicules"].Contains(SQLPerm.UPDATE);
+            }
+            else
+                LireParc.Checked = InsererParc.Checked = SuprimmerParc.Checked = ModifierParc.Checked = false;
+
+            if (((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions.ContainsKey("Conducteurs"))
+            {
+                LireConducteurs.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["Conducteurs"].Contains(SQLPerm.SELECT);
+                InsererConducteurs.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["Conducteurs"].Contains(SQLPerm.INSERT);
+                SuprimmerConduct.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["Conducteurs"].Contains(SQLPerm.DELETE);
+                ModifierConducteurs.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["Conducteurs"].Contains(SQLPerm.UPDATE);
+            }
+            else
+                LireConducteurs.Checked = InsererConducteurs.Checked = SuprimmerConduct.Checked = ModifierConducteurs.Checked = false;
+
+            if (((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions.ContainsKey("Missions"))
+            {
+                LireMissions.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["Missions"].Contains(SQLPerm.SELECT);
+                InsererMissions.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["Missions"].Contains(SQLPerm.INSERT);
+                SuprimmerMissions.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["Missions"].Contains(SQLPerm.DELETE);
+                ModifierMissions.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["Missions"].Contains(SQLPerm.UPDATE);
+            }
+            else
+                LireMissions.Checked = InsererMissions.Checked = SuprimmerMissions.Checked = ModifierMissions.Checked = false;
+
+            if (((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions.ContainsKey("NombreDeCourriersParEntite"))
+            {
+                LireAmana.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["NombreDeCourriersParEntite"].Contains(SQLPerm.SELECT);
+                InsererAmana.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["NombreDeCourriersParEntite"].Contains(SQLPerm.INSERT);
+                SupAmana.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["NombreDeCourriersParEntite"].Contains(SQLPerm.DELETE);
+                ModifierAmana.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["NombreDeCourriersParEntite"].Contains(SQLPerm.UPDATE);
+            }
+            else
+                LireAmana.Checked = InsererAmana.Checked = SupAmana.Checked = ModifierAmana.Checked = false;
+
+
+            if (((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions.ContainsKey("Maintenance"))
+            {
+                LireMaintenance.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["Maintenance"].Contains(SQLPerm.SELECT);
+                InsererMaintenance.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["Maintenance"].Contains(SQLPerm.INSERT);
+                SupMaintenance.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["Maintenance"].Contains(SQLPerm.DELETE);
+                ModifierMaintenance.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["Maintenance"].Contains(SQLPerm.UPDATE);
+            }
+            else
+                LireMaintenance.Checked = InsererMaintenance.Checked = SupMaintenance.Checked = ModifierMaintenance.Checked = false;
+
+            if (((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions.ContainsKey("SuiviVisiteurs"))
+            {
+                LireVisiteurs.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["SuiviVisiteurs"].Contains(SQLPerm.SELECT);
+                InsererVisiteurs.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["SuiviVisiteurs"].Contains(SQLPerm.INSERT);
+                SupVisiteurs.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["SuiviVisiteurs"].Contains(SQLPerm.DELETE);
+                ModifierVisiteurs.Checked = ((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).Permissions["SuiviVisiteurs"].Contains(SQLPerm.UPDATE);
+            }
+            else
+                LireVisiteurs.Checked = InsererVisiteurs.Checked = SupVisiteurs.Checked = ModifierVisiteurs.Checked = false;
         }
 
     }
