@@ -24,7 +24,7 @@ namespace ParcAuto.Forms
             dgvVehicules.Rows.Clear();
             try
             {
-                GLB.Cmd.CommandText = "select Vehicules.*, Conducteurs.Nom as Nom, Conducteurs.Prenom as Prenom from vehicules, Conducteurs where Conducteurs.Matricule = Vehicules.Conducteur and Vehicules.Type = 'M.Rouge' union select *,'Sans ' as Nom, 'conducteur' as Prenom from vehicules where Conducteur is null and Vehicules.Type = 'M.Rouge'";
+                GLB.Cmd.CommandText = "select * from SanConducteur_Mrouge";
                 if (GLB.Con.State == ConnectionState.Open)
                     GLB.Con.Close();
                 GLB.Con.Open();

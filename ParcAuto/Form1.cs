@@ -78,79 +78,66 @@ namespace ParcAuto
             openChildForm(new Forms.Transport(),sender);
             //hideSubMenu();
         }
-      
+        private int Count_Permissions(string tables)
+        {
+            if (GLB.Con.State == ConnectionState.Open)
+                GLB.Con.Close();
+            GLB.Con.Open();
+            GLB.Cmd.CommandText = $"select  count(*) from (SELECT  pri.name As Username " +
+                $",       pri.type_desc AS[User Type]" +
+                $", permit.permission_name AS[Permission] " +
+                $", permit.state_desc AS[Permission State] " +
+                $", permit.class_desc Class  " +
+                $", object_name(permit.major_id) AS[Object Name]  " +
+                $"FROM sys.database_principals pri  " +
+                $"LEFT JOIN  " +
+                $"sys.database_permissions permit  " +
+                $"ON permit.grantee_principal_id = pri.principal_id  " +
+                $"where pri.name = SUSER_NAME()) tab where tab.[Object Name] in({tables});";
+            return int.Parse(GLB.Cmd.ExecuteScalar().ToString());
+        }
         private void Permissions()
         {
-            GLB.Cmd.CommandText = "SELECT  pri.name As Username " +
-                   ",       pri.type_desc AS[User Type] " +
-                   ", permit.permission_name AS[Permission] " +
-                   ", permit.state_desc AS[Permission State] " +
-                   ", permit.class_desc Class " +
-                   ", object_name(permit.major_id) AS[Object Name] " +
-                   "FROM sys.database_principals pri " +
-                   "LEFT JOIN " +
-                   "sys.database_permissions permit " +
-                   "ON permit.grantee_principal_id = pri.principal_id " +
-                   $"where pri.name = SUSER_NAME()";
-            GLB.Con.Open();
-            GLB.dr = GLB.Cmd.ExecuteReader();
-            while (GLB.dr.Read())
+            
+            if (Count_Permissions("'CarburantVignettes', 'CarteFree', 'CarburantSNTLPRD', 'Reparation', 'ReparationPRDSNTL', 'Transport', 'EtatJournalier', 'EtatRecapCarburantSNTL', 'EtatRecapCartefree', 'EtatRecapReparation', 'EtatRecapTransport', 'Directions'") == 0)
             {
-                if ((new String[] { "CarburantVignettes", "CarteFree", "CarburantSNTLPRD", "Reparation", "ReparationPRDSNTL", "Transport", "EtatJournalier", "EtatRecapCarburantSNTL", "EtatRecapCartefree", "EtatRecapReparation", "EtatRecapTransport", "Directions" }.Contains(GLB.dr[5].ToString())) 
-                    && GLB.dr[2].ToString() =="SELECT")
-                {
-                    if (GLB.dr[3].ToString() == "DENY")
-                    {
-                        btnVignettes.Visible = false;
-                    }
-
-                }
-                else if ((GLB.dr[5].ToString() == "Vehicules" || GLB.dr[5].ToString() == "VehiculesPRD") && GLB.dr[2].ToString() == "SELECT")
-                {
-                    if (GLB.dr[3].ToString() == "DENY")
-                    {
-                        btnParcAuto.Visible = false;
-                    }
-                }
-                else if (GLB.dr[5].ToString() == "Conducteurs" && GLB.dr[2].ToString() == "SELECT")
-                {
-                    if (GLB.dr[3].ToString() == "DENY")
-                    {
-                        btnConducteurs.Visible = false;
-                    }
-                }
-                else if (GLB.dr[5].ToString() == "Missions" && GLB.dr[2].ToString() == "SELECT")
-                {
-                    if (GLB.dr[3].ToString() == "DENY")
-                    {
-                        btnMissions.Visible = false;
-                    }
-                }
-                else if ((new String[] { "NombreDeCourriersParEntite", "SuiviDesEnvois", "EnvoisSimple" }.Contains(GLB.dr[5].ToString()) && GLB.dr[2].ToString() == "SELECT"))
-                {
-                    if (GLB.dr[3].ToString() == "DENY")
-                    {
-                        btnSuivi.Visible = false;
-                    }
-                }
-                else if (GLB.dr[5].ToString() == "Maintenance" && GLB.dr[2].ToString() == "SELECT")
-                {
-                    if (GLB.dr[3].ToString() == "DENY")
-                    {
-                        btnMaintenance.Visible = false;
-                    }
-                }
-                else if (GLB.dr[5].ToString() == "SuiviVisiteurs" && GLB.dr[2].ToString() == "SELECT")
-                {
-                    if (GLB.dr[3].ToString() == "DENY")
-                    {
-                        btnVisiteurs.Visible = false;
-                    }
-                }
+                btnVignettes.Visible = false;
+                Vignettesdown.Visible = false;
+                VignettesUp.Visible = false;
             }
-            GLB.dr.Close();
+            if(Count_Permissions("'NombreDeCourriersParEntite', 'SuiviDesEnvois', 'EnvoisSimple'") == 0)
+            {
+                btnSuivi.Visible = false;
+                arrowsuiviDown.Visible = false;
+                arrowsuiviUp.Visible = false;
+            }
+            if (Count_Permissions("'Vehicules','VehiculesPRD'") == 0)
+            {
+                btnParcAuto.Visible = false;
+                ParcAutodown.Visible = false;
+                ParcAutoup.Visible = false;
+            }
+            if (Count_Permissions("'Conducteurs'") == 0)
+            {
+                btnConducteurs.Visible = false;
+            }
+            if(Count_Permissions("'Missions'") == 0)
+            {
+                btnMissions.Visible = false;
+            }
+            if(Count_Permissions("'Maintenance'") == 0)
+            {
+                btnMaintenance.Visible = false;
+                ArrowMaintenancedown.Visible = false;
+                arrowMaintenanceUp.Visible = false;
+            }
+            if (Count_Permissions("'SuiviVisiteurs'") == 0)
+            {
+                btnVisiteurs.Visible = false;
+            }
             GLB.Con.Close();
 
+            ////////////////////////
 
             GLB.Cmd.CommandText =
                 @"select Count(*) --r.name as Role, m.name as Principal
@@ -165,6 +152,26 @@ Where
             GLB.Con.Open();
             if (GLB.Cmd.ExecuteScalar().ToString() == "0")
                 btnUsers.Visible = false;
+            else
+            {
+                btnVignettes.Visible = true;
+                btnParcAuto.Visible = true;
+                btnConducteurs.Visible = true;
+                btnSuivi.Visible = true;
+                btnMissions.Visible = true;
+                btnMaintenance.Visible = true;
+                btnVisiteurs.Visible = true;
+                btnUsers.Visible = true;
+
+                Vignettesdown.Visible = true;
+                VignettesUp.Visible = false;
+                arrowsuiviDown.Visible = true;
+                arrowsuiviUp.Visible = false;
+                ParcAutodown.Visible = true;
+                ParcAutoup.Visible = false;
+                ArrowMaintenancedown.Visible = true;
+                arrowMaintenanceUp.Visible = false;
+            }
             GLB.Con.Close();
         }
 
