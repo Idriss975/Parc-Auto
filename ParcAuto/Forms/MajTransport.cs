@@ -159,7 +159,7 @@ namespace ParcAuto.Forms
         {
             if (GLB.ds.Tables["beneficiaires"] != null)
                 GLB.ds.Tables["beneficiaires"].Clear();
-            GLB.da = new SqlDataAdapter($"select DISTINCT beneficiaire from Transport union all select Nom+' ' + Prenom from Conducteurs", GLB.Con);
+            GLB.da = new SqlDataAdapter($"select * from Benificiaire_Trans", GLB.Con);
             GLB.da.Fill(GLB.ds, "beneficiaires");
 
             foreach (DataRow item in GLB.ds.Tables["beneficiaires"].Rows)

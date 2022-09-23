@@ -47,7 +47,7 @@ namespace ParcAuto.Forms
 
         private void cmbVehicule_TextChanged(object sender, EventArgs e)
         {
-            GLB.Cmd.CommandText = $"select Marque from Vehicules where Matricule = '{cmbVehicule.Text}'";
+            GLB.Cmd.CommandText = $"select Marque from Marque_Voiture where Matricule = '{cmbVehicule.Text}'";
             if (GLB.Con.State == ConnectionState.Open)
                 GLB.Con.Close();
             GLB.Con.Open();
@@ -159,7 +159,7 @@ namespace ParcAuto.Forms
         {
             if (GLB.ds.Tables["Vehicules1"] != null)
                 GLB.ds.Tables["Vehicules1"].Clear();
-            GLB.da = new SqlDataAdapter("select * from Vehicules", GLB.Con);
+            GLB.da = new SqlDataAdapter("select * from Mat_Vehicules", GLB.Con);
             GLB.da.Fill(GLB.ds, "Vehicules1");
             AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
             foreach (DataRow item in GLB.ds.Tables["Vehicules1"].Rows)
@@ -191,7 +191,7 @@ namespace ParcAuto.Forms
             {
                 if (GLB.ds.Tables["beneficiaires"] != null)
                     GLB.ds.Tables["beneficiaires"].Clear();
-                GLB.da = new SqlDataAdapter($"select DISTINCT beneficiaire from CarburantVignettes union all select Nom+' ' + Prenom from Conducteurs", GLB.Con);
+                GLB.da = new SqlDataAdapter($"select * from Nom_Conducteurs", GLB.Con);
                 GLB.da.Fill(GLB.ds, "beneficiaires");
 
                 foreach (DataRow item in GLB.ds.Tables["beneficiaires"].Rows)

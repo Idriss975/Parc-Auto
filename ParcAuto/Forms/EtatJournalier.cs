@@ -87,7 +87,7 @@ namespace ParcAuto.Forms
                  "LEFT JOIN " +
                  "sys.database_permissions permit " +
                  "ON permit.grantee_principal_id = pri.principal_id " +
-                 "WHERE object_name(permit.major_id) = 'Vehicules' " +
+                 "WHERE object_name(permit.major_id) = 'EtatJournalier' " +
                  $"and pri.name = SUSER_NAME()";
                 if (GLB.Con.State == ConnectionState.Open)
                     GLB.Con.Close();
@@ -96,15 +96,15 @@ namespace ParcAuto.Forms
                 while (GLB.dr.Read())
                 {
                     
-                    if (GLB.dr[2].ToString() == "DELETE")
+                    if (GLB.dr[2].ToString() == "DELETE" && GLB.dr[3].ToString() == "GRANT")
                     {
-                        if (GLB.dr[3].ToString() != "DENY")
-                        {
-                            DeleteOldHistory();
-                        }
+                        
+                         DeleteOldHistory();
+                        break;
                     }
                    
                 }
+                GLB.Con.Close();
             }
             catch (Exception ex)
             {

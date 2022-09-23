@@ -25,7 +25,7 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.Cmd.CommandText = "select Annee from EtatRecapCarburantSNTL";
+                GLB.Cmd.CommandText = "select * from Annees";
                 if (GLB.Con.State == ConnectionState.Open)
                     GLB.Con.Close();
                 GLB.Con.Open();

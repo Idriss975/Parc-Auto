@@ -170,6 +170,12 @@
     <Compile Include="Forms\Conducteurs.Designer.cs">
       <DependentUpon>Conducteurs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Consomations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Consomations.Designer.cs">
+      <DependentUpon>Consomations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EtatJournalier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -360,6 +366,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Conducteurs.resx">
       <DependentUpon>Conducteurs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Consomations.resx">
+      <DependentUpon>Consomations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EtatJournalier.resx">
       <DependentUpon>EtatJournalier.cs</DependentUpon>

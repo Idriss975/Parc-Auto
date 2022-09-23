@@ -99,7 +99,7 @@ namespace ParcAuto.Forms
         {
             if (GLB.ds.Tables["Conducteurs"] != null)
                 GLB.ds.Tables["Conducteurs"].Clear();
-            GLB.da = new SqlDataAdapter("select * from Conducteurs", GLB.Con);
+            GLB.da = new SqlDataAdapter("select * from View_Conducteurs_Vehicules", GLB.Con);
             GLB.da.Fill(GLB.ds, "Conducteurs");
             foreach (DataRow item in GLB.ds.Tables["Conducteurs"].Rows)
                 cmbConducteur.Items.Add(new CmbMatNom(Convert.ToInt32(item[0]), item[1] + " "+item[2]));

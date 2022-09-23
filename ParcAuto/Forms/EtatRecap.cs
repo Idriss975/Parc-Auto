@@ -234,8 +234,8 @@ namespace ParcAuto.Forms
 
                 chartcarburant.Series.Add("Années");
 
-                chartcarburant.Series["Années"].Points.AddXY((int.Parse(GLB.SelectedDate) - 1).ToString(), Form1.EtatrecapConsomationCarburant[1]);
-                chartcarburant.Series["Années"].Points.AddXY(GLB.SelectedDate, Form1.EtatrecapConsomationCarburant[0]);
+                chartcarburant.Series["Années"].Points.AddXY((int.Parse(GLB.SelectedDate) - 1).ToString(), Consomations.EtatrecapConsomationCarburant[1]);
+                chartcarburant.Series["Années"].Points.AddXY(GLB.SelectedDate, Consomations.EtatrecapConsomationCarburant[0]);
 
 
                 chartcarburant.Titles.Add("Consomation total des vignettes"); // TODO: Add other charts \
@@ -249,8 +249,8 @@ namespace ParcAuto.Forms
                 chartcartefree.Series.Add("Année");
 
 
-                chartcartefree.Series["Année"].Points.AddXY((int.Parse(GLB.SelectedDate) - 1).ToString(), Form1.EtatrecapConsomationCarteFree[1]);
-                chartcartefree.Series["Année"].Points.AddXY(GLB.SelectedDate, Form1.EtatrecapConsomationCarteFree[0]);
+                chartcartefree.Series["Année"].Points.AddXY((int.Parse(GLB.SelectedDate) - 1).ToString(), Consomations.EtatrecapConsomationCarteFree[1]);
+                chartcartefree.Series["Année"].Points.AddXY(GLB.SelectedDate, Consomations.EtatrecapConsomationCarteFree[0]);
 
                 chartcartefree.Titles.Add("Consomation total Carte free");
 
@@ -263,8 +263,8 @@ namespace ParcAuto.Forms
                 chartreparation.Series.Add("Année");
 
 
-                chartreparation.Series["Année"].Points.AddXY((int.Parse(GLB.SelectedDate) - 1).ToString(), Form1.EtatrecapConsomationReparation[1]);
-                chartreparation.Series["Année"].Points.AddXY(GLB.SelectedDate, Form1.EtatrecapConsomationReparation[0]);
+                chartreparation.Series["Année"].Points.AddXY((int.Parse(GLB.SelectedDate) - 1).ToString(), Consomations.EtatrecapConsomationReparation[1]);
+                chartreparation.Series["Année"].Points.AddXY(GLB.SelectedDate, Consomations.EtatrecapConsomationReparation[0]);
 
                 chartreparation.Titles.Add("Consomation total reparation");
 
@@ -277,8 +277,8 @@ namespace ParcAuto.Forms
                 charttransport.Series.Add("Année");
 
 
-                charttransport.Series["Année"].Points.AddXY((int.Parse(GLB.SelectedDate) - 1).ToString(), Form1.EtatrecapConsomationTransport[1]);
-                charttransport.Series["Année"].Points.AddXY(GLB.SelectedDate, Form1.EtatrecapConsomationTransport[0]);
+                charttransport.Series["Année"].Points.AddXY((int.Parse(GLB.SelectedDate) - 1).ToString(), Consomations.EtatrecapConsomationTransport[1]);
+                charttransport.Series["Année"].Points.AddXY(GLB.SelectedDate, Consomations.EtatrecapConsomationTransport[0]);
 
                 charttransport.Titles.Add("Consomation total transport");
 
