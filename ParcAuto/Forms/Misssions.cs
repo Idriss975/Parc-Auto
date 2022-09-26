@@ -48,6 +48,8 @@ namespace ParcAuto.Forms
                         {
                             btnAjouter.FillColor = Color.FromArgb(127, 165, 127);
                             btnAjouter.Click -= btnAjouter_Click;
+                            btnImportExcel.Click -= btnImportExcel_Click;
+                            btnImportExcel.FillColor = Color.FromArgb(68, 83, 128);
                         }
                     }
                     else if (GLB.dr[2].ToString() == "DELETE")

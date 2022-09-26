@@ -87,7 +87,7 @@ namespace ParcAuto.Forms
                             btnAjouter.FillColor = Color.FromArgb(127, 165, 127);
                             btnAjouter.Click -= btnAjouter_Click;
                             btnImportExcel.Click -= btnImportExcel_Click;
-                            btnExportExcel.Click -= btnExportExcel_Click;
+                            btnImportExcel.FillColor = Color.FromArgb(68, 83, 128);
                         }
                     }
                     else if (GLB.dr[2].ToString() == "DELETE")
@@ -98,8 +98,6 @@ namespace ParcAuto.Forms
                             btnSupprimer.Click -= btnSupprimer_Click;
                             btnSuprimmerTout.FillColor = Color.FromArgb(204, 144, 133);
                             btnSuprimmerTout.Click -= btnSuprimmerTout_Click;
-                            btnImportExcel.Click -= btnImportExcel_Click;
-                            btnExportExcel.Click -= btnExportExcel_Click;
                         }
                     }
                     else if (GLB.dr[2].ToString() == "UPDATE")
@@ -108,8 +106,6 @@ namespace ParcAuto.Forms
                         {
                             btnModifier.FillColor = Color.FromArgb(85, 95, 128);
                             btnModifier.Click -= btnModifier_Click;
-                            btnImportExcel.Click -= btnImportExcel_Click;
-                            btnExportExcel.Click -= btnExportExcel_Click;
                         }
                     }
                 }

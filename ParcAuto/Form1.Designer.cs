@@ -69,6 +69,7 @@ namespace ParcAuto
             this.btnEtatJournalier = new System.Windows.Forms.Button();
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.panelSousVignettes = new System.Windows.Forms.Panel();
+            this.btnConsommation = new System.Windows.Forms.Button();
             this.btnTransport = new System.Windows.Forms.Button();
             this.btnEtatRecap = new System.Windows.Forms.Button();
             this.panelRep = new System.Windows.Forms.Panel();
@@ -94,7 +95,6 @@ namespace ParcAuto
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FormsPlace = new System.Windows.Forms.Panel();
-            this.btnConsommation = new System.Windows.Forms.Button();
             section2 = new System.Windows.Forms.Panel();
             section2.SuspendLayout();
             this.section3.SuspendLayout();
@@ -771,6 +771,26 @@ namespace ParcAuto
             this.panelSousVignettes.Size = new System.Drawing.Size(183, 461);
             this.panelSousVignettes.TabIndex = 1;
             // 
+            // btnConsommation
+            // 
+            this.btnConsommation.AutoSize = true;
+            this.btnConsommation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnConsommation.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConsommation.FlatAppearance.BorderSize = 0;
+            this.btnConsommation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsommation.ForeColor = System.Drawing.Color.White;
+            this.btnConsommation.Image = ((System.Drawing.Image)(resources.GetObject("btnConsommation.Image")));
+            this.btnConsommation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsommation.Location = new System.Drawing.Point(0, 369);
+            this.btnConsommation.Name = "btnConsommation";
+            this.btnConsommation.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnConsommation.Size = new System.Drawing.Size(181, 45);
+            this.btnConsommation.TabIndex = 99;
+            this.btnConsommation.Text = "Consommations";
+            this.btnConsommation.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnConsommation.UseVisualStyleBackColor = false;
+            this.btnConsommation.Click += new System.EventHandler(this.btnConsommation_Click);
+            // 
             // btnTransport
             // 
             this.btnTransport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
@@ -1158,26 +1178,6 @@ namespace ParcAuto
             this.FormsPlace.Size = new System.Drawing.Size(1127, 639);
             this.FormsPlace.TabIndex = 1;
             this.FormsPlace.Paint += new System.Windows.Forms.PaintEventHandler(this.FormsPlace_Paint);
-            // 
-            // btnConsommation
-            // 
-            this.btnConsommation.AutoSize = true;
-            this.btnConsommation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
-            this.btnConsommation.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnConsommation.FlatAppearance.BorderSize = 0;
-            this.btnConsommation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsommation.ForeColor = System.Drawing.Color.White;
-            this.btnConsommation.Image = ((System.Drawing.Image)(resources.GetObject("btnConsommation.Image")));
-            this.btnConsommation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsommation.Location = new System.Drawing.Point(0, 369);
-            this.btnConsommation.Name = "btnConsommation";
-            this.btnConsommation.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnConsommation.Size = new System.Drawing.Size(181, 45);
-            this.btnConsommation.TabIndex = 99;
-            this.btnConsommation.Text = "Consommations";
-            this.btnConsommation.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnConsommation.UseVisualStyleBackColor = false;
-            this.btnConsommation.Click += new System.EventHandler(this.btnConsommation_Click);
             // 
             // Form1
             // 

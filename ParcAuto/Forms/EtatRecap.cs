@@ -197,8 +197,51 @@ namespace ParcAuto.Forms
             ConsommationReparation();
             ConsommationTransport();
             Directions();
+            permission();
         }
+        private void permission()
+        {
+            try
+            {
+                GLB.Cmd.CommandText = "SELECT  pri.name As Username " +
+                  ",       pri.type_desc AS[User Type] " +
+                  ", permit.permission_name AS[Permission] " +
+                  ", permit.state_desc AS[Permission State] " +
+                  ", permit.class_desc Class " +
+                  ", object_name(permit.major_id) AS[Object Name] " +
+                  "FROM sys.database_principals pri " +
+                  "LEFT JOIN " +
+                  "sys.database_permissions permit " +
+                  "ON permit.grantee_principal_id = pri.principal_id " +
+                  "WHERE object_name(permit.major_id) = 'EtatRecapCarburantSNTL' " +
+                  $"and pri.name = SUSER_NAME()";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
+                GLB.Con.Open();
+                GLB.dr = GLB.Cmd.ExecuteReader();
+                while (GLB.dr.Read())
+                {
+                    if (GLB.dr[2].ToString() == "UPDATE")
+                    {
+                        if (GLB.dr[3].ToString() == "DENY")
+                        {
+                            btnModifier.FillColor = Color.FromArgb(85, 95, 128);
+                            btnModifier.Click -= btnModifier_Click;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
 
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                GLB.dr.Close();
+                GLB.Con.Close();
+            }
+        }
         private void btnModifier_Click(object sender, EventArgs e)
         {
             Commandes.Command = Choix.modifier;
