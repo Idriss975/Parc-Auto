@@ -95,6 +95,7 @@ namespace ParcAuto
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FormsPlace = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             section2 = new System.Windows.Forms.Panel();
             section2.SuspendLayout();
             this.section3.SuspendLayout();
@@ -128,6 +129,8 @@ namespace ParcAuto
             ((System.ComponentModel.ISupportInitialize)(this.Vignettesdown)).BeginInit();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.FormsPlace.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // section2
@@ -1172,12 +1175,24 @@ namespace ParcAuto
             // 
             this.FormsPlace.AutoScroll = true;
             this.FormsPlace.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.FormsPlace.Controls.Add(this.pictureBox2);
             this.FormsPlace.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FormsPlace.Location = new System.Drawing.Point(200, 0);
             this.FormsPlace.Name = "FormsPlace";
             this.FormsPlace.Size = new System.Drawing.Size(1127, 639);
             this.FormsPlace.TabIndex = 1;
             this.FormsPlace.Paint += new System.Windows.Forms.PaintEventHandler(this.FormsPlace_Paint);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(394, 146);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(300, 300);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // Form1
             // 
@@ -1240,6 +1255,9 @@ namespace ParcAuto
             this.panelLogo.ResumeLayout(false);
             this.panelLogo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.FormsPlace.ResumeLayout(false);
+            this.FormsPlace.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1311,6 +1329,7 @@ namespace ParcAuto
         private System.Windows.Forms.Button btnPosteSimple;
         private System.Windows.Forms.Button btnConducteursDispo;
         private System.Windows.Forms.Button btnConsommation;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
