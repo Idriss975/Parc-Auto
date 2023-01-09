@@ -182,11 +182,6 @@ namespace ParcAuto.Forms
             this.Close();
         }
 
-        private void btnFiltrer_Click(object sender, EventArgs e)
-        {
-            GLB.Filter(cmbChoix, dgvCarburant, txtValueToFiltre, new string[] { "Date" },Date1, Date2);
-            Total();
-        }
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
@@ -508,6 +503,76 @@ namespace ParcAuto.Forms
 
 
 
+        }
+
+        private void btnFiltrer_Click(object sender, EventArgs e)
+        {
+            //GLB.Filter(cmbChoix, dgvCarburant, txtValueToFiltre, new string[] { "Date" }, Date1, Date2);
+            //Total();
+            dgvCarburant.Rows.Clear();
+            try
+            {
+                switch (cmbChoix.SelectedItem.ToString())
+                {
+                    case "Entité":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(Entite) like lower('{txtValueToFiltre.Text.Trim().Replace("'","''")}%')";
+                        break;
+                    case "Bénéficiaire":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(beneficiaire) like lower('{txtValueToFiltre.Text.Trim().Replace("'", "''")}%')";
+                        break;
+                    case "Matricule":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(vehicule) like lower('{txtValueToFiltre.Text.Trim().Replace("'", "''")}%')";
+                        break;
+                    case "Marque":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(Marque) like lower('{txtValueToFiltre.Text.Trim().Replace("'", "''")}%') ";
+                        break;
+                    case "Date":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where date > '{Date1.Value}' and date < '{Date2.Value}' ";
+                        break;
+                    case "Destination":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(lieu) like lower('{txtValueToFiltre.Text.Trim().Replace("'", "''")}%')";
+                        break;
+                    case "Kilometrage parcouru":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where KM = {txtValueToFiltre.Text.Trim()}";
+                        break;
+                    case "Consomation %":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where Pourcentage = {txtValueToFiltre.Text.Trim()}";
+                        break;
+                    case "Objet":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(ObjetOMN) like lower('{txtValueToFiltre.Text.Trim().Replace("'", "''")}%')";
+                        break;
+                    case "Dotation Fixe":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where DFixe = {txtValueToFiltre.Text.Trim()} ";
+                        break;
+                    case "Dotation Mission":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where DMissions =  {txtValueToFiltre.Text.Trim()} ";
+                        break;
+                    case "Dotation Hebdo":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where DHebdo = {txtValueToFiltre.Text.Trim()}";
+                        break;
+                    case "Dotation exceptionnel":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where DExceptionnel =  {txtValueToFiltre.Text.Trim()}";
+                        break;
+                    case "Observation":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(Observation) like lower('{txtValueToFiltre.Text.Trim().Replace("'", "''")}%')";
+                        break;
+                    default:
+                        break;
+                }
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
+                GLB.Con.Open();
+                GLB.dr = GLB.Cmd.ExecuteReader();
+                while (GLB.dr.Read())
+                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr.IsDBNull(4) ? "" : ((DateTime)GLB.dr[4]).ToString("d/M/yyyy"), GLB.dr[5], GLB.dr[6], GLB.dr[7], GLB.dr[8], GLB.dr[9].ToString(), GLB.dr[10].ToString(), GLB.dr[11].ToString(), GLB.dr[12].ToString(), GLB.dr[13], GLB.dr[14]);
+
+                GLB.dr.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

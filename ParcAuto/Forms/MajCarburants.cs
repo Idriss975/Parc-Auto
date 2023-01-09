@@ -307,7 +307,7 @@ namespace ParcAuto.Forms
                             GLB.Cmd.CommandText = $"insert into {(Commandes.MAJ == TypeCarb.Carburant ? "CarburantVignettes" : "CarburantSNTLPRD")}  values(@txtEntite,@txtBenificiaire,@cmbVehicule," +
                         $"@txtMarque,@DateOper,@cmbVilles,@txtKM,@txtpourcentage,@OMN,@DoFixe,@DoMissions," +
                         $"@DoHebdo,@DoExp,@txtObservation)";
-                            GLB.Cmd.Parameters.AddWithValue("@txtEntite", txtEntite.Text);
+                                
                             GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
                             GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.Text);
                             GLB.Cmd.Parameters.AddWithValue("@txtMarque", txtMarque.Text);

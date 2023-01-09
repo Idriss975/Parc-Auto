@@ -162,11 +162,19 @@ order by
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            GLB.Cmd.CommandText = $"Drop Login {((SQLLogin_User) dgvUsers.SelectedRows[0].Cells[0].Value).name};\n";
-            GLB.Cmd.CommandText += $"Drop User {((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).name};";
-            GLB.Con.Open();
-            GLB.Cmd.ExecuteNonQuery();
-            GLB.Con.Close();
+            try
+            {
+                GLB.Cmd.CommandText = $"Drop Login {((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).name};\n";
+                GLB.Cmd.CommandText += $"Drop User {((SQLLogin_User)dgvUsers.SelectedRows[0].Cells[0].Value).name};";
+                GLB.Con.Open();
+                GLB.Cmd.ExecuteNonQuery();
+                GLB.Con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,"Erreur",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+           
         }
 
         private void GestionDesUtilisateurs_Load(object sender, EventArgs e)

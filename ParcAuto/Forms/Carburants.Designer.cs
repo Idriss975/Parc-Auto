@@ -41,7 +41,6 @@ namespace ParcAuto.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.txtValueToFiltre = new Guna.UI2.WinForms.Guna2TextBox();
             this.TextPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnFiltrer = new Guna.UI2.WinForms.Guna2Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.cmbChoix = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -93,6 +92,7 @@ namespace ParcAuto.Forms
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnFiltrer = new Guna.UI2.WinForms.Guna2Button();
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarburant)).BeginInit();
@@ -122,7 +122,7 @@ namespace ParcAuto.Forms
             this.panelDate.Controls.Add(this.label3);
             this.panelDate.Controls.Add(this.Date1);
             this.panelDate.Controls.Add(this.Date2);
-            this.panelDate.Location = new System.Drawing.Point(288, 35);
+            this.panelDate.Location = new System.Drawing.Point(288, 80);
             this.panelDate.Name = "panelDate";
             this.panelDate.Size = new System.Drawing.Size(549, 60);
             this.panelDate.TabIndex = 31;
@@ -214,33 +214,6 @@ namespace ParcAuto.Forms
             this.TextPanel.Name = "TextPanel";
             this.TextPanel.Size = new System.Drawing.Size(340, 51);
             this.TextPanel.TabIndex = 30;
-            // 
-            // btnFiltrer
-            // 
-            this.btnFiltrer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFiltrer.BorderRadius = 4;
-            this.btnFiltrer.CheckedState.Parent = this.btnFiltrer;
-            this.btnFiltrer.CustomImages.Parent = this.btnFiltrer;
-            this.btnFiltrer.FillColor = System.Drawing.Color.LimeGreen;
-            this.btnFiltrer.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnFiltrer.ForeColor = System.Drawing.Color.White;
-            this.btnFiltrer.HoverState.Parent = this.btnFiltrer;
-            this.btnFiltrer.Image = ((System.Drawing.Image)(resources.GetObject("btnFiltrer.Image")));
-            this.btnFiltrer.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnFiltrer.Location = new System.Drawing.Point(636, 23);
-            this.btnFiltrer.Margin = new System.Windows.Forms.Padding(5);
-            this.btnFiltrer.MaximumSize = new System.Drawing.Size(90, 30);
-            this.btnFiltrer.MinimumSize = new System.Drawing.Size(90, 30);
-            this.btnFiltrer.Name = "btnFiltrer";
-            this.btnFiltrer.ShadowDecoration.Parent = this.btnFiltrer;
-            this.btnFiltrer.Size = new System.Drawing.Size(90, 30);
-            this.btnFiltrer.TabIndex = 29;
-            this.btnFiltrer.Text = "Filtrer";
-            this.btnFiltrer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnFiltrer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
-            this.btnFiltrer.Click += new System.EventHandler(this.btnFiltrer_Click);
             // 
             // btnRefresh
             // 
@@ -909,11 +882,39 @@ namespace ParcAuto.Forms
             this.label5.Text = "Consommation Total";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnFiltrer
+            // 
+            this.btnFiltrer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFiltrer.BorderRadius = 4;
+            this.btnFiltrer.CheckedState.Parent = this.btnFiltrer;
+            this.btnFiltrer.CustomImages.Parent = this.btnFiltrer;
+            this.btnFiltrer.FillColor = System.Drawing.Color.LimeGreen;
+            this.btnFiltrer.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnFiltrer.ForeColor = System.Drawing.Color.White;
+            this.btnFiltrer.HoverState.Parent = this.btnFiltrer;
+            this.btnFiltrer.Image = ((System.Drawing.Image)(resources.GetObject("btnFiltrer.Image")));
+            this.btnFiltrer.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnFiltrer.Location = new System.Drawing.Point(636, 19);
+            this.btnFiltrer.Margin = new System.Windows.Forms.Padding(5);
+            this.btnFiltrer.MaximumSize = new System.Drawing.Size(90, 30);
+            this.btnFiltrer.MinimumSize = new System.Drawing.Size(90, 30);
+            this.btnFiltrer.Name = "btnFiltrer";
+            this.btnFiltrer.ShadowDecoration.Parent = this.btnFiltrer;
+            this.btnFiltrer.Size = new System.Drawing.Size(90, 30);
+            this.btnFiltrer.TabIndex = 66;
+            this.btnFiltrer.Text = "Filtrer";
+            this.btnFiltrer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnFiltrer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnFiltrer.Click += new System.EventHandler(this.btnFiltrer_Click);
+            // 
             // Carburants
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 669);
+            this.Controls.Add(this.btnFiltrer);
             this.Controls.Add(this.PanelTautaux);
             this.Controls.Add(this.btnSuprimmerTout);
             this.Controls.Add(this.btnImprimer);
@@ -921,7 +922,6 @@ namespace ParcAuto.Forms
             this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.panelDate);
             this.Controls.Add(this.TextPanel);
-            this.Controls.Add(this.btnFiltrer);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.cmbChoix);
             this.Controls.Add(this.label1);
@@ -969,7 +969,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox txtValueToFiltre;
         private System.Windows.Forms.FlowLayoutPanel TextPanel;
-        private Guna.UI2.WinForms.Guna2Button btnFiltrer;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Guna.UI2.WinForms.Guna2Button btnRefresh;
         private Guna.UI2.WinForms.Guna2ComboBox cmbChoix;
@@ -1021,5 +1020,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private Guna.UI2.WinForms.Guna2Button btnFiltrer;
     }
 }
