@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Data.SqlClient;
 using ParcAuto.Forms;
+using System.Globalization;
 
 namespace ParcAuto.Classes_Globale
 {
@@ -111,26 +112,50 @@ namespace ParcAuto.Classes_Globale
         /// <param name="Date2"></param>
         public static void Filter(Guna.UI2.WinForms.Guna2ComboBox cmbChoix, DataGridView DGV, Guna.UI2.WinForms.Guna2TextBox txtValueToFiltre,string[] ColumnDates, Guna.UI2.WinForms.Guna2DateTimePicker Date1, Guna.UI2.WinForms.Guna2DateTimePicker Date2)
         {
-            int index=-1;
-            foreach (DataGridViewColumn item in DGV.Columns)
-                if (item.HeaderText == cmbChoix.Text)
-                {
-                    index = item.Index;
-                    break;
-                }
-
-
-            if (!(ColumnDates.Contains(cmbChoix.Text)))
+            try
             {
-                for (int i = DGV.Rows.Count - 1; i >= 0; i--)
-                    if (!new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(DGV.Rows[i].Cells[index].Value.ToString().ToLower()))
-                        DGV.Rows.Remove(DGV.Rows[i]);
+                CultureInfo culture = new CultureInfo("en-GB");
+                DateTime date1 = DateTime.Parse(Date1.Value.Date.ToShortDateString(), culture);
+                DateTime date2 = DateTime.Parse(Date2.Value.Date.ToShortDateString(), culture);
+                int index = -1;
+                foreach (DataGridViewColumn item in DGV.Columns)
+                    if (item.HeaderText == cmbChoix.Text)
+                    {
+                        index = item.Index;
+                        break;
+                    }
+                
+
+                if (!(ColumnDates.Contains(cmbChoix.Text)))
+                {
+                    for (int i = DGV.Rows.Count - 1; i >= 0; i--)
+                    {
+                        if (!new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(DGV.Rows[i].Cells[index].Value.ToString().ToLower()))
+                        {
+                            DGV.Rows.Remove(DGV.Rows[i]);
+                        }
+                    }
+                }
+                else
+                {
+                    //(Convert.ToDateTime(DGV.Rows[i].Cells[index].Value)).Date
+                    for (int i = DGV.Rows.Count - 1; i >= 0; i--)
+                    {
+                        MessageBox.Show(DGV.Rows[i].Cells[index].Value.ToString() + " - " + date1.ToString("dd/MM/yyyy") + " - "+ date2.ToString("dd/MM/yyyy"));
+                        //if (!( DateTime.Parse(DGV.Rows[i].Cells[index].Value.ToString(), culture) >= date1 && DateTime.Parse(DGV.Rows[i].Cells[index].Value.ToString() , culture) <= date2))
+                        //{
+                        //    DGV.Rows.Remove(DGV.Rows[i]);
+                        //}
+                    }
+                }
+                    
+                txtValueToFiltre.Text = "";
             }
-            else
-                for (int i = DGV.Rows.Count - 1; i >= 0; i--)
-                    if (!((Convert.ToDateTime(DGV.Rows[i].Cells[index].Value)).Date >= Date1.Value.Date && (Convert.ToDateTime(DGV.Rows[i].Cells[index].Value)).Date <= Date2.Value.Date))
-                        DGV.Rows.Remove(DGV.Rows[i]);
-            txtValueToFiltre.Text = "";
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
 
         /// <summary>

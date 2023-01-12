@@ -12,6 +12,7 @@ using System.Text.RegularExpressions; // import Regex()
 using Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace ParcAuto.Forms
 {
@@ -390,7 +391,8 @@ namespace ParcAuto.Forms
                     for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
                     {
                         currentIndex = excelWorksheetIndex;
-                        DateTime date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value ?? "0001-01-01"));
+                        CultureInfo culture = new CultureInfo("en-GB");
+                        DateTime date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value ?? "0001-01-01"), culture);
 
                         GLB.Cmd.Parameters.Clear();
                         GLB.Cmd.CommandText = "insert into Transport values(@txtentite, @txtBenificiaire, @txtNBon_Email,@DateMission, @txtDestination, @txtUtilisation, @txtPrix,@tagJawaz)";

@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 using System.Text.RegularExpressions; // import Regex()
 using Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
-
+using System.Globalization;
 
 namespace ParcAuto.Forms
 {
@@ -126,7 +126,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr.IsDBNull(4) ? "" : ((DateTime)GLB.dr[4]).ToString("d/M/yyyy"), GLB.dr[5], GLB.dr[6], GLB.dr[7], GLB.dr[8], GLB.dr[9].ToString(), GLB.dr[10].ToString(), GLB.dr[11].ToString(), GLB.dr[12].ToString(), GLB.dr[13], GLB.dr[14]);
+                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr.IsDBNull(4) ? "" : ((DateTime)GLB.dr[4]).ToString("dd/MM/yyyy"), GLB.dr[5], GLB.dr[6], GLB.dr[7], GLB.dr[8], GLB.dr[9].ToString(), GLB.dr[10].ToString(), GLB.dr[11].ToString(), GLB.dr[12].ToString(), GLB.dr[13], GLB.dr[14]);
 
                 GLB.dr.Close();
             }
@@ -329,16 +329,16 @@ namespace ParcAuto.Forms
                     {
                         for (int j = 0; j < dgvCarburant.Columns.Count - 1; j++)
                         {
-                            
                             if (j < 13)
                             {
                                 xcelApp.Cells[i + 2, j + 1] = dgvCarburant.Rows[i].Cells[j].Value.ToString().Trim();
                             }
-                            else 
+                            else
                             {
-                                xcelApp.Cells[i + 2, j + 1] = dgvCarburant.Rows[i].Cells[j+1].Value.ToString().Trim();
+                                xcelApp.Cells[i + 2, j + 1] = dgvCarburant.Rows[i].Cells[j + 1].Value.ToString().Trim();
                             }
-                           
+
+
 
                         }
                     }
@@ -387,44 +387,54 @@ namespace ParcAuto.Forms
 
                     for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
                     {
+                        //string str = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value);
+                        //string[] lst = str.Split(' ');
+                        //MessageBox.Show(lst[0], "Massage");
+
+                        //DateTime d1 = DateTime.ParseExact(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value)), "dd/MM/yyyy", null));
+                        //MessageBox.Show(d1.ToShortDateString());
                         currentIndex = excelWorksheetIndex;
                         entite = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value)).Trim();
-                        benificiaire = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
-                        vehicule = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
-                        marque = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
-                        date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value ?? "0001-01-01"));
+                              benificiaire = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
+                              vehicule = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
+                              marque = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
+                                CultureInfo culture = new CultureInfo("en-GB");
+                               date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value ?? "0001-01-01"), culture);
+
+                        //date = DateTime.Parse(lst[0].ToString() ?? "0001-01-01");
+                        //date = DateTime.Parse(lst[0].ToString() ?? "0001-01-01", "dd/MM/yyyy", null);
                         lieu = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
-                        KM = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
-                        Pourcentage = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value);
-                        omn = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 9].value);
-                        Dfixe = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 10].value);
-                        DMission = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 11].value);
-                        Dhebdo = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 12].value);
-                        Dexeptionnelle = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 13].value);
-                        observation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 14].value);
-                        GLB.Cmd.Parameters.Clear();
-                        GLB.Cmd.CommandText = "insert into CarburantVignettes values(@txtEntite,@txtBenificiaire,@cmbVehicule," +
-                  $"@txtMarque,@DateOper,@cmbVilles,@txtKM,@txtpourcentage,@OMN,@DoFixe,@DoMissions," +
-                  $"@DoHebdo,@DoExp,@txtObservation)";
-                        GLB.Cmd.Parameters.AddWithValue("@txtEntite", entite ?? "");
-                        GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", benificiaire ?? "");
-                        GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", vehicule ?? "");
-                        GLB.Cmd.Parameters.AddWithValue("@txtMarque", marque ?? "");
-                        GLB.Cmd.Parameters.AddWithValue("@DateOper", date.ToString("yyyy-MM-dd") == "0001-01-01" ? (object)DBNull.Value : date.ToString("yyyy-MM-dd"));
-                        GLB.Cmd.Parameters.AddWithValue("@cmbVilles", lieu ?? "");
-                        GLB.Cmd.Parameters.AddWithValue("@txtKM", KM is null ? (object)DBNull.Value : Double.Parse(KM));
-                        GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", Pourcentage is null ? (object)DBNull.Value : Double.Parse(Pourcentage));
-                        GLB.Cmd.Parameters.AddWithValue("@DoFixe", Dfixe is null ? (object)DBNull.Value : Double.Parse(Dfixe));
-                        GLB.Cmd.Parameters.AddWithValue("@OMN", omn ?? "");
-                        GLB.Cmd.Parameters.AddWithValue("@DoMissions", DMission is null ? (object)DBNull.Value : Double.Parse(DMission));
-                        GLB.Cmd.Parameters.AddWithValue("@DoHebdo", Dhebdo is null ? (object)DBNull.Value : Double.Parse(Dhebdo));
-                        GLB.Cmd.Parameters.AddWithValue("@DoExp", Dexeptionnelle is null ? (object)DBNull.Value : Double.Parse(Dexeptionnelle));
-                        GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation ?? "");
-                        GLB.Cmd.ExecuteNonQuery();
-                        Total();
+                              KM = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
+                              Pourcentage = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value);
+                              omn = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 9].value);
+                              Dfixe = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 10].value);
+                              DMission = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 11].value);
+                              Dhebdo = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 12].value);
+                              Dexeptionnelle = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 13].value);
+                              observation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 14].value);
+                              GLB.Cmd.Parameters.Clear();
+                              GLB.Cmd.CommandText = "insert into CarburantVignettes values(@txtEntite,@txtBenificiaire,@cmbVehicule," +
+                        $"@txtMarque,@DateOper,@cmbVilles,@txtKM,@txtpourcentage,@OMN,@DoFixe,@DoMissions," +
+                        $"@DoHebdo,@DoExp,@txtObservation)";
+                              GLB.Cmd.Parameters.AddWithValue("@txtEntite", entite ?? "");
+                              GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", benificiaire ?? "");
+                              GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", vehicule ?? "");
+                              GLB.Cmd.Parameters.AddWithValue("@txtMarque", marque ?? "");
+                              GLB.Cmd.Parameters.AddWithValue("@DateOper", date.ToString("yyyy-MM-dd") == "0001-01-01" ? (object)DBNull.Value : date.ToString("yyyy-MM-dd"));
+                              GLB.Cmd.Parameters.AddWithValue("@cmbVilles", lieu ?? "");
+                              GLB.Cmd.Parameters.AddWithValue("@txtKM", KM is null ? (object)DBNull.Value : Double.Parse(KM));
+                              GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", Pourcentage is null ? (object)DBNull.Value : Double.Parse(Pourcentage));
+                              GLB.Cmd.Parameters.AddWithValue("@DoFixe", Dfixe is null ? (object)DBNull.Value : Double.Parse(Dfixe));
+                              GLB.Cmd.Parameters.AddWithValue("@OMN", omn ?? "");
+                              GLB.Cmd.Parameters.AddWithValue("@DoMissions", DMission is null ? (object)DBNull.Value : Double.Parse(DMission));
+                              GLB.Cmd.Parameters.AddWithValue("@DoHebdo", Dhebdo is null ? (object)DBNull.Value : Double.Parse(Dhebdo));
+                              GLB.Cmd.Parameters.AddWithValue("@DoExp", Dexeptionnelle is null ? (object)DBNull.Value : Double.Parse(Dexeptionnelle));
+                              GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation ?? "");
+                              GLB.Cmd.ExecuteNonQuery();
+                              Total();
                     }
-                    GLB.Cmd.Transaction.Commit();
-                    GLB.Con.Close();
+                      GLB.Cmd.Transaction.Commit();
+                      GLB.Con.Close();
                 }
             }
             catch (SqlException ex)
@@ -507,72 +517,97 @@ namespace ParcAuto.Forms
 
         private void btnFiltrer_Click(object sender, EventArgs e)
         {
-            //GLB.Filter(cmbChoix, dgvCarburant, txtValueToFiltre, new string[] { "Date" }, Date1, Date2);
-            //Total();
-            dgvCarburant.Rows.Clear();
-            try
-            {
-                switch (cmbChoix.SelectedItem.ToString())
-                {
-                    case "Entité":
-                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(Entite) like lower('{txtValueToFiltre.Text.Trim().Replace("'","''")}%')";
-                        break;
-                    case "Bénéficiaire":
-                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(beneficiaire) like lower('{txtValueToFiltre.Text.Trim().Replace("'", "''")}%')";
-                        break;
-                    case "Matricule":
-                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(vehicule) like lower('{txtValueToFiltre.Text.Trim().Replace("'", "''")}%')";
-                        break;
-                    case "Marque":
-                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(Marque) like lower('{txtValueToFiltre.Text.Trim().Replace("'", "''")}%') ";
-                        break;
-                    case "Date":
-                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where date > '{Date1.Value}' and date < '{Date2.Value}' ";
-                        break;
-                    case "Destination":
-                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(lieu) like lower('{txtValueToFiltre.Text.Trim().Replace("'", "''")}%')";
-                        break;
-                    case "Kilometrage parcouru":
-                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where KM = {txtValueToFiltre.Text.Trim()}";
-                        break;
-                    case "Consomation %":
-                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where Pourcentage = {txtValueToFiltre.Text.Trim()}";
-                        break;
-                    case "Objet":
-                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(ObjetOMN) like lower('{txtValueToFiltre.Text.Trim().Replace("'", "''")}%')";
-                        break;
-                    case "Dotation Fixe":
-                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where DFixe = {txtValueToFiltre.Text.Trim()} ";
-                        break;
-                    case "Dotation Mission":
-                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where DMissions =  {txtValueToFiltre.Text.Trim()} ";
-                        break;
-                    case "Dotation Hebdo":
-                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where DHebdo = {txtValueToFiltre.Text.Trim()}";
-                        break;
-                    case "Dotation exceptionnel":
-                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where DExceptionnel =  {txtValueToFiltre.Text.Trim()}";
-                        break;
-                    case "Observation":
-                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(Observation) like lower('{txtValueToFiltre.Text.Trim().Replace("'", "''")}%')";
-                        break;
-                    default:
-                        break;
-                }
-                if (GLB.Con.State == ConnectionState.Open)
-                    GLB.Con.Close();
-                GLB.Con.Open();
-                GLB.dr = GLB.Cmd.ExecuteReader();
-                while (GLB.dr.Read())
-                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr.IsDBNull(4) ? "" : ((DateTime)GLB.dr[4]).ToString("d/M/yyyy"), GLB.dr[5], GLB.dr[6], GLB.dr[7], GLB.dr[8], GLB.dr[9].ToString(), GLB.dr[10].ToString(), GLB.dr[11].ToString(), GLB.dr[12].ToString(), GLB.dr[13], GLB.dr[14]);
+                GLB.Filter(cmbChoix, dgvCarburant, txtValueToFiltre, new string[] { "Date" }, Date1, Date2);
+                Total();
+            //dgvCarburant.Rows.Clear();
+            //try
+            //{
+            //    switch (cmbChoix.SelectedItem.ToString())
+            //    {
+            //        case "Entité":
+            //            GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(Entite) like lower('%{txtValueToFiltre.Text.Trim().Replace("'","''")}%')";
+            //            break;
+            //        case "Bénéficiaire":
+            //            GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(beneficiaire) like lower('%{txtValueToFiltre.Text.Trim().Replace("'", "''")}%')";
+            //            break;
+            //        case "Matricule":
+            //            GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(vehicule) like lower('%{txtValueToFiltre.Text.Trim().Replace("'", "''")}%')";
+            //            break;
+            //        case "Marque":
+            //            GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(Marque) like lower('%{txtValueToFiltre.Text.Trim().Replace("'", "''")}%') ";
+            //            break;
+            //        case "Date":
+            //            GLB.Cmd.CommandText = $"select * from CarburantVignettes where date > '{Date1.Value}' and date < '{Date2.Value}' ";
+            //            break;
+            //        case "Destination":
+            //            GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(lieu) like lower('%{txtValueToFiltre.Text.Trim().Replace("'", "''")}%')";
+            //            break;
+            //        case "Kilometrage parcouru":
+            //            GLB.Cmd.CommandText = $"select * from CarburantVignettes where KM = {txtValueToFiltre.Text.Trim()}";
+            //            break;
+            //        case "Consomation %":
+            //            GLB.Cmd.CommandText = $"select * from CarburantVignettes where Pourcentage = {txtValueToFiltre.Text.Trim()}";
+            //            break;
+            //        case "Objet":
+            //            GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(ObjetOMN) like lower('%{txtValueToFiltre.Text.Trim().Replace("'", "''")}%')";
+            //            break;
+            //        case "Dotation Fixe":
+            //            GLB.Cmd.CommandText = $"select * from CarburantVignettes where DFixe = {txtValueToFiltre.Text.Trim()} ";
+            //            break;
+            //        case "Dotation Mission":
+            //            GLB.Cmd.CommandText = $"select * from CarburantVignettes where DMissions =  {txtValueToFiltre.Text.Trim()} ";
+            //            break;
+            //        case "Dotation Hebdo":
+            //            GLB.Cmd.CommandText = $"select * from CarburantVignettes where DHebdo = {txtValueToFiltre.Text.Trim()}";
+            //            break;
+            //        case "Dotation exceptionnel":
+            //            GLB.Cmd.CommandText = $"select * from CarburantVignettes where DExceptionnel =  {txtValueToFiltre.Text.Trim()}";
+            //            break;
+            //        case "Observation":
+            //            GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(Observation) like lower('%{txtValueToFiltre.Text.Trim().Replace("'", "''")}%')";
+            //            break;
+            //        default:
+            //            break;
+            //    }
+            //    if (GLB.Con.State == ConnectionState.Open)
+            //        GLB.Con.Close();
+            //    GLB.Con.Open();
+            //    GLB.dr = GLB.Cmd.ExecuteReader();
+            //    while (GLB.dr.Read())
+            //        dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr.IsDBNull(4) ? "" : ((DateTime)GLB.dr[4]).ToString("d/M/yyyy"), GLB.dr[5], GLB.dr[6], GLB.dr[7], GLB.dr[8], GLB.dr[9].ToString(), GLB.dr[10].ToString(), GLB.dr[11].ToString(), GLB.dr[12].ToString(), GLB.dr[13], GLB.dr[14]);
 
-                GLB.dr.Close();
+            //    GLB.dr.Close();
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+            //int index = -1;
+            //foreach (DataGridViewColumn item in dgvCarburant.Columns)
+            //    if (item.HeaderText == cmbChoix.Text)
+            //    {
+            //        index = item.Index;
+            //        break;
+            //    }
+
+            //if (!((new string[] { "Date" }).Contains(cmbChoix.Text)))
+            //{
+            //    for (int i = dgvCarburant.Rows.Count - 1; i >= 0; i--)
+            //    {
+            //        if (!new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(dgvCarburant.Rows[i].Cells[index].Value.ToString().ToLower()))
+            //        {
+            //            dgvCarburant.Rows.Remove(dgvCarburant.Rows[i]);
+            //        }
+
+            //    }
+
+            //}
+            //else
+            //    for (int i = dgvCarburant.Rows.Count - 1; i >= 0; i--)
+            //        if (!((Convert.ToDateTime(dgvCarburant.Rows[i].Cells[index].Value)).Date >= Date1.Value.Date && (Convert.ToDateTime(dgvCarburant.Rows[i].Cells[index].Value)).Date <= Date2.Value.Date))
+            //            dgvCarburant.Rows.Remove(dgvCarburant.Rows[i]);
+            //txtValueToFiltre.Text = "";
         }
     }
 }

@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -294,8 +295,16 @@ namespace ParcAuto.Forms
                             {
                                 if (j < 0)
                                 {
-                                    xcelApp.Cells[i + 2, j + 1] = dgvCarteFree.Rows[i].Cells[j].Value.ToString();
-                                }
+                                xcelApp.Cells[i + 2, j + 1] = dgvCarteFree.Rows[i].Cells[j].Value.ToString();
+                                //if (j == 1)
+                                //{
+                                //    xcelApp.Cells[i + 2, j + 1] = DateTime.ParseExact(dgvCarteFree.Rows[i].Cells[j].Value.ToString(), "dd/MM/yyyy", null);
+                                //}
+                                //else
+                                //{
+                                //    xcelApp.Cells[i + 2, j + 1] = dgvCarteFree.Rows[i].Cells[j].Value.ToString();
+                                //}
+                            }
                                 else
                                 {
                                     xcelApp.Cells[i + 2, j + 1] = dgvCarteFree.Rows[i].Cells[j + 1].Value.ToString();
@@ -350,7 +359,8 @@ namespace ParcAuto.Forms
                         entite = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value)).Trim();
                         Fixe = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value) ; 
                         Autre = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
-                        date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value ?? "0001-01-01"));
+                        CultureInfo culture = new CultureInfo("en-GB");
+                        date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value ?? "0001-01-01"), culture);
                         objet = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value);
 
                         GLB.Cmd.Parameters.Clear();
@@ -377,6 +387,10 @@ namespace ParcAuto.Forms
                     MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 GLB.Cmd.Transaction.Rollback();
+            }
+            catch(FormatException)
+            {
+                MessageBox.Show("Le Format de la date est invalid (jj/mm/aaaa)","Message");
             }
             finally
             {
