@@ -45,7 +45,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvTransport.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr.IsDBNull(4) ? "" : ((DateTime)GLB.dr[4]).ToString("d/M/yyyy"), GLB.dr[5], GLB.dr[6], GLB.dr[7].ToString(), GLB.dr[8].ToString());
+                    dgvTransport.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr.IsDBNull(4) ? "" : ((DateTime)GLB.dr[4]).ToString("MM/dd/yyyy"), GLB.dr[5], GLB.dr[6], GLB.dr[7].ToString(), GLB.dr[8].ToString());
             }
             catch (Exception ex)
             {
@@ -161,8 +161,12 @@ namespace ParcAuto.Forms
                 Commandes.Command = Choix.ajouter;
                 maj.ShowDialog();
                 RemplirdgvTransport();
-                dgvTransport.Rows[dgvTransport.Rows.Count - 1].Selected = true;
-                dgvTransport.FirstDisplayedScrollingRowIndex = dgvTransport.Rows.Count - 1;
+                if (dgvTransport.Rows.Count > 0)
+                {
+                    dgvTransport.Rows[dgvTransport.Rows.Count - 1].Selected = true;
+                    dgvTransport.FirstDisplayedScrollingRowIndex = dgvTransport.Rows.Count - 1;
+                }
+                
                 Total();
             }
             catch (Exception ex)
@@ -177,6 +181,8 @@ namespace ParcAuto.Forms
 
             try
             {
+                if (dgvTransport.Rows.Count == 0)
+                    return;
                 int Lastindexscroll = dgvTransport.FirstDisplayedScrollingRowIndex;
                 int pos = dgvTransport.CurrentRow.Index;
                 GLB.id_Transport = Convert.ToInt32(dgvTransport.Rows[pos].Cells[0].Value);
@@ -184,7 +190,7 @@ namespace ParcAuto.Forms
                 (new MajTransport(dgvTransport.Rows[pos].Cells[1].Value.ToString(),
                     dgvTransport.Rows[pos].Cells[2].Value.ToString(),
                     dgvTransport.Rows[pos].Cells[3].Value.ToString(),
-                    DateTime.ParseExact(dgvTransport.Rows[pos].Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                    DateTime.ParseExact(dgvTransport.Rows[pos].Cells[4].Value.ToString(), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture),
                     dgvTransport.Rows[pos].Cells[5].Value.ToString(),
                     dgvTransport.Rows[pos].Cells[6].Value.ToString(),
                     dgvTransport.Rows[pos].Cells[7].Value.ToString(),
@@ -228,6 +234,8 @@ namespace ParcAuto.Forms
             
             try
             {
+                if (dgvTransport.Rows.Count == 0)
+                    return;
                 if (GLB.Con.State == ConnectionState.Open)
                     GLB.Con.Close();
                 GLB.Con.Open();
@@ -391,8 +399,7 @@ namespace ParcAuto.Forms
                     for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
                     {
                         currentIndex = excelWorksheetIndex;
-                        CultureInfo culture = new CultureInfo("en-GB");
-                        DateTime date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value ?? "0001-01-01"), culture);
+                        DateTime date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value ?? "0001-01-01"));
 
                         GLB.Cmd.Parameters.Clear();
                         GLB.Cmd.CommandText = "insert into Transport values(@txtentite, @txtBenificiaire, @txtNBon_Email,@DateMission, @txtDestination, @txtUtilisation, @txtPrix,@tagJawaz)";
@@ -422,6 +429,14 @@ namespace ParcAuto.Forms
                     MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 GLB.Cmd.Transaction.Rollback();
             }
+            catch (FormatException)
+            {
+                MessageBox.Show("Le Format de la date est invalid, Le format doit etre(MM/JJ/AAAA)", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             finally
             {
                 GLB.Con.Close();
@@ -442,6 +457,8 @@ namespace ParcAuto.Forms
         {
             try
             {
+                if (dgvTransport.Rows.Count == 0)
+                    return;
                 if (GLB.Con.State == ConnectionState.Open)
                     GLB.Con.Close();
                 GLB.Con.Open();

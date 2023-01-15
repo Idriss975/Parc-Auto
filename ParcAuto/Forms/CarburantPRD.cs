@@ -121,7 +121,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr.IsDBNull(4) ? "" : ((DateTime)GLB.dr[4]).ToString("d/M/yyyy"), GLB.dr[5], GLB.dr[6], GLB.dr[7], GLB.dr[8], GLB.dr[9].ToString(), GLB.dr[10].ToString(), GLB.dr[11].ToString(), GLB.dr[12].ToString(), GLB.dr[13], GLB.dr[14]);
+                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr.IsDBNull(4) ? "" : ((DateTime)GLB.dr[4]).ToString("MM/dd/yyyy"), GLB.dr[5], GLB.dr[6], GLB.dr[7], GLB.dr[8], GLB.dr[9].ToString(), GLB.dr[10].ToString(), GLB.dr[11].ToString(), GLB.dr[12].ToString(), GLB.dr[13], GLB.dr[14]);
 
                 GLB.dr.Close();
             }
@@ -236,7 +236,7 @@ namespace ParcAuto.Forms
                         dgvCarburant.Rows[pos].Cells[1].Value.ToString(),
                         dgvCarburant.Rows[pos].Cells[2].Value.ToString(),
                         dgvCarburant.Rows[pos].Cells[3].Value.ToString(),
-                        DateTime.ParseExact(dgvCarburant.Rows[pos].Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                        DateTime.ParseExact(dgvCarburant.Rows[pos].Cells[4].Value.ToString(), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture),
                         dgvCarburant.Rows[pos].Cells[5].Value.ToString(),
                         dgvCarburant.Rows[pos].Cells[6].Value.ToString(),
                         dgvCarburant.Rows[pos].Cells[7].Value.ToString(),
@@ -327,15 +327,7 @@ namespace ParcAuto.Forms
 
                             if (j < 13)
                             {
-                                //xcelApp.Cells[i + 2, j + 1] = dgvCarburant.Rows[i].Cells[j].Value.ToString().Trim();
-                                if (j == 4)
-                                {
-                                    xcelApp.Cells[i + 2, j + 1] = DateTime.ParseExact(dgvCarburant.Rows[i].Cells[j].Value.ToString(), "dd/MM/yyyy", null);
-                                }
-                                else
-                                {
-                                    xcelApp.Cells[i + 2, j + 1] = dgvCarburant.Rows[i].Cells[j].Value.ToString();
-                                }
+                                xcelApp.Cells[i + 2, j + 1] = dgvCarburant.Rows[i].Cells[j].Value.ToString();
                             }
                             else
                             {
@@ -393,8 +385,7 @@ namespace ParcAuto.Forms
                         benificiaire = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
                         vehicule = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
                         marque = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
-                        CultureInfo culture = new CultureInfo("en-GB");
-                        date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value ?? "0001-01-01"), culture);
+                        date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value ?? "0001-01-01"));
                         lieu = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
                         KM = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
                         Pourcentage = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value);
@@ -438,6 +429,14 @@ namespace ParcAuto.Forms
 
                 GLB.Cmd.Transaction.Rollback();
             }
+            catch (FormatException)
+            {
+                MessageBox.Show("Le Format de la date est invalid, Le format doit etre(MM/JJ/AAAA)", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             finally
             {
 
@@ -457,14 +456,18 @@ namespace ParcAuto.Forms
         {
             try
             {
-                GLB.Con.Open();
-                for (int i = 0; i < dgvCarburant.Rows.Count; i++)
+                if(dgvCarburant.Rows.Count > 0)
                 {
-                    GLB.Cmd.CommandText = $"delete from CarburantSNTLPRD where id = {dgvCarburant.Rows[i].Cells[13].Value}";
-                    GLB.Cmd.ExecuteNonQuery();
+                    GLB.Con.Open();
+                    for (int i = 0; i < dgvCarburant.Rows.Count; i++)
+                    {
+                        GLB.Cmd.CommandText = $"delete from CarburantSNTLPRD where id = {dgvCarburant.Rows[i].Cells[13].Value}";
+                        GLB.Cmd.ExecuteNonQuery();
+                    }
+                    RemplirLaGrille();
+                    Total();
                 }
-                RemplirLaGrille();
-                Total();
+                
             }
             catch (Exception ex)
             {

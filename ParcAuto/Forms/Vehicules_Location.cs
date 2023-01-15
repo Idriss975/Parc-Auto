@@ -32,9 +32,9 @@ namespace ParcAuto.Forms
                 while (GLB.dr.Read())
                 {
                     if (GLB.dr.IsDBNull(6))
-                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], ((DateTime)GLB.dr[2]).ToString("d/M/yyyy"), GLB.dr[3], DateTime.Now.Year - ((DateTime)GLB.dr[2]).Year, GLB.dr[4], GLB.dr[5], new CmbMatNom(null, "Sans conducteur"), GLB.dr[7], GLB.dr[8]);
+                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], ((DateTime)GLB.dr[2]).ToString("MM/dd/yyyy"), GLB.dr[3], DateTime.Now.Year - ((DateTime)GLB.dr[2]).Year, GLB.dr[4], GLB.dr[5], new CmbMatNom(null, "Sans conducteur"), GLB.dr[7], GLB.dr[8]);
                     else
-                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], ((DateTime)GLB.dr[2]).ToString("d/M/yyyy"), GLB.dr[3], DateTime.Now.Year - ((DateTime)GLB.dr[2]).Year, GLB.dr[4], GLB.dr[5], new CmbMatNom(Convert.ToInt32(GLB.dr[6]), $"{GLB.dr[9]} {GLB.dr[10]}"), GLB.dr[7], GLB.dr[8]);
+                        dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], ((DateTime)GLB.dr[2]).ToString("MM/dd/yyyy"), GLB.dr[3], DateTime.Now.Year - ((DateTime)GLB.dr[2]).Year, GLB.dr[4], GLB.dr[5], new CmbMatNom(Convert.ToInt32(GLB.dr[6]), $"{GLB.dr[9]} {GLB.dr[10]}"), GLB.dr[7], GLB.dr[8]);
                 }
             }
             catch (Exception ex) 
@@ -127,8 +127,12 @@ namespace ParcAuto.Forms
                 Commandes.Command = Choix.ajouter;
                 maj.ShowDialog();
                 RemplirLaGrille();
-                dgvVehicules.Rows[dgvVehicules.Rows.Count - 1].Selected = true;
-                dgvVehicules.FirstDisplayedScrollingRowIndex = dgvVehicules.Rows.Count - 1;
+                if(dgvVehicules.Rows.Count  > 0)
+                {
+                    dgvVehicules.Rows[dgvVehicules.Rows.Count - 1].Selected = true;
+                    dgvVehicules.FirstDisplayedScrollingRowIndex = dgvVehicules.Rows.Count - 1;
+                }
+                
 
             }
             catch (Exception ex)
@@ -150,7 +154,7 @@ namespace ParcAuto.Forms
                     Commandes.Command = Choix.modifier;
                     (new MajVehicules(
                       dgvVehicules.Rows[pos].Cells[0].Value.ToString(),
-                      DateTime.ParseExact(dgvVehicules.Rows[pos].Cells[2].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                      DateTime.ParseExact(dgvVehicules.Rows[pos].Cells[2].Value.ToString(), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture),
                       dgvVehicules.Rows[pos].Cells[3].Value.ToString(),
                       dgvVehicules.Rows[pos].Cells[5].Value.ToString(),
                       dgvVehicules.Rows[pos].Cells[6].Value.ToString(),
@@ -180,6 +184,8 @@ namespace ParcAuto.Forms
             string outp = "";
             try
             {
+                if (dgvVehicules.Rows.Count == 0)
+                    return;
                 outp = $"delete from Vehicules where Matricule = '{dgvVehicules.SelectedRows[0].Cells[1].Value}'";
 
                 for (int i = 1; i < dgvVehicules.SelectedRows.Count; i++)
@@ -276,17 +282,31 @@ namespace ParcAuto.Forms
 
         private void btnSuprimmerTout_Click(object sender, EventArgs e)
         {
-            string query1 = $"delete from Vehicules where Matricule = '{dgvVehicules.Rows[0].Cells[1].Value}'";
-            for (int i = 1; i < dgvVehicules.Rows.Count; i++)
-                query1 += $" or Matricule = '{dgvVehicules.Rows[i].Cells[1].Value}' ";
-            if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
-                GLB.Cmd.CommandText = query1;
-                GLB.Con.Open();
-                GLB.Cmd.ExecuteNonQuery();
-                GLB.Con.Close();
-                RemplirLaGrille();
+                if (dgvVehicules.Rows.Count == 0)
+                    return;
+                string query1 = $"delete from Vehicules where Matricule = '{dgvVehicules.Rows[0].Cells[1].Value}'";
+                for (int i = 1; i < dgvVehicules.Rows.Count; i++)
+                    query1 += $" or Matricule = '{dgvVehicules.Rows[i].Cells[1].Value}' ";
+                if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    GLB.Cmd.CommandText = query1;
+                    GLB.Con.Open();
+                    GLB.Cmd.ExecuteNonQuery();
+                    GLB.Con.Close();
+                    RemplirLaGrille();
+                }
             }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)

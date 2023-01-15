@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -107,7 +108,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvMaitenance.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr[4], GLB.dr[5], GLB.dr.IsDBNull(6) ? "" : ((DateTime)GLB.dr[6]).ToString("d/M/yyyy"), GLB.dr[7], GLB.dr[8], GLB.dr[9]);
+                    dgvMaitenance.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr[4], GLB.dr[5], GLB.dr.IsDBNull(6) ? "" : ((DateTime)GLB.dr[6]).ToString("MM/dd/yyyy"), GLB.dr[7], GLB.dr[8], GLB.dr[9]);
 
                 GLB.dr.Close();
             }
@@ -181,8 +182,8 @@ namespace ParcAuto.Forms
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            //if (dgvMaitenance.Rows.Count == 0)
-            //    return;
+            if (dgvMaitenance.Rows.Count == 0)
+                return;
             try
             {
                 int Lastscrollindex = dgvMaitenance.FirstDisplayedScrollingRowIndex;
@@ -195,7 +196,7 @@ namespace ParcAuto.Forms
                     dgvMaitenance.Rows[pos].Cells[3].Value.ToString(),
                     dgvMaitenance.Rows[pos].Cells[4].Value.ToString(),
                     dgvMaitenance.Rows[pos].Cells[5].Value.ToString(),
-                    DateTime.ParseExact(dgvMaitenance.Rows[pos].Cells[6].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                    DateTime.ParseExact(dgvMaitenance.Rows[pos].Cells[6].Value.ToString(), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture),
                     dgvMaitenance.Rows[pos].Cells[7].Value.ToString(),
                     dgvMaitenance.Rows[pos].Cells[8].Value.ToString())).ShowDialog();
                 RemplirLaGrille();
@@ -214,6 +215,8 @@ namespace ParcAuto.Forms
         {
             try
             {
+                if (dgvMaitenance.Rows.Count == 0)
+                    return;
                 if (GLB.Con.State == ConnectionState.Open)
                     GLB.Con.Close();
                 GLB.Con.Open();
@@ -242,6 +245,8 @@ namespace ParcAuto.Forms
         {
             try
             {
+                if (dgvMaitenance.Rows.Count == 0)
+                    return;
                 string query1 = $"delete from Maintenance where id = {dgvMaitenance.Rows[0].Cells[9].Value}";
                 for (int i = 1; i < dgvMaitenance.Rows.Count; i++)
                     query1 += $" or id = {dgvMaitenance.Rows[i].Cells[9].Value} ";
@@ -423,6 +428,14 @@ namespace ParcAuto.Forms
 
                 GLB.Cmd.Transaction.Rollback();
 
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Le Format de la date est invalid, Le format doit etre(MM/JJ/AAAA)", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

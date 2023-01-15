@@ -115,7 +115,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvconducteur.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], ((DateTime)GLB.dr[3]).ToString("d/M/yyyy"), ((DateTime)GLB.dr[4]).ToString("d/M/yyyy"), GLB.dr[5], GLB.dr[6],  GLB.dr[9], GLB.dr[7], GLB.dr[8]);//index 9 = Direction
+                    dgvconducteur.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], ((DateTime)GLB.dr[3]).ToString("MM/dd/yyyy"), ((DateTime)GLB.dr[4]).ToString("MM/dd/yyyy"), GLB.dr[5], GLB.dr[6],  GLB.dr[9], GLB.dr[7], GLB.dr[8]);//index 9 = Direction
                 
             }
             catch (Exception ex)
@@ -147,31 +147,35 @@ namespace ParcAuto.Forms
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-
+            
             try
             {
-                int Lastscrollindex = dgvconducteur.FirstDisplayedScrollingRowIndex;
-                int pos = dgvconducteur.CurrentRow.Index;
-                GLB.Matricule = Convert.ToInt32(dgvconducteur.Rows[pos].Cells[0].Value);
-                Commandes.Command = Choix.modifier;
-                (new MAJConducteur(dgvconducteur.Rows[pos].Cells[1].Value.ToString(),
-                    dgvconducteur.Rows[pos].Cells[2].Value.ToString(),
-                     DateTime.ParseExact(dgvconducteur.Rows[pos].Cells[3].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
-                      DateTime.ParseExact(dgvconducteur.Rows[pos].Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
-                       dgvconducteur.Rows[pos].Cells[5].Value.ToString(),
-                        dgvconducteur.Rows[pos].Cells[6].Value.ToString(),
-                         dgvconducteur.Rows[pos].Cells[7].Value.ToString(),
-                          dgvconducteur.Rows[pos].Cells[8].Value.ToString(),
-                           dgvconducteur.Rows[pos].Cells[9].Value.ToString())).ShowDialog();
-                RemplirLaGrille();
-                dgvconducteur.Rows[pos].Selected = true;
-                dgvconducteur.FirstDisplayedScrollingRowIndex = Lastscrollindex;
+                if(dgvconducteur.Rows.Count != 0)
+                {
+                    int Lastscrollindex = dgvconducteur.FirstDisplayedScrollingRowIndex;
+                    int pos = dgvconducteur.CurrentRow.Index;
+                    GLB.Matricule = Convert.ToInt32(dgvconducteur.Rows[pos].Cells[0].Value);
+                    Commandes.Command = Choix.modifier;
+                    (new MAJConducteur(dgvconducteur.Rows[pos].Cells[1].Value.ToString(),
+                        dgvconducteur.Rows[pos].Cells[2].Value.ToString(),
+                         DateTime.ParseExact(dgvconducteur.Rows[pos].Cells[3].Value.ToString(), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                          DateTime.ParseExact(dgvconducteur.Rows[pos].Cells[4].Value.ToString(), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                           dgvconducteur.Rows[pos].Cells[5].Value.ToString(),
+                            dgvconducteur.Rows[pos].Cells[6].Value.ToString(),
+                             dgvconducteur.Rows[pos].Cells[7].Value.ToString(),
+                              dgvconducteur.Rows[pos].Cells[8].Value.ToString(),
+                               dgvconducteur.Rows[pos].Cells[9].Value.ToString())).ShowDialog();
+                    RemplirLaGrille();
+                    dgvconducteur.Rows[pos].Selected = true;
+                    dgvconducteur.FirstDisplayedScrollingRowIndex = Lastscrollindex;
+                }
+             
             }
             catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -182,16 +186,19 @@ namespace ParcAuto.Forms
             
             try
             {
-                if (GLB.Con.State == ConnectionState.Open)
-                    GLB.Con.Close();
-                GLB.Con.Open();
-                for (int i = 0; i < dgvconducteur.SelectedRows.Count; i++)
+                if (dgvconducteur.Rows.Count != 0)
                 {
-                    GLB.Cmd.CommandText = $"delete from Conducteurs where Matricule = {dgvconducteur.SelectedRows[i].Cells[0].Value} ";
-                    GLB.Cmd.ExecuteNonQuery();
-                }
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
+                    GLB.Con.Open();
+                    for (int i = 0; i < dgvconducteur.SelectedRows.Count; i++)
+                    {
+                        GLB.Cmd.CommandText = $"delete from Conducteurs where Matricule = {dgvconducteur.SelectedRows[i].Cells[0].Value} ";
+                        GLB.Cmd.ExecuteNonQuery();
+                    }
 
-                RemplirLaGrille();
+                    RemplirLaGrille();
+                }
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -321,8 +328,13 @@ namespace ParcAuto.Forms
 
                 GLB.Cmd.Transaction.Rollback();
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             finally
             {
+               
                 GLB.Con.Close();
                 excelWorkbook.Close();
                 Marshal.ReleaseComObject(excelWorkbook);
@@ -330,24 +342,29 @@ namespace ParcAuto.Forms
                 Marshal.ReleaseComObject(importdatagridviewRange);
                 importExceldatagridViewApp.Quit();
             }
+            
         }
 
         private void btnSuprimmerTout_Click(object sender, EventArgs e)
         {
             try
             {
-                string query1 = $"delete from Conducteurs where Matricule = {dgvconducteur.Rows[0].Cells[0].Value}";
-                for (int i = 1; i < dgvconducteur.Rows.Count; i++)
-                    query1 += $" or Matricule = {dgvconducteur.Rows[i].Cells[0].Value} ";
-                if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if(dgvconducteur.Rows.Count != 0)
                 {
-                    GLB.Cmd.CommandText = query1;
-                    if (GLB.Con.State == ConnectionState.Open)
-                        GLB.Con.Close();
-                    GLB.Con.Open();
-                    GLB.Cmd.ExecuteNonQuery();
-                    RemplirLaGrille();
+                    string query1 = $"delete from Conducteurs where Matricule = {dgvconducteur.Rows[0].Cells[0].Value}";
+                    for (int i = 1; i < dgvconducteur.Rows.Count; i++)
+                        query1 += $" or Matricule = {dgvconducteur.Rows[i].Cells[0].Value} ";
+                    if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        GLB.Cmd.CommandText = query1;
+                        if (GLB.Con.State == ConnectionState.Open)
+                            GLB.Con.Close();
+                        GLB.Con.Open();
+                        GLB.Cmd.ExecuteNonQuery();
+                        RemplirLaGrille();
+                    }
                 }
+               
             }
             catch (Exception ex)
             {

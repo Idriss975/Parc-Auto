@@ -34,7 +34,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvCarteFree.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr.IsDBNull(5) ? " " : ((DateTime) GLB.dr[5]).ToString("d/M/yyyy"), GLB.dr[2].ToString(), GLB.dr[3].ToString(), GLB.dr[4]);
+                    dgvCarteFree.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr.IsDBNull(5) ? " " : ((DateTime) GLB.dr[5]).ToString("MM/dd/yyyy"), GLB.dr[2].ToString(), GLB.dr[3].ToString(), GLB.dr[4]);
 
                 GLB.dr.Close();
             }
@@ -146,6 +146,7 @@ namespace ParcAuto.Forms
         {
             try
             {
+
                 MajCarteFree maj = new MajCarteFree();
                 Commandes.Command = Choix.ajouter;
                 maj.ShowDialog();
@@ -177,7 +178,7 @@ namespace ParcAuto.Forms
                     GLB.id_CarteFree = Convert.ToInt32(dgvCarteFree.Rows[pos].Cells[0].Value);
                     Commandes.Command = Choix.modifier;
                     (new MajCarteFree(dgvCarteFree.Rows[pos].Cells[1].Value.ToString(),
-                         DateTime.ParseExact(dgvCarteFree.Rows[pos].Cells[2].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                         DateTime.ParseExact(dgvCarteFree.Rows[pos].Cells[2].Value.ToString(), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture),
                         dgvCarteFree.Rows[pos].Cells[3].Value.ToString(),
                         dgvCarteFree.Rows[pos].Cells[4].Value.ToString(),
                         dgvCarteFree.Rows[pos].Cells[5].Value.ToString())).ShowDialog();
@@ -203,16 +204,20 @@ namespace ParcAuto.Forms
             
             try
             {
-                if (GLB.Con.State == ConnectionState.Open)
-                    GLB.Con.Close();
-                GLB.Con.Open();
-                for (int i = 0; i < dgvCarteFree.SelectedRows.Count; i++)
+                if(dgvCarteFree.Rows.Count > 0)
                 {
-                    GLB.Cmd.CommandText = $"delete from CarteFree where id = {dgvCarteFree.SelectedRows[i].Cells[0].Value} ";
-                    GLB.Cmd.ExecuteNonQuery();
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
+                    GLB.Con.Open();
+                    for (int i = 0; i < dgvCarteFree.SelectedRows.Count; i++)
+                    {
+                        GLB.Cmd.CommandText = $"delete from CarteFree where id = {dgvCarteFree.SelectedRows[i].Cells[0].Value} ";
+                        GLB.Cmd.ExecuteNonQuery();
+                    }
+                    RemplirLaGrille();
+                    Total();
                 }
-                RemplirLaGrille();
-                Total();
+                
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -233,16 +238,20 @@ namespace ParcAuto.Forms
         {
             try
             {
-                if (GLB.Con.State == ConnectionState.Open)
-                    GLB.Con.Close();
-                GLB.Con.Open();
-                for (int i = 0; i < dgvCarteFree.Rows.Count; i++)
+                if(dgvCarteFree.Rows.Count > 0)
                 {
-                    GLB.Cmd.CommandText = $"delete from CarteFree where id = '{dgvCarteFree.Rows[i].Cells[0].Value}'";
-                    GLB.Cmd.ExecuteNonQuery();
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
+                    GLB.Con.Open();
+                    for (int i = 0; i < dgvCarteFree.Rows.Count; i++)
+                    {
+                        GLB.Cmd.CommandText = $"delete from CarteFree where id = '{dgvCarteFree.Rows[i].Cells[0].Value}'";
+                        GLB.Cmd.ExecuteNonQuery();
+                    }
+                    RemplirLaGrille();
+                    Total();
                 }
-                RemplirLaGrille();
-                Total();
+               
             }
             catch (Exception ex)
             {
@@ -296,15 +305,7 @@ namespace ParcAuto.Forms
                                 if (j < 0)
                                 {
                                 xcelApp.Cells[i + 2, j + 1] = dgvCarteFree.Rows[i].Cells[j].Value.ToString();
-                                //if (j == 1)
-                                //{
-                                //    xcelApp.Cells[i + 2, j + 1] = DateTime.ParseExact(dgvCarteFree.Rows[i].Cells[j].Value.ToString(), "dd/MM/yyyy", null);
-                                //}
-                                //else
-                                //{
-                                //    xcelApp.Cells[i + 2, j + 1] = dgvCarteFree.Rows[i].Cells[j].Value.ToString();
-                                //}
-                            }
+                                }
                                 else
                                 {
                                     xcelApp.Cells[i + 2, j + 1] = dgvCarteFree.Rows[i].Cells[j + 1].Value.ToString();
@@ -359,8 +360,7 @@ namespace ParcAuto.Forms
                         entite = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value)).Trim();
                         Fixe = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value) ; 
                         Autre = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
-                        CultureInfo culture = new CultureInfo("en-GB");
-                        date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value ?? "0001-01-01"), culture);
+                        date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value ?? "0001-01-01"));
                         objet = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value);
 
                         GLB.Cmd.Parameters.Clear();
@@ -390,7 +390,11 @@ namespace ParcAuto.Forms
             }
             catch(FormatException)
             {
-                MessageBox.Show("Le Format de la date est invalid (jj/mm/aaaa)","Message");
+                MessageBox.Show("Le Format de la date est invalid, Le format doit etre(MM/JJ/AAAA)","Message",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

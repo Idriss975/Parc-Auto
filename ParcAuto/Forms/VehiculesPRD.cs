@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace ParcAuto.Forms
 {
@@ -21,7 +22,7 @@ namespace ParcAuto.Forms
         {
             InitializeComponent();
         }
-        private void RemplirLaGrille() //Todo: Fix error out of bound. 
+        private void RemplirLaGrille() 
         {
             dgvVehicules.Rows.Clear();
             try
@@ -32,9 +33,9 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr.IsDBNull(2) ? "" : ((DateTime)GLB.dr[2]).ToString("d/M/yyyy") , Math.Floor((DateTime.Now - (GLB.dr.IsDBNull(2) ? DateTime.Now : (DateTime)GLB.dr[2])).TotalDays/365.2425), GLB.dr[3], GLB.dr[4], GLB.dr[5], GLB.dr[6], GLB.dr[7]);
+                    dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr.IsDBNull(2) ? "" : ((DateTime)GLB.dr[2]).ToString("MM/dd/yyyy") , Math.Floor((DateTime.Now - (GLB.dr.IsDBNull(2) ? DateTime.Now : (DateTime)GLB.dr[2])).TotalDays/365.2425), GLB.dr[3], GLB.dr[4], GLB.dr[5], GLB.dr[6], GLB.dr[7]);
             }
-            catch (Exception ex) //TODO: Implement Sql Exemption error (idriss)
+            catch (Exception ex) 
             {
                 MessageBox.Show("Impossible de charger la grille:\n"+ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -154,7 +155,8 @@ namespace ParcAuto.Forms
             string outp = "";
             try
             {
-
+                if (dgvVehicules.Rows.Count == 0)
+                    return;
                 outp = $"delete from VehiculesPRD where Matricule = '{dgvVehicules.SelectedRows[0].Cells[1].Value}'";
 
                 for (int i = 1; i < dgvVehicules.SelectedRows.Count; i++)
@@ -193,7 +195,7 @@ namespace ParcAuto.Forms
 
                     (new MajVehicules(
                         dgvVehicules.Rows[pos].Cells[0].Value.ToString(),
-                        DateTime.ParseExact(dgvVehicules.Rows[pos].Cells[2].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                        DateTime.ParseExact(dgvVehicules.Rows[pos].Cells[2].Value.ToString(), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture),
                         "",
                         dgvVehicules.Rows[pos].Cells[4].Value.ToString(),
                         dgvVehicules.Rows[pos].Cells[5].Value.ToString(),
@@ -240,7 +242,8 @@ namespace ParcAuto.Forms
             string outp = "";
             try
             {
-
+                if (dgvVehicules.Rows.Count == 0)
+                    return;
                 outp = $"delete from VehiculesPRD where Matricule = '{dgvVehicules.Rows[0].Cells[1].Value}'";
 
                 for (int i = 1; i < dgvVehicules.Rows.Count; i++)
@@ -310,7 +313,7 @@ namespace ParcAuto.Forms
                     {
                         marque = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
                         matricule = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
-                        Misencirculation = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value ?? "0001-01-01")) ;
+                        Misencirculation = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value ?? "0001-01-01"));
                         carburant = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value);
                         affectation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
                         conducteur = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);

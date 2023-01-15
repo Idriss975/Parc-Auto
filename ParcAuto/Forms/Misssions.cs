@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -97,7 +98,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvMissions.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr.IsDBNull(4) ? "" : ((DateTime)GLB.dr[4]).ToString("d/M/yyyy"), GLB.dr[5], GLB.dr[6], GLB.dr[7].ToString(), GLB.dr[8], GLB.dr[9].ToString());
+                    dgvMissions.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr.IsDBNull(4) ? "" : ((DateTime)GLB.dr[4]).ToString("MM/dd/yyyy"), GLB.dr[5], GLB.dr[6], GLB.dr[7].ToString(), GLB.dr[8], GLB.dr[9].ToString());
 
                 GLB.dr.Close();
             }
@@ -175,25 +176,29 @@ namespace ParcAuto.Forms
         {
             try
             {
-                int Lastscrollindex = dgvMissions.FirstDisplayedScrollingRowIndex;
-                int pos = dgvMissions.CurrentRow.Index;
-                GLB.id_Mission = Convert.ToInt32(dgvMissions.Rows[pos].Cells[9].Value);
-                Commandes.Command = Choix.modifier;
-                (new MajMissions(dgvMissions.Rows[pos].Cells[0].Value.ToString(),
-                    dgvMissions.Rows[pos].Cells[1].Value.ToString(),
-                    dgvMissions.Rows[pos].Cells[2].Value.ToString(),
-                    dgvMissions.Rows[pos].Cells[3].Value.ToString(),
-                    DateTime.ParseExact(dgvMissions.Rows[pos].Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
-                    dgvMissions.Rows[pos].Cells[5].Value.ToString(),
-                    dgvMissions.Rows[pos].Cells[6].Value.ToString(),
-                    dgvMissions.Rows[pos].Cells[7].Value.ToString(),
-                    dgvMissions.Rows[pos].Cells[8].Value.ToString())).ShowDialog();
-                //.Substring(0, (dgvCarburant.Rows[pos].Cells[8].Value.ToString().Length != 0 ? dgvCarburant.Rows[pos].Cells[8].Value.ToString().Length - 3 : 0)),
+                if(dgvMissions.Rows.Count > 0)
+                {
+                    int Lastscrollindex = dgvMissions.FirstDisplayedScrollingRowIndex;
+                    int pos = dgvMissions.CurrentRow.Index;
+                    GLB.id_Mission = Convert.ToInt32(dgvMissions.Rows[pos].Cells[9].Value);
+                    Commandes.Command = Choix.modifier;
+                    (new MajMissions(dgvMissions.Rows[pos].Cells[0].Value.ToString(),
+                        dgvMissions.Rows[pos].Cells[1].Value.ToString(),
+                        dgvMissions.Rows[pos].Cells[2].Value.ToString(),
+                        dgvMissions.Rows[pos].Cells[3].Value.ToString(),
+                        DateTime.ParseExact(dgvMissions.Rows[pos].Cells[4].Value.ToString(), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                        dgvMissions.Rows[pos].Cells[5].Value.ToString(),
+                        dgvMissions.Rows[pos].Cells[6].Value.ToString(),
+                        dgvMissions.Rows[pos].Cells[7].Value.ToString(),
+                        dgvMissions.Rows[pos].Cells[8].Value.ToString())).ShowDialog();
+                    //.Substring(0, (dgvCarburant.Rows[pos].Cells[8].Value.ToString().Length != 0 ? dgvCarburant.Rows[pos].Cells[8].Value.ToString().Length - 3 : 0)),
 
-                RemplirLaGrille();
-                RemplirLaGrille2();
-                dgvMissions.Rows[pos].Selected = true;
-                dgvMissions.FirstDisplayedScrollingRowIndex = Lastscrollindex;
+                    RemplirLaGrille();
+                    RemplirLaGrille2();
+                    dgvMissions.Rows[pos].Selected = true;
+                    dgvMissions.FirstDisplayedScrollingRowIndex = Lastscrollindex;
+                }
+          
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -205,16 +210,20 @@ namespace ParcAuto.Forms
         {
             try
             {
-                if (GLB.Con.State == ConnectionState.Open)
-                    GLB.Con.Close();
-                GLB.Con.Open();
-                for (int i = 0; i < dgvMissions.SelectedRows.Count; i++)
+                if(dgvMissions.Rows.Count > 0)
                 {
-                    GLB.Cmd.CommandText = $"delete from Missions where id = {dgvMissions.SelectedRows[i].Cells[9].Value} ";
-                    GLB.Cmd.ExecuteNonQuery();
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
+                    GLB.Con.Open();
+                    for (int i = 0; i < dgvMissions.SelectedRows.Count; i++)
+                    {
+                        GLB.Cmd.CommandText = $"delete from Missions where id = {dgvMissions.SelectedRows[i].Cells[9].Value} ";
+                        GLB.Cmd.ExecuteNonQuery();
+                    }
+                    RemplirLaGrille();
+                    RemplirLaGrille2();
                 }
-                RemplirLaGrille();
-                RemplirLaGrille2();
+               
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -230,19 +239,23 @@ namespace ParcAuto.Forms
         {
             try
             {
-                string query1 = $"delete from Missions where id = {dgvMissions.Rows[0].Cells["id"].Value}";
-                for (int i = 1; i < dgvMissions.Rows.Count; i++)
-                    query1 += $" or id = {dgvMissions.Rows[i].Cells["id"].Value}";
-                if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if(dgvMissions.Rows.Count > 0)
                 {
-                    GLB.Cmd.CommandText = query1;
-                    if (GLB.Con.State == ConnectionState.Open)
-                        GLB.Con.Close();
-                    GLB.Con.Open();
-                    GLB.Cmd.ExecuteNonQuery();
-                    RemplirLaGrille();
-                    RemplirLaGrille2();
+                    string query1 = $"delete from Missions where id = {dgvMissions.Rows[0].Cells["id"].Value}";
+                    for (int i = 1; i < dgvMissions.Rows.Count; i++)
+                        query1 += $" or id = {dgvMissions.Rows[i].Cells["id"].Value}";
+                    if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        GLB.Cmd.CommandText = query1;
+                        if (GLB.Con.State == ConnectionState.Open)
+                            GLB.Con.Close();
+                        GLB.Con.Open();
+                        GLB.Cmd.ExecuteNonQuery();
+                        RemplirLaGrille();
+                        RemplirLaGrille2();
+                    }
                 }
+               
                 
             }
             catch (Exception ex)
@@ -432,6 +445,14 @@ namespace ParcAuto.Forms
 
                 GLB.Cmd.Transaction.Rollback();
 
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Le Format de la date est invalid, Le format doit etre(MM/JJ/AAAA)", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

@@ -190,10 +190,10 @@ namespace ParcAuto.Forms
         {
             txtentite.Text = entite;
             txtBenificiaire.Text = benificiaire;
-            txtMatricule.Text = vehicule;
+            txtMatricule.Text = MatriculeV;
             Date.Value = date;
             txtObjet.Text = objet;
-            cmbVehicule.Text = MatriculeV;
+            cmbVehicule.Text = vehicule;
             if(entretien != "")
             {
                 rbEntretien.Checked = true;

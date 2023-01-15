@@ -12,6 +12,7 @@ using System.Text.RegularExpressions; // import Regex()
 using Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace ParcAuto.Forms
 {
@@ -32,7 +33,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], ((DateTime)GLB.dr[2]).ToString("d/M/yyyy"), GLB.dr[3], DateTime.Now.Year - ((DateTime)GLB.dr[2]).Year  ,GLB.dr[4], GLB.dr[5], GLB.dr.IsDBNull(6)? new CmbMatNom(null, "Sans conducteur"): new CmbMatNom(Convert.ToInt32(GLB.dr[6]), $"{GLB.dr[9]} {GLB.dr[10]}"), GLB.dr[7], GLB.dr[8]);
+                    dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], ((DateTime)GLB.dr[2]).ToString("MM/dd/yyyy"), GLB.dr[3], DateTime.Now.Year - ((DateTime)GLB.dr[2]).Year  ,GLB.dr[4], GLB.dr[5], GLB.dr.IsDBNull(6)? new CmbMatNom(null, "Sans conducteur"): new CmbMatNom(Convert.ToInt32(GLB.dr[6]), $"{GLB.dr[9]} {GLB.dr[10]}"), GLB.dr[7], GLB.dr[8]);
             }
             catch (Exception ex) 
             {
@@ -126,8 +127,12 @@ namespace ParcAuto.Forms
                 Commandes.Command = Choix.ajouter;
                 maj.ShowDialog();
                 RemplirLaGrille();
-                dgvVehicules.Rows[dgvVehicules.Rows.Count - 1].Selected = true;
-                dgvVehicules.FirstDisplayedScrollingRowIndex = dgvVehicules.Rows.Count - 1;
+                if(dgvVehicules.Rows.Count > 0)
+                {
+                    dgvVehicules.Rows[dgvVehicules.Rows.Count - 1].Selected = true;
+                    dgvVehicules.FirstDisplayedScrollingRowIndex = dgvVehicules.Rows.Count - 1;
+                }
+               
             }
             catch (Exception ex)
             {
@@ -149,7 +154,7 @@ namespace ParcAuto.Forms
                     Commandes.Command = Choix.modifier;
                     (new MajVehicules(
                        dgvVehicules.Rows[pos].Cells[0].Value.ToString(),
-                       DateTime.ParseExact(dgvVehicules.Rows[pos].Cells[2].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                       DateTime.ParseExact(dgvVehicules.Rows[pos].Cells[2].Value.ToString(), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture),
                        dgvVehicules.Rows[pos].Cells[3].Value.ToString(),
                        dgvVehicules.Rows[pos].Cells[5].Value.ToString(),
                        dgvVehicules.Rows[pos].Cells[6].Value.ToString(),
@@ -181,7 +186,8 @@ namespace ParcAuto.Forms
             string outp = "";
             try
             {
-                
+                if (dgvVehicules.Rows.Count == 0)
+                    return;
                 outp = $"delete from Vehicules where Matricule = '{dgvVehicules.SelectedRows[0].Cells[1].Value}'";
 
                 for (int i = 1; i < dgvVehicules.SelectedRows.Count; i++)
@@ -293,6 +299,8 @@ namespace ParcAuto.Forms
         {
             try
             {
+                if (dgvVehicules.Rows.Count == 0)
+                    return;
                 string query1 = $"delete from Vehicules where Matricule = '{dgvVehicules.Rows[0].Cells[1].Value}'";
                 for (int i = 1; i < dgvVehicules.Rows.Count; i++)
                     query1 += $" or Matricule = '{dgvVehicules.Rows[i].Cells[1].Value}' ";
@@ -359,7 +367,7 @@ namespace ParcAuto.Forms
                         currentIndex = excelWorksheetIndex;
                         marque = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
                         matricule = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
-                        Misencirculation = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value));
+                        Misencirculation = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value ?? "0001-01-01"));
                         type = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
                         carburant = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
                         affectation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
@@ -396,6 +404,14 @@ namespace ParcAuto.Forms
                 else
                     MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 GLB.Cmd.Transaction.Rollback();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Le Format de la date est invalid, Le format doit etre(MM/JJ/AAAA)", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

@@ -32,7 +32,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvReparation.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr[4], GLB.dr.IsDBNull(5) ? "" : ((DateTime)GLB.dr[5]).ToString("d/M/yyyy"), GLB.dr[6], GLB.dr[7].ToString(), GLB.dr[8].ToString());
+                    dgvReparation.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr[4], GLB.dr.IsDBNull(5) ? "" : ((DateTime)GLB.dr[5]).ToString("MM/dd/yyyy"), GLB.dr[6], GLB.dr[7].ToString(), GLB.dr[8].ToString());
             }
             catch (Exception ex)
             {
@@ -147,9 +147,13 @@ namespace ParcAuto.Forms
                 Commandes.MAJRep = TypeRep.ReparationSNTL;
                 rep.ShowDialog();
                 datagridviewLoad();
-                dgvReparation.Rows[dgvReparation.Rows.Count - 1].Selected = true;
-                dgvReparation.FirstDisplayedScrollingRowIndex = dgvReparation.Rows.Count - 1;
-                dgvReparation.Rows[0].Selected = false;
+                if(dgvReparation.Rows.Count > 0)
+                {
+                    dgvReparation.Rows[dgvReparation.Rows.Count - 1].Selected = true;
+                    dgvReparation.FirstDisplayedScrollingRowIndex = dgvReparation.Rows.Count - 1;
+                    dgvReparation.Rows[0].Selected = false;
+                }
+               
                 Total();
             }
             catch (Exception ex)
@@ -162,6 +166,8 @@ namespace ParcAuto.Forms
         {
             try
             {
+                if (dgvReparation.Rows.Count == 0)
+                    return;
                 int Lastindexscroll = dgvReparation.FirstDisplayedScrollingRowIndex;
                 int pos = dgvReparation.CurrentRow.Index;
                 GLB.id_Reparation = Convert.ToInt32(dgvReparation.Rows[pos].Cells[0].Value);
@@ -171,7 +177,7 @@ namespace ParcAuto.Forms
                      dgvReparation.Rows[pos].Cells[2].Value.ToString(),
                      dgvReparation.Rows[pos].Cells[3].Value.ToString(),
                       dgvReparation.Rows[pos].Cells[4].Value.ToString(),
-                       DateTime.ParseExact(dgvReparation.Rows[pos].Cells[5].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                       DateTime.ParseExact(dgvReparation.Rows[pos].Cells[5].Value.ToString(), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture),
                        dgvReparation.Rows[pos].Cells[6].Value.ToString(),
                        dgvReparation.Rows[pos].Cells[7].Value.ToString(), dgvReparation.Rows[pos].Cells[8].Value.ToString())).ShowDialog();
                 datagridviewLoad();
@@ -195,6 +201,8 @@ namespace ParcAuto.Forms
             string outp = "";
             try
             {
+                if (dgvReparation.Rows.Count == 0)
+                    return;
                 outp = $"delete from ReparationPRDSNTL where id = {dgvReparation.SelectedRows[0].Cells[0].Value} ";
 
                 for (int i = 1; i < dgvReparation.SelectedRows.Count; i++)
@@ -290,7 +298,6 @@ namespace ParcAuto.Forms
         {
             
             string entite, Benificiaire, Vehicules, objet, entretien, reparation, Matricule;
-            //string lignesExcel = "Les Lignes Suivants Sont duplique sur le fichier excel : ";
             DateTime date;
             if (GLB.Con.State == ConnectionState.Open)
                 GLB.Con.Close();
@@ -316,8 +323,7 @@ namespace ParcAuto.Forms
                         Benificiaire = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
                         Vehicules = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
                         Matricule = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
-                        CultureInfo culture = new CultureInfo("en-GB");
-                        date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value ?? "0001-01-01"), culture);
+                        date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value ?? "0001-01-01"));
                         objet = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
                         entretien = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
                         reparation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value);
@@ -363,6 +369,8 @@ namespace ParcAuto.Forms
         {
             try
             {
+                if (dgvReparation.Rows.Count == 0)
+                    return;
                 string query1 = $"delete from ReparationPRDSNTL where id = '{dgvReparation.Rows[0].Cells[0].Value}'";
                 for (int i = 1; i < dgvReparation.Rows.Count; i++)
                     query1 += $" or id = '{dgvReparation.Rows[i].Cells[0].Value}' ";

@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -95,7 +96,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvCourrier.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr.IsDBNull(2) ? "" : ((DateTime)GLB.dr[2]).ToString("d/M/yyyy"), GLB.dr[3], GLB.dr[4], GLB.dr[5], GLB.dr[6], GLB.dr[7].ToString(), GLB.dr[8], GLB.dr.IsDBNull(9) ? "" : ((DateTime)GLB.dr[9]).ToString("d/M/yyyy"), GLB.dr[10].ToString(),GLB.dr[11].ToString());
+                    dgvCourrier.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr.IsDBNull(2) ? "" : ((DateTime)GLB.dr[2]).ToString("MM/dd/yyyy"), GLB.dr[3], GLB.dr[4], GLB.dr[5], GLB.dr[6], GLB.dr[7].ToString(), GLB.dr[8], GLB.dr.IsDBNull(9) ? "" : ((DateTime)GLB.dr[9]).ToString("MM/dd/yyyy"), GLB.dr[10].ToString(),GLB.dr[11].ToString());
 
                 GLB.dr.Close();
             }
@@ -155,20 +156,22 @@ namespace ParcAuto.Forms
         {
             try
             {
+                if (dgvCourrier.Rows.Count == 0)
+                    return;
                 int Lastscrollindex = dgvCourrier.FirstDisplayedScrollingRowIndex;
                 int pos = dgvCourrier.CurrentRow.Index;
                 GLB.id_Courrier = Convert.ToInt32(dgvCourrier.Rows[pos].Cells[11].Value);
                 Commandes.Command = Choix.modifier;
                 (new MajSuivi(dgvCourrier.Rows[pos].Cells[0].Value.ToString(),
                     dgvCourrier.Rows[pos].Cells[1].Value.ToString(),
-                    DateTime.ParseExact(dgvCourrier.Rows[pos].Cells[2].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                    DateTime.ParseExact(dgvCourrier.Rows[pos].Cells[2].Value.ToString(), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture),
                     dgvCourrier.Rows[pos].Cells[3].Value.ToString(),
                     dgvCourrier.Rows[pos].Cells[4].Value.ToString(),
                     dgvCourrier.Rows[pos].Cells[5].Value.ToString(),
                     dgvCourrier.Rows[pos].Cells[6].Value.ToString(),
                     dgvCourrier.Rows[pos].Cells[7].Value.ToString(),
                     dgvCourrier.Rows[pos].Cells[8].Value.ToString(),
-                    DateTime.ParseExact(dgvCourrier.Rows[pos].Cells[9].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                    DateTime.ParseExact(dgvCourrier.Rows[pos].Cells[9].Value.ToString(), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture),
                     dgvCourrier.Rows[pos].Cells[10].Value.ToString())).ShowDialog();
 
                 RemplirLaGrille();
@@ -186,6 +189,8 @@ namespace ParcAuto.Forms
         {
             try
             {
+                if (dgvCourrier.Rows.Count == 0)
+                    return;
                 if (GLB.Con.State == ConnectionState.Open)
                     GLB.Con.Close();
                 GLB.Con.Open();
@@ -211,19 +216,18 @@ namespace ParcAuto.Forms
         {
             try
             {
-                string query1 = $"delete from SuiviDesEnvois where id = {dgvCourrier.Rows[0].Cells[11].Value}";
-                for (int i = 1; i < dgvCourrier.Rows.Count; i++)
-                    query1 += $" or id = {dgvCourrier.Rows[i].Cells[11].Value} ";
-                if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (dgvCourrier.Rows.Count == 0)
+                    return;
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
+                GLB.Con.Open();
+                for (int i = 0; i < dgvCourrier.Rows.Count ; i++)
                 {
-                    GLB.Cmd.CommandText = query1;
-                    if (GLB.Con.State == ConnectionState.Open)
-                        GLB.Con.Close();
-                    GLB.Con.Open();
+                    GLB.Cmd.CommandText = $"delete from SuiviDesEnvois where id = {dgvCourrier.Rows[i].Cells[11].Value} ";
                     GLB.Cmd.ExecuteNonQuery();
-                    RemplirLaGrille();
-                    Total();
                 }
+                RemplirLaGrille();
+                Total();
             }
             catch (Exception ex)
             {
@@ -400,6 +404,14 @@ namespace ParcAuto.Forms
 
                 GLB.Cmd.Transaction.Rollback();
 
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Le Format de la date est invalid, Le format doit etre(MM/JJ/AAAA)", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

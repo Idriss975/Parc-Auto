@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -95,7 +96,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvCourrierSimple.Rows.Add(GLB.dr[0],GLB.dr.IsDBNull(1) ? "" : ((DateTime)GLB.dr[1]).ToString("d/M/yyyy"), GLB.dr[2], GLB.dr[3], GLB.dr[4], GLB.dr[5].ToString(), GLB.dr.IsDBNull(6) ? "" : ((DateTime)GLB.dr[6]).ToString("d/M/yyyy"), GLB.dr[7],GLB.dr[8]);
+                    dgvCourrierSimple.Rows.Add(GLB.dr[0],GLB.dr.IsDBNull(1) ? "" : ((DateTime)GLB.dr[1]).ToString("MM/dd/yyyy"), GLB.dr[2], GLB.dr[3], GLB.dr[4], GLB.dr[5].ToString(), GLB.dr.IsDBNull(6) ? "" : ((DateTime)GLB.dr[6]).ToString("MM/dd/yyyy"), GLB.dr[7],GLB.dr[8]);
 
                 GLB.dr.Close();
             }
@@ -151,12 +152,12 @@ namespace ParcAuto.Forms
                 GLB.id_Courrier_Simple = Convert.ToInt32(dgvCourrierSimple.Rows[pos].Cells["Column9"].Value);
                 Commandes.Command = Choix.modifier;
                 (new MajSimpleCourries(dgvCourrierSimple.Rows[pos].Cells["Column1"].Value.ToString(),
-                    DateTime.ParseExact(dgvCourrierSimple.Rows[pos].Cells["Column2"].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                    DateTime.ParseExact(dgvCourrierSimple.Rows[pos].Cells["Column2"].Value.ToString(), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture),
                     dgvCourrierSimple.Rows[pos].Cells["Column3"].Value.ToString(),
                     dgvCourrierSimple.Rows[pos].Cells["Column4"].Value.ToString(),
                     dgvCourrierSimple.Rows[pos].Cells["Column5"].Value.ToString(),
                     dgvCourrierSimple.Rows[pos].Cells["Column6"].Value.ToString(),
-                    DateTime.ParseExact(dgvCourrierSimple.Rows[pos].Cells["Column7"].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                    DateTime.ParseExact(dgvCourrierSimple.Rows[pos].Cells["Column7"].Value.ToString(), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture),
                     dgvCourrierSimple.Rows[pos].Cells["Column8"].Value.ToString())).ShowDialog();
 
                 RemplirLaGrille();
@@ -174,16 +175,20 @@ namespace ParcAuto.Forms
         {
             try
             {
-                if (GLB.Con.State == ConnectionState.Open)
-                    GLB.Con.Close();
-                GLB.Con.Open();
-                for (int i = 0; i < dgvCourrierSimple.SelectedRows.Count; i++)
+                if (dgvCourrierSimple.Rows.Count > 0)
                 {
-                    GLB.Cmd.CommandText = $"delete from EnvoisSimple where id = {dgvCourrierSimple.SelectedRows[i].Cells["Column9"].Value} ";
-                    GLB.Cmd.ExecuteNonQuery();
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
+                    GLB.Con.Open();
+                    for (int i = 0; i < dgvCourrierSimple.SelectedRows.Count; i++)
+                    {
+                        GLB.Cmd.CommandText = $"delete from EnvoisSimple where id = {dgvCourrierSimple.SelectedRows[i].Cells["Column9"].Value} ";
+                        GLB.Cmd.ExecuteNonQuery();
+                    }
+                    RemplirLaGrille();
+                    Total();
                 }
-                RemplirLaGrille();
-                Total();
+                
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -199,19 +204,23 @@ namespace ParcAuto.Forms
         {
             try
             {
-                string query1 = $"delete from EnvoisSimple where id = {dgvCourrierSimple.Rows[0].Cells["Column9"].Value}";
-                for (int i = 1; i < dgvCourrierSimple.Rows.Count; i++)
-                    query1 += $" or id = {dgvCourrierSimple.Rows[i].Cells["Column9"].Value} ";
-                if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (dgvCourrierSimple.Rows.Count > 0)
                 {
-                    GLB.Cmd.CommandText = query1;
-                    if (GLB.Con.State == ConnectionState.Open)
-                        GLB.Con.Close();
-                    GLB.Con.Open();
-                    GLB.Cmd.ExecuteNonQuery();
-                    RemplirLaGrille();
-                    Total();
+                    string query1 = $"delete from EnvoisSimple where id = {dgvCourrierSimple.Rows[0].Cells["Column9"].Value}";
+                    for (int i = 1; i < dgvCourrierSimple.Rows.Count; i++)
+                        query1 += $" or id = {dgvCourrierSimple.Rows[i].Cells["Column9"].Value} ";
+                    if (MessageBox.Show("Etes-vous sur vous voulez vider la table ?", "Attention !", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        GLB.Cmd.CommandText = query1;
+                        if (GLB.Con.State == ConnectionState.Open)
+                            GLB.Con.Close();
+                        GLB.Con.Open();
+                        GLB.Cmd.ExecuteNonQuery();
+                        RemplirLaGrille();
+                        Total();
+                    }
                 }
+                
             }
             catch (Exception ex)
             {
@@ -270,6 +279,7 @@ namespace ParcAuto.Forms
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             RemplirLaGrille();
+            Total();
         }
 
         private void btnQuitter_Click(object sender, EventArgs e)
@@ -404,6 +414,14 @@ namespace ParcAuto.Forms
              
                     MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Le Format de la date est invalid, Le format doit etre(MM/JJ/AAAA)", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
