@@ -290,7 +290,7 @@ namespace ParcAuto.Forms
         Workbook excelWorkbook;
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
-            string marque, matricule, type, carburant, affectation, conducteur, Dnomination, observation, age;
+            string marque, matricule,  carburant, affectation, conducteur, Dnomination, observation, age;
             DateTime Misencirculation;
             if (GLB.Con.State == ConnectionState.Open)
                 GLB.Con.Close();

@@ -114,7 +114,7 @@ namespace ParcAuto.Classes_Globale
         {
             try
             {
-                CultureInfo culture = new CultureInfo("en-GB");
+                CultureInfo culture = new CultureInfo("en-us");
                 DateTime date1 = DateTime.Parse(Date1.Value.Date.ToShortDateString(), culture);
                 DateTime date2 = DateTime.Parse(Date2.Value.Date.ToShortDateString(), culture);
                 int index = -1;
@@ -138,14 +138,12 @@ namespace ParcAuto.Classes_Globale
                 }
                 else
                 {
-                    //(Convert.ToDateTime(DGV.Rows[i].Cells[index].Value)).Date
                     for (int i = DGV.Rows.Count - 1; i >= 0; i--)
                     {
-                        MessageBox.Show(DGV.Rows[i].Cells[index].Value.ToString() + " - " + date1.ToString("dd/MM/yyyy") + " - "+ date2.ToString("dd/MM/yyyy"));
-                        //if (!( DateTime.Parse(DGV.Rows[i].Cells[index].Value.ToString(), culture) >= date1 && DateTime.Parse(DGV.Rows[i].Cells[index].Value.ToString() , culture) <= date2))
-                        //{
-                        //    DGV.Rows.Remove(DGV.Rows[i]);
-                        //}
+                        if (!(DateTime.Parse(DGV.Rows[i].Cells[index].Value.ToString()) >= date1 && DateTime.Parse(DGV.Rows[i].Cells[index].Value.ToString()) <= date2))
+                        {
+                            DGV.Rows.Remove(DGV.Rows[i]);
+                        }
                     }
                 }
                     
