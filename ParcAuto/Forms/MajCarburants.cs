@@ -272,6 +272,11 @@ namespace ParcAuto.Forms
                         MessageBox.Show($"la valeur {txtpourcentage.Text} saisie dans le champs Consommation % est invalid, vous devez entrez une valeur numeric", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
+                    if (!double.TryParse(txtKM.Text, out double KM))
+                    {
+                        MessageBox.Show($"la valeur {txtKM.Text} saisie dans le champs Kilométrage est invalid, vous devez entrez une valeur numeric", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     if (DMissions.Checked)
                     {
                         DoMissions = txtDotation.Text;
