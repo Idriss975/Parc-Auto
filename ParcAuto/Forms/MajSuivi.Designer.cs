@@ -276,7 +276,7 @@ namespace ParcAuto.Forms
             this.dateEnlevement.BorderRadius = 4;
             this.dateEnlevement.CheckedState.Parent = this.dateEnlevement;
             this.dateEnlevement.FillColor = System.Drawing.Color.White;
-            this.dateEnlevement.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateEnlevement.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateEnlevement.HoverState.Parent = this.dateEnlevement;
             this.dateEnlevement.Location = new System.Drawing.Point(467, 183);
             this.dateEnlevement.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -866,7 +866,7 @@ namespace ParcAuto.Forms
             this.dateDepot.BorderRadius = 4;
             this.dateDepot.CheckedState.Parent = this.dateDepot;
             this.dateDepot.FillColor = System.Drawing.Color.White;
-            this.dateDepot.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateDepot.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateDepot.HoverState.Parent = this.dateDepot;
             this.dateDepot.Location = new System.Drawing.Point(136, 48);
             this.dateDepot.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);

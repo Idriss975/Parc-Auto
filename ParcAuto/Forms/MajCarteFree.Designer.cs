@@ -262,7 +262,7 @@ namespace ParcAuto.Forms
             this.date.BorderRadius = 4;
             this.date.CheckedState.Parent = this.date;
             this.date.FillColor = System.Drawing.Color.White;
-            this.date.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.date.HoverState.Parent = this.date;
             this.date.Location = new System.Drawing.Point(92, 61);
             this.date.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);

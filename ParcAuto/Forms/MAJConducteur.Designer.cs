@@ -410,10 +410,6 @@ namespace ParcAuto.Forms
             // 
             // txtDirections
             // 
-            this.txtDirections.AutoCompleteCustomSource.AddRange(new string[] {
-            "dr1",
-            "dr2",
-            "dr3"});
             this.txtDirections.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtDirections.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtDirections.BorderRadius = 4;

@@ -48,11 +48,11 @@ namespace ParcAuto.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.txtNumero = new Guna.UI2.WinForms.Guna2TextBox();
             this.DateReclamation = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.cmbType_intervention = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnAppliquer = new Guna.UI2.WinForms.Guna2Button();
             this.lbl = new System.Windows.Forms.Label();
             this.btnClear = new Guna.UI2.WinForms.Guna2Button();
-            this.cmbType_intervention = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -367,7 +367,7 @@ namespace ParcAuto.Forms
             this.DateReclamation.BorderRadius = 4;
             this.DateReclamation.CheckedState.Parent = this.DateReclamation;
             this.DateReclamation.FillColor = System.Drawing.Color.White;
-            this.DateReclamation.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.DateReclamation.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DateReclamation.HoverState.Parent = this.DateReclamation;
             this.DateReclamation.Location = new System.Drawing.Point(154, 145);
             this.DateReclamation.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -377,6 +377,31 @@ namespace ParcAuto.Forms
             this.DateReclamation.Size = new System.Drawing.Size(202, 32);
             this.DateReclamation.TabIndex = 7;
             this.DateReclamation.Value = new System.DateTime(2022, 9, 5, 11, 28, 41, 835);
+            // 
+            // cmbType_intervention
+            // 
+            this.cmbType_intervention.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbType_intervention.BorderRadius = 4;
+            this.cmbType_intervention.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.cmbType_intervention.DefaultText = "";
+            this.cmbType_intervention.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.cmbType_intervention.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.cmbType_intervention.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.cmbType_intervention.DisabledState.Parent = this.cmbType_intervention;
+            this.cmbType_intervention.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.cmbType_intervention.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbType_intervention.FocusedState.Parent = this.cmbType_intervention;
+            this.cmbType_intervention.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbType_intervention.HoverState.Parent = this.cmbType_intervention;
+            this.cmbType_intervention.Location = new System.Drawing.Point(519, 52);
+            this.cmbType_intervention.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.cmbType_intervention.Name = "cmbType_intervention";
+            this.cmbType_intervention.PasswordChar = '\0';
+            this.cmbType_intervention.PlaceholderText = "";
+            this.cmbType_intervention.SelectedText = "";
+            this.cmbType_intervention.ShadowDecoration.Parent = this.cmbType_intervention;
+            this.cmbType_intervention.Size = new System.Drawing.Size(203, 34);
+            this.cmbType_intervention.TabIndex = 17;
             // 
             // guna2Button1
             // 
@@ -457,31 +482,6 @@ namespace ParcAuto.Forms
             this.btnClear.Size = new System.Drawing.Size(40, 40);
             this.btnClear.TabIndex = 23;
             this.btnClear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // cmbType_intervention
-            // 
-            this.cmbType_intervention.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbType_intervention.BorderRadius = 4;
-            this.cmbType_intervention.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.cmbType_intervention.DefaultText = "";
-            this.cmbType_intervention.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.cmbType_intervention.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.cmbType_intervention.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.cmbType_intervention.DisabledState.Parent = this.cmbType_intervention;
-            this.cmbType_intervention.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.cmbType_intervention.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbType_intervention.FocusedState.Parent = this.cmbType_intervention;
-            this.cmbType_intervention.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbType_intervention.HoverState.Parent = this.cmbType_intervention;
-            this.cmbType_intervention.Location = new System.Drawing.Point(519, 52);
-            this.cmbType_intervention.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.cmbType_intervention.Name = "cmbType_intervention";
-            this.cmbType_intervention.PasswordChar = '\0';
-            this.cmbType_intervention.PlaceholderText = "";
-            this.cmbType_intervention.SelectedText = "";
-            this.cmbType_intervention.ShadowDecoration.Parent = this.cmbType_intervention;
-            this.cmbType_intervention.Size = new System.Drawing.Size(203, 34);
-            this.cmbType_intervention.TabIndex = 17;
             // 
             // MajMaintenance
             // 
