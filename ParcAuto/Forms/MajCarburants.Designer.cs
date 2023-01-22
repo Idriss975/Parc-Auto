@@ -151,8 +151,9 @@ namespace ParcAuto.Forms
             this.DateOper.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DateOper.BorderRadius = 4;
             this.DateOper.CheckedState.Parent = this.DateOper;
+            this.DateOper.CustomFormat = "MM/dd/yyyy";
             this.DateOper.FillColor = System.Drawing.Color.White;
-            this.DateOper.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DateOper.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateOper.HoverState.Parent = this.DateOper;
             this.DateOper.Location = new System.Drawing.Point(515, 56);
             this.DateOper.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);

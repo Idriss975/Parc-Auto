@@ -273,7 +273,7 @@ namespace ParcAuto.Forms
 
         private void cmbChoix_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbChoix.SelectedIndex == 6 || cmbChoix.SelectedIndex == 7)
+            if (cmbChoix.SelectedIndex == 6 )
             {
                 TextPanel.Visible = false;
                 panelDate.Visible = true;
@@ -301,7 +301,7 @@ namespace ParcAuto.Forms
 
         private void btnFiltrer_Click(object sender, EventArgs e)
         {
-            GLB.Filter(cmbChoix, dgvMaitenance, txtValueToFiltre, new string[] { "Date de Reclamation", "Date de Repartion" }, Date1, Date2);
+            GLB.Filter(cmbChoix, dgvMaitenance, txtValueToFiltre, new string[] { "Date de Reclamation"}, Date1, Date2);
         }
 
         private void btnExportExcel_Click(object sender, EventArgs e)

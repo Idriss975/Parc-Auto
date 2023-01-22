@@ -366,8 +366,9 @@ namespace ParcAuto.Forms
             this.DateReclamation.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DateReclamation.BorderRadius = 4;
             this.DateReclamation.CheckedState.Parent = this.DateReclamation;
+            this.DateReclamation.CustomFormat = "MM/dd/yyyy";
             this.DateReclamation.FillColor = System.Drawing.Color.White;
-            this.DateReclamation.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DateReclamation.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateReclamation.HoverState.Parent = this.DateReclamation;
             this.DateReclamation.Location = new System.Drawing.Point(154, 145);
             this.DateReclamation.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);

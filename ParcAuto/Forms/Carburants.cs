@@ -544,7 +544,7 @@ namespace ParcAuto.Forms
                         GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(Marque) like lower('%{txtValueToFiltre.Text.Trim().Replace("'", "''")}%') ";
                         break;
                     case "Date":
-                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where date > '{Date1.Value}' and date < '{Date2.Value}' ";
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where date > '{Date1.Value.ToString("yyyy/MM/dd")}' and date < '{Date2.Value.ToString("yyyy/MM/dd")}' ";
                         break;
                     case "Destination":
                         GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(lieu) like lower('%{txtValueToFiltre.Text.Trim().Replace("'", "''")}%')";
@@ -590,6 +590,7 @@ namespace ParcAuto.Forms
             {
                 MessageBox.Show(ex.Message);
             }
+            Total();
         }
     }
 }

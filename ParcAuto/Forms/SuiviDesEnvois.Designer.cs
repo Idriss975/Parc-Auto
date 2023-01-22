@@ -58,7 +58,6 @@ namespace ParcAuto.Forms
             this.btnModifier = new Guna.UI2.WinForms.Guna2Button();
             this.btnSupprimer = new Guna.UI2.WinForms.Guna2Button();
             this.dgvCourrier = new System.Windows.Forms.DataGridView();
-            this.cmbChoix = new Guna.UI2.WinForms.Guna2ComboBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,6 +70,7 @@ namespace ParcAuto.Forms
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbChoix = new Guna.UI2.WinForms.Guna2ComboBox();
             this.PanelTautaux.SuspendLayout();
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
@@ -265,8 +265,9 @@ namespace ParcAuto.Forms
             this.Date1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Date1.BorderRadius = 4;
             this.Date1.CheckedState.Parent = this.Date1;
+            this.Date1.CustomFormat = "MM/dd/yyyy";
             this.Date1.FillColor = System.Drawing.Color.White;
-            this.Date1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Date1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Date1.HoverState.Parent = this.Date1;
             this.Date1.Location = new System.Drawing.Point(109, 11);
             this.Date1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -282,8 +283,9 @@ namespace ParcAuto.Forms
             this.Date2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Date2.BorderRadius = 4;
             this.Date2.CheckedState.Parent = this.Date2;
+            this.Date2.CustomFormat = "MM/dd/yyyy";
             this.Date2.FillColor = System.Drawing.Color.White;
-            this.Date2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Date2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Date2.HoverState.Parent = this.Date2;
             this.Date2.Location = new System.Drawing.Point(346, 11);
             this.Date2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -513,39 +515,6 @@ namespace ParcAuto.Forms
             this.dgvCourrier.Size = new System.Drawing.Size(1109, 477);
             this.dgvCourrier.TabIndex = 74;
             // 
-            // cmbChoix
-            // 
-            this.cmbChoix.BackColor = System.Drawing.Color.Transparent;
-            this.cmbChoix.BorderRadius = 4;
-            this.cmbChoix.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbChoix.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbChoix.FocusedColor = System.Drawing.Color.Empty;
-            this.cmbChoix.FocusedState.Parent = this.cmbChoix;
-            this.cmbChoix.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbChoix.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cmbChoix.FormattingEnabled = true;
-            this.cmbChoix.HoverState.Parent = this.cmbChoix;
-            this.cmbChoix.ItemHeight = 30;
-            this.cmbChoix.Items.AddRange(new object[] {
-            "N° order BOC",
-            "Code a barre",
-            "Date de depot",
-            "Demendeur",
-            "Reference",
-            "Destinataire",
-            "Destination",
-            "Nombre",
-            "Nature d\'envoi",
-            "Date d\'enlevement",
-            "Montant"});
-            this.cmbChoix.ItemsAppearance.Parent = this.cmbChoix;
-            this.cmbChoix.Location = new System.Drawing.Point(97, 17);
-            this.cmbChoix.Name = "cmbChoix";
-            this.cmbChoix.ShadowDecoration.Parent = this.cmbChoix;
-            this.cmbChoix.Size = new System.Drawing.Size(176, 36);
-            this.cmbChoix.TabIndex = 79;
-            this.cmbChoix.SelectedIndexChanged += new System.EventHandler(this.cmbChoix_SelectedIndexChanged);
-            // 
             // Column1
             // 
             this.Column1.HeaderText = "N° order BOC";
@@ -606,6 +575,39 @@ namespace ParcAuto.Forms
             this.Column12.HeaderText = "id";
             this.Column12.Name = "Column12";
             this.Column12.Visible = false;
+            // 
+            // cmbChoix
+            // 
+            this.cmbChoix.BackColor = System.Drawing.Color.Transparent;
+            this.cmbChoix.BorderRadius = 4;
+            this.cmbChoix.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbChoix.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbChoix.FocusedColor = System.Drawing.Color.Empty;
+            this.cmbChoix.FocusedState.Parent = this.cmbChoix;
+            this.cmbChoix.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbChoix.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbChoix.FormattingEnabled = true;
+            this.cmbChoix.HoverState.Parent = this.cmbChoix;
+            this.cmbChoix.ItemHeight = 30;
+            this.cmbChoix.Items.AddRange(new object[] {
+            "N° order BOC",
+            "Code a barre",
+            "Date de depot",
+            "Demendeur",
+            "Reference",
+            "Destinataire",
+            "Destination",
+            "Nombre",
+            "Nature d\'envoi",
+            "Date d\'enlevement",
+            "Montant"});
+            this.cmbChoix.ItemsAppearance.Parent = this.cmbChoix;
+            this.cmbChoix.Location = new System.Drawing.Point(97, 17);
+            this.cmbChoix.Name = "cmbChoix";
+            this.cmbChoix.ShadowDecoration.Parent = this.cmbChoix;
+            this.cmbChoix.Size = new System.Drawing.Size(176, 36);
+            this.cmbChoix.TabIndex = 79;
+            this.cmbChoix.SelectedIndexChanged += new System.EventHandler(this.cmbChoix_SelectedIndexChanged);
             // 
             // SuiviDesEnvois
             // 

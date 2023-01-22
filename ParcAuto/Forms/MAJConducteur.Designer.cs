@@ -346,8 +346,9 @@ namespace ParcAuto.Forms
             // DateEmb
             // 
             this.DateEmb.CheckedState.Parent = this.DateEmb;
+            this.DateEmb.CustomFormat = "MM/dd/yyyy";
             this.DateEmb.FillColor = System.Drawing.Color.White;
-            this.DateEmb.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DateEmb.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateEmb.HoverState.Parent = this.DateEmb;
             this.DateEmb.Location = new System.Drawing.Point(144, 86);
             this.DateEmb.Margin = new System.Windows.Forms.Padding(4);
@@ -396,8 +397,9 @@ namespace ParcAuto.Forms
             // 
             this.DateNaissance.BorderRadius = 4;
             this.DateNaissance.CheckedState.Parent = this.DateNaissance;
+            this.DateNaissance.CustomFormat = "MM/dd/yyyy";
             this.DateNaissance.FillColor = System.Drawing.Color.White;
-            this.DateNaissance.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DateNaissance.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateNaissance.HoverState.Parent = this.DateNaissance;
             this.DateNaissance.Location = new System.Drawing.Point(517, 44);
             this.DateNaissance.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);

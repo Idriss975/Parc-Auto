@@ -114,9 +114,10 @@ namespace ParcAuto.Classes_Globale
         {
             try
             {
-                CultureInfo culture = new CultureInfo("en-us");
-                DateTime date1 = DateTime.Parse(Date1.Value.Date.ToShortDateString(), culture);
-                DateTime date2 = DateTime.Parse(Date2.Value.Date.ToShortDateString(), culture);
+                DateTime date1 = DateTime.ParseExact(Date1.Value.Date.ToString("MM/dd/yyyy"), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                DateTime date2 = DateTime.ParseExact(Date2.Value.Date.ToString("MM/dd/yyyy"), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+               
+
                 int index = -1;
                 foreach (DataGridViewColumn item in DGV.Columns)
                     if (item.HeaderText == cmbChoix.Text)
@@ -124,7 +125,7 @@ namespace ParcAuto.Classes_Globale
                         index = item.Index;
                         break;
                     }
-                
+
 
                 if (!(ColumnDates.Contains(cmbChoix.Text)))
                 {
@@ -138,22 +139,24 @@ namespace ParcAuto.Classes_Globale
                 }
                 else
                 {
+                    DateTime date;
                     for (int i = DGV.Rows.Count - 1; i >= 0; i--)
                     {
-                        if (!(DateTime.Parse(DGV.Rows[i].Cells[index].Value.ToString()) >= date1 && DateTime.Parse(DGV.Rows[i].Cells[index].Value.ToString()) <= date2))
+                        date = DateTime.ParseExact(DGV.Rows[i].Cells[index].Value.ToString(), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                        if (!(date >= date1 && date <= date2))
                         {
                             DGV.Rows.Remove(DGV.Rows[i]);
                         }
                     }
                 }
-                    
+
                 txtValueToFiltre.Text = "";
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           
+
         }
 
         /// <summary>

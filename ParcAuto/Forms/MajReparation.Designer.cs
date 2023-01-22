@@ -225,8 +225,9 @@ namespace ParcAuto.Forms
             this.Date.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Date.BorderRadius = 4;
             this.Date.CheckedState.Parent = this.Date;
+            this.Date.CustomFormat = "MM/dd/yyyy";
             this.Date.FillColor = System.Drawing.Color.White;
-            this.Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Date.HoverState.Parent = this.Date;
             this.Date.Location = new System.Drawing.Point(523, 113);
             this.Date.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
