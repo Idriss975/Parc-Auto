@@ -55,10 +55,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
-    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
-    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
-    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -68,20 +64,19 @@
     <Reference Include="GuiLabs.Undo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\GuiLabs.Undo.1.0.2\lib\netstandard2.0\GuiLabs.Undo.dll</HintPath>
     </Reference>
-    <Reference Include="Guna.UI2">
-      <HintPath>..\..\..\..\Desktop\guna\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI2 WinForms\.net 4.0\Guna.UI2.dll</HintPath>
+    <Reference Include="Guna.UI2, Version=2.0.0.1, Culture=neutral, PublicKeyToken=ad275b4be6718d4b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>G .net 4.0\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.SQLite, Version=1.0.116.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.116.0\lib\net46\System.Data.SQLite.dll</HintPath>
-    </Reference>
     <Reference Include="System.Device" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -129,11 +124,18 @@
     <Compile Include="Classes Globale\CmbMatNom.cs" />
     <Compile Include="Classes Globale\Commandes.cs" />
     <Compile Include="Classes Globale\GLB.cs" />
+    <Compile Include="Classes Globale\Impression.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AjouterUneDirection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AjouterUneDirection.Designer.cs">
+      <DependentUpon>AjouterUneDirection.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Annee.cs">
       <SubType>Form</SubType>
@@ -165,6 +167,12 @@
     <Compile Include="Forms\Conducteurs.Designer.cs">
       <DependentUpon>Conducteurs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Consomations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Consomations.Designer.cs">
+      <DependentUpon>Consomations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EtatJournalier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +184,12 @@
     </Compile>
     <Compile Include="Forms\EtatRecap.Designer.cs">
       <DependentUpon>EtatRecap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GestionDesUtilisateurs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GestionDesUtilisateurs.Designer.cs">
+      <DependentUpon>GestionDesUtilisateurs.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
@@ -207,11 +221,35 @@
     <Compile Include="Forms\MajEtatRecap.Designer.cs">
       <DependentUpon>MajEtatRecap.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MajMaintenance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MajMaintenance.Designer.cs">
+      <DependentUpon>MajMaintenance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MajMissions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MajMissions.Designer.cs">
+      <DependentUpon>MajMissions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MajReparation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MajReparation.Designer.cs">
       <DependentUpon>MajReparation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MajSimpleCourries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MajSimpleCourries.Designer.cs">
+      <DependentUpon>MajSimpleCourries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MajSuivi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MajSuivi.Designer.cs">
+      <DependentUpon>MajSuivi.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MajTransport.cs">
       <SubType>Form</SubType>
@@ -225,6 +263,30 @@
     <Compile Include="Forms\MajVehicules.Designer.cs">
       <DependentUpon>MajVehicules.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Misssions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Misssions.Designer.cs">
+      <DependentUpon>Misssions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NombreDeCourriersParEntite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NombreDeCourriersParEntite.Designer.cs">
+      <DependentUpon>NombreDeCourriersParEntite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PostesSimple.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PostesSimple.Designer.cs">
+      <DependentUpon>PostesSimple.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProblemeFixe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProblemeFixe.Designer.cs">
+      <DependentUpon>ProblemeFixe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reparation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +298,12 @@
     </Compile>
     <Compile Include="Forms\ReparationPRD.Designer.cs">
       <DependentUpon>ReparationPRD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SuiviDesEnvois.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SuiviDesEnvois.Designer.cs">
+      <DependentUpon>SuiviDesEnvois.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Transport.cs">
       <SubType>Form</SubType>
@@ -267,10 +335,19 @@
     <Compile Include="Forms\Vehicules_MRouge.Designer.cs">
       <DependentUpon>Vehicules_MRouge.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Visiteurs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Visiteurs.Designer.cs">
+      <DependentUpon>Visiteurs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AjouterUneDirection.resx">
+      <DependentUpon>AjouterUneDirection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Annee.resx">
       <DependentUpon>Annee.cs</DependentUpon>
@@ -287,11 +364,17 @@
     <EmbeddedResource Include="Forms\Conducteurs.resx">
       <DependentUpon>Conducteurs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Consomations.resx">
+      <DependentUpon>Consomations.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EtatJournalier.resx">
       <DependentUpon>EtatJournalier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EtatRecap.resx">
       <DependentUpon>EtatRecap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GestionDesUtilisateurs.resx">
+      <DependentUpon>GestionDesUtilisateurs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -308,8 +391,20 @@
     <EmbeddedResource Include="Forms\MajEtatRecap.resx">
       <DependentUpon>MajEtatRecap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MajMaintenance.resx">
+      <DependentUpon>MajMaintenance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MajMissions.resx">
+      <DependentUpon>MajMissions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MajReparation.resx">
       <DependentUpon>MajReparation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MajSimpleCourries.resx">
+      <DependentUpon>MajSimpleCourries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MajSuivi.resx">
+      <DependentUpon>MajSuivi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MajTransport.resx">
       <DependentUpon>MajTransport.cs</DependentUpon>
@@ -317,11 +412,26 @@
     <EmbeddedResource Include="Forms\MajVehicules.resx">
       <DependentUpon>MajVehicules.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Misssions.resx">
+      <DependentUpon>Misssions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NombreDeCourriersParEntite.resx">
+      <DependentUpon>NombreDeCourriersParEntite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PostesSimple.resx">
+      <DependentUpon>PostesSimple.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProblemeFixe.resx">
+      <DependentUpon>ProblemeFixe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reparation.resx">
       <DependentUpon>Reparation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ReparationPRD.resx">
       <DependentUpon>ReparationPRD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SuiviDesEnvois.resx">
+      <DependentUpon>SuiviDesEnvois.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transport.resx">
       <DependentUpon>Transport.cs</DependentUpon>
@@ -338,6 +448,9 @@
     <EmbeddedResource Include="Forms\Vehicules_MRouge.resx">
       <DependentUpon>Vehicules_MRouge.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Visiteurs.resx">
+      <DependentUpon>Visiteurs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -348,7 +461,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
-    <None Include="Parcautodb.sqlite3" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -410,8 +522,6 @@
     <Error Condition="!Exists('..\packages\Uno.SourceGenerationTasks.4.0.2\build\netstandard1.0\Uno.SourceGenerationTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Uno.SourceGenerationTasks.4.0.2\build\netstandard1.0\Uno.SourceGenerationTasks.targets'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
-    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.116.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.116.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
   </Target>
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
-  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.116.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.116.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
 </Project>

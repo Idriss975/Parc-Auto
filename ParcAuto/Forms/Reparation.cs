@@ -4,7 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -22,35 +24,103 @@ namespace ParcAuto.Forms
         }
         private void datagridviewLoad()
         {
-            
-            dgvReparation.Rows.Clear();
-            GLB.Cmd.CommandText = $"Select * from Reparation where year(Date) = '{GLB.SelectedDate}'";
-            GLB.Con.Open();
-            GLB.dr = GLB.Cmd.ExecuteReader();
-            while (GLB.dr.Read())
-                dgvReparation.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr[4],GLB.dr.IsDBNull(5) ? ""  : ((DateTime)GLB.dr[5]).ToString("d/M/yyyy"), GLB.dr[6], GLB.dr[7].ToString(), GLB.dr[8].ToString());
-            GLB.dr.Close();
-            GLB.Con.Close();
+            try
+            {
+                dgvReparation.Rows.Clear();
+                GLB.Cmd.CommandText = $"Select * from Reparation where year(Date) = '{GLB.SelectedDate}'";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
+                GLB.Con.Open();
+                GLB.dr = GLB.Cmd.ExecuteReader();
+                while (GLB.dr.Read())
+                    dgvReparation.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr[4], GLB.dr.IsDBNull(5) ? "" : ((DateTime)GLB.dr[5]).ToString("MM/dd/yyyy"), GLB.dr[6], GLB.dr[7].ToString(), GLB.dr[8].ToString());
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                GLB.dr.Close();
+                GLB.Con.Close();
+            }
+          
            
 
         }
-        private void UpdateFromDataGrid()
+
+        private void Permissions()
         {
-            GLB.id_Reparation = Convert.ToInt32(dgvReparation.CurrentRow.Cells[0].Value);
-            GLB.Cmd.CommandText = "update Reparation set Entite = @txtentite, Beneficiaire=@txtBenificiaire, Vehicule=@cmbVehicule, MatriculeV = @txtMat ,Date= @Date, Objet=@txtObjet, Entretien= @MontantEntretient, Reparation=@MontantReparation where id = @ID";
-            GLB.Cmd.Parameters.AddWithValue("@txtentite",dgvReparation.CurrentRow.Cells[1].Value.ToString() );
-            GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", dgvReparation.CurrentRow.Cells[2].Value.ToString());
-            GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", dgvReparation.CurrentRow.Cells[3].Value.ToString());
-            GLB.Cmd.Parameters.AddWithValue("@txtMat", dgvReparation.CurrentRow.Cells[4].Value.ToString());
-            GLB.Cmd.Parameters.AddWithValue("@Date", (Convert.ToDateTime(dgvReparation.CurrentRow.Cells[5].Value)).ToString("yyyy-MM-dd"));
-            GLB.Cmd.Parameters.AddWithValue("@txtObjet", dgvReparation.CurrentRow.Cells[6].Value.ToString());
-            GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", dgvReparation.CurrentRow.Cells[7].Value.ToString());
-            GLB.Cmd.Parameters.AddWithValue("@MontantReparation", dgvReparation.CurrentRow.Cells[8].Value.ToString());
-            GLB.Cmd.Parameters.AddWithValue("@ID", GLB.id_Reparation);
-            GLB.Con.Open();
-            GLB.Cmd.ExecuteNonQuery();
-            GLB.Con.Close();
-            this.Close();
+            try
+            {
+                dgvReparation.Rows.Clear();
+                GLB.Cmd.CommandText = $"Select * from Reparation where year(Date) = '{GLB.SelectedDate}'";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
+                GLB.Con.Open();
+                GLB.dr = GLB.Cmd.ExecuteReader();
+                while (GLB.dr.Read())
+                    dgvReparation.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr[4], GLB.dr.IsDBNull(5) ? "" : ((DateTime)GLB.dr[5]).ToString("MM/dd/yyyy"), GLB.dr[6], GLB.dr[7].ToString(), GLB.dr[8].ToString());
+                GLB.dr.Close();
+                GLB.Con.Close();
+                GLB.Cmd.CommandText = "SELECT  pri.name As Username " +
+                       ",       pri.type_desc AS[User Type] " +
+                       ", permit.permission_name AS[Permission] " +
+                       ", permit.state_desc AS[Permission State] " +
+                       ", permit.class_desc Class " +
+                       ", object_name(permit.major_id) AS[Object Name] " +
+                       "FROM sys.database_principals pri " +
+                       "LEFT JOIN " +
+                       "sys.database_permissions permit " +
+                       "ON permit.grantee_principal_id = pri.principal_id " +
+                       "WHERE object_name(permit.major_id) = 'Reparation' " +
+                       $"and pri.name = SUSER_NAME()";
+                GLB.Con.Open();
+                GLB.dr = GLB.Cmd.ExecuteReader();
+                while (GLB.dr.Read())
+                {
+                    if (GLB.dr[2].ToString() == "INSERT")
+                    {
+                        if (GLB.dr[3].ToString() == "DENY")
+                        {
+                            btnAjouter.FillColor = Color.FromArgb(127, 165, 127);
+                            btnAjouter.Click -= btnAjouter_Click;
+                            btnImportExcel.Click -= btnImportExcel_Click;
+                            btnImportExcel.FillColor = Color.FromArgb(68, 83, 128);
+                        }
+                    }
+                    else if (GLB.dr[2].ToString() == "DELETE")
+                    {
+                        if (GLB.dr[3].ToString() == "DENY")
+                        {
+                            btnSupprimer.FillColor = Color.FromArgb(204, 144, 133);
+                            btnSupprimer.Click -= btnSupprimer_Click;
+                            btnSuprimmerTout.FillColor = Color.FromArgb(204, 144, 133);
+                            btnSuprimmerTout.Click -= btnSuprimmerTout_Click;
+                        }
+                    }
+                    else if (GLB.dr[2].ToString() == "UPDATE")
+                    {
+                        if (GLB.dr[3].ToString() == "DENY")
+                        {
+                            btnModifier.FillColor = Color.FromArgb(85, 95, 128);
+                            btnModifier.Click -= btnModifier_Click;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                GLB.dr.Close();
+                GLB.Con.Close();
+            }
+         
         }
         private void Total()
         {
@@ -74,6 +144,7 @@ namespace ParcAuto.Forms
             cmbChoix.SelectedIndex = 0;
             GLB.StyleDataGridView(dgvReparation);
             datagridviewLoad();
+            Permissions();
             Total();
         }
 
@@ -99,19 +170,24 @@ namespace ParcAuto.Forms
         {
             try
             {
-                MajReparation rep = new MajReparation();
+               
+                    MajReparation rep = new MajReparation();
                 Commandes.Command = Choix.ajouter;
                 Commandes.MAJRep = TypeRep.Reparation;
                 rep.ShowDialog();
                 datagridviewLoad();
-                dgvReparation.Rows[dgvReparation.Rows.Count - 1].Selected = true;
-                dgvReparation.FirstDisplayedScrollingRowIndex = dgvReparation.Rows.Count - 1;
-                dgvReparation.Rows[0].Selected = false;
+                if(dgvReparation.Rows.Count > 0)
+                {
+                    dgvReparation.Rows[dgvReparation.Rows.Count - 1].Selected = true;
+                    dgvReparation.FirstDisplayedScrollingRowIndex = dgvReparation.Rows.Count - 1;
+                    dgvReparation.Rows[0].Selected = false;
+                }
+               
                 Total();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
           
 
@@ -119,14 +195,47 @@ namespace ParcAuto.Forms
         
         private void btnModifier_Click(object sender, EventArgs e)
         {
-           
-            
+            try
+            {
+                if (dgvReparation.Rows.Count == 0)
+                    return;
+                int Lastscrollindex = dgvReparation.FirstDisplayedScrollingRowIndex;
+                int pos = dgvReparation.CurrentRow.Index;
+                GLB.id_Reparation = Convert.ToInt32(dgvReparation.Rows[pos].Cells[0].Value);
+                Commandes.Command = Choix.modifier;
+                Commandes.MAJRep = TypeRep.Reparation;
+                (new MajReparation(dgvReparation.Rows[pos].Cells[1].Value.ToString(),
+                    dgvReparation.Rows[pos].Cells[2].Value.ToString(),
+                    dgvReparation.Rows[pos].Cells[3].Value.ToString(),
+                     dgvReparation.Rows[pos].Cells[4].Value.ToString(),
+                      DateTime.ParseExact(dgvReparation.Rows[pos].Cells[5].Value.ToString(), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                      dgvReparation.Rows[pos].Cells[6].Value.ToString(),
+                      dgvReparation.Rows[pos].Cells[7].Value.ToString(),
+                      dgvReparation.Rows[pos].Cells[8].Value.ToString())).ShowDialog();
+                datagridviewLoad();
+                dgvReparation.Rows[pos].Selected = true;
+                dgvReparation.FirstDisplayedScrollingRowIndex = Lastscrollindex;
+                dgvReparation.Rows[0].Selected = false;
+                Total();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
             try
             {
+                if (dgvReparation.Rows.Count == 0)
+                    return;
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 for (int i = 0; i < dgvReparation.SelectedRows.Count; i++)
                 {
@@ -141,13 +250,16 @@ namespace ParcAuto.Forms
             {
                 MessageBox.Show("Il faut selectionner sur la table pour Suprrimer la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //TODO: catch NullReferenceException (idriss)
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
 
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            //UpdateFromDataGrid();
             datagridviewLoad();
             Total();
         }
@@ -217,12 +329,16 @@ namespace ParcAuto.Forms
         _Worksheet importExceldatagridViewworksheet;
         Range importdatagridviewRange;
         Workbook excelWorkbook;
+        int currentIndex;
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
             
             string entite, Benificiaire, Vehicules, objet, entretien, reparation, Matricule;
-            //string lignesExcel = "Les Lignes Suivants Sont duplique sur le fichier excel : ";
             DateTime date;
+            if (GLB.Con.State == ConnectionState.Open)
+                GLB.Con.Close();
+            GLB.Con.Open();
+            GLB.Cmd.Transaction = GLB.Con.BeginTransaction();
             try
             {
                 importExceldatagridViewApp = new Microsoft.Office.Interop.Excel.Application();
@@ -231,16 +347,13 @@ namespace ParcAuto.Forms
                 importOpenDialoge.Filter = "Import Excel File|*.xlsx;*xls;*xlm";
                 if (importOpenDialoge.ShowDialog() == DialogResult.OK)
                 {
-                    if (GLB.Con.State == ConnectionState.Open)
-                        GLB.Con.Close();
-                    GLB.Con.Open();
-
                     Workbooks excelWorkbooks = importExceldatagridViewApp.Workbooks;
                     excelWorkbook = excelWorkbooks.Open(importOpenDialoge.FileName);
                     importExceldatagridViewworksheet = excelWorkbook.ActiveSheet;
                     importdatagridviewRange = importExceldatagridViewworksheet.UsedRange;
                     for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
                     {
+                        currentIndex = excelWorksheetIndex;
                         entite = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value)).Trim();
                         Benificiaire = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
                         Vehicules = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
@@ -250,17 +363,6 @@ namespace ParcAuto.Forms
                         entretien = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
                         reparation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value);
 
-                        //GLB.Cmd.Parameters.Clear();
-                        //GLB.Cmd.CommandText = $"SELECT count(*) from Reparation where Entite = @txtentite  and beneficiaire = @txtBenificiaire and vehicule =@cmbVehicule " +
-                        //    $"and MatriculeV = @txtMat and Date =@Date and Objet = @txtObjet and (Entretien = @MontantEntretient or Reparation = @MontantReparation)" ;
-                        //GLB.Cmd.Parameters.AddWithValue("@txtentite", entite ?? "");
-                        //GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", Benificiaire ?? "");
-                        //GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", Vehicules ?? "");
-                        //GLB.Cmd.Parameters.AddWithValue("@txtMat", Matricule ?? "");
-                        //GLB.Cmd.Parameters.AddWithValue("@Date", date.ToString("yyyy-MM-dd"));
-                        //GLB.Cmd.Parameters.AddWithValue("@txtObjet", objet ?? "");
-                        //GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", entretien  ?? (object)DBNull.Value);
-                        //GLB.Cmd.Parameters.AddWithValue("@MontantReparation", reparation  ?? (object)DBNull.Value);
 
                         GLB.Cmd.Parameters.Clear();
                         GLB.Cmd.CommandText = "Insert into Reparation values (@txtentite, @txtBenificiaire, @cmbVehicule,@txtMat, @Date, @txtObjet, @MontantEntretient, @MontantReparation)";
@@ -273,27 +375,30 @@ namespace ParcAuto.Forms
                         GLB.Cmd.Parameters.AddWithValue("@MontantEntretient", entretien ?? (object)DBNull.Value);
                         GLB.Cmd.Parameters.AddWithValue("@MontantReparation", reparation ?? (object)DBNull.Value);
                         GLB.Cmd.ExecuteNonQuery();
-                        //if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
-                        //{
-                            
-                        //}
-                        //else
-                        //{
-                        //    lignesExcel += $" {excelWorksheetIndex} ";
-                        //    continue;
-                        //}
-
                     }           
                     
                 }
+                GLB.Cmd.Transaction.Commit();
                 GLB.Con.Close();
                 datagridviewLoad();
                 Total();
             }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 2627)
+                    MessageBox.Show($"La ligne {currentIndex} dans l'excel déja saisie est sauvegarder dans la base de données, vous pouvez supprimer ou modifier la ligne {currentIndex} sur excel et refaire l'imporation.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                GLB.Cmd.Transaction.Rollback();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Le Format de la date est invalid, Le format doit etre(MM/JJ/AAAA)", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
             finally
             {
@@ -310,45 +415,55 @@ namespace ParcAuto.Forms
 
         private void btnSuprimmerTout_Click(object sender, EventArgs e)
         {
-            GLB.Con.Open();
-            for (int i = 0; i < dgvReparation.Rows.Count; i++)
+            try
             {
-                GLB.Cmd.CommandText = $"delete from Reparation where id = '{dgvReparation.Rows[i].Cells[0].Value}'";
-                GLB.Cmd.ExecuteNonQuery();
+                if (dgvReparation.Rows.Count == 0)
+                    return;
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
+                GLB.Con.Open();
+                for (int i = 0; i < dgvReparation.Rows.Count; i++)
+                {
+                    GLB.Cmd.CommandText = $"delete from Reparation where id = '{dgvReparation.Rows[i].Cells[0].Value}'";
+                    GLB.Cmd.ExecuteNonQuery();
+                }
+                datagridviewLoad();
+                Total();
             }
-            GLB.Con.Close();
-            datagridviewLoad();
-            Total();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                GLB.Con.Close();
+            }
+           
            
         }
 
         private void dgvReparation_DoubleClick(object sender, EventArgs e)
         {
-            try
+            
+        }
+
+        private void btnImprimer_Click(object sender, EventArgs e)
+        {
+            if (printDialog1.ShowDialog(this) == DialogResult.OK)
             {
-                int Lastscrollindex = dgvReparation.FirstDisplayedScrollingRowIndex;
-                int pos = dgvReparation.CurrentRow.Index;
-                GLB.id_Reparation = Convert.ToInt32(dgvReparation.Rows[pos].Cells[0].Value);
-                Commandes.Command = Choix.modifier;
-                Commandes.MAJRep = TypeRep.Reparation;
-                (new MajReparation(dgvReparation.Rows[pos].Cells[1].Value.ToString(),
-                    dgvReparation.Rows[pos].Cells[2].Value.ToString(),
-                    dgvReparation.Rows[pos].Cells[3].Value.ToString(),
-                     dgvReparation.Rows[pos].Cells[4].Value.ToString(),
-                      DateTime.ParseExact(dgvReparation.Rows[pos].Cells[5].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
-                      dgvReparation.Rows[pos].Cells[6].Value.ToString(),
-                      dgvReparation.Rows[pos].Cells[7].Value.ToString(),
-                      dgvReparation.Rows[pos].Cells[8].Value.ToString())).ShowDialog();
-                datagridviewLoad();
-                dgvReparation.Rows[pos].Selected = true;
-                dgvReparation.FirstDisplayedScrollingRowIndex = Lastscrollindex;
-                dgvReparation.Rows[0].Selected = false;
-                Total();
+                printPreviewDialog1.Document.PrinterSettings = printDialog1.PrinterSettings;
+                printPreviewDialog1.ShowDialog();
             }
-            catch (ArgumentOutOfRangeException)
-            {
-                MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+        }
+
+        private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            Impression.number_of_lines = dgvReparation.Rows.Count;
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Impression.Drawonprintdoc(e, dgvReparation, imageList1.Images["OFPPT_logo.png"], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6), Column1.Index, Titre: "Reparation");
         }
     }
 }

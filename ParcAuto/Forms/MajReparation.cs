@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -39,6 +38,30 @@ namespace ParcAuto.Forms
         {
             if (GLB.Entites.Keys.Contains(txtentite.Text.ToUpper()))
                 txtentite.Text = GLB.Entites[txtentite.Text.ToUpper()];
+            if (!GLB.Entites.Values.Contains(txtentite.Text))
+            {
+                MessageBox.Show("Ecrire Correctement l'abreviation ou le nom de la Direction");
+                txtentite.Text = "";
+            }
+        }
+
+        private void txtMatricule_TextChanged(object sender, EventArgs e)
+        {
+            GLB.Cmd.CommandText = $"select Marque from Marque_Voiture where Matricule = '{txtMatricule.Text}'";
+            if (GLB.Con.State == ConnectionState.Open)
+                GLB.Con.Close();
+            GLB.Con.Open();
+            GLB.dr = GLB.Cmd.ExecuteReader();
+            if (!GLB.dr.Read())
+            {
+                cmbVehicule.Text = "";
+            }
+            else
+            {
+                cmbVehicule.Text = GLB.dr[0].ToString();
+            }
+            GLB.dr.Close();
+            GLB.Con.Close();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -47,7 +70,7 @@ namespace ParcAuto.Forms
             txtentite.Clear();
             txtMontant.Clear();
             txtObjet.Clear();
-            cmbVehicule.Clear();
+            txtMatricule.Clear();
             Date.Value = DateTime.Now;
             rbEntretien.Checked = false;
             rbRepartion.Checked = false;
@@ -57,8 +80,14 @@ namespace ParcAuto.Forms
         {
             try
             {
-                if (!(txtBenificiaire.Text == "" || txtentite.Text == "" || txtMontant.Text == "" || cmbVehicule.Text == "" || txtMatricule.Text == ""||txtObjet.Text == ""))
+                if (!(txtBenificiaire.Text == "" || txtentite.Text == "" || txtMontant.Text == "" || txtMatricule.Text == "" || cmbVehicule.Text == ""))
                 {
+
+                    if (!double.TryParse(txtMontant.Text, out double montant))
+                    {
+                        MessageBox.Show($"la valeur {txtMontant.Text} saisie dans le champs montant est invalid, vous devez entrez une valeur numeric", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     if (rbEntretien.Checked)
                     {
                         MontantEntretient = txtMontant.Text;
@@ -95,8 +124,8 @@ namespace ParcAuto.Forms
                             GLB.Cmd.CommandText = $"update {(Commandes.MAJRep != TypeRep.Reparation ? "ReparationPRDSNTL" : "Reparation")} set Entite = @txtentite, Beneficiaire=@txtBenificiaire, Vehicule=@cmbVehicule, MatriculeV = @txtMat ,Date= @Date, Objet=@txtObjet, Entretien= @MontantEntretient, Reparation=@MontantReparation where id = @ID";
                             GLB.Cmd.Parameters.AddWithValue("@txtentite", txtentite.Text);
                             GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", txtBenificiaire.Text);
-                            GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", cmbVehicule.Text);
-                            GLB.Cmd.Parameters.AddWithValue("@txtMat", txtMatricule.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", txtMatricule.Text);
+                            GLB.Cmd.Parameters.AddWithValue("@txtMat", cmbVehicule.Text);
                             GLB.Cmd.Parameters.AddWithValue("@Date", Date.Value.ToString("yyyy-MM-dd"));
                             GLB.Cmd.Parameters.AddWithValue("@txtObjet", txtObjet.Text);
                             if (MontantEntretient == null)
@@ -117,9 +146,10 @@ namespace ParcAuto.Forms
                     }
 
                     //Executer le requette
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
                     GLB.Con.Open();
                     GLB.Cmd.ExecuteNonQuery();
-                    GLB.Con.Close();
                     this.Close();
                 }
                 else
@@ -128,12 +158,18 @@ namespace ParcAuto.Forms
 
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-
-                MessageBox.Show(ex.Message);
+                if (ex.Number == 2627)
+                    MessageBox.Show($"Toutes ces informations sans déja saisie", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           
+            finally
+            {
+                GLB.Con.Close();
+            }
+
         }
 
         public MajReparation(string entite , string benificiaire ,string vehicule ,string MatriculeV, DateTime date , string objet ,string entretien ,string reparation )
@@ -154,10 +190,10 @@ namespace ParcAuto.Forms
         {
             txtentite.Text = entite;
             txtBenificiaire.Text = benificiaire;
-            cmbVehicule.Text = vehicule;
+            txtMatricule.Text = MatriculeV;
             Date.Value = date;
             txtObjet.Text = objet;
-            txtMatricule.Text = MatriculeV;
+            cmbVehicule.Text = vehicule;
             if(entretien != "")
             {
                 rbEntretien.Checked = true;
@@ -175,7 +211,7 @@ namespace ParcAuto.Forms
         {
             if (GLB.ds.Tables["Vehicules1"] != null)
                 GLB.ds.Tables["Vehicules1"].Clear();
-            GLB.da = new SqlDataAdapter("select * from Vehicules", GLB.Con);
+            GLB.da = new SqlDataAdapter("select * from Mat_Vehicules", GLB.Con);
             GLB.da.Fill(GLB.ds, "Vehicules1");
             AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
             foreach (DataRow item in GLB.ds.Tables["Vehicules1"].Rows)
@@ -187,15 +223,18 @@ namespace ParcAuto.Forms
             txtMatricule.AutoCompleteSource = AutoCompleteSource.CustomSource;
             txtMatricule.AutoCompleteCustomSource = ac;
         }
+        AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
         private void RemplirComboBoxBeneficiaire()
         {
-            if (GLB.ds.Tables["ConducteursRep"] != null)
-                GLB.ds.Tables["ConducteursRep"].Clear();
-            GLB.da = new SqlDataAdapter("select Nom, Prenom from Conducteurs", GLB.Con);
-            GLB.da.Fill(GLB.ds, "ConducteursRep");
-            AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
-            foreach (DataRow item in GLB.ds.Tables["ConducteursRep"].Rows)
-                ac.Add(item[0] + " " + item[1]);
+            if (GLB.ds.Tables["beneficiaires"] != null)
+                GLB.ds.Tables["beneficiaires"].Clear();
+            GLB.da = new SqlDataAdapter($"select * from Benificiaire_Reparation", GLB.Con);
+            GLB.da.Fill(GLB.ds, "beneficiaires");
+
+            foreach (DataRow item in GLB.ds.Tables["beneficiaires"].Rows)
+            {
+                ac.Add(item[0].ToString());
+            }
             txtBenificiaire.AutoCompleteCustomSource = ac;
             txtBenificiaire.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             txtBenificiaire.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -207,10 +246,12 @@ namespace ParcAuto.Forms
             {
                 case Choix.ajouter:
                     lbl.Text = "L'ajout d'une Reparation";
+                    Date.Value = new DateTime(Convert.ToInt32(GLB.SelectedDate), DateTime.Now.Month, DateTime.Now.Day);
                     break;
                 case Choix.modifier:
                     lbl.Text = "La modification d'une Reparation";
                     txtentite.Enabled = false;
+                    Date.Enabled = false;
                     RemplirChamps();
                     break;
                 case Choix.supprimer:

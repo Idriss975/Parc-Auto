@@ -29,6 +29,8 @@ namespace ParcAuto.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EtatRecap));
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
@@ -48,12 +50,12 @@ namespace ParcAuto.Forms
             this.label36 = new System.Windows.Forms.Label();
             this.ReportCarteFree = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label38 = new System.Windows.Forms.Label();
+            this.lblAnne = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.label40 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
+            this.Designation = new System.Windows.Forms.Label();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.label43 = new System.Windows.Forms.Label();
@@ -107,6 +109,13 @@ namespace ParcAuto.Forms
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnImprimer = new Guna.UI2.WinForms.Guna2Button();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btnAjouter = new Guna.UI2.WinForms.Guna2Button();
+            this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -340,11 +349,11 @@ namespace ParcAuto.Forms
             this.label35.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(89, 2);
+            this.label35.Location = new System.Drawing.Point(105, 10);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(76, 32);
+            this.label35.Size = new System.Drawing.Size(43, 16);
             this.label35.TabIndex = 2;
-            this.label35.Text = "Achat au 31/03/2022";
+            this.label35.Text = "Achat";
             this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label36
@@ -358,7 +367,7 @@ namespace ParcAuto.Forms
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(85, 35);
             this.label36.TabIndex = 3;
-            this.label36.Text = "Total au 31/03/2022";
+            this.label36.Text = "Total";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ReportCarteFree
@@ -376,7 +385,7 @@ namespace ParcAuto.Forms
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(204)))));
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.label38);
+            this.panel4.Controls.Add(this.lblAnne);
             this.panel4.Controls.Add(this.label39);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
@@ -385,24 +394,27 @@ namespace ParcAuto.Forms
             this.panel4.Size = new System.Drawing.Size(256, 45);
             this.panel4.TabIndex = 1;
             // 
-            // label38
+            // lblAnne
             // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(208, 16);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(0, 16);
-            this.label38.TabIndex = 1;
+            this.lblAnne.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblAnne.AutoSize = true;
+            this.lblAnne.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAnne.Location = new System.Drawing.Point(124, 14);
+            this.lblAnne.Name = "lblAnne";
+            this.lblAnne.Size = new System.Drawing.Size(0, 16);
+            this.lblAnne.TabIndex = 1;
+            this.lblAnne.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label39
             // 
             this.label39.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(83, 13);
+            this.label39.Location = new System.Drawing.Point(65, 14);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(92, 16);
+            this.label39.Size = new System.Drawing.Size(64, 16);
             this.label39.TabIndex = 0;
-            this.label39.Text = "Stock en 2022";
+            this.label39.Text = "Stock en ";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel8
@@ -413,7 +425,7 @@ namespace ParcAuto.Forms
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.Controls.Add(this.label40, 0, 3);
             this.tableLayoutPanel8.Controls.Add(this.label41, 0, 2);
-            this.tableLayoutPanel8.Controls.Add(this.label42, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.Designation, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel9, 0, 1);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
@@ -449,17 +461,17 @@ namespace ParcAuto.Forms
             this.label41.TabIndex = 3;
             this.label41.Text = "Vignettes Réparation ";
             // 
-            // label42
+            // Designation
             // 
-            this.label42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(4, 32);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(270, 16);
-            this.label42.TabIndex = 1;
-            this.label42.Text = "Désignation";
-            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Designation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Designation.AutoSize = true;
+            this.Designation.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Designation.Location = new System.Drawing.Point(4, 32);
+            this.Designation.Name = "Designation";
+            this.Designation.Size = new System.Drawing.Size(270, 16);
+            this.Designation.TabIndex = 1;
+            this.Designation.Text = "Désignation";
+            this.Designation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel9
             // 
@@ -828,11 +840,11 @@ namespace ParcAuto.Forms
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(45, 14);
+            this.label1.Location = new System.Drawing.Point(130, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(285, 16);
+            this.label1.Size = new System.Drawing.Size(102, 16);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Consommation du 02/01/2022 au 31/03/2022";
+            this.label1.Text = "Consommation";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel2
@@ -902,7 +914,7 @@ namespace ParcAuto.Forms
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(98, 80);
             this.label29.TabIndex = 1;
-            this.label29.Text = "Total Consomation au 31 Mars 2022";
+            this.label29.Text = "Total Consomation";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label48
@@ -910,11 +922,11 @@ namespace ParcAuto.Forms
             this.label48.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label48.AutoSize = true;
             this.label48.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.Location = new System.Drawing.Point(103, 17);
+            this.label48.Location = new System.Drawing.Point(103, 33);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(92, 48);
+            this.label48.Size = new System.Drawing.Size(92, 16);
             this.label48.TabIndex = 4;
-            this.label48.Text = "Disponible au 1er Avril 2022";
+            this.label48.Text = "Disponible";
             this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // sumtrimestres
@@ -1121,12 +1133,106 @@ namespace ParcAuto.Forms
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             // 
+            // btnImprimer
+            // 
+            this.btnImprimer.BorderRadius = 4;
+            this.btnImprimer.CheckedState.Parent = this.btnImprimer;
+            this.btnImprimer.CustomImages.Parent = this.btnImprimer;
+            this.btnImprimer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnImprimer.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnImprimer.ForeColor = System.Drawing.Color.White;
+            this.btnImprimer.HoverState.Parent = this.btnImprimer;
+            this.btnImprimer.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimer.Image")));
+            this.btnImprimer.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnImprimer.Location = new System.Drawing.Point(12, 14);
+            this.btnImprimer.Margin = new System.Windows.Forms.Padding(5);
+            this.btnImprimer.Name = "btnImprimer";
+            this.btnImprimer.ShadowDecoration.Parent = this.btnImprimer;
+            this.btnImprimer.Size = new System.Drawing.Size(100, 30);
+            this.btnImprimer.TabIndex = 71;
+            this.btnImprimer.Text = "imprimer";
+            this.btnImprimer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnImprimer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnImprimer.Click += new System.EventHandler(this.btnImprimer_Click);
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.Document = this.printDocument1;
+            this.printDialog1.UseEXDialog = true;
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "OFPPT_logo.png");
+            // 
+            // btnAjouter
+            // 
+            this.btnAjouter.BorderRadius = 4;
+            this.btnAjouter.CheckedState.Parent = this.btnAjouter;
+            this.btnAjouter.CustomImages.Parent = this.btnAjouter;
+            this.btnAjouter.FillColor = System.Drawing.Color.LimeGreen;
+            this.btnAjouter.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAjouter.ForeColor = System.Drawing.Color.White;
+            this.btnAjouter.HoverState.Parent = this.btnAjouter;
+            this.btnAjouter.Image = ((System.Drawing.Image)(resources.GetObject("btnAjouter.Image")));
+            this.btnAjouter.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAjouter.Location = new System.Drawing.Point(143, 14);
+            this.btnAjouter.Margin = new System.Windows.Forms.Padding(5);
+            this.btnAjouter.Name = "btnAjouter";
+            this.btnAjouter.ShadowDecoration.Parent = this.btnAjouter;
+            this.btnAjouter.Size = new System.Drawing.Size(183, 30);
+            this.btnAjouter.TabIndex = 72;
+            this.btnAjouter.Text = "Ajouter une direction";
+            this.btnAjouter.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAjouter.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRefresh.BorderRadius = 4;
+            this.btnRefresh.CheckedState.Parent = this.btnRefresh;
+            this.btnRefresh.CustomImages.Parent = this.btnRefresh;
+            this.btnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.HoverState.Parent = this.btnRefresh;
+            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
+            this.btnRefresh.Location = new System.Drawing.Point(922, 12);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(5);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.ShadowDecoration.Parent = this.btnRefresh;
+            this.btnRefresh.Size = new System.Drawing.Size(40, 40);
+            this.btnRefresh.TabIndex = 73;
+            this.btnRefresh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // EtatRecap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1111, 669);
+            this.Controls.Add(this.btnRefresh);
+            this.Controls.Add(this.btnAjouter);
+            this.Controls.Add(this.btnImprimer);
             this.Controls.Add(this.dgvDirectionsCentrales);
             this.Controls.Add(this.txtDirectionsCentrales);
             this.Controls.Add(this.btnModifier);
@@ -1182,12 +1288,11 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label ReportCarteFree;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label Designation;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.Label label43;
@@ -1241,5 +1346,13 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn col9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private Guna.UI2.WinForms.Guna2Button btnImprimer;
+        private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Label lblAnne;
+        private Guna.UI2.WinForms.Guna2Button btnAjouter;
+        private Guna.UI2.WinForms.Guna2Button btnRefresh;
     }
 }

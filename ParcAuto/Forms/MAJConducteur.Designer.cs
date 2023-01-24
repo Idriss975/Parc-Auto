@@ -346,8 +346,9 @@ namespace ParcAuto.Forms
             // DateEmb
             // 
             this.DateEmb.CheckedState.Parent = this.DateEmb;
+            this.DateEmb.CustomFormat = "MM/dd/yyyy";
             this.DateEmb.FillColor = System.Drawing.Color.White;
-            this.DateEmb.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DateEmb.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateEmb.HoverState.Parent = this.DateEmb;
             this.DateEmb.Location = new System.Drawing.Point(144, 86);
             this.DateEmb.Margin = new System.Windows.Forms.Padding(4);
@@ -396,24 +397,21 @@ namespace ParcAuto.Forms
             // 
             this.DateNaissance.BorderRadius = 4;
             this.DateNaissance.CheckedState.Parent = this.DateNaissance;
+            this.DateNaissance.CustomFormat = "MM/dd/yyyy";
             this.DateNaissance.FillColor = System.Drawing.Color.White;
-            this.DateNaissance.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DateNaissance.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateNaissance.HoverState.Parent = this.DateNaissance;
             this.DateNaissance.Location = new System.Drawing.Point(517, 44);
             this.DateNaissance.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.DateNaissance.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.DateNaissance.Name = "DateNaissance";
             this.DateNaissance.ShadowDecoration.Parent = this.DateNaissance;
-            this.DateNaissance.Size = new System.Drawing.Size(221, 33);
+            this.DateNaissance.Size = new System.Drawing.Size(221, 34);
             this.DateNaissance.TabIndex = 24;
             this.DateNaissance.Value = new System.DateTime(2022, 7, 6, 13, 23, 5, 144);
             // 
             // txtDirections
             // 
-            this.txtDirections.AutoCompleteCustomSource.AddRange(new string[] {
-            "dr1",
-            "dr2",
-            "dr3"});
             this.txtDirections.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtDirections.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtDirections.BorderRadius = 4;

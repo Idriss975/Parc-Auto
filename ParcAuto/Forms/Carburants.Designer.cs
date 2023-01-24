@@ -41,7 +41,6 @@ namespace ParcAuto.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.txtValueToFiltre = new Guna.UI2.WinForms.Guna2TextBox();
             this.TextPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnFiltrer = new Guna.UI2.WinForms.Guna2Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.cmbChoix = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -93,6 +92,7 @@ namespace ParcAuto.Forms
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnFiltrer = new Guna.UI2.WinForms.Guna2Button();
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarburant)).BeginInit();
@@ -122,7 +122,7 @@ namespace ParcAuto.Forms
             this.panelDate.Controls.Add(this.label3);
             this.panelDate.Controls.Add(this.Date1);
             this.panelDate.Controls.Add(this.Date2);
-            this.panelDate.Location = new System.Drawing.Point(288, 7);
+            this.panelDate.Location = new System.Drawing.Point(288, 80);
             this.panelDate.Name = "panelDate";
             this.panelDate.Size = new System.Drawing.Size(549, 60);
             this.panelDate.TabIndex = 31;
@@ -142,8 +142,9 @@ namespace ParcAuto.Forms
             this.Date1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Date1.BorderRadius = 4;
             this.Date1.CheckedState.Parent = this.Date1;
+            this.Date1.CustomFormat = "MM/dd/yyyy";
             this.Date1.FillColor = System.Drawing.Color.White;
-            this.Date1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Date1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Date1.HoverState.Parent = this.Date1;
             this.Date1.Location = new System.Drawing.Point(109, 11);
             this.Date1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -159,8 +160,9 @@ namespace ParcAuto.Forms
             this.Date2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Date2.BorderRadius = 4;
             this.Date2.CheckedState.Parent = this.Date2;
+            this.Date2.CustomFormat = "MM/dd/yyyy";
             this.Date2.FillColor = System.Drawing.Color.White;
-            this.Date2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Date2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Date2.HoverState.Parent = this.Date2;
             this.Date2.Location = new System.Drawing.Point(346, 11);
             this.Date2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -215,33 +217,6 @@ namespace ParcAuto.Forms
             this.TextPanel.Size = new System.Drawing.Size(340, 51);
             this.TextPanel.TabIndex = 30;
             // 
-            // btnFiltrer
-            // 
-            this.btnFiltrer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFiltrer.BorderRadius = 4;
-            this.btnFiltrer.CheckedState.Parent = this.btnFiltrer;
-            this.btnFiltrer.CustomImages.Parent = this.btnFiltrer;
-            this.btnFiltrer.FillColor = System.Drawing.Color.LimeGreen;
-            this.btnFiltrer.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnFiltrer.ForeColor = System.Drawing.Color.White;
-            this.btnFiltrer.HoverState.Parent = this.btnFiltrer;
-            this.btnFiltrer.Image = ((System.Drawing.Image)(resources.GetObject("btnFiltrer.Image")));
-            this.btnFiltrer.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnFiltrer.Location = new System.Drawing.Point(636, 23);
-            this.btnFiltrer.Margin = new System.Windows.Forms.Padding(5);
-            this.btnFiltrer.MaximumSize = new System.Drawing.Size(90, 30);
-            this.btnFiltrer.MinimumSize = new System.Drawing.Size(90, 30);
-            this.btnFiltrer.Name = "btnFiltrer";
-            this.btnFiltrer.ShadowDecoration.Parent = this.btnFiltrer;
-            this.btnFiltrer.Size = new System.Drawing.Size(90, 30);
-            this.btnFiltrer.TabIndex = 29;
-            this.btnFiltrer.Text = "Filtrer";
-            this.btnFiltrer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnFiltrer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
-            this.btnFiltrer.Click += new System.EventHandler(this.btnFiltrer_Click);
-            // 
             // btnRefresh
             // 
             this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -277,17 +252,17 @@ namespace ParcAuto.Forms
             this.cmbChoix.HoverState.Parent = this.cmbChoix;
             this.cmbChoix.ItemHeight = 30;
             this.cmbChoix.Items.AddRange(new object[] {
-            "Entite",
+            "Entité",
             "Bénéficiaire",
             "Matricule",
             "Marque",
             "Date",
             "Destination",
-            "Kilometrage parcourir",
+            "Kilometrage parcouru",
             "Consomation %",
             "Objet",
             "Dotation Fixe",
-            "Dotation Missions",
+            "Dotation Mission",
             "Dotation Hebdo",
             "Dotation exceptionnel",
             "Observation"});
@@ -402,7 +377,7 @@ namespace ParcAuto.Forms
             this.dgvCarburant.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvCarburant.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCarburant.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvCarburant.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -440,12 +415,13 @@ namespace ParcAuto.Forms
             this.dgvCarburant.Location = new System.Drawing.Point(0, 98);
             this.dgvCarburant.Margin = new System.Windows.Forms.Padding(5);
             this.dgvCarburant.Name = "dgvCarburant";
+            this.dgvCarburant.ReadOnly = true;
             this.dgvCarburant.RowHeadersVisible = false;
             this.dgvCarburant.RowHeadersWidth = 62;
+            this.dgvCarburant.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.dgvCarburant.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCarburant.Size = new System.Drawing.Size(1109, 423);
             this.dgvCarburant.TabIndex = 22;
-            this.dgvCarburant.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarburant_CellContentClick);
             this.dgvCarburant.DoubleClick += new System.EventHandler(this.dgvCarburant_DoubleClick);
             // 
             // Column1
@@ -453,90 +429,120 @@ namespace ParcAuto.Forms
             this.Column1.HeaderText = "Entité";
             this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 69;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Bénéficiaire";
             this.Column2.MinimumWidth = 8;
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 107;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Matricule";
             this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 90;
             // 
             // Column15
             // 
             this.Column15.HeaderText = "Marque";
             this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            this.Column15.Width = 81;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Date";
             this.Column4.MinimumWidth = 8;
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 63;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Destination";
             this.Column5.MinimumWidth = 8;
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 104;
             // 
             // Column12
             // 
             this.Column12.HeaderText = "Kilometrage Parcouru";
             this.Column12.MinimumWidth = 8;
             this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Width = 170;
             // 
             // Column13
             // 
             this.Column13.HeaderText = "Consomation %";
             this.Column13.MinimumWidth = 8;
             this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Width = 131;
             // 
             // Column6
             // 
             this.Column6.HeaderText = "Objet";
             this.Column6.MinimumWidth = 8;
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 67;
             // 
             // Column7
             // 
             this.Column7.HeaderText = "Dotation Fixe";
             this.Column7.MinimumWidth = 8;
             this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 115;
             // 
             // Column8
             // 
             this.Column8.HeaderText = "Dotation Mission";
             this.Column8.MinimumWidth = 8;
             this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 137;
             // 
             // Column9
             // 
             this.Column9.HeaderText = "Dotation Hebdo";
             this.Column9.MinimumWidth = 8;
             this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 132;
             // 
             // Column14
             // 
-            this.Column14.HeaderText = "Dotation exceptionnel ";
+            this.Column14.HeaderText = "Dotation exceptionnel";
             this.Column14.MinimumWidth = 8;
             this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Width = 169;
             // 
             // id
             // 
             this.id.HeaderText = "id";
             this.id.MinimumWidth = 8;
             this.id.Name = "id";
+            this.id.ReadOnly = true;
             this.id.Visible = false;
+            this.id.Width = 44;
             // 
             // Column11
             // 
             this.Column11.HeaderText = "Observation";
             this.Column11.MinimumWidth = 8;
             this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Width = 110;
             // 
             // btnImportExcel
             // 
@@ -586,7 +592,7 @@ namespace ParcAuto.Forms
             this.btnImprimer.BorderRadius = 4;
             this.btnImprimer.CheckedState.Parent = this.btnImprimer;
             this.btnImprimer.CustomImages.Parent = this.btnImprimer;
-            this.btnImprimer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnImprimer.FillColor = System.Drawing.Color.Black;
             this.btnImprimer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnImprimer.ForeColor = System.Drawing.Color.White;
             this.btnImprimer.HoverState.Parent = this.btnImprimer;
@@ -878,11 +884,39 @@ namespace ParcAuto.Forms
             this.label5.Text = "Consommation Total";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnFiltrer
+            // 
+            this.btnFiltrer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFiltrer.BorderRadius = 4;
+            this.btnFiltrer.CheckedState.Parent = this.btnFiltrer;
+            this.btnFiltrer.CustomImages.Parent = this.btnFiltrer;
+            this.btnFiltrer.FillColor = System.Drawing.Color.LimeGreen;
+            this.btnFiltrer.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnFiltrer.ForeColor = System.Drawing.Color.White;
+            this.btnFiltrer.HoverState.Parent = this.btnFiltrer;
+            this.btnFiltrer.Image = ((System.Drawing.Image)(resources.GetObject("btnFiltrer.Image")));
+            this.btnFiltrer.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnFiltrer.Location = new System.Drawing.Point(636, 19);
+            this.btnFiltrer.Margin = new System.Windows.Forms.Padding(5);
+            this.btnFiltrer.MaximumSize = new System.Drawing.Size(90, 30);
+            this.btnFiltrer.MinimumSize = new System.Drawing.Size(90, 30);
+            this.btnFiltrer.Name = "btnFiltrer";
+            this.btnFiltrer.ShadowDecoration.Parent = this.btnFiltrer;
+            this.btnFiltrer.Size = new System.Drawing.Size(90, 30);
+            this.btnFiltrer.TabIndex = 66;
+            this.btnFiltrer.Text = "Filtrer";
+            this.btnFiltrer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnFiltrer.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnFiltrer.Click += new System.EventHandler(this.btnFiltrer_Click);
+            // 
             // Carburants
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 669);
+            this.Controls.Add(this.btnFiltrer);
             this.Controls.Add(this.PanelTautaux);
             this.Controls.Add(this.btnSuprimmerTout);
             this.Controls.Add(this.btnImprimer);
@@ -890,7 +924,6 @@ namespace ParcAuto.Forms
             this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.panelDate);
             this.Controls.Add(this.TextPanel);
-            this.Controls.Add(this.btnFiltrer);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.cmbChoix);
             this.Controls.Add(this.label1);
@@ -938,7 +971,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox txtValueToFiltre;
         private System.Windows.Forms.FlowLayoutPanel TextPanel;
-        private Guna.UI2.WinForms.Guna2Button btnFiltrer;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Guna.UI2.WinForms.Guna2Button btnRefresh;
         private Guna.UI2.WinForms.Guna2ComboBox cmbChoix;
@@ -990,5 +1022,6 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private Guna.UI2.WinForms.Guna2Button btnFiltrer;
     }
 }

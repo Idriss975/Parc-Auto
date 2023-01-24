@@ -227,8 +227,9 @@ namespace ParcAuto.Forms
             this.Date1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Date1.BorderRadius = 4;
             this.Date1.CheckedState.Parent = this.Date1;
+            this.Date1.CustomFormat = "MM/dd/yyyy";
             this.Date1.FillColor = System.Drawing.Color.White;
-            this.Date1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Date1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Date1.HoverState.Parent = this.Date1;
             this.Date1.Location = new System.Drawing.Point(109, 11);
             this.Date1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -244,8 +245,9 @@ namespace ParcAuto.Forms
             this.Date2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Date2.BorderRadius = 4;
             this.Date2.CheckedState.Parent = this.Date2;
+            this.Date2.CustomFormat = "MM/dd/yyyy";
             this.Date2.FillColor = System.Drawing.Color.White;
-            this.Date2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Date2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Date2.HoverState.Parent = this.Date2;
             this.Date2.Location = new System.Drawing.Point(346, 11);
             this.Date2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -362,17 +364,17 @@ namespace ParcAuto.Forms
             this.cmbChoix.HoverState.Parent = this.cmbChoix;
             this.cmbChoix.ItemHeight = 30;
             this.cmbChoix.Items.AddRange(new object[] {
-            "Entite",
-            "Benificiaire",
+            "Entité",
+            "Bénéficiaire",
             "Vehicule",
             "Marque",
             "Date",
             "Destination",
-            "Kilometrage parcourir",
+            "Kilometrage parcouru",
             "Consomation %",
             "Objet",
             "Dotation Fixe",
-            "Dotation Missions",
+            "Dotation Mission",
             "Dotation Hebdo",
             "Dotation exceptionnel",
             "Observation"});
@@ -487,6 +489,7 @@ namespace ParcAuto.Forms
             this.dgvCarburant.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvCarburant.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvCarburant.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarburant.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -518,89 +521,91 @@ namespace ParcAuto.Forms
             this.Column1.HeaderText = "Entité";
             this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
-            this.Column1.Width = 150;
+            this.Column1.Width = 69;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Bénéficiaire";
             this.Column2.MinimumWidth = 8;
             this.Column2.Name = "Column2";
-            this.Column2.Width = 150;
+            this.Column2.Width = 107;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Vehicule";
             this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
-            this.Column3.Width = 150;
+            this.Column3.Width = 87;
             // 
             // Column15
             // 
             this.Column15.HeaderText = "Marque";
             this.Column15.Name = "Column15";
+            this.Column15.Width = 81;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Date";
             this.Column4.MinimumWidth = 8;
             this.Column4.Name = "Column4";
-            this.Column4.Width = 150;
+            this.Column4.Width = 63;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Destination";
             this.Column5.MinimumWidth = 8;
             this.Column5.Name = "Column5";
-            this.Column5.Width = 150;
+            this.Column5.Width = 104;
             // 
             // Column12
             // 
             this.Column12.HeaderText = "Kilometrage Parcourir";
             this.Column12.MinimumWidth = 8;
             this.Column12.Name = "Column12";
-            this.Column12.Width = 150;
+            this.Column12.Width = 155;
             // 
             // Column13
             // 
             this.Column13.HeaderText = "Consomation %";
             this.Column13.MinimumWidth = 8;
             this.Column13.Name = "Column13";
-            this.Column13.Width = 150;
+            this.Column13.Width = 120;
             // 
             // Column6
             // 
             this.Column6.HeaderText = "Objet";
             this.Column6.MinimumWidth = 8;
             this.Column6.Name = "Column6";
-            this.Column6.Width = 250;
+            this.Column6.Width = 67;
             // 
             // Column7
             // 
             this.Column7.HeaderText = "Dotation Fixe";
             this.Column7.MinimumWidth = 8;
             this.Column7.Name = "Column7";
-            this.Column7.Width = 150;
+            this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column7.Width = 105;
             // 
             // Column8
             // 
             this.Column8.HeaderText = "Dotation Mission";
             this.Column8.MinimumWidth = 8;
             this.Column8.Name = "Column8";
-            this.Column8.Width = 150;
+            this.Column8.Width = 125;
             // 
             // Column9
             // 
             this.Column9.HeaderText = "Dotation Hebdo";
             this.Column9.MinimumWidth = 8;
             this.Column9.Name = "Column9";
-            this.Column9.Width = 150;
+            this.Column9.Width = 121;
             // 
             // Column14
             // 
-            this.Column14.HeaderText = "Dotation exceptionnel ";
+            this.Column14.HeaderText = "Dotation exceptionnel";
             this.Column14.MinimumWidth = 8;
             this.Column14.Name = "Column14";
-            this.Column14.Width = 150;
+            this.Column14.Width = 154;
             // 
             // Column10
             // 
@@ -615,7 +620,7 @@ namespace ParcAuto.Forms
             this.Column11.HeaderText = "Observation";
             this.Column11.MinimumWidth = 8;
             this.Column11.Name = "Column11";
-            this.Column11.Width = 150;
+            this.Column11.Width = 110;
             // 
             // PanelTautaux
             // 
@@ -942,21 +947,6 @@ namespace ParcAuto.Forms
         private Guna.UI2.WinForms.Guna2Button btnModifier;
         private Guna.UI2.WinForms.Guna2Button btnSupprimer;
         private System.Windows.Forms.DataGridView dgvCarburant;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.Panel PanelTautaux;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lblTotal;
@@ -980,5 +970,20 @@ namespace ParcAuto.Forms
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
     }
 }

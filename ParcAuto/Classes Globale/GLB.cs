@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Data.SqlClient;
 using ParcAuto.Forms;
+using System.Globalization;
 
 namespace ParcAuto.Classes_Globale
 {
@@ -28,38 +29,15 @@ namespace ParcAuto.Classes_Globale
         public static int id_Reparation;
         public static int id_Transport;
         public static int id_CarteFree;
-        public static  int number_of_lines;
+        public static int id_Mission;
+        public static int id_Courrier;
+        public static int id_Courrier_Simple;
+        public static int id_Maintenance;
+        public static int id_Visiteur;
+        public static int Matricule_Dispo;
         public static string DotationCarburant ;
         public static string SelectedDate;
-        public static Dictionary<string, string> Entites = new Dictionary<string, string> 
-        { 
-            { "DG", "Direction Générale" },
-            { "CDG", "Cabinet /Direction Générale" },
-            { "DC", "Direction de la communication" },
-            { "DA", "Direction de l'Audit" },
-            { "DAL", "Direction de l'approvisionnement et de la logistique" },
-            { "DRH", "Direction des ressources humaines" },
-            { "DFC", "Direction financière et comptable" },
-            { "DAI", "Direction Afrique et International" },
-            { "TP", "Trésorier Payeur" },
-            { "DP", "Direction du patrimoine" },
-            { "DF", "Direction de la formation" },
-            { "DOSI", "Direction organisation et systèmes d'information" },
-            { "DFCE", "Direction de la formation en cours d'emploi" },
-            { "DRIF", "Direction de la recherche et de l'ingénierie de la formation" },
-            { "DDMP", "Direction Développement et Management de Projets" },
-            { "DRCS", "DR Casablanca-Settat" },
-            { "DRRSK", "DR Rabat-Salé-Kénitra" },
-            { "DRTTH", "DR Tanger-Tétouan-Al Hoceima" },
-            { "DRPS", "DR Province de Sud" },
-            { "DRFM", "DR Fes-Meknes" },
-            { "DRBK", "DR Béni Mellal-Khénifra" },
-            { "DRMS", "DR Marrakech-Safi" },
-            { "DRO", "DR Oriental" },
-            { "DRSM", "DR Souss Massa" },
-            { "DRDT", "DR Draa Tafilalet" },
-            {  "ASOFP", "ASOFP" }
-        };
+        public static Dictionary<string, string> Entites = new Dictionary<string, string>();
         public static void StyleDataGridView(DataGridView dgv)
         {
             dgv.BorderStyle = BorderStyle.None;
@@ -73,121 +51,120 @@ namespace ParcAuto.Classes_Globale
             dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(115, 139, 215);
             dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
         }
+        //public static void Permissions(string tableName ,Button btnAjouter,Button btnModifier , Button btnSupprimer)
+        //{
+        //    GLB.Cmd.CommandText = "SELECT  pri.name As Username " +
+        //           ",       pri.type_desc AS[User Type] " +
+        //           ", permit.permission_name AS[Permission] " +
+        //           ", permit.state_desc AS[Permission State] " +
+        //           ", permit.class_desc Class " +
+        //           ", object_name(permit.major_id) AS[Object Name] " +
+        //           "FROM sys.database_principals pri " +
+        //           "LEFT JOIN " +
+        //           "sys.database_permissions permit " +
+        //           "ON permit.grantee_principal_id = pri.principal_id " +
+        //           $"WHERE object_name(permit.major_id) = '{tableName}' " +
+        //           "and pri.name = SUSER_NAME()";
+        //    GLB.Con.Open();
+        //    GLB.dr = GLB.Cmd.ExecuteReader();
+        //    while (GLB.dr.Read())
+        //    {
+        //        if (GLB.dr[2].ToString() == "INSERT")
+        //        {
+        //            if (GLB.dr[3].ToString() == "DENY")
+        //                btnAjouter.Visible = false;
+        //            else
+        //                btnAjouter.Visible = true;
+        //        }
+        //        else if (GLB.dr[2].ToString() == "DELETE")
+        //        {
+        //            if (GLB.dr[3].ToString() == "DENY")
+        //                btnSupprimer.Visible = false;
+        //            else
+        //                btnSupprimer.Visible = true;
+        //        }
+        //        //else if (GLB.dr[2].ToString() == "SELECT")
+        //        //{
+        //        //    if (GLB.dr[3].ToString() == "DENY")
+        //        //        MessageBox.Show("Vous n'avez pas le droit de voire cette table.");
+        //        //}
+        //        else if (GLB.dr[2].ToString() == "UPDATE")
+        //        {
+        //            if (GLB.dr[3].ToString() == "DENY")
+        //                btnModifier.Visible = false;
+        //            else
+        //                btnModifier.Visible = true;
+        //        }
+        //    }
+        //    GLB.dr.Close();
+        //    GLB.Con.Close();
+        //}
+
         
         /// <summary>
-        ///     Draws on "print document" with a formal document layout.
+        ///     Filters datagridview
         /// </summary>
-        /// <param name="e">Print event</param>
-        /// <param name="DGV">Datagridview to add columns and rows into document.</param>
-        /// <param name="Logo">OFPPT logo to add into header with its text.</param>
-        /// <param name="FontHeader">Font for the columns.</param>
-        /// <param name="FontRows">Font for the rows.</param>
-        /// <param name="Skipindex">Column index to skip/ not show (-1 to not skip).</param>
-        /// <param name="StartingColumnPosition">The X position for where the first column should show.</param>
-        /// <param name="StartingRowPosition">The Y position for where the First row should show.</param>
-        static public void Drawonprintdoc(PrintPageEventArgs e,  DataGridView DGV, Image Logo, Font FontHeader, Font FontRows, int Skipindex = -1, int StartingColumnPosition = 5, int StartingRowPosition = 200, string Total = "")
-        {
-            float column_gap = (e.PageSettings.Landscape? e.PageSettings.PaperSize.Height : e.PageSettings.PaperSize.Width) - StartingColumnPosition;
-            foreach (DataGridViewColumn item in DGV.Columns)
-            {
-                if (item.Index == Skipindex || item.HeaderText == "Observation") continue;
-                column_gap -= e.Graphics.MeasureString(longestcellinrow(DGV, item.Index), FontHeader).Width;
-            }
-                
-            column_gap /= DGV.Columns.Count-1;
-            if (column_gap < 0) 
-                column_gap = 0;
-            //Header
-            e.Graphics.DrawImage(Logo, 50, 17);
-            e.Graphics.DrawLine(new Pen(Color.Black, 2), 150, 40, 150, 85);
-            e.Graphics.DrawString("مكتب التكوين المهني و إنعاش الشغل", new Font("PFDinTextArabic-Light", 9, FontStyle.Bold), Brushes.Black, 158, 40);
-            e.Graphics.DrawString("Office de la Formation Professionnelle\net de la Promotion du Travail", new Font("Arial",9), Brushes.Black, 158, 60);
-
-            e.Graphics.DrawString($"Casablanca, le {DateTime.Now.ToString("dd/MM/yyyy")}", new Font("Arial", 9), Brushes.Black, e.PageSettings.Bounds.Width - 180, 105 );
-
-            //Footer
-            e.Graphics.DrawString("Intersection Route BO 50 et R.N. n°11 (Route Nouaceur) BP 40207 Sidi Maârouf Casablanca 20 270\n 20 270 و الطريق الوطنية رفم 11 (طريق النواصر) ص. ب 40207 سيدي معروف الدار البيضاء B.O 50 ملتمى طريق\nTél.: 05 22 78 72 60/61 - Fax : 05 22 32 15 09", new Font("Arial", 9), Brushes.Black, e.PageSettings.Bounds.Width/2, e.PageSettings.Bounds.Height - 35, new StringFormat() { LineAlignment = StringAlignment.Center, Alignment = StringAlignment.Center });
-
-            List<float> columns_pos = new List<float> { StartingColumnPosition };
-
-            //45 lines per page (26 per page paysage)
-            if (Skipindex != -1) // When skipping
-            {
-                foreach (DataGridViewColumn col in DGV.Columns)
-                {
-                    if (col.Index == Skipindex || col.HeaderText == "Observation") continue;
-                    e.Graphics.DrawString(col.HeaderText.Replace("Dotation", "D. ").Replace("exceptionnel", "Except"), FontHeader, Brushes.Black, columns_pos[columns_pos.Count - 1], StartingRowPosition - 17);
-                    columns_pos.Add(columns_pos[columns_pos.Count - 1] + column_gap + (e.Graphics.MeasureString(longestcellinrow(DGV, col.Index),FontHeader).Width));
-                }
-                e.Graphics.DrawLine(new Pen(Color.Black), columns_pos[0], StartingRowPosition - 5, columns_pos[columns_pos.Count - 1] - column_gap, StartingRowPosition - 5);
-                
-                string MaxCellInRowLen;
-                for (int item = DGV.Rows.Count - number_of_lines; item < DGV.Rows.Count - number_of_lines + (number_of_lines < (e.PageSettings.Landscape? 26:45) ? number_of_lines : (e.PageSettings.Landscape ? 26 : 45)); item++)
-                {
-                    for (int i = 0; i < DGV.Rows[item].Cells.Count - 1; i++)
-                    {
-                        if (DGV.Columns[i < Skipindex ? i : i + 1].HeaderText == "Observation") continue;
-                        MaxCellInRowLen = longestcellinrow(DGV, i < Skipindex? i: i+1);
-                        e.Graphics.DrawString(DGV.Rows[item].Cells[i < Skipindex ? i : i + 1].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i < Skipindex ? i : i + 1].Value.ToString(), out _) ? ((e.Graphics.MeasureString(MaxCellInRowLen,FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i < Skipindex ? i : i + 1].Value.ToString(),FontRows).Width)) : 0), StartingRowPosition);
-                    }
-                    StartingRowPosition += 20;
-                }
-            }
-            else  //If Nothing to skip
-            {                                                                                                                                                              
-                foreach (DataGridViewColumn item in DGV.Columns)
-                {
-                    if (item.HeaderText == "Observation") continue;
-                    e.Graphics.DrawString(item.HeaderText, FontHeader, Brushes.Black, columns_pos[columns_pos.Count - 1], StartingRowPosition - 17);                                            
-                    columns_pos.Add(columns_pos[columns_pos.Count - 1] + column_gap + (e.Graphics.MeasureString(longestcellinrow(DGV, item.Index), FontHeader).Width));                                         
-                }
-                e.Graphics.DrawLine(new Pen(Color.Black), columns_pos[0], StartingRowPosition - 5, columns_pos[columns_pos.Count - 1] - column_gap, StartingRowPosition - 5);
-
-                string MaxCellInRowLen;
-                for (int item = DGV.Rows.Count - number_of_lines; item < DGV.Rows.Count - number_of_lines + (number_of_lines < (e.PageSettings.Landscape ? 26 : 45) ? number_of_lines : (e.PageSettings.Landscape ? 26 : 45)); item++)
-                {
-                    for (int i = 0; i < DGV.Rows[item].Cells.Count; i++)
-                    {
-                        if (DGV.Columns[i].HeaderText == "Observation") continue;
-                        MaxCellInRowLen = longestcellinrow(DGV, i);
-                        e.Graphics.DrawString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows, Brushes.Black, columns_pos[i] + (float.TryParse(DGV.Rows[item].Cells[i].Value.ToString(), out _) ? (e.Graphics.MeasureString(MaxCellInRowLen, FontRows).Width - e.Graphics.MeasureString(DGV.Rows[item].Cells[i].Value.ToString(), FontRows).Width) : 0), StartingRowPosition);
-                    }
-                    StartingRowPosition += 20;
-                }
-            }
-
-
-            e.HasMorePages = number_of_lines > (e.PageSettings.Landscape ? 26 : 45) ? true: false;
-            number_of_lines -= (e.PageSettings.Landscape ? 26 : 45);
-
-            if (!e.HasMorePages)
-                e.Graphics.DrawString(Total, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, e.PageSettings.Bounds.Width - e.Graphics.MeasureString(Total, new Font("Arial", 12, FontStyle.Bold)).Width - 50, StartingRowPosition + 30);
-        }
-
+        /// <param name="cmbChoix">Combobox</param>
+        /// <param name="DGV">datagridview</param>
+        /// <param name="txtValueToFiltre">Textbox to use as a filter</param>
+        /// <param name="ColumnDates">Specifies the dgv columns that has date as values</param>
+        /// <param name="Date1"></param>
+        /// <param name="Date2"></param>
         public static void Filter(Guna.UI2.WinForms.Guna2ComboBox cmbChoix, DataGridView DGV, Guna.UI2.WinForms.Guna2TextBox txtValueToFiltre,string[] ColumnDates, Guna.UI2.WinForms.Guna2DateTimePicker Date1, Guna.UI2.WinForms.Guna2DateTimePicker Date2)
         {
-            int index=-1;
-            foreach (DataGridViewColumn item in DGV.Columns)
-                if (item.HeaderText == cmbChoix.Text)
+            try
+            {
+                DateTime date1 = DateTime.ParseExact(Date1.Value.Date.ToString("MM/dd/yyyy"), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                DateTime date2 = DateTime.ParseExact(Date2.Value.Date.ToString("MM/dd/yyyy"), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+               
+
+                int index = -1;
+                foreach (DataGridViewColumn item in DGV.Columns)
+                    if (item.HeaderText == cmbChoix.Text)
+                    {
+                        index = item.Index;
+                        break;
+                    }
+
+
+                if (!(ColumnDates.Contains(cmbChoix.Text)))
                 {
-                    index = item.Index;
-                    break;
+                    for (int i = DGV.Rows.Count - 1; i >= 0; i--)
+                    {
+                        if (!new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(DGV.Rows[i].Cells[index].Value.ToString().ToLower()))
+                        {
+                            DGV.Rows.Remove(DGV.Rows[i]);
+                        }
+                    }
+                }
+                else
+                {
+                    DateTime date;
+                    for (int i = DGV.Rows.Count - 1; i >= 0; i--)
+                    {
+                        date = DateTime.ParseExact(DGV.Rows[i].Cells[index].Value.ToString(), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                        if (!(date >= date1 && date <= date2))
+                        {
+                            DGV.Rows.Remove(DGV.Rows[i]);
+                        }
+                    }
                 }
 
-
-            if (!(ColumnDates.Contains(cmbChoix.Text)))
-            {
-                for (int i = DGV.Rows.Count - 1; i >= 0; i--)
-                    if (!new Regex(txtValueToFiltre.Text.ToLower()).IsMatch(DGV.Rows[i].Cells[index].Value.ToString().ToLower()))
-                        DGV.Rows.Remove(DGV.Rows[i]);
+                txtValueToFiltre.Text = "";
             }
-            else
-                for (int i = DGV.Rows.Count - 1; i >= 0; i--)
-                    if (!((Convert.ToDateTime(DGV.Rows[i].Cells[index].Value)).Date >= Date1.Value.Date && (Convert.ToDateTime(DGV.Rows[i].Cells[index].Value)).Date <= Date2.Value.Date))
-                        DGV.Rows.Remove(DGV.Rows[i]);
-            txtValueToFiltre.Text = "";
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
+        /// <summary>
+        ///     Filters datagridview
+        /// </summary>
+        /// <param name="cmbChoix">Combobox</param>
+        /// <param name="DGV">datagridview</param>
+        /// <param name="txtValueToFiltre">Textbox to use as a filter</param>
         public static void Filter(Guna.UI2.WinForms.Guna2ComboBox cmbChoix, DataGridView DGV, Guna.UI2.WinForms.Guna2TextBox txtValueToFiltre)
         {
             int index = -1;
@@ -206,7 +183,7 @@ namespace ParcAuto.Classes_Globale
             txtValueToFiltre.Text = "";
         }
 
-        private static string longestcellinrow(DataGridView DGV, int Column_index)
+        public static string longestcellinrow(DataGridView DGV, int Column_index)
         {
             string output= DGV.Columns[Column_index].HeaderText.Replace("Dotation", "D. ").Replace("exceptionnel", "Except");
             foreach (DataGridViewRow item in DGV.Rows)

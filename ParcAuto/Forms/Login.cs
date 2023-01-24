@@ -24,13 +24,7 @@ namespace ParcAuto.Forms
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn(int nLeft, int nTop, int nRight, int nBottom, int nWidthEllipse, int nHeightEllipse);
 
-        private void DeleteOldHistory()
-        {
-            GLB.Con.Open();
-            GLB.Cmd.CommandText = "delete from EtatJournalier where Date < Cast(getdate() as date)";
-            GLB.Cmd.ExecuteNonQuery();
-            GLB.Con.Close();
-        }
+      
         private void Login_Load(object sender, EventArgs e)
         {
 
@@ -58,33 +52,60 @@ namespace ParcAuto.Forms
         private void btnLogIn_Click(object sender, EventArgs e)
         {
             //GLB.Con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=Parc_Automobile;Integrated Security=True");
-            //GLB.Con = new SqlConnection($"Data Source=DESKTOP-0HDF3CT\\SQLEXPRESS,1434;Network Library=DBMSSOCN;Initial Catalog=Parc_Automobile;Persist Security Info=True;User ID={txtuser.Text.Trim()};Password={txtpass.Text.Trim()}");
-            GLB.Con = new SqlConnection($"Data Source=DAL1251\\SQLEXPRESS,1433;Network Library=DBMSSOCN;Initial Catalog=Parc_Automobile;Persist Security Info=True;User ID={txtuser.Text.Trim()};Password={txtpass.Text.Trim()}");
+            GLB.Con = new SqlConnection($"Data Source=DESKTOP-PS2HKMR\\SQLEXPRESS,1433;Network Library=DBMSSOCN;Initial Catalog=Parc_Automobile;Persist Security Info=True;User ID={txtuser.Text.Trim()};Password={txtpass.Text.Trim()}");
             GLB.Cmd = GLB.Con.CreateCommand();
+            GLB.Cmd.CommandTimeout = 5;
             try
             {
                 GLB.Con.Open();
                 GLB.Con.Close();
+                RemplirLeDictionnaire();
                 this.Hide();
                 (new Annee()).ShowDialog();
-                this.Close();
+                //this.Close();
+                
             }
             catch (SqlException ex)
             {
                 if (ex.Number == 18456)
-                    MessageBox.Show("Nom d'utilisateur ou/et mot de passe incorrecte(s).","Login Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Nom d'utilisateur ou/et mot de passe incorrecte(s).", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else if (ex.Number == 17142)
                     MessageBox.Show("Connection inaccessible vers la base de donnée à distance.", "Server inacessible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (ex.Number == 11001)
+                    MessageBox.Show("Echec de connection vers la Base de données.\nVérifiez que vous etes connecter aux même réseau que celle de la base de données.", "Echec de connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                     MessageBox.Show(ex.Message, "SQLERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            DeleteOldHistory();
+            
         }
 
         private void txtpass_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
                 btnLogIn_Click(this, EventArgs.Empty);
+        }
+
+        private void RemplirLeDictionnaire()
+        {
+            try
+            {
+                GLB.Cmd.CommandText = $"select * from Entites";
+                GLB.Con.Open();
+                GLB.dr = GLB.Cmd.ExecuteReader();
+                while (GLB.dr.Read())
+                {
+                    GLB.Entites.Add(GLB.dr["Abreviation"].ToString().ToUpper(), GLB.dr["Entite"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                GLB.dr.Close();
+                GLB.Con.Close();
+            }
         }
     }
 }

@@ -55,6 +55,7 @@ namespace ParcAuto.Forms
             this.cmbAnnee.ShadowDecoration.Parent = this.cmbAnnee;
             this.cmbAnnee.Size = new System.Drawing.Size(223, 36);
             this.cmbAnnee.TabIndex = 25;
+            this.cmbAnnee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbAnnee_KeyPress);
             // 
             // btnConfirmer
             // 

@@ -148,17 +148,19 @@ namespace ParcAuto.Forms
             // 
             // DateOper
             // 
+            this.DateOper.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DateOper.BorderRadius = 4;
             this.DateOper.CheckedState.Parent = this.DateOper;
+            this.DateOper.CustomFormat = "MM/dd/yyyy";
             this.DateOper.FillColor = System.Drawing.Color.White;
-            this.DateOper.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DateOper.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateOper.HoverState.Parent = this.DateOper;
-            this.DateOper.Location = new System.Drawing.Point(522, 52);
+            this.DateOper.Location = new System.Drawing.Point(515, 56);
             this.DateOper.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.DateOper.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.DateOper.Name = "DateOper";
             this.DateOper.ShadowDecoration.Parent = this.DateOper;
-            this.DateOper.Size = new System.Drawing.Size(220, 33);
+            this.DateOper.Size = new System.Drawing.Size(220, 35);
             this.DateOper.TabIndex = 3;
             this.DateOper.Value = new System.DateTime(2022, 7, 6, 13, 23, 5, 144);
             // 
@@ -166,7 +168,7 @@ namespace ParcAuto.Forms
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(412, 363);
+            this.label7.Location = new System.Drawing.Point(415, 363);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 17);
@@ -177,7 +179,7 @@ namespace ParcAuto.Forms
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(394, 163);
+            this.label6.Location = new System.Drawing.Point(397, 163);
             this.label6.Margin = new System.Windows.Forms.Padding(25, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(86, 17);
@@ -197,6 +199,7 @@ namespace ParcAuto.Forms
             // 
             // txtEntite
             // 
+            this.txtEntite.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEntite.BorderRadius = 4;
             this.txtEntite.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtEntite.DefaultText = "";
@@ -209,7 +212,7 @@ namespace ParcAuto.Forms
             this.txtEntite.FocusedState.Parent = this.txtEntite;
             this.txtEntite.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEntite.HoverState.Parent = this.txtEntite;
-            this.txtEntite.Location = new System.Drawing.Point(147, 6);
+            this.txtEntite.Location = new System.Drawing.Point(143, 7);
             this.txtEntite.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtEntite.Multiline = true;
             this.txtEntite.Name = "txtEntite";
@@ -217,7 +220,7 @@ namespace ParcAuto.Forms
             this.txtEntite.PlaceholderText = "";
             this.txtEntite.SelectedText = "";
             this.txtEntite.ShadowDecoration.Parent = this.txtEntite;
-            this.txtEntite.Size = new System.Drawing.Size(215, 37);
+            this.txtEntite.Size = new System.Drawing.Size(220, 35);
             this.txtEntite.TabIndex = 0;
             this.txtEntite.Leave += new System.EventHandler(this.txtEntite_Leave);
             // 
@@ -225,7 +228,7 @@ namespace ParcAuto.Forms
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(394, 65);
+            this.label4.Location = new System.Drawing.Point(397, 65);
             this.label4.Margin = new System.Windows.Forms.Padding(25, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 17);
@@ -247,7 +250,7 @@ namespace ParcAuto.Forms
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(394, 16);
+            this.label2.Location = new System.Drawing.Point(397, 16);
             this.label2.Margin = new System.Windows.Forms.Padding(25, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 17);
@@ -267,6 +270,7 @@ namespace ParcAuto.Forms
             // 
             // txtOMN
             // 
+            this.txtOMN.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtOMN.BorderRadius = 4;
             this.txtOMN.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtOMN.DefaultText = "";
@@ -279,14 +283,14 @@ namespace ParcAuto.Forms
             this.txtOMN.FocusedState.Parent = this.txtOMN;
             this.txtOMN.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtOMN.HoverState.Parent = this.txtOMN;
-            this.txtOMN.Location = new System.Drawing.Point(526, 153);
+            this.txtOMN.Location = new System.Drawing.Point(515, 154);
             this.txtOMN.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtOMN.Name = "txtOMN";
             this.txtOMN.PasswordChar = '\0';
             this.txtOMN.PlaceholderText = "";
             this.txtOMN.SelectedText = "";
             this.txtOMN.ShadowDecoration.Parent = this.txtOMN;
-            this.txtOMN.Size = new System.Drawing.Size(117, 30);
+            this.txtOMN.Size = new System.Drawing.Size(220, 35);
             this.txtOMN.TabIndex = 7;
             // 
             // txtDotation
@@ -303,23 +307,23 @@ namespace ParcAuto.Forms
             this.txtDotation.FocusedState.Parent = this.txtDotation;
             this.txtDotation.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDotation.HoverState.Parent = this.txtDotation;
-            this.txtDotation.Location = new System.Drawing.Point(543, 358);
+            this.txtDotation.Location = new System.Drawing.Point(531, 355);
             this.txtDotation.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtDotation.Name = "txtDotation";
             this.txtDotation.PasswordChar = '\0';
             this.txtDotation.PlaceholderText = "";
             this.txtDotation.SelectedText = "";
             this.txtDotation.ShadowDecoration.Parent = this.txtDotation;
-            this.txtDotation.Size = new System.Drawing.Size(215, 30);
-            this.txtDotation.TabIndex = 10;
+            this.txtDotation.Size = new System.Drawing.Size(220, 35);
+            this.txtDotation.TabIndex = 9;
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.83623F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.74073F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.24969F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.17336F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32F));
             this.tableLayoutPanel1.Controls.Add(this.cmbVilles, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.Matricule, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 2, 0);
@@ -349,6 +353,7 @@ namespace ParcAuto.Forms
             // 
             // cmbVilles
             // 
+            this.cmbVilles.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbVilles.AutoCompleteCustomSource.AddRange(new string[] {
             "Casablanca",
             "Fes",
@@ -709,18 +714,19 @@ namespace ParcAuto.Forms
             this.cmbVilles.FocusedState.Parent = this.cmbVilles;
             this.cmbVilles.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbVilles.HoverState.Parent = this.cmbVilles;
-            this.cmbVilles.Location = new System.Drawing.Point(149, 105);
+            this.cmbVilles.Location = new System.Drawing.Point(143, 105);
             this.cmbVilles.Margin = new System.Windows.Forms.Padding(9, 7, 9, 7);
             this.cmbVilles.Name = "cmbVilles";
             this.cmbVilles.PasswordChar = '\0';
             this.cmbVilles.PlaceholderText = "";
             this.cmbVilles.SelectedText = "";
             this.cmbVilles.ShadowDecoration.Parent = this.cmbVilles;
-            this.cmbVilles.Size = new System.Drawing.Size(211, 30);
+            this.cmbVilles.Size = new System.Drawing.Size(220, 35);
             this.cmbVilles.TabIndex = 4;
             // 
             // txtBenificiaire
             // 
+            this.txtBenificiaire.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtBenificiaire.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtBenificiaire.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtBenificiaire.BorderRadius = 4;
@@ -735,22 +741,21 @@ namespace ParcAuto.Forms
             this.txtBenificiaire.FocusedState.Parent = this.txtBenificiaire;
             this.txtBenificiaire.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBenificiaire.HoverState.Parent = this.txtBenificiaire;
-            this.txtBenificiaire.Location = new System.Drawing.Point(523, 4);
+            this.txtBenificiaire.Location = new System.Drawing.Point(515, 7);
             this.txtBenificiaire.Margin = new System.Windows.Forms.Padding(4);
             this.txtBenificiaire.Name = "txtBenificiaire";
             this.txtBenificiaire.PasswordChar = '\0';
             this.txtBenificiaire.PlaceholderText = "";
             this.txtBenificiaire.SelectedText = "";
             this.txtBenificiaire.ShadowDecoration.Parent = this.txtBenificiaire;
-            this.txtBenificiaire.Size = new System.Drawing.Size(215, 30);
+            this.txtBenificiaire.Size = new System.Drawing.Size(220, 35);
             this.txtBenificiaire.TabIndex = 1;
-            this.txtBenificiaire.TextChanged += new System.EventHandler(this.txtBenificiaire_TextChanged);
             // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(394, 114);
+            this.label8.Location = new System.Drawing.Point(397, 114);
             this.label8.Margin = new System.Windows.Forms.Padding(25, 0, 3, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(91, 17);
@@ -770,6 +775,7 @@ namespace ParcAuto.Forms
             // 
             // txtpourcentage
             // 
+            this.txtpourcentage.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtpourcentage.AutoCompleteCustomSource.AddRange(new string[] {
             "Casablanca",
             "Fes",
@@ -1130,364 +1136,19 @@ namespace ParcAuto.Forms
             this.txtpourcentage.FocusedState.Parent = this.txtpourcentage;
             this.txtpourcentage.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtpourcentage.HoverState.Parent = this.txtpourcentage;
-            this.txtpourcentage.Location = new System.Drawing.Point(156, 158);
+            this.txtpourcentage.Location = new System.Drawing.Point(150, 158);
             this.txtpourcentage.Margin = new System.Windows.Forms.Padding(16, 11, 16, 11);
             this.txtpourcentage.Name = "txtpourcentage";
             this.txtpourcentage.PasswordChar = '\0';
             this.txtpourcentage.PlaceholderText = "";
             this.txtpourcentage.SelectedText = "";
             this.txtpourcentage.ShadowDecoration.Parent = this.txtpourcentage;
-            this.txtpourcentage.Size = new System.Drawing.Size(197, 27);
+            this.txtpourcentage.Size = new System.Drawing.Size(206, 27);
             this.txtpourcentage.TabIndex = 6;
             // 
             // txtKM
             // 
-            this.txtKM.AutoCompleteCustomSource.AddRange(new string[] {
-            "Casablanca",
-            "Fes",
-            "Salé",
-            "Marrakech",
-            "Tangier",
-            "Rabat",
-            "Meknes",
-            "Oujda",
-            "Kenitra",
-            "Agadir",
-            "Tetuan",
-            "Safi",
-            "Temara",
-            "Inzegan",
-            "Mohammedia",
-            "Laayoune",
-            "Khouribga",
-            "Beni Mellal",
-            "Jdida",
-            "Taza",
-            "Ait Melloul",
-            "Nador",
-            "Settat",
-            "Ksar El Kbir",
-            "Larache",
-            "Khmisset",
-            "Guelmim",
-            "Berrechid",
-            "Wad Zam",
-            "Fkih BenSaleh",
-            "Taourirt",
-            "Berkane",
-            "Sidi Sliman",
-            "Errachidia",
-            "Sidi Kacem",
-            "Khenifra",
-            "Tifelt",
-            "Essaouira",
-            "Taroudant",
-            "Kelaat Sraghna",
-            "Oulad Teima",
-            "Youssoufia",
-            "Sefrou",
-            "Ben Guerir",
-            "Tan-Tan",
-            "Ouazzane",
-            "Guercif",
-            "Dakhla",
-            "Hoceima",
-            "Fnideq",
-            "Ouarzazate",
-            "Tiznit",
-            "Suq Sebt Oulad Nama",
-            "Azrou",
-            "Lahraouyine",
-            "Bensliman",
-            "Midelt",
-            "Jrada",
-            "Skhirat",
-            "Souk Larbaa",
-            "Aïn Harrouda",
-            "Bejaad",
-            "Kasbat Tadla",
-            "Sidi Bennour",
-            "Martil",
-            "Lqliaa",
-            "Boujdor",
-            "Azemour",
-            "M\'dyaq",
-            "Tinghir",
-            "El Arwi",
-            "Chefchawn",
-            "M\'Rirt",
-            "Zagora",
-            "El Aioun Sidi Mellouk",
-            "Lamkansa",
-            "Smara",
-            "Taounate",
-            "Bin Ansar",
-            "Sidi Yahya El Gharb",
-            "Zaio",
-            "Amalou Ighriben",
-            "Assilah",
-            "Azilal",
-            "Mechra Bel Ksiri",
-            "El Hajeb",
-            "Bouznika",
-            "Imzouren",
-            "Tahla",
-            "BouiZazarene Ihaddadene",
-            "Ain El Aouda",
-            "Bouarfa",
-            "Arfoud",
-            "Demnate",
-            "Sidi sliman echraa",
-            "Zawiyat cheikh",
-            "Ain Taoujdat",
-            "Echemaia",
-            "Aourir",
-            "Sabaa Aiyoun",
-            "Oulad Ayad",
-            "Ben Ahmed",
-            "Tabounte",
-            "Jorf El Melha",
-            "Missour",
-            "Laataouia",
-            "Errich",
-            "Zeghanghan",
-            "Rissani",
-            "Sidi Taibi",
-            "Sidi Ifni",
-            "Ait Ourir",
-            "Ahfir",
-            "El Ksiba",
-            "El Gara",
-            "Drargua",
-            "Imin tanout",
-            "Goulmima",
-            "Karia Ba Mohamed",
-            "Mehdya",
-            "El Borouj",
-            "Bouhdila",
-            "Chichaoua",
-            "Beni Bouayach",
-            "Oulad Berhil",
-            "Jmaat Shaim",
-            "Bir Jdid",
-            "Tata",
-            "Boujniba",
-            "Temsia",
-            "Mediouna",
-            "Kelat Megnouna",
-            "Sebt Gzoula",
-            "Outat El Haj",
-            "Imouzzer Kandar",
-            "Ain Bni Mathar",
-            "Bouskoura",
-            "Agourai",
-            "Midar",
-            "Lalla Mimouna",
-            "Ribat El Kheir",
-            "Moulay Driss zarhoun",
-            "Figuig",
-            "Boumia",
-            "Tamallalt",
-            "Nouaceur",
-            "Rommani",
-            "Jorf",
-            "Ifran",
-            "Bouizakarn",
-            "Oulad Mbarek",
-            "Afourar",
-            "Zmamra",
-            "Ait Ishaq",
-            "Tit Mellil",
-            "Assa",
-            "Bhalil",
-            "Targuist",
-            "Beni Yakhlef",
-            "El Menzel",
-            "Aguelmouss",
-            "Sidi EL Mokhtar",
-            "Boumalne Dades",
-            "Farkhana",
-            "Oulad Abbou",
-            "Amizmiz",
-            "Boulanouare",
-            "Ben Taieb",
-            "Ouled Frej",
-            "Driouch",
-            "Deroua",
-            "Hattane",
-            "El Marsa",
-            "Tamanar",
-            "Ait Iaaza",
-            "Sidi Allal El Bahraoui",
-            "Dar Ould Zidouh",
-            "Sid Zouine",
-            "Boudnib",
-            "Foum Zguid",
-            "Tissa",
-            "Jaadar",
-            "Oulmes",
-            "Bouknadel",
-            "Harhoura",
-            "El Guerdan",
-            "Selouane",
-            "Maaziz",
-            "Oulad M\'Rah",
-            "Loudaya",
-            "Massa",
-            "Aklim",
-            "Ouaouizaght",
-            "Bni Drar",
-            "El Kbab",
-            "Oued Amlil",
-            "Sidi Rahel Chatai",
-            "Guigou",
-            "Agdz",
-            "Khnichet",
-            "Karia",
-            "Sidi Ahmed",
-            "Zag",
-            "Oulad Yaich",
-            "Tinjdad",
-            "Ouad Laou",
-            "Tighassaline",
-            "Tounfite",
-            "Bni Tadjite",
-            "Bouanane",
-            "Oulad Hriz Sahel",
-            "Talsint",
-            "Taghjijt",
-            "Boulman",
-            "Zirara",
-            "Taouima",
-            "Tahannaout",
-            "Bradia",
-            "Moulay Abdallah",
-            "Sidi Rahal",
-            "Tameslohte",
-            "Aghbala",
-            "El Ouatia",
-            "Tendrara",
-            "Taznakht",
-            "Fam El Hisn",
-            "Akka",
-            "Dar Gueddari",
-            "Itzer",
-            "Taliouine",
-            "Oualidia",
-            "Aoulouz",
-            "Moulay Bousselham",
-            "Tarfaya",
-            "Ghafsai",
-            "Foum Jemaa",
-            "Ain Leuh",
-            "Moulay Bouazza",
-            "Kariat Arkmane",
-            "Kahf Nsour",
-            "Sidi Bou Othmane",
-            "Oulad Tayeb",
-            "Had Kourt",
-            "Bab Berrad",
-            "Loulad",
-            "Zaida",
-            "Tafrawt",
-            "Khemis Sahel",
-            "Ait Baha",
-            "Biougra",
-            "Dar Bni Karrich",
-            "El Hanchane",
-            "Sidi Jaber",
-            "Irherm",
-            "Debdou",
-            "Ras El Ma",
-            "Laaounate",
-            "Hadj Kaddour",
-            "Skhour Rhamna",
-            "Bzou",
-            "Ain Cheggag",
-            "Bouderbala",
-            "Sidi Smaïl",
-            "Oulad Zbair",
-            "Bni Chiker",
-            "Lakhsas",
-            "Talmest",
-            "Aknoul",
-            "Tiztoutine",
-            "Bab Taza",
-            "Imouzzer Marmoucha",
-            "Gourrama",
-            "Ajdir",
-            "Mhaya",
-            "Oulad Ghadbane",
-            "Zrarda",
-            "Zoumi",
-            "Ain Karma",
-            "Thar Essouk",
-            "Lagouira",
-            "Ras El Ain",
-            "Sidi Ali Ben Hamdouche",
-            "Sebt Jahjouh",
-            "Tiddas",
-            "Zaouiat Bougrin",
-            "Tafersit",
-            "Touissit",
-            "Saidia",
-            "Lalla Takarkoust",
-            "Skhinate",
-            "Moulay Brahim",
-            "Soualem",
-            "Gueznaia",
-            "Moulay Yacoub",
-            "Sidi Allal Tazi",
-            "Laakarta",
-            "Alnif",
-            "Dar El Kebdani",
-            "Jebha",
-            "Ain Erreggada",
-            "Sidi Addi",
-            "Skoura",
-            "Smimou",
-            "Ain Jemaa",
-            "Timahdite",
-            "Aït Dawd",
-            "Souk EL Had",
-            "Had Bouhssoussen",
-            "Oulad Said",
-            "Arbaoua",
-            "Ain Dorij",
-            "Madagh",
-            "Tighza",
-            "Matmata",
-            "Kourouna",
-            "Kassita",
-            "Bni Hadifa",
-            "Oued EL Heimar",
-            "Kerrouchen",
-            "Tainaste",
-            "Guisser",
-            "Sidi Boubker",
-            "Tamassint",
-            "Assahrij",
-            "Aghbalou Nssardane",
-            "Tizi Ouasli",
-            "Moqrisset",
-            "Sebt Lamaarif",
-            "Issaguen",
-            "Bouguedra",
-            "Brikcha",
-            "Ighoud",
-            "Ajdir, Taza",
-            "Oulad Amrane",
-            "Kettara",
-            "Aoufous",
-            "Tafetacht",
-            "Naïma",
-            "Tnin Sidi Lyamani",
-            "Karia",
-            "Nzalat",
-            "Ahrara",
-            "Sidi Abdallah Ghiat",
-            "Sidi Bouzid",
-            "Ounagha"});
+            this.txtKM.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtKM.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtKM.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtKM.BorderRadius = 4;
@@ -1502,14 +1163,14 @@ namespace ParcAuto.Forms
             this.txtKM.FocusedState.Parent = this.txtKM;
             this.txtKM.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtKM.HoverState.Parent = this.txtKM;
-            this.txtKM.Location = new System.Drawing.Point(531, 107);
+            this.txtKM.Location = new System.Drawing.Point(518, 107);
             this.txtKM.Margin = new System.Windows.Forms.Padding(12, 9, 12, 9);
             this.txtKM.Name = "txtKM";
             this.txtKM.PasswordChar = '\0';
             this.txtKM.PlaceholderText = "";
             this.txtKM.SelectedText = "";
             this.txtKM.ShadowDecoration.Parent = this.txtKM;
-            this.txtKM.Size = new System.Drawing.Size(202, 30);
+            this.txtKM.Size = new System.Drawing.Size(215, 31);
             this.txtKM.TabIndex = 5;
             // 
             // cmbVehicule
@@ -1529,14 +1190,14 @@ namespace ParcAuto.Forms
             this.cmbVehicule.FocusedState.Parent = this.cmbVehicule;
             this.cmbVehicule.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbVehicule.HoverState.Parent = this.cmbVehicule;
-            this.cmbVehicule.Location = new System.Drawing.Point(147, 58);
+            this.cmbVehicule.Location = new System.Drawing.Point(143, 56);
             this.cmbVehicule.Margin = new System.Windows.Forms.Padding(4);
             this.cmbVehicule.Name = "cmbVehicule";
             this.cmbVehicule.PasswordChar = '\0';
             this.cmbVehicule.PlaceholderText = "";
             this.cmbVehicule.SelectedText = "";
             this.cmbVehicule.ShadowDecoration.Parent = this.cmbVehicule;
-            this.cmbVehicule.Size = new System.Drawing.Size(215, 30);
+            this.cmbVehicule.Size = new System.Drawing.Size(220, 35);
             this.cmbVehicule.TabIndex = 2;
             this.cmbVehicule.TextChanged += new System.EventHandler(this.cmbVehicule_TextChanged);
             // 
@@ -1578,7 +1239,7 @@ namespace ParcAuto.Forms
             this.OmnYear.AutoSize = true;
             this.OmnYear.BackColor = System.Drawing.Color.White;
             this.OmnYear.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OmnYear.Location = new System.Drawing.Point(624, 230);
+            this.OmnYear.Location = new System.Drawing.Point(718, 232);
             this.OmnYear.Name = "OmnYear";
             this.OmnYear.Size = new System.Drawing.Size(32, 16);
             this.OmnYear.TabIndex = 25;
@@ -1589,7 +1250,7 @@ namespace ParcAuto.Forms
             this.txtObservation.Location = new System.Drawing.Point(26, 348);
             this.txtObservation.Name = "txtObservation";
             this.txtObservation.Size = new System.Drawing.Size(356, 83);
-            this.txtObservation.TabIndex = 9;
+            this.txtObservation.TabIndex = 10;
             this.txtObservation.Text = "";
             // 
             // label1
@@ -1625,354 +1286,6 @@ namespace ParcAuto.Forms
             // 
             // txtMarque
             // 
-            this.txtMarque.AutoCompleteCustomSource.AddRange(new string[] {
-            "Casablanca",
-            "Fes",
-            "Salé",
-            "Marrakech",
-            "Tangier",
-            "Rabat",
-            "Meknes",
-            "Oujda",
-            "Kenitra",
-            "Agadir",
-            "Tetuan",
-            "Safi",
-            "Temara",
-            "Inzegan",
-            "Mohammedia",
-            "Laayoune",
-            "Khouribga",
-            "Beni Mellal",
-            "Jdida",
-            "Taza",
-            "Ait Melloul",
-            "Nador",
-            "Settat",
-            "Ksar El Kbir",
-            "Larache",
-            "Khmisset",
-            "Guelmim",
-            "Berrechid",
-            "Wad Zam",
-            "Fkih BenSaleh",
-            "Taourirt",
-            "Berkane",
-            "Sidi Sliman",
-            "Errachidia",
-            "Sidi Kacem",
-            "Khenifra",
-            "Tifelt",
-            "Essaouira",
-            "Taroudant",
-            "Kelaat Sraghna",
-            "Oulad Teima",
-            "Youssoufia",
-            "Sefrou",
-            "Ben Guerir",
-            "Tan-Tan",
-            "Ouazzane",
-            "Guercif",
-            "Dakhla",
-            "Hoceima",
-            "Fnideq",
-            "Ouarzazate",
-            "Tiznit",
-            "Suq Sebt Oulad Nama",
-            "Azrou",
-            "Lahraouyine",
-            "Bensliman",
-            "Midelt",
-            "Jrada",
-            "Skhirat",
-            "Souk Larbaa",
-            "Aïn Harrouda",
-            "Bejaad",
-            "Kasbat Tadla",
-            "Sidi Bennour",
-            "Martil",
-            "Lqliaa",
-            "Boujdor",
-            "Azemour",
-            "M\'dyaq",
-            "Tinghir",
-            "El Arwi",
-            "Chefchawn",
-            "M\'Rirt",
-            "Zagora",
-            "El Aioun Sidi Mellouk",
-            "Lamkansa",
-            "Smara",
-            "Taounate",
-            "Bin Ansar",
-            "Sidi Yahya El Gharb",
-            "Zaio",
-            "Amalou Ighriben",
-            "Assilah",
-            "Azilal",
-            "Mechra Bel Ksiri",
-            "El Hajeb",
-            "Bouznika",
-            "Imzouren",
-            "Tahla",
-            "BouiZazarene Ihaddadene",
-            "Ain El Aouda",
-            "Bouarfa",
-            "Arfoud",
-            "Demnate",
-            "Sidi sliman echraa",
-            "Zawiyat cheikh",
-            "Ain Taoujdat",
-            "Echemaia",
-            "Aourir",
-            "Sabaa Aiyoun",
-            "Oulad Ayad",
-            "Ben Ahmed",
-            "Tabounte",
-            "Jorf El Melha",
-            "Missour",
-            "Laataouia",
-            "Errich",
-            "Zeghanghan",
-            "Rissani",
-            "Sidi Taibi",
-            "Sidi Ifni",
-            "Ait Ourir",
-            "Ahfir",
-            "El Ksiba",
-            "El Gara",
-            "Drargua",
-            "Imin tanout",
-            "Goulmima",
-            "Karia Ba Mohamed",
-            "Mehdya",
-            "El Borouj",
-            "Bouhdila",
-            "Chichaoua",
-            "Beni Bouayach",
-            "Oulad Berhil",
-            "Jmaat Shaim",
-            "Bir Jdid",
-            "Tata",
-            "Boujniba",
-            "Temsia",
-            "Mediouna",
-            "Kelat Megnouna",
-            "Sebt Gzoula",
-            "Outat El Haj",
-            "Imouzzer Kandar",
-            "Ain Bni Mathar",
-            "Bouskoura",
-            "Agourai",
-            "Midar",
-            "Lalla Mimouna",
-            "Ribat El Kheir",
-            "Moulay Driss zarhoun",
-            "Figuig",
-            "Boumia",
-            "Tamallalt",
-            "Nouaceur",
-            "Rommani",
-            "Jorf",
-            "Ifran",
-            "Bouizakarn",
-            "Oulad Mbarek",
-            "Afourar",
-            "Zmamra",
-            "Ait Ishaq",
-            "Tit Mellil",
-            "Assa",
-            "Bhalil",
-            "Targuist",
-            "Beni Yakhlef",
-            "El Menzel",
-            "Aguelmouss",
-            "Sidi EL Mokhtar",
-            "Boumalne Dades",
-            "Farkhana",
-            "Oulad Abbou",
-            "Amizmiz",
-            "Boulanouare",
-            "Ben Taieb",
-            "Ouled Frej",
-            "Driouch",
-            "Deroua",
-            "Hattane",
-            "El Marsa",
-            "Tamanar",
-            "Ait Iaaza",
-            "Sidi Allal El Bahraoui",
-            "Dar Ould Zidouh",
-            "Sid Zouine",
-            "Boudnib",
-            "Foum Zguid",
-            "Tissa",
-            "Jaadar",
-            "Oulmes",
-            "Bouknadel",
-            "Harhoura",
-            "El Guerdan",
-            "Selouane",
-            "Maaziz",
-            "Oulad M\'Rah",
-            "Loudaya",
-            "Massa",
-            "Aklim",
-            "Ouaouizaght",
-            "Bni Drar",
-            "El Kbab",
-            "Oued Amlil",
-            "Sidi Rahel Chatai",
-            "Guigou",
-            "Agdz",
-            "Khnichet",
-            "Karia",
-            "Sidi Ahmed",
-            "Zag",
-            "Oulad Yaich",
-            "Tinjdad",
-            "Ouad Laou",
-            "Tighassaline",
-            "Tounfite",
-            "Bni Tadjite",
-            "Bouanane",
-            "Oulad Hriz Sahel",
-            "Talsint",
-            "Taghjijt",
-            "Boulman",
-            "Zirara",
-            "Taouima",
-            "Tahannaout",
-            "Bradia",
-            "Moulay Abdallah",
-            "Sidi Rahal",
-            "Tameslohte",
-            "Aghbala",
-            "El Ouatia",
-            "Tendrara",
-            "Taznakht",
-            "Fam El Hisn",
-            "Akka",
-            "Dar Gueddari",
-            "Itzer",
-            "Taliouine",
-            "Oualidia",
-            "Aoulouz",
-            "Moulay Bousselham",
-            "Tarfaya",
-            "Ghafsai",
-            "Foum Jemaa",
-            "Ain Leuh",
-            "Moulay Bouazza",
-            "Kariat Arkmane",
-            "Kahf Nsour",
-            "Sidi Bou Othmane",
-            "Oulad Tayeb",
-            "Had Kourt",
-            "Bab Berrad",
-            "Loulad",
-            "Zaida",
-            "Tafrawt",
-            "Khemis Sahel",
-            "Ait Baha",
-            "Biougra",
-            "Dar Bni Karrich",
-            "El Hanchane",
-            "Sidi Jaber",
-            "Irherm",
-            "Debdou",
-            "Ras El Ma",
-            "Laaounate",
-            "Hadj Kaddour",
-            "Skhour Rhamna",
-            "Bzou",
-            "Ain Cheggag",
-            "Bouderbala",
-            "Sidi Smaïl",
-            "Oulad Zbair",
-            "Bni Chiker",
-            "Lakhsas",
-            "Talmest",
-            "Aknoul",
-            "Tiztoutine",
-            "Bab Taza",
-            "Imouzzer Marmoucha",
-            "Gourrama",
-            "Ajdir",
-            "Mhaya",
-            "Oulad Ghadbane",
-            "Zrarda",
-            "Zoumi",
-            "Ain Karma",
-            "Thar Essouk",
-            "Lagouira",
-            "Ras El Ain",
-            "Sidi Ali Ben Hamdouche",
-            "Sebt Jahjouh",
-            "Tiddas",
-            "Zaouiat Bougrin",
-            "Tafersit",
-            "Touissit",
-            "Saidia",
-            "Lalla Takarkoust",
-            "Skhinate",
-            "Moulay Brahim",
-            "Soualem",
-            "Gueznaia",
-            "Moulay Yacoub",
-            "Sidi Allal Tazi",
-            "Laakarta",
-            "Alnif",
-            "Dar El Kebdani",
-            "Jebha",
-            "Ain Erreggada",
-            "Sidi Addi",
-            "Skoura",
-            "Smimou",
-            "Ain Jemaa",
-            "Timahdite",
-            "Aït Dawd",
-            "Souk EL Had",
-            "Had Bouhssoussen",
-            "Oulad Said",
-            "Arbaoua",
-            "Ain Dorij",
-            "Madagh",
-            "Tighza",
-            "Matmata",
-            "Kourouna",
-            "Kassita",
-            "Bni Hadifa",
-            "Oued EL Heimar",
-            "Kerrouchen",
-            "Tainaste",
-            "Guisser",
-            "Sidi Boubker",
-            "Tamassint",
-            "Assahrij",
-            "Aghbalou Nssardane",
-            "Tizi Ouasli",
-            "Moqrisset",
-            "Sebt Lamaarif",
-            "Issaguen",
-            "Bouguedra",
-            "Brikcha",
-            "Ighoud",
-            "Ajdir, Taza",
-            "Oulad Amrane",
-            "Kettara",
-            "Aoufous",
-            "Tafetacht",
-            "Naïma",
-            "Tnin Sidi Lyamani",
-            "Karia",
-            "Nzalat",
-            "Ahrara",
-            "Sidi Abdallah Ghiat",
-            "Sidi Bouzid",
-            "Ounagha"});
-            this.txtMarque.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtMarque.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtMarque.BorderRadius = 4;
             this.txtMarque.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMarque.DefaultText = "";
@@ -1985,14 +1298,14 @@ namespace ParcAuto.Forms
             this.txtMarque.FocusedState.Parent = this.txtMarque;
             this.txtMarque.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMarque.HoverState.Parent = this.txtMarque;
-            this.txtMarque.Location = new System.Drawing.Point(165, 275);
+            this.txtMarque.Location = new System.Drawing.Point(161, 273);
             this.txtMarque.Margin = new System.Windows.Forms.Padding(12, 9, 12, 9);
             this.txtMarque.Name = "txtMarque";
             this.txtMarque.PasswordChar = '\0';
             this.txtMarque.PlaceholderText = "";
             this.txtMarque.SelectedText = "";
             this.txtMarque.ShadowDecoration.Parent = this.txtMarque;
-            this.txtMarque.Size = new System.Drawing.Size(211, 30);
+            this.txtMarque.Size = new System.Drawing.Size(220, 35);
             this.txtMarque.TabIndex = 8;
             // 
             // MajCarburants

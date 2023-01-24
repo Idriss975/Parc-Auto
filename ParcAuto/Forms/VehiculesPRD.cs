@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
+using System.Data.SqlClient;
+using System.Globalization;
 
 namespace ParcAuto.Forms
 {
@@ -20,18 +22,20 @@ namespace ParcAuto.Forms
         {
             InitializeComponent();
         }
-        private void RemplirLaGrille() //Todo: Fix error out of bound. 
+        private void RemplirLaGrille() 
         {
             dgvVehicules.Rows.Clear();
             try
             {
                 GLB.Cmd.CommandText = "select * from VehiculesPRD";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr.IsDBNull(2) ? "" : ((DateTime)GLB.dr[2]).ToString("d/M/yyyy") , Math.Floor((DateTime.Now - (GLB.dr.IsDBNull(2) ? DateTime.Now : (DateTime)GLB.dr[2])).TotalDays/365.2425), GLB.dr[3], GLB.dr[4], GLB.dr[5], GLB.dr[6], GLB.dr[7]);
+                    dgvVehicules.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr.IsDBNull(2) ? "" : ((DateTime)GLB.dr[2]).ToString("MM/dd/yyyy") , Math.Floor((DateTime.Now - (GLB.dr.IsDBNull(2) ? DateTime.Now : (DateTime)GLB.dr[2])).TotalDays/365.2425), GLB.dr[3], GLB.dr[4], GLB.dr[5], GLB.dr[6], GLB.dr[7]);
             }
-            catch (Exception ex) //TODO: Implement Sql Exemption error (idriss)
+            catch (Exception ex) 
             {
                 MessageBox.Show("Impossible de charger la grille:\n"+ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -64,12 +68,76 @@ namespace ParcAuto.Forms
                 btnFiltrer.Location = new System.Drawing.Point(635, 14);
             }
         }
+        private void Permissions()
+        {
+            try
+            {
+                GLB.Cmd.CommandText = "SELECT  pri.name As Username " +
+                  ",       pri.type_desc AS[User Type] " +
+                  ", permit.permission_name AS[Permission] " +
+                  ", permit.state_desc AS[Permission State] " +
+                  ", permit.class_desc Class " +
+                  ", object_name(permit.major_id) AS[Object Name] " +
+                  "FROM sys.database_principals pri " +
+                  "LEFT JOIN " +
+                  "sys.database_permissions permit " +
+                  "ON permit.grantee_principal_id = pri.principal_id " +
+                  "WHERE object_name(permit.major_id) = 'VehiculesPRD' " +
+                  $"and pri.name = SUSER_NAME()";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
+                GLB.Con.Open();
+                GLB.dr = GLB.Cmd.ExecuteReader();
+                while (GLB.dr.Read())
+                {
+                    if (GLB.dr[2].ToString() == "INSERT")
+                    {
+                        if (GLB.dr[3].ToString() == "DENY")
+                        {
+                            btnAjouter.FillColor = Color.FromArgb(127, 165, 127);
+                            btnAjouter.Click -= btnAjouter_Click;
+                            btnImportExcel.Click -= btnImportExcel_Click;
+                            btnImportExcel.FillColor = Color.FromArgb(68, 83, 128);
+                        }
+                    }
+                    else if (GLB.dr[2].ToString() == "DELETE")
+                    {
+                        if (GLB.dr[3].ToString() == "DENY")
+                        {
+                            btnSupprimer.FillColor = Color.FromArgb(204, 144, 133);
+                            btnSupprimer.Click -= btnSupprimer_Click;
+                            btnSuprimmerTout.FillColor = Color.FromArgb(204, 144, 133);
+                            btnSuprimmerTout.Click -= btnSuprimmerTout_Click;
+                        }
+                    }
+                    else if (GLB.dr[2].ToString() == "UPDATE")
+                    {
+                        if (GLB.dr[3].ToString() == "DENY")
+                        {
+                            btnModifier.FillColor = Color.FromArgb(85, 95, 128);
+                            btnModifier.Click -= btnModifier_Click;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
 
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                GLB.dr.Close();
+                GLB.Con.Close();
+            }
+           
+        }
         private void VehiculesPRD_Load(object sender, EventArgs e)
         {
             GLB.StyleDataGridView(dgvVehicules);
             cmbChoix.SelectedIndex = 0;
             RemplirLaGrille();
+            Permissions();
         }
 
         private void btnQuitter_Click(object sender, EventArgs e)
@@ -87,23 +155,30 @@ namespace ParcAuto.Forms
             string outp = "";
             try
             {
-
+                if (dgvVehicules.Rows.Count == 0)
+                    return;
                 outp = $"delete from VehiculesPRD where Matricule = '{dgvVehicules.SelectedRows[0].Cells[1].Value}'";
 
                 for (int i = 1; i < dgvVehicules.SelectedRows.Count; i++)
                     outp += $" or Matricule = '{dgvVehicules.SelectedRows[i].Cells[1].Value}'";
 
-                MessageBox.Show(outp);
-
                 GLB.Cmd.CommandText = outp;
                 GLB.Con.Open();
                 GLB.Cmd.ExecuteNonQuery();
-                GLB.Con.Close();
                 RemplirLaGrille();
             }
             catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                GLB.Con.Close();
             }
             //TODO: catch NullReferenceException (idriss)
         }
@@ -113,31 +188,38 @@ namespace ParcAuto.Forms
             int pos = dgvVehicules.CurrentRow.Index; // it resets after next commands
             try
             {
-                GLB.Matricule_Voiture = dgvVehicules.Rows[pos].Cells[1].Value.ToString();
-                Commandes.Command = Choix.modifier;
+                if(dgvVehicules.Rows.Count != 0)
+                {
+                    GLB.Matricule_Voiture = dgvVehicules.Rows[pos].Cells[1].Value.ToString();
+                    Commandes.Command = Choix.modifier;
 
-                (new MajVehicules(
-                    dgvVehicules.Rows[pos].Cells[0].Value.ToString(),
-                    DateTime.ParseExact(dgvVehicules.Rows[pos].Cells[2].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
-                    "",
-                    dgvVehicules.Rows[pos].Cells[4].Value.ToString(),
-                    dgvVehicules.Rows[pos].Cells[5].Value.ToString(),
-                    dgvVehicules.Rows[pos].Cells[6].Value.ToString(),
-                    dgvVehicules.Rows[pos].Cells[7].Value.ToString(),
-                    dgvVehicules.Rows[pos].Cells[8].Value.ToString(),
-                    this
-                )).ShowDialog();
-
-                RemplirLaGrille();
-                dgvVehicules.Rows[pos].Selected = true;
-                dgvVehicules.FirstDisplayedScrollingRowIndex = pos;
+                    (new MajVehicules(
+                        dgvVehicules.Rows[pos].Cells[0].Value.ToString(),
+                        DateTime.ParseExact(dgvVehicules.Rows[pos].Cells[2].Value.ToString(), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                        "",
+                        dgvVehicules.Rows[pos].Cells[4].Value.ToString(),
+                        dgvVehicules.Rows[pos].Cells[5].Value.ToString(),
+                        dgvVehicules.Rows[pos].Cells[6].Value.ToString(),
+                        dgvVehicules.Rows[pos].Cells[7].Value.ToString(),
+                        dgvVehicules.Rows[pos].Cells[8].Value.ToString(),
+                        this
+                    )).ShowDialog();
+                    RemplirLaGrille();
+                    dgvVehicules.Rows[pos].Selected = true;
+                    dgvVehicules.FirstDisplayedScrollingRowIndex = pos;
+                }
+                
             }
             catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("Il faut selectionner sur la table pour la modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-            //TODO: catch NullReferenceException (idriss)
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
@@ -151,7 +233,7 @@ namespace ParcAuto.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -160,7 +242,8 @@ namespace ParcAuto.Forms
             string outp = "";
             try
             {
-
+                if (dgvVehicules.Rows.Count == 0)
+                    return;
                 outp = $"delete from VehiculesPRD where Matricule = '{dgvVehicules.Rows[0].Cells[1].Value}'";
 
                 for (int i = 1; i < dgvVehicules.Rows.Count; i++)
@@ -169,14 +252,18 @@ namespace ParcAuto.Forms
                 GLB.Cmd.CommandText = outp;
                 GLB.Con.Open();
                 GLB.Cmd.ExecuteNonQuery();
-                GLB.Con.Close();
                 RemplirLaGrille();
             }
-            catch (ArgumentOutOfRangeException)
+            catch (Exception ex)
             {
-                MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //TODO: catch NullReferenceException (idriss)
+            finally
+            {
+                GLB.Con.Close();
+
+            }
         }
 
         private void btnImprimer_Click(object sender, EventArgs e)
@@ -190,12 +277,12 @@ namespace ParcAuto.Forms
 
         private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            GLB.number_of_lines = dgvVehicules.Rows.Count;
+            Impression.number_of_lines = dgvVehicules.Rows.Count;
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            GLB.Drawonprintdoc( e, dgvVehicules, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6));
+            Impression.Drawonprintdoc( e, dgvVehicules, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6), Titre: "Vehicules PRD");
         }
         _Application importExceldatagridViewApp;
         _Worksheet importExceldatagridViewworksheet;
@@ -203,9 +290,12 @@ namespace ParcAuto.Forms
         Workbook excelWorkbook;
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
-            string marque, matricule, type, carburant, affectation, conducteur, Dnomination, observation, age;
-            string lignesExcel = "Les Lignes Suivants Sont duplique sur le fichier excel : ";
+            string marque, matricule,  carburant, affectation, conducteur, Dnomination, observation, age;
             DateTime Misencirculation;
+            if (GLB.Con.State == ConnectionState.Open)
+                GLB.Con.Close();
+            GLB.Con.Open();
+            GLB.Cmd.Transaction = GLB.Con.BeginTransaction();
             try
             {
 
@@ -215,10 +305,6 @@ namespace ParcAuto.Forms
                 importOpenDialoge.Filter = "Import Excel File|*.xlsx;*xls;*xlm";
                 if (importOpenDialoge.ShowDialog() == DialogResult.OK)
                 {
-                    if (GLB.Con.State == ConnectionState.Open)
-                        GLB.Con.Close();
-                    GLB.Con.Open();
-
                     Workbooks excelWorkbooks = importExceldatagridViewApp.Workbooks;
                     excelWorkbook = excelWorkbooks.Open(importOpenDialoge.FileName);
                     importExceldatagridViewworksheet = excelWorkbook.ActiveSheet;
@@ -227,7 +313,7 @@ namespace ParcAuto.Forms
                     {
                         marque = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value);
                         matricule = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
-                        Misencirculation = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value ?? "0001-01-01")) ;
+                        Misencirculation = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value ?? "0001-01-01"));
                         carburant = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value);
                         affectation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
                         conducteur = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
@@ -252,26 +338,27 @@ namespace ParcAuto.Forms
                             GLB.Cmd.Parameters.AddWithValue("@TempMatricule", conducteur ?? "");
                             GLB.Cmd.Parameters.AddWithValue("@txtDnomination", Dnomination ?? "");
                             GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation ?? "");
-                            //MessageBox.Show($"{marque} , {matricule} , {Misencirculation.ToString("yyyy-MM-dd")} , {carburant} , {type} , {affectation} , {conducteur} , {Dnomination} , {observation}");
                             GLB.Cmd.ExecuteNonQuery();
                         }
                         else
                         {
-                            lignesExcel += $" {excelWorksheetIndex} ";
                             continue;
                         }
 
                     }
+                    GLB.Cmd.Transaction.Commit();
                     GLB.Con.Close();
-                    MessageBox.Show(lignesExcel);
 
                 }
                 RemplirLaGrille();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                if (ex.Number == 2627)
+                    MessageBox.Show($"Toutes ces informations sans déja saisie", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                GLB.Cmd.Transaction.Rollback();
             }
             finally
             {
@@ -313,9 +400,10 @@ namespace ParcAuto.Forms
 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Quelque chose s'est mal passé", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

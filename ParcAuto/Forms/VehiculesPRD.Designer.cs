@@ -141,7 +141,7 @@ namespace ParcAuto.Forms
             this.btnImprimer.BorderRadius = 4;
             this.btnImprimer.CheckedState.Parent = this.btnImprimer;
             this.btnImprimer.CustomImages.Parent = this.btnImprimer;
-            this.btnImprimer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnImprimer.FillColor = System.Drawing.Color.Black;
             this.btnImprimer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnImprimer.ForeColor = System.Drawing.Color.White;
             this.btnImprimer.HoverState.Parent = this.btnImprimer;
@@ -194,8 +194,9 @@ namespace ParcAuto.Forms
             this.Date1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Date1.BorderRadius = 4;
             this.Date1.CheckedState.Parent = this.Date1;
+            this.Date1.CustomFormat = "MM/dd/yyyy";
             this.Date1.FillColor = System.Drawing.Color.White;
-            this.Date1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Date1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Date1.HoverState.Parent = this.Date1;
             this.Date1.Location = new System.Drawing.Point(109, 11);
             this.Date1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -211,8 +212,9 @@ namespace ParcAuto.Forms
             this.Date2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Date2.BorderRadius = 4;
             this.Date2.CheckedState.Parent = this.Date2;
+            this.Date2.CustomFormat = "MM/dd/yyyy";
             this.Date2.FillColor = System.Drawing.Color.White;
-            this.Date2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Date2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Date2.HoverState.Parent = this.Date2;
             this.Date2.Location = new System.Drawing.Point(346, 11);
             this.Date2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -310,7 +312,7 @@ namespace ParcAuto.Forms
             this.cmbChoix.Items.AddRange(new object[] {
             "Marque",
             "Matricule",
-            "Mise en circulation",
+            "Mise En Circulation",
             "Age",
             "Carburant",
             "Affectation",
@@ -480,7 +482,7 @@ namespace ParcAuto.Forms
             // 
             // Column6
             // 
-            this.Column6.HeaderText = "Carburant ";
+            this.Column6.HeaderText = "Carburant";
             this.Column6.MinimumWidth = 8;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;

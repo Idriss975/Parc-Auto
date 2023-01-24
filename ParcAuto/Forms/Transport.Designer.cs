@@ -57,6 +57,7 @@ namespace ParcAuto.Forms
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnImprimer = new Guna.UI2.WinForms.Guna2Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
@@ -73,6 +74,7 @@ namespace ParcAuto.Forms
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnFicheInformation = new Guna.UI2.WinForms.Guna2Button();
             this.panelDate.SuspendLayout();
             this.TextPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransport)).BeginInit();
@@ -119,8 +121,9 @@ namespace ParcAuto.Forms
             this.Date1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Date1.BorderRadius = 4;
             this.Date1.CheckedState.Parent = this.Date1;
+            this.Date1.CustomFormat = "MM/dd/yyyy";
             this.Date1.FillColor = System.Drawing.Color.White;
-            this.Date1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Date1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Date1.HoverState.Parent = this.Date1;
             this.Date1.Location = new System.Drawing.Point(109, 11);
             this.Date1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -136,8 +139,9 @@ namespace ParcAuto.Forms
             this.Date2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Date2.BorderRadius = 4;
             this.Date2.CheckedState.Parent = this.Date2;
+            this.Date2.CustomFormat = "MM/dd/yyyy";
             this.Date2.FillColor = System.Drawing.Color.White;
-            this.Date2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Date2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Date2.HoverState.Parent = this.Date2;
             this.Date2.Location = new System.Drawing.Point(346, 11);
             this.Date2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -256,11 +260,12 @@ namespace ParcAuto.Forms
             this.cmbChoix.Items.AddRange(new object[] {
             "Entité",
             "Beneficiaire",
-            "NBonSNTL ou Email",
+            "N°Bon SNTL ou Email",
             "Date",
-            "Destinataire",
-            "Type d\'utilisation",
-            "Prix"});
+            "Destination",
+            "Type d\'opération",
+            "Montant",
+            "Tag Jawaz"});
             this.cmbChoix.ItemsAppearance.Parent = this.cmbChoix;
             this.cmbChoix.Location = new System.Drawing.Point(96, 18);
             this.cmbChoix.Name = "cmbChoix";
@@ -382,7 +387,8 @@ namespace ParcAuto.Forms
             this.Column5,
             this.Column6,
             this.Column7,
-            this.Column8});
+            this.Column8,
+            this.Column9});
             this.dgvTransport.Location = new System.Drawing.Point(0, 98);
             this.dgvTransport.Margin = new System.Windows.Forms.Padding(5);
             this.dgvTransport.Name = "dgvTransport";
@@ -392,7 +398,6 @@ namespace ParcAuto.Forms
             this.dgvTransport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTransport.Size = new System.Drawing.Size(1109, 470);
             this.dgvTransport.TabIndex = 44;
-            this.dgvTransport.DoubleClick += new System.EventHandler(this.dgvTransport_DoubleClick);
             // 
             // Column1
             // 
@@ -404,14 +409,14 @@ namespace ParcAuto.Forms
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Entite";
+            this.Column2.HeaderText = "Entité";
             this.Column2.MinimumWidth = 8;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
-            this.Column3.HeaderText = "Benificiaire";
+            this.Column3.HeaderText = "Beneficiaire";
             this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -425,7 +430,7 @@ namespace ParcAuto.Forms
             // 
             // Column5
             // 
-            this.Column5.HeaderText = "Date     ";
+            this.Column5.HeaderText = "Date";
             this.Column5.MinimumWidth = 8;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -439,17 +444,23 @@ namespace ParcAuto.Forms
             // 
             // Column7
             // 
-            this.Column7.HeaderText = "Type d\'utilisation";
+            this.Column7.HeaderText = "Type d\'opération";
             this.Column7.MinimumWidth = 8;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
             // Column8
             // 
-            this.Column8.HeaderText = "Prix";
+            this.Column8.HeaderText = "Montant";
             this.Column8.MinimumWidth = 8;
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Tag Jawaz";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
             // 
             // btnImprimer
             // 
@@ -457,7 +468,7 @@ namespace ParcAuto.Forms
             this.btnImprimer.BorderRadius = 4;
             this.btnImprimer.CheckedState.Parent = this.btnImprimer;
             this.btnImprimer.CustomImages.Parent = this.btnImprimer;
-            this.btnImprimer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(139)))), ((int)(((byte)(215)))));
+            this.btnImprimer.FillColor = System.Drawing.Color.Black;
             this.btnImprimer.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnImprimer.ForeColor = System.Drawing.Color.White;
             this.btnImprimer.HoverState.Parent = this.btnImprimer;
@@ -556,7 +567,7 @@ namespace ParcAuto.Forms
             this.btnSuprimmerTout.HoverState.Parent = this.btnSuprimmerTout;
             this.btnSuprimmerTout.Image = ((System.Drawing.Image)(resources.GetObject("btnSuprimmerTout.Image")));
             this.btnSuprimmerTout.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnSuprimmerTout.Location = new System.Drawing.Point(122, 629);
+            this.btnSuprimmerTout.Location = new System.Drawing.Point(315, 628);
             this.btnSuprimmerTout.Margin = new System.Windows.Forms.Padding(5);
             this.btnSuprimmerTout.Name = "btnSuprimmerTout";
             this.btnSuprimmerTout.ShadowDecoration.Parent = this.btnSuprimmerTout;
@@ -663,11 +674,35 @@ namespace ParcAuto.Forms
             this.label5.TabIndex = 0;
             this.label5.Text = "Consommation Total";
             // 
+            // btnFicheInformation
+            // 
+            this.btnFicheInformation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnFicheInformation.BorderRadius = 4;
+            this.btnFicheInformation.CheckedState.Parent = this.btnFicheInformation;
+            this.btnFicheInformation.CustomImages.Parent = this.btnFicheInformation;
+            this.btnFicheInformation.FillColor = System.Drawing.Color.Black;
+            this.btnFicheInformation.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnFicheInformation.ForeColor = System.Drawing.Color.White;
+            this.btnFicheInformation.HoverState.Parent = this.btnFicheInformation;
+            this.btnFicheInformation.Image = ((System.Drawing.Image)(resources.GetObject("btnFicheInformation.Image")));
+            this.btnFicheInformation.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnFicheInformation.Location = new System.Drawing.Point(122, 629);
+            this.btnFicheInformation.Margin = new System.Windows.Forms.Padding(5);
+            this.btnFicheInformation.Name = "btnFicheInformation";
+            this.btnFicheInformation.ShadowDecoration.Parent = this.btnFicheInformation;
+            this.btnFicheInformation.Size = new System.Drawing.Size(183, 30);
+            this.btnFicheInformation.TabIndex = 74;
+            this.btnFicheInformation.Text = "Fiche d\'information";
+            this.btnFicheInformation.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnFicheInformation.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            this.btnFicheInformation.Click += new System.EventHandler(this.btnFicheInformation_Click);
+            // 
             // Transport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 669);
+            this.Controls.Add(this.btnFicheInformation);
             this.Controls.Add(this.PanelTautaux);
             this.Controls.Add(this.btnSuprimmerTout);
             this.Controls.Add(this.btnImportExcel);
@@ -730,14 +765,6 @@ namespace ParcAuto.Forms
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.PrintDialog printDialog1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private Guna.UI2.WinForms.Guna2Button btnImportExcel;
         private Guna.UI2.WinForms.Guna2Button btnExportExcel;
         private System.Windows.Forms.ImageList imageList1;
@@ -750,5 +777,15 @@ namespace ParcAuto.Forms
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
+        private Guna.UI2.WinForms.Guna2Button btnFicheInformation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
     }
 }

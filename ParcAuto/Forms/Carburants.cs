@@ -12,6 +12,7 @@ using System.Data.SqlClient;
 using System.Text.RegularExpressions; // import Regex()
 using Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
+using System.Globalization;
 
 namespace ParcAuto.Forms
 {
@@ -49,6 +50,70 @@ namespace ParcAuto.Forms
             lblTotal.Text = total.ToString();
 
         }
+        private void Permissions()
+        {
+            try
+            {
+                GLB.Cmd.CommandText = "SELECT  pri.name As Username " +
+                 ",       pri.type_desc AS[User Type] " +
+                 ", permit.permission_name AS[Permission] " +
+                 ", permit.state_desc AS[Permission State] " +
+                 ", permit.class_desc Class " +
+                 ", object_name(permit.major_id) AS[Object Name] " +
+                 "FROM sys.database_principals pri " +
+                 "LEFT JOIN " +
+                 "sys.database_permissions permit " +
+                 "ON permit.grantee_principal_id = pri.principal_id " +
+                 "WHERE object_name(permit.major_id) = 'CarburantVignettes' " +
+                 $"and pri.name = SUSER_NAME()";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
+                GLB.Con.Open();
+                GLB.dr = GLB.Cmd.ExecuteReader();
+                while (GLB.dr.Read())
+                {
+                    if (GLB.dr[2].ToString() == "INSERT")
+                    {
+                        if (GLB.dr[3].ToString() == "DENY")
+                        {
+                            btnAjouter.FillColor = Color.FromArgb(127, 165, 127);
+                            btnAjouter.Click -= btnAjouter_Click;
+                            btnImportExcel.Click -= btnImportExcel_Click;
+                            btnImportExcel.FillColor = Color.FromArgb(68, 83, 128);
+                        }
+                    }
+                    else if (GLB.dr[2].ToString() == "DELETE")
+                    {
+                        if (GLB.dr[3].ToString() == "DENY")
+                        {
+                            btnSupprimer.FillColor = Color.FromArgb(204, 144, 133);
+                            btnSupprimer.Click -= btnSupprimer_Click;
+                            btnSuprimmerTout.FillColor = Color.FromArgb(204, 144, 133);
+                            btnSuprimmerTout.Click -= btnSuprimmerTout_Click;
+                        }
+                    }
+                    else if (GLB.dr[2].ToString() == "UPDATE")
+                    {
+                        if (GLB.dr[3].ToString() == "DENY")
+                        {
+                            btnModifier.FillColor = Color.FromArgb(85, 95, 128);
+                            btnModifier.Click -= btnModifier_Click;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                GLB.dr.Close();
+                GLB.Con.Close();
+            }
+          
+        }
         private void RemplirLaGrille()
         {
             dgvCarburant.Rows.Clear();
@@ -56,10 +121,12 @@ namespace ParcAuto.Forms
             {
 
                 GLB.Cmd.CommandText = $"select * from CarburantVignettes where Year(date) = '{GLB.SelectedDate}'";
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
                 GLB.Con.Open();
                 GLB.dr = GLB.Cmd.ExecuteReader();
                 while (GLB.dr.Read())
-                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr.IsDBNull(4) ? "" : ((DateTime)GLB.dr[4]).ToString("d/M/yyyy"), GLB.dr[5], GLB.dr[6], GLB.dr[7], GLB.dr[8], GLB.dr[9].ToString(), GLB.dr[10].ToString(), GLB.dr[11].ToString(), GLB.dr[12].ToString(), GLB.dr[13], GLB.dr[14]);
+                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr.IsDBNull(4) ? "" : ((DateTime)GLB.dr[4]).ToString("MM/dd/yyyy"), GLB.dr[5], GLB.dr[6], GLB.dr[7], GLB.dr[8], GLB.dr[9].ToString(), GLB.dr[10].ToString(), GLB.dr[11].ToString(), GLB.dr[12].ToString(), GLB.dr[13], GLB.dr[14]);
 
                 GLB.dr.Close();
             }
@@ -73,7 +140,7 @@ namespace ParcAuto.Forms
                 GLB.Con.Close();
             }
         }
-       
+
         private void Carburants_Load(object sender, EventArgs e)
         {
             panelDate.Visible = false;
@@ -81,9 +148,9 @@ namespace ParcAuto.Forms
             cmbChoix.SelectedIndex = 0;
             GLB.StyleDataGridView(dgvCarburant);
             RemplirLaGrille();
+            Permissions();
             Total();
             printDialog1.Document.DefaultPageSettings.Landscape = true;
-            printDialog1.Document.DefaultPageSettings.PaperSize.RawKind = (int) System.Drawing.Printing.PaperKind.A4;
 
         }
         private void cmbChoix_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -115,15 +182,12 @@ namespace ParcAuto.Forms
             this.Close();
         }
 
-        private void btnFiltrer_Click(object sender, EventArgs e)
-        {
-            GLB.Filter(cmbChoix, dgvCarburant, txtValueToFiltre, new string[] { "Date" },Date1, Date2);
-        }
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             try
             {
+               
                 if (dgvCarburant.Rows.Count > 0)
                 {
                     string Dfix = dgvCarburant.Rows[dgvCarburant.Rows.Count - 1].Cells[9].Value.ToString();
@@ -155,71 +219,90 @@ namespace ParcAuto.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-            }
-           
-            
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } 
             Total();
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if(dgvCarburant.Rows.Count != 0)
+                {
+                    int Lastscrollindex = dgvCarburant.FirstDisplayedScrollingRowIndex;
+                    int pos = dgvCarburant.CurrentRow.Index;
+                    GLB.id_Carburant = Convert.ToInt32(dgvCarburant.Rows[pos].Cells[13].Value);
+                    Commandes.Command = Choix.modifier;
+                    Commandes.MAJ = TypeCarb.Carburant;
+                    (new MajCarburants(dgvCarburant.Rows[pos].Cells[0].Value.ToString(),
+                        dgvCarburant.Rows[pos].Cells[1].Value.ToString(),
+                        dgvCarburant.Rows[pos].Cells[2].Value.ToString(),
+                        dgvCarburant.Rows[pos].Cells[3].Value.ToString(),
+                        DateTime.ParseExact(dgvCarburant.Rows[pos].Cells[4].Value.ToString(), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture),
+                        dgvCarburant.Rows[pos].Cells[5].Value.ToString(),
+                        dgvCarburant.Rows[pos].Cells[6].Value.ToString(),
+                        dgvCarburant.Rows[pos].Cells[7].Value.ToString(),
+                        dgvCarburant.Rows[pos].Cells[8].Value.ToString().Substring(0, (dgvCarburant.Rows[pos].Cells[8].Value.ToString().Length != 0 ? dgvCarburant.Rows[pos].Cells[8].Value.ToString().Length - 3 : 0)),
+                        dgvCarburant.Rows[pos].Cells[9].Value.ToString(),
+                        dgvCarburant.Rows[pos].Cells[10].Value.ToString(),
+                        dgvCarburant.Rows[pos].Cells[11].Value.ToString(),
+                        dgvCarburant.Rows[pos].Cells[12].Value.ToString(),
+                        dgvCarburant.Rows[pos].Cells[14].Value.ToString())).ShowDialog();
+                    RemplirLaGrille();
+                    dgvCarburant.Rows[pos].Selected = true;
+                    dgvCarburant.FirstDisplayedScrollingRowIndex = Lastscrollindex;
+                    Total();
+                }
+                
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
             try
             {
-                GLB.Con.Open();
-                for (int i = 0; i < dgvCarburant.SelectedRows.Count; i++)
+                if(dgvCarburant.Rows.Count > 0)
                 {
-                    GLB.Cmd.CommandText = $"delete from CarburantVignettes where id = {dgvCarburant.SelectedRows[i].Cells[13].Value} ";
-                    GLB.Cmd.ExecuteNonQuery();
+                    if (GLB.Con.State == ConnectionState.Open)
+                        GLB.Con.Close();
+                    GLB.Con.Open();
+                    for (int i = 0; i < dgvCarburant.SelectedRows.Count; i++)
+                    {
+                        GLB.Cmd.CommandText = $"delete from CarburantVignettes where id = {dgvCarburant.SelectedRows[i].Cells[13].Value} ";
+                        GLB.Cmd.ExecuteNonQuery();
+                    }
+                    RemplirLaGrille();
+                    Total();
                 }
-                GLB.Con.Close();
-                RemplirLaGrille();
-                Total();
+              
             }
             catch (ArgumentOutOfRangeException)
             {
                 MessageBox.Show("Il faut selectionner sur la table pour Suprrimer la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //TODO: catch NullReferenceException (idriss)
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                GLB.Con.Close();
+            }
 
         }
 
         private void dgvCarburant_DoubleClick(object sender, EventArgs e)
         {
-            try
-            {
-                int Lastscrollindex = dgvCarburant.FirstDisplayedScrollingRowIndex;
-                int pos = dgvCarburant.CurrentRow.Index;
-                GLB.id_Carburant = Convert.ToInt32(dgvCarburant.Rows[pos].Cells[13].Value);
-                Commandes.Command = Choix.modifier;
-                Commandes.MAJ = TypeCarb.Carburant;
-                (new MajCarburants(dgvCarburant.Rows[pos].Cells[0].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[1].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[2].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[3].Value.ToString(),
-                    DateTime.ParseExact(dgvCarburant.Rows[pos].Cells[4].Value.ToString(), "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture),
-                    dgvCarburant.Rows[pos].Cells[5].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[6].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[7].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[8].Value.ToString().Substring(0, (dgvCarburant.Rows[pos].Cells[8].Value.ToString().Length != 0 ? dgvCarburant.Rows[pos].Cells[8].Value.ToString().Length - 3 : 0)),
-                    dgvCarburant.Rows[pos].Cells[9].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[10].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[11].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[12].Value.ToString(),
-                    dgvCarburant.Rows[pos].Cells[14].Value.ToString())).ShowDialog();
-                RemplirLaGrille();
-                dgvCarburant.Rows[pos].Selected = true;
-                dgvCarburant.FirstDisplayedScrollingRowIndex = Lastscrollindex;
-                Total();
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                MessageBox.Show("Il faut selectionner sur la table pour modifier la ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+           
         }
       
         private void btnExportExcel_Click(object sender, EventArgs e)
@@ -250,16 +333,16 @@ namespace ParcAuto.Forms
                     {
                         for (int j = 0; j < dgvCarburant.Columns.Count - 1; j++)
                         {
-                            
                             if (j < 13)
                             {
                                 xcelApp.Cells[i + 2, j + 1] = dgvCarburant.Rows[i].Cells[j].Value.ToString().Trim();
                             }
-                            else 
+                            else
                             {
-                                xcelApp.Cells[i + 2, j + 1] = dgvCarburant.Rows[i].Cells[j+1].Value.ToString().Trim();
+                                xcelApp.Cells[i + 2, j + 1] = dgvCarburant.Rows[i].Cells[j + 1].Value.ToString().Trim();
                             }
-                           
+
+
 
                         }
                     }
@@ -280,12 +363,16 @@ namespace ParcAuto.Forms
         _Worksheet importExceldatagridViewworksheet;
         Range importdatagridviewRange;
         Workbook excelWorkbook;
+        int currentIndex;
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
            
             string entite, benificiaire, vehicule, lieu, KM, Pourcentage, omn, Dfixe, DMission, Dhebdo, Dexeptionnelle, observation, marque;
-            //string lignesExcel = "Les Lignes Suivants Sont duplique sur le fichier excel : ";
             DateTime date;
+            if (GLB.Con.State == ConnectionState.Open)
+                GLB.Con.Close();
+            GLB.Con.Open();
+            GLB.Cmd.Transaction = GLB.Con.BeginTransaction();
             try
             {
 
@@ -295,9 +382,7 @@ namespace ParcAuto.Forms
                 importOpenDialoge.Filter = "Import Excel File|*.xlsx;*xls;*xlm";
                 if (importOpenDialoge.ShowDialog() == DialogResult.OK)
                 {
-                    if (GLB.Con.State == ConnectionState.Open)
-                        GLB.Con.Close();
-                    GLB.Con.Open();
+                    
 
                     Workbooks excelWorkbooks = importExceldatagridViewApp.Workbooks;
                     excelWorkbook = excelWorkbooks.Open(importOpenDialoge.FileName);
@@ -306,83 +391,64 @@ namespace ParcAuto.Forms
 
                     for (int excelWorksheetIndex = 2; excelWorksheetIndex < importdatagridviewRange.Rows.Count + 1; excelWorksheetIndex++)
                     {
-
+                        
+                        currentIndex = excelWorksheetIndex;
                         entite = (Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 1].value)).Trim();
-                        benificiaire = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
-                        vehicule = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
-                        marque = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
-                        date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value ?? "0001-01-01"));
+                              benificiaire = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 2].value);
+                              vehicule = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 3].value);
+                              marque = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 4].value);
+                               date = DateTime.Parse(Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 5].value ?? "0001-01-01"));
                         lieu = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 6].value);
-                        KM = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
-                        Pourcentage = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value);
-                        omn = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 9].value);
-                        Dfixe = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 10].value);
-                        DMission = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 11].value);
-                        Dhebdo = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 12].value);
-                        Dexeptionnelle = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 13].value);
-                        observation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 14].value);
-                        //GLB.Cmd.Parameters.Clear();
-                        //GLB.Cmd.CommandText = $"SELECT count(*) FROM CarburantVignettes where Entite = @txtEntite and beneficiaire =@txtBenificiaire and vehicule = @cmbVehicule and Marque =@txtMarque" +
-                        //    $" and date = @DateOper and lieu = @cmbVilles and KM = @txtKM and Pourcentage = @txtpourcentage and ObjetOMN = @OMN";
-                            //$" and (DFixe = @DoFixe or DMissions = @DoMissions or DHebdo = @DoHebdo or DExceptionnel = @DoExp) ";
-
-                        //GLB.Cmd.Parameters.AddWithValue("@txtEntite", entite ?? "");
-                        //GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", benificiaire ?? "");
-                        //GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", vehicule ?? "");
-                        //GLB.Cmd.Parameters.AddWithValue("@txtMarque", marque ?? "");
-                        //GLB.Cmd.Parameters.AddWithValue("@DateOper", date.ToString("yyyy-MM-dd"));
-                        //GLB.Cmd.Parameters.AddWithValue("@cmbVilles", lieu ?? "");
-                        //GLB.Cmd.Parameters.AddWithValue("@txtKM", KM is null ? (object)DBNull.Value : Double.Parse(KM));
-                        //GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", Pourcentage is null ? (object)DBNull.Value : Double.Parse(Pourcentage));
-                        //GLB.Cmd.Parameters.AddWithValue("@DoFixe", Dfixe is null ? (object)DBNull.Value : Double.Parse(Dfixe));
-                        //GLB.Cmd.Parameters.AddWithValue("@OMN", omn ?? "");
-                        //GLB.Cmd.Parameters.AddWithValue("@DoMissions", DMission is null ? (object)DBNull.Value : Double.Parse(DMission));
-                        //GLB.Cmd.Parameters.AddWithValue("@DoHebdo", Dhebdo is null ? (object)DBNull.Value : Double.Parse(Dhebdo));
-                        //GLB.Cmd.Parameters.AddWithValue("@DoExp", Dexeptionnelle is null ? (object)DBNull.Value : Double.Parse(Dexeptionnelle));
-                        //GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation ?? "");
-
-                        //MessageBox.Show($"{entite} - {benificiaire} - {vehicule} - {marque} - {date.ToString("yyyy-MM-dd")} - {lieu} - {KM} - {Pourcentage} - {omn} - {Dfixe} - {DMission} - {Dhebdo} - {Dexeptionnelle} - {observation}");
-                       
-                        //if (int.Parse(GLB.Cmd.ExecuteScalar().ToString()) == 0)
-                        //{
-                            
-
-                        //}
-                        //else
-                        //{
-                        //    lignesExcel += $" {excelWorksheetIndex} ";
-                        //    continue;
-                        //}
-                        GLB.Cmd.Parameters.Clear();
-                        GLB.Cmd.CommandText = "insert into CarburantVignettes values(@txtEntite,@txtBenificiaire,@cmbVehicule," +
-                  $"@txtMarque,@DateOper,@cmbVilles,@txtKM,@txtpourcentage,@OMN,@DoFixe,@DoMissions," +
-                  $"@DoHebdo,@DoExp,@txtObservation)";
-                        GLB.Cmd.Parameters.AddWithValue("@txtEntite", entite ?? "");
-                        GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", benificiaire ?? "");
-                        GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", vehicule ?? "");
-                        GLB.Cmd.Parameters.AddWithValue("@txtMarque", marque ?? "");
-                        GLB.Cmd.Parameters.AddWithValue("@DateOper", date.ToString("yyyy-MM-dd") == "0001-01-01" ? (object)DBNull.Value : date.ToString("yyyy-MM-dd"));
-                        GLB.Cmd.Parameters.AddWithValue("@cmbVilles", lieu ?? "");
-                        GLB.Cmd.Parameters.AddWithValue("@txtKM", KM is null ? (object)DBNull.Value : Double.Parse(KM));
-                        GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", Pourcentage is null ? (object)DBNull.Value : Double.Parse(Pourcentage));
-                        GLB.Cmd.Parameters.AddWithValue("@DoFixe", Dfixe is null ? (object)DBNull.Value : Double.Parse(Dfixe));
-                        GLB.Cmd.Parameters.AddWithValue("@OMN", omn ?? "");
-                        GLB.Cmd.Parameters.AddWithValue("@DoMissions", DMission is null ? (object)DBNull.Value : Double.Parse(DMission));
-                        GLB.Cmd.Parameters.AddWithValue("@DoHebdo", Dhebdo is null ? (object)DBNull.Value : Double.Parse(Dhebdo));
-                        GLB.Cmd.Parameters.AddWithValue("@DoExp", Dexeptionnelle is null ? (object)DBNull.Value : Double.Parse(Dexeptionnelle));
-                        GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation ?? "");
-                        GLB.Cmd.ExecuteNonQuery();
-                        Total();
+                              KM = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 7].value);
+                              Pourcentage = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 8].value);
+                              omn = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 9].value);
+                              Dfixe = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 10].value);
+                              DMission = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 11].value);
+                              Dhebdo = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 12].value);
+                              Dexeptionnelle = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 13].value);
+                              observation = Convert.ToString(importExceldatagridViewworksheet.Cells[excelWorksheetIndex, 14].value);
+                              GLB.Cmd.Parameters.Clear();
+                              GLB.Cmd.CommandText = "insert into CarburantVignettes values(@txtEntite,@txtBenificiaire,@cmbVehicule," +
+                        $"@txtMarque,@DateOper,@cmbVilles,@txtKM,@txtpourcentage,@OMN,@DoFixe,@DoMissions," +
+                        $"@DoHebdo,@DoExp,@txtObservation)";
+                              GLB.Cmd.Parameters.AddWithValue("@txtEntite", entite ?? "");
+                              GLB.Cmd.Parameters.AddWithValue("@txtBenificiaire", benificiaire ?? "");
+                              GLB.Cmd.Parameters.AddWithValue("@cmbVehicule", vehicule ?? "");
+                              GLB.Cmd.Parameters.AddWithValue("@txtMarque", marque ?? "");
+                              GLB.Cmd.Parameters.AddWithValue("@DateOper", date.ToString("yyyy-MM-dd") == "0001-01-01" ? (object)DBNull.Value : date.ToString("yyyy-MM-dd"));
+                              GLB.Cmd.Parameters.AddWithValue("@cmbVilles", lieu ?? "");
+                              GLB.Cmd.Parameters.AddWithValue("@txtKM", KM is null ? (object)DBNull.Value : Double.Parse(KM));
+                              GLB.Cmd.Parameters.AddWithValue("@txtpourcentage", Pourcentage is null ? (object)DBNull.Value : Double.Parse(Pourcentage));
+                              GLB.Cmd.Parameters.AddWithValue("@DoFixe", Dfixe is null ? (object)DBNull.Value : Double.Parse(Dfixe));
+                              GLB.Cmd.Parameters.AddWithValue("@OMN", omn ?? "");
+                              GLB.Cmd.Parameters.AddWithValue("@DoMissions", DMission is null ? (object)DBNull.Value : Double.Parse(DMission));
+                              GLB.Cmd.Parameters.AddWithValue("@DoHebdo", Dhebdo is null ? (object)DBNull.Value : Double.Parse(Dhebdo));
+                              GLB.Cmd.Parameters.AddWithValue("@DoExp", Dexeptionnelle is null ? (object)DBNull.Value : Double.Parse(Dexeptionnelle));
+                              GLB.Cmd.Parameters.AddWithValue("@txtObservation", observation ?? "");
+                              GLB.Cmd.ExecuteNonQuery();
+                              Total();
                     }
-                    GLB.Con.Close();
-                    //MessageBox.Show(lignesExcel);
+                      GLB.Cmd.Transaction.Commit();
+                      GLB.Con.Close();
                 }
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 2627)
+                    MessageBox.Show($"La ligne {currentIndex} dans l'excel déja saisie est sauvegarder dans la base de données, vous pouvez supprimer ou modifier la ligne {currentIndex} sur excel et refaire l'imporation.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                GLB.Cmd.Transaction.Rollback();
+
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Le Format de la date est invalid, Le format doit etre(MM/JJ/AAAA)", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
-
             }
             finally
             {
@@ -394,12 +460,8 @@ namespace ParcAuto.Forms
                 Marshal.ReleaseComObject(importdatagridviewRange);
                 importExceldatagridViewApp.Quit();
                 RemplirLaGrille();
+                Total();
             }
-
-        }
-
-        private void dgvCarburant_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
         }
 
@@ -420,29 +482,115 @@ namespace ParcAuto.Forms
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            GLB.Drawonprintdoc(e, dgvCarburant, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6), dgvCarburant.Columns["id"].Index);
+            Impression.Drawonprintdoc(e, dgvCarburant, imageList1.Images[0], new System.Drawing.Font("Arial", 6, FontStyle.Bold), new System.Drawing.Font("Arial", 6), dgvCarburant.Columns["id"].Index,Total:$"Dotation Fixe : {sumDFixe}\tDotation Missions : {sumDMission}\tDotation Hebdomadaire : {sumDHebdo}\tDotation Exceptionnel : {sumDExp}\nTotal : {total}", Titre:"Vignettes carburants");
         }
 
         private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            GLB.number_of_lines = dgvCarburant.Rows.Count;
+            Impression.number_of_lines = dgvCarburant.Rows.Count;
         }
 
         private void btnSuprimmerTout_Click(object sender, EventArgs e)
         {
-            GLB.Con.Open();
-            for (int i = 0; i < dgvCarburant.Rows.Count; i++)
+            try
             {
-                GLB.Cmd.CommandText = $"delete from CarburantVignettes where id = {dgvCarburant.Rows[i].Cells[13].Value}";
-                GLB.Cmd.ExecuteNonQuery();
+                if(dgvCarburant.Rows.Count > 0)
+                {
+                    GLB.Con.Open();
+                    for (int i = 0; i < dgvCarburant.Rows.Count; i++)
+                    {
+                        GLB.Cmd.CommandText = $"delete from CarburantVignettes where id = {dgvCarburant.Rows[i].Cells[13].Value}";
+                        GLB.Cmd.ExecuteNonQuery();
+                    }
+                    RemplirLaGrille();
+                    Total();
+                }
+               
             }
-            GLB.Con.Close();
-            RemplirLaGrille();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                GLB.Con.Close();
+            }
+
+
+
+
+
+        }
+
+        private void btnFiltrer_Click(object sender, EventArgs e)
+        {
+            //GLB.Filter(cmbChoix, dgvCarburant, txtValueToFiltre, new string[] { "Date" }, Date1, Date2);
+            //Total();
+            dgvCarburant.Rows.Clear();
+            try
+            {
+                switch (cmbChoix.SelectedItem.ToString())
+                {
+                    case "Entité":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(Entite) like lower('%{txtValueToFiltre.Text.Trim().Replace("'", "''")}%')";
+                        break;
+                    case "Bénéficiaire":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(beneficiaire) like lower('%{txtValueToFiltre.Text.Trim().Replace("'", "''")}%')";
+                        break;
+                    case "Matricule":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(vehicule) like lower('%{txtValueToFiltre.Text.Trim().Replace("'", "''")}%')";
+                        break;
+                    case "Marque":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(Marque) like lower('%{txtValueToFiltre.Text.Trim().Replace("'", "''")}%') ";
+                        break;
+                    case "Date":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where date > '{Date1.Value.ToString("yyyy/MM/dd")}' and date < '{Date2.Value.ToString("yyyy/MM/dd")}' ";
+                        break;
+                    case "Destination":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(lieu) like lower('%{txtValueToFiltre.Text.Trim().Replace("'", "''")}%')";
+                        break;
+                    case "Kilometrage parcouru":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where KM = {txtValueToFiltre.Text.Trim()}";
+                        break;
+                    case "Consomation %":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where Pourcentage = {txtValueToFiltre.Text.Trim()}";
+                        break;
+                    case "Objet":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(ObjetOMN) like lower('%{txtValueToFiltre.Text.Trim().Replace("'", "''")}%')";
+                        break;
+                    case "Dotation Fixe":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where DFixe = {txtValueToFiltre.Text.Trim()} ";
+                        break;
+                    case "Dotation Mission":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where DMissions =  {txtValueToFiltre.Text.Trim()} ";
+                        break;
+                    case "Dotation Hebdo":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where DHebdo = {txtValueToFiltre.Text.Trim()}";
+                        break;
+                    case "Dotation exceptionnel":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where DExceptionnel =  {txtValueToFiltre.Text.Trim()}";
+                        break;
+                    case "Observation":
+                        GLB.Cmd.CommandText = $"select * from CarburantVignettes where lower(Observation) like lower('%{txtValueToFiltre.Text.Trim().Replace("'", "''")}%')";
+                        break;
+                    default:
+                        break;
+                }
+                if (GLB.Con.State == ConnectionState.Open)
+                    GLB.Con.Close();
+                GLB.Con.Open();
+                GLB.dr = GLB.Cmd.ExecuteReader();
+                while (GLB.dr.Read())
+                    dgvCarburant.Rows.Add(GLB.dr[0], GLB.dr[1], GLB.dr[2], GLB.dr[3], GLB.dr.IsDBNull(4) ? "" : ((DateTime)GLB.dr[4]).ToString("MM/dd/yyyy"), GLB.dr[5], GLB.dr[6], GLB.dr[7], GLB.dr[8], GLB.dr[9].ToString(), GLB.dr[10].ToString(), GLB.dr[11].ToString(), GLB.dr[12].ToString(), GLB.dr[13], GLB.dr[14]);
+
+                GLB.dr.Close();
+                GLB.Con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             Total();
-           
-
-
-
         }
     }
 }

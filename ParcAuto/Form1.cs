@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ParcAuto.Classes_Globale;
 using ParcAuto.Forms;
 
 namespace ParcAuto
@@ -37,7 +38,6 @@ namespace ParcAuto
         {
             if (!subMenu.Visible)
             {
-                
                 subMenu.Visible = true;
             }
             else
@@ -78,11 +78,112 @@ namespace ParcAuto
             openChildForm(new Forms.Transport(),sender);
             //hideSubMenu();
         }
+        private int Count_Permissions(string tables)
+        {
+            if (GLB.Con.State == ConnectionState.Open)
+                GLB.Con.Close();
+            GLB.Con.Open();
+            GLB.Cmd.CommandText = $"select  count(*) from (SELECT  pri.name As Username " +
+                $",       pri.type_desc AS[User Type]" +
+                $", permit.permission_name AS[Permission] " +
+                $", permit.state_desc AS[Permission State] " +
+                $", permit.class_desc Class  " +
+                $", object_name(permit.major_id) AS[Object Name]  " +
+                $"FROM sys.database_principals pri  " +
+                $"LEFT JOIN  " +
+                $"sys.database_permissions permit  " +
+                $"ON permit.grantee_principal_id = pri.principal_id  " +
+                $"where pri.name = SUSER_NAME()) tab where tab.[Object Name] in({tables});";
+            return int.Parse(GLB.Cmd.ExecuteScalar().ToString());
+        }
+        private void Permissions()
+        {
+            
+            if (Count_Permissions("'CarburantVignettes', 'CarteFree', 'CarburantSNTLPRD', 'Reparation', 'ReparationPRDSNTL', 'Transport', 'EtatJournalier', 'EtatRecapCarburantSNTL', 'EtatRecapCartefree', 'EtatRecapReparation', 'EtatRecapTransport', 'Directions'") == 0)
+            {
+                btnVignettes.Visible = false;
+                Vignettesdown.Visible = false;
+                VignettesUp.Visible = false;
+            }
+            if(Count_Permissions("'NombreDeCourriersParEntite', 'SuiviDesEnvois', 'EnvoisSimple'") == 0)
+            {
+                btnSuivi.Visible = false;
+                arrowsuiviDown.Visible = false;
+                arrowsuiviUp.Visible = false;
+            }
+            if (Count_Permissions("'Vehicules','VehiculesPRD'") == 0)
+            {
+                btnParcAuto.Visible = false;
+                ParcAutodown.Visible = false;
+                ParcAutoup.Visible = false;
+            }
+            if (Count_Permissions("'Conducteurs'") == 0)
+            {
+                btnConducteurs.Visible = false;
+            }
+            if(Count_Permissions("'Missions'") == 0)
+            {
+                btnMissions.Visible = false;
+            }
+            if(Count_Permissions("'Maintenance'") == 0)
+            {
+                btnMaintenance.Visible = false;
+                ArrowMaintenancedown.Visible = false;
+                arrowMaintenanceUp.Visible = false;
+            }
+            if (Count_Permissions("'SuiviVisiteurs'") == 0)
+            {
+                btnVisiteurs.Visible = false;
+            }
+            GLB.Con.Close();
 
+            ////////////////////////
+
+            GLB.Cmd.CommandText =
+                @"select Count(*) --r.name as Role, m.name as Principal
+FROM
+    master.sys.server_role_members rm
+    inner join
+    master.sys.server_principals r on r.principal_id = rm.role_principal_id and r.type = 'R'
+    inner join
+    master.sys.server_principals m on m.principal_id = rm.member_principal_id
+Where
+    r.name = 'sysadmin' and m.name = Suser_name()";
+            GLB.Con.Open();
+            if (GLB.Cmd.ExecuteScalar().ToString() == "0")
+                btnUsers.Visible = false;
+            else
+            {
+                btnVignettes.Visible = true;
+                btnParcAuto.Visible = true;
+                btnConducteurs.Visible = true;
+                btnSuivi.Visible = true;
+                btnMissions.Visible = true;
+                btnMaintenance.Visible = true;
+                btnVisiteurs.Visible = true;
+                btnUsers.Visible = true;
+
+                Vignettesdown.Visible = true;
+                VignettesUp.Visible = false;
+                arrowsuiviDown.Visible = true;
+                arrowsuiviUp.Visible = false;
+                ParcAutodown.Visible = true;
+                ParcAutoup.Visible = false;
+                ArrowMaintenancedown.Visible = true;
+                arrowMaintenanceUp.Visible = false;
+            }
+            GLB.Con.Close();
+        }
+
+        
+       
         private void Form1_Load(object sender, EventArgs e)
         {
+            Quitter.Text = "Changer l'annee \n" + GLB.SelectedDate;
             this.WindowState = FormWindowState.Maximized;
             customizeDesign();
+            Permissions();
+            
         }
 
         private void btnVehicules_Click(object sender, EventArgs e)
@@ -158,6 +259,35 @@ namespace ParcAuto
                     previousBtn.BackColor = Color.FromArgb(115, 139, 215);
                 }
             }
+            foreach (Control previousBtn in section3.Controls)
+            {
+                if (previousBtn.GetType() == typeof(Button))
+                {
+                    previousBtn.BackColor = Color.FromArgb(115, 139, 215);
+                }
+            }
+            foreach (Control previousBtn in panelsousSuivi.Controls)
+            {
+                if (previousBtn.GetType() == typeof(Button))
+                {
+                    previousBtn.BackColor = Color.FromArgb(115, 139, 215);
+                }
+            }
+            foreach (Control previousBtn in panelsousMaintenance.Controls)
+            {
+                if (previousBtn.GetType() == typeof(Button))
+                {
+                    previousBtn.BackColor = Color.FromArgb(115, 139, 215);
+                }
+            }
+            foreach (Control previousBtn in panelPRD.Controls)
+            {
+                if (previousBtn.GetType() == typeof(Button))
+                {
+                    previousBtn.BackColor = Color.FromArgb(115, 139, 215);
+                }
+            }
+
         }
         private void ActivateButton(object btnSender)
         {
@@ -178,9 +308,6 @@ namespace ParcAuto
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            //this.Close();
-            //(new Annee()).Show();
-
         }
 
 
@@ -291,19 +418,90 @@ namespace ParcAuto
         
         private void Quitter_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            (new Annee()).Show();
+            this.Hide(); ;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Voulez vous vraiment Quitter ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-                e.Cancel = true;
 
+            Application.Exit();
         }
 
         private void btnEtatJournalier_Click(object sender, EventArgs e)
         {
             openChildForm(new Forms.EtatJournalier(), sender);
+        }
+
+        private void guna2GroupBox5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMissions_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.Misssions(), sender);
+        }
+        private void btnLstCourriers_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.SuiviDesEnvois(), sender);
+        }
+
+        private void btnSuivi_Click_1(object sender, EventArgs e)
+        {
+            showSubMenu(panelsousSuivi);
+            Arrow_Up_Down(panelsousSuivi, arrowsuiviUp, arrowsuiviDown);
+        }
+
+        private void btnNbCourriers_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.NombreDeCourriersParEntite(), sender);
+        }
+
+        private void btnMaintenance_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelsousMaintenance);
+            Arrow_Up_Down(panelsousMaintenance, arrowMaintenanceUp, ArrowMaintenancedown);
+        }
+
+        private void btnFixe_Click(object sender, EventArgs e)
+        {
+            Commandes.probleme = Probleme.Fixe;
+            openChildForm(new Forms.ProblemeFixe(), sender);
+
+        }
+
+        private void btnNonFixe_Click(object sender, EventArgs e)
+        {
+            Commandes.probleme = Probleme.Non_Fixe;
+            openChildForm(new Forms.ProblemeFixe(), sender);
+        }
+
+        private void btnGLB_Click(object sender, EventArgs e)
+        {
+            Commandes.probleme = Probleme.Global;
+            openChildForm(new Forms.ProblemeFixe(), sender);
+        }
+
+        private void btnVisiteurs_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.Visiteurs(), sender);
+
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.GestionDesUtilisateurs(), sender);
+        }
+
+        private void btnPosteSimple_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.PostesSimple(), sender);
+        }
+
+        private void btnConsommation_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Forms.Consomations(), sender);
         }
     }
 }
